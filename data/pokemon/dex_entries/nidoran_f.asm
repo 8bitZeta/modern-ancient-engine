@@ -1,10 +1,10 @@
-	db "POISON PIN@" ; species name
-	dw 104, 150 ; height, weight
+db "POISON@" ; species name
+dw 104, 154 ; height, weight
 
-	db   "Small and very"
-	next "docile, it pro-"
-	next "tects itself with"
+db   "While it does not"
+next "prefer to fight,"
+next "even one drop of"
 
-	page "its small, poison-"
-	next "ous horn when"
-	next "attacked.@"
+page "the poison it se-"
+next "cretes from barbs"
+next "can be fatal.@"

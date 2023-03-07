@@ -1,10 +1,10 @@
-	db "IMITATION@" ; species name
-	dw 311, 840 ; height, weight
+db "IMITATION@" ; species name
+dw 311, 838 ; height, weight
 
-	db   "If a tree branch"
-	next "shakes when there"
-	next "is no wind, it's a"
+db   "To avoid being at-"
+next "tacked, it does"
+next "nothing but mimic"
 
-	page "SUDOWOODO, not a"
-	next "tree. It hides"
-	next "from the rain.@"
+page "a tree. It hates"
+next "water and flees"
+next "from rain.@"

@@ -1,10 +1,10 @@
-	db "SLEEPING@" ; species name
-	dw 611, 10140 ; height, weight
+db "SLEEPING@" ; species name
+dw 611, 10141 ; height, weight
 
-	db   "This #MON's"
-	next "stomach is so"
-	next "strong, even"
+db   "When it is full,"
+next "it becomes too"
+next "lethargic to lift"
 
-	page "eating moldy or"
-	next "rotten food will"
-	next "not affect it.@"
+page "a finger, so it is"
+next "safe to bounce on"
+next "its belly.@"

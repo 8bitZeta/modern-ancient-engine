@@ -1,10 +1,10 @@
-	db "HUMANSHAPE@" ; species name
-	dw 407, 900 ; height, weight
+db "HUMAN@" ; species name
+dw 407, 895 ; height, weight
 
-	db   "It has several"
-	next "different cry pat-"
-	next "terns, each of"
+db   "Its cries sound"
+next "like human speech."
+next "However, it is im-"
 
-	page "which seems to"
-	next "have its own"
-	next "meaning.@"
+page "possible to tell"
+next "what it is trying"
+next "to say.@"

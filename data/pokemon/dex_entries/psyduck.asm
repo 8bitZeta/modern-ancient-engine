@@ -1,10 +1,10 @@
-	db "DUCK@" ; species name
-	dw 207, 430 ; height, weight
+db "DUCK@" ; species name
+dw 207, 432 ; height, weight
 
-	db   "The only time it"
-	next "can use its psy-"
-	next "chic power is when"
+db   "Overwhelmed by"
+next "enigmatic abili-"
+next "ties, it suffers a"
 
-	page "its sleeping brain"
-	next "cells happen to"
-	next "wake.@"
+page "constant headache."
+next "It sometimes uses"
+next "mysterious powers.@"

@@ -1,10 +1,10 @@
-	db "BUTTERFLY@" ; species name
-	dw 307, 710 ; height, weight
+db "BUTTERFLY@" ; species name
+dw 307, 705 ; height, weight
 
-	db   "It flits from"
-	next "flower to flower,"
-	next "collecting honey."
+db   "It loves the honey"
+next "of flowers and can"
+next "locate flower"
 
-	page "It can even"
-	next "identify distant"
-	next "flowers in bloom.@"
+page "patches that have"
+next "even tiny amounts"
+next "of pollen.@"

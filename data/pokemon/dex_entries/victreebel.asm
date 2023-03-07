@@ -1,10 +1,10 @@
-	db "FLYCATCHER@" ; species name
-	dw 507, 340 ; height, weight
+db "FLYCATCHER@" ; species name
+dw 507, 342 ; height, weight
 
-	db   "Once ingested into"
-	next "this #MON's"
-	next "body, even the"
+db   "It pools in its"
+next "mouth a fluid with"
+next "a honeylike scent,"
 
-	page "hardest object"
-	next "will melt into"
-	next "nothing.@"
+page "which is really an"
+next "acid that dis-"
+next "solves anything.@"

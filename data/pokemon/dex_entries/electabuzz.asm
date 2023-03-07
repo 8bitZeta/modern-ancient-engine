@@ -1,10 +1,10 @@
-	db "ELECTRIC@" ; species name
-	dw 307, 660 ; height, weight
+db "ELECTRIC@" ; species name
+dw 307, 661 ; height, weight
 
-	db   "When two"
-	next "ELECTABUZZ touch,"
-	next "they control the"
+db   "It windmills its"
+next "arms to slightly"
+next "boost its punches."
 
-	page "electric currents"
-	next "to communicate"
-	next "their feelings.@"
+page "Foes have been"
+next "known to escape in"
+next "the meantime.@"

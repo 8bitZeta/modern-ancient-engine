@@ -1,10 +1,10 @@
-	db "BALL@" ; species name
-	dw 108, 230 ; height, weight
+db "BALL@" ; species name
+dw 108, 229 ; height, weight
 
-	db   "During the study"
-	next "of this #MON,"
-	next "it was discovered"
+db   "It looks just like"
+next "a Poké Ball. It is"
+next "dangerous because"
 
-	page "that its compo-"
-	next "nents are not"
-	next "found in nature.@"
+page "it may electrocute"
+next "or explode on"
+next "touch.@"

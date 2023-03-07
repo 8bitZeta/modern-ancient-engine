@@ -1,10 +1,10 @@
-	db "PIG@" ; species name
-	dw 104, 140 ; height, weight
+db "PIG@" ; species name
+dw 104, 143 ; height, weight
 
-	db   "It uses the tip of"
-	next "its nose to dig"
-	next "for food. Its nose"
+db   "It has a very sen-"
+next "sitive nose. It"
+next "can locate mush-"
 
-	page "is so tough that"
-	next "even frozen ground"
-	next "poses no problem.@"
+page "rooms, berries,"
+next "and hot springs"
+next "buried under ice.@"

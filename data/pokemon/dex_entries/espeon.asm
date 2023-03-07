@@ -1,10 +1,10 @@
-	db "SUN@" ; species name
-	dw 211, 580 ; height, weight
+db "SUN@" ; species name
+dw 211, 584 ; height, weight
 
-	db   "The tip of its"
-	next "forked tail"
-	next "quivers when it is"
+db   "Its fur is so sen-"
+next "sitive, it can"
+next "sense minute"
 
-	page "predicting its"
-	next "opponent's next"
-	next "move.@"
+page "shifts in the air"
+next "and predict the"
+next "weather.@"

@@ -1,10 +1,10 @@
-	db "SCUFFLE@" ; species name
-	dw 204, 460 ; height, weight
+db "SCUFFLE@" ; species name
+dw 204, 463 ; height, weight
 
-	db   "To brush up on its"
-	next "fighting skills,"
-	next "it will challenge"
+db   "It is famous for"
+next "its eagerness to"
+next "fight and always"
 
-	page "anyone. It has a"
-	next "very strong com-"
-	next "petitive spirit.@"
+page "nurses injuries"
+next "from challenging"
+next "larger foes.@"

@@ -1,10 +1,10 @@
-	db "MOUSE@" ; species name
-	dw 200, 260 ; height, weight
+db "MOUSE@" ; species name
+dw 200, 265 ; height, weight
 
-	db   "It prefers dry,"
-	next "sandy places"
-	next "because it uses"
+db   "To protect itself"
+next "from attackers, it"
+next "curls up into a"
 
-	page "the sand to"
-	next "protect itself"
-	next "when threatened.@"
+page "ball. It lives in"
+next "arid regions with"
+next "minimal rainfall.@"

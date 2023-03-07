@@ -1,10 +1,10 @@
-	db "ARMOR@" ; species name
-	dw 307, 2650 ; height, weight
+db "ARMOR@" ; species name
+dw 307, 2646 ; height, weight
 
-	db   "Because this"
-	next "#MON's skin is"
-	next "so tough, a normal"
+db   "It attacks by"
+next "curling up, then"
+next "rolling into its"
 
-	page "attack won't even"
-	next "leave a scratch on"
-	next "it.@"
+page "foe. It can blow"
+next "apart a house in"
+next "one hit.@"

@@ -1,10 +1,10 @@
-	db "GAS@" ; species name
-	dw 503, 2 ; height, weight
+db "GAS@" ; species name
+dw 503, 02 ; height, weight
 
-	db   "It hides in the"
-	next "dark, planning to"
-	next "take the life of"
+db   "It enjoys lurking"
+next "in the dark to tap"
+next "shoulders with a"
 
-	page "the next living"
-	next "thing that wanders"
-	next "close by.@"
+page "gaseous hand. Its"
+next "touch causes end-"
+next "less shuddering.@"

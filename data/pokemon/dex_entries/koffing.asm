@@ -1,10 +1,10 @@
-	db "POISON GAS@" ; species name
-	dw 200, 20 ; height, weight
+db "POISON@" ; species name
+dw 200, 22 ; height, weight
 
-	db   "If one gets close"
-	next "enough to it when"
-	next "it expels poison-"
+db   "Lighter-than-air"
+next "gases in its body"
+next "keep it aloft. The"
 
-	page "ous gas, the gas"
-	next "swirling inside it"
-	next "can be seen.@"
+page "gases not only"
+next "smell, they are"
+next "also explosive.@"

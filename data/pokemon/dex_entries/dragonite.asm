@@ -1,10 +1,10 @@
-	db "DRAGON@" ; species name
-	dw 703, 4630 ; height, weight
+db "DRAGON@" ; species name
+dw 703, 4630 ; height, weight
 
-	db   "It is said that"
-	next "somewhere in the"
-	next "ocean lies an"
+db   "It is said to make"
+next "its home somewhere"
+next "in the sea. It"
 
-	page "island where these"
-	next "gather. Only they"
-	next "live there.@"
+page "guides crews of"
+next "shipwrecks to"
+next "shore.@"

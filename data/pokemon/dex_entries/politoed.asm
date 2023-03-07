@@ -1,10 +1,8 @@
-	db "FROG@" ; species name
-	dw 307, 750 ; height, weight
+db "FROG@" ; species name
+dw 307, 747 ; height, weight
 
-	db   "When it expands"
-	next "its throat to"
-	next "croak out a tune,"
+db   "It gathers groups"
+next "of others as their"
+next "leader. Its cries"
 
-	page "nearby POLIWAG and"
-	next "POLIWHIRL gather"
-	next "immediately.@"
+page "make POLIWAG obey.@"

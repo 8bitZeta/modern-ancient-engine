@@ -1,10 +1,10 @@
-	db "SYMBOL@" ; species name
-	dw 108, 110 ; height, weight
+db "SYMBOL@" ; species name
+dw 108, 110 ; height, weight
 
-	db   "Because different"
-	next "types of UNOWN"
-	next "exist, it is said"
+db   "When alone, noth-"
+next "ing happens. How-"
+next "ever, if there are"
 
-	page "that they must"
-	next "have a variety of"
-	next "abilities.@"
+page "two or more, an"
+next "odd power is said"
+next "to emerge.@"

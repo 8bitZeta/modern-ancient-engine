@@ -1,10 +1,9 @@
-	db "SEA LION@" ; species name
-	dw 507, 2650 ; height, weight
+db "SEA@" ; species name
+dw 507, 2646 ; height, weight
 
-	db   "It sleeps under"
-	next "shallow ocean"
-	next "waters during the"
+db   "In snow, the pure"
+next "white coat cover-"
+next "ing its body ob-"
 
-	page "day, then looks"
-	next "for food at night"
-	next "when it's cold.@"
+page "scures it from"
+next "predators.@"

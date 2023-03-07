@@ -1,10 +1,9 @@
-	db "LIGHT@" ; species name
-	dw 311, 500 ; height, weight
+db "LIGHT@" ; species name
+dw 311, 496 ; height, weight
 
-	db   "This #MON uses"
-	next "the bright part of"
-	next "its body, which"
+db   "LANTURN's light"
+next "can shine up from"
+next "great depths. It"
 
-	page "changed from a"
-	next "dorsal fin, to"
-	next "lure prey.@"
+page "is nicknamed “The"
+next "Deep-Sea Star.”@"

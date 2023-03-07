@@ -1,10 +1,10 @@
-	db "JET@" ; species name
-	dw 211, 630 ; height, weight
+db "JET@" ; species name
+dw 211, 628 ; height, weight
 
-	db   "Its instinct is to"
-	next "bury itself in"
-	next "holes. It often"
+db   "It loves to lurk"
+next "inside holes in"
+next "rocks. It sprays"
 
-	page "steals the nesting"
-	next "holes of others to"
-	next "sleep in them.@"
+page "ink on prey by"
+next "sticking out only"
+next "its mouth.@"

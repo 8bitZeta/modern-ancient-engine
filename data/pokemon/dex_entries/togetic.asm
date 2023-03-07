@@ -1,10 +1,9 @@
-	db "HAPPINESS@" ; species name
-	dw 200, 70 ; height, weight
+db "HAPPINESS@" ; species name
+dw 200, 71 ; height, weight
 
-	db   "Although it does"
-	next "not flap its wings"
-	next "very much, it can"
+db   "To share its hap-"
+next "piness, it flies"
+next "around the world"
 
-	page "stay up in the air"
-	next "as it tags along"
-	next "after its trainer.@"
+page "seeking kind-"
+next "hearted people.@"

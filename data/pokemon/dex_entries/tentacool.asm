@@ -1,10 +1,10 @@
-	db "JELLYFISH@" ; species name
-	dw 211, 1000 ; height, weight
+db "JELLYFISH@" ; species name
+dw 211, 1003 ; height, weight
 
-	db   "As it floats along"
-	next "on the waves, it"
-	next "uses its toxic"
+db   "Because its body"
+next "is almost entirely"
+next "composed of water,"
 
-	page "feelers to stab"
-	next "anything it"
-	next "touches.@"
+page "it shrivels up if"
+next "it is washed"
+next "ashore.@"

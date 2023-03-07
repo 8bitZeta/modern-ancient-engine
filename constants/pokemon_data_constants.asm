@@ -148,11 +148,25 @@ DEF NUM_HOF_TEAMS EQU 30
 
 ; evolution types (used in data/pokemon/evos_attacks.asm)
 	const_def 1
+	const EVOLVE_LEVEL_MALE
+	const EVOLVE_LEVEL_FEMALE
 	const EVOLVE_LEVEL
+	const EVOLVE_ITEM_MALE
+	const EVOLVE_ITEM_FEMALE
 	const EVOLVE_ITEM
 	const EVOLVE_TRADE
 	const EVOLVE_HAPPINESS
+	const EVOLVE_MOVE
+	const EVOLVE_HAPPINESS_MOVE_TYPE
+	const EVOLVE_HOLD
+	const EVOLVE_PARTY
+	const EVOLVE_MAP
+	const EVOLVE_GROUP
+	const EVOLVE_DV
+	const EVOLVE_CREATE_NEW
+	const CREATE_POKE
 	const EVOLVE_STAT
+EVOLVE_TYPES EQU const_value
 
 ; EVOLVE_HAPPINESS triggers
 	const_def 1

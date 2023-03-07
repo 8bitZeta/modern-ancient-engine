@@ -1,10 +1,10 @@
-	db "COTTONWEED@" ; species name
-	dw 104, 10 ; height, weight
+db "COTTONWEED@" ; species name
+dw 104, 11 ; height, weight
 
-	db   "It can be carried"
-	next "away on even the"
-	next "gentlest breeze."
+db   "It drifts on"
+next "winds. It is said"
+next "when HOPPIP gather"
 
-	page "It may even float"
-	next "all the way to the"
-	next "next town.@"
+page "in fields and"
+next "mountains, spring"
+next "is on the way.@"

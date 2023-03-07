@@ -1,10 +1,9 @@
-	db "FLOWER@" ; species name
-	dw 204, 90 ; height, weight
+db "FLOWER@" ; species name
+dw 204, 88 ; height, weight
 
-	db   "If it notices"
-	next "anything that"
-	next "moves, it"
+db   "It prefers hot and"
+next "humid environ-"
+next "ments. It is quick"
 
-	page "immediately flings"
-	next "its vine at the"
-	next "object.@"
+page "at capturing prey"
+next "with its vines.@"

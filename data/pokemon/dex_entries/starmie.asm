@@ -1,10 +1,10 @@
-	db "MYSTERIOUS@" ; species name
-	dw 307, 1760 ; height, weight
+db "MYSTERIOUS@" ; species name
+dw 307, 1764 ; height, weight
 
-	db   "It is said that it"
-	next "uses the seven-"
-	next "colored core of"
+db   "At the center of"
+next "its body is a red"
+next "core, which sends"
 
-	page "its body to send"
-	next "electric waves"
-	next "into outer space.@"
+page "mysterious radio"
+next "signals into the"
+next "night sky.@"

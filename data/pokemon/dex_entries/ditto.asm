@@ -1,10 +1,10 @@
-	db "TRANSFORM@" ; species name
-	dw 100, 90 ; height, weight
+db "TRANSFORM@" ; species name
+dw 100, 88 ; height, weight
 
-	db   "When it encount-"
-	next "ers another DITTO,"
-	next "it will move"
+db   "It has the ability"
+next "to reconstitute"
+next "its entire cellu-"
 
-	page "faster than normal"
-	next "to duplicate that"
-	next "opponent exactly.@"
+page "lar structure to"
+next "transform into"
+next "whatever it sees.@"

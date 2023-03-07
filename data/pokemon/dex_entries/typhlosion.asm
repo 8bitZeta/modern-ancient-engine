@@ -1,10 +1,10 @@
-	db "VOLCANO@" ; species name
-	dw 507, 1750 ; height, weight
+db "VOLCANO@" ; species name
+dw 507, 1753 ; height, weight
 
-	db   "When heat from its"
-	next "body causes the"
-	next "air around it to"
+db   "It attacks using"
+next "blasts of fire. It"
+next "creates heat shim-"
 
-	page "shimmer, this is a"
-	next "sign that it is"
-	next "ready to battle.@"
+page "mers with intense"
+next "fire to hide it-"
+next "self.@"

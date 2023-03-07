@@ -1,10 +1,10 @@
-	db "PATIENT@" ; species name
-	dw 403, 630 ; height, weight
+db "PATIENT@" ; species name
+dw 403, 628 ; height, weight
 
-	db   "In order to con-"
-	next "ceal its black"
-	next "tail, it lives in"
+db   "It desperately"
+next "tries to keep its"
+next "black tail hidden."
 
-	page "a dark cave and"
-	next "only moves about"
-	next "at night.@"
+page "It is said to be"
+next "proof the tail"
+next "hides a secret.@"

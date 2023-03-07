@@ -1,10 +1,10 @@
-	db "TINY BIRD@" ; species name
-	dw 100, 40 ; height, weight
+db "TINY@" ; species name
+dw 100, 40 ; height, weight
 
-	db   "It rapidly flaps"
-	next "its wings in the"
-	next "grass, stirring up"
+db   "It is docile and"
+next "prefers to avoid"
+next "conflict. If dis-"
 
-	page "a dust cloud that"
-	next "drives insect prey"
-	next "out into the open.@"
+page "turbed, however,"
+next "it can ferociously"
+next "strike back.@"

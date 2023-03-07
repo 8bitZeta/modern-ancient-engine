@@ -1,10 +1,10 @@
-	db "HYPNOSIS@" ; species name
-	dw 503, 1670 ; height, weight
+db "HYPNOSIS@" ; species name
+dw 503, 1667 ; height, weight
 
-	db   "The longer it"
-	next "swings its"
-	next "pendulum, the"
+db   "Seeing its swing-"
+next "ing pendulum can"
+next "induce sleep in"
 
-	page "longer the effects"
-	next "of its hypnosis"
-	next "last.@"
+page "three seconds,"
+next "even in someone"
+next "who just woke up.@"

@@ -1,10 +1,10 @@
-	db "SPIKE BALL@" ; species name
-	dw 100, 30 ; height, weight
+db "SPIKE@" ; species name
+dw 100, 33 ; height, weight
 
-	db   "It is considered"
-	next "to be a symbol of"
-	next "good luck. Its"
+db   "It transforms the"
+next "kindness and joy"
+next "of others into"
 
-	page "shell is said to"
-	next "be filled with"
-	next "happiness.@"
+page "happiness, which"
+next "it stores in its"
+next "shell.@"

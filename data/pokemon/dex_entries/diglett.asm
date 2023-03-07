@@ -1,10 +1,10 @@
-	db "MOLE@" ; species name
-	dw 8, 20 ; height, weight
+db "MOLE@" ; species name
+dw 008, 18 ; height, weight
 
-	db   "It digs under-"
-	next "ground and chews"
-	next "on tree roots,"
+db   "A #MON that"
+next "lives underground."
+next "Because of its"
 
-	page "sticking its head"
-	next "out only when the"
-	next "sun isn't bright.@"
+page "dark habitat, it"
+next "is repelled by"
+next "bright sunlight.@"

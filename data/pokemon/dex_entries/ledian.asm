@@ -1,10 +1,10 @@
-	db "FIVE STAR@" ; species name
-	dw 407, 780 ; height, weight
+db "FIVE@" ; species name
+dw 407, 785 ; height, weight
 
-	db   "In the daytime"
-	next "when it gets warm,"
-	next "it curls up inside"
+db   "It uses starlight"
+next "as energy. When"
+next "more stars appear"
 
-	page "a big leaf and"
-	next "drifts off into"
-	next "a deep slumber.@"
+page "at night, the pat-"
+next "terns on its back"
+next "grow larger.@"

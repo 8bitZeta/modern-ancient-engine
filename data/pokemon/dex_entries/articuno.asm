@@ -1,10 +1,9 @@
-	db "FREEZE@" ; species name
-	dw 507, 1220 ; height, weight
+db "FREEZE@" ; species name
+dw 507, 1221 ; height, weight
 
-	db   "Legendary bird"
-	next "#MON. As it"
-	next "flies through the"
+db   "A legendary bird"
+next "#MON. It can"
+next "create blizzards"
 
-	page "sky, it cools the"
-	next "air, causing snow"
-	next "to fall.@"
+page "by freezing mois-"
+next "ture in the air.@"

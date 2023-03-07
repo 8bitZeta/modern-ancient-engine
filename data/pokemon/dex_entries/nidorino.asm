@@ -1,10 +1,10 @@
-	db "POISON PIN@" ; species name
-	dw 211, 430 ; height, weight
+db "POISON@" ; species name
+dw 211, 430 ; height, weight
 
-	db   "It is easily"
-	next "agitated and uses"
-	next "its horn for"
+db   "It has a violent"
+next "disposition and"
+next "stabs foes with"
 
-	page "offense as soon as"
-	next "it notices an"
-	next "attacker.@"
+page "its horn, which"
+next "oozes poison upon"
+next "impact.@"

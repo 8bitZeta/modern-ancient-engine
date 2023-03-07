@@ -1,10 +1,10 @@
-	db "FOX@" ; species name
-	dw 307, 440 ; height, weight
+db "FOX@" ; species name
+dw 307, 439 ; height, weight
 
-	db   "It is said to live"
-	next "a thousand years,"
-	next "and each of its"
+db   "Its nine tails are"
+next "said to be imbued"
+next "with a mystic pow-"
 
-	page "tails is loaded"
-	next "with supernatural"
-	next "powers.@"
+page "er. It can live"
+next "for a thousand"
+next "years.@"

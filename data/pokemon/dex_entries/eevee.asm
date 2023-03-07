@@ -1,10 +1,10 @@
-	db "EVOLUTION@" ; species name
-	dw 100, 140 ; height, weight
+db "EVOLUTION@" ; species name
+dw 100, 143 ; height, weight
 
-	db   "Its ability to"
-	next "evolve into many"
-	next "forms allows it to"
+db   "Because its ge-"
+next "netic makeup is"
+next "irregular, it"
 
-	page "adapt smoothly"
-	next "and perfectly to"
-	next "any environment.@"
+page "quickly changes"
+next "its form due to a"
+next "variety of causes.@"

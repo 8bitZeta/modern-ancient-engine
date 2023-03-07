@@ -1,10 +1,10 @@
-	db "BAGWORM@" ; species name
-	dw 200, 160 ; height, weight
+db "BAGWORM@" ; species name
+dw 200, 159 ; height, weight
 
-	db   "It spits out a"
-	next "fluid that it uses"
-	next "to glue tree bark"
+db   "It looks just like"
+next "a pinecone. Its"
+next "shell protects it"
 
-	page "to its body. The"
-	next "fluid hardens when"
-	next "it touches air.@"
+page "from bird #MON"
+next "that peck it by"
+next "mistake.@"

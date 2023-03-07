@@ -1,10 +1,10 @@
-	db "GOLDFISH@" ; species name
-	dw 403, 860 ; height, weight
+db "GOLDFISH@" ; species name
+dw 403, 860 ; height, weight
 
-	db   "When autumn comes,"
-	next "the males patrol"
-	next "the area around"
+db   "In autumn, its"
+next "body becomes more"
+next "fatty in preparing"
 
-	page "their nests in"
-	next "order to protect"
-	next "their offspring.@"
+page "to propose to a"
+next "mate. It takes on"
+next "beautiful colors.@"

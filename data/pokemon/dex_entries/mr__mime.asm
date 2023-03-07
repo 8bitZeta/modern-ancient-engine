@@ -1,10 +1,10 @@
-	db "BARRIER@" ; species name
-	dw 403, 1200 ; height, weight
+db "BARRIER@" ; species name
+dw 403, 1202 ; height, weight
 
-	db   "It uses the"
-	next "mysterious"
-	next "power it has in"
+db   "It shapes an in-"
+next "visible wall in"
+next "midair by minutely"
 
-	page "its fingers to"
-	next "solidify air into"
-	next "an invisible wall.@"
+page "vibrating its fin-"
+next "gertips to stop"
+next "air molecules.@"

@@ -1,10 +1,10 @@
-	db "ARMOR@" ; species name
-	dw 607, 4450 ; height, weight
+db "ARMOR@" ; species name
+dw 607, 4453 ; height, weight
 
-	db   "In just one of its"
-	next "mighty hands, it"
-	next "has the power to"
+db   "If it rampages, it"
+next "knocks down moun-"
+next "tains and buries"
 
-	page "make the ground"
-	next "shake and moun-"
-	next "tains crumble.@"
+page "rivers. Maps must"
+next "be redrawn after-"
+next "ward.@"

@@ -1,10 +1,9 @@
-	db "INSECT@" ; species name
-	dw 303, 660 ; height, weight
+db "INSECT@" ; species name
+dw 303, 661 ; height, weight
 
-	db   "The small bugs it"
-	next "eats appear only"
-	next "at night, so it"
+db   "Its big eyes are"
+next "actually clusters"
+next "of tiny eyes. At"
 
-	page "sleeps in a hole"
-	next "in a tree until"
-	next "night falls.@"
+page "night, its kind is"
+next "drawn by light.@"

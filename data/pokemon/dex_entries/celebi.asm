@@ -1,10 +1,10 @@
-	db "TIMETRAVEL@" ; species name
-	dw 200, 110 ; height, weight
+db "TIME@" ; species name
+dw 200, 110 ; height, weight
 
-	db   "Revered as a"
-	next "guardian of the"
-	next "forest, CELEBI"
+db   "It has the power"
+next "to travel across"
+next "time, but it is"
 
-	page "appears wherever"
-	next "beautiful forests"
-	next "exist.@"
+page "said to appear"
+next "only in peaceful"
+next "times.@"

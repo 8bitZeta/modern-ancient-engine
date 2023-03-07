@@ -1,10 +1,10 @@
-	db "PARENT@" ; species name
-	dw 703, 1760 ; height, weight
+db "PARENT@" ; species name
+dw 703, 1764 ; height, weight
 
-	db   "To avoid"
-	next "crushing the"
-	next "baby it carries in"
+db   "It raises its off-"
+next "spring in its"
+next "belly pouch. It"
 
-	page "its pouch, it"
-	next "always sleeps"
-	next "standing up.@"
+page "lets the baby out"
+next "to play only when"
+next "it feels safe.@"

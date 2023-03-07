@@ -1,10 +1,10 @@
-	db "DUCK@" ; species name
-	dw 507, 1690 ; height, weight
+db "DUCK@" ; species name
+dw 507, 1689 ; height, weight
 
-	db   "It swims grace-"
-	next "fully along on the"
-	next "quiet, slow-moving"
+db   "It is seen swim-"
+next "ming dynamically"
+next "and elegantly us-"
 
-	page "rivers and lakes"
-	next "of which it is so"
-	next "fond.@"
+page "ing its well-de-"
+next "veloped limbs and"
+next "flippers.@"

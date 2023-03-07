@@ -1,10 +1,10 @@
-	db "ELECTRIC@" ; species name
-	dw 200, 520 ; height, weight
+db "ELECTRIC@" ; species name
+dw 200, 518 ; height, weight
 
-	db   "It loves violent"
-	next "thunder. The space"
-	next "between its horns"
+db   "A weak electric"
+next "current flows be-"
+next "tween its horns."
 
-	page "flickers bluish-"
-	next "white when it is"
-	next "charging energy.@"
+page "Sticking a hand"
+next "there shocks the"
+next "unwary.@"

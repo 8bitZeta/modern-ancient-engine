@@ -1,10 +1,10 @@
-	db "HIBERNANT@" ; species name
-	dw 511, 2770 ; height, weight
+db "HIBERNATOR@" ; species name
+dw 511, 2773 ; height, weight
 
-	db   "Although it has a"
-	next "large body, it is"
-	next "quite skilled at"
+db   "In its territory,"
+next "it leaves"
+next "scratches on trees"
 
-	page "climbing trees. It"
-	next "eats and sleeps in"
-	next "the treetops.@"
+page "that bear deli-"
+next "cious berries or"
+next "fruits.@"

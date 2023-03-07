@@ -1,10 +1,10 @@
-	db "TADPOLE@" ; species name
-	dw 200, 270 ; height, weight
+db "TADPOLE@" ; species name
+dw 200, 273 ; height, weight
 
-	db   "The swirl on its"
-	next "belly is its"
-	next "insides showing"
+db   "Its skin is so"
+next "thin, its internal"
+next "organs are visi-"
 
-	page "through the skin."
-	next "It looks clearer"
-	next "after it eats.@"
+page "ble. It has trou-"
+next "ble walking on its"
+next "newly grown feet.@"

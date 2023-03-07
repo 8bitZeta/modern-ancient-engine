@@ -1,10 +1,10 @@
-	db "DRAGON@" ; species name
-	dw 104, 180 ; height, weight
+db "DRAGON@" ; species name
+dw 104, 176 ; height, weight
 
-	db   "When they're in a"
-	next "safe location,"
-	next "they can be seen"
+db   "It makes its nest"
+next "in the shade of"
+next "corals. If it"
 
-	page "playfully tangling"
-	next "their tails"
-	next "together.@"
+page "senses danger, it"
+next "spits murky ink"
+next "and flees.@"

@@ -1,10 +1,10 @@
-	db "BALLOON@" ; species name
-	dw 100, 20 ; height, weight
+db "BALLOON@" ; species name
+dw 100, 22 ; height, weight
 
-	db   "Instead of walking"
-	next "with its short"
-	next "legs, it moves"
+db   "It has a soft and"
+next "bouncy body. Once"
+next "it starts bounc-"
 
-	page "around by bouncing"
-	next "on its soft,"
-	next "tender body.@"
+page "ing, it becomes"
+next "impossible to"
+next "stop.@"

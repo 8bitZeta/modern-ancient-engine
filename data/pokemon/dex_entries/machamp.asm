@@ -1,10 +1,9 @@
-	db "SUPERPOWER@" ; species name
-	dw 503, 2870 ; height, weight
+db "SUPERPOWER@" ; species name
+dw 503, 2866 ; height, weight
 
-	db   "With four arms"
-	next "that react more"
-	next "quickly than it"
+db   "Its four muscled"
+next "arms slam foes"
+next "with powerful"
 
-	page "can think, it can"
-	next "execute many"
-	next "punches at once.@"
+page "punches and chops"
+next "at blinding speed.@"

@@ -1,10 +1,10 @@
-	db "EGG@" ; species name
-	dw 307, 760 ; height, weight
+db "EGG@" ; species name
+dw 307, 763 ; height, weight
 
-	db   "People try to"
-	next "catch it for its"
-	next "extremely"
+db   "A kindly #MON"
+next "that lays highly"
+next "nutritious eggs"
 
-	page "nutritious eggs,"
-	next "but it rarely can"
-	next "be found.@"
+page "and shares them"
+next "with hurt #MON"
+next "or people.@"

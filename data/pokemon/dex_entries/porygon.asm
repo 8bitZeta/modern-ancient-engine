@@ -1,10 +1,10 @@
-	db "VIRTUAL@" ; species name
-	dw 207, 800 ; height, weight
+db "VIRTUAL@" ; species name
+dw 207, 805 ; height, weight
 
-	db   "An artificial"
-	next "#MON created"
-	next "due to extensive"
+db   "A man-made #MON"
+next "created using ad-"
+next "vanced scientific"
 
-	page "research, it can"
-	next "perform only what"
-	next "is in its program.@"
+page "means. It can move"
+next "freely in cy-"
+next "berspace.@"

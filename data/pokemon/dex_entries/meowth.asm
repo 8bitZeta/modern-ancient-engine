@@ -1,10 +1,9 @@
-	db "SCRATCHCAT@" ; species name
-	dw 104, 90 ; height, weight
+db "SCRATCH@" ; species name
+dw 104, 93 ; height, weight
 
-	db   "It loves things"
-	next "that sparkle. When"
-	next "it sees a shiny"
+db   "It is nocturnal in"
+next "nature. If it"
+next "spots something"
 
-	page "object, the gold"
-	next "coin on its head"
-	next "shines too.@"
+page "shiny, its eyes"
+next "glitter brightly.@"

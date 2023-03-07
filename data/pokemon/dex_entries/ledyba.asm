@@ -1,10 +1,10 @@
-	db "FIVE STAR@" ; species name
-	dw 303, 240 ; height, weight
+db "FIVE@" ; species name
+dw 303, 238 ; height, weight
 
-	db   "It is timid and"
-	next "clusters together"
-	next "with others. The"
+db   "It is so timid, it"
+next "can't move if it"
+next "isn't with a swarm"
 
-	page "fluid secreted by"
-	next "its feet indicates"
-	next "its location.@"
+page "of others. It con-"
+next "veys its feelings"
+next "with scent.@"

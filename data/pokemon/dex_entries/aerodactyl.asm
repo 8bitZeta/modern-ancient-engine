@@ -1,10 +1,9 @@
-	db "FOSSIL@" ; species name
-	dw 511, 1300 ; height, weight
+db "FOSSIL@" ; species name
+dw 511, 1301 ; height, weight
 
-	db   "In prehistoric"
-	next "times, this"
-	next "#MON flew"
+db   "A #MON that"
+next "roamed the skies"
+next "in the dinosaur"
 
-	page "freely and"
-	next "fearlessly through"
-	next "the skies.@"
+page "era. Its teeth are"
+next "like saw blades.@"

@@ -1,10 +1,10 @@
-	db "BALL@" ; species name
-	dw 311, 1470 ; height, weight
+db "BALL@" ; species name
+dw 311, 1468 ; height, weight
 
-	db   "The more energy it"
-	next "charges up, the"
-	next "faster it gets."
+db   "It is known to"
+next "drift on winds if"
+next "it is bloated to"
 
-	page "But this also"
-	next "makes it more"
-	next "likely to explode.@"
+page "bursting with"
+next "stored electrici-"
+next "ty.@"

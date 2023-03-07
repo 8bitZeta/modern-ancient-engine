@@ -1,10 +1,10 @@
-	db "FLOWER@" ; species name
-	dw 311, 410 ; height, weight
+db "FLOWER@" ; species name
+dw 311, 410 ; height, weight
 
-	db   "By shaking its big"
-	next "petals, it scat-"
-	next "ters toxic pollen"
+db   "Its petals are the"
+next "largest in the"
+next "world. As it"
 
-	page "into the air,"
-	next "turning the air"
-	next "yellow.@"
+page "walks, it scatters"
+next "extremely aller-"
+next "genic pollen.@"

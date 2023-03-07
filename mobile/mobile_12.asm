@@ -1815,3 +1815,6 @@ Function48d94:
 	or b
 	ld [hl], a
 	ret
+
+MobilePhoneTilesGFX:
+INCBIN "gfx/mobile/phone_tiles.2bpp"

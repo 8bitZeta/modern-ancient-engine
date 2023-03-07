@@ -1,10 +1,10 @@
-	db "BALLOON@" ; species name
-	dw 108, 90 ; height, weight
+db "BALLOON@" ; species name
+dw 108, 86 ; height, weight
 
-	db   "When faced with a"
-	next "larger opponent,"
-	next "it swallows as"
+db   "It shoots the poi-"
+next "son spines on its"
+next "body in all direc-"
 
-	page "much water as it"
-	next "can to match the"
-	next "opponent's size.@"
+page "tions. Its round"
+next "form makes it a"
+next "poor swimmer.@"
