@@ -455,7 +455,6 @@ INCLUDE "gfx/pokemon/idle_pointers.asm"
 SECTION "Pic Animations 2", ROMX
 
 INCLUDE "gfx/pokemon/frame_pointers.asm"
-INCLUDE "gfx/pokemon/frame_kanto.asm"
 INCLUDE "gfx/pokemon/unown_bitmask_pointers.asm"
 INCLUDE "gfx/pokemon/unown_bitmasks.asm"
 
@@ -463,7 +462,6 @@ INCLUDE "gfx/pokemon/unown_bitmasks.asm"
 
 SECTION "Pic Animations 3", ROMX
 
-INCLUDE "gfx/pokemon/frame_johto.asm"
 INCLUDE "gfx/pokemon/unown_frame_pointers.asm"
 INCLUDE "gfx/pokemon/unown_frames.asm"
 INCLUDE "gfx/pokemon/unown_anim_pointers.asm"
@@ -473,11 +471,7 @@ INCLUDE "gfx/pokemon/unown_idles.asm"
 
 SECTION "Pic Animations 4", ROMX
 
-INCLUDE "gfx/pokemon/new_frames.asm"
-
 SECTION "Pic Animations 5", ROMX
-
-INCLUDE "gfx/pokemon/new_frames_2.asm"
 
 SECTION "Pic Animations 6", ROMX
 
