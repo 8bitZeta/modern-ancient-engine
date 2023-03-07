@@ -983,38 +983,22 @@ GetMonFramesPointer:
 	call PokeAnim_IsEgg
 	jr z, .egg
 
-	call PokeAnim_IsUnown
-	ld hl, FramesPointers - 3
+	ld a, [wPokeAnimSpeciesOrUnown]
+	call GetPokemonIndexFromID
+	ld b, h
+	ld c, l
 	ld a, BANK(FramesPointers)
-	ld c, 3
-	jr nz, .got_frames
-	ld a, BANK(UnownsFrames)
-	ld [wPokeAnimFramesBank], a
-	ld hl, UnownFramesPointers - 2
-	ld a, BANK(UnownFramesPointers)
-	ld c, 2
-.got_frames
 
 	push af
-	push hl
-	ld a, [wPokeAnimSpeciesOrUnown]
-	ld l, a
-	ld h, 0
-	call nz, GetPokemonIndexFromID
-	ld a, c
-	ld c, l
-	ld b, h
-	pop hl
-	call AddNTimes
+	ld hl, FramesPointers
+	call LoadDoubleIndirectPointer
+	jr z, .egg ; error handler
 	pop af
+	
 	jr z, .no_bank
 	ld c, a
-	call GetFarByte
 	ld [wPokeAnimFramesBank], a
-	inc hl
-	ld a, c
 .no_bank
-	call GetFarWord
 	ld a, l
 	ld [wPokeAnimFramesAddr], a
 	ld a, h
@@ -1030,7 +1014,7 @@ GetMonFramesPointer:
 	ld [wPokeAnimFramesAddr + 1], a
 	ret
 
-	GetMonBitmaskPointer:
+GetMonBitmaskPointer:
 	call PokeAnim_IsEgg
 	jr z, .egg
   
