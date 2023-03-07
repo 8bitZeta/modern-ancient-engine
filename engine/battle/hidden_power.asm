@@ -95,6 +95,7 @@ HiddenPowerDamage:
 	push af
 	ld a, BATTLE_VARS_MOVE_TYPE
 	call GetBattleVarAddr
+	or SPECIAL
 	pop af
 	ld [hl], a
 

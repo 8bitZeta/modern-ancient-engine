@@ -903,38 +903,48 @@ GetMonAnimPointer:
 	call PokeAnim_IsEgg
 	jr z, .egg
 
-	ld c, BANK(UnownAnimationPointers) ; aka BANK(UnownAnimationIdlePointers)
-	ld hl, UnownAnimationPointers - 2
-	ld de, UnownAnimationIdlePointers - 2
 	call PokeAnim_IsUnown
 	jr z, .unown
-	ld c, BANK(AnimationPointers) ; aka BANK(AnimationIdlePointers)
-	ld hl, AnimationPointers - 2
-	ld de, AnimationIdlePointers - 2
-.unown
 
+	ld a, [wPokeAnimSpeciesOrUnown]
+	call GetPokemonIndexFromID
+	ld b, h
+	ld c, l
 	ld a, [wPokeAnimIdleFlag]
 	and a
-	jr nz, .got_pointer
-	ld d, h
-	ld e, l
-.got_pointer
-
-	call PokeAnim_IsUnown
-	ld a, [wPokeAnimSpeciesOrUnown]
-	ld l, a
-	ld h, 0
-	call nz, GetPokemonIndexFromID
-	add hl, hl
-	add hl, de
-	ld a, c
+	ld a, BANK(AnimationPointers)
+	ld hl, AnimationPointers
+	jr z, .got_pointers
+	ld a, BANK(AnimationIdlePointers)
+	ld hl, AnimationIdlePointers
+.got_pointers
+	call LoadDoubleIndirectPointer
+	jr z, .egg ; error handler
+.load_pointer
+	ld a, b
 	ld [wPokeAnimPointerBank], a
-	call GetFarWord
 	ld a, l
 	ld [wPokeAnimPointerAddr], a
 	ld a, h
 	ld [wPokeAnimPointerAddr + 1], a
 	ret
+
+.unown
+	assert BANK(UnownAnimationPointers) == BANK(UnownAnimationIdlePointers)
+	ld b, BANK(UnownAnimationPointers)
+	ld hl, UnownAnimationPointers - 2
+	ld a, [wPokeAnimIdleFlag]
+	and a
+	jr z, .got_unown_pointer
+	ld hl, UnownAnimationIdlePointers - 2
+.got_unown_pointer
+	ld a, [wPokeAnimSpeciesOrUnown]
+	add a, a
+	add a, l
+	ld l, a
+	adc h
+	sub l
+	jr .load_pointer
 
 .egg
 	ld hl, EggAnimation

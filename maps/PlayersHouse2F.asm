@@ -140,8 +140,8 @@ if DEF(_DEBUG)
 	givepokemove HEADBUTT,   wPartyMon3, 2
 	givepokemove WATERFALL,  wPartyMon3, 3
 	; Other test pokemon
-	givepoke PIKACHU, 50
-	givepoke DITTO, 50
+	givepoke UNOWN, 50
+	givepoke NINCADA, 50
 	; intro events
 	addcellnum PHONE_MOM
 	setmapscene PLAYERS_HOUSE_1F, $1

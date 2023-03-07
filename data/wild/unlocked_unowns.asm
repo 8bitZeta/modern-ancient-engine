@@ -12,6 +12,7 @@ UnlockedUnownLetterSets:
 	dw .Set_L_R ; ENGINE_UNLOCKED_UNOWNS_L_TO_R
 	dw .Set_S_W ; ENGINE_UNLOCKED_UNOWNS_S_TO_W
 	dw .Set_X_Z ; ENGINE_UNLOCKED_UNOWNS_X_TO_Z
+	dw .Set_Exclamation_Question ; ENGINE_UNLOCKED_UNOWNS_EXCLAMATION_QUESTION
 .End
 
 .Set_A_K:
@@ -22,3 +23,5 @@ UnlockedUnownLetterSets:
 	unown_set S, T, U, V, W
 .Set_X_Z:
 	unown_set X, Y, Z
+.Set_Exclamation_Question:
+	unown_set EXCLAMATION, QUESTION
