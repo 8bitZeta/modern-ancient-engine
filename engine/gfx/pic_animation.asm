@@ -1030,32 +1030,41 @@ GetMonFramesPointer:
 	ld [wPokeAnimFramesAddr + 1], a
 	ret
 
-GetMonBitmaskPointer:
+	GetMonBitmaskPointer:
 	call PokeAnim_IsEgg
 	jr z, .egg
-
+  
 	call PokeAnim_IsUnown
-	ld a, BANK(UnownBitmasksPointers)
-	ld de, UnownBitmasksPointers - 2
 	jr z, .unown
-	ld a, BANK(BitmasksPointers)
-	ld de, BitmasksPointers - 2
-.unown
-	ld [wPokeAnimBitmaskBank], a
-
+  
 	ld a, [wPokeAnimSpeciesOrUnown]
-	ld l, a
-	ld h, 0
-	call nz, GetPokemonIndexFromID
-	add hl, hl
-	add hl, de
-	ld a, [wPokeAnimBitmaskBank]
-	call GetFarWord
+	call GetPokemonIndexFromID
+	ld b, h
+	ld c, l
+	ld a, BANK(BitmasksPointers)
+	ld hl, BitmasksPointers
+	call LoadDoubleIndirectPointer
+	jr z, .egg ; error handler
+  .load_pointer
+	ld a, b
+	ld [wPokeAnimBitmaskBank], a
 	ld a, l
 	ld [wPokeAnimBitmaskAddr], a
 	ld a, h
 	ld [wPokeAnimBitmaskAddr + 1], a
 	ret
+  
+  .unown
+	ld b, BANK(UnownBitmasksPointers)
+	ld hl, UnownBitmasksPointers - 2
+	ld a, [wPokeAnimSpeciesOrUnown]
+	add a, a
+	add a, l
+	ld l, a
+	adc h
+	sub l
+	ld h, a
+	jr .load_pointer
 
 .egg
 	ld c, BANK(EggBitmasks)
