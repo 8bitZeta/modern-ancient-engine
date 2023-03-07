@@ -233,7 +233,7 @@ GetBattleAnimByte::
 	inc hl
 	ld d, [hl]
 
-	ld a, BANK(BattleAnimations)
+	ld a, [wBattleAnimBank]
 	rst Bankswitch
 
 	ld a, [de]
@@ -252,6 +252,9 @@ GetBattleAnimByte::
 
 	ld a, [wBattleAnimByte]
 	ret
+
+BattleAnim_0::
+	anim_ret
 
 PushLYOverrides::
 	ldh a, [hLCDCPointer]
