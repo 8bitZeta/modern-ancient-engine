@@ -982,23 +982,18 @@ PokeAnim_GetFrontpicDims:
 GetMonFramesPointer:
 	call PokeAnim_IsEgg
 	jr z, .egg
-
+  
 	ld a, [wPokeAnimSpeciesOrUnown]
 	call GetPokemonIndexFromID
 	ld b, h
 	ld c, l
 	ld a, BANK(FramesPointers)
-
-	push af
 	ld hl, FramesPointers
 	call LoadDoubleIndirectPointer
 	jr z, .egg ; error handler
-	pop af
-	
-	jr z, .no_bank
-	ld c, a
+  .load_pointer
+	ld a, b
 	ld [wPokeAnimFramesBank], a
-.no_bank
 	ld a, l
 	ld [wPokeAnimFramesAddr], a
 	ld a, h

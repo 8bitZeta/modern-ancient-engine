@@ -1,9 +1,9 @@
 SECTION "Other Frames", ROMX
 
 OtherFramePointers:
-	dba SylveonFrames
-	dba RegielekiFrames
-	dba RegidragoFrames
+	dw SylveonFrames
+	dw RegielekiFrames
+	dw RegidragoFrames
 .IndirectEnd::
 
 SylveonFrames:       INCLUDE "gfx/pokemon/other/sylveon/frames.asm"

@@ -1,5 +1,5 @@
 FramesPointers:
-	indirect_table 3, 1
+	indirect_table 2, 1
 	indirect_entries MEW, KantoFramePointers
 	indirect_entries CELEBI, JohtoFramePointers
 	indirect_entries DEOXYS, HoennFramePointers
