@@ -1,10 +1,10 @@
-	db "THUNDER@" ; species name
-	dw 603, 3920 ; height, weight
+db "THUNDER@" ; species name
+dw 603, 3924 ; height, weight
 
-	db   "This rough #MON"
-	next "stores energy"
-	next "inside its body,"
+db   "It is said to have"
+next "fallen with light-"
+next "ning. It can fire"
 
-	page "then sweeps across"
-	next "the land, shooting"
-	next "off electricity.@"
+page "thunderbolts from"
+next "the rain clouds on"
+next "its back.@"

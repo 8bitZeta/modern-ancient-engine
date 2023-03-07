@@ -1,10 +1,10 @@
-	db "TINY MOUSE@" ; species name
-	dw 100, 40 ; height, weight
+db "TINY@" ; species name
+dw 100, 44 ; height, weight
 
-	db   "It is unskilled at"
-	next "storing electric"
-	next "power. Any kind of"
+db   "The electric sacs"
+next "in its cheeks are"
+next "small. If even a"
 
-	page "shock causes it to"
-	next "discharge energy"
-	next "spontaneously.@"
+page "little electricity"
+next "leaks, it becomes"
+next "shocked.@"

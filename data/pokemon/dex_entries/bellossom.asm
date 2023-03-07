@@ -1,10 +1,10 @@
-	db "FLOWER@" ; species name
-	dw 104, 130 ; height, weight
+db "FLOWER@" ; species name
+dw 104, 128 ; height, weight
 
-	db   "When these dance"
-	next "together, their"
-	next "petals rub against"
+db   "When the heavy"
+next "rainfall season"
+next "ends, it is drawn"
 
-	page "each other,"
-	next "making pretty,"
-	next "relaxing sounds.@"
+page "out by warm sun-"
+next "light to dance in"
+next "the open.@"

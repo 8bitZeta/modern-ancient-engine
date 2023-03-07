@@ -1,10 +1,10 @@
-	db "DRAGON@" ; species name
-	dw 311, 550 ; height, weight
+db "DRAGON@" ; species name
+dw 311, 551 ; height, weight
 
-	db   "The male raises"
-	next "the young. If it"
-	next "is approached, it"
+db   "Its spines provide"
+next "protection. Its"
+next "fins and bones are"
 
-	page "uses its toxic"
-	next "spikes to fend off"
-	next "the intruder.@"
+page "prized as tradi-"
+next "tional medicine"
+next "ingredients.@"

@@ -1,10 +1,10 @@
-	db "WATER FISH@" ; species name
-	dw 104, 190 ; height, weight
+db "WATER@" ; species name
+dw 104, 187 ; height, weight
 
-	db   "A mucous"
-	next "membrane covers"
-	next "its body. Touching"
+db   "When walking on"
+next "land, it covers"
+next "its body with a"
 
-	page "it barehanded will"
-	next "cause a shooting"
-	next "pain.@"
+page "film that keeps"
+next "its skin from de-"
+next "hydrating.@"

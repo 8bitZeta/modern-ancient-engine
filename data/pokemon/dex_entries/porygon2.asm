@@ -1,10 +1,10 @@
-	db "VIRTUAL@" ; species name
-	dw 200, 720 ; height, weight
+db "VIRTUAL@" ; species name
+dw 200, 717 ; height, weight
 
-	db   "This manmade"
-	next "#MON evolved"
-	next "from the latest"
+db   "It was upgraded to"
+next "enable the explo-"
+next "ration of other"
 
-	page "technology. It"
-	next "may have unprog-"
-	next "rammed reactions.@"
+page "planets. However,"
+next "it failed to mea-"
+next "sure up.@"

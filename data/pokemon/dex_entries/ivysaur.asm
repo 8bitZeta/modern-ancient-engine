@@ -1,10 +1,10 @@
-	db "SEED@" ; species name
-	dw 303, 290 ; height, weight
+db "SEED@" ; species name
+dw 303, 287 ; height, weight
 
-	db   "The bulb on its"
-	next "back grows as it"
-	next "absorbs nutrients."
+db   "When the bud on"
+next "its back starts"
+next "swelling, a sweet"
 
-	page "The bulb gives off"
-	next "a pleasant aroma"
-	next "when it blooms.@"
+page "aroma wafts to in-"
+next "dicate the flow-"
+next "er's coming bloom.@"

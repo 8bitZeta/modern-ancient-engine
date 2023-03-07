@@ -1,10 +1,10 @@
-	db "SHELLFISH@" ; species name
-	dw 108, 250 ; height, weight
+db "SHELLFISH@" ; species name
+dw 108, 254 ; height, weight
 
-	db   "Three hundred"
-	next "million years ago,"
-	next "it hid on the sea"
+db   "It is thought to"
+next "have inhabited"
+next "beaches 300 mil-"
 
-	page "floor. It also has"
-	next "eyes on its back"
-	next "that glow.@"
+page "lion years ago. It"
+next "is protected by a"
+next "stiff shell.@"

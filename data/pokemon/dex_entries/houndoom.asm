@@ -1,10 +1,10 @@
-	db "DARK@" ; species name
-	dw 407, 770 ; height, weight
+db "DARK@" ; species name
+dw 407, 772 ; height, weight
 
-	db   "The pungent-"
-	next "smelling flame"
-	next "that shoots from"
+db   "The flames it"
+next "breathes when an-"
+next "gry contain tox-"
 
-	page "its mouth results"
-	next "from toxins burn-"
-	next "ing in its body.@"
+page "ins. If they cause"
+next "a burn, it will"
+next "hurt forever.@"

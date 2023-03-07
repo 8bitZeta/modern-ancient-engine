@@ -1,10 +1,10 @@
-	db "SUPERPOWER@" ; species name
-	dw 207, 430 ; height, weight
+db "SUPERPOWER@" ; species name
+dw 207, 430 ; height, weight
 
-	db   "It trains by"
-	next "lifting rocks in"
-	next "the mountains. It"
+db   "Though small in"
+next "stature, it is"
+next "powerful enough to"
 
-	page "can even pick up a"
-	next "GRAVELER with"
-	next "ease.@"
+page "easily heft and"
+next "throw a number of"
+next "GEODUDE at once.@"

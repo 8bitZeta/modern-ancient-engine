@@ -1,10 +1,10 @@
-	db "POISON PIN@" ; species name
-	dw 108, 200 ; height, weight
+db "POISON@" ; species name
+dw 108, 198 ; height, weight
 
-	db   "It constantly"
-	next "moves its large"
-	next "ears in many"
+db   "It scans its sur-"
+next "roundings by rais-"
+next "ing its ears out"
 
-	page "directions in"
-	next "order to detect"
-	next "danger right away.@"
+page "of the grass. Its"
+next "toxic horn is for"
+next "protection.@"

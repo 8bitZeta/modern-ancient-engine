@@ -1,10 +1,10 @@
-	db "DARK@" ; species name
-	dw 200, 240 ; height, weight
+db "DARK@" ; species name
+dw 200, 238 ; height, weight
 
-	db   "Around dawn, its"
-	next "ominous howl"
-	next "echoes through the"
+db   "It is smart enough"
+next "to hunt in packs."
+next "It uses a variety"
 
-	page "area to announce"
-	next "that this is its"
-	next "territory.@"
+page "of cries for com-"
+next "municating with"
+next "others.@"

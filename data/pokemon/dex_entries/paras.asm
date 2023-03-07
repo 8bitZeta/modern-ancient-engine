@@ -1,10 +1,9 @@
-	db "MUSHROOM@" ; species name
-	dw 100, 120 ; height, weight
+db "MUSHROOM@" ; species name
+dw 100, 119 ; height, weight
 
-	db   "The tochukaso"
-	next "growing on this"
-	next "#MON's back"
+db   "Mushrooms named"
+next "tochukaso grow on"
+next "its back. They"
 
-	page "orders it to"
-	next "extract juice from"
-	next "tree trunks.@"
+page "grow along with"
+next "the host PARAS.@"

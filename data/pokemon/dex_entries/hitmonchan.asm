@@ -1,10 +1,10 @@
-	db "PUNCHING@" ; species name
-	dw 407, 1110 ; height, weight
+db "PUNCHING@" ; species name
+dw 407, 1107 ; height, weight
 
-	db   "To increase the"
-	next "strength of all"
-	next "its punch moves,"
+db   "The arm-twisting"
+next "punches it throws"
+next "pulverize even"
 
-	page "it spins its arms"
-	next "just before making"
-	next "contact.@"
+page "concrete. It rests"
+next "after three min-"
+next "utes of fighting.@"

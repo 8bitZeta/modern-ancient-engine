@@ -170,7 +170,6 @@ ROMX $3b
 ROMX $3c
 	"Songs 3"
 	"Sound Effects"
-	"Cries"
 ROMX $3d
 	"Songs 4"
 ROMX $3e
@@ -283,6 +282,7 @@ ROMX $6d
 	"Special Phone Text"
 ROMX $6e
 	"Pokedex Entries 065-128"
+	"Cries"
 ROMX $6f
 	"Text 1"
 ROMX $70
@@ -294,7 +294,7 @@ ROMX $72
 ROMX $73
 	"Pokedex Entries 129-192"
 ROMX $74
-	"Pokedex Entries 193-251"
+	"Pokedex Entries 193-256"
 ROMX $75
 	"16-bit ID stuff"
 ROMX $77

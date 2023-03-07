@@ -1,10 +1,10 @@
-	db "PSI@" ; species name
-	dw 211, 430 ; height, weight
+db "PSI@" ; species name
+dw 211, 430 ; height, weight
 
-	db   "It hypnotizes"
-	next "itself so that it"
-	next "can teleport away"
+db   "Using its psychic"
+next "power is such a"
+next "strain on its"
 
-	page "when it senses"
-	next "danger, even"
-	next "if it is asleep.@"
+page "brain that it"
+next "needs to sleep for"
+next "18 hours a day.@"

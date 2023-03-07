@@ -1,10 +1,10 @@
-	db "RIVER CRAB@" ; species name
-	dw 104, 140 ; height, weight
+db "RIVER@" ; species name
+dw 104, 143 ; height, weight
 
-	db   "If it is unable"
-	next "to find food, it"
-	next "will absorb"
+db   "It lives in bur-"
+next "rows dug on sandy"
+next "beaches. Its pin-"
 
-	page "nutrients by"
-	next "swallowing a"
-	next "mouthful of sand.@"
+page "cers fully grow"
+next "back if they are"
+next "broken in battle.@"

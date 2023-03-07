@@ -1,10 +1,10 @@
-	db "FAIRY@" ; species name
-	dw 403, 880 ; height, weight
+db "FAIRY@" ; species name
+dw 403, 882 ; height, weight
 
-	db   "Said to live in"
-	next "quiet, remote"
-	next "mountains, this"
+db   "It is very wary"
+next "and rarely shows"
+next "itself to people."
 
-	page "type of fairy has"
-	next "a strong aversion"
-	next "to being seen.@"
+page "Its ears can hear"
+next "a pin drop over"
+next "half a mile away.@"

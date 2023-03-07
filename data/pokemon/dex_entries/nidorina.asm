@@ -1,10 +1,10 @@
-	db "POISON PIN@" ; species name
-	dw 207, 440 ; height, weight
+db "POISON@" ; species name
+dw 207, 441 ; height, weight
 
-	db   "It has a docile"
-	next "nature. If it is"
-	next "threatened with"
+db   "When it senses"
+next "danger, it raises"
+next "all the barbs on"
 
-	page "attack, it raises"
-	next "the barbs that are"
-	next "all over its body.@"
+page "its body. These"
+next "barbs grow slower"
+next "than NIDORINO's.@"

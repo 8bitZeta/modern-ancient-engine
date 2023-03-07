@@ -1,10 +1,10 @@
-	db "MYSTIC@" ; species name
-	dw 411, 330 ; height, weight
+db "MYSTIC@" ; species name
+dw 411, 331 ; height, weight
 
-	db   "Once it begins to"
-	next "meditate at sun-"
-	next "rise, the entire"
+db   "This odd #MON"
+next "can see both the"
+next "past and the fu-"
 
-	page "day will pass"
-	next "before it will"
-	next "move again.@"
+page "ture. It eyes the"
+next "sun's movement all"
+next "day.@"

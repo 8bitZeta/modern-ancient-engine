@@ -1,10 +1,10 @@
-	db "WEED@" ; species name
-	dw 207, 190 ; height, weight
+db "WEED@" ; species name
+dw 207, 190 ; height, weight
 
-	db   "The smell from its"
-	next "drool-like syrup"
-	next "and the pollen on"
+db   "The honey it"
+next "drools from its"
+next "mouth smells so"
 
-	page "its petals is so"
-	next "bad, it may make"
-	next "opponents faint.@"
+page "atrocious, it can"
+next "curl noses more"
+next "than a mile away.@"

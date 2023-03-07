@@ -1,10 +1,9 @@
-	db "DRILL@" ; species name
-	dw 407, 1370 ; height, weight
+db "DRILL@" ; species name
+dw 407, 1367 ; height, weight
 
-	db   "It uses its thick"
-	next "arms, legs and"
-	next "tail to attack"
+db   "One swing of its"
+next "mighty tail can"
+next "snap a telephone"
 
-	page "forcefully. Melee"
-	next "combat is its"
-	next "specialty.@"
+page "pole as if it were"
+next "a matchstick.@"

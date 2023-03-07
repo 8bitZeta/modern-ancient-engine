@@ -1,10 +1,10 @@
-	db "KICKING@" ; species name
-	dw 411, 1100 ; height, weight
+db "KICKING@" ; species name
+dw 411, 1098 ; height, weight
 
-	db   "It is also called"
-	next "the Kick Master."
-	next "It uses its"
+db   "Its legs can"
+next "stretch double."
+next "First-time foes"
 
-	page "elastic legs to"
-	next "execute every"
-	next "known kick.@"
+page "are startled by"
+next "its extensible"
+next "reach.@"

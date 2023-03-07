@@ -1,10 +1,10 @@
-	db "DRILL@" ; species name
-	dw 403, 1320 ; height, weight
+db "DRILL@" ; species name
+dw 403, 1323 ; height, weight
 
-	db   "The hard scales"
-	next "that cover its"
-	next "strong body serve"
+db   "Its entire body is"
+next "armored with hard"
+next "scales. It will"
 
-	page "as excellent"
-	next "protection from"
-	next "any attack.@"
+page "protect the young"
+next "in its burrow with"
+next "its life.@"

@@ -1,10 +1,10 @@
-	db "EGG@" ; species name
-	dw 104, 60 ; height, weight
+db "EGG@" ; species name
+dw 104, 55 ; height, weight
 
-	db   "If even one is"
-	next "separated from the"
-	next "group, the energy"
+db   "Its six eggs con-"
+next "verse using"
+next "telepathy. They"
 
-	page "bond between the"
-	next "six will make them"
-	next "rejoin instantly.@"
+page "can quickly gather"
+next "if they become"
+next "separated.@"

@@ -1,10 +1,9 @@
-	db "MOLD@" ; species name
-	dw 200, 450 ; height, weight
+db "MOLD@" ; species name
+dw 200, 452 ; height, weight
 
-	db   "The fluid secreted"
-	next "by its toes carves"
-	next "holes in rocks for"
+db   "It stores berries"
+next "in its shell. The"
+next "berries eventually"
 
-	page "nesting and can be"
-	next "mixed with BERRIES"
-	next "to make a drink.@"
+page "ferment to become"
+next "delicious juices.@"

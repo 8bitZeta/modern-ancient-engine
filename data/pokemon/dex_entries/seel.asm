@@ -1,10 +1,10 @@
-	db "SEA LION@" ; species name
-	dw 307, 1980 ; height, weight
+db "SEA@" ; species name
+dw 307, 1984 ; height, weight
 
-	db   "The light blue fur"
-	next "that covers it"
-	next "keeps it protected"
+db   "A #MON that"
+next "lives on icebergs."
+next "It swims in the"
 
-	page "against the cold."
-	next "It loves iceberg-"
-	next "filled oceans.@"
+page "sea using the"
+next "point on its head"
+next "to break up ice.@"

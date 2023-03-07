@@ -1,10 +1,10 @@
-	db "VINE@" ; species name
-	dw 303, 770 ; height, weight
+db "VINE@" ; species name
+dw 303, 772 ; height, weight
 
-	db   "During battle, it"
-	next "constantly moves"
-	next "the vines that"
+db   "The blue vines"
+next "shrouding its body"
+next "are covered in a"
 
-	page "cover its body in"
-	next "order to annoy its"
-	next "opponent.@"
+page "growth of fine"
+next "hair. It is known"
+next "to be ticklish.@"

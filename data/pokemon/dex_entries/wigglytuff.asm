@@ -1,10 +1,9 @@
-	db "BALLOON@" ; species name
-	dw 303, 260 ; height, weight
+db "BALLOON@" ; species name
+dw 303, 265 ; height, weight
 
-	db   "The rich, fluffy"
-	next "fur that covers"
-	next "its body feels so"
+db   "Its fine fur feels"
+next "sublime to the"
+next "touch. It can ex-"
 
-	page "good that anyone"
-	next "who feels it can't"
-	next "stop touching it.@"
+page "pand its body by"
+next "inhaling air.@"

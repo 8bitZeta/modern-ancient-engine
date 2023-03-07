@@ -1,10 +1,9 @@
-	db "SCOUT@" ; species name
-	dw 207, 130 ; height, weight
+db "SCOUT@" ; species name
+dw 207, 132 ; height, weight
 
-	db   "When acting as a"
-	next "lookout, it warns"
-	next "others of danger"
+db   "It has a very ner-"
+next "vous nature. It"
+next "stands up high on"
 
-	page "by screeching and"
-	next "hitting the ground"
-	next "with its tail.@"
+page "its tail so it can"
+next "scan wide areas.@"

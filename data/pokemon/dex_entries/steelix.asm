@@ -1,10 +1,10 @@
-	db "IRON SNAKE@" ; species name
-	dw 3002, 8820 ; height, weight
+db "IRON@" ; species name
+dw 3002, 8818 ; height, weight
 
-	db   "The many small"
-	next "metal particles"
-	next "that cover this"
+db   "It is thought its"
+next "body transformed"
+next "as a result of"
 
-	page "#MON's body"
-	next "reflect bright"
-	next "light well.@"
+page "iron accumulating"
+next "internally from"
+next "swallowing soil.@"

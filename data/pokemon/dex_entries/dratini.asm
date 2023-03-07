@@ -1,10 +1,10 @@
-	db "DRAGON@" ; species name
-	dw 511, 70 ; height, weight
+db "DRAGON@" ; species name
+dw 511, 73 ; height, weight
 
-	db   "It sheds many lay-"
-	next "ers of skin as it"
-	next "grows larger. Dur-"
+db   "It is called the"
+next "“Mirage #MON”"
+next "because so few"
 
-	page "ing this process,"
-	next "it is protected by"
-	next "a rapid waterfall.@"
+page "have seen it. Its"
+next "shed skin has been"
+next "found.@"

@@ -1,10 +1,10 @@
-	db "LAND SNAKE@" ; species name
-	dw 411, 310 ; height, weight
+db "LAND@" ; species name
+dw 411, 309 ; height, weight
 
-	db   "It hides deep"
-	next "inside caves where"
-	next "no light ever"
+db   "It digs into the"
+next "ground with its"
+next "tail and makes a"
 
-	page "reaches it and"
-	next "remains virtually"
-	next "motionless there.@"
+page "mazelike nest. It"
+next "can fly just a"
+next "little.@"

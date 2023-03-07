@@ -1,10 +1,10 @@
-	db "SWINE@" ; species name
-	dw 307, 1230 ; height, weight
+db "SWINE@" ; species name
+dw 307, 1230 ; height, weight
 
-	db   "Although its legs"
-	next "are short, its"
-	next "rugged hooves"
+db   "Covered by a"
+next "shaggy coat, it is"
+next "strong against the"
 
-	page "prevent it from"
-	next "slipping, even on"
-	next "icy ground.@"
+page "cold. Its tusks of"
+next "ice thicken when"
+next "it snows.@"

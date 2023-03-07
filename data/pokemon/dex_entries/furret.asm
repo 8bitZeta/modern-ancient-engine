@@ -1,10 +1,10 @@
-	db "LONG BODY@" ; species name
-	dw 511, 720 ; height, weight
+db "LONG@" ; species name
+dw 511, 717 ; height, weight
 
-	db   "It lives in narrow"
-	next "burrows that fit"
-	next "its slim body. The"
+db   "The mother puts"
+next "its offspring to"
+next "sleep by curling"
 
-	page "deeper the nests"
-	next "go, the more maze-"
-	next "like they become.@"
+page "up around them. It"
+next "corners foes with"
+next "speed.@"

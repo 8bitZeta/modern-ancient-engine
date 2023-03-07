@@ -1,10 +1,10 @@
-	db "SUPERPOWER@" ; species name
-	dw 411, 1550 ; height, weight
+db "SUPERPOWER@" ; species name
+dw 411, 1554 ; height, weight
 
-	db   "This tough #MON"
-	next "always stays in"
-	next "the zone. Its"
+db   "It happily carries"
+next "heavy cargo to"
+next "toughen up. It"
 
-	page "muscles become"
-	next "thicker after"
-	next "every battle.@"
+page "willingly does"
+next "hard work for peo-"
+next "ple.@"

@@ -1,10 +1,10 @@
-	db "HERMITCRAB@" ; species name
-	dw 503, 1730 ; height, weight
+db "HERMIT@" ; species name
+dw 503, 1731 ; height, weight
 
-	db   "An attached"
-	next "SHELLDER won't let"
-	next "go because of the"
+db   "Though usually dim"
+next "witted, it seems"
+next "to become inspired"
 
-	page "tasty flavor that"
-	next "oozes out of its"
-	next "tail.@"
+page "if the SHELLDER on"
+next "its tail bites"
+next "down.@"

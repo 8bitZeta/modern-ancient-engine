@@ -1,10 +1,10 @@
-	db "DIVING@" ; species name
-	dw 1701, 4760 ; height, weight
+db "DIVING@" ; species name
+dw 1701, 4762 ; height, weight
 
-	db   "It has an incred-"
-	next "ible ability to"
-	next "calm raging sto-"
+db   "It sleeps in a"
+next "deep-sea trench."
+next "If it flaps its"
 
-	page "rms. It is said"
-	next "that LUGIA appears"
-	next "when storms start.@"
+page "wings, it is said"
+next "to cause a 40-day"
+next "storm.@"

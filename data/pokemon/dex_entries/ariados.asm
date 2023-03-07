@@ -1,10 +1,10 @@
-	db "LONG LEG@" ; species name
-	dw 307, 740 ; height, weight
+db "LONG@" ; species name
+dw 307, 739 ; height, weight
 
-	db   "Rather than mak-"
-	next "ing a nest in one"
-	next "specific spot, it"
+db   "It attaches silk"
+next "to its prey and"
+next "sets it free. It"
 
-	page "wanders in search"
-	next "of food after"
-	next "darkness falls.@"
+page "then tracks the"
+next "silk to the prey"
+next "and its friends.@"

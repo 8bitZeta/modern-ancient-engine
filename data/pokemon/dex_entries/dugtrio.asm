@@ -1,10 +1,10 @@
-	db "MOLE@" ; species name
-	dw 204, 730 ; height, weight
+db "MOLE@" ; species name
+dw 204, 734 ; height, weight
 
-	db   "These DIGLETT"
-	next "triplets dig over"
-	next "60 miles below sea"
+db   "Its three heads"
+next "move alternately,"
+next "driving it through"
 
-	page "level. No one"
-	next "knows what it's"
-	next "like underground.@"
+page "tough soil to"
+next "depths of over 60"
+next "miles.@"

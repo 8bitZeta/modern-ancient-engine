@@ -1,10 +1,10 @@
-	db "WILD BULL@" ; species name
-	dw 407, 1950 ; height, weight
+db "WILD@" ; species name
+dw 407, 1949 ; height, weight
 
-	db   "These violent"
-	next "#MON fight"
-	next "with other mem-"
+db   "Once it takes aim"
+next "at its foe, it"
+next "makes a headlong"
 
-	page "bers of their herd"
-	next "in order to prove"
-	next "their strength.@"
+page "charge. It is fa-"
+next "mous for its vio-"
+next "lent nature.@"

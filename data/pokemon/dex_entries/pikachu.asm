@@ -1,10 +1,10 @@
-	db "MOUSE@" ; species name
-	dw 104, 130 ; height, weight
+db "MOUSE@" ; species name
+dw 104, 132 ; height, weight
 
-	db   "When it is anger-"
-	next "ed, it immediately"
-	next "discharges the"
+db   "It occasionally"
+next "uses an electric"
+next "shock to recharge"
 
-	page "energy stored in"
-	next "the pouches in its"
-	next "cheeks.@"
+page "a fellow PIKACHU"
+next "that is in a weak-"
+next "ened state.@"

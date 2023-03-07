@@ -1,10 +1,10 @@
-	db "BIVALVE@" ; species name
-	dw 411, 2920 ; height, weight
+db "BIVALVE@" ; species name
+dw 411, 2921 ; height, weight
 
-	db   "Even a missile"
-	next "can't break the"
-	next "spikes it uses to"
+db   "It fights by keep-"
+next "ing its shell"
+next "tightly shut for"
 
-	page "stab opponents."
-	next "They're even hard-"
-	next "er than its shell.@"
+page "protection and by"
+next "shooting spikes to"
+next "repel foes.@"

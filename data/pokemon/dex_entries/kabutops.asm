@@ -1,10 +1,9 @@
-	db "SHELLFISH@" ; species name
-	dw 403, 890 ; height, weight
+db "SHELLFISH@" ; species name
+dw 403, 893 ; height, weight
 
-	db   "It was able to"
-	next "swim quickly thro-"
-	next "ugh the water by"
+db   "It is thought that"
+next "this #MON came"
+next "onto land because"
 
-	page "compactly folding"
-	next "up its razor-sharp"
-	next "sickles.@"
+page "its prey adapted"
+next "to life on land.@"

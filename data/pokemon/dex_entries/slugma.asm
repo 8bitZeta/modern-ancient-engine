@@ -1,10 +1,9 @@
-	db "LAVA@" ; species name
-	dw 204, 770 ; height, weight
+db "LAVA@" ; species name
+dw 204, 772 ; height, weight
 
-	db   "These group to-"
-	next "gether in areas"
-	next "that are hotter"
+db   "Its body is made"
+next "of magma. If it"
+next "doesn't keep mov-"
 
-	page "than normal. If it"
-	next "cools off, its"
-	next "skin hardens.@"
+page "ing, its body will"
+next "cool and harden.@"

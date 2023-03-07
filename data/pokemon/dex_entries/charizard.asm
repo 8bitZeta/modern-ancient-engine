@@ -1,10 +1,9 @@
-	db "FLAME@" ; species name
-	dw 507, 2000 ; height, weight
+db "FLAME@" ; species name
+dw 507, 1995 ; height, weight
 
-	db   "It uses its wings"
-	next "to fly high. The"
-	next "temperature of its"
+db   "It is said that"
+next "CHARIZARD's fire"
+next "burns hotter if it"
 
-	page "fire increases as"
-	next "it gains exper-"
-	next "ience in battle.@"
+page "has experienced"
+next "harsh battles.@"

@@ -1,10 +1,9 @@
-	db "ARMOR BIRD@" ; species name
-	dw 507, 1110 ; height, weight
+db "ARMOR@" ; species name
+dw 507, 1113 ; height, weight
 
-	db   "The feathers that"
-	next "it sheds are very"
-	next "sharp. It is said"
+db   "Despite being clad"
+next "entirely in iron-"
+next "hard armor, it"
 
-	page "that people once"
-	next "used the feathers"
-	next "as swords.@"
+page "flies at speeds"
+next "over 180 mph.@"

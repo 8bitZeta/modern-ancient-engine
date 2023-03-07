@@ -1,10 +1,10 @@
-	db "CLASSY CAT@" ; species name
-	dw 303, 710 ; height, weight
+db "CLASSY@" ; species name
+dw 303, 705 ; height, weight
 
-	db   "Behind its lithe,"
-	next "elegant appearance"
-	next "lies a barbaric"
+db   "A very haughty"
+next "#MON. Among"
+next "fans, the size of"
 
-	page "side. It will tear"
-	next "apart its prey on"
-	next "a mere whim.@"
+page "its jewel is a"
+next "topic of much"
+next "talk.@"

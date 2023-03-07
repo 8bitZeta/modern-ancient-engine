@@ -1,10 +1,8 @@
-	db "LEAF@" ; species name
-	dw 311, 350 ; height, weight
+db "LEAF@" ; species name
+dw 311, 348 ; height, weight
 
-	db   "The scent that"
-	next "wafts from the"
-	next "leaves on its neck"
+db   "The buds that ring"
+next "its neck give off"
+next "a spicy aroma that"
 
-	page "causes anyone who"
-	next "smells it to"
-	next "become energetic.@"
+page "perks people up.@"

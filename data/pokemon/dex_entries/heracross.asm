@@ -1,10 +1,10 @@
-	db "SINGLEHORN@" ; species name
-	dw 411, 1190 ; height, weight
+db "SINGLE@" ; species name
+dw 411, 1190 ; height, weight
 
-	db   "With its Herculean"
-	next "powers, it can"
-	next "easily throw arou-"
+db   "It loves sweet"
+next "honey. To keep all"
+next "the honey to it-"
 
-	page "nd an object that"
-	next "is 100 times its"
-	next "own weight.@"
+page "self, it hurls ri-"
+next "vals away with its"
+next "prized horn.@"

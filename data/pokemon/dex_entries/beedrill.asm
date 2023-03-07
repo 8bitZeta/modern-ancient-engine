@@ -1,10 +1,10 @@
-	db "POISON BEE@" ; species name
-	dw 303, 650 ; height, weight
+db "POISON@" ; species name
+dw 303, 650 ; height, weight
 
-	db   "It uses sharp,"
-	next "poisonous stings"
-	next "to defeat prey,"
+db   "Its best attack"
+next "involves swiftly"
+next "flying around,"
 
-	page "then takes the"
-	next "victim back to its"
-	next "nest for food.@"
+page "striking with poi-"
+next "son needles, then"
+next "flying off.@"

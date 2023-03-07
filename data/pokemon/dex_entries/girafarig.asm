@@ -1,10 +1,10 @@
-	db "LONG NECK@" ; species name
-	dw 411, 910 ; height, weight
+db "LONG@" ; species name
+dw 411, 915 ; height, weight
 
-	db   "When it is in"
-	next "danger, its tail"
-	next "uses some sort of"
+db   "The head on its"
+next "tail contains a"
+next "small brain. It"
 
-	page "mysterious powers"
-	next "to drive away the"
-	next "enemy.@"
+page "can instinctively"
+next "fight even while"
+next "facing backward.@"

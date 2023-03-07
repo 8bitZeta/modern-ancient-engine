@@ -1,10 +1,10 @@
-	db "OWL@" ; species name
-	dw 503, 900 ; height, weight
+db "OWL@" ; species name
+dw 503, 899 ; height, weight
 
-	db   "Its extremely soft"
-	next "feathers make no"
-	next "sound in flight."
+db   "Its eyes are spe-"
+next "cially developed"
+next "to enable it to"
 
-	page "It silently sneaks"
-	next "up on prey without"
-	next "being detected.@"
+page "see clearly even"
+next "in murky darkness"
+next "and minimal light.@"

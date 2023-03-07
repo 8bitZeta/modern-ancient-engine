@@ -1,10 +1,10 @@
-	db "PIG MONKEY@" ; species name
-	dw 108, 620 ; height, weight
+db "PIG@" ; species name
+dw 108, 617 ; height, weight
 
-	db   "It lives in groups"
-	next "in the treetops."
-	next "If it loses sight"
+db   "It lives in tree-"
+next "top colonies. If"
+next "one becomes en-"
 
-	page "of its group, it"
-	next "becomes infuriated"
-	next "by its loneliness.@"
+page "raged, the whole"
+next "colony rampages"
+next "for no reason.@"

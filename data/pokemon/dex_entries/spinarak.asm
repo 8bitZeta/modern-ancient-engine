@@ -1,10 +1,10 @@
-	db "STRINGSPIT@" ; species name
-	dw 108, 190 ; height, weight
+db "STRING@" ; species name
+dw 108, 187 ; height, weight
 
-	db   "If prey becomes"
-	next "ensnared in its"
-	next "nest of spun"
+db   "It sets a trap by"
+next "spinning a web"
+next "with thin, strong"
 
-	page "string, it waits"
-	next "motionlessly until"
-	next "it becomes dark.@"
+page "silk. It waits mo-"
+next "tionlessly for"
+next "prey to arrive.@"
