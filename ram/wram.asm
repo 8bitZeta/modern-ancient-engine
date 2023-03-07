@@ -3572,6 +3572,7 @@ wLastAnimObjectIndex:: db
 
 wBattleAnimFlags:: db
 wBattleAnimAddress:: dw
+wBattleAnimBank:: db
 wBattleAnimDelay:: db
 wBattleAnimParent:: dw
 wBattleAnimLoops:: db

@@ -1,4 +1,4 @@
-DEF ___current_indirect_size = 0
+___current_indirect_size = 0
 
 ; usage:
 ; Table:
@@ -9,16 +9,22 @@ DEF ___current_indirect_size = 0
 
 MACRO indirect_table
 	; arguments: entry size, initial index (0 or 1)
-	assert ((\2) * (\2)) == (\2), \
-		"indirect table error: invalid initial index (must be 0 or 1)"
-	assert !___current_indirect_size, \
-		"indirect table error: there's already an active indirect table"
-	assert (\1) > 0, \
-		"indirect table error: the entry size must be positive"
-	assert (\1) <= $7FFF, \
-		"indirect table error: entry size is set to an invalid value"
-	DEF ___current_indirect_index = \2
-	DEF ___current_indirect_size = \1
+	if ((\2) * (\2)) != (\2)
+		; guarantees that the index is something numeric, and it's only true if the index is 0 or 1
+		fail "indirect table error: invalid initial index (must be 0 or 1)"
+	endc
+	if ___current_indirect_size
+		fail "indirect table error: there's already an active indirect table"
+	endc
+	if (\1) < 1
+		fail "indirect table error: the entry size must be positive"
+	endc
+	if (\1) > $7FFF
+		; the limit could be set much lower, but this will do as a sanity check
+		fail "indirect table error: entry size is set to an invalid value"
+	endc
+___current_indirect_index = \2
+___current_indirect_size = \1
 	dw (\1) | ((\2) << 15)
 ENDM
 
@@ -38,7 +44,8 @@ MACRO indirect_entries
 			"\2: expected {d:___current_indirect_count_total} entries, each {d:___current_indirect_size} bytes"
 	endc
 	if ___current_indirect_iteration_limit
-		FOR ___current_indirect_iteration, ___current_indirect_iteration_limit
+___current_indirect_iteration = 0
+		rept ___current_indirect_iteration_limit
 			db $FF
 			if _NARG == 1
 				db 0, 0, 0
@@ -50,6 +57,7 @@ MACRO indirect_entries
 				endc
 				dw (\2) + $FF * ___current_indirect_size * ___current_indirect_iteration
 			endc
+___current_indirect_iteration = ___current_indirect_iteration + 1
 		endr
 	endc
 	if ___current_indirect_count
@@ -69,8 +77,9 @@ ENDM
 
 MACRO indirect_table_end
 	; no arguments
-	assert ___current_indirect_size != 0, \
-		"indirect table error: there's no active indirect table"
+	if ___current_indirect_size == 0
+		fail "indirect table error: there's no active indirect table"
+	endc
 	db 0
-	DEF ___current_indirect_size = 0
+___current_indirect_size = 0
 ENDM
