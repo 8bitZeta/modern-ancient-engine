@@ -910,6 +910,7 @@ GetMonAnimPointer:
 	call GetPokemonIndexFromID
 	ld b, h
 	ld c, l
+.unown_return
 	ld a, [wPokeAnimIdleFlag]
 	and a
 	ld a, BANK(AnimationPointers)
@@ -930,21 +931,14 @@ GetMonAnimPointer:
 	ret
 
 .unown
-	assert BANK(UnownAnimationPointers) == BANK(UnownAnimationIdlePointers)
-	ld b, BANK(UnownAnimationPointers)
-	ld hl, UnownAnimationPointers - 2
-	ld a, [wPokeAnimIdleFlag]
-	and a
-	jr z, .got_unown_pointer
-	ld hl, UnownAnimationIdlePointers - 2
-.got_unown_pointer
 	ld a, [wPokeAnimSpeciesOrUnown]
-	add a, a
-	add a, l
-	ld l, a
-	adc h
-	sub l
-	jr .load_pointer
+	ld bc, NUM_POKEMON
+	add c
+	ld c, a
+	adc b
+	sub c
+	ld b, a
+	jr .unown_return
 
 .egg
 	ld hl, EggAnimation
@@ -982,16 +976,20 @@ PokeAnim_GetFrontpicDims:
 GetMonFramesPointer:
 	call PokeAnim_IsEgg
 	jr z, .egg
-  
+
+	call PokeAnim_IsUnown
+	jr z, .unown
+
 	ld a, [wPokeAnimSpeciesOrUnown]
 	call GetPokemonIndexFromID
 	ld b, h
 	ld c, l
+.unown_return
 	ld a, BANK(FramesPointers)
 	ld hl, FramesPointers
 	call LoadDoubleIndirectPointer
 	jr z, .egg ; error handler
-  .load_pointer
+.load_pointer
 	ld a, b
 	ld [wPokeAnimFramesBank], a
 	ld a, l
@@ -999,6 +997,16 @@ GetMonFramesPointer:
 	ld a, h
 	ld [wPokeAnimFramesAddr + 1], a
 	ret
+
+.unown
+	ld a, [wPokeAnimSpeciesOrUnown]
+	ld bc, NUM_POKEMON
+	add c
+	ld c, a
+	adc b
+	sub c
+	ld b, a
+	jr .unown_return
 
 .egg
 	ld a, BANK(EggFrames)
@@ -1012,19 +1020,20 @@ GetMonFramesPointer:
 GetMonBitmaskPointer:
 	call PokeAnim_IsEgg
 	jr z, .egg
-  
+
 	call PokeAnim_IsUnown
 	jr z, .unown
-  
+
 	ld a, [wPokeAnimSpeciesOrUnown]
 	call GetPokemonIndexFromID
 	ld b, h
 	ld c, l
+.unown_return
 	ld a, BANK(BitmasksPointers)
 	ld hl, BitmasksPointers
 	call LoadDoubleIndirectPointer
 	jr z, .egg ; error handler
-  .load_pointer
+.load_pointer
 	ld a, b
 	ld [wPokeAnimBitmaskBank], a
 	ld a, l
@@ -1032,18 +1041,16 @@ GetMonBitmaskPointer:
 	ld a, h
 	ld [wPokeAnimBitmaskAddr + 1], a
 	ret
-  
-  .unown
-	ld b, BANK(UnownBitmasksPointers)
-	ld hl, UnownBitmasksPointers - 2
+
+.unown
 	ld a, [wPokeAnimSpeciesOrUnown]
-	add a, a
-	add a, l
-	ld l, a
-	adc h
-	sub l
-	ld h, a
-	jr .load_pointer
+	ld bc, NUM_POKEMON
+	add c
+	ld c, a
+	adc b
+	sub c
+	ld b, a
+	jr .unown_return
 
 .egg
 	ld c, BANK(EggBitmasks)
