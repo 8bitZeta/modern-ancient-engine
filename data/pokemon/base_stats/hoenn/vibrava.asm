@@ -11,7 +11,7 @@
 	db 100 ; unknown 1
 	db 20 ; step cycles to hatch
 	db 5 ; unknown 2
-	INCBIN "gfx/pokemon/hoenn/trapinch/front.dimensions"
+	INCBIN "gfx/pokemon/hoenn/vibrava/front.dimensions"
 	db LEVITATE, LEVITATE ; wBaseAbility1, wBaseAbility2
 	db 0, 0 ; padding
 	db GROWTH_MEDIUM_SLOW ; growth rate
