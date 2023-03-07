@@ -45,27 +45,5 @@ comparison][compare] tool.
 
 ## FAQs
 
-**Q1:** Will this engine include \<insert additional feature here\>?  
-**A1:** Unless the feature is specifically related to 16-bit indexing (or otherwise extending the range of possible
-index values), the answer is almost certainly "no". This repository's scope is limited to 16-bit indexes. If you
-already have a ROM hack that includes the features you like and you'd want it to have 16-bit indexes, the right course
-of action would be to port this engine to it. Otherwise, you can use this engine as a base to make your own ROM hack
-with all the features you want.
-
-**Q2:** Can I use this engine for my own ROM hack?  
-**A2:** Of course; that's what it was made for. I will try make it as easy as possible to port to existing or new ROM
-hacks; instructions to do so will be in the [wiki]. All I can ask you for is that, just like this engine was openly
-available for you to use, you make your hack's code openly available as well — quoting some of the text in
-[SQLite](https://sqlite.org)'s copyright disclaimer, "may you share freely, never taking more than you give".
-
-**Q3:** What's this engine's new limit on indexes?  
-**A3:** The theoretical limit is 65,534, minus a couple of "special" indexes used by the game for specific purposes
-(such as the value that indicates that a Pokémon is inside an egg). However, there are several limitations that will
-probably prevent you from ever reaching that limit. For starters, you can't fit 65,534 of _anything_ inside a ROM
-bank! The index work is done, and I'll try to remove any hurdles that would render that work useless; however, if you
-want to push the limits of the hardware and add 20,000 new Pokémon, you'll find yourself against a technical challenge
-that will go beyond indexes.
-
-[compare]: https://github.com/aaaaaa123456789/pokecrystal16/compare
-[pokecrystal]: https://github.com/pret/pokecrystal/
-[wiki]: https://github.com/aaaaaa123456789/pokecrystal16/wiki
+Thanks to ax6 and Vulcandth for their awesome work with 16-bit implementations. Code will be used from various creators such as Rangi, FIQ, Pfero.
+Updated credits will come later.
