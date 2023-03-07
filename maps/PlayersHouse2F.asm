@@ -147,7 +147,23 @@ if DEF(_DEBUG)
 	setmapscene PLAYERS_HOUSE_1F, $1
 	setevent EVENT_PLAYERS_HOUSE_MOM_1
 	clearevent EVENT_PLAYERS_HOUSE_MOM_2
+	callasm CheatFillPokedex
 	closetext
+	end
+	
+CheatFillPokedex:
+	ld a, 1
+	ld [wFirstUnownSeen], a
+	ld hl, wPokedexSeen
+	call .Fill
+	ld hl, wPokedexCaught
+.Fill:
+	ld a, %11111111
+	ld bc, 62 ; 001-248
+	call ByteFill
+	ld a, %11111111
+	ld bc, 31 ; 249-496
+	ret
 	end
 else
 
