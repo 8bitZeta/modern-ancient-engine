@@ -34,6 +34,10 @@ CalcExpAtLevel:
 ; (a/b)*n**3 + c*n**2 + d*n - e
 ; BUG: Experience underflow for level 1 Pokémon with Medium-Slow growth rate (see docs/bugs_and_glitches.md)
 	ld a, [wBaseGrowthRate]
+	cp GROWTH_ERRATIC
+	jp z, .erratic
+	cp GROWTH_FLUCTUATING
+	jp z, .fluctuating
 	add a
 	add a
 	ld c, a
@@ -159,5 +163,28 @@ CalcExpAtLevel:
 	ldh [hMultiplicand + 2], a
 	ldh [hMultiplier], a
 	jp Multiply
+
+.erratic:
+	ld hl, ErraticExperience
+	jr .lookup_table
+
+.fluctuating:
+	ld hl, FluctuatingExperience
+.lookup_table
+	ld c, d
+	ld b, 0
+	dec c
+	add hl, bc
+	add hl, bc
+	add hl, bc
+	xor a
+	ldh [hProduct + 0], a
+	ld a, [hli]
+	ldh [hProduct + 1], a
+	ld a, [hli]
+	ldh [hProduct + 2], a
+	ld a, [hli]
+	ldh [hProduct + 3], a
+	ret
 
 INCLUDE "data/growth_rates.asm"
