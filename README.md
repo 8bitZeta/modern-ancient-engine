@@ -35,5 +35,5 @@ nearly 300 Pokemon not in the regional dex. (E.G Ancient Ruby, and `master` will
 
 ## Credits
 
-Thanks to ax6 for his awesome work with 16-bit implementations. Code will be used from various creators such as Rangi, FIQ, Pfero.
+Thanks to ax6 and Vulcandth for their awesome work with 16-bit implementations. Code will be used from various creators such as Rangi, FIQ, Pfero.
 Updated credits will come later.
