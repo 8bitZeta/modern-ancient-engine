@@ -1,10 +1,10 @@
-	db "BUBBLE JET@" ; species name
-	dw 303, 640 ; height, weight
+db "BUBBLE@" ; species name
+dw 303, 639 ; height, weight
 
-	db   "As it uses the"
-	next "fins on the tip"
-	next "of its tail to"
+db   "Its cell composi-"
+next "tion is similar to"
+next "water molecules."
 
-	page "swim, it blends"
-	next "with the water"
-	next "perfectly.@"
+page "As a result, it"
+next "can melt away into"
+next "water.@"

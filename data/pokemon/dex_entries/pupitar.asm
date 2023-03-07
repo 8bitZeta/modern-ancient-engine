@@ -1,10 +1,10 @@
-	db "HARD SHELL@" ; species name
-	dw 311, 3350 ; height, weight
+db "HARD@" ; species name
+dw 311, 3351 ; height, weight
 
-	db   "It will not stay"
-	next "still, even while"
-	next "it's a pupa. It"
+db   "Its body is as"
+next "hard as bedrock."
+next "By venting pres-"
 
-	page "already has arms"
-	next "and legs under its"
-	next "solid shell.@"
+page "surized gas, it"
+next "can launch itself"
+next "like a rocket.@"

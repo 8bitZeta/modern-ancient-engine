@@ -1,10 +1,10 @@
-	db "WOOL@" ; species name
-	dw 207, 290 ; height, weight
+db "WOOL@" ; species name
+dw 207, 293 ; height, weight
 
-	db   "Because of its"
-	next "rubbery, electric-"
-	next "ity-resistant"
+db   "If its coat be-"
+next "comes charged with"
+next "electricity, its"
 
-	page "skin, it can store"
-	next "lots of electric-"
-	next "ity in its fur.@"
+page "tail lights up. It"
+next "fires hair that"
+next "zaps on impact.@"

@@ -1,10 +1,10 @@
-	db "PINCER@" ; species name
-	dw 403, 1320 ; height, weight
+db "PINCER@" ; species name
+dw 403, 1323 ; height, weight
 
-	db   "Its oversized claw"
-	next "is very powerful,"
-	next "but when it's not"
+db   "The larger pincer"
+next "has 10,000-horse-"
+next "power strength."
 
-	page "in battle, the"
-	next "claw just gets in"
-	next "the way.@"
+page "However, it is so"
+next "heavy, it is dif-"
+next "ficult to aim.@"

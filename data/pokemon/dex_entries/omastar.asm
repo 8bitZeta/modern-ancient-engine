@@ -1,10 +1,10 @@
-	db "SPIRAL@" ; species name
-	dw 303, 770 ; height, weight
+db "SPIRAL@" ; species name
+dw 303, 772 ; height, weight
 
-	db   "Its heavy shell"
-	next "allowed it to"
-	next "reach only nearby"
+db   "It is thought that"
+next "this #MON be-"
+next "came extinct be-"
 
-	page "food. This could"
-	next "be the reason it"
-	next "is extinct.@"
+page "cause its spiral"
+next "shell grew too"
+next "large.@"

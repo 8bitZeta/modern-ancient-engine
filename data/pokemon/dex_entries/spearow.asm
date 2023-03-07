@@ -1,10 +1,9 @@
-	db "TINY BIRD@" ; species name
-	dw 100, 40 ; height, weight
+db "TINY@" ; species name
+dw 100, 44 ; height, weight
 
-	db   "To protect its"
-	next "territory, it"
-	next "flies around"
+db   "It flaps its small"
+next "wings busily to"
+next "fly. Using its"
 
-	page "ceaselessly,"
-	next "making high-"
-	next "pitched cries.@"
+page "beak, it searches"
+next "in grass for prey.@"

@@ -1,10 +1,10 @@
-	db "COTTONWEED@" ; species name
-	dw 200, 20 ; height, weight
+db "COTTONWEED@" ; species name
+dw 200, 22 ; height, weight
 
-	db   "As soon as it"
-	next "rains, it closes"
-	next "its flower and"
+db   "It blooms when the"
+next "weather warms. It"
+next "floats in the sky"
 
-	page "hides in the shade"
-	next "of a tree to avoid"
-	next "getting wet.@"
+page "to soak up as much"
+next "sunlight as possi-"
+next "ble.@"

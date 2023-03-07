@@ -1,10 +1,10 @@
-	db "ATROCIOUS@" ; species name
-	dw 2104, 5180 ; height, weight
+db "ATROCIOUS@" ; species name
+dw 2104, 5181 ; height, weight
 
-	db   "It appears when-"
-	next "ever there is"
-	next "world conflict,"
+db   "Once it begins to"
+next "rampage, a GYARA-"
+next "DOS will burn ev-"
 
-	page "burning down any"
-	next "place it travels"
-	next "through.@"
+page "erything down,"
+next "even in a harsh"
+next "storm.@"

@@ -1,10 +1,10 @@
-	db "RAINBOW@" ; species name
-	dw 1206, 4390 ; height, weight
+db "RAINBOW@" ; species name
+dw 1206, 4387 ; height, weight
 
-	db   "It will reveal"
-	next "itself before a"
-	next "pure-hearted"
+db   "Its feathers are"
+next "in seven colors."
+next "It is said that"
 
-	page "trainer by shining"
-	next "its bright rain-"
-	next "bow-colored wings.@"
+page "anyone seeing it"
+next "is promised eter-"
+next "nal happiness.@"

@@ -1,10 +1,10 @@
-	db "STARSHAPE@" ; species name
-	dw 207, 760 ; height, weight
+db "STAR@" ; species name
+dw 207, 761 ; height, weight
 
-	db   "When the stars"
-	next "twinkle at night,"
-	next "it floats up from"
+db   "If its body is"
+next "torn, it can grow"
+next "back if the red"
 
-	page "the sea floor, and"
-	next "its body's center"
-	next "core flickers.@"
+page "core remains. The"
+next "core flashes at"
+next "midnight.@"

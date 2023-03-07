@@ -1,10 +1,10 @@
-	db "LONELY@" ; species name
-	dw 104, 140 ; height, weight
+db "LONELY@" ; species name
+dw 104, 143 ; height, weight
 
-	db   "It lost its mother"
-	next "after its birth."
-	next "It wears its"
+db   "When it thinks of"
+next "its dead mother,"
+next "it cries. Its cry-"
 
-	page "mother's skull,"
-	next "never revealing"
-	next "its true face.@"
+page "ing makes the"
+next "skull it wears"
+next "rattle hollowly.@"

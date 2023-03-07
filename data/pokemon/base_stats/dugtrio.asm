@@ -12,7 +12,8 @@
 	db 20 ; step cycles to hatch
 	db 5 ; unknown 2
 	INCBIN "gfx/pokemon/dugtrio/front.dimensions"
-	dw NULL, NULL ; unused (beta front/back pics)
+	db SAND_VEIL, ARENA_TRAP ; wBaseAbility1, wBaseAbility2
+	db 0, 0 ; padding
 	db GROWTH_MEDIUM_FAST ; growth rate
 	dn EGG_GROUND, EGG_GROUND ; egg groups
 

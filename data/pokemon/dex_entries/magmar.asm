@@ -1,10 +1,10 @@
-	db "SPITFIRE@" ; species name
-	dw 403, 980 ; height, weight
+db "SPITFIRE@" ; species name
+dw 403, 981 ; height, weight
 
-	db   "It moves more"
-	next "frequently in hot"
-	next "areas. It can heal"
+db   "When it breathes"
+next "deeply, heat waves"
+next "form around its"
 
-	page "itself by dipping"
-	next "its wound into"
-	next "lava.@"
+page "body, making it"
+next "hard to see clear-"
+next "ly.@"

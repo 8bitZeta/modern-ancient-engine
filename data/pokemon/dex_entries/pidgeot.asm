@@ -1,10 +1,10 @@
-	db "BIRD@" ; species name
-	dw 411, 870 ; height, weight
+db "BIRD@" ; species name
+dw 411, 871 ; height, weight
 
-	db   "Its outstanding"
-	next "vision allows it"
-	next "to spot splashing"
+db   "By flapping its"
+next "wings with all its"
+next "might, PIDGEOT can"
 
-	page "MAGIKARP, even"
-	next "while flying at"
-	next "3300 feet.@"
+page "make a gust of"
+next "wind capable of"
+next "bending trees.@"

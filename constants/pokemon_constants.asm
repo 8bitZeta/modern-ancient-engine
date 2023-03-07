@@ -10,14 +10,14 @@
 ; - PokemonPalettes (see data/pokemon/palettes.asm)
 ; - PokedexDataPointerTable (see data/pokemon/dex_entry_pointers.asm)
 ; - AlphabeticalPokedexOrder (see data/pokemon/dex_order_alpha.asm)
+; - EZChat_SortedPokemon (see data/pokemon/ezchat_order.asm)
 ; - NewPokedexOrder (see data/pokemon/dex_order_new.asm)
 ; - Pokered_MonIndices (see data/pokemon/gen1_order.asm)
-; - Footprints (see gfx/footprints.asm)
 ; - AnimationPointers (see gfx/pokemon/anim_pointers.asm)
 ; - AnimationIdlePointers (see gfx/pokemon/idle_pointers.asm)
 ; - BitmasksPointers (see gfx/pokemon/bitmask_pointers.asm)
 ; - FramesPointers (see gfx/pokemon/frame_pointers.asm)
-; - EZChat_SortedPokemon (see data/pokemon/ezchat_order.asm)
+; - Footprints (see gfx/footprints.asm)
 	const_def 1
 	const BULBASAUR  ; 01
 	const IVYSAUR    ; 02
@@ -170,7 +170,7 @@
 	const DRAGONITE  ; 95
 	const MEWTWO     ; 96
 	const MEW        ; 97
-DEF JOHTO_POKEMON EQU const_value
+JOHTO_POKEMON EQU const_value
 	const CHIKORITA  ; 98
 	const BAYLEEF    ; 99
 	const MEGANIUM   ; 9a
@@ -271,9 +271,257 @@ DEF JOHTO_POKEMON EQU const_value
 	const LUGIA      ; f9
 	const HO_OH      ; fa
 	const CELEBI     ; fb
-DEF NUM_POKEMON EQU const_value - 1
+;HOENN_POKEMON EQU const_value
+	const TREECKO
+	const GROVYLE
+	const SCEPTILE
+	const TORCHIC
+	const COMBUSKEN
+	const BLAZIKEN
+	const MUDKIP
+	const MARSHTOMP
+	const SWAMPERT
+	const POOCHYENA
+	const MIGHTYENA
+	const ZIGZAGOON
+	const LINOONE
+	const WURMPLE
+	const SILCOON
+	const BEAUTIFLY
+	const CASCOON
+	const DUSTOX
+	const LOTAD
+	const LOMBRE
+	const LUDICOLO
+	const SEEDOT
+	const NUZLEAF
+	const SHIFTRY
+	const TAILLOW
+	const SWELLOW
+	const WINGULL
+	const PELIPPER
+	const RALTS
+	const KIRLIA
+	const GARDEVOIR
+	const SURSKIT
+	const MASQUERAIN
+	const SHROOMISH
+	const BRELOOM
+	const SLAKOTH
+	const VIGOROTH
+	const SLAKING
+	const NINCADA
+	const NINJASK
+	const SHEDINJA
+	const WHISMUR
+	const LOUDRED
+	const EXPLOUD
+	const MAKUHITA
+	const HARIYAMA
+	const AZURILL
+	const NOSEPASS
+	const SKITTY
+	const DELCATTY
+	const SABLEYE
+	const MAWILE
+	const ARON
+	const LAIRON
+	const AGGRON
+	const MEDITITE
+	const MEDICHAM
+	const ELECTRIKE
+	const MANECTRIC
+	const PLUSLE
+	const MINUN
+	const VOLBEAT
+	const ILLUMISE
+	const ROSELIA
+	const GULPIN
+	const SWALOT
+	const CARVANHA
+	const SHARPEDO
+	const WAILMER
+	const WAILORD
+	const NUMEL
+	const CAMERUPT
+	const TORKOAL
+	const SPOINK
+	const GRUMPIG
+	const SPINDA
+	const TRAPINCH
+	const VIBRAVA
+	const FLYGON
+	const CACNEA
+	const CACTURNE
+	const SWABLU
+	const ALTARIA
+	const ZANGOOSE
+	const SEVIPER
+	const LUNATONE
+	const SOLROCK
+	const BARBOACH
+	const WHISCASH
+	const CORPHISH
+	const CRAWDAUNT
+	const BALTOY
+	const CLAYDOL
+	const LILEEP
+	const CRADILY
+	const ANORITH
+	const ARMALDO
+	const FEEBAS
+	const MILOTIC
+	const CASTFORM
+	const KECLEON
+	const SHUPPET
+	const BANETTE
+	const DUSKULL
+	const DUSCLOPS
+	const TROPIUS
+	const CHIMECHO
+	const ABSOL
+	const WYNAUT
+	const SNORUNT
+	const GLALIE
+	const SPHEAL
+	const SEALEO
+	const WALREIN
+	const CLAMPERL
+	const HUNTAIL
+	const GOREBYSS
+	const RELICANTH
+	const LUVDISC
+	const BAGON
+	const SHELGON
+	const SALAMENCE
+	const BELDUM
+	const METANG
+	const METAGROSS
+	const REGIROCK
+	const REGICE
+	const REGISTEEL
+	const LATIAS
+	const LATIOS
+	const KYOGRE
+	const GROUDON
+	const RAYQUAZA
+	const JIRACHI
+	const DEOXYS
+;SINNOH_POKEMON EQU const_value
+	const TURTWIG
+	const GROTLE
+	const TORTERRA
+	const CHIMCHAR
+	const MONFERNO
+	const INFERNAPE
+	const PIPLUP
+	const PRINPLUP
+	const EMPOLEON
+	const STARLY
+	const STARAVIA
+	const STARAPTOR
+	const BIDOOF
+	const BIBAREL
+	const KRICKETOT
+	const KRICKETUNE
+	const SHINX
+	const LUXIO
+	const LUXRAY
+	const BUDEW
+	const ROSERADE
+	const CRANIDOS
+	const RAMPARDOS
+	const SHIELDON
+	const BASTIODON
+	const BURMY
+	const WORMADAM
+	const MOTHIM
+	const COMBEE
+	const VESPIQUEN
+	const PACHIRISU
+	const BUIZEL
+	const FLOATZEL
+	const CHERUBI
+	const CHERRIM
+	const SHELLOS
+	const GASTRODON
+	const AMBIPOM
+	const DRIFLOON
+	const DRIFBLIM
+	const BUNEARY
+	const LOPUNNY
+	const MISMAGIUS
+	const HONCHKROW
+	const GLAMEOW
+	const PURUGLY
+	const CHINGLING
+	const STUNKY
+	const SKUNTANK
+	const BRONZOR
+	const BRONZONG
+	const BONSLY
+	const MIME_JR
+	const HAPPINY
+	const CHATOT
+	const SPIRITOMB
+	const GIBLE
+	const GABITE
+	const GARCHOMP
+	const MUNCHLAX
+	const RIOLU
+	const LUCARIO
+	const HIPPOPOTAS
+	const HIPPOWDON
+	const SKORUPI
+	const DRAPION
+	const CROAGUNK
+	const TOXICROAK
+	const CARNIVINE
+	const FINNEON
+	const LUMINEON
+	const MANTYKE
+	const SNOVER
+	const ABOMASNOW
+	const WEAVILE
+	const MAGNEZONE
+	const LICKILICKY
+	const RHYPERIOR
+	const TANGROWTH
+	const ELECTIVIRE
+	const MAGMORTAR
+	const TOGEKISS
+	const YANMEGA
+	const LEAFEON
+	const GLACEON
+	const GLISCOR
+	const MAMOSWINE
+	const PORYGON_Z
+	const GALLADE
+	const PROBOPASS
+	const DUSKNOIR
+	const FROSLASS
+	const ROTOM
+	const UXIE
+	const MESPRIT
+	const AZELF
+	const DIALGA
+	const PALKIA
+	const HEATRAN
+	const REGIGIGAS
+	const GIRATINA
+	const CRESSELIA
+	const PHIONE
+	const MANAPHY
+	const DARKRAI
+	const SHAYMIN
+	const ARCEUS
+;SECRET_POKEMON EQU const_value
+	const SYLVEON
+	const REGIELEKI
+	const REGIDRAGO
+NUM_POKEMON EQU const_value - 1
 
-DEF EGG EQU -3
+EGG EQU -3
 
 ; limits:
 ; 999: everything that prints dex counts
@@ -318,4 +566,6 @@ endc
 	const UNOWN_X ; 24
 	const UNOWN_Y ; 25
 	const UNOWN_Z ; 26
-DEF NUM_UNOWN EQU const_value - 1 ; 26
+	const UNOWN_EXCLAMATION
+	const UNOWN_QUESTION
+NUM_UNOWN EQU const_value - 1 ; 28

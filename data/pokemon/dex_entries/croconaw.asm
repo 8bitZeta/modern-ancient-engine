@@ -1,10 +1,10 @@
-	db "BIG JAW@" ; species name
-	dw 307, 550 ; height, weight
+db "BIG@" ; species name
+dw 307, 551 ; height, weight
 
-	db   "The tips of its"
-	next "fangs are slanted"
-	next "backward. Once"
+db   "Once it bites"
+next "down, it won't let"
+next "go until it loses"
 
-	page "those fangs clamp"
-	next "down, the prey has"
-	next "no hope of escape.@"
+page "its fangs. New"
+next "fangs quickly grow"
+next "into place.@"

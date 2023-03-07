@@ -1,10 +1,10 @@
-	db "MAGNET@" ; species name
-	dw 100, 130 ; height, weight
+db "MAGNET@" ; species name
+dw 100, 132 ; height, weight
 
-	db   "The electricity"
-	next "emitted by the"
-	next "units on each side"
+db   "The faster the"
+next "units at its sides"
+next "rotate, the"
 
-	page "of its body cause"
-	next "it to become a"
-	next "strong magnet.@"
+page "greater the mag-"
+next "netic force they"
+next "generate.@"

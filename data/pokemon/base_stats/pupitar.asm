@@ -12,7 +12,8 @@
 	db 40 ; step cycles to hatch
 	db 5 ; unknown 2
 	INCBIN "gfx/pokemon/pupitar/front.dimensions"
-	dw NULL, NULL ; unused (beta front/back pics)
+	db SHED_SKIN, SHED_SKIN ; wBaseAbility1, wBaseAbility2
+	db 0, 0 ; padding
 	db GROWTH_SLOW ; growth rate
 	dn EGG_MONSTER, EGG_MONSTER ; egg groups
 

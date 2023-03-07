@@ -1,10 +1,10 @@
-	db "JET@" ; species name
-	dw 200, 260 ; height, weight
+db "JET@" ; species name
+dw 200, 265 ; height, weight
 
-	db   "To escape from an"
-	next "attacker, it may"
-	next "shoot water out of"
+db   "It forcefully"
+next "squirts water. The"
+next "water jet never"
 
-	page "its mouth, then"
-	next "use that force to"
-	next "swim backward.@"
+page "misses prey even"
+next "if the REMORAID is"
+next "deep in the sea.@"

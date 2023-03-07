@@ -1,10 +1,10 @@
-	db "LITTLE BEAR@" ; species name
-	dw 200, 190 ; height, weight
+db "LITTLE@" ; species name
+dw 200, 194 ; height, weight
 
-	db   "It always licks"
-	next "honey. Its palm"
-	next "tastes sweet"
+db   "It lets honey soak"
+next "into its paws so"
+next "it can lick them"
 
-	page "because of all the"
-	next "honey it has"
-	next "absorbed.@"
+page "all the time."
+next "Every set of paws"
+next "tastes unique.@"

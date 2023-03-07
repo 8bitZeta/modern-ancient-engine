@@ -1,10 +1,10 @@
-	db "DRAGON@" ; species name
-	dw 1301, 360 ; height, weight
+db "DRAGON@" ; species name
+dw 1301, 364 ; height, weight
 
-	db   "It is called the"
-	next "divine #MON."
-	next "When its entire"
+db   "If its body takes"
+next "on an aura, the"
+next "weather changes"
 
-	page "body brightens"
-	next "slightly, the"
-	next "weather changes.@"
+page "instantly. It is"
+next "said to live in"
+next "seas and lakes.@"

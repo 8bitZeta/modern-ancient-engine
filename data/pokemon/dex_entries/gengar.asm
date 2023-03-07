@@ -1,10 +1,10 @@
-	db "SHADOW@" ; species name
-	dw 411, 890 ; height, weight
+db "SHADOW@" ; species name
+dw 411, 893 ; height, weight
 
-	db   "Hiding in people's"
-	next "shadows at night,"
-	next "it absorbs their"
+db   "The leer that"
+next "floats in darkness"
+next "belongs to a GEN-"
 
-	page "heat. The chill it"
-	next "causes makes the"
-	next "victims shake.@"
+page "GAR delighting in"
+next "casting curses on"
+next "people.@"

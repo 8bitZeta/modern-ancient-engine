@@ -1,10 +1,10 @@
-	db "PSI@" ; species name
-	dw 411, 1060 ; height, weight
+db "PSI@" ; species name
+dw 411, 1058 ; height, weight
 
-	db   "It has an IQ of"
-	next "5000. It calcu-"
-	next "lates many things"
+db   "The spoons"
+next "clutched in its"
+next "hands are said to"
 
-	page "in order to gain"
-	next "the edge in every"
-	next "battle.@"
+page "have been created"
+next "by its psychic"
+next "powers.@"

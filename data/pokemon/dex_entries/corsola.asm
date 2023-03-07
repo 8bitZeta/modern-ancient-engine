@@ -1,10 +1,10 @@
-	db "CORAL@" ; species name
-	dw 200, 110 ; height, weight
+db "CORAL@" ; species name
+dw 200, 110 ; height, weight
 
-	db   "The points on its"
-	next "head absorb"
-	next "nutrients from"
+db   "Many live in the"
+next "clean seas of the"
+next "south. They appar-"
 
-	page "clean water. They"
-	next "cannot survive in"
-	next "polluted water.@"
+page "ently can't live"
+next "in polluted wa-"
+next "ters.@"

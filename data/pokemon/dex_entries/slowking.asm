@@ -1,10 +1,10 @@
-	db "ROYAL@" ; species name
-	dw 607, 1750 ; height, weight
+db "ROYAL@" ; species name
+dw 607, 1753 ; height, weight
 
-	db   "Every time it ya-"
-	next "wns, SHELLDER"
-	next "injects more poi-"
+db   "Being bitten by"
+next "SHELLDER gave it"
+next "intelligence com-"
 
-	page "son into it. The"
-	next "poison makes it"
-	next "more intelligent.@"
+page "parable to that of"
+next "award-winning"
+next "scientists.@"

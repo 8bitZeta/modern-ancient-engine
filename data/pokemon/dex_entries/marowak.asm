@@ -1,10 +1,10 @@
-	db "BONEKEEPER@" ; species name
-	dw 303, 990 ; height, weight
+db "BONE@" ; species name
+dw 303, 992 ; height, weight
 
-	db   "Somewhere in the"
-	next "world is a ceme-"
-	next "tery just for"
+db   "From its birth,"
+next "this savage"
+next "#MON constantly"
 
-	page "MAROWAK. It gets"
-	next "its bones from"
-	next "those graves.@"
+page "holds bones. It is"
+next "skilled in using"
+next "them as weapons.@"

@@ -1,10 +1,10 @@
-	db "SUN@" ; species name
-	dw 207, 190 ; height, weight
+db "SUN@" ; species name
+dw 207, 187 ; height, weight
 
-	db   "As the hot season"
-	next "approaches, the"
-	next "petals on this"
+db   "It gets energy"
+next "from warm sunlight"
+next "and is known for"
 
-	page "#MON's face"
-	next "become more vivid"
-	next "and lively.@"
+page "its habit of mov-"
+next "ing in pursuit of"
+next "it.@"

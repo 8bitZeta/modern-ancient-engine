@@ -1,10 +1,10 @@
-	db "JELLYFISH@" ; species name
-	dw 503, 1210 ; height, weight
+db "JELLYFISH@" ; species name
+dw 503, 1213 ; height, weight
 
-	db   "When its 80 feel-"
-	next "ers absorb water,"
-	next "it stretches to"
+db   "It extends its 80"
+next "tentacles to form"
+next "an encircling poi-"
 
-	page "become like a net"
-	next "to entangle its"
-	next "prey.@"
+page "sonous net that is"
+next "difficult to es-"
+next "cape.@"

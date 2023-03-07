@@ -1,10 +1,10 @@
-	db "MOONLIGHT@" ; species name
-	dw 303, 600 ; height, weight
+db "MOONLIGHT@" ; species name
+dw 303, 595 ; height, weight
 
-	db   "On the night of a"
-	next "full moon, or when"
-	next "it gets excited,"
+db   "When exposed to"
+next "the moon's aura,"
+next "the rings on its"
 
-	page "the ring patterns"
-	next "on its body glow"
-	next "yellow.@"
+page "body glow faintly"
+next "and it gains a"
+next "mysterious power.@"

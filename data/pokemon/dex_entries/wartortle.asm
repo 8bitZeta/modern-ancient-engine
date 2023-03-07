@@ -1,10 +1,9 @@
-	db "TURTLE@" ; species name
-	dw 303, 500 ; height, weight
+db "TURTLE@" ; species name
+dw 303, 496 ; height, weight
 
-	db   "Its long, furry"
-	next "tail is a symbol"
-	next "of longevity,"
+db   "It is said to live"
+next "10,000 years. Its"
+next "furry tail is pop-"
 
-	page "making it quite"
-	next "popular among"
-	next "older people.@"
+page "ular as a symbol"
+next "of longevity.@"

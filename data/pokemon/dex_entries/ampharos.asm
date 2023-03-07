@@ -1,10 +1,10 @@
-	db "LIGHT@" ; species name
-	dw 407, 1360 ; height, weight
+db "LIGHT@" ; species name
+dw 407, 1356 ; height, weight
 
-	db   "When it gets dark,"
-	next "the light from its"
-	next "bright, shiny tail"
+db   "The tip of its"
+next "tail shines"
+next "brightly. In the"
 
-	page "can be seen from"
-	next "far away on the"
-	next "ocean's surface.@"
+page "olden days, people"
+next "sent signals using"
+next "the tail's light.@"

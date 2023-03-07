@@ -1,10 +1,10 @@
-	db "KITE@" ; species name
-	dw 611, 4850 ; height, weight
+db "KITE@" ; species name
+dw 611, 4850 ; height, weight
 
-	db   "It swims along"
-	next "freely, eating"
-	next "things that swim"
+db   "While swimming in"
+next "the sea, it ig-"
+next "nores REMORAID"
 
-	page "into its mouth."
-	next "Its whole body is"
-	next "very coarse.@"
+page "that cling to its"
+next "fins seeking food"
+next "scraps.@"

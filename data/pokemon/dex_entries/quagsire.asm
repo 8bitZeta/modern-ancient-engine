@@ -1,10 +1,10 @@
-	db "WATER FISH@" ; species name
-	dw 407, 1650 ; height, weight
+db "WATER@" ; species name
+dw 407, 1653 ; height, weight
 
-	db   "Its body is always"
-	next "slimy. It often"
-	next "bangs its head on"
+db   "It has an easygo-"
+next "ing nature. It"
+next "doesn't care if it"
 
-	page "the river bottom"
-	next "as it swims but"
-	next "seems not to care.@"
+page "bumps its head on"
+next "boats and boulders"
+next "while swimming.@"

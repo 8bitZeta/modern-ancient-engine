@@ -1,10 +1,10 @@
-	db "TRANSPORT@" ; species name
-	dw 802, 4850 ; height, weight
+db "TRANSPORT@" ; species name
+dw 802, 4850 ; height, weight
 
-	db   "This gentle"
-	next "#MON loves to"
-	next "give people rides"
+db   "It loves crossing"
+next "the sea with peo-"
+next "ple and #MON on"
 
-	page "and provides a ve-"
-	next "ry comfortable way"
-	next "to get around.@"
+page "its back. It un-"
+next "derstands human"
+next "speech.@"

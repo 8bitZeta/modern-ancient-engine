@@ -1,10 +1,9 @@
-	db "DRAGON@" ; species name
-	dw 511, 3350 ; height, weight
+db "DRAGON@" ; species name
+dw 511, 3351 ; height, weight
 
-	db   "It stores energy"
-	next "by sleeping at"
-	next "underwater depths"
+db   "It lives in caves"
+next "on the seafloor"
+next "and creates giant"
 
-	page "at which no other"
-	next "life forms can"
-	next "survive.@"
+page "whirlpools every"
+next "time it moves.@"

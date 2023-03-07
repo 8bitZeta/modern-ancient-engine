@@ -1,10 +1,10 @@
-	db "LEAF@" ; species name
-	dw 211, 140 ; height, weight
+db "LEAF@" ; species name
+dw 211, 141 ; height, weight
 
-	db   "It loves to bask"
-	next "in the sunlight."
-	next "It uses the leaf"
+db   "It uses the leaf"
+next "on its head to de-"
+next "termine the tem-"
 
-	page "on its head to"
-	next "seek out warm"
-	next "places.@"
+page "perature and hu-"
+next "midity. It loves"
+next "to sunbathe.@"

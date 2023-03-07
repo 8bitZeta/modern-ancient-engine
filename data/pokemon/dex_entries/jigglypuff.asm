@@ -1,10 +1,10 @@
-	db "BALLOON@" ; species name
-	dw 108, 120 ; height, weight
+db "BALLOON@" ; species name
+dw 108, 121 ; height, weight
 
-	db   "It rolls its cute"
-	next "eyes as it sings a"
-	next "soothing lullaby."
+db   "When it wavers its"
+next "big, round eyes,"
+next "it begins singing"
 
-	page "Its gentle song"
-	next "puts anyone who"
-	next "hears it to sleep.@"
+page "a lullaby that"
+next "makes everyone"
+next "drowsy.@"

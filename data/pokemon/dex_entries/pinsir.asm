@@ -1,10 +1,10 @@
-	db "STAGBEETLE@" ; species name
-	dw 411, 1210 ; height, weight
+db "STAG@" ; species name
+dw 411, 1213 ; height, weight
 
-	db   "When the tempera-"
-	next "ture drops at"
-	next "night, it sleeps"
+db   "It grips prey with"
+next "its pincers until"
+next "the prey is torn"
 
-	page "on treetops or"
-	next "among roots where"
-	next "it is well hidden.@"
+page "in half. What it"
+next "can't tear, it"
+next "tosses far.@"

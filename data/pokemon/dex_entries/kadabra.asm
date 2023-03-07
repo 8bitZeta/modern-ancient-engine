@@ -1,10 +1,10 @@
-	db "PSI@" ; species name
-	dw 403, 1250 ; height, weight
+db "PSI@" ; species name
+dw 403, 1246 ; height, weight
 
-	db   "When it closes its"
-	next "eyes, twice as"
-	next "many alpha parti-"
+db   "It stares at its"
+next "silver spoon to"
+next "focus its mind. It"
 
-	page "cles come out of"
-	next "the surface of its"
-	next "body.@"
+page "emits more alpha"
+next "waves while doing"
+next "so.@"

@@ -1,10 +1,10 @@
-	db "BAT@" ; species name
-	dw 207, 170 ; height, weight
+db "BAT@" ; species name
+dw 207, 165 ; height, weight
 
-	db   "During the day, it"
-	next "gathers with"
-	next "others and hangs"
+db   "It checks its sur-"
+next "roundings and lo-"
+next "cation using re-"
 
-	page "from the ceilings"
-	next "of old buildings"
-	next "and caves.@"
+page "flections of the"
+next "ultrasonic waves"
+next "from its mouth.@"

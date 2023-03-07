@@ -1,10 +1,10 @@
-	db "LITTLE BIRD@" ; species name
-	dw 8, 40 ; height, weight
+db "TINY@" ; species name
+dw 008, 44 ; height, weight
 
-	db   "It is extremely"
-	next "good at climbing"
-	next "tree trunks and"
+db   "It picks food from"
+next "cactus plants,"
+next "deftly avoiding"
 
-	page "likes to eat the"
-	next "new sprouts on"
-	next "the trees.@"
+page "buds and spines."
+next "It seems to skip"
+next "about to move.@"

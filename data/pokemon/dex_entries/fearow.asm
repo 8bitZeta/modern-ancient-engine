@@ -1,10 +1,9 @@
-	db "BEAK@" ; species name
-	dw 311, 840 ; height, weight
+db "BEAK@" ; species name
+dw 311, 838 ; height, weight
 
-	db   "It uses its long"
-	next "beak to attack. It"
-	next "has a surprisingly"
+db   "It has the stamina"
+next "to fly all day on"
+next "its broad wings."
 
-	page "long reach, so it"
-	next "must be treated"
-	next "with caution.@"
+page "It fights by using"
+next "its sharp beak.@"

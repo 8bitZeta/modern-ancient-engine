@@ -1,10 +1,10 @@
-	db "FISH@" ; species name
-	dw 211, 220 ; height, weight
+db "FISH@" ; species name
+dw 211, 220 ; height, weight
 
-	db   "This weak and"
-	next "pathetic #MON"
-	next "gets easily pushed"
+db   "A MAGIKARP living"
+next "for many years can"
+next "leap a mountain"
 
-	page "along rivers when"
-	next "there are strong"
-	next "currents.@"
+page "using Splash. The"
+next "move remains use-"
+next "less, though.@"

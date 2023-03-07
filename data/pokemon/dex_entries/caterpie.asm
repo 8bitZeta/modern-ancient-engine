@@ -1,10 +1,10 @@
-	db "WORM@" ; species name
-	dw 100, 60 ; height, weight
+db "WORM@" ; species name
+dw 100, 64 ; height, weight
 
-	db   "It crawls into"
-	next "foliage where it"
-	next "camouflages itself"
+db   "It releases a"
+next "stench from its"
+next "red antenna to re-"
 
-	page "among leaves that"
-	next "are the same color"
-	next "as its body.@"
+page "pel enemies. It"
+next "grows by molting"
+next "repeatedly.@"

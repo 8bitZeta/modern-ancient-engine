@@ -1,10 +1,10 @@
-	db "WOOL@" ; species name
-	dw 200, 170 ; height, weight
+db "WOOL@" ; species name
+dw 200, 172 ; height, weight
 
-	db   "It stores lots of"
-	next "air in its soft"
-	next "fur, allowing it"
+db   "Its fluffy coat"
+next "swells to double"
+next "when static elec-"
 
-	page "to stay cool in"
-	next "summer and warm"
-	next "in winter.@"
+page "tricity builds up."
+next "Touching it can be"
+next "shocking.@"

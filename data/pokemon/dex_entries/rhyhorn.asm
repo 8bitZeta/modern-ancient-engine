@@ -1,10 +1,10 @@
-	db "SPIKES@" ; species name
-	dw 303, 2540 ; height, weight
+db "SPIKES@" ; species name
+dw 303, 2535 ; height, weight
 
-	db   "It can remember"
-	next "only one thing at"
-	next "a time. Once it"
+db   "Its powerful tack-"
+next "les can destroy"
+next "anything. However,"
 
-	page "starts rushing, it"
-	next "forgets why it"
-	next "started.@"
+page "it is too slow"
+next "witted to help"
+next "people work.@"

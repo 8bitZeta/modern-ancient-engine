@@ -1,10 +1,10 @@
-	db "GAS@" ; species name
-	dw 403, 2 ; height, weight
+db "GAS@" ; species name
+dw 403, 02 ; height, weight
 
-	db   "It wraps its op-"
-	next "ponent in its gas-"
-	next "like body, slowly"
+db   "Born from gases,"
+next "anyone would faint"
+next "if engulfed by its"
 
-	page "weakening its prey"
-	next "by poisoning it"
-	next "through the skin.@"
+page "gaseous body,"
+next "which contains"
+next "poison.@"

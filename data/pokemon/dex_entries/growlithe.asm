@@ -1,10 +1,10 @@
-	db "PUPPY@" ; species name
-	dw 204, 420 ; height, weight
+db "PUPPY@" ; species name
+dw 204, 419 ; height, weight
 
-	db   "It controls a big"
-	next "territory. If it"
-	next "detects an unknown"
+db   "A #MON with a"
+next "loyal nature. It"
+next "will remain mo-"
 
-	page "smell, it roars"
-	next "loudly to force"
-	next "out the intruder.@"
+page "tionless until it"
+next "is given an order"
+next "by its Trainer.@"

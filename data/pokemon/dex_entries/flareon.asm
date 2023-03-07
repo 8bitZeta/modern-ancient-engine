@@ -1,10 +1,10 @@
-	db "FLAME@" ; species name
-	dw 211, 550 ; height, weight
+db "FLAME@" ; species name
+dw 211, 551 ; height, weight
 
-	db   "Once it has stored"
-	next "up enough heat,"
-	next "this #MON's"
+db   "Inhaled air is"
+next "heated in the"
+next "flame sac in its"
 
-	page "body temperature"
-	next "can reach up to"
-	next "1700 degrees.@"
+page "body to a fire"
+next "over 3,000 degrees"
+next "Fahrenheit.@"

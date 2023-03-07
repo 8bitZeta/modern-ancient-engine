@@ -1,10 +1,10 @@
-	db "ROCK SKIN@" ; species name
-	dw 200, 1590 ; height, weight
+db "ROCK@" ; species name
+dw 200, 1587 ; height, weight
 
-	db   "Born deep under-"
-	next "ground, this"
-	next "#MON becomes a"
+db   "A #MON that"
+next "eats soil. Once it"
+next "has eaten a large"
 
-	page "pupa after eating"
-	next "enough dirt to"
-	next "make a mountain.@"
+page "mountain, it goes"
+next "to sleep so it can"
+next "grow.@"

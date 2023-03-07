@@ -1,10 +1,9 @@
-	db "TINYTURTLE@" ; species name
-	dw 108, 200 ; height, weight
+db "TINY@" ; species name
+dw 108, 198 ; height, weight
 
-	db   "When it feels"
-	next "threatened, it"
-	next "draws its legs"
+db   "It shelters itself"
+next "in its shell, then"
+next "strikes back with"
 
-	page "inside its shell"
-	next "and sprays water"
-	next "from its mouth.@"
+page "spouts of water at"
+next "every opportunity.@"
