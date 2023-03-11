@@ -89,9 +89,13 @@ DEF MON_SAT_EV             rb
 DEF MON_SDF_EV             rb
 ; Personality Value Start
 DEF MON_PERSONALITY        EQU _RS
+DEF MON_SP_EVOLUTION       EQU MON_PERSONALITY
 DEF MON_SHININESS          rw
-DEF MON_NATURE             rb
+DEF MON_ENCOUNTER_INFO     EQU _RS
+DEF MON_FORM               rb
+DEF MON_NATURE             EQU _RS
 DEF MON_ABILITY            EQU MON_NATURE
+DEF MOB_HIDDEN_ABILITY     EQU MON_ABILITY
 DEF MON_GENDER             rb
 ; Personality Value End
 DEF MON_DVS                rw
