@@ -1,6 +1,7 @@
 	db 0 ; 298 DEX NO
 
 	db  50, 20,  40,  20,  20,  40
+	evs  1,   0,   0,   0,   0,   0
 	;   hp  atk  def  spd  sat  sdf
 
 	db NORMAL, NORMAL ; type
@@ -8,9 +9,7 @@
 	db 33 ; base exp
 	db NO_ITEM, NO_ITEM ; items
 	db GENDER_F75 ; gender ratio
-	db 100 ; unknown 1
 	db 10 ; step cycles to hatch
-	db 5 ; unknown 2
 	INCBIN "gfx/pokemon/hoenn/azurill/front.dimensions"
 	db THICK_FAT, HUGE_POWER ; wBaseAbility1, wBaseAbility2
 	db 0, 0 ; padding

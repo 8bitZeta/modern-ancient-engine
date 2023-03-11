@@ -1,6 +1,7 @@
 	db 0 ; 484 DEX NO
 
 	db  90, 120, 100,  100,  150,  120
+	evs  0,   0,   0,   0,   3,   0
 	;   hp  atk  def  spd  sat  sdf
 
 	db WATER, DRAGON ; type
@@ -8,9 +9,7 @@
 	db 220 ; base exp
 	db NO_ITEM, NO_ITEM ; items
 	db GENDER_UNKNOWN ; gender ratio
-	db 100 ; unknown 1
 	db 120 ; step cycles to hatch
-	db 5 ; unknown 2
 	INCBIN "gfx/pokemon/sinnoh/palkia/front.dimensions"
 	db PRESSURE, PRESSURE ; wBaseAbility1, wBaseAbility2
 	db 0, 0 ; padding

@@ -9,6 +9,9 @@ DEF BASE_DEF         rb
 DEF BASE_SPD         rb
 DEF BASE_SAT         rb
 DEF BASE_SDF         rb
+DEF BASE_EVS         EQU _RS
+DEF BASE_HP_ATK_DEF_SPD_EVs rb
+DEF BASE_SPATK_SPDEF_EVs    rb
 DEF BASE_TYPES       rw
 rsset BASE_TYPES
 DEF BASE_TYPE_1      rb
@@ -20,9 +23,7 @@ rsset BASE_ITEMS
 DEF BASE_ITEM_1      rb
 DEF BASE_ITEM_2      rb
 DEF BASE_GENDER      rb
-                     rb_skip
 DEF BASE_EGG_STEPS   rb
-                     rb_skip
 DEF BASE_PIC_SIZE    rb
 DEF BASE_FRONTPIC    rw
 DEF BASE_BACKPIC     rw
@@ -78,13 +79,13 @@ DEF MON_ITEM               rb
 DEF MON_MOVES              rb NUM_MOVES
 DEF MON_ID                 rw
 DEF MON_EXP                rb 3
-DEF MON_STAT_EXP           rw NUM_EXP_STATS
-rsset MON_STAT_EXP
-DEF MON_HP_EXP             rw
-DEF MON_ATK_EXP            rw
-DEF MON_DEF_EXP            rw
-DEF MON_SPD_EXP            rw
-DEF MON_SPC_EXP            rw
+DEF MON_EVS                EQU _RS
+DEF MON_HP_EV              rb
+DEF MON_ATK_EV             rb
+DEF MON_DEF_EV             rb
+DEF MON_SPD_EV             rb
+DEF MON_SAT_EV             rb
+DEF MON_SDF_EV             rb
 DEF MON_DVS                rw
 DEF MON_PP                 rb NUM_MOVES
 DEF MON_HAPPINESS          rb
@@ -244,3 +245,7 @@ DEF HAPPINESS_THRESHOLD_2 EQU 200
 DEF PP_UP_MASK EQU %11000000
 DEF PP_UP_ONE  EQU %01000000
 DEF PP_MASK    EQU %00111111
+
+; Sig EV Values
+DEF MAX_EV EQU 252
+DEF MAX_TOTAL_EV EQU 510

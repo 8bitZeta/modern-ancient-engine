@@ -1,6 +1,7 @@
 	db 0 ; species ID placeholder
 
 	db  65,  65,  65,  90,  50,  50
+	evs  0,   0,   0,   2,   0,   0
 	;   hp  atk  def  spd  sat  sdf
 
 	db WATER, WATER ; type
@@ -8,9 +9,7 @@
 	db 131 ; base exp
 	db NO_ITEM, KINGS_ROCK ; items
 	db GENDER_F50 ; gender ratio
-	db 100 ; unknown 1
 	db 20 ; step cycles to hatch
-	db 5 ; unknown 2
 	INCBIN "gfx/pokemon/kanto/poliwhirl/front.dimensions"
 	db WATER_ABSORB, DAMP ; wBaseAbility1, wBaseAbility2
 	db 0, 0 ; padding

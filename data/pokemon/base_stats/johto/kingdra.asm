@@ -1,6 +1,7 @@
 	db 0 ; species ID placeholder
 
 	db  75,  95,  95,  85,  95,  95
+	evs  0,   1,   0,   0,   1,   1
 	;   hp  atk  def  spd  sat  sdf
 
 	db WATER, DRAGON ; type
@@ -8,9 +9,7 @@
 	db 207 ; base exp
 	db NO_ITEM, DRAGON_SCALE ; items
 	db GENDER_F50 ; gender ratio
-	db 100 ; unknown 1
 	db 20 ; step cycles to hatch
-	db 5 ; unknown 2
 	INCBIN "gfx/pokemon/johto/kingdra/front.dimensions"
 	db SWIFT_SWIM, SNIPER ; wBaseAbility1, wBaseAbility2
 	db 0, 0 ; padding

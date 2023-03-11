@@ -1,6 +1,7 @@
 	db 0 ; species ID placeholder
 
 	db  30,  65, 100,  40,  45,  25
+	evs  0,   0,   1,   0,   0,   0
 	;   hp  atk  def  spd  sat  sdf
 
 	db WATER, WATER ; type
@@ -8,9 +9,7 @@
 	db 97 ; base exp
 	db PEARL, BIG_PEARL ; items
 	db GENDER_F50 ; gender ratio
-	db 100 ; unknown 1
 	db 20 ; step cycles to hatch
-	db 5 ; unknown 2
 	INCBIN "gfx/pokemon/kanto/shellder/front.dimensions"
 	db SHELL_ARMOR, SKILL_LINK ; wBaseAbility1, wBaseAbility2
 	db 0, 0 ; padding

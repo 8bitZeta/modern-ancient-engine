@@ -21,6 +21,12 @@ MACRO tmhm
 	endr
 ENDM
 
+MACRO evs
+	; Stores the 6 EV values in 2 bytes
+	db (\1 << 6) | (\2 << 4) | (\3 << 2) | \4
+	db (\5 << 6) | (\6 << 4)
+ENDM
+
 BaseData::
 	indirect_table BASE_DATA_SIZE, 1
 	indirect_entries CELEBI, BaseData1

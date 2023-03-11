@@ -1,6 +1,7 @@
 	db 0 ; 386 DEX NO (NORMAL FORM)
 
 	db  50, 150, 50,  150,  150,  50
+	evs  0,   1,   0,   1,   1,   0
 	;   hp  atk  def  spd  sat  sdf
 
 	db PSYCHIC_TYPE, PSYCHIC_TYPE ; type
@@ -8,9 +9,7 @@
 	db 215 ; base exp
 	db NO_ITEM, NO_ITEM ; items
 	db GENDER_UNKNOWN ; gender ratio
-	db 100 ; unknown 1
 	db 120 ; step cycles to hatch
-	db 5 ; unknown 2
 	INCBIN "gfx/pokemon/hoenn/deoxys/front.dimensions"
 	db PRESSURE, PRESSURE ; wBaseAbility1, wBaseAbility2
 	db 0, 0 ; padding
