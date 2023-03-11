@@ -19,10 +19,14 @@ MACRO box_struct
 \1SdfEV::          db
 ; Start Personality
 \1Personality::
-\1Shininess::      dw
-\1Ability::        
-\1Nature::         db
-\1Gender::         db
+\1SpEvolution::        ; Top nybble of the doubleword modulus 10 for cascoon or other special evolutions. 
+\1Shininess::      dw  ; Bottom 3 nybbles of the doubleword considered for shininess.
+\1EncounterInfo::      ; Stored in the top 3 bits. "Recieved as a gift", "Fateful Encounter", etc.
+\1Form::           db  ; Stored in the bottom 5 bits.
+\1Nature::             ; Stored in the top 5 bits for a value between 0 and 31 mod 26
+\1Ability::            ; Stored as the 3rd most significant bit
+\1HiddenAbility::      ; Stored as the 2nd most significant bit, and is forced 0 with some exceptions. Dummied out in base MAE
+\1Gender::         db  ; Stored as the most significant bit. Value generated. Ignored if the Pokémon's base stat is "UNKNOWN GENDER"
 ; End Personality
 \1DVs::            dw
 \1PP::             ds NUM_MOVES
