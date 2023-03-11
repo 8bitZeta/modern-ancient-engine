@@ -6486,7 +6486,7 @@ LoadEnemyMon:
 	call SetSeenMon
 
 ; EDIT THIS HERE
-	ld hl, wEnemyMonStats + 4
+	ld hl, wEnemyMonStats
 ; END EDIT
 	ld de, wEnemyStats
 	ld bc, NUM_EXP_STATS * 2
