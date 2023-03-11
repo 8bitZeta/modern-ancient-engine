@@ -1,6 +1,7 @@
 	db 0 ; 445 DEX NO
 
 	db  108,  130,  95,  102,  80,  85
+	evs  0,   3,   0,   0,   0,   0
 	;   hp  atk  def  spd  sat  sdf
 
 	db DRAGON, GROUND ; type
@@ -8,9 +9,7 @@
 	db 218 ; base exp
 	db NO_ITEM, NO_ITEM ; items
 	db GENDER_F50 ; gender ratio
-	db 100 ; unknown 1
 	db 40 ; step cycles to hatch
-	db 5 ; unknown 2
 	INCBIN "gfx/pokemon/sinnoh/garchomp/front.dimensions"
 	db SAND_VEIL, SAND_VEIL ; wBaseAbility1, wBaseAbility2
 	db 0, 0 ; padding

@@ -1,6 +1,7 @@
 	db 0 ; species ID placeholder
 
 	db  75,  75,  55,  30, 105,  85
+	evs  0,   0,   0,   0,   2,   0
 	;   hp  atk  def  spd  sat  sdf
 
 	db GRASS, GRASS ; type
@@ -8,9 +9,7 @@
 	db 146 ; base exp
 	db NO_ITEM, NO_ITEM ; items
 	db GENDER_F50 ; gender ratio
-	db 100 ; unknown 1
 	db 20 ; step cycles to hatch
-	db 5 ; unknown 2
 	INCBIN "gfx/pokemon/johto/sunflora/front.dimensions"
 	db CHLOROPHYLL, SOLAR_POWER ; wBaseAbility1, wBaseAbility2
 	db 0, 0 ; padding
