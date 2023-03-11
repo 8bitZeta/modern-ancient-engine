@@ -2699,8 +2699,11 @@ wBaseItem2:: db
 wBaseGender:: db
 wBaseEggSteps:: db
 wBasePicSize:: db
-wBaseUnusedFrontpic:: dw
-wBaseUnusedBackpic:: dw
+; Abilities Start
+wBaseAbility1:: db
+wBaseAbility2:: db
+; Abilities End. You can use the subsequent padding for secret abilities, if you desire. Just know you'll have to code it.
+wBasePadding:: dw
 wBaseGrowthRate:: db
 wBaseEggGroups:: db
 wBaseTMHM:: flag_array NUM_TM_HM_TUTOR

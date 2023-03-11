@@ -17,6 +17,13 @@ MACRO box_struct
 \1SpdEV::          db
 \1SatEV::          db
 \1SdfEV::          db
+; Start Personality
+\1Personality::
+\1Shininess::      dw
+\1Ability::        
+\1Nature::         db
+\1Gender::         db
+; End Personality
 \1DVs::            dw
 \1PP::             ds NUM_MOVES
 \1Happiness::      db

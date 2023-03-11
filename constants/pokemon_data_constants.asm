@@ -25,7 +25,8 @@ DEF BASE_ITEM_2      rb
 DEF BASE_GENDER      rb
 DEF BASE_EGG_STEPS   rb
 DEF BASE_PIC_SIZE    rb
-DEF BASE_FRONTPIC    rw
+DEF BASE_ABILITY1    rb
+DEF BASE_ABILITY2    rb
 DEF BASE_BACKPIC     rw
 DEF BASE_GROWTH_RATE rb
 DEF BASE_EGG_GROUPS  rb
@@ -86,6 +87,13 @@ DEF MON_DEF_EV             rb
 DEF MON_SPD_EV             rb
 DEF MON_SAT_EV             rb
 DEF MON_SDF_EV             rb
+; Personality Value Start
+DEF MON_PERSONALITY        EQU _RS
+DEF MON_SHININESS          rw
+DEF MON_NATURE             rb
+DEF MON_ABILITY            EQU MON_NATURE
+DEF MON_GENDER             rb
+; Personality Value End
 DEF MON_DVS                rw
 DEF MON_PP                 rb NUM_MOVES
 DEF MON_HAPPINESS          rb
