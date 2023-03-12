@@ -517,7 +517,6 @@ Place2DMenuCursor:
 	ld a, [wMenuCursorY]
 	ld b, a
 	xor a
-	dec b
 	jr .handleLoop
 .row_loop
 	add c
