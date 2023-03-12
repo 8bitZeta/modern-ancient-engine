@@ -501,6 +501,7 @@ wSafariMonAngerCount:: db ; unreferenced
 wSafariMonEating:: db
 	ds 1
 wEnemyBackupDVs:: dw ; used when enemy is transformed
+wEnemyBackupPV:: dl  ; used to prevent the PV from being wiped
 wAlreadyDisobeyed:: db
 
 wDisabledMove:: db
