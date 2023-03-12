@@ -6162,7 +6162,8 @@ LoadEnemyMon:
 	call BattleRandom
 	ld [hl], a
 	ld b, a
-; We're done with DVs
+; We're done with DVs, but now we need to generate the PV!
+	farcall GeneratePV
 	jr .UpdateDVs
 
 .NotRoaming:
@@ -6183,6 +6184,8 @@ LoadEnemyMon:
 	ld b, a
 	call BattleRandom
 	ld c, a
+; We're done with DVs, but now we need to generate the PV!
+	farcall GeneratePV
 
 .UpdateDVs:
 ; Input DVs in register bc
@@ -6293,7 +6296,7 @@ LoadEnemyMon:
 ; Try again if length < 1024 mm (i.e. if HIGH(length) < 3 feet)
 	ld a, [wMagikarpLength]
 	cp HIGH(1024)
-	jr c, .GenerateDVs ; try again
+	jp c, .GenerateDVs ; try again
 
 ; Finally done with DVs
 

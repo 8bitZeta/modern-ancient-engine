@@ -712,3 +712,8 @@ INCLUDE "engine/16/table_functions.asm"
 
 ; own section
 INCLUDE "data/trainers/parties.asm"
+
+
+SECTION "New Structs", ROMX
+
+INCLUDE "engine/personality/personality.asm"
