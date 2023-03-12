@@ -3918,6 +3918,19 @@ InitBattleMon:
 	ld de, wBattleMonSpecies
 	ld bc, MON_ID
 	call CopyBytes
+; Modified for the personality value
+	; Because the PV is stored in these following bytes... preserve HL
+	push hl
+	; First offset HL by the space between the PV and the ID, since EVs aren't used here
+	ld bc, MON_PERSONALITY - MON_ID
+	add hl, bc
+	; Now make it the difference between the DVs and the Personality (it should be 4), and load the PV
+	ld bc, MON_DVS - MON_PERSONALITY
+	ld de, wBattleMonPersonality
+	; Now copy the bytes and reload where we originally were
+	call CopyBytes
+	pop hl
+; End Modification
 	ld bc, MON_DVS - MON_ID
 	add hl, bc
 	ld de, wBattleMonDVs
@@ -6025,7 +6038,7 @@ LoadEnemyMon:
 	ld hl, wEnemyMonSpecies
 	ld bc, wEnemyMonEnd - wEnemyMon
 	call ByteFill
-	
+
 ; We don't need to be here if we're in a link battle
 	ld a, [wLinkMode]
 	and a
