@@ -179,15 +179,25 @@ endr
 	ld a, [wMonType]
 	and $f
 	jr z, .registerpokedex
-	; TEMPORARY EDIT - Initialize PV as all 0s until we get a file running with them
+	; Initialize the first 2 bytes of the PV as all 0s. Forms are typically handled trainer to trainer.
+	; The ability to hardcode forms, shininess, gender, etc. will eventually exist. Right now, this is fine.
 	xor a
-	ld b, 4
+	ld b, 2
 .trainer_pv
 	ld [de], a
 	inc de
 	dec b
 	jr nz, .trainer_pv
-	; END EDIT
+	push hl
+	farcall GetTrainerPVs
+	pop hl
+	ld a, b
+	ld [de], a
+	inc de
+	ld a, c
+	ld [de], a
+	inc de
+	; We're done with it.
 	push hl
 	farcall GetTrainerDVs
 	pop hl
