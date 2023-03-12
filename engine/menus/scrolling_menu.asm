@@ -8,6 +8,7 @@ _InitScrollingMenu::
 	call ScrollingMenu_InitFlags
 	call ScrollingMenu_ValidateSwitchItem
 	call ScrollingMenu_InitDisplay
+	call Place2DMenuCursor
 	call ApplyTilemap
 	xor a
 	ldh [hBGMapMode], a
@@ -138,9 +139,9 @@ ScrollingMenuJoyAction:
 	ret
 
 .d_up
-	ld a, [wMenuScrollPosition]
-	and a
-	jr z, .unsetZeroFlag
+	call ScrollingMenu_GetCursorPosition
+	dec a
+	jr z, .checkCallFunction3
 	ld a, [w2DMenuFlags2]
 	bit 7, a
 	jr z, .checkCallFunction3
@@ -150,16 +151,15 @@ ScrollingMenuJoyAction:
 	ret
 
 .d_down
-	ld hl, wMenuScrollPosition
-	ld a, [wMenuData_ScrollingMenuHeight]
-	add [hl]
+	call ScrollingMenu_GetCursorPosition
 	ld b, a
 	ld a, [wScrollingMenuListSize]
 	cp b
-	jr c, .unsetZeroFlag
+	jr c, .checkCallFunction3
 	ld a, [w2DMenuFlags2]
 	bit 7, a
 	jr z, .checkCallFunction3
+	ld hl, wMenuScrollPosition
 	inc [hl]
 .setZeroFlag
 	xor a

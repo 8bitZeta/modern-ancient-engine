@@ -343,7 +343,7 @@ Do2DMenuRTCJoypad:
 	jr .handleLoop
 .loopRTC
 	call DelayFrame
-	.handleLoop
+.handleLoop
 	call UpdateTimeAndPals
 	call Menu_WasButtonPressed
 	ret c
@@ -518,9 +518,10 @@ Place2DMenuCursor:
 	ld b, a
 	xor a
 	dec b
-	jr z, .got_row
+	jr .handleLoop
 .row_loop
 	add c
+.handleLoop
 	dec b
 	jr nz, .row_loop
 
