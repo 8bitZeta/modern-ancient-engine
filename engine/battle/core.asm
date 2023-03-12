@@ -3918,6 +3918,19 @@ InitBattleMon:
 	ld de, wBattleMonSpecies
 	ld bc, MON_ID
 	call CopyBytes
+; Modified for the personality value
+	; Because the PV is stored in these following bytes... preserve HL
+	push hl
+	; First offset HL by the space between the PV and the ID, since EVs aren't used here
+	ld bc, MON_PERSONALITY - MON_ID
+	add hl, bc
+	; Now make it the difference between the DVs and the Personality (it should be 4), and load the PV
+	ld bc, MON_DVS - MON_PERSONALITY
+	ld de, wBattleMonPersonality
+	; Now copy the bytes and reload where we originally were
+	call CopyBytes
+	pop hl
+; End Modification
 	ld bc, MON_DVS - MON_ID
 	add hl, bc
 	ld de, wBattleMonDVs
@@ -6046,7 +6059,6 @@ LoadEnemyMon:
 	call GetBaseData
 
 ; Let's get the item:
-
 ; Is the item predetermined?
 	ld a, [wBattleMode]
 	dec a
@@ -6102,7 +6114,7 @@ LoadEnemyMon:
 	bit SUBSTATUS_TRANSFORMED, a
 	jr z, .InitDVs
 
-; Unknown
+; Saves the DVs when the rest of the data is wiped by the Byte Fill
 	ld hl, wEnemyBackupDVs
 	ld de, wEnemyMonDVs
 	ld a, [hli]
@@ -6163,7 +6175,7 @@ LoadEnemyMon:
 	ld [hl], a
 	ld b, a
 ; We're done with DVs, but now we need to generate the PV!
-	farcall GeneratePV
+	farcall GenerateEnemyPV
 	jr .UpdateDVs
 
 .NotRoaming:
@@ -6185,7 +6197,7 @@ LoadEnemyMon:
 	call BattleRandom
 	ld c, a
 ; We're done with DVs, but now we need to generate the PV!
-	farcall GeneratePV
+	farcall GenerateEnemyPV
 
 .UpdateDVs:
 ; Input DVs in register bc
@@ -6494,7 +6506,6 @@ LoadEnemyMon:
 	ld de, wEnemyStats
 	ld bc, NUM_EXP_STATS * 2
 	call CopyBytes
-
 	ret
 
 CheckSleepingTreeMon:

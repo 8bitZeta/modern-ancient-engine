@@ -165,9 +165,9 @@ endr
 	ld [de], a
 	inc de
 
-	; Initialize stat experience.
+	; Initialize EVs
 	xor a
-	ld b, MON_DVS - MON_EVS
+	ld b, MON_PERSONALITY - MON_EVS
 .loop
 	ld [de], a
 	inc de
@@ -179,7 +179,25 @@ endr
 	ld a, [wMonType]
 	and $f
 	jr z, .registerpokedex
-
+	; Initialize the first 2 bytes of the PV as all 0s. Forms are typically handled trainer to trainer.
+	; The ability to hardcode forms, shininess, gender, etc. will eventually exist. Right now, this is fine.
+	xor a
+	ld b, 2
+.trainer_pv
+	ld [de], a
+	inc de
+	dec b
+	jr nz, .trainer_pv
+	push hl
+	farcall GetTrainerPVs
+	pop hl
+	ld a, b
+	ld [de], a
+	inc de
+	ld a, c
+	ld [de], a
+	inc de
+	; We're done with it.
 	push hl
 	farcall GetTrainerDVs
 	pop hl
@@ -198,8 +216,22 @@ endr
 	push hl
 	ld a, [wBattleMode]
 	and a
-	jr nz, .copywildmonDVs
-
+	jr nz, .copywildmonPVandDVs
+; if we're here, we need to generate a PV
+	ld b, 2
+.other_pv
+	call Random
+	ld [de], a
+	inc de
+	dec b
+	jr nz, .other_pv
+	xor a
+	ld [de], a
+	inc de
+	call Random
+	ld [de], a
+	inc de
+; done
 	call Random
 	ld b, a
 	call Random
@@ -268,7 +300,21 @@ endr
 	inc de
 	jr .initstats
 
-.copywildmonDVs
+.copywildmonPVandDVs
+	; PV first
+	ld a, [wEnemyBackupPV]
+	ld [de], a
+	inc de
+	ld a, [wEnemyBackupPV + 1]
+	ld [de], a
+	inc de
+	ld a, [wEnemyBackupPV + 2]
+	ld [de], a
+	inc de
+	ld a, [wEnemyBackupPV + 3]
+	ld [de], a
+	inc de
+	; Done with PV
 	ld a, [wEnemyMonDVs]
 	ld [de], a
 	inc de
