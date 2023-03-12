@@ -11,6 +11,9 @@ DelayFrame::
 	and a
 	jr nz, .halt
 	ret
+	
+Delay2::
+	ld c, 3
 
 DelayFrames::
 ; Wait c frames
@@ -18,3 +21,4 @@ DelayFrames::
 	dec c
 	jr nz, DelayFrames
 	ret
+
