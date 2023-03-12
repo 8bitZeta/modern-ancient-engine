@@ -1,6 +1,7 @@
 	db 0 ; species ID placeholder
 
 	db 100,  75, 115,  85,  90, 115
+	evs  0,   0,   1,   0,   0,   2
 	;   hp  atk  def  spd  sat  sdf
 
 	db WATER, WATER ; type
@@ -8,9 +9,7 @@
 	db 215 ; base exp
 	db NO_ITEM, NO_ITEM ; items
 	db GENDER_UNKNOWN ; gender ratio
-	db 100 ; unknown 1
 	db 80 ; step cycles to hatch
-	db 5 ; unknown 2
 	INCBIN "gfx/pokemon/johto/suicune/front.dimensions"
 	db PRESSURE, PRESSURE ; wBaseAbility1, wBaseAbility2
 	db 0, 0 ; padding

@@ -1,6 +1,7 @@
 	db 0 ; species ID placeholder
 
 	db  95,  65, 110,  65,  60, 130
+	evs  0,   0,   0,   0,   0,   2
 	;   hp  atk  def  spd  sat  sdf
 
 	db DARK, DARK ; type
@@ -8,9 +9,7 @@
 	db 197 ; base exp
 	db NO_ITEM, NO_ITEM ; items
 	db GENDER_F12_5 ; gender ratio
-	db 100 ; unknown 1
 	db 35 ; step cycles to hatch
-	db 5 ; unknown 2
 	INCBIN "gfx/pokemon/johto/umbreon/front.dimensions"
 	db SYNCHRONIZE, SYNCHRONIZE ; wBaseAbility1, wBaseAbility2
 	db 0, 0 ; padding

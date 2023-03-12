@@ -1,6 +1,7 @@
 	db 0 ; species ID placeholder
 
 	db  90,  75,  75,  70,  90, 100
+	evs  0,   0,   0,   0,   0,   3
 	;   hp  atk  def  spd  sat  sdf
 
 	db WATER, WATER ; type
@@ -8,9 +9,7 @@
 	db 185 ; base exp
 	db NO_ITEM, KINGS_ROCK ; items
 	db GENDER_F50 ; gender ratio
-	db 100 ; unknown 1
 	db 20 ; step cycles to hatch
-	db 5 ; unknown 2
 	INCBIN "gfx/pokemon/johto/politoed/front.dimensions"
 	db WATER_ABSORB, DAMP ; wBaseAbility1, wBaseAbility2
 	db 0, 0 ; padding

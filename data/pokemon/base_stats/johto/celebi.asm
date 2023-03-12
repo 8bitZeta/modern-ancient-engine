@@ -1,6 +1,7 @@
 	db 0 ; species ID placeholder
 
 	db 100, 100, 100, 100, 100, 100
+	evs  3,   0,   0,   0,   0,   0
 	;   hp  atk  def  spd  sat  sdf
 
 	db PSYCHIC_TYPE, GRASS ; type
@@ -8,9 +9,7 @@
 	db 64 ; base exp
 	db NO_ITEM, MIRACLEBERRY ; items
 	db GENDER_UNKNOWN ; gender ratio
-	db 100 ; unknown 1
 	db 120 ; step cycles to hatch
-	db 5 ; unknown 2
 	INCBIN "gfx/pokemon/johto/celebi/front.dimensions"
 	db NATURAL_CURE, NATURAL_CURE ; wBaseAbility1, wBaseAbility2
 	db 0, 0 ; padding
