@@ -165,9 +165,9 @@ endr
 	ld [de], a
 	inc de
 
-	; Initialize stat experience.
+	; Initialize EVs
 	xor a
-	ld b, MON_DVS - MON_STAT_EXP
+	ld b, MON_PERSONALITY - MON_EVS
 .loop
 	ld [de], a
 	inc de
@@ -179,7 +179,25 @@ endr
 	ld a, [wMonType]
 	and $f
 	jr z, .registerpokedex
-
+	; Initialize the first 2 bytes of the PV as all 0s. Forms are typically handled trainer to trainer.
+	; The ability to hardcode forms, shininess, gender, etc. will eventually exist. Right now, this is fine.
+	xor a
+	ld b, 2
+.trainer_pv
+	ld [de], a
+	inc de
+	dec b
+	jr nz, .trainer_pv
+	push hl
+	farcall GetTrainerPVs
+	pop hl
+	ld a, b
+	ld [de], a
+	inc de
+	ld a, c
+	ld [de], a
+	inc de
+	; We're done with it.
 	push hl
 	farcall GetTrainerDVs
 	pop hl
@@ -198,8 +216,22 @@ endr
 	push hl
 	ld a, [wBattleMode]
 	and a
-	jr nz, .copywildmonDVs
-
+	jr nz, .copywildmonPVandDVs
+; if we're here, we need to generate a PV
+	ld b, 2
+.other_pv
+	call Random
+	ld [de], a
+	inc de
+	dec b
+	jr nz, .other_pv
+	xor a
+	ld [de], a
+	inc de
+	call Random
+	ld [de], a
+	inc de
+; done
 	call Random
 	ld b, a
 	call Random
@@ -254,7 +286,7 @@ endr
 	inc de
 
 	; Initialize HP.
-	ld bc, MON_STAT_EXP - 1
+	ld bc, MON_EVS - 1
 	add hl, bc
 	ld a, 1
 	ld c, a
@@ -268,7 +300,21 @@ endr
 	inc de
 	jr .initstats
 
-.copywildmonDVs
+.copywildmonPVandDVs
+	; PV first
+	ld a, [wEnemyBackupPV]
+	ld [de], a
+	inc de
+	ld a, [wEnemyBackupPV + 1]
+	ld [de], a
+	inc de
+	ld a, [wEnemyBackupPV + 2]
+	ld [de], a
+	inc de
+	ld a, [wEnemyBackupPV + 3]
+	ld [de], a
+	inc de
+	; Done with PV
 	ld a, [wEnemyMonDVs]
 	ld [de], a
 	inc de
@@ -337,7 +383,7 @@ endr
 
 .generatestats
 	pop hl
-	ld bc, MON_STAT_EXP - 1
+	ld bc, MON_EVS - 1
 	add hl, bc
 	ld b, FALSE
 	call CalcMonStats
@@ -673,7 +719,7 @@ SendGetMonIntoFromBox:
 	add hl, bc
 	ld d, h
 	ld e, l
-	ld hl, MON_STAT_EXP - 1
+	ld hl, MON_EVS - 1
 	add hl, bc
 
 	push bc
@@ -1410,7 +1456,7 @@ ComputeNPCTrademonStats:
 	ld d, h
 	ld e, l
 	push de
-	ld a, MON_STAT_EXP - 1
+	ld a, MON_EVS - 1
 	call GetPartyParamLocation
 	ld b, TRUE
 	call CalcMonStats
@@ -1426,9 +1472,9 @@ ComputeNPCTrademonStats:
 
 CalcMonStats:
 ; Calculates all 6 Stats of a mon
-; b: Take into account stat EXP if TRUE
+; b: Take into account EVs if TRUE
 ; 'c' counts from 1-6 and points with 'wBaseStats' to the base value
-; hl is the path to the Stat EXP
+; hl is the path to the EVs
 ; de points to where the final stats will be saved
 
 	ld c, STAT_HP - 1 ; first stat
@@ -1468,30 +1514,16 @@ CalcMonStatC:
 	ld e, a
 	pop hl
 	push hl
-	ld a, c
-	cp STAT_SDEF ; last stat
-	jr nz, .not_spdef
-	dec hl
-	dec hl
-
-.not_spdef
-	sla c
 	ld a, d
 	and a
-	jr z, .no_stat_exp
+	jr z, .no_evs
 	add hl, bc
-	push de
-	ld a, [hld]
-	ld e, a
-	ld d, [hl]
-	farcall GetSquareRoot
-	pop de
-
-.no_stat_exp
-	srl c
+	ld a, [hl]
+	ld b, a
+.no_evs
 	pop hl
 	push bc
-	ld bc, MON_DVS - MON_HP_EXP + 1
+	ld bc, MON_DVS - MON_HP_EV + 1
 	add hl, bc
 	pop bc
 	ld a, c

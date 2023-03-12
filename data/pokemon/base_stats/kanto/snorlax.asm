@@ -1,6 +1,7 @@
 	db 0 ; species ID placeholder
 
 	db 160, 110,  65,  30,  65, 110
+	evs  2,   0,   0,   0,   0,   0
 	;   hp  atk  def  spd  sat  sdf
 
 	db NORMAL, NORMAL ; type
@@ -8,9 +9,7 @@
 	db 154 ; base exp
 	db LEFTOVERS, LEFTOVERS ; items
 	db GENDER_F12_5 ; gender ratio
-	db 100 ; unknown 1
 	db 40 ; step cycles to hatch
-	db 5 ; unknown 2
 	INCBIN "gfx/pokemon/kanto/snorlax/front.dimensions"
 	db THICK_FAT, IMMUNITY ; wBaseAbility1, wBaseAbility2
 	db 0, 0 ; padding

@@ -1,6 +1,7 @@
 	db 0 ; species ID placeholder
 
 	db 140,  70,  45,  45,  75,  50
+	evs  3,   0,   0,   0,   0,   0
 	;   hp  atk  def  spd  sat  sdf
 
 	db NORMAL, NORMAL ; type
@@ -8,9 +9,7 @@
 	db 109 ; base exp
 	db NO_ITEM, NO_ITEM ; items
 	db GENDER_F75 ; gender ratio
-	db 100 ; unknown 1
 	db 10 ; step cycles to hatch
-	db 5 ; unknown 2
 	INCBIN "gfx/pokemon/kanto/wigglytuff/front.dimensions"
 	db CUTE_CHARM, CUTE_CHARM ; wBaseAbility1, wBaseAbility2
 	db 0, 0 ; padding

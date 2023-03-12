@@ -1,6 +1,7 @@
 	db 0 ; species ID placeholder
 
 	db  85,  80,  90,  60, 105,  95
+	evs  0,   0,   0,   0,   2,   0
 	;   hp  atk  def  spd  sat  sdf
 
 	db NORMAL, NORMAL ; type
@@ -8,9 +9,7 @@
 	db 180 ; base exp
 	db NO_ITEM, NO_ITEM ; items
 	db GENDER_UNKNOWN ; gender ratio
-	db 100 ; unknown 1
 	db 20 ; step cycles to hatch
-	db 5 ; unknown 2
 	INCBIN "gfx/pokemon/johto/porygon2/front.dimensions"
 	db DOWNLOAD, TRACE ; wBaseAbility1, wBaseAbility2
 	db 0, 0 ; padding

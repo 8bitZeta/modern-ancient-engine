@@ -1,6 +1,7 @@
 	db 0 ; 401 DEX NO
 
 	db  37,  25,  41,  25,  25,  41
+	evs  0,   0,   1,   0,   0,   0
 	;   hp  atk  def  spd  sat  sdf
 
 	db BUG, BUG ; type
@@ -8,9 +9,7 @@
 	db 16 ; base exp
 	db NO_ITEM, NO_ITEM ; items
 	db GENDER_F50 ; gender ratio
-	db 100 ; unknown 1
 	db 15 ; step cycles to hatch
-	db 5 ; unknown 2
 	INCBIN "gfx/pokemon/sinnoh/kricketot/front.dimensions"
 	db SHED_SKIN, SHED_SKIN ; wBaseAbility1, wBaseAbility2
 	db 0, 0 ; padding

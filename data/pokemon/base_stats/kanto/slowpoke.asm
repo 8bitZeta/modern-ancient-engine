@@ -1,6 +1,7 @@
 	db 0 ; species ID placeholder
 
 	db  90,  65,  65,  15,  40,  40
+	evs  1,   0,   0,   0,   0,   0
 	;   hp  atk  def  spd  sat  sdf
 
 	db WATER, PSYCHIC_TYPE ; type
@@ -8,9 +9,7 @@
 	db 99 ; base exp
 	db NO_ITEM, KINGS_ROCK ; items
 	db GENDER_F50 ; gender ratio
-	db 100 ; unknown 1
 	db 20 ; step cycles to hatch
-	db 5 ; unknown 2
 	INCBIN "gfx/pokemon/kanto/slowpoke/front.dimensions"
 	db OWN_TEMPO, OBLIVIOUS ; wBaseAbility1, wBaseAbility2
 	db 0, 0 ; padding

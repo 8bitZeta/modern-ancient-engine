@@ -1,6 +1,7 @@
 	db 0 ; species ID placeholder
 
 	db  46,  57,  40,  50,  40,  40
+	evs  0,   0,   0,   0,   0,   0
 	;   hp  atk  def  spd  sat  sdf
 
 	db POISON, POISON ; type
@@ -8,9 +9,7 @@
 	db 60 ; base exp
 	db NO_ITEM, NO_ITEM ; items
 	db GENDER_F0 ; gender ratio
-	db 100 ; unknown 1
 	db 20 ; step cycles to hatch
-	db 5 ; unknown 2
 	INCBIN "gfx/pokemon/kanto/nidoran_m/front.dimensions"
 	db POISON_POINT, RIVALRY ; wBaseAbility1, wBaseAbility2
 	db 0, 0 ; padding

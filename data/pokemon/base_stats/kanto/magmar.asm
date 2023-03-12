@@ -1,6 +1,7 @@
 	db 0 ; species ID placeholder
 
 	db  65,  95,  57,  93, 100,  85
+	evs  0,   0,   0,   0,   2,   0
 	;   hp  atk  def  spd  sat  sdf
 
 	db FIRE, FIRE ; type
@@ -8,9 +9,7 @@
 	db 167 ; base exp
 	db BURNT_BERRY, BURNT_BERRY ; items
 	db GENDER_F25 ; gender ratio
-	db 100 ; unknown 1
 	db 25 ; step cycles to hatch
-	db 5 ; unknown 2
 	INCBIN "gfx/pokemon/kanto/magmar/front.dimensions"
 	db FLAME_BODY, FLAME_BODY ; wBaseAbility1, wBaseAbility2
 	db 0, 0 ; padding

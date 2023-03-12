@@ -1,6 +1,7 @@
 	db 0 ; species ID placeholder
 
 	db  70,  45,  48,  35,  60,  65
+	evs  2,   0,   0,   0,   0,   0
 	;   hp  atk  def  spd  sat  sdf
 
 	db NORMAL, NORMAL ; type
@@ -8,9 +9,7 @@
 	db 68 ; base exp
 	db MYSTERYBERRY, MOON_STONE ; items
 	db GENDER_F75 ; gender ratio
-	db 100 ; unknown 1
 	db 10 ; step cycles to hatch
-	db 5 ; unknown 2
 	INCBIN "gfx/pokemon/kanto/clefairy/front.dimensions"
 	db MAGIC_GUARD, CUTE_CHARM ; wBaseAbility1, wBaseAbility2
 	db 0, 0 ; padding

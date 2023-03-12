@@ -1,6 +1,7 @@
 	db 0 ; 346 DEX NO
 
 	db  86, 81, 97,  43,  81,  107
+	evs  0,   0,   0,   0,   0,   2
 	;   hp  atk  def  spd  sat  sdf
 
 	db ROCK, GRASS ; type
@@ -8,9 +9,7 @@
 	db 199 ; base exp
 	db NO_ITEM, NO_ITEM ; items
 	db GENDER_F12_5 ; gender ratio
-	db 100 ; unknown 1
 	db 30 ; step cycles to hatch
-	db 5 ; unknown 2
 	INCBIN "gfx/pokemon/hoenn/cradily/front.dimensions"
 	db SUCTION_CUPS, SUCTION_CUPS ; wBaseAbility1, wBaseAbility2
 	db 0, 0 ; padding

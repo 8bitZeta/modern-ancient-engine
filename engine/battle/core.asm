@@ -3918,6 +3918,19 @@ InitBattleMon:
 	ld de, wBattleMonSpecies
 	ld bc, MON_ID
 	call CopyBytes
+; Modified for the personality value
+	; Because the PV is stored in these following bytes... preserve HL
+	push hl
+	; First offset HL by the space between the PV and the ID, since EVs aren't used here
+	ld bc, MON_PERSONALITY - MON_ID
+	add hl, bc
+	; Now make it the difference between the DVs and the Personality (it should be 4), and load the PV
+	ld bc, MON_DVS - MON_PERSONALITY
+	ld de, wBattleMonPersonality
+	; Now copy the bytes and reload where we originally were
+	call CopyBytes
+	pop hl
+; End Modification
 	ld bc, MON_DVS - MON_ID
 	add hl, bc
 	ld de, wBattleMonDVs
@@ -3944,7 +3957,9 @@ InitBattleMon:
 	ld de, wBattleMonNickname
 	ld bc, MON_NAME_LENGTH
 	call CopyBytes
+	; EDIT THIS HERE
 	ld hl, wBattleMonAttack
+	; END EDIT
 	ld de, wPlayerStats
 	ld bc, PARTYMON_STRUCT_LENGTH - MON_ATK
 	call CopyBytes
@@ -6044,7 +6059,6 @@ LoadEnemyMon:
 	call GetBaseData
 
 ; Let's get the item:
-
 ; Is the item predetermined?
 	ld a, [wBattleMode]
 	dec a
@@ -6100,7 +6114,7 @@ LoadEnemyMon:
 	bit SUBSTATUS_TRANSFORMED, a
 	jr z, .InitDVs
 
-; Unknown
+; Saves the DVs when the rest of the data is wiped by the Byte Fill
 	ld hl, wEnemyBackupDVs
 	ld de, wEnemyMonDVs
 	ld a, [hli]
@@ -6160,7 +6174,8 @@ LoadEnemyMon:
 	call BattleRandom
 	ld [hl], a
 	ld b, a
-; We're done with DVs
+; We're done with DVs, but now we need to generate the PV!
+	farcall GenerateEnemyPV
 	jr .UpdateDVs
 
 .NotRoaming:
@@ -6181,6 +6196,8 @@ LoadEnemyMon:
 	ld b, a
 	call BattleRandom
 	ld c, a
+; We're done with DVs, but now we need to generate the PV!
+	farcall GenerateEnemyPV
 
 .UpdateDVs:
 ; Input DVs in register bc
@@ -6291,7 +6308,7 @@ LoadEnemyMon:
 ; Try again if length < 1024 mm (i.e. if HIGH(length) < 3 feet)
 	ld a, [wMagikarpLength]
 	cp HIGH(1024)
-	jr c, .GenerateDVs ; try again
+	jp c, .GenerateDVs ; try again
 
 ; Finally done with DVs
 
@@ -6305,7 +6322,7 @@ LoadEnemyMon:
 ; Fill stats
 	ld de, wEnemyMonMaxHP
 	ld b, FALSE
-	ld hl, wEnemyMonDVs - (MON_DVS - MON_STAT_EXP + 1)
+	ld hl, wEnemyMonDVs - (MON_DVS - MON_EVS + 1)
 	predef CalcMonStats
 
 ; If we're in a trainer battle,
@@ -6483,11 +6500,12 @@ LoadEnemyMon:
 	ld a, [wTempEnemyMonSpecies]
 	call SetSeenMon
 
+; EDIT THIS HERE
 	ld hl, wEnemyMonStats
+; END EDIT
 	ld de, wEnemyStats
 	ld bc, NUM_EXP_STATS * 2
 	call CopyBytes
-
 	ret
 
 CheckSleepingTreeMon:
@@ -7089,60 +7107,96 @@ GiveExperiencePoints:
 	pop bc
 	jp z, .next_mon
 
-; give stat exp
-	ld hl, MON_STAT_EXP + 1
+; Give EVs
+; e = 0 for no Pokérus, 1 for Pokérus
+	ld e, 0
+	ld hl, MON_POKERUS
 	add hl, bc
-	ld d, h
-	ld e, l
-	ld hl, wEnemyMonBaseStats - 1
-	push bc
-	ld c, NUM_EXP_STATS
-.stat_exp_loop
-	inc hl
-	ld a, [de]
-	add [hl]
-	ld [de], a
-	jr nc, .no_carry_stat_exp
-	dec de
-	ld a, [de]
-	inc a
-	jr z, .stat_exp_maxed_out
-	ld [de], a
-	inc de
-
-.no_carry_stat_exp
-	push hl
-	push bc
-	ld a, MON_POKERUS
-	call GetPartyParamLocation
 	ld a, [hl]
 	and a
-	pop bc
-	pop hl
-	jr z, .stat_exp_awarded
-	ld a, [de]
-	add [hl]
-	ld [de], a
-	jr nc, .stat_exp_awarded
-	dec de
-	ld a, [de]
+	jr z, .no_pokerus
+	inc e
+.no_pokerus
+	ld hl, MON_EVS
+	add hl, bc
+	push bc
+	ld a, [wEnemyMonSpecies]
+	ld [wCurSpecies], a
+	call GetBaseData
+; EV yield format: %hhaaddss %ttff0000
+; h = hp, a = atk, d = def, s = spd
+; t = sat, f = sdf, 0 = unused bits
+	ld a, [wBaseHPAtkDefSpdEVs]
+	ld b, a
+	ld c, NUM_STATS ; six EVs
+.ev_loop
+	rlc b
+	rlc b
+	ld a, b
+	and %11
+	bit 0, e
+	jr z, .no_pokerus_boost
+	add a
+.no_pokerus_boost
+; Make sure total EVs never surpass 510
+	push bc
+	push hl
+	ld d, a
+	ld a, c
+.find_correct_ev_address
+	; If address of first EV is changed, find the correct one.
+	cp NUM_STATS
+	jr z, .found_address
+	dec hl
 	inc a
-	jr z, .stat_exp_maxed_out
-	ld [de], a
-	inc de
-	jr .stat_exp_awarded
-
-.stat_exp_maxed_out
-	ld a, $ff
-	ld [de], a
-	inc de
-	ld [de], a
-
-.stat_exp_awarded
-	inc de
-	inc de
+	jr .find_correct_ev_address
+.found_address
+	ld e, NUM_STATS
+	ld bc, 0
+.count_evs
+	ld a, [hli]
+	add c
+	ld c, a
+	jr nc, .cont
+	inc b
+.cont
+	dec e
+	jr nz, .count_evs
+	ld a, d
+	add c
+	ld c, a
+	adc b
+	sub c
+	ld b, a
+	ld e, d
+.decrease_evs_gained
+	call IsEvsGreaterThan510
+	jr nc, .check_ev_overflow
+	dec e
+	dec bc
+	jr .decrease_evs_gained
+.check_ev_overflow
+	pop hl 
+	pop bc 
+	ld a, e
+	add [hl]
+	jr c, .ev_overflow
+	cp MAX_EV + 1
+	jr c, .got_ev
+.ev_overflow
+	ld a, MAX_EV
+.got_ev
+	ld [hli], a
 	dec c
-	jr nz, .stat_exp_loop
+	jr z, .evs_done
+; Use the second byte for Sp.Atk and Sp.Def
+	ld a, c
+	cp 2 ; two stats left, Sp.Atk and Sp.Def
+	jr nz, .ev_loop
+	ld a, [wBaseSpAtkSpDefEVs]
+	ld b, a
+	jr .ev_loop
+.evs_done
 	xor a
 	ldh [hMultiplicand + 0], a
 	ldh [hMultiplicand + 1], a
@@ -7295,7 +7349,7 @@ GiveExperiencePoints:
 	add hl, bc
 	ld d, h
 	ld e, l
-	ld hl, MON_STAT_EXP - 1
+	ld hl, MON_EVS - 1
 	add hl, bc
 	push bc
 	ld b, TRUE
@@ -7451,9 +7505,7 @@ GiveExperiencePoints:
 	ret c
 
 	ld [wTempByteValue], a
-	ld hl, wEnemyMonBaseStats
-	ld c, wEnemyMonEnd - wEnemyMonBaseStats
-.base_stat_division_loop
+	ld hl, wEnemyMonBaseExp
 	xor a
 	ldh [hDividend + 0], a
 	ld a, [hl]
@@ -7463,9 +7515,17 @@ GiveExperiencePoints:
 	ld b, 2
 	call Divide
 	ldh a, [hQuotient + 3]
-	ld [hli], a
-	dec c
-	jr nz, .base_stat_division_loop
+	ld [hl], a
+	ret
+
+
+IsEvsGreaterThan510:
+; Total EVs in bc. Set Carry flag if bc > 510.
+       ld a, HIGH(MAX_TOTAL_EV)
+	cp b
+	ret nz
+	ld a, LOW(MAX_TOTAL_EV)
+	cp c
 	ret
 
 BoostExp:
