@@ -1,5 +1,5 @@
 ; Generate the PV
-GeneratePV:
+GenerateEnemyPV:
 ; Top 2 are for shiny.
 	push hl
 	ld hl, wEnemyMonPersonality
