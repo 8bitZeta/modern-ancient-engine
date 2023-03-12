@@ -6025,7 +6025,7 @@ LoadEnemyMon:
 	ld hl, wEnemyMonSpecies
 	ld bc, wEnemyMonEnd - wEnemyMon
 	call ByteFill
-
+	
 ; We don't need to be here if we're in a link battle
 	ld a, [wLinkMode]
 	and a
@@ -6046,7 +6046,6 @@ LoadEnemyMon:
 	call GetBaseData
 
 ; Let's get the item:
-
 ; Is the item predetermined?
 	ld a, [wBattleMode]
 	dec a
@@ -6102,7 +6101,7 @@ LoadEnemyMon:
 	bit SUBSTATUS_TRANSFORMED, a
 	jr z, .InitDVs
 
-; Unknown
+; Saves the DVs when the rest of the data is wiped by the Byte Fill
 	ld hl, wEnemyBackupDVs
 	ld de, wEnemyMonDVs
 	ld a, [hli]
@@ -6494,8 +6493,6 @@ LoadEnemyMon:
 	ld de, wEnemyStats
 	ld bc, NUM_EXP_STATS * 2
 	call CopyBytes
-
-; BUG: PRZ and BRN stat reductions don't apply to switched Pokémon (see docs/bugs_and_glitches.md)
 	ret
 
 CheckSleepingTreeMon:

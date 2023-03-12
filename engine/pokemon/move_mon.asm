@@ -165,9 +165,9 @@ endr
 	ld [de], a
 	inc de
 
-	; Initialize stat experience.
+	; Initialize EVs
 	xor a
-	ld b, MON_DVS - MON_EVS
+	ld b, MON_PERSONALITY - MON_EVS
 .loop
 	ld [de], a
 	inc de
@@ -179,7 +179,15 @@ endr
 	ld a, [wMonType]
 	and $f
 	jr z, .registerpokedex
-
+	; TEMPORARY EDIT - Initialize PV as all 0s until we get a file running with them
+	xor a
+	ld b, 4
+.trainer_pv
+	ld [de], a
+	inc de
+	dec b
+	jr nz, .trainer_pv
+	; END EDIT
 	push hl
 	farcall GetTrainerDVs
 	pop hl
@@ -198,8 +206,22 @@ endr
 	push hl
 	ld a, [wBattleMode]
 	and a
-	jr nz, .copywildmonDVs
-
+	jr nz, .copywildmonPVandDVs
+; if we're here, we need to generate a PV
+	ld b, 2
+.other_pv
+	call Random
+	ld [de], a
+	inc de
+	dec b
+	jr nz, .other_pv
+	xor a
+	ld [de], a
+	inc de
+	call Random
+	ld [de], a
+	inc de
+; done
 	call Random
 	ld b, a
 	call Random
@@ -268,7 +290,21 @@ endr
 	inc de
 	jr .initstats
 
-.copywildmonDVs
+.copywildmonPVandDVs
+	; PV first
+	ld a, [wEnemyBackupPV]
+	ld [de], a
+	inc de
+	ld a, [wEnemyBackupPV + 1]
+	ld [de], a
+	inc de
+	ld a, [wEnemyBackupPV + 2]
+	ld [de], a
+	inc de
+	ld a, [wEnemyBackupPV + 3]
+	ld [de], a
+	inc de
+	; Done with PV
 	ld a, [wEnemyMonDVs]
 	ld [de], a
 	inc de
