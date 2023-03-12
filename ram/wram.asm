@@ -500,8 +500,10 @@ wPayDayMoney:: ds 3
 wSafariMonAngerCount:: db ; unreferenced
 wSafariMonEating:: db
 	ds 1
-wEnemyBackupDVs:: dw ; used when enemy is transformed
-wEnemyBackupPV:: dl  ; used to prevent the PV from being wiped
+wEnemyBackupDVs:: dw ; used when enemy is transformed or when enemy is captured (to prevent data loss)
+wEnemyBackupPV:: dl  ; used like above
+wPlayerAbility:: db  ; stores the BattleMon ability for easier use
+wEnemyAbility:: db   ; stores the EnemyMon ability for easier use.
 wAlreadyDisobeyed:: db
 
 wDisabledMove:: db
