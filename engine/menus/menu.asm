@@ -309,7 +309,6 @@ Function241d5: ; unreferenced
 	ret
 
 MenuJoypadLoop:
-.loop
 	call Move2DMenuCursor
 	call .BGMap_OAM
 	call Do2DMenuRTCJoypad
@@ -323,7 +322,7 @@ MenuJoypadLoop:
 	ld b, a
 	ld a, [wMenuJoypadFilter]
 	and b
-	jr z, .loop
+	jr z, MenuJoypadLoop
 
 .done
 	ret
@@ -341,7 +340,10 @@ MenuJoypadLoop:
 	ret
 
 Do2DMenuRTCJoypad:
+	jr .handleLoop
 .loopRTC
+	call DelayFrame
+.handleLoop
 	call UpdateTimeAndPals
 	call Menu_WasButtonPressed
 	ret c
@@ -515,10 +517,10 @@ Place2DMenuCursor:
 	ld a, [wMenuCursorY]
 	ld b, a
 	xor a
-	dec b
-	jr z, .got_row
+	jr .handleLoop
 .row_loop
 	add c
+.handleLoop
 	dec b
 	jr nz, .row_loop
 
