@@ -6163,7 +6163,7 @@ LoadEnemyMon:
 	ld [hl], a
 	ld b, a
 ; We're done with DVs, but now we need to generate the PV!
-	farcall GeneratePV
+	farcall GenerateEnemyPV
 	jr .UpdateDVs
 
 .NotRoaming:
@@ -6185,7 +6185,7 @@ LoadEnemyMon:
 	call BattleRandom
 	ld c, a
 ; We're done with DVs, but now we need to generate the PV!
-	farcall GeneratePV
+	farcall GenerateEnemyPV
 
 .UpdateDVs:
 ; Input DVs in register bc
