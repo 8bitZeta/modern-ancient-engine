@@ -15,6 +15,8 @@ DelayFrame::
 Delay2::
 	ld c, 3
 
+Delay3::
+	ld c, 3
 DelayFrames::
 ; Wait c frames
 	call DelayFrame
