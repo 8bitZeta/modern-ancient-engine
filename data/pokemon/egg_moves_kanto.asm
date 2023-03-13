@@ -1,157 +1,157 @@
-SECTION "Egg Moves 1", ROMX
+SECTION "Kanto Egg Moves", ROMX
 
-EggMovePointers1:
+KantoEggMovePointers:
 	dw BulbasaurEggMoves
-	dw NoEggMoves1
-	dw NoEggMoves1
+	dw KantoNoEggMoves
+	dw KantoNoEggMoves
 	dw CharmanderEggMoves
-	dw NoEggMoves1
-	dw NoEggMoves1
+	dw KantoNoEggMoves
+	dw KantoNoEggMoves
 	dw SquirtleEggMoves
-	dw NoEggMoves1
-	dw NoEggMoves1
-	dw NoEggMoves1
-	dw NoEggMoves1
-	dw NoEggMoves1
-	dw NoEggMoves1
-	dw NoEggMoves1
-	dw NoEggMoves1
+	dw KantoNoEggMoves
+	dw KantoNoEggMoves
+	dw KantoNoEggMoves
+	dw KantoNoEggMoves
+	dw KantoNoEggMoves
+	dw KantoNoEggMoves
+	dw KantoNoEggMoves
+	dw KantoNoEggMoves
 	dw PidgeyEggMoves
-	dw NoEggMoves1
-	dw NoEggMoves1
+	dw KantoNoEggMoves
+	dw KantoNoEggMoves
 	dw RattataEggMoves
-	dw NoEggMoves1
+	dw KantoNoEggMoves
 	dw SpearowEggMoves
-	dw NoEggMoves1
+	dw KantoNoEggMoves
 	dw EkansEggMoves
-	dw NoEggMoves1
-	dw NoEggMoves1
-	dw NoEggMoves1
+	dw KantoNoEggMoves
+	dw KantoNoEggMoves
+	dw KantoNoEggMoves
 	dw SandshrewEggMoves
-	dw NoEggMoves1
+	dw KantoNoEggMoves
 	dw NidoranFEggMoves
-	dw NoEggMoves1
-	dw NoEggMoves1
+	dw KantoNoEggMoves
+	dw KantoNoEggMoves
 	dw NidoranMEggMoves
-	dw NoEggMoves1
-	dw NoEggMoves1
-	dw NoEggMoves1
-	dw NoEggMoves1
+	dw KantoNoEggMoves
+	dw KantoNoEggMoves
+	dw KantoNoEggMoves
+	dw KantoNoEggMoves
 	dw VulpixEggMoves
-	dw NoEggMoves1
-	dw NoEggMoves1
-	dw NoEggMoves1
+	dw KantoNoEggMoves
+	dw KantoNoEggMoves
+	dw KantoNoEggMoves
 	dw ZubatEggMoves
-	dw NoEggMoves1
+	dw KantoNoEggMoves
 	dw OddishEggMoves
-	dw NoEggMoves1
-	dw NoEggMoves1
+	dw KantoNoEggMoves
+	dw KantoNoEggMoves
 	dw ParasEggMoves
-	dw NoEggMoves1
+	dw KantoNoEggMoves
 	dw VenonatEggMoves
-	dw NoEggMoves1
+	dw KantoNoEggMoves
 	dw DiglettEggMoves
-	dw NoEggMoves1
+	dw KantoNoEggMoves
 	dw MeowthEggMoves
-	dw NoEggMoves1
+	dw KantoNoEggMoves
 	dw PsyduckEggMoves
-	dw NoEggMoves1
+	dw KantoNoEggMoves
 	dw MankeyEggMoves
-	dw NoEggMoves1
+	dw KantoNoEggMoves
 	dw GrowlitheEggMoves
-	dw NoEggMoves1
+	dw KantoNoEggMoves
 	dw PoliwagEggMoves
-	dw NoEggMoves1
-	dw NoEggMoves1
+	dw KantoNoEggMoves
+	dw KantoNoEggMoves
 	dw AbraEggMoves
-	dw NoEggMoves1
-	dw NoEggMoves1
+	dw KantoNoEggMoves
+	dw KantoNoEggMoves
 	dw MachopEggMoves
-	dw NoEggMoves1
-	dw NoEggMoves1
+	dw KantoNoEggMoves
+	dw KantoNoEggMoves
 	dw BellsproutEggMoves
-	dw NoEggMoves1
-	dw NoEggMoves1
+	dw KantoNoEggMoves
+	dw KantoNoEggMoves
 	dw TentacoolEggMoves
-	dw NoEggMoves1
+	dw KantoNoEggMoves
 	dw GeodudeEggMoves
-	dw NoEggMoves1
-	dw NoEggMoves1
+	dw KantoNoEggMoves
+	dw KantoNoEggMoves
 	dw PonytaEggMoves
-	dw NoEggMoves1
+	dw KantoNoEggMoves
 	dw SlowpokeEggMoves
-	dw NoEggMoves1
-	dw NoEggMoves1
-	dw NoEggMoves1
+	dw KantoNoEggMoves
+	dw KantoNoEggMoves
+	dw KantoNoEggMoves
 	dw FarfetchDEggMoves
 	dw DoduoEggMoves
-	dw NoEggMoves1
+	dw KantoNoEggMoves
 	dw SeelEggMoves
-	dw NoEggMoves1
+	dw KantoNoEggMoves
 	dw GrimerEggMoves
-	dw NoEggMoves1
+	dw KantoNoEggMoves
 	dw ShellderEggMoves
-	dw NoEggMoves1
+	dw KantoNoEggMoves
 	dw GastlyEggMoves
-	dw NoEggMoves1
-	dw NoEggMoves1
+	dw KantoNoEggMoves
+	dw KantoNoEggMoves
 	dw OnixEggMoves
 	dw DrowzeeEggMoves
-	dw NoEggMoves1
+	dw KantoNoEggMoves
 	dw KrabbyEggMoves
-	dw NoEggMoves1
-	dw NoEggMoves1
-	dw NoEggMoves1
+	dw KantoNoEggMoves
+	dw KantoNoEggMoves
+	dw KantoNoEggMoves
 	dw ExeggcuteEggMoves
-	dw NoEggMoves1
+	dw KantoNoEggMoves
 	dw CuboneEggMoves
-	dw NoEggMoves1
-	dw NoEggMoves1
-	dw NoEggMoves1
+	dw KantoNoEggMoves
+	dw KantoNoEggMoves
+	dw KantoNoEggMoves
 	dw LickitungEggMoves
 	dw KoffingEggMoves
-	dw NoEggMoves1
+	dw KantoNoEggMoves
 	dw RhyhornEggMoves
-	dw NoEggMoves1
+	dw KantoNoEggMoves
 	dw ChanseyEggMoves
 	dw TangelaEggMoves
 	dw KangaskhanEggMoves
 	dw HorseaEggMoves
-	dw NoEggMoves1
+	dw KantoNoEggMoves
 	dw GoldeenEggMoves
-	dw NoEggMoves1
-	dw NoEggMoves1
-	dw NoEggMoves1
+	dw KantoNoEggMoves
+	dw KantoNoEggMoves
+	dw KantoNoEggMoves
 	dw MrMimeEggMoves
 	dw ScytherEggMoves
-	dw NoEggMoves1
-	dw NoEggMoves1
-	dw NoEggMoves1
+	dw KantoNoEggMoves
+	dw KantoNoEggMoves
+	dw KantoNoEggMoves
 	dw PinsirEggMoves
-	dw NoEggMoves1
-	dw NoEggMoves1
-	dw NoEggMoves1
+	dw KantoNoEggMoves
+	dw KantoNoEggMoves
+	dw KantoNoEggMoves
 	dw LaprasEggMoves
-	dw NoEggMoves1
+	dw KantoNoEggMoves
 	dw EeveeEggMoves
-	dw NoEggMoves1
-	dw NoEggMoves1
-	dw NoEggMoves1
-	dw NoEggMoves1
+	dw KantoNoEggMoves
+	dw KantoNoEggMoves
+	dw KantoNoEggMoves
+	dw KantoNoEggMoves
 	dw OmanyteEggMoves
-	dw NoEggMoves1
+	dw KantoNoEggMoves
 	dw KabutoEggMoves
-	dw NoEggMoves1
+	dw KantoNoEggMoves
 	dw AerodactylEggMoves
 	dw SnorlaxEggMoves
-	dw NoEggMoves1
-	dw NoEggMoves1
-	dw NoEggMoves1
+	dw KantoNoEggMoves
+	dw KantoNoEggMoves
+	dw KantoNoEggMoves
 	dw DratiniEggMoves
-	dw NoEggMoves1
-	dw NoEggMoves1
-	dw NoEggMoves1
-	dw NoEggMoves1
+	dw KantoNoEggMoves
+	dw KantoNoEggMoves
+	dw KantoNoEggMoves
+	dw KantoNoEggMoves
 .IndirectEnd::
 
 BulbasaurEggMoves:
@@ -582,5 +582,6 @@ DratiniEggMoves:
 	dw MIST
 	dw HAZE
 	dw SUPERSONIC
-NoEggMoves1:
+	
+KantoNoEggMoves:
 	dw -1 ; end

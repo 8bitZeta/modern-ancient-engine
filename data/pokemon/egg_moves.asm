@@ -10,11 +10,15 @@ SECTION "Egg Move Pointers", ROMX
 
 EggMovePointers::
 	indirect_table 2, 1
-	indirect_entries MEW, EggMovePointers1
-	indirect_entries CELEBI, EggMovePointers2
-	indirect_entries NUM_POKEMON, EggMovePointers3
+	indirect_entries MEW, KantoEggMovePointers
+	indirect_entries CELEBI, JohtoEggMovePointers
+	indirect_entries DEOXYS, HoennEggMovePointers
+	indirect_entries ARCEUS, SinnohEggMovePointers
+	indirect_entries NUM_POKEMON, OtherEggMovePointers
 	indirect_table_end
 
 INCLUDE "data/pokemon/egg_moves_kanto.asm"
 INCLUDE "data/pokemon/egg_moves_johto.asm"
-INCLUDE "data/pokemon/egg_moves_new.asm"
+INCLUDE "data/pokemon/egg_moves_hoenn.asm"
+INCLUDE "data/pokemon/egg_moves_sinnoh.asm"
+INCLUDE "data/pokemon/egg_moves_other.asm"

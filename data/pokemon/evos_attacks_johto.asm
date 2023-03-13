@@ -1,6 +1,6 @@
-SECTION "Evolutions and Attacks 2", ROMX
+SECTION "JohtoEvolutions and Attacks", ROMX
 
-EvosAttacksPointers2::
+JohtoEvosAttacksPointers::
 	dw ChikoritaEvosAttacks
 	dw BayleefEvosAttacks
 	dw MeganiumEvosAttacks
@@ -921,7 +921,7 @@ HeracrossEvosAttacks:
 	db 0 ; no more level-up moves
 
 SneaselEvosAttacks:
-	db 0 ; no more evolutions
+	dbbbw EVOLVE_HOLD, RARE_CANDY, TR_ANYTIME, WEAVILE
 	dbw 1, SCRATCH
 	dbw 1, LEER
 	dbw 9, QUICK_ATTACK

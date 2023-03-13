@@ -1,106 +1,106 @@
-SECTION "Egg Moves 2", ROMX
+SECTION "Johto Egg Moves", ROMX
 
-EggMovePointers2::
+JohtoEggMovePointers::
 	dw ChikoritaEggMoves
-	dw NoEggMoves2
-	dw NoEggMoves2
+	dw JohtoNoEggMoves
+	dw JohtoNoEggMoves
 	dw CyndaquilEggMoves
-	dw NoEggMoves2
-	dw NoEggMoves2
+	dw JohtoNoEggMoves
+	dw JohtoNoEggMoves
 	dw TotodileEggMoves
-	dw NoEggMoves2
-	dw NoEggMoves2
+	dw JohtoNoEggMoves
+	dw JohtoNoEggMoves
 	dw SentretEggMoves
-	dw NoEggMoves2
+	dw JohtoNoEggMoves
 	dw HoothootEggMoves
-	dw NoEggMoves2
+	dw JohtoNoEggMoves
 	dw LedybaEggMoves
-	dw NoEggMoves2
+	dw JohtoNoEggMoves
 	dw SpinarakEggMoves
-	dw NoEggMoves2
-	dw NoEggMoves2
+	dw JohtoNoEggMoves
+	dw JohtoNoEggMoves
 	dw ChinchouEggMoves
-	dw NoEggMoves2
+	dw JohtoNoEggMoves
 	dw PichuEggMoves
 	dw CleffaEggMoves
 	dw IgglybuffEggMoves
 	dw TogepiEggMoves
-	dw NoEggMoves2
+	dw JohtoNoEggMoves
 	dw NatuEggMoves
-	dw NoEggMoves2
+	dw JohtoNoEggMoves
 	dw MareepEggMoves
-	dw NoEggMoves2
-	dw NoEggMoves2
-	dw NoEggMoves2
+	dw JohtoNoEggMoves
+	dw JohtoNoEggMoves
+	dw JohtoNoEggMoves
 	dw MarillEggMoves
-	dw NoEggMoves2
+	dw JohtoNoEggMoves
 	dw SudowoodoEggMoves
-	dw NoEggMoves2
+	dw JohtoNoEggMoves
 	dw HoppipEggMoves
-	dw NoEggMoves2
-	dw NoEggMoves2
+	dw JohtoNoEggMoves
+	dw JohtoNoEggMoves
 	dw AipomEggMoves
-	dw NoEggMoves2
-	dw NoEggMoves2
+	dw JohtoNoEggMoves
+	dw JohtoNoEggMoves
 	dw YanmaEggMoves
 	dw WooperEggMoves
-	dw NoEggMoves2
-	dw NoEggMoves2
-	dw NoEggMoves2
+	dw JohtoNoEggMoves
+	dw JohtoNoEggMoves
+	dw JohtoNoEggMoves
 	dw MurkrowEggMoves
-	dw NoEggMoves2
+	dw JohtoNoEggMoves
 	dw MisdreavusEggMoves
-	dw NoEggMoves2
-	dw NoEggMoves2
+	dw JohtoNoEggMoves
+	dw JohtoNoEggMoves
 	dw GirafarigEggMoves
 	dw PinecoEggMoves
-	dw NoEggMoves2
+	dw JohtoNoEggMoves
 	dw DunsparceEggMoves
 	dw GligarEggMoves
-	dw NoEggMoves2
+	dw JohtoNoEggMoves
 	dw SnubbullEggMoves
-	dw NoEggMoves2
+	dw JohtoNoEggMoves
 	dw QwilfishEggMoves
-	dw NoEggMoves2
+	dw JohtoNoEggMoves
 	dw ShuckleEggMoves
 	dw HeracrossEggMoves
 	dw SneaselEggMoves
 	dw TeddiursaEggMoves
-	dw NoEggMoves2
+	dw JohtoNoEggMoves
 	dw SlugmaEggMoves
-	dw NoEggMoves2
+	dw JohtoNoEggMoves
 	dw SwinubEggMoves
-	dw NoEggMoves2
+	dw JohtoNoEggMoves
 	dw CorsolaEggMoves
 	dw RemoraidEggMoves
-	dw NoEggMoves2
+	dw JohtoNoEggMoves
 	dw DelibirdEggMoves
 	dw MantineEggMoves
 	dw SkarmoryEggMoves
 	dw HoundourEggMoves
-	dw NoEggMoves2
-	dw NoEggMoves2
+	dw JohtoNoEggMoves
+	dw JohtoNoEggMoves
 	dw PhanpyEggMoves
-	dw NoEggMoves2
-	dw NoEggMoves2
+	dw JohtoNoEggMoves
+	dw JohtoNoEggMoves
 	dw StantlerEggMoves
-	dw NoEggMoves2
+	dw JohtoNoEggMoves
 	dw TyrogueEggMoves
-	dw NoEggMoves2
+	dw JohtoNoEggMoves
 	dw SmoochumEggMoves
 	dw ElekidEggMoves
 	dw MagbyEggMoves
 	dw MiltankEggMoves
-	dw NoEggMoves2
-	dw NoEggMoves2
-	dw NoEggMoves2
-	dw NoEggMoves2
+	dw JohtoNoEggMoves
+	dw JohtoNoEggMoves
+	dw JohtoNoEggMoves
+	dw JohtoNoEggMoves
 	dw LarvitarEggMoves
-	dw NoEggMoves2
-	dw NoEggMoves2
-	dw NoEggMoves2
-	dw NoEggMoves2
-	dw NoEggMoves2
+	dw JohtoNoEggMoves
+	dw JohtoNoEggMoves
+	dw JohtoNoEggMoves
+	dw JohtoNoEggMoves
+	dw JohtoNoEggMoves
 .IndirectEnd::
 
 ChikoritaEggMoves:
@@ -466,5 +466,6 @@ LarvitarEggMoves:
 	dw OUTRAGE
 	dw FOCUS_ENERGY
 	dw ANCIENTPOWER
-NoEggMoves2:
+	
+JohtoNoEggMoves:
 	dw -1 ; end

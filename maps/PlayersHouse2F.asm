@@ -64,7 +64,7 @@ if DEF(_DEBUG)
 	giveitem MAX_REPEL, 99
 	giveitem MASTER_BALL, 99
 	giveitem RARE_CANDY, 99
-	giveitem THUNDERSTONE, 1
+	giveitem WATER_STONE, 1
 	; all badges
 	setflag ENGINE_ZEPHYRBADGE
 	setflag ENGINE_HIVEBADGE
@@ -141,7 +141,8 @@ if DEF(_DEBUG)
 	givepokemove WATERFALL,  wPartyMon3, 3
 	; Other test pokemon
 	givepoke UNOWN, 50
-	givepoke NINCADA, 50
+	givepoke KIRLIA, 50
+	givepoke KIRLIA, 50
 	; intro events
 	addcellnum PHONE_MOM
 	setmapscene PLAYERS_HOUSE_1F, $1

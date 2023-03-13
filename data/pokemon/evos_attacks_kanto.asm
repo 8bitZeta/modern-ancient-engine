@@ -1,6 +1,6 @@
-SECTION "Evolutions and Attacks 1", ROMX
+SECTION "Kanto Evolutions and Attacks", ROMX
 
-EvosAttacksPointers1::
+KantoEvosAttacksPointers::
 	dw BulbasaurEvosAttacks
 	dw IvysaurEvosAttacks
 	dw VenusaurEvosAttacks
@@ -1685,7 +1685,7 @@ ChanseyEvosAttacks:
 	db 0 ; no more level-up moves
 
 TangelaEvosAttacks:
-	db 0 ; no more evolutions
+	dbww EVOLVE_MOVE, ABSORB, TANGROWTH
 	dbw 1, CONSTRICT
 	dbw 4, SLEEP_POWDER
 	dbw 10, ABSORB
@@ -1934,6 +1934,7 @@ EeveeEvosAttacks:
 	dbbw EVOLVE_ITEM, THUNDERSTONE, JOLTEON
 	dbbw EVOLVE_ITEM, WATER_STONE, VAPOREON
 	dbbw EVOLVE_ITEM, FIRE_STONE, FLAREON
+	dbbw EVOLVE_HAPPINESS_MOVE_TYPE, NORMAL, SYLVEON
 	dbbw EVOLVE_HAPPINESS, TR_MORNDAY, ESPEON
 	dbbw EVOLVE_HAPPINESS, TR_NITE, UMBREON
 	db 0 ; no more evolutions
