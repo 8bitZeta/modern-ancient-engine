@@ -543,9 +543,6 @@ DayCare_InitBreeding:
 	cp 150
 	jr c, .loop
 	ld [wStepsToEgg], a
-	jp .UselessJump
-
-.UselessJump:
 	xor a
 	ld hl, wEggMon
 	ld bc, BOXMON_STRUCT_LENGTH
@@ -713,6 +710,19 @@ DayCare_InitBreeding:
 	ld [hl], a
 	ld a, [wCurPartyLevel]
 	ld [wEggMonLevel], a
+	; Generate a personality
+	push hl
+	ld hl, wEggMonPersonality
+	call Random
+	ld [hli], a
+	call Random
+	ld [hli], a
+	xor a
+	ld [hli], a
+	call Random
+	ld [hl], a
+	pop hl
+	; Done generation
 	ret
 
 .String_EGG:
