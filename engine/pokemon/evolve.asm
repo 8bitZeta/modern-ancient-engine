@@ -85,6 +85,10 @@ EvolveAfterBattle_MasterLoop:
 	ld a, b
 	cp EVOLVE_LEVEL
 	jp z, .level
+	cp EVOLVE_LEVEL_MALE
+	jp z, .level_male
+	cp EVOLVE_LEVEL_FEMALE
+	jp z, .level_female
 
 	cp EVOLVE_MOVE
 	jp z, .move
@@ -222,7 +226,7 @@ EvolveAfterBattle_MasterLoop:
 	call GetNextEvoAttackByte
 	ld b, a
 	inc a
-	jr z, .proceed
+	jp z, .proceed
 
 	ld a, [wLinkMode]
 	cp LINK_TIMECAPSULE
@@ -236,7 +240,7 @@ EvolveAfterBattle_MasterLoop:
 	ld [wTempMonItem], a
 	jr .proceed
 
-	.item_male
+.item_male
 	ld a, TEMPMON
 	ld [wMonType], a
 	push hl
@@ -269,6 +273,25 @@ EvolveAfterBattle_MasterLoop:
 	and a
 	jp nz, .skip_evolution_species
 	jr .proceed
+
+.level_male
+	ld a, TEMPMON
+	ld [wMonType], a
+	push hl
+	farcall GetGender
+	pop hl
+	jp c, .skip_evolution_species_parameter
+	jp z, .skip_evolution_species_parameter
+	jr .level
+
+.level_female
+	ld a, TEMPMON
+	ld [wMonType], a
+	push hl
+	farcall GetGender
+	pop hl
+	jp c, .skip_evolution_species_parameter
+	jp nz, .skip_evolution_species_parameter
 
 .level
 	call GetNextEvoAttackByte

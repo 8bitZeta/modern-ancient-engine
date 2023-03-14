@@ -528,8 +528,8 @@ BastiodonEvosAttacks:
 	db 0 ; no more level-up moves
 
 BurmyEvosAttacks:
-	;dbbw EVOLVE_LEVEL, 20, MALE, MOTHIM
-	;dbbw EVOLVE_LEVEL, 20, FEMALE, WORMADAM
+	dbbw EVOLVE_LEVEL_FEMALE, 20, WORMADAM
+	dbbw EVOLVE_LEVEL_MALE, 20, MOTHIM
 	db 0 ; no more evolutions
 	dbw 1, PROTECT
 	dbw 10, TACKLE
@@ -572,7 +572,7 @@ MothimEvosAttacks:
 	db 0 ; no more level-up moves
 
 CombeeEvosAttacks:
-	;dbbw EVOLVE_LEVEL, 21, FEMALE, VESPIQUEN
+	dbbw EVOLVE_LEVEL_FEMALE, 21, VESPIQUEN
 	db 0 ; no more evolutions
 	dbw 1, SWEET_SCENT
 	dbw 1, GUST
