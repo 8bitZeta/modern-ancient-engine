@@ -72,6 +72,25 @@ GetFarByte::
 	ldh a, [hFarByte]
 	ret
 
+GetFarHalfword::
+; retrieve a halfword from a:hl, and return it in hl.
+	; bankswitch to new bank
+	ldh [hTempBank], a
+	ldh a, [hROMBank]
+	push af
+	ldh a, [hTempBank]
+	rst Bankswitch
+
+	; get halfword from new bank, put it in hl
+	ld a, [hli]
+	ld h, [hl]
+	ld l, a
+
+	; bankswitch to previous bank and return
+	pop af
+	rst Bankswitch
+	ret
+
 GetFarWord::
 ; retrieve a word from a:hl, and return it in hl.
 	; bankswitch to new bank
