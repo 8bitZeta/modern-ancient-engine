@@ -1686,6 +1686,7 @@ ChanseyEvosAttacks:
 
 TangelaEvosAttacks:
 	dbww EVOLVE_MOVE, ABSORB, TANGROWTH
+	db 0 ; no more evolutions
 	dbw 1, CONSTRICT
 	dbw 4, SLEEP_POWDER
 	dbw 10, ABSORB

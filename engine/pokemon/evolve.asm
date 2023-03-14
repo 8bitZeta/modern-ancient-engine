@@ -86,8 +86,14 @@ EvolveAfterBattle_MasterLoop:
 	cp EVOLVE_LEVEL
 	jp z, .level
 
+	cp EVOLVE_MOVE
+	jp z, .move
+
 	cp EVOLVE_HAPPINESS
 	jr z, .happiness
+
+	cp EVOLVE_HAPPINESS_MOVE_TYPE
+	jp z, .happiness_move_type
 
 ; EVOLVE_STAT
 	call GetNextEvoAttackByte
@@ -117,6 +123,36 @@ EvolveAfterBattle_MasterLoop:
 	jp nz, .skip_evolution_species
 	jp .proceed
 
+.move
+	call IsMonHoldingEverstone
+	jp z, .skip_evolution_species_parameter
+
+	call GetNextEvoAttackByte
+	ld c, a
+	call GetNextEvoAttackByte
+	ld b, a
+
+	push hl
+	ld h, b
+	ld l, c
+	call GetMoveIDFromIndex
+	pop hl
+
+	ld b, a
+	ld de, wTempMonMoves
+	ld c, NUM_MOVES
+
+.move_loop
+	ld a, [de]
+	cp b
+	jp z, .proceed
+
+	inc de
+	dec c
+	jr nz, .move_loop
+
+	jp .skip_evolution_species
+
 .happiness
 	ld a, [wTempMonHappiness]
 	cp HAPPINESS_TO_EVOLVE
@@ -141,7 +177,39 @@ EvolveAfterBattle_MasterLoop:
 	ld a, [wTimeOfDay]
 	cp NITE_F
 	jp z, .skip_evolution_species
-	jr .proceed
+	jp .proceed
+
+.happiness_move_type
+	ld a, [wTempMonHappiness]
+	cp HAPPINESS_TO_EVOLVE
+	jp c, .skip_evolution_species_parameter
+
+	call IsMonHoldingEverstone
+	jp z, .skip_evolution_species_parameter
+
+	call GetNextEvoAttackByte
+	ld b, a
+	ld de, wTempMonMoves
+	ld c, NUM_MOVES
+		
+.move_type_loop
+	ld a, [de]
+
+	push hl
+	ld l, a
+	ld a, MOVE_TYPE
+	call GetMoveAttribute
+	and TYPE_MASK
+	pop hl
+
+	cp b
+	jp z, .proceed
+
+	inc de
+	dec c
+	jr nz, .move_type_loop
+
+	jp .skip_evolution_species
 
 .trade
 	ld a, [wLinkMode]

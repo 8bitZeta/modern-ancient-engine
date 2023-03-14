@@ -141,8 +141,8 @@ if DEF(_DEBUG)
 	givepokemove WATERFALL,  wPartyMon3, 3
 	; Other test pokemon
 	givepoke UNOWN, 50
-	givepoke KIRLIA, 50
-	givepoke KIRLIA, 50
+	givepoke TANGELA, 8
+	givepoke EEVEE, 8
 	; intro events
 	addcellnum PHONE_MOM
 	setmapscene PLAYERS_HOUSE_1F, $1
