@@ -720,6 +720,8 @@ DayCare_InitBreeding:
 	xor a
 	ld [hli], a
 	call Random
+	sla a
+	sla a
 	ld [hl], a
 	pop hl
 	; Done generation
