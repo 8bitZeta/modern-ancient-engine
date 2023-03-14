@@ -3986,6 +3986,24 @@ GetPartyMonDVs:
 	bit SUBSTATUS_TRANSFORMED, a
 	ret z
 	ld hl, wPartyMon1DVs
+	; Let's handle the personality value as well
+	push hl
+	ld hl, wPartyMon1Personality
+	push bc
+	ld a, 4
+	ld b, a
+	push de
+	ld de, wBattleMonPersonality
+.pv_loop
+	ld a, [hli]
+	ld [de], a
+	inc de
+	dec b
+	jr nz, .pv_loop
+	pop de
+	pop bc
+	pop hl
+	; Done handling the personality value
 	ld a, [wCurBattleMon]
 	jp GetPartyLocation
 
@@ -4000,6 +4018,24 @@ GetEnemyMonDVs:
 	ret z
 	ld hl, wOTPartyMon1DVs
 	ld a, [wCurOTMon]
+	; Let's handle the personality value as well
+	push hl
+	ld hl, wEnemyBackupPV
+	push bc
+	ld a, 4
+	ld b, a
+	push de
+	ld de, wEnemyMonPersonality
+.pv_loop
+	ld a, [hli]
+	ld [de], a
+	inc de
+	dec b
+	jr nz, .pv_loop
+	pop de
+	pop bc
+	pop hl
+	; Done handling the personality value
 	jp GetPartyLocation
 
 ResetPlayerStatLevels:
@@ -4819,6 +4855,24 @@ DrawEnemyHUD:
 	bit SUBSTATUS_TRANSFORMED, a
 	jr z, .ok
 	ld hl, wEnemyBackupDVs
+	; Let's handle the personality value as well
+	push hl
+	ld hl, wEnemyBackupPV
+	push bc
+	ld a, 4
+	ld b, a
+	push de
+	ld de, wEnemyMonPersonality
+.pv_loop
+	ld a, [hli]
+	ld [de], a
+	inc de
+	dec b
+	jr nz, .pv_loop
+	pop de
+	pop bc
+	pop hl
+	; Done handling the personality value
 .ok
 	ld a, [hli]
 	ld [de], a
