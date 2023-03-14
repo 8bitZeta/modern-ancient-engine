@@ -608,7 +608,7 @@ RaltsEvosAttacks:
 
 KirliaEvosAttacks:
 	dbbw EVOLVE_LEVEL, 30, GARDEVOIR
-	;dbbw EVOLVE_ITEM_MALE, WATER_STONE, GALLADE ;DAWN_STONE
+	dbbw EVOLVE_ITEM_MALE, WATER_STONE, GALLADE ;DAWN_STONE
 	db 0 ; no more evolutions
 	dbw 1, GROWL
 	dbw 1, CONFUSION
