@@ -126,26 +126,23 @@ if DEF(_DEBUG)
 	setflag ENGINE_FLYPOINT_CINNABAR
 	; post-e4
 	setflag ENGINE_CREDITS_SKIP
-	; ; good party
-	; givepoke MEWTWO, 100, BRIGHTPOWDER
-	; ; hm slaves
-	; givepoke MEW, 100, LEFTOVERS
-	; givepoke MEW, 100, LEFTOVERS
-	; givepokemove FLY,        wPartyMon2, 0
-	; givepokemove SURF,       wPartyMon2, 1
-	; givepokemove STRENGTH,   wPartyMon2, 2
-	; givepokemove CUT,        wPartyMon2, 3
-	; givepokemove FLASH,      wPartyMon3, 0
-	; givepokemove ROCK_SMASH, wPartyMon3, 1
-	; givepokemove HEADBUTT,   wPartyMon3, 2
-	; givepokemove WATERFALL,  wPartyMon3, 3
+	; good party
+	givepoke MEWTWO, 100, BRIGHTPOWDER
+	; hm slaves
+	givepoke MEW, 100, LEFTOVERS
+	givepoke MEW, 100, LEFTOVERS
+	givepokemove FLY,        wPartyMon2, 0
+	givepokemove SURF,       wPartyMon2, 1
+	givepokemove STRENGTH,   wPartyMon2, 2
+	givepokemove CUT,        wPartyMon2, 3
+	givepokemove FLASH,      wPartyMon3, 0
+	givepokemove ROCK_SMASH, wPartyMon3, 1
+	givepokemove HEADBUTT,   wPartyMon3, 2
+	givepokemove WATERFALL,  wPartyMon3, 3
 	; Other test pokemon
-	givepoke COMBEE, 50
-	givepoke COMBEE, 50
-	givepoke COMBEE, 50
-	givepoke COMBEE, 50
-	givepoke COMBEE, 50
-	givepoke COMBEE, 50
+	givepoke UNOWN, 50
+	givepoke SNEASEL, 50
+	givepoke HAPPINY, 50
 	; intro events
 	addcellnum PHONE_MOM
 	setmapscene PLAYERS_HOUSE_1F, $1

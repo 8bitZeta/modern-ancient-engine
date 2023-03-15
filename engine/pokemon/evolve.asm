@@ -90,6 +90,9 @@ EvolveAfterBattle_MasterLoop:
 	cp EVOLVE_LEVEL_FEMALE
 	jp z, .level_female
 
+	cp EVOLVE_HOLD
+	jp z, .hold
+
 	cp EVOLVE_MOVE
 	jp z, .move
 
@@ -238,7 +241,35 @@ EvolveAfterBattle_MasterLoop:
 
 	xor a
 	ld [wTempMonItem], a
-	jr .proceed
+	jp .proceed
+
+.hold
+	call GetNextEvoAttackByte
+	ld b, a
+	ld a, [wTempMonItem]
+	cp b
+	jp nz, .skip_evolution_species 
+	xor a
+	ld [wTempMonItem], a
+
+	; Check the time
+	call GetNextEvoAttackByte
+	cp TR_ANYTIME
+	jp z, .proceed
+	cp TR_MORNDAY
+	jr z, .hold_daylight
+
+; TR_NITE
+	ld a, [wTimeOfDay]
+	cp NITE
+	jp nz, .skip_evolution_species
+	jp .proceed
+
+.hold_daylight
+	ld a, [wTimeOfDay]
+	cp NITE
+	jp z, .skip_evolution_species
+	jp .proceed
 
 .item_male
 	ld a, TEMPMON
@@ -741,21 +772,30 @@ GetLowestEvolutionStage:
 	ld [wCurPartySpecies], a
 	ret
 
-SkipEvolutions::
-; Receives a pointer to the evos and attacks for a mon in b:hl, and skips to the attacks.
-	ld a, b
-	call GetFarByte
-	inc hl
-	and a
-	ret z
-	cp EVOLVE_STAT
-	jr nz, .no_extra_skip
-	inc hl
-.no_extra_skip
-	inc hl
-	inc hl
-	inc hl
-	jr SkipEvolutions
+	SkipEvolutions::
+	; Receives a pointer to the evos and attacks for a mon in b:hl, and skips to the attacks.
+		ld a, b
+		call GetFarByte
+		inc hl
+		and a
+		ret z
+		cp EVOLVE_MOVE
+		jr z, .inc4
+		cp EVOLVE_HOLD
+		jr z, .inc4
+		cp EVOLVE_STAT
+		jr z, .inc4
+		jr .inc3
+	
+	.inc5
+		inc hl
+	.inc4
+		inc hl
+	.inc3
+		inc hl
+		inc hl
+		inc hl
+		jr SkipEvolutions
 
 DetermineEvolutionItemResults::
 	push bc

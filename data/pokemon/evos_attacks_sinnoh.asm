@@ -993,7 +993,7 @@ MimeJrEvosAttacks:
 	db 0 ; no more level-up moves
 
 HappinyEvosAttacks:
- 	dbbw EVOLVE_HOLD, RARE_CANDY, TR_MORNDAY, CHANSEY ;OVAL_STONE
+ 	dbbbw EVOLVE_HOLD, RARE_CANDY, TR_MORNDAY, CHANSEY ;OVAL_STONE
 	db 0 ; no more evolutions
 	dbw 1, POUND
 	dbw 1, CHARM
