@@ -2110,7 +2110,7 @@ WynautEvosAttacks:
 
 SnoruntEvosAttacks:
 	dbbw EVOLVE_LEVEL, 42, GLALIE
-	;dbbw EVOLVE_ITEM_FEMALE, WATER_STONE, FROSLASS ;DAWN_STONE
+	dbbw EVOLVE_ITEM_FEMALE, WATER_STONE, FROSLASS ;DAWN_STONE
 	db 0 ; no more evolutions
 	dbw 1, POWDER_SNOW
 	dbw 1, LEER

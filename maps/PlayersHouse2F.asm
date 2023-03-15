@@ -64,7 +64,7 @@ if DEF(_DEBUG)
 	giveitem MAX_REPEL, 99
 	giveitem MASTER_BALL, 99
 	giveitem RARE_CANDY, 99
-	giveitem WATER_STONE, 1
+	giveitem WATER_STONE, 99
 	; all badges
 	setflag ENGINE_ZEPHYRBADGE
 	setflag ENGINE_HIVEBADGE
@@ -126,8 +126,6 @@ if DEF(_DEBUG)
 	setflag ENGINE_FLYPOINT_CINNABAR
 	; post-e4
 	setflag ENGINE_CREDITS_SKIP
-	; good party
-	givepoke MEWTWO, 100, BRIGHTPOWDER
 	; hm slaves
 	givepoke MEW, 100, LEFTOVERS
 	givepoke MEW, 100, LEFTOVERS
@@ -139,10 +137,11 @@ if DEF(_DEBUG)
 	givepokemove ROCK_SMASH, wPartyMon3, 1
 	givepokemove HEADBUTT,   wPartyMon3, 2
 	givepokemove WATERFALL,  wPartyMon3, 3
-	; Other test pokemon
-	givepoke UNOWN, 50
-	givepoke EEVEE, 50
-	givepoke EEVEE, 50
+	; Test pokemon
+	givepoke KIRLIA, 50
+	givepoke KIRLIA, 50
+	givepoke SNORUNT, 50
+	givepoke SNORUNT, 50
 	; intro events
 	addcellnum PHONE_MOM
 	setmapscene PLAYERS_HOUSE_1F, $1
