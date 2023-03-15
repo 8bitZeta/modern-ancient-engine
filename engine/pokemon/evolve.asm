@@ -99,6 +99,12 @@ EvolveAfterBattle_MasterLoop:
 	cp EVOLVE_PARTY
 	jp z, .party
 
+	cp EVOLVE_MAP
+	jp z, .map
+
+	cp EVOLVE_GROUP
+	jp z, .group
+
 	cp EVOLVE_HAPPINESS
 	jr z, .happiness
 
@@ -306,7 +312,7 @@ EvolveAfterBattle_MasterLoop:
 	ld a, [wLinkMode]
 	and a
 	jp nz, .skip_evolution_species
-	jr .proceed
+	jp .proceed
 
 .party
 	call IsMonHoldingEverstone
@@ -330,6 +336,30 @@ EvolveAfterBattle_MasterLoop:
 	farcall FindThatSpecies
 	pop hl
 	jp z, .skip_evolution_species
+	jp .proceed
+
+.map
+	call GetNextEvoAttackByte
+	ld b, a
+	ld a, [wMapNumber]
+	cp b
+	jp nz, .skip_evolution_species
+
+	call IsMonHoldingEverstone
+	jp z, .skip_evolution_species_parameter
+
+	jp .proceed
+
+.group
+	call GetNextEvoAttackByte
+	ld b, a
+	ld a, [wMapGroup]
+	cp b
+	jp nz, .skip_evolution_species
+
+	call IsMonHoldingEverstone
+	jp z, .skip_evolution_species_parameter
+
 	jp .proceed
 
 .level_male
