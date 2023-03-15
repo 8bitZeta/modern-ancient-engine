@@ -96,6 +96,9 @@ EvolveAfterBattle_MasterLoop:
 	cp EVOLVE_MOVE
 	jp z, .move
 
+	cp EVOLVE_PARTY
+	jp z, .party
+
 	cp EVOLVE_HAPPINESS
 	jr z, .happiness
 
@@ -304,6 +307,30 @@ EvolveAfterBattle_MasterLoop:
 	and a
 	jp nz, .skip_evolution_species
 	jr .proceed
+
+.party
+	call IsMonHoldingEverstone
+	jp z, .skip_evolution_species_parameter
+	
+	; Check if any of the party mons are the requested one
+	
+	call GetNextEvoAttackByte
+	ld c, a
+	call GetNextEvoAttackByte
+	ld b, a
+
+	push hl
+	ld h, b
+	ld l, c
+	call GetPokemonIDFromIndex
+	pop hl
+
+	ld b, a
+	push hl
+	farcall FindThatSpecies
+	pop hl
+	jp z, .skip_evolution_species
+	jp .proceed
 
 .level_male
 	ld a, TEMPMON
@@ -782,6 +809,8 @@ GetLowestEvolutionStage:
 		cp EVOLVE_MOVE
 		jr z, .inc4
 		cp EVOLVE_HOLD
+		jr z, .inc4
+		cp EVOLVE_PARTY
 		jr z, .inc4
 		cp EVOLVE_STAT
 		jr z, .inc4

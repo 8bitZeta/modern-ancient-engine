@@ -1304,7 +1304,7 @@ LumineonEvosAttacks:
 	db 0 ; no more level-up moves
 
 MantykeEvosAttacks:
-	dbbw EVOLVE_PARTY, REMORAID, MANTINE
+	dbww EVOLVE_PARTY, REMORAID, MANTINE
 	db 0 ; no more evolutions
 	dbw 1, BUBBLE
 	dbw 1, TACKLE

@@ -141,8 +141,8 @@ if DEF(_DEBUG)
 	givepokemove WATERFALL,  wPartyMon3, 3
 	; Other test pokemon
 	givepoke UNOWN, 50
-	givepoke SNEASEL, 50
-	givepoke HAPPINY, 50
+	givepoke MANTYKE, 50
+	givepoke REMORAID, 50
 	; intro events
 	addcellnum PHONE_MOM
 	setmapscene PLAYERS_HOUSE_1F, $1
