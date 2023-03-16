@@ -65,6 +65,7 @@ if DEF(_DEBUG)
 	giveitem MASTER_BALL, 99
 	giveitem RARE_CANDY, 99
 	giveitem WATER_STONE, 99
+	giveitem POKE_BALL, 2
 	; all badges
 	setflag ENGINE_ZEPHYRBADGE
 	setflag ENGINE_HIVEBADGE
@@ -138,10 +139,9 @@ if DEF(_DEBUG)
 	givepokemove HEADBUTT,   wPartyMon3, 2
 	givepokemove WATERFALL,  wPartyMon3, 3
 	; Test pokemon
-	givepoke WURMPLE, 50
-	givepoke WURMPLE, 50
-	givepoke WURMPLE, 50
-	givepoke WURMPLE, 50
+	givepoke NINCADA, 50
+	givepoke NINCADA, 50
+	givepoke NINCADA, 50
 	; intro events
 	addcellnum PHONE_MOM
 	setmapscene PLAYERS_HOUSE_1F, $1

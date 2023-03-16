@@ -108,6 +108,9 @@ EvolveAfterBattle_MasterLoop:
 	cp EVOLVE_PV
 	jp z, .pv
 
+	cp EVOLVE_CREATE_NEW
+	jp z, .create_new
+
 	cp EVOLVE_HAPPINESS
 	jr z, .happiness
 
@@ -400,6 +403,22 @@ EvolveAfterBattle_MasterLoop:
 .low_pv
 	jp .proceed
 
+.create_new
+	inc hl
+	inc hl
+	inc hl
+
+	call GetNextEvoAttackByte
+	ld b, a
+	ld a, [wTempMonLevel]
+	cp b
+	jp c, .skip_evolution_species
+
+	call IsMonHoldingEverstone
+	jp z, .skip_evolution_species_parameter
+
+	jr .proceed
+
 .level_male
 	ld a, TEMPMON
 	ld [wMonType], a
@@ -534,6 +553,15 @@ EvolveAfterBattle_MasterLoop:
 	call LearnLevelMoves
 	ld a, [wTempSpecies]
 	call SetSeenAndCaughtMon
+
+	call CheckCreate
+
+	cp 0
+	jr z, .skip_create
+
+	call GiveShedinja
+
+.skip_create
 
 	ld a, [wTempSpecies]
 	call GetPokemonIndexFromID
@@ -965,4 +993,161 @@ GetNextEvoAttackByte:
 	ldh a, [hTemp]
 	call GetFarByte
 	inc hl
+	ret
+
+GiveShedinja:
+
+; Generate Current Mon's OT Name
+	push hl
+	ld a, [wCurPartyMon]
+	ld bc, 11
+	ld hl, wPartyMonOTs
+
+	call AddNTimes
+
+	ld e, l
+	ld d, h
+	pop hl
+	push de
+
+; Set wMonType to Party
+	ld a, 0
+	ld [wMonType], a
+
+
+; Set Mon to be generated as SHEDINJA
+; Add to Party
+;	call GetNextEvoAttackByte
+;	ld c, a
+;	call GetNextEvoAttackByte
+;	ld b, a
+;
+;	push hl
+;	ld h, b
+;	ld l, c
+	ld hl, SHEDINJA
+	call GetPokemonIDFromIndex
+;	pop hl
+	ld [wCurPartySpecies], a
+	predef TryAddMonToParty
+
+; Get Current Mon's OT Name
+; Set the OT Name of the last Mon in party
+
+	pop de
+
+	ld a, [wPartyCount]
+	dec a
+	ld hl, wPartyMonOTs
+	call SkipNames
+	call CopyName2
+
+
+; Starting at Move 1 in the Pokemon Data Structure,
+; transfer the Evolved Mon's next 29 bytes
+;  (up to, but not including, Level)
+
+	ld bc, PARTYMON_STRUCT_LENGTH
+	ld a, [wPartyCount]
+	dec a
+
+	ld hl, wPartyMon1Moves
+	call AddNTimes
+
+	push hl
+
+	ld bc, PARTYMON_STRUCT_LENGTH
+	ld a, [wCurPartyMon]
+
+	ld hl, wPartyMon1Moves
+	call AddNTimes
+
+	ld e, l
+	ld d, h
+	
+	pop hl
+	ld b, 0
+
+.loop
+
+	ld a, [de]
+	ld [hl], a
+
+	inc de
+	inc hl
+
+	inc b
+
+	ld a, b
+
+	cp 29
+
+	jr nz, .loop
+
+; Set the approprite Caught Data for the new mon
+	ld b, 0
+	farcall SetGiftPartyMonCaughtData
+
+	ret
+
+CheckCreate:
+	ld a, [wPartyCount]
+	cp 6
+
+	jp z, .do_not_create
+
+	ld a, [wEvolutionOldSpecies]
+	call GetPokemonIndexFromID
+	ld b, h
+	ld c, l
+	ld hl, EvosAttacksPointers
+	ld a, BANK(EvosAttacksPointers)
+	call LoadDoubleIndirectPointer
+	ldh [hTemp], a
+
+	call GetNextEvoAttackByte
+	cp EVOLVE_CREATE_NEW
+
+	jr nz, .do_not_create
+
+	ld a, [wCurItem]
+	ld b, a
+
+	call GetNextEvoAttackByte
+	push hl
+	ld d, a
+	ld [wCurItem], a
+	ld hl, wNumItems
+	call CheckItem
+
+	jr c, .takeBall
+
+	ld a, b
+	ld [wCurItem], a
+
+	pop hl
+
+	jp .do_not_create
+
+.takeBall
+
+	ld a, d
+	ld [wCurItem], a
+	ld hl, wNumItems
+	ld a, 1
+	ld [wItemQuantityChange], a
+	call TossItem
+
+	ld a, b
+	ld [wCurItem], a
+
+	pop hl
+
+	ld a, 1
+
+	ret
+
+.do_not_create
+	ld a, 0
+
 	ret
