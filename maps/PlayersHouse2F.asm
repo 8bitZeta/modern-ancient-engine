@@ -138,10 +138,10 @@ if DEF(_DEBUG)
 	givepokemove HEADBUTT,   wPartyMon3, 2
 	givepokemove WATERFALL,  wPartyMon3, 3
 	; Test pokemon
-	givepoke KIRLIA, 50
-	givepoke KIRLIA, 50
-	givepoke SNORUNT, 50
-	givepoke SNORUNT, 50
+	givepoke WURMPLE, 50
+	givepoke WURMPLE, 50
+	givepoke WURMPLE, 50
+	givepoke WURMPLE, 50
 	; intro events
 	addcellnum PHONE_MOM
 	setmapscene PLAYERS_HOUSE_1F, $1

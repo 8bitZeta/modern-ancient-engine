@@ -105,6 +105,9 @@ EvolveAfterBattle_MasterLoop:
 	cp EVOLVE_GROUP
 	jp z, .group
 
+	cp EVOLVE_PV
+	jp z, .pv
+
 	cp EVOLVE_HAPPINESS
 	jr z, .happiness
 
@@ -360,6 +363,41 @@ EvolveAfterBattle_MasterLoop:
 	call IsMonHoldingEverstone
 	jp z, .skip_evolution_species_parameter
 
+	jp .proceed
+
+.pv
+	call GetNextEvoAttackByte
+	ld b, a
+	ld a, [wTempMonLevel]
+	cp b
+	jp c, .skip_evolution_species
+
+	call IsMonHoldingEverstone
+	jp z, .skip_evolution_species_parameter
+
+	push hl
+
+	ld hl, wTempMonPersonality
+	ld a, [hli]
+	ldh [hDividend], a
+	ld a, [hl]
+	ldh [hDividend + 1], a
+	ld a, 10
+	ldh [hDivisor], a
+	ld b, 2
+	call Divide
+	ldh a, [hRemainder]
+
+	pop hl
+
+	cp 4
+
+	jp c, .low_pv
+
+	call GetNextEvoAttackByte
+	call GetNextEvoAttackByte
+
+.low_pv
 	jp .proceed
 
 .level_male
