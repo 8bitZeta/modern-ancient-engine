@@ -65,6 +65,7 @@ if DEF(_DEBUG)
 	giveitem MASTER_BALL, 99
 	giveitem RARE_CANDY, 99
 	giveitem WATER_STONE, 99
+	giveitem HP_UP, 99
 	giveitem POKE_BALL, 2
 	; all badges
 	setflag ENGINE_ZEPHYRBADGE

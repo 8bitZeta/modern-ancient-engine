@@ -1151,6 +1151,11 @@ VitaminEffect:
 	ld a, MON_EVS
 	call GetPartyParamLocation
 
+	ld a, [wBaseStats]
+	cp 1
+
+	jr z, NoEffectMessage
+
 	ld d, 10
 	push bc
 	push hl
