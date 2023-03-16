@@ -169,7 +169,7 @@ BattleTurn:
 	ld [wPlayerJustGotFrozen], a
 	ld [wEnemyJustGotFrozen], a
 	ld [wCurDamage], a
-	ld [wCurDamage  1], a
+	ld [wCurDamage + 1], a
 
 	call HandleBerserkGene
 	call UpdateBattleMonInParty
@@ -232,7 +232,7 @@ Stubbed_Increments5_a89a:
 	ret
 	ld a, BANK(s5_a89a) ; MBC30 bank used by JP Crystal; inaccessible by MBC3
 	call OpenSRAM
-	ld hl, s5_a89a  1 ; address of MBC30 bank
+	ld hl, s5_a89a + 1 ; address of MBC30 bank
 	inc [hl]
 	jr nz, .finish
 	dec hl
@@ -457,13 +457,13 @@ DetermineMoveOrder:
 	jr z, .player_2
 
 	call BattleRandom
-	cp 50 percent  1
+	cp 50 percent + 1
 	jp c, .player_first
 	jp .enemy_first
 
 .player_2
 	call BattleRandom
-	cp 50 percent  1
+	cp 50 percent + 1
 	jp c, .enemy_first
 	jp .player_first
 
@@ -543,13 +543,13 @@ DetermineMoveOrder:
 	cp USING_INTERNAL_CLOCK
 	jr z, .player_2c
 	call BattleRandom
-	cp 50 percent  1
+	cp 50 percent + 1
 	jp c, .player_first
 	jp .enemy_first
 
 .player_2c
 	call BattleRandom
-	cp 50 percent  1
+	cp 50 percent + 1
 	jp c, .enemy_first
 .player_first
 	scf
@@ -626,8 +626,8 @@ ParsePlayerAction:
 	if HIGH(POUND)
 		ld a, HIGH(POUND)
 	endc
-	ld [wFXAnimID  1], a
-	if LOW(POUND) == (HIGH(POUND)  1)
+	ld [wFXAnimID + 1], a
+	if LOW(POUND) == (HIGH(POUND) + 1)
 		inc a
 	else
 		ld a, LOW(POUND)
@@ -660,14 +660,14 @@ ParsePlayerAction:
 	callfar UpdateMoveData
 	xor a
 	ld [wPlayerCharging], a
-	ld a, [wPlayerMoveStruct  MOVE_EFFECT]
+	ld a, [wPlayerMoveStruct + MOVE_EFFECT]
 	cp EFFECT_FURY_CUTTER
 	jr z, .continue_fury_cutter
 	xor a
 	ld [wPlayerFuryCutterCount], a
 
 .continue_fury_cutter
-	ld a, [wPlayerMoveStruct  MOVE_EFFECT]
+	ld a, [wPlayerMoveStruct + MOVE_EFFECT]
 	cp EFFECT_RAGE
 	jr z, .continue_rage
 	ld hl, wPlayerSubStatus4
@@ -676,7 +676,7 @@ ParsePlayerAction:
 	ld [wPlayerRageCounter], a
 
 .continue_rage
-	ld a, [wPlayerMoveStruct  MOVE_EFFECT]
+	ld a, [wPlayerMoveStruct + MOVE_EFFECT]
 	cp EFFECT_PROTECT
 	jr z, .continue_protect
 	cp EFFECT_ENDURE
@@ -1264,7 +1264,7 @@ HandleWrap:
 	ld a, l
 	ld [wFXAnimID], a
 	ld a, h
-	ld [wFXAnimID  1], a
+	ld [wFXAnimID + 1], a
 	pop hl
 	call GetMoveName
 	dec [hl]
@@ -1548,7 +1548,7 @@ HandleFutureSight:
 	callfar DoMove
 	xor a
 	ld [wCurDamage], a
-	ld [wCurDamage  1], a
+	ld [wCurDamage + 1], a
 
 	ld a, BATTLE_VARS_MOVE
 	call GetBattleVarAddr
@@ -1844,21 +1844,21 @@ SubtractHP:
 	ld [hld], a
 	ld [wHPBuffer3], a
 	ld a, [hl]
-	ld [wHPBuffer2  1], a
+	ld [wHPBuffer2 + 1], a
 	sbc b
 	ld [hl], a
-	ld [wHPBuffer3  1], a
+	ld [wHPBuffer3 + 1], a
 	ret nc
 
 	ld a, [wHPBuffer2]
 	ld c, a
-	ld a, [wHPBuffer2  1]
+	ld a, [wHPBuffer2 + 1]
 	ld b, a
 	xor a
 	ld [hli], a
 	ld [hl], a
 	ld [wHPBuffer3], a
-	ld [wHPBuffer3  1], a
+	ld [wHPBuffer3 + 1], a
 	ret
 
 GetSixteenthMaxHP:
@@ -1933,7 +1933,7 @@ GetMaxHP:
 	ld hl, wEnemyMonMaxHP
 .ok
 	ld a, [hli]
-	ld [wHPBuffer1  1], a
+	ld [wHPBuffer1 + 1], a
 	ld b, a
 
 	ld a, [hl]
@@ -1955,17 +1955,17 @@ GetHalfHP: ; unreferenced
 	srl b
 	rr c
 	ld a, [hli]
-	ld [wHPBuffer1  1], a
+	ld [wHPBuffer1 + 1], a
 	ld a, [hl]
 	ld [wHPBuffer1], a
 	ret
 
 CheckUserHasEnoughHP:
-	ld hl, wBattleMonHP  1
+	ld hl, wBattleMonHP + 1
 	ldh a, [hBattleTurn]
 	and a
 	jr z, .ok
-	ld hl, wEnemyMonHP  1
+	ld hl, wEnemyMonHP + 1
 .ok
 	ld a, c
 	sub [hl]
@@ -1982,7 +1982,7 @@ RestoreHP:
 	ld hl, wBattleMonMaxHP
 .ok
 	ld a, [hli]
-	ld [wHPBuffer1  1], a
+	ld [wHPBuffer1 + 1], a
 	ld a, [hld]
 	ld [wHPBuffer1], a
 	dec hl
@@ -1992,23 +1992,23 @@ RestoreHP:
 	ld [hld], a
 	ld [wHPBuffer3], a
 	ld a, [hl]
-	ld [wHPBuffer2  1], a
+	ld [wHPBuffer2 + 1], a
 	adc b
 	ld [hli], a
-	ld [wHPBuffer3  1], a
+	ld [wHPBuffer3 + 1], a
 
 	ld a, [wHPBuffer1]
 	ld c, a
 	ld a, [hld]
 	sub c
-	ld a, [wHPBuffer1  1]
+	ld a, [wHPBuffer1 + 1]
 	ld b, a
 	ld a, [hl]
 	sbc b
 	jr c, .overflow
 	ld a, b
 	ld [hli], a
-	ld [wHPBuffer3  1], a
+	ld [wHPBuffer3 + 1], a
 	ld a, c
 	ld [hl], a
 	ld [wHPBuffer3], a
@@ -2376,7 +2376,7 @@ EnemyPartyMonEntrance:
 	call SetEnemyTurn
 	call SpikesDamage
 	xor a
-	ld [wEnemyMoveStruct  MOVE_ANIM], a
+	ld [wEnemyMoveStruct + MOVE_ANIM], a
 	ld [wBattlePlayerAction], a
 	inc a
 	ret
@@ -2508,22 +2508,22 @@ WinTrainerBattle:
 
 .AddMoneyToMom:
 	push bc
-	ld hl, wBattleReward  2
-	ld de, wMomsMoney  2
+	ld hl, wBattleReward + 2
+	ld de, wMomsMoney + 2
 	call AddBattleMoneyToAccount
 	pop bc
 	ret
 
 .AddMoneyToWallet:
 	push bc
-	ld hl, wBattleReward  2
-	ld de, wMoney  2
+	ld hl, wBattleReward + 2
+	ld de, wMoney + 2
 	call AddBattleMoneyToAccount
 	pop bc
 	ret
 
 .DoubleReward:
-	ld hl, wBattleReward  2
+	ld hl, wBattleReward + 2
 	sla [hl]
 	dec hl
 	rl [hl]
@@ -2543,7 +2543,7 @@ WinTrainerBattle:
 	dw SentAllToMomText
 
 .CheckMaxedOutMomMoney:
-	ld hl, wMomsMoney  2
+	ld hl, wMomsMoney + 2
 	ld a, [hld]
 	cp LOW(MAX_MONEY)
 	ld a, [hld]
@@ -2702,7 +2702,7 @@ UpdateFaintedPlayerMon:
 	ld [wBattleMonStatus], a
 	call UpdateBattleMonInParty
 	ld c, HAPPINESS_FAINTED
-	; If TheirLevel > (YourLevel  30), use a different parameter
+	; If TheirLevel > (YourLevel + 30), use a different parameter
 	ld a, [wBattleMonLevel]
 	add 30
 	ld b, a
@@ -3312,7 +3312,7 @@ LookUpTheEffectivenessOfEveryMove:
 	ld a, b
 	call GetPartyLocation
 	pop bc
-	ld e, NUM_MOVES  1
+	ld e, NUM_MOVES + 1
 .loop
 	dec e
 	jr z, .done
@@ -3330,7 +3330,7 @@ LookUpTheEffectivenessOfEveryMove:
 	pop de
 	pop hl
 	ld a, [wTypeMatchup]
-	cp EFFECTIVE  1
+	cp EFFECTIVE + 1
 	jr c, .loop
 	ld hl, wEnemyEffectivenessVsPlayerMons
 	set 0, [hl]
@@ -3362,17 +3362,17 @@ IsThePlayerMonTypesEffectiveAgainstOTMon:
 	ld c, BASE_CATCH_RATE - BASE_TYPES
 	call FarCopyBytes
 	ld a, [wBattleMonType1]
-	ld [wPlayerMoveStruct  MOVE_TYPE], a
+	ld [wPlayerMoveStruct + MOVE_TYPE], a
 	call SetPlayerTurn
 	callfar BattleCheckTypeMatchup
 	ld a, [wTypeMatchup]
-	cp EFFECTIVE  1
+	cp EFFECTIVE + 1
 	jr nc, .super_effective
 	ld a, [wBattleMonType2]
-	ld [wPlayerMoveStruct  MOVE_TYPE], a
+	ld [wPlayerMoveStruct + MOVE_TYPE], a
 	callfar BattleCheckTypeMatchup
 	ld a, [wTypeMatchup]
-	cp EFFECTIVE  1
+	cp EFFECTIVE + 1
 	jr nc, .super_effective
 .done
 	pop bc
@@ -3503,7 +3503,7 @@ LoadEnemyMonToSwitchTo:
 	ld a, [hli]
 	ld [wEnemyHPAtTimeOfPlayerSwitch], a
 	ld a, [hl]
-	ld [wEnemyHPAtTimeOfPlayerSwitch  1], a
+	ld [wEnemyHPAtTimeOfPlayerSwitch + 1], a
 	ret
 
 CheckWhetherToAskSwitch:
@@ -3686,7 +3686,7 @@ CheckPlayerPartyForFitMon:
 	ld bc, PARTYMON_STRUCT_LENGTH - 1
 .loop
 	or [hl]
-	inc hl ;  1
+	inc hl ; + 1
 	or [hl]
 	add hl, bc
 	dec e
@@ -3779,33 +3779,33 @@ TryToRunAwayFromBattle:
 	inc a
 	ld [wNumFleeAttempts], a
 	ld a, [hli]
-	ldh [hMultiplicand  1], a
+	ldh [hMultiplicand + 1], a
 	ld a, [hl]
-	ldh [hMultiplicand  2], a
+	ldh [hMultiplicand + 2], a
 	ld a, [de]
 	inc de
-	ldh [hEnemyMonSpeed  0], a
+	ldh [hEnemyMonSpeed + 0], a
 	ld a, [de]
-	ldh [hEnemyMonSpeed  1], a
+	ldh [hEnemyMonSpeed + 1], a
 	call SafeLoadTempTilemapToTilemap
-	ld de, hMultiplicand  1
+	ld de, hMultiplicand + 1
 	ld hl, hEnemyMonSpeed
 	ld c, 2
 	call CompareBytes
 	jr nc, .can_escape
 
 	xor a
-	ldh [hMultiplicand  0], a
+	ldh [hMultiplicand + 0], a
 	ld a, 32
 	ldh [hMultiplier], a
 	call Multiply
-	ldh a, [hProduct  2]
-	ldh [hDividend  0], a
-	ldh a, [hProduct  3]
-	ldh [hDividend  1], a
-	ldh a, [hEnemyMonSpeed  0]
+	ldh a, [hProduct + 2]
+	ldh [hDividend + 0], a
+	ldh a, [hProduct + 3]
+	ldh [hDividend + 1], a
+	ldh a, [hEnemyMonSpeed + 0]
 	ld b, a
-	ldh a, [hEnemyMonSpeed  1]
+	ldh a, [hEnemyMonSpeed + 1]
 	srl b
 	rr a
 	srl b
@@ -3815,7 +3815,7 @@ TryToRunAwayFromBattle:
 	ldh [hDivisor], a
 	ld b, 2
 	call Divide
-	ldh a, [hQuotient  2]
+	ldh a, [hQuotient + 2]
 	and a
 	jr nz, .can_escape
 	ld a, [wNumFleeAttempts]
@@ -3824,16 +3824,16 @@ TryToRunAwayFromBattle:
 	dec c
 	jr z, .cant_escape_2
 	ld b, 30
-	ldh a, [hQuotient  3]
+	ldh a, [hQuotient + 3]
 	add b
-	ldh [hQuotient  3], a
+	ldh [hQuotient + 3], a
 	jr c, .can_escape
 	jr .loop
 
 .cant_escape_2
 	call BattleRandom
 	ld b, a
-	ldh a, [hQuotient  3]
+	ldh a, [hQuotient + 3]
 	cp b
 	jr nc, .can_escape
 	ld a, BATTLEPLAYERACTION_USEITEM
@@ -4137,7 +4137,7 @@ SendOutPlayerMon:
 	ld [wBattleMenuCursorPosition], a
 	ld [wCurMoveNum], a
 	ld [wTypeModifier], a
-	ld [wPlayerMoveStruct  MOVE_ANIM], a
+	ld [wPlayerMoveStruct + MOVE_ANIM], a
 	ld [wLastPlayerCounterMove], a
 	ld [wLastEnemyCounterMove], a
 	ld [wLastPlayerMove], a
@@ -4371,12 +4371,12 @@ HandleHPHealingItem:
 	ld a, b
 	cp HELD_BERRY
 	ret nz
-	ld de, wEnemyMonHP  1
+	ld de, wEnemyMonHP + 1
 	ld hl, wEnemyMonMaxHP
 	ldh a, [hBattleTurn]
 	and a
 	jr z, .go
-	ld de, wBattleMonHP  1
+	ld de, wBattleMonHP + 1
 	ld hl, wBattleMonMaxHP
 
 .go
@@ -4390,7 +4390,7 @@ HandleHPHealingItem:
 	dec de
 	ld a, [de]
 	inc de
-	ld [wHPBuffer2  1], a
+	ld [wHPBuffer2 + 1], a
 	adc a
 	ld b, a
 	ld a, b
@@ -4411,7 +4411,7 @@ HandleHPHealingItem:
 	call ItemRecoveryAnim
 	; store max HP in wHPBuffer1
 	ld a, [hli]
-	ld [wHPBuffer1  1], a
+	ld [wHPBuffer1 + 1], a
 	ld a, [hl]
 	ld [wHPBuffer1], a
 	ld a, [de]
@@ -4421,7 +4421,7 @@ HandleHPHealingItem:
 	dec de
 	ld a, [de]
 	adc 0
-	ld [wHPBuffer3  1], a
+	ld [wHPBuffer3 + 1], a
 	ld b, a
 	ld a, [hld]
 	cp c
@@ -4429,12 +4429,12 @@ HandleHPHealingItem:
 	sbc b
 	jr nc, .okay
 	ld a, [hli]
-	ld [wHPBuffer3  1], a
+	ld [wHPBuffer3 + 1], a
 	ld a, [hl]
 	ld [wHPBuffer3], a
 
 .okay
-	ld a, [wHPBuffer3  1]
+	ld a, [wHPBuffer3 + 1]
 	ld [de], a
 	inc de
 	ld a, [wHPBuffer3]
@@ -4470,7 +4470,7 @@ ItemRecoveryAnim:
 	if HIGH(RECOVER)
 		ld a, HIGH(RECOVER)
 	endc
-	ld [wFXAnimID  1], a
+	ld [wFXAnimID + 1], a
 	ld a, LOW(RECOVER)
 	ld [wFXAnimID], a
 	predef PlayBattleAnim
@@ -4714,7 +4714,7 @@ DrawPlayerHUD:
 	; Exp bar
 	push de
 	ld a, [wCurBattleMon]
-	ld hl, wPartyMon1Exp  2
+	ld hl, wPartyMon1Exp + 2
 	call GetPartyLocation
 	ld d, h
 	ld e, l
@@ -4913,9 +4913,9 @@ DrawEnemyHUD:
 
 	ld hl, wEnemyMonHP
 	ld a, [hli]
-	ldh [hMultiplicand  1], a
+	ldh [hMultiplicand + 1], a
 	ld a, [hld]
-	ldh [hMultiplicand  2], a
+	ldh [hMultiplicand + 2], a
 	or [hl]
 	jr nz, .not_fainted
 
@@ -4926,7 +4926,7 @@ DrawEnemyHUD:
 
 .not_fainted
 	xor a
-	ldh [hMultiplicand  0], a
+	ldh [hMultiplicand + 0], a
 	ld a, HP_BAR_LENGTH_PX
 	ldh [hMultiplier], a
 	call Multiply
@@ -4944,26 +4944,26 @@ DrawEnemyHUD:
 	srl b
 	rr a
 	ldh [hDivisor], a
-	ldh a, [hProduct  2]
+	ldh a, [hProduct + 2]
 	ld b, a
 	srl b
-	ldh a, [hProduct  3]
+	ldh a, [hProduct + 3]
 	rr a
 	srl b
 	rr a
-	ldh [hProduct  3], a
+	ldh [hProduct + 3], a
 	ld a, b
-	ldh [hProduct  2], a
+	ldh [hProduct + 2], a
 
 .less_than_256_max
-	ldh a, [hProduct  2]
-	ldh [hDividend  0], a
-	ldh a, [hProduct  3]
-	ldh [hDividend  1], a
+	ldh a, [hProduct + 2]
+	ldh [hDividend + 0], a
+	ldh a, [hProduct + 3]
+	ldh [hDividend + 1], a
 	ld a, 2
 	ld b, a
 	call Divide
-	ldh a, [hQuotient  3]
+	ldh a, [hQuotient + 3]
 	ld e, a
 	ld a, HP_BAR_LENGTH
 	ld d, a
@@ -5812,7 +5812,7 @@ MoveInfoBox:
 	call .PrintPP
 
 	callfar UpdateMoveData
-	ld a, [wPlayerMoveStruct  MOVE_ANIM]
+	ld a, [wPlayerMoveStruct + MOVE_ANIM]
 	ld b, a
 	farcall GetMoveCategoryName
 	hlcoord 1, 9
@@ -5823,7 +5823,7 @@ MoveInfoBox:
 	ld l, c
 	ld [hl], "/"
 
-	ld a, [wPlayerMoveStruct  MOVE_ANIM]
+	ld a, [wPlayerMoveStruct + MOVE_ANIM]
 	ld b, a
 	hlcoord 2, 10
 	predef PrintMoveType
@@ -5878,7 +5878,7 @@ CheckPlayerHasUsableMoves:
 	swap a
 	and $f
 	ld b, a
-	ld d, NUM_MOVES  1
+	ld d, NUM_MOVES + 1
 	xor a
 .loop
 	dec d
@@ -6023,14 +6023,14 @@ ParseEnemyAction:
 	ld [wEnemyCharging], a
 
 .raging
-	ld a, [wEnemyMoveStruct  MOVE_EFFECT]
+	ld a, [wEnemyMoveStruct + MOVE_EFFECT]
 	cp EFFECT_FURY_CUTTER
 	jr z, .fury_cutter
 	xor a
 	ld [wEnemyFuryCutterCount], a
 
 .fury_cutter
-	ld a, [wEnemyMoveStruct  MOVE_EFFECT]
+	ld a, [wEnemyMoveStruct + MOVE_EFFECT]
 	cp EFFECT_RAGE
 	jr z, .no_rage
 	ld hl, wEnemySubStatus4
@@ -6039,7 +6039,7 @@ ParseEnemyAction:
 	ld [wEnemyRageCounter], a
 
 .no_rage
-	ld a, [wEnemyMoveStruct  MOVE_EFFECT]
+	ld a, [wEnemyMoveStruct + MOVE_EFFECT]
 	cp EFFECT_PROTECT
 	ret z
 	cp EFFECT_ENDURE
@@ -6085,7 +6085,7 @@ LoadEnemyMon:
 ; To do this we pull the species from wTempEnemyMonSpecies
 
 ; Notes:
-;   BattleRandom is used to ensure sync between Game Boys
+; +  BattleRandom is used to ensure sync between Game Boys
 
 ; Clear the whole enemy mon struct (wEnemyMon)
 	xor a
@@ -6136,14 +6136,14 @@ LoadEnemyMon:
 	jr z, .UpdateItem
 
 ; Failing that, it's all up to chance
-;  Effective chances:
-;    75% None
-;    23% Item1
-;     2% Item2
+; + Effective chances:
+; +  + 75% None
+; +  + 23% Item1
+; +  +  2% Item2
 
 ; 25% chance of getting an item
 	call BattleRandom
-	cp 75 percent  1
+	cp 75 percent + 1
 	ld a, NO_ITEM
 	jr c, .UpdateItem
 
@@ -6334,7 +6334,7 @@ LoadEnemyMon:
 	cp 5 percent
 	jr c, .CheckMagikarpArea
 ; Try again if length >= 1616 mm (i.e. if LOW(length) >= 4 inches)
-	ld a, [wMagikarpLength  1]
+	ld a, [wMagikarpLength + 1]
 	cp LOW(1616)
 	jr nc, .GenerateDVs
 
@@ -6343,7 +6343,7 @@ LoadEnemyMon:
 	cp 20 percent - 1
 	jr c, .CheckMagikarpArea
 ; Try again if length >= 1600 mm (i.e. if LOW(length) >= 3 inches)
-	ld a, [wMagikarpLength  1]
+	ld a, [wMagikarpLength + 1]
 	cp LOW(1600)
 	jr nc, .GenerateDVs
 
@@ -6357,7 +6357,7 @@ LoadEnemyMon:
 	jr z, .Happiness
 ; 40% chance of not flooring
 	call Random
-	cp 39 percent  1
+	cp 39 percent + 1
 	jr c, .Happiness
 ; Try again if length < 1024 mm (i.e. if HIGH(length) < 3 feet)
 	ld a, [wMagikarpLength]
@@ -6376,7 +6376,7 @@ LoadEnemyMon:
 ; Fill stats
 	ld de, wEnemyMonMaxHP
 	ld b, FALSE
-	ld hl, wEnemyMonDVs - (MON_DVS - MON_EVS  1)
+	ld hl, wEnemyMonDVs - (MON_DVS - MON_EVS + 1)
 	predef CalcMonStats
 
 ; If we're in a trainer battle,
@@ -6412,7 +6412,7 @@ LoadEnemyMon:
 ; Full HP..
 	ld a, [wEnemyMonMaxHP]
 	ld [hli], a
-	ld a, [wEnemyMonMaxHP  1]
+	ld a, [wEnemyMonMaxHP + 1]
 	ld [hl], a
 
 ; ..unless it's a RoamMon
@@ -6428,23 +6428,23 @@ LoadEnemyMon:
 	jr z, .InitRoamHP
 ; Update from the struct if it has
 	ld a, [hl]
-	ld [wEnemyMonHP  1], a
+	ld [wEnemyMonHP + 1], a
 	jr .Moves
 
 .InitRoamHP:
 ; HP only uses the lo byte in the RoamMon struct since
 ; Raikou and Entei will have < 256 hp at level 40
-	ld a, [wEnemyMonHP  1]
+	ld a, [wEnemyMonHP + 1]
 	ld [hl], a
 	jr .Moves
 
 .OpponentParty:
 ; Get HP from the party struct
-	ld hl, (wOTPartyMon1HP  1)
+	ld hl, (wOTPartyMon1HP + 1)
 	ld a, [wCurPartyMon]
 	call GetPartyLocation
 	ld a, [hld]
-	ld [wEnemyMonHP  1], a
+	ld [wEnemyMonHP + 1], a
 	ld a, [hld]
 	ld [wEnemyMonHP], a
 
@@ -6736,7 +6736,7 @@ ApplyPrzEffectOnSpeed:
 	ld a, [wBattleMonStatus]
 	and 1 << PAR
 	ret z
-	ld hl, wBattleMonSpeed  1
+	ld hl, wBattleMonSpeed + 1
 	ld a, [hld]
 	ld b, a
 	ld a, [hl]
@@ -6757,7 +6757,7 @@ ApplyPrzEffectOnSpeed:
 	ld a, [wEnemyMonStatus]
 	and 1 << PAR
 	ret z
-	ld hl, wEnemyMonSpeed  1
+	ld hl, wEnemyMonSpeed + 1
 	ld a, [hld]
 	ld b, a
 	ld a, [hl]
@@ -6781,7 +6781,7 @@ ApplyBrnEffectOnAttack:
 	ld a, [wBattleMonStatus]
 	and 1 << BRN
 	ret z
-	ld hl, wBattleMonAttack  1
+	ld hl, wBattleMonAttack + 1
 	ld a, [hld]
 	ld b, a
 	ld a, [hl]
@@ -6800,7 +6800,7 @@ ApplyBrnEffectOnAttack:
 	ld a, [wEnemyMonStatus]
 	and 1 << BRN
 	ret z
-	ld hl, wEnemyMonAttack  1
+	ld hl, wEnemyMonAttack + 1
 	ld a, [hld]
 	ld b, a
 	ld a, [hl]
@@ -6868,12 +6868,12 @@ ApplyStatLevelMultiplier:
 	ld b, 0
 	add hl, bc
 	xor a
-	ldh [hMultiplicand  0], a
+	ldh [hMultiplicand + 0], a
 	ld a, [de]
-	ldh [hMultiplicand  1], a
+	ldh [hMultiplicand + 1], a
 	inc de
 	ld a, [de]
-	ldh [hMultiplicand  2], a
+	ldh [hMultiplicand + 2], a
 	ld a, [hli]
 	ldh [hMultiplier], a
 	call Multiply
@@ -6884,22 +6884,22 @@ ApplyStatLevelMultiplier:
 	pop hl
 
 ; Cap at 999.
-	ldh a, [hQuotient  3]
+	ldh a, [hQuotient + 3]
 	sub LOW(MAX_STAT_VALUE)
-	ldh a, [hQuotient  2]
+	ldh a, [hQuotient + 2]
 	sbc HIGH(MAX_STAT_VALUE)
 	jp c, .okay3
 
 	ld a, HIGH(MAX_STAT_VALUE)
-	ldh [hQuotient  2], a
+	ldh [hQuotient + 2], a
 	ld a, LOW(MAX_STAT_VALUE)
-	ldh [hQuotient  3], a
+	ldh [hQuotient + 3], a
 
 .okay3
-	ldh a, [hQuotient  2]
+	ldh a, [hQuotient + 2]
 	ld [hli], a
 	ld b, a
-	ldh a, [hQuotient  3]
+	ldh a, [hQuotient + 3]
 	ld [hl], a
 	or b
 	jr nz, .okay4
@@ -6918,8 +6918,8 @@ BadgeStatBoosts:
 ; Every other badge boosts a stat, starting from the first.
 ; GlacierBadge also boosts Special Defense, although the relevant code is buggy (see below).
 
-; 	ZephyrBadge:  Attack
-; 	PlainBadge:   Speed
+; 	ZephyrBadge: + Attack
+; 	PlainBadge: +  Speed
 ; 	MineralBadge: Defense
 ; 	GlacierBadge: Special Attack and Special Defense
 
@@ -7071,12 +7071,12 @@ _BattleRandom::
 	ld b, 10 ; number of seeds
 
 ; Generate next number in the sequence for each seed
-; a[n1] = (a[n] * 5  1) % 256
+; a[n1] = (a[n] * 5 + 1) % 256
 .loop
 	; get last #
 	ld a, [hl]
 
-	; a * 5  1
+	; a * 5 + 1
 	ld c, a
 	add a
 	add a
@@ -7107,7 +7107,7 @@ Call_PlayBattleAnim:
 	ld a, e
 	ld [wFXAnimID], a
 	ld a, d
-	ld [wFXAnimID  1], a
+	ld [wFXAnimID + 1], a
 	call WaitBGMap
 	predef_jump PlayBattleAnim
 
@@ -7235,7 +7235,7 @@ GiveExperiencePoints:
 	ld a, e
 	add [hl]
 	jr c, .ev_overflow
-	cp MAX_EV  1
+	cp MAX_EV + 1
 	jr c, .got_ev
 .ev_overflow
 	ld a, MAX_EV
@@ -7252,10 +7252,10 @@ GiveExperiencePoints:
 	jr .ev_loop
 .evs_done
 	xor a
-	ldh [hMultiplicand  0], a
-	ldh [hMultiplicand  1], a
+	ldh [hMultiplicand + 0], a
+	ldh [hMultiplicand + 1], a
 	ld a, [wEnemyMonBaseExp]
-	ldh [hMultiplicand  2], a
+	ldh [hMultiplicand + 2], a
 	ld a, [wEnemyMonLevel]
 	ldh [hMultiplier], a
 	call Multiply
@@ -7271,7 +7271,7 @@ GiveExperiencePoints:
 	cp [hl]
 	jr nz, .boosted
 	inc hl
-	ld a, [wPlayerID  1]
+	ld a, [wPlayerID + 1]
 	cp [hl]
 	ld a, 0
 	jr z, .no_boost
@@ -7282,7 +7282,7 @@ GiveExperiencePoints:
 
 .no_boost
 ; Boost experience for a Trainer Battle
-	ld [wStringBuffer2  2], a
+	ld [wStringBuffer2 + 2], a
 	ld a, [wBattleMode]
 	dec a
 	call nz, BoostExp
@@ -7293,32 +7293,32 @@ GiveExperiencePoints:
 	ld a, [hl]
 	cp LUCKY_EGG
 	call z, BoostExp
-	ldh a, [hQuotient  3]
-	ld [wStringBuffer2  1], a
-	ldh a, [hQuotient  2]
+	ldh a, [hQuotient + 3]
+	ld [wStringBuffer2 + 1], a
+	ldh a, [hQuotient + 2]
 	ld [wStringBuffer2], a
 	ld a, [wCurPartyMon]
 	ld hl, wPartyMonNicknames
 	call GetNickname
 	ld hl, Text_MonGainedExpPoint
 	call BattleTextbox
-	ld a, [wStringBuffer2  1]
-	ldh [hQuotient  3], a
+	ld a, [wStringBuffer2 + 1]
+	ldh [hQuotient + 3], a
 	ld a, [wStringBuffer2]
-	ldh [hQuotient  2], a
+	ldh [hQuotient + 2], a
 	pop bc
 	call AnimateExpBar
 	push bc
 	call LoadTilemapToTempTilemap
 	pop bc
-	ld hl, MON_EXP  2
+	ld hl, MON_EXP + 2
 	add hl, bc
 	ld d, [hl]
-	ldh a, [hQuotient  3]
+	ldh a, [hQuotient + 3]
 	add d
 	ld [hld], a
 	ld d, [hl]
-	ldh a, [hQuotient  2]
+	ldh a, [hQuotient + 2]
 	adc d
 	ld [hl], a
 	jr nc, .no_exp_overflow
@@ -7343,14 +7343,14 @@ GiveExperiencePoints:
 	ld d, MAX_LEVEL
 	callfar CalcExpAtLevel
 	pop bc
-	ld hl, MON_EXP  2
+	ld hl, MON_EXP + 2
 	add hl, bc
 	push bc
-	ldh a, [hQuotient  1]
+	ldh a, [hQuotient + 1]
 	ld b, a
-	ldh a, [hQuotient  2]
+	ldh a, [hQuotient + 2]
 	ld c, a
-	ldh a, [hQuotient  3]
+	ldh a, [hQuotient + 3]
 	ld d, a
 	ld a, [hld]
 	sub d
@@ -7393,7 +7393,7 @@ GiveExperiencePoints:
 	ld [wCurSpecies], a
 	ld [wTempSpecies], a ; unused?
 	call GetBaseData
-	ld hl, MON_MAXHP  1
+	ld hl, MON_MAXHP + 1
 	add hl, bc
 	ld a, [hld]
 	ld e, a
@@ -7410,7 +7410,7 @@ GiveExperiencePoints:
 	predef CalcMonStats
 	pop bc
 	pop de
-	ld hl, MON_MAXHP  1
+	ld hl, MON_MAXHP + 1
 	add hl, bc
 	ld a, [hld]
 	sub e
@@ -7561,14 +7561,14 @@ GiveExperiencePoints:
 	ld [wTempByteValue], a
 	ld hl, wEnemyMonBaseExp
 	xor a
-	ldh [hDividend  0], a
+	ldh [hDividend + 0], a
 	ld a, [hl]
-	ldh [hDividend  1], a
+	ldh [hDividend + 1], a
 	ld a, [wTempByteValue]
 	ldh [hDivisor], a
 	ld b, 2
 	call Divide
-	ldh a, [hQuotient  3]
+	ldh a, [hQuotient + 3]
 	ld [hl], a
 	ret
 
@@ -7586,19 +7586,19 @@ BoostExp:
 ; Multiply experience by 1.5x
 	push bc
 ; load experience value
-	ldh a, [hProduct  2]
+	ldh a, [hProduct + 2]
 	ld b, a
-	ldh a, [hProduct  3]
+	ldh a, [hProduct + 3]
 	ld c, a
 ; halve it
 	srl b
 	rr c
 ; add it back to the whole exp value
 	add c
-	ldh [hProduct  3], a
-	ldh a, [hProduct  2]
+	ldh [hProduct + 3], a
+	ldh a, [hProduct + 2]
 	adc b
-	ldh [hProduct  2], a
+	ldh [hProduct + 2], a
 	pop bc
 	ret
 
@@ -7606,7 +7606,7 @@ Text_MonGainedExpPoint:
 	text_far Text_Gained
 	text_asm
 	ld hl, ExpPointsText
-	ld a, [wStringBuffer2  2] ; IsTradedMon
+	ld a, [wStringBuffer2 + 2] ; IsTradedMon
 	and a
 	ret z
 
@@ -7633,11 +7633,11 @@ AnimateExpBar:
 	cp MAX_LEVEL
 	jp nc, .finish
 
-	ldh a, [hProduct  3]
-	ld [wExperienceGained  2], a
+	ldh a, [hProduct + 3]
+	ld [wExperienceGained + 2], a
 	push af
-	ldh a, [hProduct  2]
-	ld [wExperienceGained  1], a
+	ldh a, [hProduct + 2]
+	ld [wExperienceGained + 1], a
 	push af
 	xor a
 	ld [wExperienceGained], a
@@ -7648,14 +7648,14 @@ AnimateExpBar:
 	ld b, a
 	ld e, a
 	push de
-	ld de, wTempMonExp  2
+	ld de, wTempMonExp + 2
 	call CalcExpBar
 	push bc
-	ld hl, wTempMonExp  2
-	ld a, [wExperienceGained  2]
+	ld hl, wTempMonExp + 2
+	ld a, [wExperienceGained + 2]
 	add [hl]
 	ld [hld], a
-	ld a, [wExperienceGained  1]
+	ld a, [wExperienceGained + 1]
 	adc [hl]
 	ld [hld], a
 	jr nc, .NoOverflow
@@ -7669,13 +7669,13 @@ AnimateExpBar:
 .NoOverflow:
 	ld d, MAX_LEVEL
 	callfar CalcExpAtLevel
-	ldh a, [hProduct  1]
+	ldh a, [hProduct + 1]
 	ld b, a
-	ldh a, [hProduct  2]
+	ldh a, [hProduct + 2]
 	ld c, a
-	ldh a, [hProduct  3]
+	ldh a, [hProduct + 3]
 	ld d, a
-	ld hl, wTempMonExp  2
+	ld hl, wTempMonExp + 2
 	ld a, [hld]
 	sub d
 	ld a, [hld]
@@ -7735,7 +7735,7 @@ AnimateExpBar:
 .FinishExpBar:
 	push bc
 	ld b, d
-	ld de, wTempMonExp  2
+	ld de, wTempMonExp + 2
 	call CalcExpBar
 	ld a, b
 	pop bc
@@ -7744,9 +7744,9 @@ AnimateExpBar:
 	call .LoopBarAnimation
 	call TerminateExpBarSound
 	pop af
-	ldh [hProduct  2], a
+	ldh [hProduct + 2], a
 	pop af
-	ldh [hProduct  3], a
+	ldh [hProduct + 3], a
 
 .finish
 	pop bc
@@ -7828,14 +7828,14 @@ SendOutMonText:
 	jr z, .skip_to_textbox
 
 	xor a
-	ldh [hMultiplicand  0], a
+	ldh [hMultiplicand + 0], a
 	ld hl, wEnemyMonHP
 	ld a, [hli]
 	ld [wEnemyHPAtTimeOfPlayerSwitch], a
-	ldh [hMultiplicand  1], a
+	ldh [hMultiplicand + 1], a
 	ld a, [hl]
-	ld [wEnemyHPAtTimeOfPlayerSwitch  1], a
-	ldh [hMultiplicand  2], a
+	ld [wEnemyHPAtTimeOfPlayerSwitch + 1], a
+	ldh [hMultiplicand + 2], a
 	ld hl, wEnemyMonMaxHP
 	ld a, [hli]
 	ld b, [hl]
@@ -7857,7 +7857,7 @@ SendOutMonText:
 	ldh [hDivisor], a
 	call Divide
 
-	ldh a, [hQuotient  3]
+	ldh a, [hQuotient + 3]
 	ld hl, GoMonText
 	cp 70
 	jr nc, .skip_to_textbox
@@ -7911,18 +7911,18 @@ WithdrawMonText:
 	push de
 	push bc
 	; compute enemy health lost as a percentage
-	ld hl, wEnemyMonHP  1
-	ld de, wEnemyHPAtTimeOfPlayerSwitch  1
+	ld hl, wEnemyMonHP + 1
+	ld de, wEnemyHPAtTimeOfPlayerSwitch + 1
 	ld b, [hl]
 	dec hl
 	ld a, [de]
 	sub b
-	ldh [hMultiplicand  2], a
+	ldh [hMultiplicand + 2], a
 	dec de
 	ld b, [hl]
 	ld a, [de]
 	sbc b
-	ldh [hMultiplicand  1], a
+	ldh [hMultiplicand + 1], a
 	ld hl, wEnemyMonMaxHP
 	ld a, [hli]
 	ld b, [hl]
@@ -7945,7 +7945,7 @@ WithdrawMonText:
 	call Divide
 	pop bc
 	pop de
-	ldh a, [hQuotient  3]
+	ldh a, [hQuotient + 3]
 	ld hl, ThatsEnoughComeBackText
 	and a
 	ret z
@@ -8041,14 +8041,14 @@ CalcExpBar:
 	inc d
 	callfar CalcExpAtLevel
 ; back up the next level exp, and subtract the two levels
-	ld hl, hMultiplicand  2
+	ld hl, hMultiplicand + 2
 	ld a, [hl]
-	ldh [hMathBuffer  2], a
+	ldh [hMathBuffer + 2], a
 	pop bc
 	sub b
 	ld [hld], a
 	ld a, [hl]
-	ldh [hMathBuffer  1], a
+	ldh [hMathBuffer + 1], a
 	pop bc
 	sbc b
 	ld [hld], a
@@ -8059,7 +8059,7 @@ CalcExpBar:
 	ld [hl], a
 	pop de
 
-	ld hl, hMultiplicand  1
+	ld hl, hMultiplicand + 1
 	ld a, [hli]
 	push af
 	ld a, [hl]
@@ -8069,13 +8069,13 @@ CalcExpBar:
 	ld a, [de]
 	dec de
 	ld c, a
-	ldh a, [hMathBuffer  2]
+	ldh a, [hMathBuffer + 2]
 	sub c
 	ld [hld], a
 	ld a, [de]
 	dec de
 	ld b, a
-	ldh a, [hMathBuffer  1]
+	ldh a, [hMathBuffer + 1]
 	sbc b
 	ld [hld], a
 	ld a, [de]
@@ -8113,7 +8113,7 @@ CalcExpBar:
 	ldh [hDivisor], a
 	ld b, 4
 	call Divide
-	ldh a, [hQuotient  3]
+	ldh a, [hQuotient + 3]
 	ld b, a
 	ld a, $40
 	sub b
@@ -8445,7 +8445,7 @@ FillEnemyMovesFromMoveIndicesBuffer: ; unreferenced
 	call GetMoveAttribute
 	pop hl
 
-	ld bc, wEnemyMonPP - (wEnemyMonMoves  1)
+	ld bc, wEnemyMonPP - (wEnemyMonMoves + 1)
 	add hl, bc
 	ld [hl], a
 
@@ -8463,7 +8463,7 @@ FillEnemyMovesFromMoveIndicesBuffer: ; unreferenced
 .clearpp
 	push bc
 	push hl
-	ld bc, wEnemyMonPP - (wEnemyMonMoves  1)
+	ld bc, wEnemyMonPP - (wEnemyMonMoves + 1)
 	add hl, bc
 	xor a
 	ld [hl], a
@@ -8541,7 +8541,7 @@ CheckPayDay:
 	ld a, [wAmuletCoin]
 	and a
 	jr z, .okay
-	ld hl, wPayDayMoney  2
+	ld hl, wPayDayMoney + 2
 	sla [hl]
 	dec hl
 	rl [hl]
@@ -8554,8 +8554,8 @@ CheckPayDay:
 	ld [hl], a
 
 .okay
-	ld hl, wPayDayMoney  2
-	ld de, wMoney  2
+	ld hl, wPayDayMoney + 2
+	ld de, wMoney + 2
 	call AddBattleMoneyToAccount
 	ld hl, BattleText_PlayerPickedUpPayDayMoney
 	call StdBattleTextbox
@@ -8821,7 +8821,7 @@ BattleEnd_HandleRoamMons:
 	and $f
 	jr z, .caught_or_defeated_roam_mon ; WIN
 	call GetRoamMonHP
-	ld a, [wEnemyMonHP  1]
+	ld a, [wEnemyMonHP + 1]
 	ld [hl], a
 	jr .update_roam_mons
 
@@ -8974,12 +8974,12 @@ AddLastLinkBattleToLinkRecord:
 	ld a, [wBattleResult]
 	and $f
 	cp LOSE
-	ld bc, (sLinkBattleRecord1Wins - sLinkBattleRecord1)  1
+	ld bc, (sLinkBattleRecord1Wins - sLinkBattleRecord1) + 1
 	jr c, .okay ; WIN
-	ld bc, (sLinkBattleRecord1Losses - sLinkBattleRecord1)  1
+	ld bc, (sLinkBattleRecord1Losses - sLinkBattleRecord1) + 1
 	jr z, .okay ; LOSE
 	; DRAW
-	ld bc, (sLinkBattleRecord1Draws - sLinkBattleRecord1)  1
+	ld bc, (sLinkBattleRecord1Draws - sLinkBattleRecord1) + 1
 .okay
 	add hl, bc
 	call .CheckOverflow
@@ -9248,7 +9248,7 @@ CopyBackpic:
 	xor a
 	ldh [hMapObjectIndex], a
 	ld b, 6
-	ld e, (SCREEN_WIDTH  1) * TILE_WIDTH
+	ld e, (SCREEN_WIDTH + 1) * TILE_WIDTH
 .outer_loop
 	ld c, 3
 	ld d, 8 * TILE_WIDTH
