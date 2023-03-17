@@ -2848,9 +2848,19 @@ DoubleStatIfSpeciesHoldingItem:
 	ret nz
 
 ; Double the stat
-; BUG: Thick Club and Light Ball can make (Special) Attack wrap around above 1024 (see docs/bugs_and_glitches.md)
 	sla l
 	rl h
+
+	ld a, HIGH(MAX_STAT_VALUE)
+	cp h
+	jr c, .cap
+	ret nz
+	ld a, LOW(MAX_STAT_VALUE)
+	cp l
+	ret nc
+
+.cap
+	ld hl, MAX_STAT_VALUE
 	ret
 
 EnemyAttackDamage:
