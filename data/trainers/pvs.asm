@@ -43,7 +43,6 @@ TrainerClassPVs:
         db 0, 0 ; SWIMMERF
         db 0, 0 ; SAILOR
         db 0, 0 ; SUPER_NERD
-    ; BUG: RIVAL2 has lower DVs than RIVAL1 (see docs/bugs_and_glitches.md)
         db 0, 0 ; RIVAL2
         db 0, 0 ; GUITARIST
         db 0, 0 ; HIKER
