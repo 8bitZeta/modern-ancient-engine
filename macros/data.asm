@@ -117,10 +117,3 @@ MACRO bcd
 		shift
 	endr
 ENDM
-
-MACRO sine_table
-; \1 samples of sin(x) from x=0 to x<0.5 turns (pi radians)
-	for x, \1
-		dw sin(x * 0.5 / (\1))
-	endr
-ENDM

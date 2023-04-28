@@ -151,7 +151,7 @@ UpdateCelebiPosition:
 	add hl, bc
 	ld a, [hl]
 	inc [hl]
-	call CelebiEvent_Cosine
+	call Cosine
 	ld hl, SPRITEANIMSTRUCT_XOFFSET
 	add hl, bc
 	ld [hl], a
@@ -224,13 +224,8 @@ UpdateCelebiPosition:
 	add hl, bc
 	ld a, SPRITE_ANIM_FRAMESET_CELEBI_LEFT
 	call ReinitSpriteAnimFrame
-	ret
-
-CelebiEvent_Cosine:
-; a = d * cos(a * pi/32)
-	add %010000 ; cos(x) = sin(x + pi/2)
-	calc_sine_wave
-
+	ret 
+	
 GetCelebiSpriteTile:
 	push hl
 	push bc
