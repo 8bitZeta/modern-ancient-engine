@@ -2017,10 +2017,8 @@ Slots_AnimateGolem:
 	cp $20
 	jr c, .play_sound
 	dec [hl]
-	ld e, a
 	ld d, 14 * 8
-	farcall BattleAnim_Sine_e
-	ld a, e
+	call Sine
 	ld hl, SPRITEANIMSTRUCT_YOFFSET
 	add hl, bc
 	ld [hl], a

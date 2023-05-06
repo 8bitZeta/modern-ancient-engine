@@ -4280,15 +4280,3 @@ BattleAnim_IncAnonJumptableIndex:
 	add hl, bc
 	inc [hl]
 	ret
-
-BattleAnim_Sine_e:
-	ld a, e
-	call Sine
-	ld e, a
-	ret
-
-BattleAnim_Cosine_e:
-	ld a, e
-	call Cosine
-	ld e, a
-	ret
