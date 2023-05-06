@@ -565,13 +565,13 @@ SendGetMonIntoFromBox:
 	ld a, [hl]
 	cp MONS_PER_BOX
 	jr nz, .there_is_room
-	jp CloseSRAM_And_SetCarryFlag
+	jmp CloseSRAM_And_SetCarryFlag
 
 .check_IfPartyIsFull
 	ld hl, wPartyCount
 	ld a, [hl]
 	cp PARTY_LENGTH
-	jp z, CloseSRAM_And_SetCarryFlag
+	jmp z, CloseSRAM_And_SetCarryFlag
 
 .there_is_room
 	inc a
@@ -698,7 +698,7 @@ SendGetMonIntoFromBox:
 	cp PC_DEPOSIT
 	jr z, .took_out_of_box
 	cp DAY_CARE_DEPOSIT
-	jp z, .CloseSRAM_And_ClearCarryFlag
+	jr z, .CloseSRAM_And_ClearCarryFlag
 
 	push hl
 	srl a
@@ -849,7 +849,7 @@ RetrieveMonFromDayCareMan:
 	ld [wCurPartyLevel], a
 	xor a
 	ld [wPokemonWithdrawDepositParameter], a
-	jp RetrieveBreedmon
+	jr RetrieveBreedmon
 
 RetrieveMonFromDayCareLady:
 	ld a, [wBreedMon2Species]
@@ -864,7 +864,7 @@ RetrieveMonFromDayCareLady:
 	ld [wCurPartyLevel], a
 	ld a, PC_DEPOSIT
 	ld [wPokemonWithdrawDepositParameter], a
-	jp RetrieveBreedmon ; pointless
+	jr RetrieveBreedmon ; pointless
 
 RetrieveBreedmon:
 	ld hl, wPartyCount
@@ -990,14 +990,14 @@ DepositMonWithDayCareMan:
 	call DepositBreedmon
 	xor a ; REMOVE_PARTY
 	ld [wPokemonWithdrawDepositParameter], a
-	jp RemoveMonFromPartyOrBox
+	jmp RemoveMonFromPartyOrBox
 
 DepositMonWithDayCareLady:
 	ld de, wBreedMon2Nickname
 	call DepositBreedmon
 	xor a ; REMOVE_PARTY
 	ld [wPokemonWithdrawDepositParameter], a
-	jp RemoveMonFromPartyOrBox
+	jmp RemoveMonFromPartyOrBox
 
 DepositBreedmon:
 	ld a, [wCurPartyMon]
@@ -1013,7 +1013,7 @@ DepositBreedmon:
 	ld bc, PARTYMON_STRUCT_LENGTH
 	call AddNTimes
 	ld bc, BOXMON_STRUCT_LENGTH
-	jp CopyBytes
+	jmp CopyBytes
 
 SendMonIntoBox:
 ; Sends the mon into one of Bills Boxes
@@ -1023,7 +1023,7 @@ SendMonIntoBox:
 	ld de, sBoxCount
 	ld a, [de]
 	cp MONS_PER_BOX
-	jp nc, .full
+	jmp nc, .full
 	inc a
 	ld [de], a
 
@@ -1347,7 +1347,7 @@ RemoveMonFromPartyOrBox:
 	cp d
 	jr nz, .delete_inside
 	ld [hl], -1
-	jp .finish
+	jr .finish
 
 .delete_inside
 	; Shift the OT names
@@ -1414,7 +1414,7 @@ RemoveMonFromPartyOrBox:
 .finish
 	ld a, [wPokemonWithdrawDepositParameter]
 	and a
-	jp nz, CloseSRAM
+	jmp nz, CloseSRAM
 	ld a, [wLinkMode]
 	and a
 	ret nz
@@ -1451,7 +1451,7 @@ RemoveMonFromPartyOrBox:
 	cp b
 	jr nz, .loop2
 .close_sram
-	jp CloseSRAM
+	jmp CloseSRAM
 
 ComputeNPCTrademonStats:
 	ld a, MON_LEVEL
@@ -1730,7 +1730,7 @@ GivePoke::
 	ld [wTempEnemyMonSpecies], a
 	callfar LoadEnemyMon
 	call SendMonIntoBox
-	jp nc, .FailedToGiveMon
+	jmp nc, .FailedToGiveMon
 	ld a, BOXMON
 	ld [wMonType], a
 	xor a
@@ -1759,7 +1759,7 @@ GivePoke::
 	call CopyBytes
 	pop af
 	and a
-	jp z, .wildmon
+	jmp z, .wildmon
 	pop de
 	pop bc
 	pop hl

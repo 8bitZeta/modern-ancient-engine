@@ -493,7 +493,7 @@ ValidateBTParty: ; unreferenced
 	add hl, bc
 	pop de
 	dec d
-	jp nz, .pkmn_loop
+	jmp nz, .pkmn_loop
 	ret
 
 BT_ChrisName:

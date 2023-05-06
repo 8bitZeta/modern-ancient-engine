@@ -269,7 +269,7 @@ InitializeVisibleSprites:
 	push bc
 	call CopyObjectStruct
 	pop bc
-	jp c, .ret
+	jr c, .ret
 
 .next
 	ld hl, MAPOBJECT_LENGTH
@@ -590,7 +590,7 @@ SurfStartStep:
 	add hl, de
 	add hl, de
 	ld a, BANK(.movement_data)
-	jp StartAutoInput
+	jmp StartAutoInput
 
 .movement_data
 	db D_DOWN,  0, -1

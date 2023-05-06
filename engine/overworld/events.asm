@@ -167,7 +167,7 @@ NextOverworldFrame:
 	; of a busy LY overflow, perform that now.
 	ld a, [hDelayFrameLY]
 	inc a
-	jp nz, DelayFrame
+	jmp nz, DelayFrame
 	xor a
 	ld [hDelayFrameLY], a
 	ret
@@ -652,7 +652,7 @@ BGEventJumptable:
 	ld a, [wPlayerDirection]
 	and %1100
 	cp b
-	jp nz, .dontread
+	jr nz, .dontread
 .read:
 	call PlayTalkObject
 	ld hl, wCurBGEventScriptAddr
@@ -666,7 +666,7 @@ BGEventJumptable:
 
 .itemifset:
 	call CheckBGEventFlag
-	jp nz, .dontread
+	jr nz, .dontread
 	call PlayTalkObject
 	call GetMapScriptsBank
 	ld de, wHiddenItemData

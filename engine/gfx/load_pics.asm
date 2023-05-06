@@ -63,7 +63,7 @@ GetMonFrontpic:
 	call _GetFrontpic
 	pop af
 	ldh [rSVBK], a
-	jp CloseSRAM
+	jmp CloseSRAM
 
 GetAnimatedFrontpic:
 	ld a, [wCurPartySpecies]
@@ -82,7 +82,7 @@ GetAnimatedFrontpic:
 	ldh [rVBK], a
 	pop af
 	ldh [rSVBK], a
-	jp CloseSRAM
+	jmp CloseSRAM
 
 _GetFrontpic:
 	ld a, BANK(sEnemyFrontPicTileCount)
@@ -145,7 +145,7 @@ GetPicIndirectPointer:
 	ld d, BANK(PokemonPicPointers)
 .done
 	ld a, 6
-	jp AddNTimes
+	jmp AddNTimes
 
 .unown
 	ld a, [wUnownLetter]
@@ -224,7 +224,7 @@ GetAnimatedEnemyFrontpic:
 	ld a, [sEnemyFrontPicTileCount]
 	ld c, a
 .finish
-	jp Get2bpp
+	jmp Get2bpp
 
 LoadFrontpicTiles:
 	ld hl, wDecompressScratch

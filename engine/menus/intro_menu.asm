@@ -7,7 +7,7 @@ Intro_MainMenu:
 	ld [wMapMusic], a
 	call PlayMusic
 	farcall MainMenu
-	jp StartTitleScreen
+	jmp StartTitleScreen
 
 IntroMenu_DummyFunction: ; unreferenced
 	ret
@@ -75,7 +75,7 @@ NewGame:
 
 	ld a, MAPSETUP_WARP
 	ldh [hMapEntryMethod], a
-	jp FinishContinueFunction
+	jmp FinishContinueFunction
 
 AreYouABoyOrAreYouAGirl:
 	farcall Mobile_AlwaysReturnNotCarry ; mobile
@@ -347,7 +347,7 @@ LoadOrRegenerateLuckyIDNumber:
 	ld a, c
 	ld [wLuckyIDNumber + 1], a
 	ld [sLuckyIDNumber + 1], a
-	jp CloseSRAM
+	jmp CloseSRAM
 
 Continue:
 	farcall TryLoadSaveFile
@@ -391,7 +391,7 @@ Continue:
 	jr z, .SpawnAfterE4
 	ld a, MAPSETUP_CONTINUE
 	ldh [hMapEntryMethod], a
-	jp FinishContinueFunction
+	jmp FinishContinueFunction
 
 .FailToLoad:
 	ret
@@ -400,7 +400,7 @@ Continue:
 	ld a, SPAWN_NEW_BARK
 	ld [wDefaultSpawnpoint], a
 	call PostCreditsSpawn
-	jp FinishContinueFunction
+	jr FinishContinueFunction
 
 SpawnAfterRed:
 	ld a, SPAWN_MT_SILVER
@@ -487,7 +487,7 @@ FinishContinueFunction:
 	ld a, [wSpawnAfterChampion]
 	cp SPAWN_RED
 	jr z, .AfterRed
-	jp Reset
+	jmp Reset
 
 .AfterRed:
 	call SpawnAfterRed
@@ -616,7 +616,7 @@ Continue_DisplayBadgeCount:
 	pop hl
 	ld de, wNumSetBits
 	lb bc, 1, 2
-	jp PrintNum
+	jmp PrintNum
 
 Continue_DisplayPokedexNumCaught:
 	ld a, [wStatusFlags]
@@ -649,7 +649,7 @@ Continue_DisplayGameTime:
 	inc hl
 	ld de, wGameTimeMinutes
 	lb bc, PRINTNUM_LEADINGZEROS | 1, 2
-	jp PrintNum
+	jmp PrintNum
 
 OakSpeech:
 	farcall InitClock
@@ -1284,11 +1284,11 @@ TitleScreenEnd:
 
 DeleteSaveData:
 	farcall _DeleteSaveData
-	jp Init
+	jmp Init
 
 ResetClock:
 	farcall _ResetClock
-	jp Init
+	jmp Init
 
 UpdateTitleTrailSprite: ; unreferenced
 	; If bit 0 or 1 of [wTitleScreenTimer] is set, we don't need to be here.
@@ -1350,7 +1350,7 @@ Copyright:
 	call Request2bpp
 	hlcoord 2, 7
 	ld de, CopyrightString
-	jp PlaceString
+	jmp PlaceString
 
 CopyrightString:
 	; ©1995-2001 Nintendo
@@ -1382,4 +1382,4 @@ GameInit::
 	ld a, $90
 	ldh [hWY], a
 	call WaitBGMap
-	jp IntroSequence
+	jmp IntroSequence

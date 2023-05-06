@@ -145,7 +145,7 @@ CheckForLuckyNumberWinners:
 	ld a, [wCurPartySpecies]
 	ld [wNamedObjectIndex], a
 	call GetPokemonName
-	jp PrintText
+	jmp PrintText
 
 .CompareLuckyNumberToMonID:
 	push bc

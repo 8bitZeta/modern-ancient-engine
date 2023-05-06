@@ -12,7 +12,7 @@ LoadSGBLayoutCGB:
 	ld a, [wDefaultSGBLayout]
 .not_default
 	cp SCGB_PARTY_MENU_HP_BARS
-	jp z, CGB_ApplyPartyMenuHPPals
+	jmp z, CGB_ApplyPartyMenuHPPals
 	call ResetBGPals
 	ld l, a
 	ld h, 0

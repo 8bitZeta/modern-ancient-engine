@@ -730,11 +730,11 @@ Printer_PrintBoxListSegment:
 .loop
 	ld a, c
 	and a
-	jp z, .max_length
+	jmp z, .max_length
 	dec c
 	ld a, [de]
 	cp $ff
-	jp z, .finish
+	jmp z, .finish
 	cp EGG
 	call nz, Printer_GetTrueBoxSpeciesIndex
 	ld [wNamedObjectIndex], a
@@ -817,7 +817,7 @@ Printer_PrintBoxListSegment:
 	add hl, bc
 	pop bc
 	inc de
-	jp .loop
+	jmp .loop
 
 .finish
 	ld a, $1

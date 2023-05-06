@@ -59,11 +59,11 @@ ScrollingMenuJoyAction:
 	rrca
 	jr c, .d_right
 	rrca
-	jp c, .d_left
+	jr c, .d_left
 	rrca
-	jp c, .d_up
+	jmp c, .d_up
 	rrca
-	jp c, .d_down
+	jmp c, .d_down
 	jr ScrollingMenuJoyAction
 
 .a_button
@@ -398,7 +398,7 @@ ScrollingMenu_UpdateDisplay:
 	ld d, h
 	ld e, l
 	ld hl, wMenuData_ScrollingMenuFunction1
-	jp CallPointerAt
+	jmp CallPointerAt
 
 ScrollingMenu_CallFunctions1and2:
 	push hl

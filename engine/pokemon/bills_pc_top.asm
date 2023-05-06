@@ -3,7 +3,7 @@ _BillsPC:
 	ret c
 	call .LogIn
 	call .UseBillsPC
-	jp .LogOut
+	jr .LogOut
 
 .CheckCanUsePC:
 	ld a, [wPartyCount]
@@ -68,7 +68,7 @@ _BillsPC:
 .clear_current_reserved_mon
 	ld l, LOCKED_MON_ID_CURRENT_MENU
 	xor a
-	jp LockPokemonID
+	jmp LockPokemonID
 
 .MenuHeader:
 	db MENU_BACKUP_TILES ; flags

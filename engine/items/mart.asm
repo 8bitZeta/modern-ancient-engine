@@ -373,10 +373,10 @@ MartAskPurchaseQuantity:
 	inc hl
 	ld a, [hl]
 	and a
-	jp z, StandardMartAskPurchaseQuantity
+	jmp z, StandardMartAskPurchaseQuantity
 	cp 1
-	jp z, BargainShopAskPurchaseQuantity
-	jp RooftopSaleAskPurchaseQuantity
+	jmp z, BargainShopAskPurchaseQuantity
+	jmp RooftopSaleAskPurchaseQuantity
 
 GetMartDialogGroup:
 	ld a, [wMartType]
@@ -714,7 +714,7 @@ SellMenu:
 	farcall DepositSellPack
 	ld a, [wPackUsedItem]
 	and a
-	jp z, .quit
+	jr z, .quit
 	call .TryToSellItem
 	jr .loop
 

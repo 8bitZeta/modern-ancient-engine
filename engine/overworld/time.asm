@@ -25,21 +25,7 @@ NextCallReceiveDelay:
 	ld hl, .ReceiveCallDelays
 	add hl, de
 	ld a, [hl]
-if DEF(_DEBUG)
-	ld h, a
-	ld a, BANK(sDebugTimeCyclesSinceLastCall)
-	call OpenSRAM
-	ld a, [sDebugTimeCyclesSinceLastCall]
-	call CloseSRAM
-	dec a
-	cp 2
-	jr nc, .debug_ok
-	xor 1
-	ld h, a
-.debug_ok
-	ld a, h
-endc
-	jp RestartReceiveCallDelay
+	jr RestartReceiveCallDelay
 
 .ReceiveCallDelays:
 	db 20, 10, 5, 3
@@ -98,7 +84,7 @@ CheckReceiveCallDelay:
 
 RestartDailyResetTimer:
 	ld hl, wDailyResetTimer
-	jp InitOneDayCountdown
+	jr InitOneDayCountdown
 
 CheckDailyResetTimer::
 	ld hl, wDailyResetTimer
@@ -236,7 +222,7 @@ UnusedCheckSwarmFlag: ; unreferenced
 RestartLuckyNumberCountdown:
 	call .GetDaysUntilNextFriday
 	ld hl, wLuckyNumberDayTimer
-	jp InitNDaysCountdown
+	jmp InitNDaysCountdown
 
 .GetDaysUntilNextFriday:
 	call GetWeekday
@@ -254,7 +240,7 @@ RestartLuckyNumberCountdown:
 
 _CheckLuckyNumberShowFlag:
 	ld hl, wLuckyNumberDayTimer
-	jp CheckDayDependentEventHL
+	jmp CheckDayDependentEventHL
 
 DoMysteryGiftIfDayHasPassed:
 	ld a, BANK(sMysteryGiftTimer)

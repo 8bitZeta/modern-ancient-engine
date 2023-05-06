@@ -19,7 +19,7 @@ CheckBattleScene:
 	and a
 	jr nz, .from_wram
 
-	ld a, BANK(s4_a60c) ; MBC30 bank used by JP Crystal; inaccessible by MBC3
+	ld a, BANK(s4_a60c) ; MBC30 bank used by jmp Crystal; inaccessible by MBC3
 	call OpenSRAM
 	ld a, [s4_a60c]
 	ld c, a

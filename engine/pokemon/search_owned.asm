@@ -160,7 +160,7 @@ CheckOwnMonAnywhere:
 	pop bc
 	pop de
 	pop hl
-	jp c, CloseSRAM ;preserves flags
+	jmp c, CloseSRAM ;preserves flags
 	ldh a, [hTemp]
 	call OpenSRAM
 

@@ -132,7 +132,7 @@ _DepositPKMN:
 	ld a, [wMenuCursorY]
 	call StoreMenuCursorPosition
 	call VerticalMenu
-	jp c, BillsPCDepositFuncCancel
+	jmp c, BillsPCDepositFuncCancel
 	ld a, [wMenuCursorY]
 	dec a
 	and %11
@@ -154,7 +154,7 @@ BillsPCDepositJumptable:
 
 BillsPCDepositFuncDeposit:
 	call BillsPC_CheckMail_PreventBlackout
-	jp c, BillsPCDepositFuncCancel
+	jmp c, BillsPCDepositFuncCancel
 	call DepositPokemon
 	jr c, .box_full
 	ld a, $0
@@ -389,7 +389,7 @@ BillsPC_Withdraw:
 	ld a, [wMenuCursorY]
 	call StoreMenuCursorPosition
 	call VerticalMenu
-	jp c, .cancel
+	jmp c, .cancel
 	ld a, [wMenuCursorY]
 	dec a
 	and %11
@@ -411,7 +411,7 @@ BillsPC_Withdraw:
 
 .withdraw
 	call BillsPC_CheckMail_PreventBlackout
-	jp c, .cancel
+	jmp c, .cancel
 	call TryWithdrawPokemon
 	jr c, .FailedWithdraw
 	ld a, $0
@@ -640,7 +640,7 @@ _MovePKMNWithoutMail:
 	ld a, [wMenuCursorY]
 	call StoreMenuCursorPosition
 	call VerticalMenu
-	jp c, .Cancel
+	jr c, .Cancel
 	ld a, [wMenuCursorY]
 	dec a
 	and %11
@@ -661,7 +661,7 @@ _MovePKMNWithoutMail:
 
 .Move:
 	call BillsPC_CheckMail_PreventBlackout
-	jp c, .Cancel
+	jr c, .Cancel
 	ld a, [wBillsPC_ScrollPosition]
 	ld [wBillsPC_BackupScrollPosition], a
 	ld a, [wBillsPC_CursorPosition]
@@ -816,7 +816,7 @@ _StatsScreenDPad:
 	and D_DOWN
 	jr nz, BillsPC_PressDown
 .empty
-	jp BillsPC_JoypadDidNothing
+	jmp BillsPC_JoypadDidNothing
 
 Withdraw_UpDown:
 	ld hl, hJoyLast
@@ -833,7 +833,7 @@ Withdraw_UpDown:
 	and D_DOWN
 	jr nz, BillsPC_PressDown
 .empty
-	jp BillsPC_JoypadDidNothing
+	jmp BillsPC_JoypadDidNothing
 
 MoveMonWithoutMail_DPad:
 	ld hl, hJoyLast
@@ -1442,7 +1442,7 @@ CopyBoxmonSpecies:
 	call OpenSRAM
 	ld de, sBoxSpecies
 	call .load_list
-	jp CloseSRAM
+	jmp CloseSRAM
 
 .party
 	ld de, wPartySpecies
@@ -1504,7 +1504,7 @@ BillsPC_GetSelectedPokemonSpecies:
 	ld a, [hli]
 	ld h, [hl]
 	ld l, a
-	jp GetPokemonIDFromIndex
+	jmp GetPokemonIDFromIndex
 
 BillsPC_UpdateSelectionCursor:
 	ld a, [wBillsPC_NumMonsInBox]
@@ -2171,7 +2171,7 @@ CopySpeciesToTemp:
 	ld a, [hl]
 	ld [wCurPartySpecies], a
 	ld l, LOCKED_MON_ID_CURRENT_MENU
-	jp LockPokemonID
+	jmp LockPokemonID
 
 CopyNicknameToTemp:
 	ld bc, MON_NAME_LENGTH
@@ -2589,7 +2589,7 @@ BillsPC_ConvertBoxData::
 	dec b
 	jr nz, .loop
 .done
-	jp CloseSRAM
+	jmp CloseSRAM
 
 .convert
 	jr nz, BillsPC_ConvertBoxMonToPartyMon

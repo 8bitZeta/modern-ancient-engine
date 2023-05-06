@@ -2,11 +2,11 @@
 
 SECTION "rst0", ROM0[$0000]
 	di
-	jp Start
+	jmp Start
 
 SECTION "rst8", ROM0[$0008]
 FarCall::
-	jp FarCall_hl
+	jmp FarCall_hl
 
 SECTION "rst10", ROM0[$0010]
 Bankswitch::
@@ -41,25 +41,25 @@ SECTION "rst38", ROM0[$0038]
 ; Game Boy hardware interrupts
 
 SECTION "vblank", ROM0[$0040]
-	jp VBlank
+	jmp VBlank
 
 SECTION "lcd", ROM0[$0048]
-	jp LCD
+	jmp LCD
 
 SECTION "timer", ROM0[$0050]
-	jp MobileTimer
+	jmp MobileTimer
 
 SECTION "serial", ROM0[$0058]
-	jp Serial
+	jmp Serial
 
 SECTION "joypad", ROM0[$0060]
-	jp Joypad
+	jmp Joypad
 
 
 SECTION "Header", ROM0[$0100]
 
 Start::
-; Nintendo requires all Game Boy ROMs to begin with a nop ($00) and a jp ($C3)
+; Nintendo requires all Game Boy ROMs to begin with a nop ($00) and a jmp ($C3)
 ; to the starting address.
 	nop
 	jp _Start
