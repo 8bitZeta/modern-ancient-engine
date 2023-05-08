@@ -110,6 +110,9 @@ GetFarWord::
 	rst Bankswitch
 	ret
 
+FarCopyColorWRAM::
+	ld a, BANK("GBC Video")
+	; fallthrough
 FarCopyWRAM::
 	ldh [hTempBank], a
 	ldh a, [rSVBK]
