@@ -6,7 +6,7 @@ ItemDescriptions:
 	dw BrightpowderDesc
 	dw GreatBallDesc
 	dw PokeBallDesc
-	dw QuestionMarkDesc
+	dw TownMapDesc
 	dw BicycleDesc
 	dw MoonStoneDesc
 	dw AntidoteDesc
@@ -278,6 +278,10 @@ GreatBallDesc:
 PokeBallDesc:
 	db   "An item for catch-"
 	next "ing #MON.@"
+
+TownMapDesc:
+	db   "A map of the"
+	next "Sinnoh Region.@"
 
 BicycleDesc:
 	db   "A collapsible bike"
