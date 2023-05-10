@@ -425,7 +425,6 @@ BattleBGEffect_BattlerObj_1Row:
 	push bc
 	call BGEffect_CheckBattleTurn
 	jr nz, .player_side
-	ld a, ANIM_OBJ_ENEMYFEET_1ROW
 	ld a, LOW(ANIM_OBJ_ENEMYFEET_1ROW)
 	ld [wBattleObjectTempID], a
 	assert !HIGH(ANIM_OBJ_ENEMYFEET_1ROW)
