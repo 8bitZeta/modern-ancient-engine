@@ -1,3 +1,5 @@
+SECTION "Move Animations 2", ROMX
+
 MoveAnimations2:
 ;==========================
 ;	New Moves Start Here

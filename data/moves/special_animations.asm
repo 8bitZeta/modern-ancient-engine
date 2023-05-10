@@ -1,3 +1,5 @@
+SECTION "Move Animations Special", ROMX
+
 SpecialAnimations:
 	dw BattleAnim_ThrowPokeBall  ; -16
 	dw BattleAnim_SendOutMon
@@ -138,19 +140,19 @@ BattleAnim_SendOutMon:
 	anim_if_param_equal $1, .Shiny
 	anim_if_param_equal $2, .Unknown
 	anim_1gfx ANIM_GFX_SMOKE
-	anim_call BattleAnim_TargetObj_1Row
+	anim_call BattleAnim_TargetObj_1Row_Special
 	anim_bgeffect ANIM_BG_BETA_SEND_OUT_MON2, $0, $1, $0
 	anim_sound 0, 0, SFX_BALL_POOF
 	anim_obj ANIM_OBJ_BETA_BALL_POOF, 48, 96, $0
 	anim_bgeffect ANIM_BG_ENTER_MON, $0, $1, $0
 	anim_wait 128
 	anim_wait 4
-	anim_call BattleAnim_ShowMon_0
+	anim_call BattleAnim_ShowMon_0_Special
 	anim_ret
 
 .Unknown:
 	anim_1gfx ANIM_GFX_SMOKE
-	anim_call BattleAnim_TargetObj_1Row
+	anim_call BattleAnim_TargetObj_1Row_Special
 	anim_bgeffect ANIM_BG_BETA_SEND_OUT_MON1, $0, $1, $0
 	anim_wait 1
 	anim_bgeffect ANIM_BG_SHOW_MON, $0, $1, $0
@@ -160,7 +162,7 @@ BattleAnim_SendOutMon:
 	anim_incbgeffect ANIM_BG_BETA_SEND_OUT_MON1
 	anim_wait 96
 	anim_incbgeffect ANIM_BG_BETA_SEND_OUT_MON1
-	anim_call BattleAnim_ShowMon_0
+	anim_call BattleAnim_ShowMon_0_Special
 	anim_ret
 
 .Shiny:
@@ -288,19 +290,19 @@ BattleAnim_InLove:
 	anim_wait 32
 	anim_ret
 
-BattleAnim_InSandstorm:
-	anim_1gfx ANIM_GFX_POWDER
-	anim_obj ANIM_OBJ_SANDSTORM, 88, 0, $0
-	anim_wait 8
-	anim_obj ANIM_OBJ_SANDSTORM, 72, 0, $1
-	anim_wait 8
-	anim_obj ANIM_OBJ_SANDSTORM, 56, 0, $2
-.loop
-	anim_sound 0, 1, SFX_MENU
-	anim_wait 8
-	anim_loop 6, .loop
-	anim_wait 8
-	anim_ret
+	BattleAnim_InSandstorm:
+		anim_1gfx ANIM_GFX_POWDER
+		anim_obj ANIM_OBJ_SANDSTORM, 88, 0, $0
+		anim_wait 8
+		anim_obj ANIM_OBJ_SANDSTORM, 72, 0, $1
+		anim_wait 8
+		anim_obj ANIM_OBJ_SANDSTORM, 56, 0, $2
+	.loop
+		anim_sound 0, 1, SFX_MENU
+		anim_wait 8
+		anim_loop 6, .loop
+		anim_wait 8
+		anim_ret
 
 BattleAnim_InNightmare:
 	anim_1gfx ANIM_GFX_ANGELS
@@ -331,18 +333,18 @@ BattleAnim_EnemyDamage:
 	anim_ret
 
 BattleAnim_EnemyStatDown:
-	anim_call BattleAnim_UserObj_1Row
+	anim_call BattleAnim_UserObj_1Row_Special
 	anim_bgeffect ANIM_BG_VIBRATE_MON, $0, $0, $0
 	anim_wait 40
-	anim_call BattleAnim_ShowMon_1
+	anim_call BattleAnim_ShowMon_1_Special
 	anim_wait 1
 	anim_ret
 
 BattleAnim_PlayerStatDown:
-	anim_call BattleAnim_UserObj_1Row
+	anim_call BattleAnim_UserObj_1Row_Special
 	anim_bgeffect ANIM_BG_WOBBLE_PLAYER, $0, $0, $0
 	anim_wait 40
-	anim_call BattleAnim_ShowMon_1
+	anim_call BattleAnim_ShowMon_1_Special
 	anim_wait 1
 	anim_ret
 
@@ -366,4 +368,60 @@ BattleAnim_HitConfusion:
 	anim_sound 0, 0, SFX_POUND
 	anim_obj ANIM_OBJ_HIT, 44, 96, $0
 	anim_wait 16
+	anim_ret
+
+;============================
+;	Special Branch Anims
+;============================
+
+BattleAnim_Recover_branch_Special:
+	anim_obj ANIM_OBJ_RECOVER, 44, 88, $30
+	anim_obj ANIM_OBJ_RECOVER, 44, 88, $31
+	anim_obj ANIM_OBJ_RECOVER, 44, 88, $32
+	anim_obj ANIM_OBJ_RECOVER, 44, 88, $33
+	anim_obj ANIM_OBJ_RECOVER, 44, 88, $34
+	anim_obj ANIM_OBJ_RECOVER, 44, 88, $35
+	anim_obj ANIM_OBJ_RECOVER, 44, 88, $36
+	anim_obj ANIM_OBJ_RECOVER, 44, 88, $37
+	anim_wait 64
+	anim_ret
+
+BattleAnim_TargetObj_1Row_Special:
+	anim_battlergfx_2row
+	anim_bgeffect ANIM_BG_BATTLEROBJ_1ROW, $0, $0, $0
+	anim_wait 6
+	anim_ret
+
+BattleAnim_TargetObj_2Row_Special:
+	anim_battlergfx_1row
+	anim_bgeffect ANIM_BG_BATTLEROBJ_2ROW, $0, $0, $0
+	anim_wait 6
+	anim_ret
+
+BattleAnim_ShowMon_0_Special:
+	anim_wait 1
+	anim_bgeffect ANIM_BG_SHOW_MON, $0, $0, $0
+	anim_wait 5
+	anim_incobj 1
+	anim_wait 1
+	anim_ret
+
+BattleAnim_ShowMon_1_Special:
+	anim_wait 1
+	anim_bgeffect ANIM_BG_SHOW_MON, $0, $1, $0
+	anim_wait 4
+	anim_incobj 1
+	anim_wait 1
+	anim_ret
+
+BattleAnim_UserObj_1Row_Special:
+	anim_battlergfx_2row
+	anim_bgeffect ANIM_BG_BATTLEROBJ_1ROW, $0, $1, $0
+	anim_wait 6
+	anim_ret
+
+BattleAnim_UserObj_2Row_Special:
+	anim_battlergfx_1row
+	anim_bgeffect ANIM_BG_BATTLEROBJ_2ROW, $0, $1, $0
+	anim_wait 4
 	anim_ret

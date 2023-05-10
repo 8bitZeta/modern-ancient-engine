@@ -1,3 +1,5 @@
+SECTION "Move Animations 1", ROMX
+
 MoveAnimations1:
 	dw BattleAnim_Dummy
 	dw BattleAnim_Pound
