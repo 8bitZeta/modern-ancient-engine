@@ -17,19 +17,13 @@ QueueBattleAnimation:
 	ld b, h
 	ld hl, wLastAnimObjectIndex
 	inc [hl]
-	call InitBattleAnimation
-	ret
-
-DeinitBattleAnimation:
-	ld hl, BATTLEANIMSTRUCT_INDEX
-	add hl, bc
-	ld [hl], $0
-	ret
+	; fallthrough
 
 InitBattleAnimation:
-	ld a, [wBattleObjectTempID]
+	ld hl, wBattleObjectTempID
+	ld a, [hli]
 	ld e, a
-	ld d, 0
+	ld d, [hl]
 	ld hl, BattleAnimObjects
 rept BATTLEANIMOBJ_LENGTH
 	add hl, de
@@ -75,6 +69,12 @@ endr
 	ld [hli], a ; BATTLEANIMSTRUCT_JUMPTABLE_INDEX
 	ld [hli], a ; BATTLEANIMSTRUCT_VAR1
 	ld [hl], a  ; BATTLEANIMSTRUCT_VAR2
+	ret
+
+DeinitBattleAnimation:
+	ld hl, BATTLEANIMSTRUCT_INDEX
+	add hl, bc
+	ld [hl], $0
 	ret
 
 BattleAnimOAMUpdate:

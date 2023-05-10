@@ -7,22 +7,7 @@ MACRO anim_wait
 	db \1
 ENDM
 
-	const anim_obj_command ; $d0
-MACRO anim_obj
-	db anim_obj_command
-	if _NARG <= 4
-		db \1 ; object
-		db \2 ; x
-		db \3 ; y
-		db \4 ; param
-	else
-	; LEGACY: Support the tile+offset format
-		db \1 ; object
-		db (\2) * 8 + (\3) ; x_tile, x
-		db (\4) * 8 + (\5) ; y_tile, y
-		db \6 ; param
-	endc
-ENDM
+	const_skip ; d0
 
 	const anim_1gfx_command ; $d1
 MACRO anim_1gfx
@@ -185,15 +170,9 @@ MACRO anim_setobjpal
 	db \2 ; battle pal
 ENDM
 
-	const anim_0xec_command ; $ec
-MACRO anim_0xec
-	db anim_0xec_command
-ENDM
+	const_skip ; $ec
 
-	const anim_0xed_command ; $ed
-MACRO anim_0xed
-	db anim_0xed_command
-ENDM
+	const_skip ; $ed
 
 	const anim_if_param_and_command ; $ee
 MACRO anim_if_param_and
@@ -241,19 +220,21 @@ MACRO anim_keepsprites
 	db anim_keepsprites_command
 ENDM
 
-	const anim_0xf5_command ; $f5
-MACRO anim_0xf5
-	db anim_0xf5_command
+	const anim_clearenemyhud_command ; $f5
+MACRO anim_clearenemyhud
+	db anim_clearenemyhud_command
 ENDM
 
-	const anim_0xf6_command ; $f6
-MACRO anim_0xf6
-	db anim_0xf6_command
-ENDM
-
-	const anim_0xf7_command ; $f7
-MACRO anim_0xf7
-	db anim_0xf7_command
+	const anim_obj_command ; $f6
+	const anim_obj_100_command ; $f7
+MACRO anim_obj
+	assert _NARG <= 4, "6-argument anim_obj is no longer supported!"
+	assert ((\1) >= 0) && ((\1) < $200), "ANIM_OBJ constant out of range"
+	db anim_obj_command | HIGH(\1)
+	db LOW(\1) ; object
+	db \2 ; x
+	db \3 ; y
+	db \4 ; param
 ENDM
 
 	const anim_if_param_equal_command ; $f8

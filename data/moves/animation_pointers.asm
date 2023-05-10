@@ -7,6 +7,6 @@ BattleAnimations::
 	indirect_table_end
 
 
-INCLUDE "data/moves/animations.asm"
-INCLUDE "data/moves/animations_new.asm"
+INCLUDE "data/moves/animations_1.asm"
+INCLUDE "data/moves/animations_2.asm"
 INCLUDE "data/moves/special_animations.asm"

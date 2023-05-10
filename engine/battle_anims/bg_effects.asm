@@ -393,8 +393,7 @@ BattleBGEffect_ShowMon:
 	ld [wBattlePicResizeTempPointer], a
 	ld a, d
 	ld [wBattlePicResizeTempPointer + 1], a
-	call BattleBGEffect_RunPicResizeScript
-	ret
+	jmp BattleBGEffect_RunPicResizeScript
 
 .PlayerData:
 	db  0, $31, 0
@@ -427,13 +426,20 @@ BattleBGEffect_BattlerObj_1Row:
 	call BGEffect_CheckBattleTurn
 	jr nz, .player_side
 	ld a, ANIM_OBJ_ENEMYFEET_1ROW
+	ld a, LOW(ANIM_OBJ_ENEMYFEET_1ROW)
 	ld [wBattleObjectTempID], a
+	assert !HIGH(ANIM_OBJ_ENEMYFEET_1ROW)
+	xor a
+	ld [wBattleObjectTempID + 1], a
 	ld a, 16 * TILE_WIDTH + 4
 	jr .okay
 
 .player_side
-	ld a, ANIM_OBJ_PLAYERHEAD_1ROW
+	ld a, LOW(ANIM_OBJ_PLAYERHEAD_1ROW)
 	ld [wBattleObjectTempID], a
+	assert !HIGH(ANIM_OBJ_PLAYERHEAD_1ROW)
+	xor a
+	ld [wBattleObjectTempID + 1], a
 	ld a, 6 * TILE_WIDTH
 .okay
 	ld [wBattleObjectTempXCoord], a
@@ -493,14 +499,20 @@ BattleBGEffect_BattlerObj_2Row:
 	push bc
 	call BGEffect_CheckBattleTurn
 	jr nz, .player_side
-	ld a, ANIM_OBJ_ENEMYFEET_2ROW
+	ld a, LOW(ANIM_OBJ_ENEMYFEET_2ROW)
 	ld [wBattleObjectTempID], a
+	assert !HIGH(ANIM_OBJ_ENEMYFEET_2ROW)
+	xor a
+	ld [wBattleObjectTempID + 1], a
 	ld a, 16 * TILE_WIDTH + 4
 	jr .okay
 
 .player_side
-	ld a, ANIM_OBJ_PLAYERHEAD_2ROW
+	ld a, LOW(ANIM_OBJ_PLAYERHEAD_2ROW)
 	ld [wBattleObjectTempID], a
+	assert !HIGH(ANIM_OBJ_PLAYERHEAD_2ROW)
+	xor a
+	ld [wBattleObjectTempID + 1], a
 	ld a, 6 * TILE_WIDTH
 .okay
 	ld [wBattleObjectTempXCoord], a
@@ -655,8 +667,7 @@ BattleBGEffect_EnterMon:
 	ld [wBattlePicResizeTempPointer], a
 	ld a, d
 	ld [wBattlePicResizeTempPointer + 1], a
-	call BattleBGEffect_RunPicResizeScript
-	ret
+	jmp BattleBGEffect_RunPicResizeScript
 
 .PlayerData:
 	db  2, $31, 2
@@ -682,8 +693,7 @@ BattleBGEffect_ReturnMon:
 	ld [wBattlePicResizeTempPointer], a
 	ld a, d
 	ld [wBattlePicResizeTempPointer + 1], a
-	call BattleBGEffect_RunPicResizeScript
-	ret
+	jmp BattleBGEffect_RunPicResizeScript
 
 .PlayerData:
 	db  0, $31, 0
