@@ -209,21 +209,6 @@ StdBattleTextbox::
 	rst Bankswitch
 	ret
 
-GetBattleAnimPointer::
-	ld a, BANK(BattleAnimations)
-	rst Bankswitch
-
-	ld a, [hli]
-	ld [wBattleAnimAddress], a
-	ld a, [hl]
-	ld [wBattleAnimAddress + 1], a
-
-	; ClearBattleAnims is the only function that calls this...
-	ld a, BANK(ClearBattleAnims)
-	rst Bankswitch
-
-	ret
-
 GetBattleAnimByte::
 	push hl
 	push de
