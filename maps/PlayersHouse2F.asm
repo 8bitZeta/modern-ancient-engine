@@ -50,7 +50,7 @@ PlayersHousePosterScript:
 	describedecoration DECODESC_POSTER
 
 PlayersHouseRadioScript:
-if DEF(_DEBUG)
+	if DEF(_DEBUG)
 	opentext
 	; full pokegear
 	setflag ENGINE_POKEGEAR
@@ -131,10 +131,10 @@ if DEF(_DEBUG)
 	setflag ENGINE_CREDITS_SKIP
 	; Debug pokemon
 	givepoke MEW, 100, LEFTOVERS
-	givepokemove FLY,        wPartyMon1, 0
-	givepokemove SURF,       wPartyMon1, 1
-	givepokemove STRENGTH,   wPartyMon1, 2
-	givepokemove CUT,        wPartyMon1, 3
+	givepokemove THUNDERPUNCH,        wPartyMon1, 0
+	givepokemove THUNDERSHOCK,       wPartyMon1, 1
+	givepokemove ZAP_CANNON,   wPartyMon1, 2
+	givepokemove SPARK,        wPartyMon1, 3
 	givepoke MEW, 100, LEFTOVERS
 	givepokemove FLASH,      wPartyMon2, 0
 	givepokemove ROCK_SMASH, wPartyMon2, 1
@@ -152,7 +152,7 @@ if DEF(_DEBUG)
 	callasm CheatFillPokedex
 	closetext
 	end
-	
+
 CheatFillPokedex:
 	ld a, 1
 	ld [wFirstUnownSeen], a
