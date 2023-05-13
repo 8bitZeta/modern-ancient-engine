@@ -134,7 +134,7 @@ PlayersHouseRadioScript:
 	givepokemove STOCKPILE,        wPartyMon1, 0
 	givepokemove SWALLOW,       wPartyMon1, 1
 	givepokemove SPIT_UP,   wPartyMon1, 2
-	givepokemove UPROAR,        wPartyMon1, 3
+	givepokemove HEAT_WAVE,        wPartyMon1, 3
 	givepoke MEW, 100, LEFTOVERS
 	givepokemove FLASH,      wPartyMon2, 0
 	givepokemove ROCK_SMASH, wPartyMon2, 1

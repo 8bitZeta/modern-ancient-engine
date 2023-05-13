@@ -371,12 +371,24 @@ BattleAnim_Swallow:
 	anim_ret
 
 BattleAnim_HeatWave:
-	anim_1gfx ANIM_GFX_HIT
-	anim_sound 0, 1, SFX_POUND
-	anim_obj ANIM_OBJ_PALM, 136, 56, $0
-	anim_wait 6
-	anim_obj ANIM_OBJ_HIT_YFIX, 136, 56, $0
-	anim_wait 16
+	anim_setobjpal PAL_BATTLE_OB_RED, PAL_BTLCUSTOM_FIRE
+	anim_2gfx ANIM_GFX_WIND, ANIM_GFX_FIRE
+	anim_bgp $90
+	anim_bgeffect ANIM_BG_WHIRLPOOL, $0, $0, $0
+	anim_sound 0, 0, SFX_EMBER
+.loop
+	anim_obj ANIM_OBJ_HEAT_WAVE, 88, 0, $1
+	anim_wait 8
+	anim_obj ANIM_OBJ_HEAT_WAVE, 56, 16, $1
+	anim_wait 8
+	anim_obj ANIM_OBJ_HEAT_WAVE, 72, 32, $1
+	anim_wait 8
+	anim_obj ANIM_OBJ_HEAT_WAVE, 24, 48, $1
+	anim_wait 8
+	anim_obj ANIM_OBJ_HEAT_WAVE, 40, 64, $1
+	anim_loop 3, .loop
+	anim_wait 64
+	anim_incbgeffect ANIM_BG_WHIRLPOOL
 	anim_ret
 
 BattleAnim_Hail:
