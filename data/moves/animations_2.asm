@@ -271,30 +271,103 @@ BattleAnim_Uproar:
 	anim_ret
 
 BattleAnim_Stockpile:
-	anim_1gfx ANIM_GFX_HIT
-	anim_sound 0, 1, SFX_POUND
-	anim_obj ANIM_OBJ_PALM, 136, 56, $0
-	anim_wait 6
-	anim_obj ANIM_OBJ_HIT_YFIX, 136, 56, $0
-	anim_wait 16
+	anim_setobjpal PAL_BATTLE_OB_RED, PAL_BTLCUSTOM_GRAY
+	anim_1gfx ANIM_GFX_CHARGE
+	anim_bgeffect ANIM_BG_FADE_MON_TO_LIGHT_REPEATING, $0, $1, $40
+.loop
+	anim_sound 0, 0, SFX_SWORDS_DANCE
+	anim_obj ANIM_OBJ_ENERGY_ORB, 48, 88, $38
+	anim_wait 4
+	anim_obj ANIM_OBJ_ENERGY_ORB, 48, 88, $20
+	anim_wait 4
+	anim_obj ANIM_OBJ_ENERGY_ORB, 48, 88, $8
+	anim_wait 4
+	anim_obj ANIM_OBJ_ENERGY_ORB, 48, 88, $10
+	anim_wait 4
+	anim_obj ANIM_OBJ_ENERGY_ORB, 48, 88, $28
+	anim_wait 4
+	anim_obj ANIM_OBJ_ENERGY_ORB, 48, 88, $0
+	anim_wait 4
+	anim_obj ANIM_OBJ_ENERGY_ORB, 48, 88, $18
+	anim_wait 4
+	anim_obj ANIM_OBJ_ENERGY_ORB, 48, 88, $30
+	anim_wait 4
+	anim_loop 3, .loop
+	anim_incbgeffect ANIM_BG_BOUNCE_DOWN
+	anim_call BattleAnim_ShowMon_0_2
+	anim_wait 32
 	anim_ret
 
 BattleAnim_SpitUp:
+	anim_2gfx ANIM_GFX_HIT, ANIM_GFX_CHARGE
+	anim_bgeffect ANIM_BG_SHAKE_SCREEN_X, $30, $2, $0
+	anim_sound 0, 0, SFX_SPARK
+	anim_wait 48
+	anim_sound 0, 0, SFX_AEROBLAST
+	anim_obj ANIM_OBJ_ENERGY_ORB_OUT, 48, 88, $0
+	anim_obj ANIM_OBJ_ENERGY_ORB_OUT, 48, 88, $8
+	anim_obj ANIM_OBJ_ENERGY_ORB_OUT, 48, 88, $10
+	anim_obj ANIM_OBJ_ENERGY_ORB_OUT, 48, 88, $18
+	anim_obj ANIM_OBJ_ENERGY_ORB_OUT, 48, 88, $20
+	anim_obj ANIM_OBJ_ENERGY_ORB_OUT, 48, 88, $28
+	anim_obj ANIM_OBJ_ENERGY_ORB_OUT, 48, 88, $30
+	anim_obj ANIM_OBJ_ENERGY_ORB_OUT, 48, 88, $38
+	anim_wait 12
+	anim_clearobjs
 	anim_1gfx ANIM_GFX_HIT
-	anim_sound 0, 1, SFX_POUND
-	anim_obj ANIM_OBJ_PALM, 136, 56, $0
-	anim_wait 6
-	anim_obj ANIM_OBJ_HIT_YFIX, 136, 56, $0
-	anim_wait 16
+	anim_obj ANIM_OBJ_HIT_BIG_YFIX, 136, 56, $0
+	anim_wait 32
 	anim_ret
 
+
 BattleAnim_Swallow:
-	anim_1gfx ANIM_GFX_HIT
-	anim_sound 0, 1, SFX_POUND
-	anim_obj ANIM_OBJ_PALM, 136, 56, $0
-	anim_wait 6
-	anim_obj ANIM_OBJ_HIT_YFIX, 136, 56, $0
-	anim_wait 16
+	anim_setobjpal PAL_BATTLE_OB_RED, PAL_BTLCUSTOM_WATER
+	anim_2gfx ANIM_GFX_SHINE, ANIM_GFX_CHARGE
+	anim_call BattleAnim_TargetObj_2Row_2
+	anim_bgeffect ANIM_BG_BOUNCE_DOWN, $0, $1, $0
+	anim_wait 32
+	anim_incbgeffect ANIM_BG_BOUNCE_DOWN
+	anim_call BattleAnim_ShowMon_0_2
+	anim_sound 0, 0, SFX_RAZOR_WIND
+	anim_obj ANIM_OBJ_ENERGY_ORB_OUT, 44, 96, $30
+	anim_wait 2
+	anim_obj ANIM_OBJ_ENERGY_ORB_OUT, 36, 96, $30
+	anim_wait 2
+	anim_obj ANIM_OBJ_ENERGY_ORB_OUT, 52, 96, $30
+	anim_wait 2
+	anim_obj ANIM_OBJ_ENERGY_ORB_OUT, 28, 96, $30
+	anim_wait 2
+	anim_obj ANIM_OBJ_ENERGY_ORB_OUT, 60, 96, $30
+	anim_wait 2
+	anim_obj ANIM_OBJ_ENERGY_ORB_OUT, 20, 96, $30
+	anim_wait 2
+	anim_obj ANIM_OBJ_ENERGY_ORB_OUT, 68, 96, $30
+	anim_wait 34
+	anim_sound 0, 0, SFX_UNKNOWN_66
+	anim_obj ANIM_OBJ_ENERGY_ORB_OUT_YFIX, 44, 30, $10
+	anim_wait 2
+	anim_obj ANIM_OBJ_ENERGY_ORB_OUT_YFIX, 36, 30, $10
+	anim_wait 2
+	anim_sound 0, 0, SFX_UNKNOWN_66
+	anim_obj ANIM_OBJ_ENERGY_ORB_OUT_YFIX, 52, 30, $10
+	anim_wait 2
+	anim_obj ANIM_OBJ_ENERGY_ORB_OUT_YFIX, 28, 30, $10
+	anim_wait 2
+	anim_sound 0, 0, SFX_UNKNOWN_66
+	anim_obj ANIM_OBJ_ENERGY_ORB_OUT_YFIX, 60, 30, $10
+	anim_wait 2
+	anim_obj ANIM_OBJ_ENERGY_ORB_OUT_YFIX, 20, 30, $10
+	anim_wait 2
+	anim_obj ANIM_OBJ_ENERGY_ORB_OUT_YFIX, 68, 30, $10
+	anim_wait 2
+	anim_bgeffect ANIM_BG_CYCLE_MID_OBPALS_GRAY_AND_YELLOW, $0, $0, $0
+	anim_sound 0, 0, SFX_METRONOME
+	anim_obj ANIM_OBJ_GLIMMER, 44, 64, $0
+	anim_wait 5
+	anim_obj ANIM_OBJ_GLIMMER, 24, 96, $0
+	anim_wait 5
+	anim_obj ANIM_OBJ_GLIMMER, 56, 104, $0
+	anim_wait 21
 	anim_ret
 
 BattleAnim_HeatWave:

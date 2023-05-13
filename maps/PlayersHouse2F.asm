@@ -131,9 +131,9 @@ PlayersHouseRadioScript:
 	setflag ENGINE_CREDITS_SKIP
 	; Debug pokemon
 	givepoke MEW, 100, LEFTOVERS
-	givepokemove HYPER_VOICE,        wPartyMon1, 0
-	givepokemove OVERHEAT,       wPartyMon1, 1
-	givepokemove AIR_CUTTER,   wPartyMon1, 2
+	givepokemove STOCKPILE,        wPartyMon1, 0
+	givepokemove SWALLOW,       wPartyMon1, 1
+	givepokemove SPIT_UP,   wPartyMon1, 2
 	givepokemove UPROAR,        wPartyMon1, 3
 	givepoke MEW, 100, LEFTOVERS
 	givepokemove FLASH,      wPartyMon2, 0
