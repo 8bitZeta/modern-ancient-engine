@@ -666,7 +666,7 @@ BattleBGEffect_EnterMon:
 	ld [wBattlePicResizeTempPointer], a
 	ld a, d
 	ld [wBattlePicResizeTempPointer + 1], a
-	jmp BattleBGEffect_RunPicResizeScript
+	jr BattleBGEffect_RunPicResizeScript
 
 .PlayerData:
 	db  2, $31, 2
@@ -692,7 +692,7 @@ BattleBGEffect_ReturnMon:
 	ld [wBattlePicResizeTempPointer], a
 	ld a, d
 	ld [wBattlePicResizeTempPointer + 1], a
-	jmp BattleBGEffect_RunPicResizeScript
+	jr BattleBGEffect_RunPicResizeScript
 
 .PlayerData:
 	db  0, $31, 0

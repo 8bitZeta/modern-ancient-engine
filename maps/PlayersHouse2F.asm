@@ -131,19 +131,19 @@ PlayersHouseRadioScript:
 	setflag ENGINE_CREDITS_SKIP
 	; Debug pokemon
 	givepoke MEW, 100, LEFTOVERS
-	givepokemove THUNDERPUNCH,        wPartyMon1, 0
-	givepokemove THUNDERSHOCK,       wPartyMon1, 1
-	givepokemove ZAP_CANNON,   wPartyMon1, 2
-	givepokemove SPARK,        wPartyMon1, 3
+	givepokemove HYPER_VOICE,        wPartyMon1, 0
+	givepokemove OVERHEAT,       wPartyMon1, 1
+	givepokemove AIR_CUTTER,   wPartyMon1, 2
+	givepokemove UPROAR,        wPartyMon1, 3
 	givepoke MEW, 100, LEFTOVERS
 	givepokemove FLASH,      wPartyMon2, 0
 	givepokemove ROCK_SMASH, wPartyMon2, 1
 	givepokemove HEADBUTT,   wPartyMon2, 2
 	givepokemove WATERFALL,  wPartyMon2, 3
 	; Test pokemon
-	givepoke NINCADA, 50
-	givepoke NINCADA, 50
-	givepoke NINCADA, 50
+	; givepoke NINCADA, 50
+	; givepoke NINCADA, 50
+	; givepoke NINCADA, 50
 	; intro events
 	addcellnum PHONE_MOM
 	setmapscene PLAYERS_HOUSE_1F, $1
