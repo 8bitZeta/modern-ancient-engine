@@ -379,13 +379,13 @@ BattleAnim_HeatWave:
 .loop
 	anim_obj ANIM_OBJ_HEAT_WAVE, 88, 0, $1
 	anim_wait 8
-	anim_obj ANIM_OBJ_HEAT_WAVE, 56, 16, $1
+	anim_obj ANIM_OBJ_HEAT_WAVE, 56, 0, $1
 	anim_wait 8
-	anim_obj ANIM_OBJ_HEAT_WAVE, 72, 32, $1
+	anim_obj ANIM_OBJ_HEAT_WAVE, 72, 0, $1
 	anim_wait 8
-	anim_obj ANIM_OBJ_HEAT_WAVE, 24, 48, $1
+	anim_obj ANIM_OBJ_HEAT_WAVE, 24, 0, $1
 	anim_wait 8
-	anim_obj ANIM_OBJ_HEAT_WAVE, 40, 64, $1
+	anim_obj ANIM_OBJ_HEAT_WAVE, 40, 0, $1
 	anim_loop 3, .loop
 	anim_wait 64
 	anim_incbgeffect ANIM_BG_WHIRLPOOL
