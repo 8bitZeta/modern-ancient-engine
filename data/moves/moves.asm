@@ -77,7 +77,7 @@ Moves1:
 	move EFFECT_NORMAL_HIT,        120, WATER,          SPECIAL,   80,  5,   0 ;HYDRO_PUMP
 	move EFFECT_NORMAL_HIT,         95, WATER,          SPECIAL,  100, 15,   0 ;SURF
 	move EFFECT_FREEZE_HIT,         95, ICE,            SPECIAL,  100, 10,  10 ;ICE_BEAM
-	move EFFECT_FREEZE_HIT,        120, ICE,            SPECIAL,   70,  5,  10 ;BLIZZARD
+	move EFFECT_BLIZZARD,          120, ICE,            SPECIAL,   70,  5,  10 ;BLIZZARD
 	move EFFECT_CONFUSE_HIT,        65, PSYCHIC_TYPE,   SPECIAL,  100, 20,  10 ;PSYBEAM
 	move EFFECT_SPEED_DOWN_HIT,     65, WATER,          SPECIAL,  100, 20,  10 ;BUBBLEBEAM
 	move EFFECT_ATTACK_DOWN_HIT,    65, ICE,            SPECIAL,  100, 20,  10 ;AURORA_BEAM
@@ -282,7 +282,7 @@ Moves2:
 	move EFFECT_NORMAL_HIT,          1, NORMAL,         SPECIAL,  100, 10,   0 ; SPIT_UP
 	move EFFECT_NORMAL_HIT,          0, NORMAL,         STATUS,   100, 10,   0 ; SWALLOW
 	move EFFECT_BURN_HIT,          100, FIRE,           SPECIAL,   90, 10,  10 ; HEAT_WAVE
-	move EFFECT_RAIN_DANCE,          0, ICE,            STATUS,   100, 10,   0 ; HAIL EFFECT_HAIL
+	move EFFECT_HAIL,                0, ICE,            STATUS,   100, 10,   0 ; HAIL EFFECT_HAIL
 	move EFFECT_NORMAL_HIT,          0, DARK,           STATUS,   100, 15,   0 ; TORMENT
 	move EFFECT_SWAGGER,             0, DARK,           STATUS,   100, 15, 100 ; FLATTER EFFECT_FLATTER
 	move EFFECT_POISON,              0, FIRE,           STATUS,    75, 15,   0 ; WILL_O_WISP EFFECT_BURN 

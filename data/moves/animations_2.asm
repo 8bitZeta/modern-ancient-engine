@@ -392,12 +392,31 @@ BattleAnim_HeatWave:
 	anim_ret
 
 BattleAnim_Hail:
-	anim_1gfx ANIM_GFX_HIT
-	anim_sound 0, 1, SFX_POUND
-	anim_obj ANIM_OBJ_PALM, 136, 56, $0
-	anim_wait 6
-	anim_obj ANIM_OBJ_HIT_YFIX, 136, 56, $0
-	anim_wait 16
+	anim_setobjpal PAL_BATTLE_OB_BLUE, PAL_BTLCUSTOM_ICE
+	anim_1gfx ANIM_GFX_ICE
+	anim_bgeffect ANIM_BG_WHITE_HUES, $0, $8, $0
+.loop
+	anim_sound 0, 1, SFX_SHINE
+	anim_obj ANIM_OBJ_HAIL, 88, 0, $0
+	anim_obj ANIM_OBJ_HAIL, 72, 0, $1
+	anim_wait 8
+	anim_sound 0, 1, SFX_SHINE
+	anim_obj ANIM_OBJ_HAIL, 56, 0, $2
+	anim_obj ANIM_OBJ_HAIL, 04, 0, $0
+	anim_wait 8
+	anim_sound 0, 1, SFX_SHINE
+	anim_obj ANIM_OBJ_HAIL, 72, 0, $1
+	anim_obj ANIM_OBJ_HAIL, 20, 0, $2
+	anim_wait 8
+	anim_sound 0, 1, SFX_SHINE
+	anim_obj ANIM_OBJ_HAIL, 04, 0, $0
+	anim_obj ANIM_OBJ_HAIL, 88, 0, $1
+	anim_wait 8
+	anim_sound 0, 1, SFX_SHINE
+	anim_obj ANIM_OBJ_HAIL, 20, 0, $2
+	anim_obj ANIM_OBJ_HAIL, 56, 0, $1
+	anim_wait 8
+	anim_loop 3, .loop
 	anim_ret
 
 BattleAnim_Torment:
