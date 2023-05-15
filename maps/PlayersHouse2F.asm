@@ -133,7 +133,7 @@ PlayersHouseRadioScript:
 	givepoke MEW, 100, LEFTOVERS
 	givepokemove HEAT_WAVE,        wPartyMon1, 0
 	givepokemove TORMENT,       wPartyMon1, 1
-	givepokemove SANDSTORM,   wPartyMon1, 2
+	givepokemove FLATTER,   wPartyMon1, 2
 	givepokemove HAIL,        wPartyMon1, 3
 	givepoke MEW, 100, LEFTOVERS
 	givepokemove FLASH,      wPartyMon2, 0
