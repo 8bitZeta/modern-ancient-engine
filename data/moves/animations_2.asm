@@ -419,12 +419,32 @@ BattleAnim_Hail:
 	anim_ret
 
 BattleAnim_Torment:
-	anim_1gfx ANIM_GFX_HIT
-	anim_sound 0, 1, SFX_POUND
-	anim_obj ANIM_OBJ_PALM, 136, 56, $0
-	anim_wait 6
-	anim_obj ANIM_OBJ_HIT_YFIX, 136, 56, $0
+	anim_2gfx ANIM_GFX_MISC, ANIM_GFX_STATUS
+	anim_sound 0, 1, SFX_HORN_ATTACK
+	anim_obj ANIM_OBJ_TORMENT, 64, 106, $2
+	anim_wait 32
+	anim_sound 0, 1, SFX_HORN_ATTACK
+	anim_obj ANIM_OBJ_TORMENT, 32, 62, $2
+	anim_wait 32
+	anim_sound 0, 1, SFX_HORN_ATTACK
+	anim_obj ANIM_OBJ_TORMENT, 76, 84, $2
 	anim_wait 16
+	anim_sound 0, 1, SFX_HORN_ATTACK
+	anim_obj ANIM_OBJ_TORMENT, 32, 106, $2
+	anim_wait 16
+	anim_sound 0, 1, SFX_HORN_ATTACK
+	anim_obj ANIM_OBJ_TORMENT, 20, 84, $2
+	anim_wait 16
+	anim_sound 0, 1, SFX_HORN_ATTACK
+	anim_obj ANIM_OBJ_TORMENT, 64, 62, $2
+	anim_wait 48
+	anim_clearobjs
+	anim_sound 0, 1, SFX_KINESIS_2
+	anim_obj ANIM_OBJ_ANGER, 112, 50, $0
+	anim_wait 16
+	anim_sound 0, 1, SFX_KINESIS_2
+	anim_obj ANIM_OBJ_ANGER, 148, 32, $0
+	anim_wait 32
 	anim_ret
 
 BattleAnim_Flatter:

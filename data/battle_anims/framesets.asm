@@ -189,6 +189,7 @@ BattleAnimFrameData:
 	dw .Frameset_b9 ; BATTLEANIMFRAMESET_B9
 	dw .Frameset_ba ; BATTLEANIMFRAMESET_BA
 	dw .Frameset_bb ; BATTLEANIMFRAMESET_BB
+	dw .Frameset_bc ; BATTLEANIMFRAMESET_BC
 	assert_table_length NUM_BATTLEANIMFRAMESETS
 
 .Frameset_00:
@@ -1291,3 +1292,8 @@ BattleAnimFrameData:
 	oamframe BATTLEANIMOAMSET_55,  8
 	oamframe BATTLEANIMOAMSET_54,  20
 	oamdelete
+
+.Frameset_bc:
+	oamframe BATTLEANIMOAMSET_D9,  4
+	oamframe BATTLEANIMOAMSET_D9,  4, OAM_X_FLIP
+	oamrestart
