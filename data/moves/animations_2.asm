@@ -319,7 +319,6 @@ BattleAnim_SpitUp:
 	anim_wait 32
 	anim_ret
 
-
 BattleAnim_Swallow:
 	anim_setobjpal PAL_BATTLE_OB_RED, PAL_BTLCUSTOM_WATER
 	anim_2gfx ANIM_GFX_SHINE, ANIM_GFX_CHARGE
@@ -379,13 +378,13 @@ BattleAnim_HeatWave:
 .loop
 	anim_obj ANIM_OBJ_HEAT_WAVE, 88, 0, $1
 	anim_wait 8
-	anim_obj ANIM_OBJ_HEAT_WAVE, 56, 0, $1
+	anim_obj ANIM_OBJ_HEAT_WAVE, 28, 0, $1
 	anim_wait 8
-	anim_obj ANIM_OBJ_HEAT_WAVE, 72, 0, $1
+	anim_obj ANIM_OBJ_HEAT_WAVE, 238, 0, $1
 	anim_wait 8
-	anim_obj ANIM_OBJ_HEAT_WAVE, 24, 0, $1
+	anim_obj ANIM_OBJ_HEAT_WAVE, 188, 0, $1
 	anim_wait 8
-	anim_obj ANIM_OBJ_HEAT_WAVE, 40, 0, $1
+	anim_obj ANIM_OBJ_HEAT_WAVE, 138, 0, $1
 	anim_loop 3, .loop
 	anim_wait 64
 	anim_incbgeffect ANIM_BG_WHIRLPOOL
@@ -398,23 +397,23 @@ BattleAnim_Hail:
 .loop
 	anim_sound 0, 1, SFX_SHINE
 	anim_obj ANIM_OBJ_HAIL, 88, 0, $0
-	anim_obj ANIM_OBJ_HAIL, 72, 0, $1
+	anim_obj ANIM_OBJ_HAIL, 68, 0, $1
 	anim_wait 8
 	anim_sound 0, 1, SFX_SHINE
-	anim_obj ANIM_OBJ_HAIL, 56, 0, $2
-	anim_obj ANIM_OBJ_HAIL, 04, 0, $0
+	anim_obj ANIM_OBJ_HAIL, 188, 0, $2
+	anim_obj ANIM_OBJ_HAIL, 168, 0, $0
 	anim_wait 8
 	anim_sound 0, 1, SFX_SHINE
-	anim_obj ANIM_OBJ_HAIL, 72, 0, $1
-	anim_obj ANIM_OBJ_HAIL, 20, 0, $2
+	anim_obj ANIM_OBJ_HAIL, 28, 0, $1
+	anim_obj ANIM_OBJ_HAIL, 8, 0, $2
 	anim_wait 8
 	anim_sound 0, 1, SFX_SHINE
-	anim_obj ANIM_OBJ_HAIL, 04, 0, $0
-	anim_obj ANIM_OBJ_HAIL, 88, 0, $1
+	anim_obj ANIM_OBJ_HAIL, 238, 0, $0
+	anim_obj ANIM_OBJ_HAIL, 218, 0, $1
 	anim_wait 8
 	anim_sound 0, 1, SFX_SHINE
-	anim_obj ANIM_OBJ_HAIL, 20, 0, $2
-	anim_obj ANIM_OBJ_HAIL, 56, 0, $1
+	anim_obj ANIM_OBJ_HAIL, 138, 0, $2
+	anim_obj ANIM_OBJ_HAIL, 118, 0, $1
 	anim_wait 8
 	anim_loop 3, .loop
 	anim_ret
