@@ -116,10 +116,8 @@ MACRO anim_cry
 	db \1 ; pitch
 ENDM
 
-	const anim_minimizeopp_command ; $e2
-MACRO anim_minimizeopp
-	db anim_minimizeopp_command
-ENDM
+	const_skip ; $e2
+
 
 	const anim_oamon_command ; $e3
 MACRO anim_oamon
@@ -141,10 +139,7 @@ MACRO anim_beatup
 	db anim_beatup_command
 ENDM
 
-	const anim_0xe7_command ; $e7
-MACRO anim_0xe7
-	db anim_0xe7_command
-ENDM
+	const_skip ; $e7
 
 	const anim_updateactorpic_command ; $e8
 MACRO anim_updateactorpic

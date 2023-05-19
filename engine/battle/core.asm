@@ -8260,10 +8260,6 @@ GetBattleMonBackpic:
 	jr nz, GetBattleMonBackpic_DoAnim ; substitute
 
 DropPlayerSub:
-	ld a, [wPlayerMinimized]
-	and a
-	ld hl, BattleAnimCmd_MinimizeOpp
-	jr nz, GetBattleMonBackpic_DoAnim
 	ld a, [wCurPartySpecies]
 	push af
 	ld a, [wBattleMonSpecies]
@@ -8294,11 +8290,6 @@ GetEnemyMonFrontpic:
 	jr nz, GetEnemyMonFrontpic_DoAnim
 
 DropEnemySub:
-	ld a, [wEnemyMinimized]
-	and a
-	ld hl, BattleAnimCmd_MinimizeOpp
-	jr nz, GetEnemyMonFrontpic_DoAnim
-
 	ld a, [wCurPartySpecies]
 	push af
 	ld a, [wEnemyMonSpecies]
