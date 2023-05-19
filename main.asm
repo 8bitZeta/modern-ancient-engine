@@ -150,11 +150,6 @@ SECTION "Move Descriptions", ROMX
 INCLUDE "engine/pokemon/print_move_description.asm"
 
 
-SECTION "Effect Commands", ROMX
-
-INCLUDE "engine/battle/effect_command_files.asm"
-
-
 SECTION "Enemy Trainers", ROMX
 
 INCLUDE "engine/battle/ai/items.asm"
@@ -719,6 +714,7 @@ INCLUDE "engine/16/table_functions.asm"
 
 ; own section
 INCLUDE "data/trainers/parties.asm"
+INCLUDE "engine/battle/effect_command_files.asm"
 
 
 SECTION "New Structs", ROMX
