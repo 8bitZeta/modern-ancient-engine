@@ -46,8 +46,7 @@ ResetFuryCutterCount:
 	ld hl, wEnemyFuryCutterCount
 
 .reset
-	xor a
-	ld [hl], a
+	ld [hl], 0
 
 	pop hl
 	ret

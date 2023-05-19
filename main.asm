@@ -152,7 +152,7 @@ INCLUDE "engine/pokemon/print_move_description.asm"
 
 SECTION "Effect Commands", ROMX
 
-INCLUDE "engine/battle/effect_commands.asm"
+INCLUDE "engine/battle/effect_command_files.asm"
 
 
 SECTION "Enemy Trainers", ROMX

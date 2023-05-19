@@ -2,7 +2,7 @@ BattleCommand_BeatUp:
 	call ResetDamage
 	ldh a, [hBattleTurn]
 	and a
-	jmp nz, .enemy_beats_up
+	jr nz, .enemy_beats_up
 
 	ld a, [wPlayerSubStatus3]
 	bit SUBSTATUS_IN_LOOP, a
@@ -12,7 +12,6 @@ BattleCommand_BeatUp:
 	call DelayFrames
 	xor a
 	ld [wPlayerRolloutCount], a
-	ld [wCurBeatUpPartyMon], a
 	ld [wBeatUpHitAtLeastOnce], a
 	jr .got_mon
 
@@ -21,10 +20,9 @@ BattleCommand_BeatUp:
 	ld b, a
 	ld a, [wPartyCount]
 	sub b
-	ld [wCurBeatUpPartyMon], a
 
 .got_mon
-	ld a, [wCurBeatUpPartyMon]
+	ld [wCurBeatUpPartyMon], a
 	ld hl, wPartyMonNicknames
 	call GetNickname
 	ld a, MON_HP
@@ -45,7 +43,7 @@ BattleCommand_BeatUp:
 	and a
 	jmp nz, .beatup_fail
 
-	ld a, $1
+	ld a, 1
 	ld [wBeatUpHitAtLeastOnce], a
 	ld hl, BeatUpAttackText
 	call StdBattleTextbox
@@ -84,7 +82,6 @@ BattleCommand_BeatUp:
 
 	xor a
 	ld [wEnemyRolloutCount], a
-	ld [wCurBeatUpPartyMon], a
 	ld [wBeatUpHitAtLeastOnce], a
 	jr .enemy_got_mon
 
@@ -93,9 +90,9 @@ BattleCommand_BeatUp:
 	ld b, a
 	ld a, [wOTPartyCount]
 	sub b
-	ld [wCurBeatUpPartyMon], a
 
 .enemy_got_mon
+	ld [wCurBeatUpPartyMon], a
 	ld a, [wBattleMode]
 	dec a
 	jr z, .wild

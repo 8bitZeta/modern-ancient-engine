@@ -1871,7 +1871,7 @@ HandleWeather:
 	call SubtractHPFromUser
 	
 	ld hl, PeltedByHailText
-	jp StdBattleTextbox
+	jmp StdBattleTextbox
 
 
 .PlayWeatherAnimation:

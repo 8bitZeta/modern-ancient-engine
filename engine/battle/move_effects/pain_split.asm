@@ -1,9 +1,9 @@
 BattleCommand_PainSplit:
 	ld a, [wAttackMissed]
 	and a
-	jmp nz, .ButItFailed
+	jmp nz, PrintDidntAffect2
 	call CheckSubstituteOpp
-	jmp nz, .ButItFailed
+	jmp nz, PrintDidntAffect2
 	call AnimateCurrentMove
 	ld hl, wBattleMonMaxHP + 1
 	ld de, wEnemyMonMaxHP + 1
@@ -86,6 +86,3 @@ BattleCommand_PainSplit:
 	ld [hli], a
 	ld [wHPBuffer3 + 1], a
 	ret
-
-.ButItFailed:
-	jmp PrintDidntAffect2

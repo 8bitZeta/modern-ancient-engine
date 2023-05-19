@@ -33,7 +33,7 @@ BattleCommand_Metronome:
 	call GetBattleVarAddr
 	ld [hl], b
 	call UpdateMoveData
-	jr ResetTurn
+	jmp ResetTurn
 
 ChooseRandomMove:
 	; chooses a random valid move and returns it in bc
@@ -66,5 +66,3 @@ ChooseRandomMove:
 		ld b, 0
 	endc
 	ret
-
-INCLUDE "data/moves/metronome_exception_moves.asm"
