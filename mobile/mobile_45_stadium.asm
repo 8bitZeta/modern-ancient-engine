@@ -491,36 +491,6 @@ Unknown_117a47:
 	db "[\\]^_`\{|}~    "
 popc
 
-; everything from here to the end of the bank is related to the
-; Mobile Stadium option from the continue/newgame menu.
-; Needs better function names
-MobileStudium:
-	ldh a, [hInMenu]
-	push af
-	ld a, $1
-	ldh [hInMenu], a
-	call Function117a8d
-	pop af
-	ldh [hInMenu], a
-	ret
-
-Function117a8d:
-	call Function117a94
-	call Function117acd
-	ret
-
-Function117a94:
-	xor a
-	ld [wJumptableIndex], a
-	ld [wcf64], a
-	ld [wcf65], a
-	ld [wcf66], a
-	call ClearBGPalettes
-	call ClearSprites
-	farcall Function172e78
-	farcall HDMATransferAttrmapAndTilemapToWRAMBank3
-	ret
-
 Function117ab4:
 	call ClearBGPalettes
 	call ClearSprites

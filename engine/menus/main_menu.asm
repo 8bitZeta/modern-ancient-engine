@@ -40,15 +40,12 @@ MainMenu:
 	call LoadMenuHeader
 	call MainMenuJoypadLoop
 	call CloseWindow
-	jr c, .quit
+	ret c
 	call ClearTilemap
 	ld a, [wMenuSelection]
 	ld hl, .Jumptable
 	rst JumpTable
 	jr .loop
-
-.quit
-	ret
 
 .MenuHeader:
 	db MENU_BACKUP_TILES ; flags
@@ -69,11 +66,6 @@ MainMenu:
 	db "NEW GAME@"
 	db "OPTION@"
 	db "MYSTERY GIFT@"
-	db "MOBILE@"
-	db "MOBILE STUDIUM@"
-if DEF(_DEBUG)
-	db "DEBUG ROOM@"
-endc
 
 .Jumptable:
 ; entries correspond to MAINMENUITEM_* constants
@@ -81,11 +73,6 @@ endc
 	dw MainMenu_NewGame
 	dw MainMenu_Option
 	dw MainMenu_MysteryGift
-	dw MainMenu_Mobile
-	dw MainMenu_MobileStudium
-if DEF(_DEBUG)
-	dw MainMenu_DebugRoom
-endc
 
 MainMenuItems:
 ; entries correspond to MAINMENU_* constants
@@ -106,54 +93,6 @@ if DEF(_DEBUG)
 endc
 	db -1
 
-	; MAINMENU_MOBILE_MYSTERY
-	db 5 + DEF(_DEBUG)
-	db MAINMENUITEM_CONTINUE
-	db MAINMENUITEM_NEW_GAME
-	db MAINMENUITEM_OPTION
-	db MAINMENUITEM_MYSTERY_GIFT
-	db MAINMENUITEM_MOBILE
-if DEF(_DEBUG)
-	db MAINMENUITEM_DEBUG_ROOM
-endc
-	db -1
-
-	; MAINMENU_MOBILE
-	db 4 + DEF(_DEBUG)
-	db MAINMENUITEM_CONTINUE
-	db MAINMENUITEM_NEW_GAME
-	db MAINMENUITEM_OPTION
-	db MAINMENUITEM_MOBILE
-if DEF(_DEBUG)
-	db MAINMENUITEM_DEBUG_ROOM
-endc
-	db -1
-
-	; MAINMENU_MOBILE_STUDIUM
-	db 5 + DEF(_DEBUG)
-	db MAINMENUITEM_CONTINUE
-	db MAINMENUITEM_NEW_GAME
-	db MAINMENUITEM_OPTION
-	db MAINMENUITEM_MOBILE
-	db MAINMENUITEM_MOBILE_STUDIUM
-if DEF(_DEBUG)
-	db MAINMENUITEM_DEBUG_ROOM
-endc
-	db -1
-
-	; MAINMENU_MYSTERY_MOBILE_STUDIUM
-	db 6 + DEF(_DEBUG)
-	db MAINMENUITEM_CONTINUE
-	db MAINMENUITEM_NEW_GAME
-	db MAINMENUITEM_OPTION
-	db MAINMENUITEM_MYSTERY_GIFT
-	db MAINMENUITEM_MOBILE
-	db MAINMENUITEM_MOBILE_STUDIUM
-if DEF(_DEBUG)
-	db MAINMENUITEM_DEBUG_ROOM
-endc
-	db -1
-
 	; MAINMENU_MYSTERY
 	db 4 + DEF(_DEBUG)
 	db MAINMENUITEM_CONTINUE
@@ -165,40 +104,10 @@ if DEF(_DEBUG)
 endc
 	db -1
 
-	; MAINMENU_MYSTERY_STUDIUM
-	db 5 + DEF(_DEBUG)
-	db MAINMENUITEM_CONTINUE
-	db MAINMENUITEM_NEW_GAME
-	db MAINMENUITEM_OPTION
-	db MAINMENUITEM_MYSTERY_GIFT
-	db MAINMENUITEM_MOBILE_STUDIUM
-if DEF(_DEBUG)
-	db MAINMENUITEM_DEBUG_ROOM
-endc
-	db -1
-
-	; MAINMENU_STUDIUM
-	db 4 + DEF(_DEBUG)
-	db MAINMENUITEM_CONTINUE
-	db MAINMENUITEM_NEW_GAME
-	db MAINMENUITEM_OPTION
-	db MAINMENUITEM_MOBILE_STUDIUM
-if DEF(_DEBUG)
-	db MAINMENUITEM_DEBUG_ROOM
-endc
-	db -1
-
 MainMenu_GetWhichMenu:
-	nop
-	nop
-	nop
 	ld a, [wSaveFileExists]
 	and a
-	jr nz, .next
-	ld a, MAINMENU_NEW_GAME
-	ret
-
-.next
+	ret z
 	ldh a, [hCGB]
 	cp TRUE
 	ld a, MAINMENU_CONTINUE
@@ -206,35 +115,11 @@ MainMenu_GetWhichMenu:
 	ld a, BANK(sNumDailyMysteryGiftPartnerIDs)
 	call OpenSRAM
 	ld a, [sNumDailyMysteryGiftPartnerIDs]
-	cp -1 ; locked?
+	inc a
 	call CloseSRAM
-	jr nz, .mystery_gift
-	; This check makes no difference.
-	ld a, [wStatusFlags]
-	bit STATUSFLAGS_MAIN_MENU_MOBILE_CHOICES_F, a
-	ld a, MAINMENU_CONTINUE
-	jr z, .ok
-	jr .ok
-
-.ok
-	jr .ok2
-
-.ok2
-	ld a, MAINMENU_CONTINUE
-	ret
-
-.mystery_gift
-	; This check makes no difference.
-	ld a, [wStatusFlags]
-	bit STATUSFLAGS_MAIN_MENU_MOBILE_CHOICES_F, a
-	jr z, .ok3
-	jr .ok3
-
-.ok3
-	jr .ok4
-
-.ok4
-	ld a, MAINMENU_MYSTERY
+	ld a, 1 ; Continue
+	ret z
+	inc a
 	ret
 
 MainMenuJoypadLoop:
@@ -364,8 +249,7 @@ ClearTilemapEtc:
 	call ClearTilemap
 	call LoadFontsExtra
 	call LoadStandardFont
-	call ClearWindowData
-	ret
+	jmp ClearWindowData
 
 MainMenu_NewGame:
 	farcall NewGame
