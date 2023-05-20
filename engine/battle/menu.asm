@@ -9,11 +9,6 @@ LoadBattleMenu:
 	call ExitMenu
 	ret
 
-SafariBattleMenu: ; unreferenced
-	ld hl, SafariBattleMenuHeader
-	call LoadMenuHeader
-	jr CommonBattleMenu
-
 ContestBattleMenu:
 	ld hl, ContestBattleMenuHeader
 	call LoadMenuHeader

@@ -229,11 +229,5 @@ MomItsInYourRoomText:
 	text_end
 
 
-DummyPredef3A_DummyData: ; unreferenced
-	db 0
-
 DummyPredef3A:
-	ret
-
-DummyPredef3A_DummyFunction: ; unreferenced
 	ret

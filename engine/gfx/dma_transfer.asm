@@ -108,42 +108,6 @@ Mobile_ReloadMapPart:
 
 	ret
 
-Function1040d4: ; unreferenced
-	ld hl, .Function
-	jmp CallInSafeGFXMode
-
-.Function
-	ld a, $1
-	ldh [rVBK], a
-	ld a, BANK(w3_d800)
-	ldh [rSVBK], a
-	ld de, w3_d800
-	ldh a, [hBGMapAddress + 1]
-	ldh [rHDMA1], a
-	ldh a, [hBGMapAddress]
-	ldh [rHDMA2], a
-	ld a, d
-	ldh [rHDMA3], a
-	ld a, e
-	ldh [rHDMA4], a
-	ld a, $23
-	ldh [hDMATransfer], a
-	call WaitDMATransfer
-	ret
-
-Function1040fb: ; unreferenced
-	ld hl, .Function
-	jr CallInSafeGFXMode
-
-.Function
-	ld a, $1
-	ldh [rVBK], a
-	ld a, BANK(w3_d800)
-	ldh [rSVBK], a
-	ld hl, w3_d800
-	call HDMATransferToWRAMBank3
-	ret
-
 OpenAndCloseMenu_HDMATransferTilemapAndAttrmap::
 ; OpenText
 	ld hl, .Function

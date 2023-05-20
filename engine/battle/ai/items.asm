@@ -147,11 +147,6 @@ SwitchSometimes:
 	ld [wEnemySwitchMonIndex], a
 	jmp AI_TrySwitch
 
-CheckSubstatusCantRun: ; unreferenced
-	ld a, [wEnemySubStatus5]
-	bit SUBSTATUS_CANT_RUN, a
-	ret
-
 AI_TryItem:
 	; items are not allowed in the Battle Tower
 	ld a, [wInBattleTowerBattle]
@@ -260,8 +255,6 @@ AI_TryItem:
 	ld a, [hl]
 	cp e
 	jr nc, .yes
-
-.no ; unreferenced
 	and a
 	ret
 
@@ -394,58 +387,10 @@ AI_Items:
 
 .Potion:
 	call .HealItem
-	jmp c, .DontUse
+	jr c, .DontUse
 	ld b, 20
 	call EnemyUsedPotion
-	jmp .Use
-
-; Everything up to "End unused" is unused
-
-.UnusedHealItem: ; unreferenced
-; This has similar conditions to .HealItem
-	callfar AICheckEnemyMaxHP
-	jr c, .dont_use
-	push bc
-	ld de, wEnemyMonMaxHP + 1
-	ld hl, wEnemyMonHP + 1
-	ld a, [de]
-	sub [hl]
-	jr z, .check_40_percent
-	dec hl
-	dec de
-	ld c, a
-	sbc [hl]
-	and a
-	jr nz, .check_40_percent
-	ld a, c
-	cp b
-	jr c, .check_50_percent
-	callfar AICheckEnemyQuarterHP
-	jr c, .check_40_percent
-
-.check_50_percent
-	pop bc
-	ld a, [bc]
-	bit UNKNOWN_USE_F, a
-	jmp z, .Use
-	call Random
-	cp 50 percent + 1
-	jmp c, .Use
-
-.dont_use
-	jmp .DontUse
-
-.check_40_percent
-	pop bc
-	ld a, [bc]
-	bit UNKNOWN_USE_F, a
-	jr z, .DontUse
-	call Random
-	cp 39 percent + 1
-	jr c, .Use
-	jr .DontUse
-
-; End unused
+	jr .Use
 
 .XAccuracy:
 	call .XItem
@@ -715,12 +660,6 @@ EnemyWithdrewText:
 	text_far _EnemyWithdrewText
 	text_end
 
-EnemyUsedFullHealRed: ; unreferenced
-	call AIUsedItemSound
-	call AI_HealStatus
-	ld a, FULL_HEAL_RED ; X_SPEED
-	jmp PrintText_UsedItemOn_AND_AIUpdateHUD
-
 AI_HealStatus:
 	ld a, [wCurOTMon]
 	ld hl, wOTPartyMon1Status
@@ -758,38 +697,6 @@ EnemyUsedDireHit:
 	set SUBSTATUS_FOCUS_ENERGY, [hl]
 	ld a, DIRE_HIT
 	jr PrintText_UsedItemOn_AND_AIUpdateHUD
-
-AICheckEnemyFractionMaxHP: ; unreferenced
-; Input: a = divisor
-; Work: bc = [wEnemyMonMaxHP] / a
-; Work: de = [wEnemyMonHP]
-; Output:
-; -  c, nz if [wEnemyMonHP] > [wEnemyMonMaxHP] / a
-; - nc,  z if [wEnemyMonHP] = [wEnemyMonMaxHP] / a
-; - nc, nz if [wEnemyMonHP] < [wEnemyMonMaxHP] / a
-	ldh [hDivisor], a
-	ld hl, wEnemyMonMaxHP
-	ld a, [hli]
-	ldh [hDividend], a
-	ld a, [hl]
-	ldh [hDividend + 1], a
-	ld b, 2
-	call Divide
-	ldh a, [hQuotient + 3]
-	ld c, a
-	ldh a, [hQuotient + 2]
-	ld b, a
-	ld hl, wEnemyMonHP + 1
-	ld a, [hld]
-	ld e, a
-	ld a, [hl]
-	ld d, a
-	ld a, d
-	sub b
-	ret nz
-	ld a, e
-	sub c
-	ret
 
 EnemyUsedXAttack:
 	ld b, ATTACK
