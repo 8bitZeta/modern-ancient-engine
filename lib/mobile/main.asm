@@ -6856,9 +6856,6 @@ Function112d33:
 	dec a
 	jmp .asm_112e46
 
-.asm_112d4c ; unreferenced
-	ret
-
 .asm_112d4d
 	ld a, [wc86a]
 	cp $23
@@ -9412,35 +9409,6 @@ Function113eb8:
 	res 0, [hl]
 	jmp Function111f97
 
-Function113ec7: ; unreferenced
-	ld hl, wc822
-	ld a, [hl]
-	push af
-	res 3, [hl]
-	res 0, [hl]
-	ld hl, wc81a
-	ld a, [hli]
-	ld e, a
-	ld a, [hli]
-	ld d, a
-	ld a, [hli]
-	ld h, [hl]
-	ld l, a
-	inc hl
-	inc hl
-	ld a, [hld]
-	dec hl
-	xor $80
-	ld [wMobileSDK_SendCommandID], a
-	ld b, $5
-	call PacketSendBytes
-	pop af
-	bit 0, a
-	ret z
-	ld hl, wc822
-	set 0, [hl]
-	ret
-
 Function113ef2:
 	dec a
 	jr z, .asm_113efa
@@ -9507,7 +9475,7 @@ Function113f2d:
 	ld a, [wMobileSDK_SendCommandID]
 	cp $91
 	jr z, .asm_113f4f
-	jmp Function113eb8
+	jr Function113eb8
 
 .asm_113f4f
 	xor a

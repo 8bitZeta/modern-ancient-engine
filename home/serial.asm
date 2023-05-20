@@ -284,11 +284,6 @@ Serial_PrintWaitingTextAndSyncAndExchangeNybble::
 	call WaitLinkTransfer
 	jmp SafeLoadTempTilemapToTilemap
 
-Serial_SyncAndExchangeNybble:: ; unreferenced
-	call LoadTilemapToTempTilemap
-	callfar PlaceWaitingText
-	jr WaitLinkTransfer ; pointless
-
 WaitLinkTransfer::
 	vc_hook Wireless_WaitLinkTransfer
 	ld a, $ff
