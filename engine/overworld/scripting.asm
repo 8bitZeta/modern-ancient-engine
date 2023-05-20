@@ -836,7 +836,7 @@ Script_applymovementlasttalked:
 
 	ldh a, [hLastTalked]
 	ld c, a
-	jmp ApplyMovement
+	jr ApplyMovement
 
 Script_faceplayer:
 	ldh a, [hLastTalked]
@@ -1261,7 +1261,7 @@ ScriptCall:
 	ret
 
 CallCallback::
-	jmp ScriptCall
+	jr ScriptCall
 
 Script_sjump:
 	call GetScriptByte
@@ -1297,12 +1297,12 @@ Script_iffalse:
 	ld a, [wScriptVar]
 	and a
 	jr nz, SkipTwoScriptBytes
-	jmp Script_sjump
+	jr Script_sjump
 
 Script_iftrue:
 	ld a, [wScriptVar]
 	and a
-	jmp nz, Script_sjump
+	jr nz, Script_sjump
 	jr SkipTwoScriptBytes
 
 Script_ifequal:
@@ -1603,7 +1603,7 @@ ConvertLandmarkToText:
 	ld e, a
 	farcall GetLandmarkName
 	ld de, wStringBuffer1
-	jmp GetStringBuffer
+	jr GetStringBuffer
 
 Script_getlandmarkname:
 	call GetScriptByte
@@ -1626,7 +1626,7 @@ ContinueToGetName:
 	ld [wCurSpecies], a
 	call GetName
 	ld de, wStringBuffer1
-	jmp GetStringBuffer
+	jr GetStringBuffer
 
 Script_gettrainerclassname:
 	ld a, TRAINER_NAME
@@ -2159,10 +2159,6 @@ Script_warpcheck:
 	farcall EnableEvents
 	ret
 
-Script_enableevents: ; unreferenced
-	farcall EnableEvents
-	ret
-
 Script_newloadmap:
 	call GetScriptByte
 	ldh [hMapEntryMethod], a
@@ -2188,9 +2184,6 @@ Script_writeunusedbyte:
 	call GetScriptByte
 	ld [wUnusedScriptByte], a
 	ret
-
-UnusedClosetextScript: ; unreferenced
-	closetext
 
 Script_closetext:
 	call _OpenAndCloseMenu_HDMATransferTilemapAndAttrmap
@@ -2337,14 +2330,6 @@ Script_checksave:
 	ld a, c
 	ld [wScriptVar], a
 	ret
-
-Script_checkver_duplicate: ; unreferenced
-	ld a, [.gs_version]
-	ld [wScriptVar], a
-	ret
-
-.gs_version:
-	db GS_VERSION
 
 Script_loadmonindex:
 ; script command 0xaa
