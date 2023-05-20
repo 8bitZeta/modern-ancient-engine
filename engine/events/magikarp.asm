@@ -41,7 +41,6 @@ CheckMagikarpLength:
 	ld c, l
 	call CalcMagikarpLength
 	call PrintMagikarpLength
-	farcall StubbedTrainerRankings_MagikarpLength
 	ld hl, .MagikarpGuruMeasureText
 	call PrintText
 

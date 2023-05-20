@@ -496,7 +496,6 @@ EvolveAfterBattle_MasterLoop:
 	push hl
 	ld hl, EvolvedIntoText
 	call PrintTextboxText
-	farcall StubbedTrainerRankings_MonsEvolved
 
 	ld de, MUSIC_NONE
 	call PlayMusic

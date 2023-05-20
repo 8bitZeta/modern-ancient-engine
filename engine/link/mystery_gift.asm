@@ -91,7 +91,7 @@ endc
 	jmp nz, .GiftWaiting
 	ld a, [wMysteryGiftPartnerBackupItem]
 	and a
-	jmp nz, .FriendNotReady
+	jr nz, .FriendNotReady
 	ld a, [wMysteryGiftPartnerGameVersion]
 	cp POKEMON_PIKACHU_2_VERSION
 	jr z, .skip_append_save
@@ -101,7 +101,6 @@ endc
 	jr z, .skip_append_save
 	call .SaveMysteryGiftTrainerName
 	farcall RestoreMobileEventIndex
-	farcall StubbedTrainerRankings_MysteryGift
 	farcall BackupMobileEventIndex
 .skip_append_save
 	ld a, [wMysteryGiftPartnerSentDeco]

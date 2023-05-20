@@ -44,7 +44,6 @@ _DebugRoom:
 	ld a, " "
 	call ByteFill
 	call DebugRoom_PrintStackBottomTop
-	call DebugRoom_PrintWindowStackBottomTop
 	call DebugRoom_PrintRTCHaltChk
 	call DebugRoom_PrintBattleSkip
 	call DebugRoom_PrintTelDebug
@@ -270,52 +269,6 @@ DebugRoomMenu_WinWorkClr:
 	call ByteFill
 	call CloseSRAM
 	ret
-
-DebugRoom_PrintWindowStackBottomTop:
-	ret ; stubbed out
-
-	ld a, $00
-	call OpenSRAM
-	ld hl, wWindowStack
-.loop
-	ld a, h
-	cp $c0
-	jr z, .ok
-	ld a, [hl]
-	or a
-	jr nz, .ok
-	inc hl
-	jr .loop
-.ok
-	call CloseSRAM
-	ld a, h
-	ld h, l
-	ld l, a
-	push hl
-	ld hl, sp+0
-	ld d, h
-	ld e, l
-	hlcoord 16, 17
-	ld c, 2
-	call PrintHexNumber
-	pop hl
-	ld d, LOW(wWindowStack)
-	ld e, HIGH(wWindowStack)
-	push de
-	ld hl, sp+0
-	ld d, h
-	ld e, l
-	hlcoord 16, 16
-	ld c, 2
-	call PrintHexNumber
-	pop de
-	hlcoord 16, 15
-	ld de, .WSPString
-	call PlaceString
-	ret
-
-.WSPString:
-	db "WSP:@"
 
 DebugRoomMenu_PokedexComp:
 	call YesNoBox
