@@ -63,35 +63,6 @@ sLuckyIDNumber::  dw
 SECTION "Saved 16-bit conversion tables", SRAM
 ; the Pokémon index table isn't stored here to improve save data packing
 sMoveIndexTable:: ds wMoveIndexTableEnd - wMoveIndexTable
-sBackupMoveIndexTable:: ds wMoveIndexTableEnd - wMoveIndexTable
-
-SECTION "Backup Save", SRAM
-
-sBackupOptions:: ds wOptionsEnd - wOptions
-
-sBackupCheckValue1:: db ; loaded with SAVE_CHECK_VALUE_1, used to check save corruption
-
-sBackupSaveData::
-
-sBackupGameData::
-sBackupPlayerData::  ds wPlayerDataEnd - wPlayerData
-sBackupCurMapData::  ds wCurMapDataEnd - wCurMapData
-sBackupPokemonData:: ds wPokemonDataEnd - wPokemonData
-sBackupGameDataEnd::
-
-sBackupPokemonIndexTable:: ds wPokemonIndexTableEnd - wPokemonIndexTable
-
-sBackupConversionTableChecksum:: dw
-
-sBackupSaveDataEnd::
-
-	ds $88
-
-sBackupChecksum:: dw
-
-sBackupCheckValue2:: db ; loaded with SAVE_CHECK_VALUE_2, used to check save corruption
-
-sStackTop:: dw
 
 if DEF(_DEBUG)
 sRTCHaltCheckValue:: dw

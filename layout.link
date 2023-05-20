@@ -345,7 +345,6 @@ SRAM $00
 	"SRAM Bank 0"
 	org $ae00
 	"Saved 16-bit conversion tables"
-	"Backup Save"
 SRAM $01
 	"Save"
 	"Active Box"
