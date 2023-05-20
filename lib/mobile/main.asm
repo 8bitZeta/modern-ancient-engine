@@ -344,7 +344,7 @@ Function110115:
 	cp $30
 	jr z, .asm_1101d7
 	cp $31
-	jmp nz, .asm_110158
+	jr nz, .asm_110158
 
 .asm_1101d7
 	ld hl, wc810
@@ -6423,7 +6423,7 @@ Function112a56:
 
 .asm_112aa6
 	ld de, $0005
-	jmp Function112a2c
+	jr Function112a2c
 
 Function112aac:
 	ld a, [wc872]
@@ -9402,7 +9402,7 @@ Function113e42:
 .asm_113eb0
 	ld a, $1
 	ld [wc86b], a
-	jmp .asm_113e6d
+	jr .asm_113e6d
 
 Function113eb8:
 	ld a, $ff

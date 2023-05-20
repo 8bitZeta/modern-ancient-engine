@@ -216,7 +216,7 @@ Function114269:
 	ld a, $1
 	ld h, d
 	ld l, e
-	jmp Function11425c
+	jr Function11425c
 
 .asm_1142bb
 	and a
@@ -289,7 +289,7 @@ Function114269:
 	jr z, .asm_1142a4
 	ld a, [de]
 	and a
-	jmp z, .asm_1142a4
+	jr z, .asm_1142a4
 	cp $2e
 	jmp nz, .asm_114282
 	ld a, $1
