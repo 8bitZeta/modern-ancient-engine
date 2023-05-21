@@ -747,7 +747,20 @@ PrintPartyMenuActionText:
 	ld a, [wPartyMenuActionText]
 	and $f
 	ld hl, .MenuActionTexts
-	call .PrintText
+	ld e, a
+	ld d, 0
+	add hl, de
+	add hl, de
+	ld a, [hli]
+	ld h, [hl]
+	ld l, a
+	ld a, [wOptions]
+	push af
+	set NO_TEXT_SCROLL, a
+	ld [wOptions], a
+	call PrintText
+	pop af
+	ld [wOptions], a
 	ret
 
 .MenuActionTexts:
@@ -802,20 +815,3 @@ PrintPartyMenuActionText:
 .CameToItsSensesText:
 	text_far _CameToItsSensesText
 	text_end
-
-.PrintText:
-	ld e, a
-	ld d, 0
-	add hl, de
-	add hl, de
-	ld a, [hli]
-	ld h, [hl]
-	ld l, a
-	ld a, [wOptions]
-	push af
-	set NO_TEXT_SCROLL, a
-	ld [wOptions], a
-	call PrintText
-	pop af
-	ld [wOptions], a
-	ret

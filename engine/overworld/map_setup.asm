@@ -10,10 +10,6 @@ RunMapSetupScript::
 	ld a, [hli]
 	ld h, [hl]
 	ld l, a
-	call ReadMapSetupScript
-	ret
-
-INCLUDE "data/maps/setup_scripts.asm"
 
 ReadMapSetupScript:
 .loop
@@ -58,6 +54,7 @@ ReadMapSetupScript:
 	pop hl
 	jr .loop
 
+INCLUDE "data/maps/setup_scripts.asm"
 INCLUDE "data/maps/setup_script_pointers.asm"
 
 EnableTextAcceleration:
@@ -99,12 +96,10 @@ CheckUpdatePlayerSprite:
 	call .CheckSurfing
 	jr c, .ok
 	call .CheckSurfing2
-	jr c, .ok
-	ret
+	ret nc
 
 .ok
-	call UpdatePlayerSprite
-	ret
+	jmp UpdatePlayerSprite
 
 .CheckBiking:
 	and a
@@ -182,8 +177,7 @@ FadeMapMusicAndPalettes:
 	ld a, [wMusicFadeID + 1]
 	ld a, $4
 	ld [wMusicFade], a
-	call RotateThreePalettesRight
-	ret
+	jmp RotateThreePalettesRight
 
 ForceMapMusic:
 	ld a, [wPlayerState]
@@ -193,5 +187,4 @@ ForceMapMusic:
 	ld a, $88
 	ld [wMusicFade], a
 .notbiking
-	call TryRestartMapMusic
-	ret
+	jmp TryRestartMapMusic

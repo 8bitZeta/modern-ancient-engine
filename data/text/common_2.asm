@@ -485,11 +485,6 @@ _RodNothingText::
 	text "Not even a nibble!"
 	prompt
 
-_UnusedNothingHereText::
-	text "Looks like there's"
-	line "nothing here."
-	prompt
-
 _CantGetOffBikeText::
 	text "You can't get off"
 	line "here!"

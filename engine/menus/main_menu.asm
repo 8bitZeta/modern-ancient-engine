@@ -222,8 +222,7 @@ MainMenu_PrintCurrentTimeAndDay:
 	ld h, b
 	ld l, c
 	ld de, .Day
-	call PlaceString
-	ret
+	jmp PlaceString
 
 .Days:
 	db "SUN@"

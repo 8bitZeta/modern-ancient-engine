@@ -4772,8 +4772,7 @@ Function11a4db:
 	call Function11a63c
 	ld de, String_11a6db
 	hlcoord 4, 2
-	call PlaceString
-	ret
+	jmp PlaceString
 
 Function11a4e8:
 	call Function11a63c
@@ -4954,8 +4953,7 @@ Function11a63c:
 	call PlaceString
 	hlcoord 4, 4
 	ld de, String_11a7f4
-	call PlaceString
-	ret
+	jmp PlaceString
 
 String_11a661:
 	db   "これから　モバイルセンターに"
@@ -5982,8 +5980,7 @@ Function11b099:
 	push hl
 	call GetPokemonName
 	pop hl
-	call PlaceString
-	ret
+	jmp PlaceString
 
 .SetCaughtFlag:
 	call CheckCaughtMemMon
@@ -6346,8 +6343,7 @@ Function11b295:
 	jr nz, .asm_11b2ec
 	pop hl
 	ld de, wStringBuffer4
-	call PlaceString
-	ret
+	jmp PlaceString
 
 String_11b308:
 	db "　　　　　@"
@@ -6357,8 +6353,7 @@ String_11b30e:
 
 Function11b314:
 	call Function11b31b
-	call Function11b3d9
-	ret
+	jmp Function11b3d9
 
 Function11b31b:
 	ld hl, .Coords
@@ -6589,7 +6584,6 @@ TradeCornerHoldMon_RunJumptable:
 	dw Function11b570
 	dw TradeCornerHoldMon_RemoveFromParty
 	dw TradeCornerHoldMon_Success
-	dw TradeCornerHoldMon_Noop ; unused
 
 TradeCornerHoldMon_PrepareForUpload:
 	call .InitRAM

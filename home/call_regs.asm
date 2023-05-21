@@ -5,4 +5,5 @@ _hl_::
 
 _de_::
 	push de
+GenericDummyFunction::
 	ret

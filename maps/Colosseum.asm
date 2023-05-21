@@ -6,7 +6,6 @@ Colosseum_MapScripts:
 	def_scene_scripts
 	scene_script ColosseumInitializeScene, SCENE_COLOSSEUM_INITIALIZE
 	scene_script ColosseumNoop1Scene,      SCENE_COLOSSEUM_NOOP
-	scene_script ColosseumNoop2Scene ; unused
 
 	def_callbacks
 	callback MAPCALLBACK_OBJECTS, ColosseumSetWhichChrisCallback

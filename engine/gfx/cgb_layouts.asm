@@ -49,7 +49,6 @@ CGBLayoutJumptable:
 	dw _CGB_PokedexSearchOption
 	dw _CGB_BetaPoker
 	dw _CGB_Pokepic
-	dw _CGB_MagnetTrain
 	dw _CGB_PackPals
 	dw _CGB_TrainerCard
 	dw _CGB_PokedexUnownMode
@@ -198,8 +197,7 @@ _CGB_FinishBattleScreenLayout:
 	ld bc, 6 palettes
 	ld a, BANK(wOBPals1)
 	call FarCopyWRAM
-	call ApplyAttrmap
-	ret
+	jmp ApplyAttrmap
 
 InitPartyMenuBGPal7:
 	farcall Function100dc0
@@ -880,24 +878,6 @@ _CGB_Pokepic:
 	ld a, PAL_BG_GRAY
 	call FillBoxCGB
 	call ApplyAttrmap
-	ret
-
-_CGB_MagnetTrain: ; unused
-	ld hl, PalPacket_MagnetTrain + 1
-	call CopyFourPalettes
-	call WipeAttrmap
-	hlcoord 0, 4, wAttrmap
-	lb bc, 10, SCREEN_WIDTH
-	ld a, PAL_BG_GREEN
-	call FillBoxCGB
-	hlcoord 0, 6, wAttrmap
-	lb bc, 6, SCREEN_WIDTH
-	ld a, PAL_BG_RED
-	call FillBoxCGB
-	call ApplyAttrmap
-	call ApplyPals
-	ld a, TRUE
-	ldh [hCGBPalUpdate], a
 	ret
 
 _CGB_GamefreakLogo:

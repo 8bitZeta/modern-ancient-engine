@@ -749,8 +749,7 @@ Function100504:
 	call UpdateSprites
 	pop de
 	hlcoord 4, 2
-	call PlaceString
-	ret
+	jmp PlaceString
 
 Function100513:
 	call Function3f7c
@@ -917,8 +916,7 @@ Mobile_CommunicationStandby:
 	call Function3eea
 	ld de, .String
 	hlcoord 4, 11
-	call PlaceString
-	ret
+	jmp PlaceString
 
 .String:
 	db "つうしんたいきちゅう！@"
@@ -1019,8 +1017,7 @@ Function100697:
 	inc de
 	call .asm_1006b4
 	ld de, String1006c6
-	call PlaceString
-	ret
+	jmp PlaceString
 
 .asm_1006b4
 	lb bc, PRINTNUM_LEADINGZEROS | 1, 2
@@ -1029,8 +1026,7 @@ Function100697:
 
 .asm_1006bb
 	ld de, String1006ca
-	call PlaceString
-	ret
+	jmp PlaceString
 
 String1006c2:
 	db "ふん　@"
@@ -1310,8 +1306,7 @@ Function100846:
 	ld h, b
 	ld l, c
 	ld de, String_10089f
-	call PlaceString
-	ret
+	jmp PlaceString
 
 String_10088e:
 	db   "モバイルたいせん　できる"
@@ -5604,8 +5599,7 @@ Function1027eb:
 	farcall _LinkTextbox
 	ld de, .Stats_Trade
 	hlcoord 2, 16
-	call PlaceString
-	ret
+	jmp PlaceString
 
 .Stats_Trade:
 	db "STATS     TRADE@"
@@ -6419,8 +6413,7 @@ Function102e07:
 .okay
 	ld de, .waiting
 	hlcoord 4, 11
-	call PlaceString
-	ret
+	jmp PlaceString
 
 .waiting
 	db "Waiting...!@"
@@ -6428,15 +6421,14 @@ Function102e07:
 Function102e3e:
 	ld de, .CancelString
 	hlcoord 10, 17
-	call PlaceString
-	ret
+	jmp PlaceString
 
 .CancelString:
 	db "CANCEL@"
 
 Function102e4f:
 	farcall LoadMobileTradeBorderTilemap
-	farcall _InitMG_Mobile_LinkTradePalMap
+	farcall InitMG_Mobile_LinkTradePalMap
 	ld de, wPlayerName
 	hlcoord 4, 0
 	call PlaceString
@@ -6452,8 +6444,6 @@ Function102e4f:
 	call .PlaceSpeciesNames
 	hlcoord 7, 9
 	ld de, wOTPartySpecies
-	call .PlaceSpeciesNames
-	ret
 
 .PlaceSpeciesNames:
 	ld c, 0
@@ -6516,8 +6506,7 @@ Function102ee7:
 	call Function102dc3
 	ld de, String_102ef4
 	hlcoord 1, 14
-	call PlaceString
-	ret
+	jmp PlaceString
 
 String_102ef4:
 	db   "Too bad! The trade"
@@ -6528,8 +6517,7 @@ Function102f15:
 	call Function102dc3
 	ld de, .TooBadTheTradeWasCanceled
 	hlcoord 1, 14
-	call PlaceString
-	ret
+	jmp PlaceString
 
 .TooBadTheTradeWasCanceled:
 	db "こうかんを　キャンセルしました@"
@@ -6538,8 +6526,7 @@ Function102f32:
 	call Function102dc3
 	ld de, .TradeCompleted
 	hlcoord 1, 14
-	call PlaceString
-	ret
+	jmp PlaceString
 
 .TradeCompleted:
 	db "Trade completed!@"
@@ -6548,8 +6535,7 @@ Function102f50:
 	call Function102dc3
 	ld de, .PleaseWait
 	hlcoord 1, 14
-	call PlaceString
-	ret
+	jmp PlaceString
 
 .PleaseWait:
 	db "しょうしょう　おまち　ください@"
@@ -6558,8 +6544,7 @@ Function102f6d:
 	call Function102dc3
 	ld de, .Finished
 	hlcoord 1, 14
-	call PlaceString
-	ret
+	jmp PlaceString
 
 .Finished:
 	db "しゅうりょう　します@"
@@ -6581,8 +6566,7 @@ Function102f85:
 	hlcoord 13, 14
 	call PlaceString
 	ld de, String_102fcc
-	call PlaceString
-	ret
+	jmp PlaceString
 
 String_102fb2:
 	db   "あいてがわ<PKMN>えらんだ　"
@@ -6596,8 +6580,7 @@ Function102fce:
 	call Function102dc3
 	ld de, String_102fdb
 	hlcoord 1, 14
-	call PlaceString
-	ret
+	jmp PlaceString
 
 String_102fdb:
 	db   "あいてがわ<NO>せんたくに"
@@ -6608,8 +6591,7 @@ Function102ff5:
 	call Function102dc3
 	ld de, String_103002
 	hlcoord 1, 14
-	call PlaceString
-	ret
+	jmp PlaceString
 
 String_103002:
 	db   "その#を　こうかんすると"
@@ -6620,8 +6602,7 @@ Function103021:
 	call Function102dc3
 	ld de, String_10302e
 	hlcoord 1, 14
-	call PlaceString
-	ret
+	jmp PlaceString
 
 String_10302e:
 	db   "あいてが　ちゅうしを　えらんだので"
@@ -7047,8 +7028,7 @@ Function103487:
 	push de
 	call Function1034f7
 	pop de
-	call PlaceString
-	ret
+	jmp PlaceString
 
 Function103490:
 	hlcoord 0, 15
@@ -7058,8 +7038,7 @@ Function103490:
 	ld bc, 6
 	call Function10350f
 	hlcoord 1, 16
-	call PlaceString
-	ret
+	jmp PlaceString
 
 Function1034a7:
 	ld a, [wd1f1]

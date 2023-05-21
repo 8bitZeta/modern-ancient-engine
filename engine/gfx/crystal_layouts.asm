@@ -225,7 +225,7 @@ Function49742:
 .MobileBorderPalettes:
 INCLUDE "gfx/trade/mobile_border.pal"
 
-_InitMG_Mobile_LinkTradePalMap:
+InitMG_Mobile_LinkTradePalMap:
 	hlcoord 0, 0, wAttrmap
 	lb bc, 16, 2
 	ld a, $4
@@ -287,7 +287,3 @@ _LoadTradeRoomBGPals:
 
 TradeRoomPalette:
 INCLUDE "gfx/trade/border.pal"
-
-InitMG_Mobile_LinkTradePalMap:
-	call _InitMG_Mobile_LinkTradePalMap
-	ret

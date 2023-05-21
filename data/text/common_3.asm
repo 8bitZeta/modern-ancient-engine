@@ -717,10 +717,6 @@ _MobileStadiumSuccessText::
 	para ""
 	done
 
-_MainMenuTimeUnknownText::
-	text "Clock time unknown"
-	done
-
 _DeleteSavedLoginPasswordText::
 	text "Delete the saved"
 	line "LOG-IN PASSWORD?"
@@ -1190,10 +1186,6 @@ Text_BallCaught::
 	sound_caught_mon
 	text_end
 
-_WaitButtonText::
-	text_promptbutton
-	text_end
-
 _BallSentToPCText::
 	text_ram wMonOrItemNameBuffer
 	text " was"
@@ -1206,6 +1198,7 @@ _NewDexDataText::
 	line "was newly added to"
 	cont "the #DEX.@"
 	sound_slot_machine_start
+_WaitButtonText::
 	text_promptbutton
 	text_end
 

@@ -1258,8 +1258,7 @@ Pokedex_DrawMainScreenBG:
 	ld [hl], $54
 	hlcoord 8, 16
 	ld [hl], $5b
-	call Pokedex_PlaceFrontpicTopLeftCorner
-	ret
+	jmp Pokedex_PlaceFrontpicTopLeftCorner
 
 String_SEEN:
 	db "SEEN", -1
@@ -1300,8 +1299,7 @@ Pokedex_DrawDexEntryScreenBG:
 	hlcoord 0, 17
 	ld de, .MenuItems
 	call Pokedex_PlaceString
-	call Pokedex_PlaceFrontpicTopLeftCorner
-	ret
+	jmp Pokedex_PlaceFrontpicTopLeftCorner
 
 .Height:
 	db "HT  ?", $5e, "??", $5f, -1 ; HT  ?'??"
@@ -1329,8 +1327,7 @@ Pokedex_DrawOptionScreenBG:
 	ret z
 	hlcoord 3, 10
 	ld de, .UnownMode
-	call PlaceString
-	ret
+	jmp PlaceString
 
 .Title:
 	db $3b, " OPTION ", $3c, -1
@@ -1363,8 +1360,7 @@ Pokedex_DrawSearchScreenBG:
 	call PlaceString
 	hlcoord 3, 13
 	ld de, .Menu
-	call PlaceString
-	ret
+	jmp PlaceString
 
 .Title:
 	db $3b, " SEARCH ", $3c, -1
@@ -1408,8 +1404,7 @@ Pokedex_DrawSearchResultsScreenBG:
 	ld [hl], $69
 	hlcoord 8, 10
 	ld [hl], $6a
-	call Pokedex_PlaceFrontpicTopLeftCorner
-	ret
+	jmp Pokedex_PlaceFrontpicTopLeftCorner
 
 .BottomWindowText:
 	db   "SEARCH RESULTS"
@@ -1424,14 +1419,13 @@ Pokedex_PlaceSearchResultsTypeStrings:
 	ld b, a
 	ld a, [wDexSearchMonType2]
 	and a
-	jr z, .done
+	ret z
 	cp b
-	jr z, .done
+	ret z
 	hlcoord 2, 15
 	call Pokedex_PlaceTypeString
 	hlcoord 1, 15
 	ld [hl], "/"
-.done
 	ret
 
 Pokedex_DrawUnownModeBG:
@@ -1449,8 +1443,7 @@ Pokedex_DrawUnownModeBG:
 	hlcoord 6, 5
 	call Pokedex_PlaceFrontpicAtHL
 	ld de, 0
-	ld b, 0
-	ld c, NUM_UNOWN
+	ld bc, NUM_UNOWN
 .loop
 	ld hl, wUnownDex
 	add hl, de
@@ -1513,8 +1506,7 @@ Pokedex_FillBackgroundColor2:
 	hlcoord 0, 0
 	ld a, $32
 	ld bc, SCREEN_WIDTH * SCREEN_HEIGHT
-	call ByteFill
-	ret
+	jmp ByteFill
 
 Pokedex_PlaceFrontpicTopLeftCorner:
 	hlcoord 1, 1

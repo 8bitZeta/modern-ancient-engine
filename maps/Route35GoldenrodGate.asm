@@ -73,8 +73,6 @@ GiftSpearowName:
 GiftSpearowOTName:
 	db "RANDY@"
 
-	db 0 ; unused
-
 Route35GoldenrodGatePokefanFScript:
 	faceplayer
 	opentext

@@ -983,8 +983,7 @@ SetStrengthFlag:
 	add hl, de
 	ld a, [hl]
 	ld [wStrengthSpecies], a
-	call GetPartyNickname
-	ret
+	jmp GetPartyNickname
 
 Script_StrengthFromMenu:
 	reloadmappart
@@ -1590,8 +1589,7 @@ PutTheRodAway:
 	ld a, $1
 	ld [wPlayerAction], a
 	call UpdateSprites
-	call UpdatePlayerSprite
-	ret
+	jmp UpdatePlayerSprite
 
 RodBiteText:
 	text_far _RodBiteText

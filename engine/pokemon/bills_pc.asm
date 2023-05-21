@@ -66,8 +66,7 @@ _DepositPKMN:
 	call BillsPC_ApplyPalettes
 	call WaitBGMap
 	call BillsPC_UpdateSelectionCursor
-	call BillsPC_IncrementJumptableIndex
-	ret
+	jmp BillsPC_IncrementJumptableIndex
 
 .HandleJoypad:
 	ld hl, hJoyPressed
@@ -118,8 +117,7 @@ _DepositPKMN:
 	call BillsPC_PlaceString
 	ld a, $1
 	ld [wMenuCursorY], a
-	call BillsPC_IncrementJumptableIndex
-	ret
+	jmp BillsPC_IncrementJumptableIndex
 
 .Submenu:
 	ld hl, BillsPCDepositMenuHeader
@@ -304,8 +302,7 @@ _WithdrawPKMN:
 	call BillsPC_ApplyPalettes
 	call WaitBGMap
 	call BillsPC_UpdateSelectionCursor
-	call BillsPC_IncrementJumptableIndex
-	ret
+	jmp BillsPC_IncrementJumptableIndex
 
 .Joypad:
 	ld hl, hJoyPressed
@@ -355,8 +352,7 @@ _WithdrawPKMN:
 	call BillsPC_PlaceString
 	ld a, $1
 	ld [wMenuCursorY], a
-	call BillsPC_IncrementJumptableIndex
-	ret
+	jmp BillsPC_IncrementJumptableIndex
 
 BillsPC_Withdraw:
 	ld hl, .MenuHeader
@@ -540,8 +536,7 @@ _MovePKMNWithoutMail:
 	call BillsPC_ApplyPalettes
 	call WaitBGMap
 	call BillsPC_UpdateSelectionCursor
-	call BillsPC_IncrementJumptableIndex
-	ret
+	jmp BillsPC_IncrementJumptableIndex
 
 .Joypad:
 	ld hl, hJoyPressed
@@ -601,8 +596,7 @@ _MovePKMNWithoutMail:
 	call BillsPC_PlaceString
 	ld a, $1
 	ld [wMenuCursorY], a
-	call BillsPC_IncrementJumptableIndex
-	ret
+	jmp BillsPC_IncrementJumptableIndex
 
 .MoveMonWOMailSubmenu:
 	ld hl, .MenuHeader
@@ -684,8 +678,7 @@ _MovePKMNWithoutMail:
 	call ClearSprites
 	call BillsPC_UpdateInsertCursor
 	call WaitBGMap
-	call BillsPC_IncrementJumptableIndex
-	ret
+	jmp BillsPC_IncrementJumptableIndex
 
 .Joypad2:
 	ld hl, hJoyPressed
@@ -2462,8 +2455,7 @@ BillsPC_ChangeBoxSubmenu:
 	dec a
 	call GetBoxName
 	ld de, wBoxNameBuffer
-	call CopyName2
-	ret
+	jmp CopyName2
 
 .MenuHeader:
 	db MENU_BACKUP_TILES ; flags

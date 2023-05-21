@@ -1276,7 +1276,13 @@ Pokegear_SwitchPage:
 	ld [wJumptableIndex], a
 	ld a, b
 	ld [wPokegearCard], a
-	call DeleteSpriteAnimStruct2ToEnd
+; DeleteSpriteAnimStruct2ToEnd
+	ld hl, wSpriteAnim2
+	ld bc, wSpriteAnimationStructsEnd - wSpriteAnim2
+	xor a
+	call ByteFill
+	ld a, 2
+	ld [wSpriteAnimCount], a
 	ret
 
 ExitPokegearRadio_HandleMusic:
@@ -1293,15 +1299,6 @@ ExitPokegearRadio_HandleMusic:
 	call RestartMapMusic
 	xor a
 	ld [wPokegearRadioMusicPlaying], a
-	ret
-
-DeleteSpriteAnimStruct2ToEnd:
-	ld hl, wSpriteAnim2
-	ld bc, wSpriteAnimationStructsEnd - wSpriteAnim2
-	xor a
-	call ByteFill
-	ld a, 2
-	ld [wSpriteAnimCount], a
 	ret
 
 Pokegear_LoadTilemapRLE:
@@ -1395,16 +1392,12 @@ UpdateRadioStation:
 .loop
 	ld a, [hli]
 	cp -1
-	jr z, .nostation
+	jmp z, NoRadioStation
 	cp d
 	jr z, .foundstation
 	inc hl
 	inc hl
 	jr .loop
-
-.nostation
-	call NoRadioStation
-	ret
 
 .foundstation
 	ld a, [hli]
@@ -2751,8 +2744,7 @@ LoadTownMapGFX:
 	ld hl, TownMapGFX
 	ld de, vTiles2
 	lb bc, BANK(TownMapGFX), 48
-	call DecompressRequest2bpp
-	ret
+	jmp DecompressRequest2bpp
 
 JohtoMap:
 INCBIN "gfx/pokegear/johto.bin"

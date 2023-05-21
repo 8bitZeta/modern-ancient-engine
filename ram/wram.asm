@@ -496,6 +496,7 @@ wCurEnemyMoveNum:: db
 wEnemyHPAtTimeOfPlayerSwitch:: dw
 wPayDayMoney:: ds 3
 
+	db
 wSafariMonEating:: db
 	ds 1
 wEnemyBackupDVs:: dw ; used when enemy is transformed or when enemy is captured (to prevent data loss)
@@ -3129,6 +3130,7 @@ wMobileBattleRoomSceneID::                        db
 
 ; fight counts
 wJackFightCount::    db
+	db
 wHueyFightCount::    db
 wGavenFightCount::   db
 wBethFightCount::    db
@@ -3141,15 +3143,18 @@ wLizFightCount::     db
 wAnthonyFightCount:: db
 wToddFightCount::    db
 wGinaFightCount::    db
+	db
 wArnieFightCount::   db
 wAlanFightCount::    db
 wDanaFightCount::    db
 wChadFightCount::    db
+	db
 wTullyFightCount::   db
 wBrentFightCount::   db
 wTiffanyFightCount:: db
 wVanceFightCount::   db
 wWiltonFightCount::  db
+	db
 wParryFightCount::   db
 wErinFightCount::    db
 

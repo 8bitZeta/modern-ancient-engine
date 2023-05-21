@@ -1372,30 +1372,30 @@ MusicCommands:
 	dw Music_ToggleSFX
 	dw Music_PitchSlide
 	dw Music_Vibrato
-	dw GenericDummyMusic
+	dw GenericDummyFunction
 	dw Music_ToggleNoise
 	dw Music_ForceStereoPanning
 	dw Music_Volume
 	dw Music_PitchOffset
-	dw GenericDummyMusic
-	dw GenericDummyMusic
+	dw GenericDummyFunction
+	dw GenericDummyFunction
 	dw Music_TempoRelative
 	dw Music_RestartChannel
 	dw Music_NewSong ; unused
 	dw Music_SFXPriorityOn
 	dw Music_SFXPriorityOff
-	dw GenericDummyMusic
+	dw GenericDummyFunction
 	dw Music_StereoPanning
 	dw Music_SFXToggleNoise
-	dw GenericDummyMusic
-	dw GenericDummyMusic
-	dw GenericDummyMusic
-	dw GenericDummyMusic
-	dw GenericDummyMusic
-	dw GenericDummyMusic
-	dw GenericDummyMusic
-	dw GenericDummyMusic
-	dw GenericDummyMusic
+	dw GenericDummyFunction
+	dw GenericDummyFunction
+	dw GenericDummyFunction
+	dw GenericDummyFunction
+	dw GenericDummyFunction
+	dw GenericDummyFunction
+	dw GenericDummyFunction
+	dw GenericDummyFunction
+	dw GenericDummyFunction
 	dw Music_SetCondition
 	dw Music_JumpIf
 	dw Music_Jump
@@ -1403,9 +1403,6 @@ MusicCommands:
 	dw Music_Call
 	dw Music_Ret
 	assert_table_length $100 - FIRST_MUSIC_CMD
-
-GenericDummyMusic:
-	ret
 
 Music_Ret:
 ; called when $ff is encountered w/ subroutine flag set
