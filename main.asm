@@ -379,7 +379,6 @@ INCLUDE "engine/pokemon/mail_2.asm"
 SECTION "Phone Scripts 2", ROMX
 
 INCLUDE "engine/events/std_scripts.asm"
-INCLUDE "engine/phone/scripts/unused.asm"
 INCLUDE "engine/phone/scripts/mom.asm"
 INCLUDE "engine/phone/scripts/bill.asm"
 INCLUDE "engine/phone/scripts/elm.asm"
@@ -640,7 +639,6 @@ INCLUDE "data/phone/text/wilton_callee.asm"
 INCLUDE "data/phone/text/kenji_callee.asm"
 INCLUDE "data/phone/text/parry_callee.asm"
 INCLUDE "data/phone/text/erin_callee.asm"
-INCLUDE "data/phone/text/unused.asm"
 
 
 SECTION "Miscellaneous Text", ROMX

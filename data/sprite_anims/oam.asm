@@ -15,7 +15,6 @@ SpriteAnimOAMData:
 	spriteanimoam $6e, .OAMData_GSIntroShellder          ; SPRITE_ANIM_OAMSET_GS_INTRO_SHELLDER_2
 	spriteanimoam $2d, .OAMData_GSIntroMagikarp          ; SPRITE_ANIM_OAMSET_GS_INTRO_MAGIKARP_1
 	spriteanimoam $4d, .OAMData_GSIntroMagikarp          ; SPRITE_ANIM_OAMSET_GS_INTRO_MAGIKARP_2
-	spriteanimoam $60, .OAMData_GSIntroLapras            ; SPRITE_ANIM_OAMSET_GS_INTRO_UNUSED_LAPRAS
 	spriteanimoam $00, .OAMData_GSIntroLapras            ; SPRITE_ANIM_OAMSET_GS_INTRO_LAPRAS_1
 	spriteanimoam $00, .OAMData_GSIntroLapras            ; SPRITE_ANIM_OAMSET_GS_INTRO_LAPRAS_2
 	spriteanimoam $06, .OAMData_GSIntroLapras            ; SPRITE_ANIM_OAMSET_GS_INTRO_LAPRAS_3
@@ -74,18 +73,6 @@ SpriteAnimOAMData:
 	spriteanimoam $00, .OAMData_PartyMonWithItem2        ; SPRITE_ANIM_OAMSET_PARTY_MON_WITH_ITEM_2
 	spriteanimoam $00, .OAMData_MagnetTrainRed           ; SPRITE_ANIM_OAMSET_MAGNET_TRAIN_RED_1
 	spriteanimoam $04, .OAMData_MagnetTrainRed           ; SPRITE_ANIM_OAMSET_MAGNET_TRAIN_RED_2
-	spriteanimoam $00, .OAMData_Unused43_4A              ; SPRITE_ANIM_OAMSET_UNUSED_43
-	spriteanimoam $30, .OAMData_Unused43_4A              ; SPRITE_ANIM_OAMSET_UNUSED_44
-	spriteanimoam $03, .OAMData_Unused43_4A              ; SPRITE_ANIM_OAMSET_UNUSED_45
-	spriteanimoam $33, .OAMData_Unused43_4A              ; SPRITE_ANIM_OAMSET_UNUSED_46
-	spriteanimoam $06, .OAMData_Unused43_4A              ; SPRITE_ANIM_OAMSET_UNUSED_47
-	spriteanimoam $36, .OAMData_Unused43_4A              ; SPRITE_ANIM_OAMSET_UNUSED_48
-	spriteanimoam $09, .OAMData_Unused43_4A              ; SPRITE_ANIM_OAMSET_UNUSED_49
-	spriteanimoam $39, .OAMData_Unused43_4A              ; SPRITE_ANIM_OAMSET_UNUSED_4A
-	spriteanimoam $0c, .OAMData_Unused4B                 ; SPRITE_ANIM_OAMSET_UNUSED_4B
-	spriteanimoam $0c, .OAMData_Unused4C                 ; SPRITE_ANIM_OAMSET_UNUSED_4C
-	spriteanimoam $3c, .OAMData_1x1_Palette0             ; SPRITE_ANIM_OAMSET_UNUSED_4D
-	spriteanimoam $3e, .OAMData_1x1_Palette0             ; SPRITE_ANIM_OAMSET_UNUSED_4E
 	spriteanimoam $00, .OAMData_Leaf                     ; SPRITE_ANIM_OAMSET_LEAF
 	spriteanimoam $00, .OAMData_Tree                     ; SPRITE_ANIM_OAMSET_TREE_1
 	spriteanimoam $00, .OAMData_CutTree2                 ; SPRITE_ANIM_OAMSET_CUT_TREE_2

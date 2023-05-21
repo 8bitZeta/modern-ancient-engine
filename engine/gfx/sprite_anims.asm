@@ -27,7 +27,6 @@ DoAnimFrame:
 	dw AnimSeq_SlotsChansey
 	dw AnimSeq_SlotsChanseyEgg
 	dw AnimSeq_MailCursor
-	dw AnimSeq_UnusedCursor
 	dw AnimSeq_MemoryGameCursor
 	dw AnimSeq_PokegearArrow
 	dw AnimSeq_TradePokeBall
@@ -399,10 +398,6 @@ AnimSeq_SlotsChanseyEgg:
 	ld hl, SPRITEANIMSTRUCT_YOFFSET
 	add hl, bc
 	ld [hl], a
-	ret
-
-AnimSeq_UnusedCursor:
-	callfar UnusedCursor_InterpretJoypad_AnimateCursor
 	ret
 
 AnimSeq_PokegearArrow:
