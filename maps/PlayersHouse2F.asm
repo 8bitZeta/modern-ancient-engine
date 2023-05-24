@@ -17,7 +17,6 @@ PlayersHouse2FInitializeRoomCallback:
 	checkevent EVENT_INITIALIZED_EVENTS
 	iftrue .SkipInitialization
 	jumpstd InitializeEventsScript
-	endcallback
 
 .SkipInitialization:
 	endcallback

@@ -491,11 +491,7 @@ MACRO closetext
 	db closetext_command
 ENDM
 
-	const writeunusedbyte_command ; $4a
-MACRO writeunusedbyte
-	db writeunusedbyte_command
-	db \1 ; byte
-ENDM
+	const_skip ; $4a
 
 	const farwritetext_command ; $4b
 MACRO farwritetext
