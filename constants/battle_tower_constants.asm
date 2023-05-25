@@ -42,10 +42,6 @@ DEF BATTLE_TOWER_STRUCT_LENGTH EQU NAME_LENGTH + BATTLETOWER_PARTY_LENGTH * NICK
 	const BATTLETOWERACTION_CHOOSEREWARD ; save options
 	const BATTLETOWERACTION_SAVEOPTIONS
 
-; BattleTowerAction return values
-; - from BATTLETOWERACTION_CHECKMOBILEEVENT
-DEF MOBILE_EVENT_OBJECT_GS_BALL EQU $b
-
 ; BattleTowerText arguments (see engine/events/battle_tower/trainer_text.asm)
 	const_def 1
 	const BATTLETOWERTEXT_INTRO
