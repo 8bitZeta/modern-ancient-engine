@@ -132,9 +132,9 @@ PlayersHouseRadioScript:
 	; Debug pokemon
 	givepoke MEW, 100, LEFTOVERS
 	givepokemove HEAT_WAVE,        wPartyMon1, 0
-	givepokemove TORMENT,       wPartyMon1, 1
-	givepokemove FLATTER,   wPartyMon1, 2
-	givepokemove HAIL,        wPartyMon1, 3
+	givepokemove PSYCHIC_M,       wPartyMon1, 1
+	givepokemove STRENGTH,   wPartyMon1, 2
+	givepokemove BRICK_BREAK,        wPartyMon1, 3
 	givepoke MEW, 100, LEFTOVERS
 	givepokemove FLASH,      wPartyMon2, 0
 	givepokemove ROCK_SMASH, wPartyMon2, 1
@@ -201,7 +201,7 @@ endc
 
 PlayersHouseBookshelfScript:
 	if DEF(_DEBUG)
-	loadwildmon MAGIKARP, 100
+	loadwildmon SPIRITOMB, 100
 	startbattle
 	reloadmapafterbattle
 	end
