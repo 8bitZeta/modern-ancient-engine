@@ -129,7 +129,7 @@ NextOverworldFrame:
 	inc a
 	jmp nz, DelayFrame
 	xor a
-	ld [hDelayFrameLY], a
+	ldh [hDelayFrameLY], a
 	ret
 
 HandleMapTimeAndJoypad:

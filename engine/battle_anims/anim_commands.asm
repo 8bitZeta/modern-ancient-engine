@@ -154,16 +154,16 @@ BattleAnimRestoreHuds:
 	ldh a, [rSVBK]
 	push af
 	ld a, BANK(wCurBattleMon) ; alternatively: BANK(wTempMon), BANK(wPartyMon1), several others
-	ld [rSVBK], a
+	ldh [rSVBK], a
 	ld hl, UpdateBattleHuds
 	ld a, BANK(UpdatePlayerHUD)
 	rst FarCall ; Why not "call UpdateBattleHuds"?
 	farcall FinishBattleAnim
 
 	pop af
-	ld [rSVBK], a
+	ldh [rSVBK], a
 	ld a, $1
-	ld [hBGMapMode], a
+	ldh [hBGMapMode], a
 	call DelayFrame
 	call DelayFrame
 	call DelayFrame

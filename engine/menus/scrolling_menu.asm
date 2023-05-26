@@ -21,7 +21,7 @@ _ScrollingMenu::
 	call ScrollingMenu_InitDisplay
 	call WaitBGMap
 	xor a
-	ld [hBGMapMode], a
+	ldh [hBGMapMode], a
 	jr _ScrollingMenu
 	
 .exit: ; 245d6
