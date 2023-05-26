@@ -758,7 +758,7 @@ AnimSeq_IntroSuicune:
 	ld a, [hl]
 	add 2
 	ld [hl], a
-	xor $ff
+	cpl
 	inc a
 	ld d, 32
 	call Sine
@@ -778,7 +778,7 @@ AnimSeq_IntroPichuWooper:
 	jr nc, .done
 	add 2
 	ld [hl], a
-	xor $ff
+	cpl
 	inc a
 	ld d, 32
 	call Sine

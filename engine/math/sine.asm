@@ -15,7 +15,7 @@ _Sine::
 	and %011111
 	call .apply
 	ld a, h
-	xor $ff
+	cpl
 	inc a
 	ld e, a
 	ret

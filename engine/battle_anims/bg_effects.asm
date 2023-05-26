@@ -1026,7 +1026,7 @@ BattleBGEffect_Water:
 	ld a, [hl]
 	and $f0
 	swap a
-	xor $ff
+	cpl
 	add $4
 	ld d, a
 	ld hl, BG_EFFECT_STRUCT_JT_INDEX
@@ -1209,7 +1209,7 @@ BattleBGEffect_DoubleTeam:
 
 .UpdateLYOverrides:
 	ld e, a
-	xor $ff
+	cpl
 	inc a
 	ld d, a
 	ld h, HIGH(wLYOverridesBackup)
@@ -1524,7 +1524,7 @@ Tackle_ReturnMove:
 	ld hl, BG_EFFECT_STRUCT_BATTLE_TURN
 	add hl, bc
 	ld a, [hl]
-	xor $ff
+	cpl
 	inc a
 	ld hl, BG_EFFECT_STRUCT_PARAM
 	add hl, bc
@@ -2241,7 +2241,7 @@ BattleBGEffect_VibrateMon:
 	ld hl, BG_EFFECT_STRUCT_BATTLE_TURN
 	add hl, bc
 	ld a, [hl]
-	xor $ff
+	cpl
 	inc a
 	ld [hl], a
 	call BGEffect_FillLYOverridesBackup
@@ -2305,7 +2305,7 @@ BattleBGEffect_Rollout:
 	call DelayFrame
 	pop af
 	ldh [hSCY], a
-	xor $ff
+	cpl
 	inc a
 	ld [wAnimObject1YOffset], a
 	ret
@@ -2358,7 +2358,7 @@ BattleBGEffects_GetShakeAmount:
 	ld hl, BG_EFFECT_STRUCT_BATTLE_TURN
 	add hl, bc
 	ld a, [hl]
-	xor $ff
+	cpl
 	inc a
 	ld [hl], a
 	and a
@@ -2901,7 +2901,7 @@ BGEffect_DisplaceLYOverridesBackup:
 	dec e
 	jr nz, .loop
 	pop af
-	xor $ff
+	cpl
 .loop2
 	ld [hli], a
 	dec d
