@@ -258,7 +258,7 @@ DebugRoomMenu_WinWorkClr:
 	ld a, h
 	sbc HIGH(wWindowStack)
 	ret c
-	ld a, $00
+	xor a
 	call OpenSRAM
 	ld bc, -wWindowStack + $10000
 	add hl, bc
@@ -1663,7 +1663,7 @@ PrintHexNumber:
 	ld bc, .HexDigits
 	add c
 	ld c, a
-	ld a, 0
+	ld a, 0 ; not xor a
 	adc b
 	ld b, a
 	ld a, [bc]

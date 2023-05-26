@@ -157,7 +157,7 @@ Function16c943:
 	ld a, $5
 	ldh [rSVBK], a
 	ld e, $0
-	ld a, $0
+	xor a
 .asm_16c969
 	ld hl, MobileSplashScreenPalettes
 	call Function16cab6
@@ -270,7 +270,7 @@ Function16ca11:
 	ld a, $5
 	ldh [rSVBK], a
 	ld e, $0
-	ld a, $0
+	xor a
 .asm_16ca28
 	ld hl, wBGPals1
 	call Function16cab6
@@ -645,7 +645,7 @@ Function16cc6e:
 Function16cc73:
 	ldh a, [rVBK]
 	push af
-	ld a, $0
+	xor a
 	ldh [rVBK], a
 	push hl
 	decoord 0, 0

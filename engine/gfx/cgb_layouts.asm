@@ -678,7 +678,7 @@ _CGB_TrainerCard:
 	and a
 	ld a, $1 ; kris
 	jr z, .got_gender
-	ld a, $0 ; chris
+	xor a ; chris
 .got_gender
 	call ByteFill
 	; fill trainer sprite area with same-gender palette
@@ -686,7 +686,7 @@ _CGB_TrainerCard:
 	lb bc, 7, 5
 	ld a, [wPlayerGender]
 	and a
-	ld a, $0 ; chris
+	ld a, $0 ; not xor a ; chris
 	jr z, .got_gender2
 	ld a, $1 ; kris
 .got_gender2

@@ -518,7 +518,7 @@ Function4a3aa:
 	lb bc, 3, 18
 	call Function4a6d8
 	lb bc, 1, 18
-	ld a, $0
+	xor a
 	call Function4a6d8
 	lb bc, 1, 18
 	ld a, $1
@@ -531,7 +531,7 @@ Function4a3aa:
 	call Function4a6d8
 	hlcoord 19, 0
 	lb bc, 3, 1
-	ld a, $0
+	xor a
 	call Function4a6d8
 	lb bc, 1, 1
 	ld a, $1

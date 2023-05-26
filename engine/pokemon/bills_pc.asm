@@ -150,9 +150,8 @@ BillsPCDepositFuncDeposit:
 	jmp c, BillsPCDepositFuncCancel
 	call DepositPokemon
 	jr c, .box_full
-	ld a, $0
-	ld [wJumptableIndex], a
 	xor a
+	ld [wJumptableIndex], a
 	ld [wBillsPC_CursorPosition], a
 	ld [wBillsPC_ScrollPosition], a
 	ret
@@ -198,9 +197,8 @@ BillsPCDepositFuncRelease:
 	ld [wPokemonWithdrawDepositParameter], a
 	farcall RemoveMonFromPartyOrBox
 	call ReleasePKMN_ByePKMN
-	ld a, $0
-	ld [wJumptableIndex], a
 	xor a
+	ld [wJumptableIndex], a
 	ld [wBillsPC_CursorPosition], a
 	ld [wBillsPC_ScrollPosition], a
 	pop af
@@ -214,7 +212,7 @@ BillsPCDepositFuncRelease:
 	ret
 
 BillsPCDepositFuncCancel:
-	ld a, $0
+	xor a
 	ld [wJumptableIndex], a
 	ret
 
@@ -385,9 +383,8 @@ BillsPC_Withdraw:
 	jmp c, .cancel
 	call TryWithdrawPokemon
 	jr c, .FailedWithdraw
-	ld a, $0
-	ld [wJumptableIndex], a
 	xor a
+	ld [wJumptableIndex], a
 	ld [wBillsPC_CursorPosition], a
 	ld [wBillsPC_ScrollPosition], a
 	ret
@@ -430,9 +427,8 @@ BillsPC_Withdraw:
 	ld [wPokemonWithdrawDepositParameter], a
 	farcall RemoveMonFromPartyOrBox
 	call ReleasePKMN_ByePKMN
-	ld a, $0
-	ld [wJumptableIndex], a
 	xor a
+	ld [wJumptableIndex], a
 	ld [wBillsPC_CursorPosition], a
 	ld [wBillsPC_ScrollPosition], a
 	pop af
@@ -445,7 +441,7 @@ BillsPC_Withdraw:
 	ret
 
 .cancel
-	ld a, $0
+	xor a
 	ld [wJumptableIndex], a
 	ret
 
@@ -565,7 +561,6 @@ _MovePKMNWithoutMail:
 	xor a
 	ld [wBillsPC_CursorPosition], a
 	ld [wBillsPC_ScrollPosition], a
-	ld a, $0
 	ld [wJumptableIndex], a
 	ret
 
@@ -648,7 +643,7 @@ _MovePKMNWithoutMail:
 	ret
 
 .Cancel:
-	ld a, $0
+	xor a
 	ld [wJumptableIndex], a
 	ret
 
@@ -714,7 +709,7 @@ _MovePKMNWithoutMail:
 	call BillsPC_CheckSpaceInDestination
 	jr c, .no_space
 	call MovePKMNWithoutMail_InsertMon
-	ld a, $0
+	xor a
 	ld [wJumptableIndex], a
 	ret
 
@@ -730,7 +725,7 @@ _MovePKMNWithoutMail:
 	ld [wBillsPC_CursorPosition], a
 	ld a, [wBillsPC_BackupLoadedBox]
 	ld [wBillsPC_LoadedBox], a
-	ld a, $0
+	xor a
 	ld [wJumptableIndex], a
 	ret
 

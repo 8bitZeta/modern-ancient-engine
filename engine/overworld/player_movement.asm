@@ -529,7 +529,7 @@ DoPlayerMovement::
 	run_step RIGHT
 
 .StandInPlace:
-	ld a, 0
+	xor a
 	ld [wPlayerTurningDirection], a
 	ld a, movement_step_sleep
 	ld [wMovementAnimation], a
@@ -537,7 +537,7 @@ DoPlayerMovement::
 	ret
 
 ._WalkInPlace:
-	ld a, 0
+	xor a
 	ld [wPlayerTurningDirection], a
 	ld a, movement_step_bump
 	ld [wMovementAnimation], a
@@ -629,7 +629,7 @@ ENDM
 ; Returns 1 if there is no NPC in front
 ; Returns 2 if there is a movable NPC in front. The game actually treats
 ; this the same as an NPC in front (bump).
-	ld a, 0
+	xor a
 	ldh [hMapObjectIndex], a
 ; Load the next X coordinate into d
 	ld a, [wPlayerMapX]
@@ -985,6 +985,6 @@ StopPlayerForEvent::
 	ret z
 
 	ld [hl], a
-	ld a, 0
+	xor a
 	ld [wPlayerTurningDirection], a
 	ret

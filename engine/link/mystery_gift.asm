@@ -1481,7 +1481,7 @@ InitMysteryGiftLayout:
 	lb bc, 9, 15
 	call ClearBox
 	hlcoord 0, 0
-	ld a, $0
+	xor a
 	ld [hli], a
 	inc a
 	ld [hl], a
@@ -1775,7 +1775,7 @@ InitNameCardLayout:
 	lb bc, 9, 15
 	call ClearBox
 	hlcoord 0, 0
-	ld a, $0
+	xor a
 	ld [hli], a
 	inc a
 	ld [hl], a

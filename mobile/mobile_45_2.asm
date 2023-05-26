@@ -74,7 +74,7 @@ Function1165d5:
 	call Function11678e
 
 Function1165d8:
-	ld a, $0
+	xor a
 	ld c, a
 	ld a, $ff
 	ld b, a
@@ -211,7 +211,7 @@ Function1166a2:
 	ld [wc314 + 2], a
 	xor a
 	ld [wc314 + 3], a
-	ld a, $0
+	xor a
 	ld c, a
 	call Function11679c
 	call Function116797
@@ -333,7 +333,7 @@ Function116758:
 	ret
 
 Function11677e:
-	ld a, $0
+	xor a
 
 Function116780:
 	ld hl, wc314 + 1

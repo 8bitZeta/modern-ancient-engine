@@ -235,7 +235,7 @@ HPBarAnim_RedrawHPBar:
 	ld a, 2 * SCREEN_WIDTH
 	add l
 	ld l, a
-	ld a, 0
+	ld a, 0 ; not xor a
 	adc h
 	ld h, a
 .skip

@@ -2,7 +2,7 @@ SECTION "Credits", ROMX
 
 Credits::
 	bit 6, b ; Hall Of Fame
-	ld a, $0
+	ld a, $0 ; not xor a
 	jr z, .okay
 	ld a, $40
 .okay
@@ -493,7 +493,7 @@ GetCreditsPalette:
 	call .GetPalAddress
 
 	push hl
-	ld a, 0
+	xor a
 	call .UpdatePals
 	pop hl
 	ret
@@ -519,7 +519,7 @@ GetCreditsPalette:
 	push hl
 	add LOW(wBGPals1)
 	ld e, a
-	ld a, 0
+	ld a, 0 ; not xor a
 	adc HIGH(wBGPals1)
 	ld d, a
 	ld bc, 24
@@ -529,7 +529,7 @@ GetCreditsPalette:
 	pop af
 	add LOW(wBGPals2)
 	ld e, a
-	ld a, 0
+	ld a, 0 ; not xor a
 	adc HIGH(wBGPals2)
 	ld d, a
 	ld bc, 24

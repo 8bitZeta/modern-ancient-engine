@@ -1815,7 +1815,7 @@ BattleCommand_LowerSub:
 .rollout_rampage
 	ld a, [wSomeoneIsRampaging]
 	and a
-	ld a, 0
+	xor a
 	ld [wSomeoneIsRampaging], a
 	ret
 
@@ -2213,7 +2213,7 @@ BattleCommand_CheckFaint:
 	and a
 	ld hl, wEnemyMonMaxHP + 1
 	bccoord 2, 2 ; hp bar
-	ld a, 0
+	ld a, 0 ; not xor a
 	jr nz, .got_max_hp
 	ld hl, wBattleMonMaxHP + 1
 	bccoord 10, 9 ; hp bar
@@ -3010,7 +3010,7 @@ BattleCommand_ConstantDamage:
 	call GetBattleVar
 	cp EFFECT_LEVEL_DAMAGE
 	ld b, [hl]
-	ld a, 0
+	ld a, 0 ; not xor a
 	jr z, .got_power
 
 	ld a, BATTLE_VARS_MOVE_EFFECT
@@ -3027,7 +3027,7 @@ BattleCommand_ConstantDamage:
 	ld a, BATTLE_VARS_MOVE_POWER
 	call GetBattleVar
 	ld b, a
-	ld a, $0
+	xor a
 	jr .got_power
 
 .psywave
@@ -3042,7 +3042,7 @@ BattleCommand_ConstantDamage:
 	cp b
 	jr nc, .psywave_loop
 	ld b, a
-	ld a, 0
+	xor a
 	jr .got_power
 
 .super_fang
@@ -3063,7 +3063,7 @@ BattleCommand_ConstantDamage:
 	and a
 	jr nz, .got_power
 	or b
-	ld a, 0
+	ld a, 0 ; not xor a
 	jr nz, .got_power
 	ld b, 1
 	jr .got_power

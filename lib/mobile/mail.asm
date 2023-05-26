@@ -454,7 +454,7 @@ Function1143f3:
 	ret
 
 .asm_114402
-	ld a, $0
+	xor a
 	cp c
 	jr nc, .asm_114400
 
@@ -592,7 +592,7 @@ Function1143f3:
 	jmp nz, .asm_11442b
 
 .asm_1144c2
-	ld a, $0
+	xor a
 	ld [hl], a
 	ld a, $1
 	ret
@@ -4438,7 +4438,7 @@ endr
 	pop hl
 
 .asm_1159d8
-	ld a, $0
+	xor a
 	ld [hl], a
 	ret
 

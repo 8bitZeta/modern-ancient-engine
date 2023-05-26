@@ -741,7 +741,7 @@ MovementFunction_FollowNotExact:
 	cp e
 	jr z, .standing
 	jr c, .less2
-	ld a, 0
+	xor a
 	jr .done
 
 .less2
@@ -2442,7 +2442,7 @@ HandleNPCStep::
 	ld [wPlayerStepVectorY], a
 	ld a, [wPlayerStepFlags]
 	bit 6, a
-	ld a, $0
+	xor a
 	ld [wPlayerStepFlags], a
 	ret nz
 	dec a

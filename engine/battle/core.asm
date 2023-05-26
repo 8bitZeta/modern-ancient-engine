@@ -2414,7 +2414,7 @@ HandleEnemySwitch:
 	ld hl, wBattleMonHP
 	ld a, [hli]
 	or [hl]
-	ld a, $0
+	ld a, 0 ; not xor a
 	jr nz, EnemyPartyMonEntrance
 	inc a
 	ret
@@ -4622,7 +4622,7 @@ HandleStatBoostingHeldItems:
 
 .DoPlayer:
 	call GetPartymonItem
-	ld a, $0
+	xor a
 	jr .HandleItem
 
 .DoEnemy:
@@ -7279,7 +7279,7 @@ GiveExperiencePoints:
 	inc hl
 	ld a, [wPlayerID + 1]
 	cp [hl]
-	ld a, 0
+	ld a, 0 ; not xor a
 	jr z, .no_boost
 
 .boosted

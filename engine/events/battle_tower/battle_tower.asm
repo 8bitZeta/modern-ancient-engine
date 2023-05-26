@@ -749,7 +749,7 @@ BattleTower_RandomlyChooseReward:
 .loop
 	call Random
 	ldh a, [hRandomAdd]
-	and $7
+	and 7
 	cp 6
 	jr c, .okay
 	sub 6
@@ -1176,7 +1176,7 @@ BattleTowerAction_10:
 	ret
 
 .Action5:
-	ld a, 0 ; ???
+	xor a ; ???
 	call OpenSRAM
 	ld hl, wRTC
 	ld de, wc608

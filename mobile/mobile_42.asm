@@ -27,7 +27,7 @@ MobileTradeAnimation_RetrieveGivemonFromGTS:
 	jr asm_108018
 
 MobileTradeAnimation_ReceiveGetmonFromGTS:
-	ld a, $0
+	xor a
 asm_108018:
 	ld [wcf65], a
 	ld de, .TradeAnimScript
@@ -41,7 +41,7 @@ asm_108018:
 	mobiletradeanim EndMobileTradeAnim
 
 Function108026:
-	ld a, $0
+	xor a
 	jr asm_10802c
 
 Function10802a:
@@ -63,7 +63,7 @@ asm_10802c:
 	mobiletradeanim EndMobileTradeAnim
 
 Function10803d:
-	ld a, $0
+	xor a
 	ld [wcf65], a
 	ld de, .TradeAnimScript
 	jr RunMobileTradeAnim_NoFrontpics
@@ -76,7 +76,7 @@ Function10803d:
 	mobiletradeanim EndMobileTradeAnim
 
 Function10804d:
-	ld a, $0
+	xor a
 	ld [wcf65], a
 	ld de, .TradeAnimScript
 	jr RunMobileTradeAnim_NoFrontpics
@@ -162,7 +162,7 @@ Function1080b7:
 	ld de, vTiles2
 	call Decompress
 
-	ld a, $0
+	xor a
 	ldh [rVBK], a
 	ld hl, MobileTradeSpritesGFX
 	ld de, vTiles0 tile $20
@@ -262,7 +262,7 @@ MobileTradeAnim_ClearTiles:
 	ld bc, 3 * $80 tiles
 	xor a
 	call ByteFill
-	ld a, $0
+	xor a
 	ldh [rVBK], a
 	ld hl, vTiles0
 	ld bc, 3 * $80 tiles
@@ -275,9 +275,8 @@ MobileTradeAnim_ClearBGMap:
 	ldh [rVBK], a
 	hlbgcoord 0, 0
 	ld bc, 2 * BG_MAP_HEIGHT * BG_MAP_WIDTH
-	ld a, $0
+	xor a
 	call ByteFill
-	ld a, $0
 	ldh [rVBK], a
 	hlbgcoord 0, 0
 	ld bc, 2 * BG_MAP_HEIGHT * BG_MAP_WIDTH
@@ -820,7 +819,7 @@ MobileTradeAnim_10:
 	ld hl, MobileTradeGFX
 	ld de, vTiles2
 	call Decompress
-	ld a, $0
+	xor a
 	ldh [rVBK], a
 	ld hl, MobileTradeSpritesGFX
 	ld de, vTiles0 tile $20
@@ -863,7 +862,7 @@ MobileTradeAnim_11:
 	ld hl, MobileTradeGFX
 	ld de, vTiles2
 	call Decompress
-	ld a, $0
+	xor a
 	ldh [rVBK], a
 	ld hl, MobileTradeSpritesGFX
 	ld de, vTiles0 tile $20
@@ -1367,7 +1366,7 @@ Function108ad4:
 	lb bc, BANK(MobileCable1GFX), 16 ; aka BANK(MobileCable2GFX)
 	call Get2bppViaHDMA
 	call DelayFrame
-	ld a, $0
+	xor a
 	ldh [rVBK], a
 	ret
 
@@ -1619,7 +1618,7 @@ Function108c80:
 	ld hl, MobileTradeAttrmapLZ
 	debgcoord 0, 0, vBGMap1
 	call Decompress
-	ld a, $0
+	xor a
 	ldh [rVBK], a
 	ret
 

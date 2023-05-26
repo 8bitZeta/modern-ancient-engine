@@ -85,7 +85,7 @@ _TitleScreen:
 	call ByteFill
 
 ; Back to VRAM bank 0
-	ld a, 0
+	xor a
 	ldh [rVBK], a
 
 ; Decompress logo
@@ -262,7 +262,7 @@ LoadSuicuneFrame:
 	ld a, SCREEN_WIDTH - 8
 	add l
 	ld l, a
-	ld a, 0
+	ld a, 0 ; not xor a
 	adc h
 	ld h, a
 	ld a, 8

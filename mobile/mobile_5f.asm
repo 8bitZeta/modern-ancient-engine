@@ -641,7 +641,7 @@ Function17d370:
 	call CopyBytes
 	call EnableLCD
 	call Function17d60b
-	ld a, $0
+	xor a
 	ld [wBGMapBuffer], a
 	ld a, $d0
 	ld [wcd21], a

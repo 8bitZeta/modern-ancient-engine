@@ -1146,7 +1146,7 @@ Function1106ef:
 	pop hl
 	call MobileSDK_CopyBytes
 	call Function11295e
-	ld a, $0
+	xor a
 	jmp Function110615
 
 Function110757:
@@ -1689,7 +1689,7 @@ Function110af4:
 	ld a, [wc993]
 	add e
 	ld [hli], a
-	ld a, 0
+	ld a, 0 ; not xor a
 	adc 0
 	ld [hl], a
 	xor a
@@ -2471,7 +2471,7 @@ Function111044:
 	ld a, [wc991]
 	add e
 	ld [hli], a
-	ld a, 0
+	ld a, 0 ; not xor a
 	adc 0
 	ld [hl], a
 	xor a
@@ -3085,7 +3085,7 @@ Function1113fe:
 	set 7, [hl]
 	ld hl, wc821
 	set 0, [hl]
-	ld a, $0
+	xor a
 	ei
 	ret
 
@@ -4018,7 +4018,7 @@ asm_111a47:
 	res 0, [hl]
 	ld hl, wc821
 	res 4, [hl]
-	ld a, $0
+	xor a
 	ld [wc805], a
 	ld a, $29
 	ld [wc86a], a
@@ -4803,7 +4803,7 @@ Function111f8d:
 	ld a, [de]
 	add l
 	ld l, a
-	ld a, $0
+	ld a, $0 ; not xor a
 	adc h
 	ld h, a
 	dec b
@@ -5199,7 +5199,7 @@ Function112271:
 	ld a, [hli]
 	add e
 	ld e, a
-	ld a, $0
+	ld a, $0 ; not xor a
 	adc d
 	ld d, a
 	dec b
@@ -5694,9 +5694,8 @@ Function1125c7:
 	dec bc
 	ld a, $fa
 	ld [hli], a
-	ld a, $0
-	ld [hli], a
 	xor a
+	ld [hli], a
 	ld [hli], a
 	ld [hli], a
 	ld de, wMobileSDK_PacketBuffer
@@ -5734,7 +5733,7 @@ Function11261c:
 	ld de, wMobileSDK_PacketBuffer + 118
 	add e
 	ld e, a
-	ld a, $0
+	ld a, $0 ; not xor a
 	adc d
 	ld d, a
 	call Function111f63
@@ -5765,7 +5764,7 @@ Function112654:
 	ld de, wMobileSDK_PacketBuffer + 166
 	add e
 	ld e, a
-	ld a, $0
+	ld a, $0 ; not xor a
 	adc d
 	ld d, a
 	call Function111f63
@@ -5774,7 +5773,7 @@ Function112654:
 	ld de, wMobileSDK_PacketBuffer + 102
 	add e
 	ld e, a
-	ld a, $0
+	ld a, $0 ; not xor a
 	adc d
 	ld d, a
 	call Function111f63
@@ -6469,10 +6468,10 @@ Function112aac:
 	ld a, b
 	add e
 	ld e, a
-	ld a, $0
+	ld a, $0 ; not xor a
 	adc d
 	ld d, a
-	ld a, $0
+	ld a, $0 ; not xor a
 	adc c
 	ld c, a
 	jr .asm_112abe
@@ -7202,7 +7201,7 @@ Function112f61:
 	or a
 	jr nz, .asm_112fa1
 	ld hl, wc98b
-	ld a, $0
+	xor a
 	ld [hli], a
 	ld [hl], a
 	ld a, $1
@@ -7684,7 +7683,7 @@ Function113245:
 	ld a, c
 	add [hl]
 	ld [hli], a
-	ld a, $0
+	ld a, $0 ; not xor a
 	adc [hl]
 	ld [hl], a
 	ld hl, wc821
@@ -8110,7 +8109,7 @@ Function113519:
 	ld a, [hli]
 	add e
 	ld e, a
-	ld a, $0
+	ld a, $0 ; not xor a
 	adc d
 	ld d, a
 	dec b
@@ -9125,7 +9124,7 @@ Function113c8e:
 	pop hl
 
 .asm_113d43
-	ld a, $0
+	xor a
 	ld [hl], a
 	ret
 

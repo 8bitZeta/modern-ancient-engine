@@ -2,7 +2,7 @@
 
 LatchClock::
 ; latch clock counter data
-	ld a, 0
+	xor a
 	ld [MBC3LatchClock], a
 	ld a, 1
 	ld [MBC3LatchClock], a
@@ -165,7 +165,6 @@ FixTime::
 InitTimeOfDay::
 	xor a
 	ld [wStringBuffer2], a
-	ld a, 0 ; useless
 	ld [wStringBuffer2 + 3], a
 	jr InitTime
 

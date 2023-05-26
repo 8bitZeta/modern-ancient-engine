@@ -16,7 +16,7 @@ LoadWildMonData:
 	call CopyBytes
 .done_copy
 	call _WaterWildmonLookup
-	ld a, 0
+	ld a, 0 ; not xor a
 	jr nc, .no_copy
 	inc hl
 	inc hl

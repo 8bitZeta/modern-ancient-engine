@@ -984,7 +984,7 @@ Function11886e:
 
 asm_11886f:
 	ld [wBGMapPalBuffer], a
-	ld a, $0
+	xor a
 	ld [wBattleTowerRoomMenu2JumptableIndex], a
 	call BattleTowerRoomMenu_IncrementJumptable
 	ld a, [wcd33]
@@ -1243,7 +1243,7 @@ BattleTowerRoomMenu_UpdatePickLevelMenu:
 	ldh [rSVBK], a
 	ld a, $7
 	ld [wBattleTowerRoomMenuJumptableIndex], a
-	ld a, $0
+	xor a
 	ld [wMobileInactivityTimerFrames], a
 	ret
 
@@ -3697,7 +3697,7 @@ BattleTowerRoomMenu_DelayRestartMenu:
 	ld hl, wcd50
 	dec [hl]
 	ret nz
-	ld a, $0
+	xor a
 	ld [wBattleTowerRoomMenuJumptableIndex], a
 	ret
 
@@ -6834,7 +6834,7 @@ TradeCornerHoldMon_Noop:
 	ret
 
 Function11b5e8:
-	ld a, $0
+	xor a
 	call OpenSRAM
 	ld hl, wRTC
 	ld de, wc608

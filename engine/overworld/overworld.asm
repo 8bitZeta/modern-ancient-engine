@@ -625,7 +625,7 @@ endr
 	bit 5, a
 	ld a, $1
 	jr z, .bankswitch
-	ld a, $0
+	xor a
 
 .bankswitch
 	ldh [rVBK], a

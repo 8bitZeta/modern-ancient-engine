@@ -482,7 +482,7 @@ AnimateEZChatCursor:
 	ret
 
 .flip_bit_0
-	ld a, $0
+	xor a
 	ld [hld], a
 	ld a, $1
 	xor [hl]

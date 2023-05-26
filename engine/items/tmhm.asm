@@ -2,7 +2,7 @@ TMHMPocket:
 	ld a, $1
 	ldh [hInMenu], a
 	call TMHM_PocketLoop
-	ld a, $0
+	ld a, $0 ; not xor a
 	ldh [hInMenu], a
 	ret nc
 	call PlaceHollowCursor

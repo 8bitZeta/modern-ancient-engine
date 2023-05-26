@@ -304,7 +304,7 @@ LoadMapTimeOfDay:
 	pop bc
 	dec b
 	jr nz, .row
-	ld a, $0
+	xor a
 	ldh [rVBK], a
 	ret
 

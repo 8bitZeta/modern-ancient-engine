@@ -6,7 +6,7 @@ DEF puzcoord EQUS "* 6 +"
 _UnownPuzzle:
 	ldh a, [hInMenu]
 	push af
-	ld a, $1
+	ld a, 1
 	ldh [hInMenu], a
 	call ClearBGPalettes
 	call ClearTilemap
@@ -382,7 +382,7 @@ UnownPuzzle_UpdateTilemap:
 	ret
 
 PlaceUnownPuzzlePieceGFX:
-	ld a, $2 ; tilemap coords
+	ld a, 2 ; tilemap coords
 	call GetUnownPuzzleCoordData
 	ld a, [hli]
 	ld h, [hl]
@@ -459,7 +459,7 @@ GetCurrentPuzzlePieceVTileCorner:
 	ld hl, .Corners
 	add l
 	ld l, a
-	ld a, $0
+	ld a, 0 ; not xor a
 	adc h
 	ld h, a
 	ld a, [hl]
@@ -713,7 +713,7 @@ ConvertLoadedPuzzlePieces:
 	ld hl, .EnlargedTiles
 	add l
 	ld l, a
-	ld a, 0
+	ld a, 0 ; not xor a
 	adc h
 	ld h, a
 	ld a, [hl]

@@ -148,7 +148,7 @@ Mobile_EnableSpriteUpdates:
 	ret
 
 Mobile_DisableSpriteUpdates:
-	ld a, 0
+	xor a
 	ld [wSpriteUpdatesEnabled], a
 	ret
 
@@ -1536,13 +1536,13 @@ Function89a57:
 .d_up
 	call .MoveCursorUp
 	call nc, .PlayPocketSwitchSFX
-	ld a, $0
+	xor a
 	ret
 
 .d_down
 	call .MoveCursorDown
 	call nc, .PlayPocketSwitchSFX
-	ld a, $0
+	xor a
 	ret
 
 .PlayPocketSwitchSFX:
@@ -2655,7 +2655,7 @@ Function8a17b:
 	ld hl, Function8a1b0
 	call Function89d75
 	jr nc, .asm_8a198
-	ld a, $0
+	xor a
 .asm_8a198
 	ld d, a
 	ret
@@ -4060,7 +4060,7 @@ Function8ac7c:
 	ld a, $6
 	add e
 	ld e, a
-	ld a, $0
+	ld a, $0 ; not xor a
 	adc d
 	ld d, a
 	ld c, $1f
@@ -4140,7 +4140,7 @@ Function8ad0b:
 	ld a, $1
 	call Function8925e
 	jr c, .asm_8ad84
-	ld a, $0
+	xor a
 	jr .asm_8ad86
 
 .asm_8ad84
@@ -4202,7 +4202,7 @@ Function8b379:
 	ld a, c
 	add e
 	ld c, a
-	ld a, $0
+	ld a, $0 ; not xor a
 	adc b
 	ld b, a
 	ld a, [bc]
@@ -4216,7 +4216,7 @@ Function8b385:
 	ld a, c
 	add e
 	ld c, a
-	ld a, $0
+	ld a, $0 ; not xor a
 	adc b
 	ld b, a
 	ld a, d

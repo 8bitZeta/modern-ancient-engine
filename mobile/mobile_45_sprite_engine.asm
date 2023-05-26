@@ -387,7 +387,7 @@ Function1161d5:
 
 	ld a, $d0
 	ldh [rHDMA1], a
-	ld a, $0
+	xor a
 	ldh [rHDMA2], a
 	ld a, $1c
 	ldh [rHDMA3], a
@@ -409,7 +409,7 @@ Function1161d5:
 
 	ld a, $d1
 	ldh [rHDMA1], a
-	ld a, $0
+	xor a
 	ldh [rHDMA2], a
 	ld a, $1d
 	ldh [rHDMA3], a
@@ -434,7 +434,7 @@ Function1161d5:
 
 	ld a, $d2
 	ldh [rHDMA1], a
-	ld a, $0
+	xor a
 	ldh [rHDMA2], a
 	ld a, $1c
 	ldh [rHDMA3], a

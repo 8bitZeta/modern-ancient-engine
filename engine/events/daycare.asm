@@ -562,14 +562,14 @@ DayCare_InitBreeding:
 	ld c, a
 	ld a, [wBreedMon1Species]
 	cp c
-	ld a, $1
+	ld a, 1
 	jr z, .LoadWhichBreedmonIsTheMother
 	ld a, [wBreedMon2Species]
 	cp c
-	ld a, $0
+	ld a, 0 ; not xor a
 	jr z, .LoadWhichBreedmonIsTheMother
 	farcall GetGender
-	ld a, $0
+	ld a, 0 ; not xor a
 	jr z, .LoadWhichBreedmonIsTheMother
 	inc a
 
@@ -678,7 +678,7 @@ DayCare_InitBreeding:
 	add b
 	ld [hli], a
 	ld a, [de]
-	and $7
+	and 7
 	ld b, a
 	ld a, [hl]
 	and $f8

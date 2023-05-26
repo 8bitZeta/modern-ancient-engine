@@ -1007,7 +1007,7 @@ Checksum:
 	ld a, [hli]
 	add e
 	ld e, a
-	ld a, 0
+	ld a, 0 ; not xor a
 	adc d
 	ld d, a
 	dec bc

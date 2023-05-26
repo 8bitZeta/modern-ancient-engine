@@ -139,7 +139,7 @@ CutFunction:
 	jr c, .nohivebadge
 	call CheckMapForSomethingToCut
 	jr c, .nothingtocut
-	ld a, $1
+	ld a, 1
 	ret
 
 .nohivebadge
@@ -147,7 +147,7 @@ CutFunction:
 	ret
 
 .nothingtocut
-	ld a, $2
+	ld a, 2
 	ret
 
 .DoCut:
@@ -367,16 +367,16 @@ SurfFunction:
 	jr c, .cannotsurf
 	farcall CheckFacingObject
 	jr c, .cannotsurf
-	ld a, $1
+	ld a, 1
 	ret
 .nofogbadge
 	ld a, $80
 	ret
 .alreadyfail
-	ld a, $3
+	ld a, 3
 	ret
 .cannotsurf
-	ld a, $2
+	ld a, 2
 	ret
 
 .DoSurf:
@@ -573,7 +573,7 @@ FlyFunction:
 
 	ld [wDefaultSpawnpoint], a
 	call CloseWindow
-	ld a, $1
+	ld a, 1
 	ret
 
 .nostormbadge
@@ -581,7 +581,7 @@ FlyFunction:
 	ret
 
 .indoors
-	ld a, $2
+	ld a, 2
 	ret
 
 .illegal
@@ -683,7 +683,7 @@ Script_UsedWaterfall:
 	ld a, [wPlayerTile]
 	call CheckWaterfallTile
 	ret z
-	ld a, $1
+	ld a, 1
 	ld [wScriptVar], a
 	ret
 
@@ -738,12 +738,12 @@ Script_AskWaterfall:
 
 EscapeRopeFunction:
 	call FieldMoveJumptableReset
-	ld a, $1
+	ld a, 1
 	jr EscapeRopeOrDig
 
 DigFunction:
 	call FieldMoveJumptableReset
-	ld a, $2
+	ld a, 2
 
 EscapeRopeOrDig:
 	ld [wEscapeRopeOrDigType], a
@@ -767,7 +767,7 @@ EscapeRopeOrDig:
 	cp DUNGEON
 	jr z, .incave
 .fail
-	ld a, $2
+	ld a, 2
 	ret
 
 .incave
@@ -781,7 +781,7 @@ EscapeRopeOrDig:
 	ld a, [hl]
 	and a
 	jr z, .fail
-	ld a, $1
+	ld a, 1
 	ret
 
 .DoDig:
@@ -791,7 +791,7 @@ EscapeRopeOrDig:
 	call CopyBytes
 	call GetPartyNickname
 	ld a, [wEscapeRopeOrDigType]
-	cp $2
+	cp 2
 	jr nz, .escaperope
 	ld hl, .UsedDigScript
 	call QueueScript
@@ -807,7 +807,7 @@ EscapeRopeOrDig:
 
 .FailDig:
 	ld a, [wEscapeRopeOrDigType]
-	cp $2
+	cp 2
 	jr nz, .failescaperope
 	ld hl, .CantUseDigText
 	call MenuTextbox
@@ -894,11 +894,11 @@ TeleportFunction:
 	jr nc, .nope
 	ld a, c
 	ld [wDefaultSpawnpoint], a
-	ld a, $1
+	ld a, 1
 	ret
 
 .nope
-	ld a, $2
+	ld a, 2
 	ret
 
 .DoTeleport:
@@ -1010,7 +1010,7 @@ Script_UsedStrength:
 AskStrengthScript:
 	callasm TryStrengthOW
 	iffalse .AskStrength
-	ifequal $1, .DontMeetRequirements
+	ifequal 1, .DontMeetRequirements
 	sjump .AlreadyUsedStrength
 
 .DontMeetRequirements:
@@ -1088,11 +1088,11 @@ WhirlpoolFunction:
 	jr c, .noglacierbadge
 	call TryWhirlpoolMenu
 	jr c, .failed
-	ld a, $1
+	ld a, 1
 	ret
 
 .failed
-	ld a, $2
+	ld a, 2
 	ret
 
 .noglacierbadge
@@ -1440,14 +1440,14 @@ FishFunction:
 	farcall CheckFacingObject
 	jr nc, .facingwater
 .fail
-	ld a, $3
+	ld a, 3
 	ret
 
 .facingwater
 	call GetFishingGroup
 	and a
 	jr nz, .goodtofish
-	ld a, $4
+	ld a, 4
 	ret
 
 .goodtofish
@@ -1463,11 +1463,11 @@ FishFunction:
 	ld [wCurPartyLevel], a
 	ld a, BATTLETYPE_FISH
 	ld [wBattleType], a
-	ld a, $2
+	ld a, 2
 	ret
 
 .nonibble
-	ld a, $1
+	ld a, 1
 	ret
 
 .FailFish:
@@ -1475,7 +1475,7 @@ FishFunction:
 	ret
 
 .FishGotSomething:
-	ld a, $1
+	ld a, 1
 	ld [wFishingResult], a
 	ld hl, Script_GotABite
 	call QueueScript
@@ -1483,7 +1483,7 @@ FishFunction:
 	ret
 
 .FishNoBite:
-	ld a, $2
+	ld a, 2
 	ld [wFishingResult], a
 	ld hl, Script_NotEvenANibble
 	call QueueScript
@@ -1491,7 +1491,7 @@ FishFunction:
 	ret
 
 .FishNoFish:
-	ld a, $0
+	xor a
 	ld [wFishingResult], a
 	ld hl, Script_NotEvenANibble2
 	call QueueScript
@@ -1560,7 +1560,7 @@ Fishing_CheckFacingUp:
 	ld a, [wPlayerDirection]
 	and $c
 	cp OW_UP
-	ld a, $1
+	ld a, 1
 	jr z, .up
 	xor a
 
@@ -1570,7 +1570,7 @@ Fishing_CheckFacingUp:
 
 Script_FishCastRod:
 	reloadmappart
-	loadmem hBGMapMode, $0
+	loadmem hBGMapMode, 0
 	special UpdateTimePals
 	loademote EMOTE_ROD
 	callasm LoadFishingGFX
@@ -1586,7 +1586,7 @@ MovementData_CastRod:
 PutTheRodAway:
 	xor a
 	ldh [hBGMapMode], a
-	ld a, $1
+	ld a, 1
 	ld [wPlayerAction], a
 	call UpdateSprites
 	jmp UpdatePlayerSprite
@@ -1630,7 +1630,7 @@ BikeFunction:
 	ld a, e
 	ld [wMapMusic], a
 	call PlayMusic
-	ld a, $1
+	ld a, 1
 	ret
 
 .GetOffBike:
@@ -1648,12 +1648,12 @@ BikeFunction:
 	jr .done
 
 .CannotUseBike:
-	ld a, $0
+	xor a
 	ret
 
 .done
 	call QueueScript
-	ld a, $1
+	ld a, 1
 	ret
 
 .CheckIfRegistered:

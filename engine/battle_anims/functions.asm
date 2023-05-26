@@ -205,7 +205,7 @@ BattleAnimFunction_MoveInCircle:
 	ld hl, BATTLEANIMSTRUCT_PARAM
 	add hl, bc
 	bit 7, [hl]
-	ld a, $0
+	ld a, 0 ; not xor a
 	jr z, .got_starting_position
 	ld a, $20
 .got_starting_position

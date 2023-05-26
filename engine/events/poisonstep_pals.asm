@@ -13,7 +13,7 @@ LoadPoisonBGPals:
 	ld a, [wTimeOfDayPal]
 	maskbits NUM_DAYTIMES
 	cp DARKNESS_F
-	ld a, %00000000
+	ld a, %00000000 ; not xor a
 	jr z, .convert_pals
 	ld a, %10101010
 

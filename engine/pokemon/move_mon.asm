@@ -99,7 +99,7 @@ GeneratePartyMonStats:
 	; Copy the item if it's a wild mon
 	ld a, [wBattleMode]
 	and a
-	ld a, $0
+	ld a, $0 ; not xor a
 	jr z, .skipitem
 	ld a, [wEnemyMonItem]
 .skipitem
@@ -1658,7 +1658,7 @@ CalcMonStatC:
 	jr .not_hp
 
 .set_one
-	ld a, 0
+	xor a
 	ldh [hMultiplicand + 2], a
 	ld a, 1
 

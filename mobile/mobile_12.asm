@@ -991,7 +991,7 @@ Function4880e:
 	ret
 
 Function488b4:
-	ld a, $0
+	xor a
 	and a
 	scf
 	ret
@@ -1603,7 +1603,7 @@ Function48cdc:
 	inc b
 	inc c
 	inc c
-	ld a, $0
+	xor a
 .asm_48ced
 	push bc
 	push hl

@@ -104,7 +104,7 @@ IntroScene1:
 	ld hl, IntroUnownAAttrmap
 	debgcoord 0, 0
 	call Intro_DecompressRequest2bpp_64Tiles
-	ld a, $0
+	xor a
 	ldh [rVBK], a
 	ld hl, IntroUnownsGFX
 	ld de, vTiles2 tile $00
@@ -175,7 +175,7 @@ IntroScene3:
 	ld hl, IntroBackgroundAttrmap
 	debgcoord 0, 0
 	call Intro_DecompressRequest2bpp_64Tiles
-	ld a, $0
+	xor a
 	ldh [rVBK], a
 	ld hl, IntroBackgroundGFX
 	ld de, vTiles2 tile $00
@@ -233,7 +233,7 @@ IntroScene5:
 	ld hl, IntroUnownHIAttrmap
 	debgcoord 0, 0
 	call Intro_DecompressRequest2bpp_64Tiles
-	ld a, $0
+	xor a
 	ldh [rVBK], a
 	ld hl, IntroUnownsGFX
 	ld de, vTiles2 tile $00
@@ -329,7 +329,7 @@ IntroScene7:
 	ld de, vTiles0 tile $00
 	call Intro_DecompressRequest2bpp_128Tiles
 
-	ld a, $0
+	xor a
 	ldh [rVBK], a
 	ld hl, IntroSuicuneRunGFX
 	ld de, vTiles0 tile $00
@@ -485,7 +485,7 @@ IntroScene11:
 	ld hl, IntroUnownsAttrmap
 	debgcoord 0, 0
 	call Intro_DecompressRequest2bpp_64Tiles
-	ld a, $0
+	xor a
 	ldh [rVBK], a
 	ld hl, IntroUnownsGFX
 	ld de, vTiles2 tile $00
@@ -600,7 +600,7 @@ IntroScene13:
 	ld hl, IntroBackgroundAttrmap
 	debgcoord 0, 0
 	call Intro_DecompressRequest2bpp_64Tiles
-	ld a, $0
+	xor a
 	ldh [rVBK], a
 	ld hl, IntroSuicuneRunGFX
 	ld de, vTiles0 tile $00
@@ -699,7 +699,7 @@ IntroScene15:
 	ld hl, IntroSuicuneJumpAttrmap
 	debgcoord 0, 0
 	call Intro_DecompressRequest2bpp_64Tiles
-	ld a, $0
+	xor a
 	ldh [rVBK], a
 	ld hl, IntroSuicuneJumpGFX
 	ld de, vTiles2 tile $00
@@ -777,7 +777,7 @@ IntroScene17:
 	ld hl, IntroSuicuneCloseAttrmap
 	debgcoord 0, 0
 	call Intro_DecompressRequest2bpp_64Tiles
-	ld a, $0
+	xor a
 	ldh [rVBK], a
 	ld hl, IntroSuicuneCloseGFX
 	ld de, vTiles1 tile $00
@@ -839,7 +839,7 @@ IntroScene19:
 	ld hl, IntroSuicuneBackAttrmap
 	debgcoord 0, 0
 	call Intro_DecompressRequest2bpp_64Tiles
-	ld a, $0
+	xor a
 	ldh [rVBK], a
 	ld hl, IntroSuicuneBackGFX
 	ld de, vTiles2 tile $00
@@ -992,7 +992,7 @@ IntroScene26:
 	ld hl, IntroCrystalUnownsAttrmap
 	debgcoord 0, 0
 	call Intro_DecompressRequest2bpp_64Tiles
-	ld a, $0
+	xor a
 	ldh [rVBK], a
 	ld hl, IntroCrystalUnownsGFX
 	ld de, vTiles2 tile $00
@@ -1077,7 +1077,7 @@ Intro_Scene24_ApplyPaletteFade:
 	ld hl, .FadePals
 	add l
 	ld l, a
-	ld a, $0
+	ld a, $0 ; not xor a
 	adc h
 	ld h, a
 
@@ -1275,7 +1275,7 @@ Intro_Scene20_AppearUnown:
 	ld a, c
 	add e
 	ld e, a
-	ld a, $0
+	ld a, $0 ; not xor a
 	adc d
 	ld d, a
 
@@ -1287,7 +1287,7 @@ Intro_Scene20_AppearUnown:
 	ld a, c
 	add e
 	ld e, a
-	ld a, $0
+	ld a, $0 ; not xor a
 	adc d
 	ld d, a
 
@@ -1393,7 +1393,7 @@ Intro_LoadTilemap:
 	ld a, BG_MAP_WIDTH - SCREEN_WIDTH
 	add l
 	ld l, a
-	ld a, 0
+	ld a, 0 ; not xor a
 	adc h
 	ld h, a
 	dec b

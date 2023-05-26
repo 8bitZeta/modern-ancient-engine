@@ -571,7 +571,7 @@ Function17a9f5:
 	ret
 
 Function17aa22:
-	ld a, $0
+	xor a
 	ld [$d08e], a
 	push de
 	ld a, $3
@@ -591,7 +591,7 @@ Function17aa22:
 	pop af
 	ld b, a
 	pop de
-	ld a, $0
+	xor a
 	ld hl, Unknown_17aa77
 	call Function17aa4a
 	ret

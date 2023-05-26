@@ -580,7 +580,7 @@ CardFlip_BlankDiscardedCardSlot:
 	srl a
 	add LOW(.Jumptable)
 	ld l, a
-	ld a, 0
+	ld a, 0 ; not xor a
 	adc HIGH(.Jumptable)
 	ld h, a
 	ld a, [hli]
@@ -815,18 +815,18 @@ CardFlip_CheckWinCondition:
 
 .PikaJiggly:
 	ld a, [wCardFlipFaceUpCard]
-	and $2
+	and 2
 	jmp nz, .Lose
 	jr .WinSix
 
 .PoliOddish:
 	ld a, [wCardFlipFaceUpCard]
-	and $2
+	and 2
 	jr nz, .WinSix
 	jmp .Lose
 
 .WinSix:
-	ld c, $6
+	ld c, 6
 	ld de, SFX_2ND_PLACE
 	jmp .Payout
 
@@ -839,7 +839,7 @@ CardFlip_CheckWinCondition:
 .ThreeFour:
 	ld a, [wCardFlipFaceUpCard]
 	and $18
-	cp $8
+	cp 8
 	jr z, .WinNine
 	jmp .Lose
 
@@ -851,34 +851,34 @@ CardFlip_CheckWinCondition:
 	jmp .Lose
 
 .WinNine:
-	ld c, $9
+	ld c, 9
 	ld de, SFX_2ND_PLACE
 	jmp .Payout
 
 .Pikachu:
 	ld a, [wCardFlipFaceUpCard]
-	and $3
+	and 3
 	jr z, .WinTwelve
 	jmp .Lose
 
 .Jigglypuff:
 	ld a, [wCardFlipFaceUpCard]
-	and $3
-	cp $1
+	and 3
+	cp 1
 	jr z, .WinTwelve
 	jmp .Lose
 
 .Poliwag:
 	ld a, [wCardFlipFaceUpCard]
-	and $3
-	cp $2
+	and 3
+	cp 2
 	jr z, .WinTwelve
 	jmp .Lose
 
 .Oddish:
 	ld a, [wCardFlipFaceUpCard]
-	and $3
-	cp $3
+	and 3
+	cp 3
 	jr z, .WinTwelve
 	jmp .Lose
 
@@ -896,14 +896,14 @@ CardFlip_CheckWinCondition:
 .Two:
 	ld a, [wCardFlipFaceUpCard]
 	and $1c
-	cp $4
+	cp 4
 	jr z, .WinEighteen
 	jmp .Lose
 
 .Three:
 	ld a, [wCardFlipFaceUpCard]
 	and $1c
-	cp $8
+	cp 8
 	jr z, .WinEighteen
 	jmp .Lose
 
@@ -934,43 +934,43 @@ CardFlip_CheckWinCondition:
 	jr .Payout
 
 .PikaOne:
-	ld e, $0
+	ld e, 0
 	jr .CheckWin72
 
 .JigglyOne:
-	ld e, $1
+	ld e, 1
 	jr .CheckWin72
 
 .PoliOne:
-	ld e, $2
+	ld e, 2
 	jr .CheckWin72
 
 .OddOne:
-	ld e, $3
+	ld e, 3
 	jr .CheckWin72
 
 .PikaTwo:
-	ld e, $4
+	ld e, 4
 	jr .CheckWin72
 
 .JigglyTwo:
-	ld e, $5
+	ld e, 5
 	jr .CheckWin72
 
 .PoliTwo:
-	ld e, $6
+	ld e, 6
 	jr .CheckWin72
 
 .OddTwo:
-	ld e, $7
+	ld e, 7
 	jr .CheckWin72
 
 .PikaThree:
-	ld e, $8
+	ld e, 8
 	jr .CheckWin72
 
 .JigglyThree:
-	ld e, $9
+	ld e, 9
 	jr .CheckWin72
 
 .PoliThree:

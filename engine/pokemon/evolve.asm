@@ -1008,7 +1008,7 @@ GiveShedinja:
 	push de
 
 ; Set wMonType to Party
-	ld a, 0
+	xor a
 	ld [wMonType], a
 
 
@@ -1145,6 +1145,6 @@ CheckCreate:
 	ret
 
 .do_not_create
-	ld a, 0
+	xor a
 
 	ret
