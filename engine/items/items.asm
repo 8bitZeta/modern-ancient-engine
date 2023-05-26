@@ -466,7 +466,7 @@ GetTMHMNumber::
 GetNumberedTMHM:
 ; Return the item id of a TM/HM by number c.
 	ld a, c
-	add a, TM01 - 1
+	add TM01 - 1
 	ld c, a
 	ret
 

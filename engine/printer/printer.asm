@@ -853,7 +853,7 @@ Printer_GetTrueBoxSpeciesIndex:
 	ld c, l
 	ld a, [wAddrOfBoxToPrint]
 	cpl
-	add a, e
+	add e
 	ld b, a
 	farcall GetBoxMonPokemonIndexPointer
 	ldh a, [hSRAMBank]

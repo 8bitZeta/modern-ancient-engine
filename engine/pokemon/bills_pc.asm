@@ -1077,8 +1077,8 @@ BillsPC_LoadMonStats:
 	ld hl, wBillsPC_ScrollPosition
 	add [hl]
 	ld e, a
-	add a, a
-	add a, a
+	add a
+	add a
 	ld c, a
 	ld b, 0
 	ld hl, wBillsPCPokemonList + 2 ; box number
@@ -1191,8 +1191,8 @@ BillsPC_RefreshTextboxes:
 	ld [hl], "┘"
 
 	ld a, [wBillsPC_ScrollPosition]
-	add a, a
-	add a, a
+	add a
+	add a
 	ld e, a
 	ld d, 0
 	ld hl, wBillsPCPokemonList
@@ -1458,8 +1458,8 @@ BillsPC_GetSelectedPokemonSpecies:
 	ld a, [wBillsPC_CursorPosition]
 	ld hl, wBillsPC_ScrollPosition
 	add [hl]
-	add a, a
-	add a, a
+	add a
+	add a
 	ld e, a
 	ld d, 0
 	ld hl, wBillsPCPokemonList
@@ -2607,11 +2607,11 @@ BillsPC_ConvertBoxMonToPartyMon:
 	ld h, a
 	bit 6, h
 	jr z, .skip_add_one
-	add a, l
+	add l
 .skip_add_one
 	add hl, hl ; if the top bit is set, it sets carry; it will also double l
 	jr nc, .got_PP
-	add a, l
+	add l
 .got_PP
 	ld [de], a
 	inc de

@@ -273,7 +273,7 @@ InitBattleAnimBuffer:
 	sbc a
 	and -(1 * 8)
 .done
-	add a, d
+	add d
 	ld [wBattleAnimTempYCoord], a
 	ld a, [hli]
 	xor $ff

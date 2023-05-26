@@ -793,7 +793,7 @@ ComputeSavedBoxIndexTable:
 	ld a, MONS_PER_BOX
 	sub [hl]
 	ret c
-	add a, a
+	add a
 	ld h, d
 	ld l, e
 	ld c, a

@@ -84,7 +84,7 @@ CheckForLuckyNumberWinners:
 	call .CompareLuckyNumberToMonID ; sets wScriptVar and wCurPartySpecies appropriately
 	jr nc, .SkipBoxMon
 	ld a, e
-	add a, 2
+	add 2
 	ld [wTempByteValue], a
 	ld a, d
 	ld [wCurPartySpecies], a

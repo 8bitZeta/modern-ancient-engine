@@ -805,7 +805,7 @@ TryEnemyFlee:
 	jr c, .Flee
 
 	call BattleRandom
-	add a, a
+	add a
 	jr nc, .Stay
 
 	push af

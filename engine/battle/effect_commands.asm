@@ -237,7 +237,7 @@ BattleCommand_CheckTurn:
 
 	; 50% chance of hitting itself
 	call BattleRandom
-	add a, a
+	add a
 	jr nc, .not_confused
 
 	; clear confusion-dependent substatus
@@ -264,7 +264,7 @@ BattleCommand_CheckTurn:
 
 	; 50% chance of infatuation
 	call BattleRandom
-	add a, a
+	add a
 	ld hl, InfatuationText
 	jr c, .std_text_cant_move
 
@@ -436,7 +436,7 @@ CheckEnemyTurn:
 
 	; 50% chance of hitting itself
 	call BattleRandom
-	add a, a
+	add a
 	jr nc, .not_confused
 
 	; clear confusion-dependent substatus
@@ -482,7 +482,7 @@ CheckEnemyTurn:
 
 	; 50% chance of infatuation
 	call BattleRandom
-	add a, a
+	add a
 	ld hl, InfatuationText
 	jr nc, .std_text_cant_move
 
@@ -638,7 +638,7 @@ BattleCommand_CheckObedience:
 	ld a, [wBattleMonLevel]
 	ld d, a
 
-	add a, c
+	add c
 	ld b, a
 
 ; No overflow (this should never happen)
