@@ -1,7 +1,7 @@
 GetMoveAttribute::
 ; Return attribute a of move l in a; clobbers hl.
 ; Replaces the old GetMoveAttr (renamed to avoid confusion).
-	sub 1
+	dec a
 	push bc
 	ld c, a
 	ld a, l

@@ -346,8 +346,7 @@ DSTChecks:
 
 .SetClockForward:
 	ld a, [wStartHour]
-	add 1
-	sub 24
+	sub 23
 	jr nc, .DontLoopHourForward
 	add 24
 .DontLoopHourForward:
@@ -360,7 +359,7 @@ DSTChecks:
 
 .SetClockBack:
 	ld a, [wStartHour]
-	sub 1
+	sub 1 ; not dec a
 	jr nc, .DontLoopHourBack
 	add 24
 .DontLoopHourBack:

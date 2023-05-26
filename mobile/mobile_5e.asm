@@ -553,7 +553,7 @@ Function17a9f5:
 	ld a, [$d08f]
 	swap a
 	and $1
-	add $1
+	inc a
 	ld [$d08e], a
 	ld a, [$d08c]
 	cp $10

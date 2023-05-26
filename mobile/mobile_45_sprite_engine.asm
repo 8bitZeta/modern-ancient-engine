@@ -793,7 +793,7 @@ Function116468:
 	ld c, $0
 	ld a, [wc3fa]
 	xor $ff
-	add $1
+	inc a
 	rl c
 	ld [wc3fa], a
 	ld a, [wc3f9]
@@ -846,7 +846,7 @@ Function116468:
 	ld c, $0
 	ld a, [wc3fc]
 	xor $ff
-	add $1
+	inc a
 	rl c
 	ld [wc3fc], a
 	ld a, [wc3fb]

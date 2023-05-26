@@ -847,7 +847,7 @@ Link_PrepPartyData_Gen1:
 	push hl
 	call GetMoveIndexFromID
 	ld a, h
-	sub 1
+	sub 1 ; not dec a
 	sbc a
 	and l
 	pop hl
