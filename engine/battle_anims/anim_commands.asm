@@ -151,7 +151,7 @@ BattleAnimClearHud:
 BattleAnimRestoreHuds:
 	call DelayFrame
 	call WaitTop
-	ld a, [rSVBK]
+	ldh a, [rSVBK]
 	push af
 	ld a, BANK(wCurBattleMon) ; alternatively: BANK(wTempMon), BANK(wPartyMon1), several others
 	ld [rSVBK], a
