@@ -733,9 +733,8 @@ Function116468:
 
 .asm_116484
 	sub $50
-	ld c, a
-	ld a, $50
-	sub c
+	cpl
+	add $51
 	ld [wc3f1], a
 
 .asm_11648d
@@ -751,9 +750,8 @@ Function116468:
 
 .asm_11649e
 	sub $60
-	ld c, a
-	ld a, $60
-	sub c
+	cpl
+	add $60
 	ld [wc3f3], a
 	ret
 

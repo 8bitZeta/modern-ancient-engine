@@ -1329,9 +1329,8 @@ MobileBattleGetRemainingTime:
 	ld [wStringBuffer2 + 2], a
 	call CloseSRAM
 	ld a, [wStringBuffer2 + 2]
-	ld b, a
-	ld a, MOBILE_BATTLE_ALLOWED_SECONDS
-	sub b
+	cpl
+	add MOBILE_BATTLE_ALLOWED_SECONDS + 1
 	jr nc, .no_carry_seconds
 	add 60
 .no_carry_seconds
@@ -1379,9 +1378,8 @@ Function100902:
 	ld c, $0b
 	call Textbox
 	ld a, [wcd6d]
-	ld c, a
-	ld a, $0a
-	sub c
+	cpl
+	add $0b
 	ld [wStringBuffer2], a
 	jr z, .asm_10093f
 	ld de, .string_100966
@@ -2082,9 +2080,8 @@ Function100dd8:
 
 MobileComms_CheckInactivityTimer:
 	ld a, [wOverworldDelay]
-	ld c, a
-	ld a, 30
-	sub c
+	cpl
+	add 31
 	ld c, a
 	ld b, 3
 	push bc
@@ -2109,9 +2106,8 @@ MobileComms_CheckInactivityTimer:
 
 Function100e2d:
 	ld a, [wOverworldDelay]
-	ld c, a
-	ld a, 30
-	sub c
+	cpl
+	add 31
 	ld c, a
 	ld b, 3
 	push bc
@@ -4909,9 +4905,8 @@ Function1022d0:
 	jr nz, .asm_1022f3
 	call Function102298
 	ld a, [wOverworldDelay]
-	ld c, a
-	ld a, 30
-	sub c
+	cpl
+	add 31
 	ld c, a
 	ld b, 03
 	farcall AdvanceMobileInactivityTimerAndCheckExpired
@@ -6249,9 +6244,8 @@ Function102cee:
 	ld bc, $2f
 	call CopyBytes
 	ld a, [wJumptableIndex]
-	ld c, a
-	ld a, $06
-	sub c
+	cpl
+	add $07
 	ret z
 	ld bc, $2f
 	ld hl, 0

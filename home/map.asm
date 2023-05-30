@@ -551,12 +551,10 @@ ReadObjectEvents::
 
 ; get NUM_OBJECTS - [wCurMapObjectEventCount] - 1
 	ld a, [wCurMapObjectEventCount]
-	ld c, a
-	ld a, NUM_OBJECTS - 1
-	sub c
-	jr z, .skip
-	jr c, .skip
-
+	cp NUM_OBJECTS - 1
+	jr nc, .skip
+	cpl
+	add NUM_OBJECTS
 	inc hl
 	ld bc, MAPOBJECT_LENGTH
 .loop

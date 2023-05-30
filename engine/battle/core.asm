@@ -7989,7 +7989,7 @@ FillInExpBar:
 	pop hl
 	ld de, 7
 	add hl, de
-	jmp PlaceExpBar
+	jr PlaceExpBar
 
 CalcExpBar:
 ; Calculate the percent exp between this level and the next
@@ -8084,9 +8084,8 @@ CalcExpBar:
 	ld b, 4
 	call Divide
 	ldh a, [hQuotient + 3]
-	ld b, a
-	ld a, $40
-	sub b
+	cpl 
+	add $41
 	ld b, a
 	ret
 

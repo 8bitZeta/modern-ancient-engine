@@ -5108,8 +5108,8 @@ Function1121f6:
 .asm_11222b
 
 	ld b, a
-	ld a, $4
-	sub b
+	cpl
+	add $5
 	ld d, a
 	rlca
 	add d
