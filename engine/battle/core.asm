@@ -2414,7 +2414,7 @@ HandleEnemySwitch:
 	ld hl, wBattleMonHP
 	ld a, [hli]
 	or [hl]
-	ld a, 0 ; not xor a
+	ld a, 0 ; no-optimize a = 0
 	jr nz, EnemyPartyMonEntrance
 	inc a
 	ret
@@ -7279,7 +7279,7 @@ GiveExperiencePoints:
 	inc hl
 	ld a, [wPlayerID + 1]
 	cp [hl]
-	ld a, 0 ; not xor a
+	ld a, 0 ; no-optimize a = 0
 	jr z, .no_boost
 
 .boosted

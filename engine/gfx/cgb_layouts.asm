@@ -686,7 +686,7 @@ _CGB_TrainerCard:
 	lb bc, 7, 5
 	ld a, [wPlayerGender]
 	and a
-	ld a, $0 ; not xor a ; chris
+	ld a, $0 ; no-optimize a = 0 ; chris
 	jr z, .got_gender2
 	ld a, $1 ; kris
 .got_gender2

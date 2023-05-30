@@ -6701,7 +6701,7 @@ Function1030cd:
 	ld hl, wcd4b
 	bit 7, [hl]
 	pop hl
-	ld a, 0 ; not xor a
+	ld a, 0 ; no-optimize a = 0
 	jr z, .asm_1030eb
 	ld a, $05
 .asm_1030eb

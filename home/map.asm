@@ -1476,7 +1476,7 @@ GetMovementPermissions::
 	ld hl, .MovementPermissionsData
 	add l
 	ld l, a
-	ld a, 0 ; not xor a
+	ld a, 0 ; no-optimize a = 0
 	adc h
 	ld h, a
 	ld a, [hl]

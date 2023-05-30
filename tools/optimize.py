@@ -59,11 +59,11 @@ SUPPRESS = 'no-optimize'
 #
 # Don't run them all at once unless you want to wait a long time
 patterns = {
-'Redundant arguments': [
-	# Bad: add a, X (or other arithmetic|logic operators)
-	# Good: add X
-	(lambda line1, prev: re.match(r'(?:add|adc|sub|sbc|and|xor|or|cp) a,', line1.code)),
-],
+# 'Redundant arguments': [
+# 	# Bad: add a, X (or other arithmetic|logic operators)
+# 	# Good: add X
+# 	(lambda line1, prev: re.match(r'(?:add|adc|sub|sbc|and|xor|or|cp) a,', line1.code)),
+# ],
 # 'nops': [
 # 	# Bad: nop
 # 	# Good: omit (unless you need it for timing or halt)
@@ -87,29 +87,29 @@ patterns = {
 # 	(lambda line1, prev: re.match(r'ld \[[hr][^l]', line1.code)
 # 		and not isNotReallyHram(line1.code) and line1.code.endswith(', a')),
 # ],
-# 'a = 0': [
-# 	# Bad: ld a, 0
-# 	# Good: xor a (unless you need to preserve flags)
-# 	(lambda line1, prev: re.match(r'ld a, [%\$&]?0+$', line1.code)),
-# ],
-# 'a++|a--': [
-# 	# Bad: add|sub 1
-# 	# Good: inc|dec a (unless you need to set the carry flag)
-# 	(lambda line1, prev: re.match(r'(?:add|sub) (?:a, )?[%\$&]?0*1$', line1.code)),
-# ],
-# 'a = ~a': [
-# 	# Bad: xor $ff
-# 	# Good: cpl
-# 	(lambda line1, prev: re.match(r'xor (?:255|-1|\$[Ff][Ff]|%11111111|&377)$', line1.code)),
-# ],
-# 'a = N - a': [
-# 	# Bad: ld b, a / ld a, N / sub b (or other intermediate registers)
-# 	# Good: cpl / add N + 1
-# 	(lambda line1, prev: re.match(r'ld [bcdehl], a', line1.code)),
-# 	(lambda line2, prev: re.match(r'ld a, [^afbcdehl\[]', line2.code)),
-# 	(lambda line3, prev: re.match(r'sub [bcdehl]', line3.code)
-# 		and line3.code[4] == prev[0].code[3]),
-# ],
+'a = 0': [
+	# Bad: ld a, 0
+	# Good: xor a (unless you need to preserve flags)
+	(lambda line1, prev: re.match(r'ld a, [%\$&]?0+$', line1.code)),
+],
+'a++|a--': [
+	# Bad: add|sub 1
+	# Good: inc|dec a (unless you need to set the carry flag)
+	(lambda line1, prev: re.match(r'(?:add|sub) (?:a, )?[%\$&]?0*1$', line1.code)),
+],
+'a = ~a': [
+	# Bad: xor $ff
+	# Good: cpl
+	(lambda line1, prev: re.match(r'xor (?:255|-1|\$[Ff][Ff]|%11111111|&377)$', line1.code)),
+],
+'a = N - a': [
+	# Bad: ld b, a / ld a, N / sub b (or other intermediate registers)
+	# Good: cpl / add N + 1
+	(lambda line1, prev: re.match(r'ld [bcdehl], a', line1.code)),
+	(lambda line2, prev: re.match(r'ld a, [^afbcdehl\[]', line2.code)),
+	(lambda line3, prev: re.match(r'sub [bcdehl]', line3.code)
+		and line3.code[4] == prev[0].code[3]),
+],
 # 'a = carry ? P : Q': [
 # 	# Bad: ld a, P / jr c|nc, .ok / ld a, Q / .ok
 # 	# Bad: ld a, P / jr c|nc, .ok / xor|inc|dec a / .ok

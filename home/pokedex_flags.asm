@@ -9,7 +9,7 @@ CountSetBits::
 
 .count
 	srl e
-	ld a, 0 ; not xor a
+	ld a, 0 ; no-optimize a = 0
 	adc c
 	ld c, a
 	dec d

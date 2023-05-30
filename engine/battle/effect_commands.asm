@@ -2213,7 +2213,7 @@ BattleCommand_CheckFaint:
 	and a
 	ld hl, wEnemyMonMaxHP + 1
 	bccoord 2, 2 ; hp bar
-	ld a, 0 ; not xor a
+	ld a, 0 ; no-optimize a = 0
 	jr nz, .got_max_hp
 	ld hl, wBattleMonMaxHP + 1
 	bccoord 10, 9 ; hp bar
@@ -3010,7 +3010,7 @@ BattleCommand_ConstantDamage:
 	call GetBattleVar
 	cp EFFECT_LEVEL_DAMAGE
 	ld b, [hl]
-	ld a, 0 ; not xor a
+	ld a, 0 ; no-optimize a = 0
 	jr z, .got_power
 
 	ld a, BATTLE_VARS_MOVE_EFFECT
@@ -3063,7 +3063,7 @@ BattleCommand_ConstantDamage:
 	and a
 	jr nz, .got_power
 	or b
-	ld a, 0 ; not xor a
+	ld a, 0 ; no-optimize a = 0
 	jr nz, .got_power
 	ld b, 1
 	jr .got_power

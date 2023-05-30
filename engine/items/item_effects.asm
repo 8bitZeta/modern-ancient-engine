@@ -376,7 +376,7 @@ PokeBallEffect:
 	call Random
 
 	cp b
-	ld a, 0 ; not xor a
+	ld a, 0 ; no-optimize a = 0
 	jr z, .catch_without_fail
 	jr nc, .fail_to_catch
 

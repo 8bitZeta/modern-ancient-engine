@@ -1663,7 +1663,7 @@ PrintHexNumber:
 	ld bc, .HexDigits
 	add c
 	ld c, a
-	ld a, 0 ; not xor a
+	ld a, 0 ; no-optimize a = 0
 	adc b
 	ld b, a
 	ld a, [bc]

@@ -964,10 +964,10 @@ ApplyPitchSlide:
 	add [hl]
 	ld [hl], a
 	; could have done "jr nc, .no_rollover / inc de / .no_rollover"
-	ld a, 0 ; not xor a
+	ld a, 0 ; no-optimize a = 0
 	adc e
 	ld e, a
-	ld a, 0 ; not xor a
+	ld a, 0 ; no-optimize a = 0
 	adc d
 	ld d, a
 	; Compare the dw at [Channel*PitchSlideTarget] to de.
