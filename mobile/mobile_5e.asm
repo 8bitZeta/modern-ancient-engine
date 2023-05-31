@@ -557,9 +557,7 @@ Function17a9f5:
 	ld [$d08e], a
 	ld a, [$d08c]
 	cp $10
-	jr c, .okay
-	dec a
-.okay
+	sbc -1
 	ld c, $8
 	call SimpleMultiply
 	add $18

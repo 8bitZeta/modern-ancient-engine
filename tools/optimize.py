@@ -120,20 +120,20 @@ patterns = {
 		or line3.code in {'xor a', 'inc a', 'dec a'}),
 	(lambda line4, prev: line4.code.rstrip(':') == prev[1].code.split(',')[1].strip()),
 ],
-# 'a++|a-- if carry': [
-# 	# Bad: jr nc, .ok / { inc|dec a }+ / .ok
-# 	# Good: adc|sbc 0
-# 	(lambda line1, prev: re.match(r'(jr|jp|jmp) nc,', line1.code)),
-# 	(lambda line2, prev: line2.code in {'inc a', 'dec a'}),
-# 	(1, lambda line3, prev: line3.code.rstrip(':') == prev[0].code.split(',')[1].strip()),
-# ],
-# 'a++|a-- if not carry': [
-# 	# Bad: jr c, .ok / { inc|dec a }+ / .ok
-# 	# Good: adc|sbc -1
-# 	(lambda line1, prev: re.match(r'(jr|jp|jmp) c,', line1.code)),
-# 	(lambda line2, prev: line2.code in {'inc a', 'dec a'}),
-# 	(1, lambda line3, prev: line3.code.rstrip(':') == prev[0].code.split(',')[1].strip()),
-# ],
+'a++|a-- if carry': [
+	# Bad: jr nc, .ok / { inc|dec a }+ / .ok
+	# Good: adc|sbc 0
+	(lambda line1, prev: re.match(r'(jr|jp|jmp) nc,', line1.code)),
+	(lambda line2, prev: line2.code in {'inc a', 'dec a'}),
+	(1, lambda line3, prev: line3.code.rstrip(':') == prev[0].code.split(',')[1].strip()),
+],
+'a++|a-- if not carry': [
+	# Bad: jr c, .ok / { inc|dec a }+ / .ok
+	# Good: adc|sbc -1
+	(lambda line1, prev: re.match(r'(jr|jp|jmp) c,', line1.code)),
+	(lambda line2, prev: line2.code in {'inc a', 'dec a'}),
+	(1, lambda line3, prev: line3.code.rstrip(':') == prev[0].code.split(',')[1].strip()),
+],
 # 'a = a >> 3': [
 # 	# Bad: srl a / srl a / srl a
 # 	# Good: rrca / rrca / rrca / and %00011111

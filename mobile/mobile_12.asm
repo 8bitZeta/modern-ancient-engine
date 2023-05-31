@@ -933,9 +933,7 @@ Function4880e:
 	ld hl, wd473
 	ld a, [hl]
 	cp $64
-	jr nc, .asm_4884c
-	inc a
-.asm_4884c
+	adc 0
 	ld [hl], a
 	jr .asm_4886f
 .asm_4884f
