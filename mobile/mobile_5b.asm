@@ -405,9 +405,10 @@ Function16cadc:
 
 Function16cae8:
 	ld c, a
-	srl a
-	srl a
-	srl a
+	rrca
+	rrca
+	rrca
+	and %00011111
 	ld b, a
 	inc hl
 	ld a, [hl]

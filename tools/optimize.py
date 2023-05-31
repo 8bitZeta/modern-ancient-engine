@@ -142,13 +142,13 @@ patterns = {
 	(lambda line3, prev: line3.code == 'srl a'),
 	(lambda line4, prev: line4.code == 'srl a'),
 ],
-# 'a = a >> 3': [
-# 	# Bad: srl a / srl a / srl a
-# 	# Good: rrca / rrca / rrca / and %00011111
-# 	(lambda line1, prev: line1.code == 'srl a'),
-# 	(lambda line2, prev: line2.code == 'srl a'),
-# 	(lambda line3, prev: line3.code == 'srl a'),
-# ],
+'a = a >> 3': [
+	# Bad: srl a / srl a / srl a
+	# Good: rrca / rrca / rrca / and %00011111
+	(lambda line1, prev: line1.code == 'srl a'),
+	(lambda line2, prev: line2.code == 'srl a'),
+	(lambda line3, prev: line3.code == 'srl a'),
+],
 # 'a = X +/- carry': [
 # 	# Bad: ld b, a / ld a, c|N / adc|sbc 0
 # 	# Good: ld b, a / adc|sbc c|N / sub|add b
