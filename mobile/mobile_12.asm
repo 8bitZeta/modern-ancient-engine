@@ -1691,10 +1691,8 @@ Function48d4a:
 	ldh [hMultiplicand + 0], a
 	ldh [hMultiplicand + 1], a
 	ld a, [hl]
-	srl a
-	srl a
-	srl a
-	srl a
+	swap a
+	and $f
 	ld c, 10
 	call SimpleMultiply
 	ld b, a

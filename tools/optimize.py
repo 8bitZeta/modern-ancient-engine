@@ -134,6 +134,14 @@ patterns = {
 	(lambda line2, prev: line2.code in {'inc a', 'dec a'}),
 	(1, lambda line3, prev: line3.code.rstrip(':') == prev[0].code.split(',')[1].strip()),
 ],
+'a = a >> 4': [
+	# Bad: srl a / srl a / srl a / srl a
+	# Good: swap a / and $f
+	(lambda line1, prev: line1.code == 'srl a'),
+	(lambda line2, prev: line2.code == 'srl a'),
+	(lambda line3, prev: line3.code == 'srl a'),
+	(lambda line4, prev: line4.code == 'srl a'),
+],
 # 'a = a >> 3': [
 # 	# Bad: srl a / srl a / srl a
 # 	# Good: rrca / rrca / rrca / and %00011111
