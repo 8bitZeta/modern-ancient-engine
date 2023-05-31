@@ -1028,10 +1028,11 @@ PeoplePlaces3:
 	ld hl, PnP_Text3
 	call Random
 	cp 49 percent - 1
-	ld a, PLACES_AND_PEOPLE_4 ; People
-	jr c, .ok
-	ld a, PLACES_AND_PEOPLE_6 ; Places
-.ok
+	; CVAL  = PLACES_AND_PEOPLE_4 ; People
+	; NCVAL = PLACES_AND_PEOPLE_6 ; Places
+	sbc a
+	and PLACES_AND_PEOPLE_4 - PLACES_AND_PEOPLE_6
+	add PLACES_AND_PEOPLE_4
 	jmp NextRadioLine
 
 PnP_Text1:
@@ -1104,13 +1105,14 @@ PeoplePlaces5:
 	call Random
 	cp 4 percent
 	ld a, PLACES_AND_PEOPLE
-	jr c, .ok
+	jmp c, NextRadioLine
 	call Random
 	cp 49 percent - 1
-	ld a, PLACES_AND_PEOPLE_4 ; People
-	jr c, .ok
-	ld a, PLACES_AND_PEOPLE_6 ; Places
-.ok
+	; CVAL  = PLACES_AND_PEOPLE_4 ; People
+	; NCVAL = PLACES_AND_PEOPLE_6 ; Places
+	sbc a
+	and PLACES_AND_PEOPLE_4 - PLACES_AND_PEOPLE_6
+	add PLACES_AND_PEOPLE_6
 	jmp NextRadioLine
 
 .Adjectives:
@@ -1240,13 +1242,14 @@ PeoplePlaces7:
 	call Random
 	cp 4 percent
 	ld a, PLACES_AND_PEOPLE
-	jr c, .ok
+	jmp c, PrintRadioLine
 	call Random
 	cp 49 percent - 1
-	ld a, PLACES_AND_PEOPLE_4 ; People
-	jr c, .ok
-	ld a, PLACES_AND_PEOPLE_6 ; Places
-.ok
+	; CVAL  = PLACES_AND_PEOPLE_4 ; People
+	; NCVAL = PLACES_AND_PEOPLE_6 ; Places
+	sbc a
+	and PLACES_AND_PEOPLE_4 - PLACES_AND_PEOPLE_6
+	add PLACES_AND_PEOPLE_6
 	jmp PrintRadioLine
 
 .Adjectives:

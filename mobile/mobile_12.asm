@@ -691,10 +691,11 @@ Function486bf:
 	bit 6, a
 	jr nz, .check_wd479
 	call Function48725
-	ld a, 4
-	jr nc, .got_num_rows_1
-	ld a, 5
-.got_num_rows_1
+	; CVAL  = 5
+	; NCVAL = 4
+	sbc a
+	and 1
+	add 4
 	ld [hli], a
 	jr .got_num_rows_2
 

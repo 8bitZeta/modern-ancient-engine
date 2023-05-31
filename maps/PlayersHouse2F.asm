@@ -130,7 +130,7 @@ PlayersHouseRadioScript:
 	givepokemove STRENGTH,   wPartyMon1, 2
 	givepokemove BRICK_BREAK,        wPartyMon1, 3
 	givepoke MEW, 100, LEFTOVERS
-	givepokemove FLASH,      wPartyMon2, 0
+	givepokemove FLY,      wPartyMon2, 0
 	givepokemove ROCK_SMASH, wPartyMon2, 1
 	givepokemove HEADBUTT,   wPartyMon2, 2
 	givepokemove WATERFALL,  wPartyMon2, 3

@@ -59,11 +59,11 @@ SUPPRESS = 'no-optimize'
 #
 # Don't run them all at once unless you want to wait a long time
 patterns = {
-# 'Redundant arguments': [
-# 	# Bad: add a, X (or other arithmetic|logic operators)
-# 	# Good: add X
-# 	(lambda line1, prev: re.match(r'(?:add|adc|sub|sbc|and|xor|or|cp) a,', line1.code)),
-# ],
+'Redundant arguments': [
+	# Bad: add a, X (or other arithmetic|logic operators)
+	# Good: add X
+	(lambda line1, prev: re.match(r'(?:add|adc|sub|sbc|and|xor|or|cp) a,', line1.code)),
+],
 # 'nops': [
 # 	# Bad: nop
 # 	# Good: omit (unless you need it for timing or halt)
@@ -75,18 +75,18 @@ patterns = {
 # 	# Good: omit (unless you need it for timing)
 # 	(lambda line1, prev: re.match(r'ld ([abcdehl]), \1$', line1.code)),
 # ],
-# 'Inefficient HRAM load': [
-# 	# Bad: ld a, [hFoo] (or [rFoo])
-# 	# Good: ldh a, [hFoo]
-# 	(lambda line1, prev: re.match(r'ld a, \[[hr][^l]', line1.code)
-# 		and not isNotReallyHram(line1.code)),
-# ],
-# 'Inefficient HRAM store': [
-# 	# Bad: ld [hFoo], a (or [rFoo])
-# 	# Good: ldh [hFoo], a
-# 	(lambda line1, prev: re.match(r'ld \[[hr][^l]', line1.code)
-# 		and not isNotReallyHram(line1.code) and line1.code.endswith(', a')),
-# ],
+'Inefficient HRAM load': [
+	# Bad: ld a, [hFoo] (or [rFoo])
+	# Good: ldh a, [hFoo]
+	(lambda line1, prev: re.match(r'ld a, \[[hr][^l]', line1.code)
+		and not isNotReallyHram(line1.code)),
+],
+'Inefficient HRAM store': [
+	# Bad: ld [hFoo], a (or [rFoo])
+	# Good: ldh [hFoo], a
+	(lambda line1, prev: re.match(r'ld \[[hr][^l]', line1.code)
+		and not isNotReallyHram(line1.code) and line1.code.endswith(', a')),
+],
 'a = 0': [
 	# Bad: ld a, 0
 	# Good: xor a (unless you need to preserve flags)
@@ -110,16 +110,16 @@ patterns = {
 	(lambda line3, prev: re.match(r'sub [bcdehl]', line3.code)
 		and line3.code[4] == prev[0].code[3]),
 ],
-# 'a = carry ? P : Q': [
-# 	# Bad: ld a, P / jr c|nc, .ok / ld a, Q / .ok
-# 	# Bad: ld a, P / jr c|nc, .ok / xor|inc|dec a / .ok
-# 	# Good: solutions involving sbc a
-# 	(lambda line1, prev: re.match(r'ld a, [^afbcdehl\[]', line1.code)),
-# 	(lambda line2, prev: re.match(r'(jr|jp|jmp) n?c,', line2.code)),
-# 	(lambda line3, prev: re.match(r'ld a, [^afbcdehl\[]', line3.code)
-# 		or line3.code in {'xor a', 'inc a', 'dec a'}),
-# 	(lambda line4, prev: line4.code.rstrip(':') == prev[1].code.split(',')[1].strip()),
-# ],
+'a = carry ? P : Q': [
+	# Bad: ld a, P / jr c|nc, .ok / ld a, Q / .ok
+	# Bad: ld a, P / jr c|nc, .ok / xor|inc|dec a / .ok
+	# Good: solutions involving sbc a
+	(lambda line1, prev: re.match(r'ld a, [^afbcdehl\[]', line1.code)),
+	(lambda line2, prev: re.match(r'(jr|jp|jmp) n?c,', line2.code)),
+	(lambda line3, prev: re.match(r'ld a, [^afbcdehl\[]', line3.code)
+		or line3.code in {'xor a', 'inc a', 'dec a'}),
+	(lambda line4, prev: line4.code.rstrip(':') == prev[1].code.split(',')[1].strip()),
+],
 # 'a++|a-- if carry': [
 # 	# Bad: jr nc, .ok / { inc|dec a }+ / .ok
 # 	# Good: adc|sbc 0

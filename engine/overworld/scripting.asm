@@ -386,10 +386,11 @@ Script_promptbutton:
 
 Script_yesorno:
 	call YesNoBox
-	ld a, FALSE
-	jr c, .no
-	ld a, TRUE
-.no
+	; CVAL  = FALSE
+	; NCVAL = TRUE
+	sbc a
+	and FALSE - TRUE
+	add TRUE
 	ld [wScriptVar], a
 	vc_hook Unknown_yesorno_ret
 	ret
@@ -494,10 +495,10 @@ Script_verbosegiveitemvar:
 	ld [wItemQuantityChange], a
 	ld hl, wNumItems
 	call ReceiveItem
-	ld a, TRUE
-	jr c, .ok2
-	xor a
-.ok2
+	; CVAL  = TRUE
+	; NCVAL = 0
+	sbc a
+	and TRUE
 	ld [wScriptVar], a
 	call CurItemName
 	ld de, wStringBuffer1

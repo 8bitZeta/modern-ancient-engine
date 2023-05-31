@@ -1,10 +1,9 @@
 AskRememberPassword:
 	call .DoMenu
-	ld a, 0 ; no-optimize a = 0
-	jr c, .okay
-	ld a, 1
-
-.okay
+	; CVAL  = 0
+	; NCVAL = 1
+	sbc a
+	inc a
 	ld [wScriptVar], a
 	ret
 
