@@ -359,7 +359,7 @@ DSTChecks:
 
 .SetClockBack:
 	ld a, [wStartHour]
-	sub 1 ; not dec a
+	sub 1 ; no-optimize a++|a--
 	jr nc, .DontLoopHourBack
 	add 24
 .DontLoopHourBack:

@@ -4383,7 +4383,7 @@ TryLowerStat:
 
 ; The lowest possible stat is 1.
 	ld a, [hld]
-	sub 1 ; not dec a
+	dec a
 	jr nz, .not_min
 	ld a, [hl]
 	and a

@@ -1014,7 +1014,7 @@ Pokedex_LoadListingScrollParams:
 	ld e, a
 	ld a, h
 	jr nc, .check_overflow
-	sub 1 ; not dec a
+	sub 1 ; no-optimize a++|a--
 	jr c, .underflow
 .check_overflow
 	and a
@@ -1108,7 +1108,7 @@ Pokedex_ListingMoveCursorUp:
 	and a
 	ret z
 .go
-	sub 1 ; not dec a
+	sub 1 ; no-optimize a++|a--
 	ld [hli], a
 	jr nc, .done
 	dec [hl]

@@ -184,7 +184,7 @@ endr
 	ret
 
 GetCryIndex::
-	sub 1 ; not dec a
+	sub 1 ; no-optimize a++|a--
 	ret c
 	inc a
 	cp MON_TABLE_ENTRIES + 1
