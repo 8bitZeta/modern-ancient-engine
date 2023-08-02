@@ -198,9 +198,7 @@ AnimSeq_GSTitleTrail:
 AnimSeq_GSIntroHoOhLugia:
 	ld hl, SPRITEANIMSTRUCT_VAR1
 	add hl, bc
-	ld a, [hl]
-	inc a
-	ld [hl], a
+	inc [hl]
 	ld d, 2
 	call Sine
 

@@ -4023,7 +4023,7 @@ asm_111a47:
 	res 5, [hl]
 	res 0, [hl]
 	ei
-	jmp Function111b3b
+	jr Function111b3b
 
 Function111ab9:
 	ld a, $80
