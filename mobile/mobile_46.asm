@@ -1195,8 +1195,7 @@ BattleTowerRoomMenu_UpdatePickLevelMenu:
 	inc [hl]
 	cp [hl]
 	jr nc, .asm_1189e5
-	ld a, $1
-	ld [hl], a
+	ld [hl], $1
 	jr .asm_1189e5
 
 .a_button
@@ -4415,8 +4414,7 @@ BattleTowerRoomMenu2_PlaceYesNoMenu:
 	ld de, String_11a2d3
 	call PlaceString
 	hlcoord 15, 8
-	ld a, $ed
-	ld [hl], a
+	ld [hl], $ed
 	xor a
 	ld [wMobileInactivityTimerMinutes], a
 	jmp BattleTowerRoomMenu2_IncrementJumptable
@@ -4450,11 +4448,9 @@ BattleTowerRoomMenu2_UpdateYesNoMenu:
 	xor a
 	ld [wMobileInactivityTimerMinutes], a
 	hlcoord 15, 8
-	ld a, $ed
-	ld [hl], a
+	ld [hl], $ed
 	hlcoord 15, 10
-	ld a, $7f
-	ld [hl], a
+	ld [hl], $7f
 	jr .asm_11a24c
 
 .d_down
@@ -4467,11 +4463,9 @@ BattleTowerRoomMenu2_UpdateYesNoMenu:
 	inc a
 	ld [wMobileInactivityTimerMinutes], a
 	hlcoord 15, 8
-	ld a, $7f
-	ld [hl], a
+	ld [hl], $7f
 	hlcoord 15, 10
-	ld a, $ed
-	ld [hl], a
+	ld [hl], $ed
 	jr .asm_11a24c
 
 .a_button
@@ -4843,11 +4837,9 @@ Function11a536:
 	xor a
 	ld [wMobileInactivityTimerMinutes], a
 	hlcoord 15, 7
-	ld a, $ed
-	ld [hl], a
+	ld [hl], $ed
 	hlcoord 15, 9
-	ld a, $7f
-	ld [hl], a
+	ld [hl], $7f
 	jr .asm_11a54d
 
 .asm_11a583
@@ -4860,11 +4852,9 @@ Function11a536:
 	inc a
 	ld [wMobileInactivityTimerMinutes], a
 	hlcoord 15, 7
-	ld a, $7f
-	ld [hl], a
+	ld [hl], $7f
 	hlcoord 15, 9
-	ld a, $ed
-	ld [hl], a
+	ld [hl], $ed
 	jr .asm_11a54d
 
 .asm_11a5a2
@@ -4929,8 +4919,7 @@ Function11a5f5:
 	ld de, String_11a2d3
 	call PlaceString
 	hlcoord 15, 7
-	ld a, $ed
-	ld [hl], a
+	ld [hl], $ed
 	farcall ReloadMapPart
 	ret
 
@@ -5219,8 +5208,7 @@ Function11a971:
 	ld [wc31b], a
 	ld a, d
 	ld [wc31c], a
-	ld a, $50
-	ld [hl], a
+	ld [hl], $50
 	ld a, [wc31d]
 	ld l, a
 	ld a, [wc31e]
@@ -5574,8 +5562,7 @@ Function11adc4:
 	jr .asm_11ae2b
 
 .asm_11ae28
-	ld a, $3
-	ld [hl], a
+	ld [hl], $3
 
 .asm_11ae2b
 	call MobileIncJumptableIndex
@@ -5643,8 +5630,7 @@ Function11ae98:
 	call PlayClickSFX
 .asm_11aeb4
 	hlcoord 2, 14
-	ld a, $7f
-	ld [hl], a
+	ld [hl], $7f
 	ld a, $1
 	ld [wJumptableIndex], a
 	jr .asm_11aef7
@@ -5733,8 +5719,7 @@ Function11af4e:
 	call PlayClickSFX
 .asm_11af6a
 	hlcoord 2, 14
-	ld a, $7f
-	ld [hl], a
+	ld [hl], $7f
 	ld a, $1
 	ld [wJumptableIndex], a
 	jr .asm_11afaa
@@ -6040,8 +6025,7 @@ Function11b0ff:
 
 .asm_11b141
 	ld hl, wJumptableIndex
-	ld a, $7
-	ld [hl], a
+	ld [hl], $7
 	ret
 
 .asm_11b148
@@ -6313,8 +6297,7 @@ Function11b295:
 	ld b, a
 	ld hl, $0007
 	add hl, bc
-	ld a, $50
-	ld [hl], a
+	ld [hl], $50
 	hlcoord 4, 13
 	push hl
 	ld de, String_11b30e

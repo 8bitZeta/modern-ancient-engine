@@ -52,8 +52,7 @@ InitMobileProfile:
 	lb bc, 2, 20
 	call ClearBox
 	hlcoord 0, 1
-	ld a, $c
-	ld [hl], a
+	ld [hl], $c
 	ld bc, $13
 	add hl, bc
 	ld [hl], a
@@ -648,8 +647,7 @@ Function48689:
 	lb bc, 4, SCREEN_WIDTH
 	call ClearBox
 	hlcoord 0, 2
-	ld a, $c
-	ld [hl], a
+	ld [hl], $c
 	ld bc, SCREEN_WIDTH - 1
 	add hl, bc
 	ld [hl], a
@@ -2303,8 +2301,7 @@ Function4aba8:
 	ret
 
 .asm_4abbe
-	ld a, $ff
-	ld [hl], a
+	ld [hl], $ff
 	scf
 	ret
 
@@ -2525,8 +2522,7 @@ Function4ad17:
 	ret
 
 .asm_4ad4a
-	ld a, $ff
-	ld [hl], a
+	ld [hl], $ff
 	call Function4adc2
 	ret
 

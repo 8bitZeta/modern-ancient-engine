@@ -330,12 +330,12 @@ patterns = {
 		and line2.code[3] == PAIRS[prev[0].code[3]]
 		and line2.context == prev[0].context),
 ],
-# '*hl = N': [
-# 	# Bad: ld a, N / ld [hl], a (unless you need N in a too)
-# 	# Good: ld [hl], N
-# 	(lambda line1, prev: re.match(r'ld a, [^afbcdehl\[]', line1.code)),
-# 	(lambda line2, prev: line2.code == 'ld [hl], a'),
-# ],
+'*hl = N': [
+	# Bad: ld a, N / ld [hl], a (unless you need N in a too)
+	# Good: ld [hl], N
+	(lambda line1, prev: re.match(r'ld a, [^afbcdehl\[]', line1.code)),
+	(lambda line2, prev: line2.code == 'ld [hl], a'),
+],
 # '*hl++|*hl--': [
 # 	# Bad: ld a, [hl] / { inc|dec a }+ / ld [hl], a
 # 	# Good: inc|dec [hl] (before ld a, [hl] if you need [hl] in a too)

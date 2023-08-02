@@ -209,8 +209,7 @@ AnimateEZChatCursor:
 	add hl, bc
 	ld [hli], a
 	; Y = 48
-	ld a, $30
-	ld [hl], a
+	ld [hl], $30
 
 	ld a, $1
 	ld e, a
@@ -267,8 +266,7 @@ AnimateEZChatCursor:
 	add hl, bc
 	ld [hli], a
 	; Y = 138
-	ld a, $8a
-	ld [hl], a
+	ld [hl], $8a
 	ld a, $2
 	ld e, a
 	call .UpdateObjectFlags

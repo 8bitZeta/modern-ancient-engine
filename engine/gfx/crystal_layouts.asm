@@ -171,8 +171,7 @@ INCLUDE "gfx/mystery_gift/mobile_text.pal"
 	ld a, $7
 	call Crystal_FillBoxCGB
 	hlcoord 0, 2, wAttrmap
-	ld a, $4
-	ld [hl], a
+	ld [hl], $4
 	hlcoord 19, 2, wAttrmap
 	ld [hl], a
 	ret
@@ -183,8 +182,7 @@ INCLUDE "gfx/mystery_gift/mobile_text.pal"
 	ld a, $7
 	call Crystal_FillBoxCGB
 	hlcoord 0, 1, wAttrmap
-	ld a, $4
-	ld [hl], a
+	ld [hl], $4
 	hlcoord 19, 1, wAttrmap
 	ld [hl], a
 	ret
@@ -268,8 +266,7 @@ InitMG_Mobile_LinkTradePalMap:
 	ld [hli], a
 	ld [hli], a
 	ld [hli], a
-	ld a, $2
-	ld [hl], a
+	ld [hl], $2
 	hlcoord 2, 17, wAttrmap
 	ld a, $3
 	ld bc, 6

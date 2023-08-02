@@ -100,15 +100,13 @@ Function117738:
 	call InitSpriteAnimStruct
 	ld hl, $c
 	add hl, bc
-	ld a, $6
-	ld [hl], a
+	ld [hl], $6
 	depixel 9, 4
 	ld a, $1d
 	call InitSpriteAnimStruct
 	ld hl, $c
 	add hl, bc
-	ld a, $7
-	ld [hl], a
+	ld [hl], $7
 	ld a, $3
 	ld [wcd23], a
 	jmp MobilePassword_IncrementJumptable
@@ -329,8 +327,7 @@ Function1178aa:
 	ld de, YessNoString_1179c5
 	call PlaceString
 	hlcoord 15, 10
-	ld a, "▶"
-	ld [hl], a
+	ld [hl], "▶"
 	hlcoord 1, 14
 	ld de, AskSavePasswordString
 	call PlaceString
@@ -354,11 +351,9 @@ Function1178e8:
 	dec a
 	ld [wcd4e], a
 	hlcoord 15, 8
-	ld a, "▶"
-	ld [hl], a
+	ld [hl], "▶"
 	hlcoord 15, 10
-	ld a, " "
-	ld [hl], a
+	ld [hl], " "
 	ret
 
 .d_down
@@ -368,11 +363,9 @@ Function1178e8:
 	inc a
 	ld [wcd4e], a
 	hlcoord 15, 8
-	ld a, " "
-	ld [hl], a
+	ld [hl], " "
 	hlcoord 15, 10
-	ld a, "▶"
-	ld [hl], a
+	ld [hl], "▶"
 	ret
 
 .a_button
@@ -554,8 +547,7 @@ Function117b31:
 	ld de, YesNo117ccc
 	call PlaceString
 	hlcoord 15, 8
-	ld a, "▶"
-	ld [hl], a
+	ld [hl], "▶"
 	jmp MobileStudium_JumptableIncrement
 
 Function117b4f:
@@ -574,11 +566,9 @@ Function117b4f:
 	dec a
 	ld [wcf64], a
 	hlcoord 15, 8
-	ld a, "▶"
-	ld [hl], a
+	ld [hl], "▶"
 	hlcoord 15, 10
-	ld a, " "
-	ld [hl], a
+	ld [hl], " "
 	ret
 
 .d_down
@@ -588,11 +578,9 @@ Function117b4f:
 	inc a
 	ld [wcf64], a
 	hlcoord 15, 8
-	ld a, " "
-	ld [hl], a
+	ld [hl], " "
 	hlcoord 15, 10
-	ld a, "▶"
-	ld [hl], a
+	ld [hl], "▶"
 	ret
 
 .a_button
@@ -709,8 +697,7 @@ Function117c4a:
 	push hl
 	ld a, LOW(PALRGB_WHITE)
 	ld [hli], a
-	ld a, HIGH(PALRGB_WHITE)
-	ld [hl], a
+	ld [hl], HIGH(PALRGB_WHITE)
 	pop hl
 	add hl, de
 	dec c

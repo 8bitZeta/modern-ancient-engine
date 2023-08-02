@@ -732,8 +732,7 @@ Function8956f:
 	ld hl, wd030
 	ld a, -1
 	ld [hli], a
-	ld a, " "
-	ld [hl], a
+	ld [hl], " "
 	pop af
 	ldh [rSVBK], a
 	ld a, [wTrainerClass]
@@ -928,8 +927,7 @@ Function89688:
 
 Function896cb:
 	ld de, SCREEN_WIDTH - 1
-	ld a, 7
-	ld [hl], a
+	ld [hl], 7
 	add hl, de
 	ld a, 9
 	ld [hli], a
@@ -937,8 +935,7 @@ Function896cb:
 
 Function896d6:
 	ld de, SCREEN_WIDTH - 1
-	ld a, 10
-	ld [hl], a
+	ld [hl], 10
 	add hl, de
 	ld a, 11
 	ld [hli], a
@@ -988,8 +985,7 @@ Function8971f:
 	ld a, $32
 	ld [hld], a
 	add hl, de
-	ld a, $35
-	ld [hl], a
+	ld [hl], $35
 	pop hl
 	ret
 
@@ -1008,17 +1004,14 @@ Function89736:
 	add hl, de
 	ld a, $33
 	ld [hli], a
-	ld a, $34
-	ld [hl], a
+	ld [hl], $34
 	add hl, de
-	ld a, $1f
-	ld [hl], a
+	ld [hl], $1f
 	pop hl
 	ret
 
 Function89753:
-	ld a, $c
-	ld [hl], a
+	ld [hl], $c
 	xor a
 	call Function89215
 	ret
@@ -1028,8 +1021,7 @@ Function8975b:
 	ld [hli], a
 	inc a
 	ld [hli], a
-	ld a, $d
-	ld [hl], a
+	ld [hl], $d
 	dec hl
 	dec hl
 	ld a, $4
@@ -1042,8 +1034,7 @@ Function8975b:
 	ret
 
 Function89771:
-	ld a, $12
-	ld [hl], a
+	ld [hl], $12
 	ld a, $3
 	call Function89215
 	ret
@@ -1072,8 +1063,7 @@ Function8977a:
 
 Function89797:
 	push bc
-	ld a, $e
-	ld [hl], a
+	ld [hl], $e
 	ld bc, SCREEN_WIDTH
 	add hl, bc
 	ld a, $11
@@ -1084,8 +1074,7 @@ Function89797:
 	ld [hli], a
 	dec c
 	jr nz, .asm_897a6
-	ld a, $f
-	ld [hl], a
+	ld [hl], $f
 	pop bc
 	ret
 
@@ -1720,8 +1709,7 @@ Function89b78:
 	dec c
 	jr nz, .asm_89b85
 .asm_89b89
-	ld a, $7f
-	ld [hl], a
+	ld [hl], $7f
 .asm_89b8c
 	ld a, [wd010]
 	inc a
@@ -4761,8 +4749,7 @@ Function8b703:
 	ld [hli], a
 	ld a, $7f
 	call Function8b73e
-	ld a, $11
-	ld [hl], a
+	ld [hl], $11
 	pop hl
 	ld de, SCREEN_WIDTH
 	add hl, de
@@ -4778,8 +4765,7 @@ Function8b732:
 	ld [hli], a
 	ld a, $13
 	call Function8b73e
-	ld a, $14
-	ld [hl], a
+	ld [hl], $14
 	ret
 
 Function8b73e:
@@ -4820,8 +4806,7 @@ Function8b75d:
 	ld bc, SCREEN_WIDTH
 	call ByteFill
 	hlcoord 0, 1
-	ld a, $2
-	ld [hl], a
+	ld [hl], $2
 	hlcoord 9, 1
 	ld c, $b
 	call Function8b788
@@ -4974,8 +4959,7 @@ Function8b855:
 	ld [hli], a
 	dec c
 	jr nz, .asm_8b85e
-	ld a, $ff
-	ld [hl], a
+	ld [hl], $ff
 	ret
 
 MenuHeader_0x8b867:
@@ -5058,11 +5042,9 @@ Function8b8c8:
 	hlcoord 1, 16
 	call PlaceString
 	hlcoord 0, 13
-	ld a, $f
-	ld [hl], a
+	ld [hl], $f
 	hlcoord 19, 13
-	ld a, $11
-	ld [hl], a
+	ld [hl], $11
 	ld a, [wMenuScrollPosition]
 	cp $24
 	ret c

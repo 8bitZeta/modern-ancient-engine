@@ -388,24 +388,21 @@ Function171b4b:
 	call InitSpriteAnimStruct
 	ld hl, SPRITEANIMSTRUCT_VAR1
 	add hl, bc
-	ld a, $8
-	ld [hl], a
+	ld [hl], $8
 
 	depixel 8, 19
 	ld a, SPRITE_ANIM_INDEX_EZCHAT_CURSOR
 	call InitSpriteAnimStruct
 	ld hl, SPRITEANIMSTRUCT_VAR1
 	add hl, bc
-	ld a, $9
-	ld [hl], a
+	ld [hl], $9
 
 	depixel 17, 14, 2, 0
 	ld a, SPRITE_ANIM_INDEX_EZCHAT_CURSOR
 	call InitSpriteAnimStruct
 	ld hl, SPRITEANIMSTRUCT_VAR1
 	add hl, bc
-	ld a, $a
-	ld [hl], a
+	ld [hl], $a
 
 	ld a, $4
 	ld [wcd23], a
@@ -585,8 +582,7 @@ Function171ccd:
 	ld hl, wOBPals1 palette 0 color 1
 	ld a, LOW(PALRGB_WHITE)
 	ld [hli], a
-	ld a, HIGH(PALRGB_WHITE)
-	ld [hl], a
+	ld [hl], HIGH(PALRGB_WHITE)
 	call SetPalettes
 	pop af
 	ldh [rSVBK], a

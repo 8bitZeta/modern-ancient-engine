@@ -161,8 +161,7 @@ RunBattleTowerTrainer:
 	ld a, [wNrOfBeatenBattleTowerTrainers]
 	add "1"
 	ld [hli], a
-	ld a, "@"
-	ld [hl], a
+	ld [hl], "@"
 
 .lost
 	pop af
@@ -508,8 +507,7 @@ Function1704e1:
 	ld de, SCREEN_WIDTH
 	ld c, 12
 .left_border_loop
-	ld a, "│"
-	ld [hl], a
+	ld [hl], "│"
 	add hl, de
 	dec c
 	jr nz, .left_border_loop
@@ -521,14 +519,12 @@ Function1704e1:
 	ld [hli], a
 	dec c
 	jr nz, .bottom_border_loop
-	ld a, "┘"
-	ld [hl], a
+	ld [hl], "┘"
 	ld de, -SCREEN_WIDTH
 	add hl, de
 	ld c, 12
 .right_border_loop
-	ld a, "│"
-	ld [hl], a
+	ld [hl], "│"
 	add hl, de
 	dec c
 	jr nz, .right_border_loop
@@ -623,16 +619,14 @@ Function1704e1:
 	and a
 	jr z, .nope
 	hlcoord 18, 5
-	ld a, "▲"
-	ld [hl], a
+	ld [hl], "▲"
 
 .nope
 	ld a, [wNrOfBeatenBattleTowerTrainers]
 	cp 60
 	ret z
 	hlcoord 18, 16
-	ld a, "▼"
-	ld [hl], a
+	ld [hl], "▼"
 	ret
 
 .String_Mail:
