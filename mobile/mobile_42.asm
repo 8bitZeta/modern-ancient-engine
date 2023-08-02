@@ -311,8 +311,7 @@ Function108201:
 Function108229:
 	ld [wCurPartySpecies], a
 	hlcoord 7, 2
-	ld d, $0
-	ld e, ANIM_MON_TRADE
+	lb de, $0, ANIM_MON_TRADE
 	predef LoadMonAnimation
 	ret
 
@@ -1243,8 +1242,7 @@ MobileTradeAnim_DisplayEggData:
 	ld a, HIGH(vBGMap1)
 	ldh [hBGMapAddress + 1], a
 	hlcoord 5, 0
-	ld b, 6
-	ld c, 9
+	lb bc, 6, 9
 	call Textbox
 	hlcoord 6, 2
 	ld de, .EggTemplate
@@ -1264,8 +1262,7 @@ Function108a33:
 	ld a, HIGH(vBGMap1)
 	ldh [hBGMapAddress + 1], a
 	hlcoord 5, 0
-	ld b, 6
-	ld c, 9
+	lb bc, 6, 9
 	call Textbox
 	hlcoord 7, 4
 	ld de, .OddEgg
@@ -1282,8 +1279,7 @@ MobileTradeAnim_LoadMonTemplate:
 	ld a, HIGH(vBGMap1)
 	ldh [hBGMapAddress + 1], a
 	hlcoord 4, 0
-	ld b,  6
-	ld c, 10
+	lb bc, 6, 10
 	call Textbox
 	hlcoord 5, 0
 	ld de, .MonTemplate

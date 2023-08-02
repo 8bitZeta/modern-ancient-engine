@@ -466,8 +466,7 @@ Function106464::
 	call Get2bpp
 	ld de, MobileDialingFrameGFX
 	ld hl, vTiles2 tile "☎" ; $62
-	ld c, 9
-	ld b, BANK(MobileDialingFrameGFX)
+	lb bc, BANK(MobileDialingFrameGFX), 9
 	call Get2bpp
 	ld de, $40b0
 	ld hl, vTiles2 tile $6b

@@ -2153,8 +2153,7 @@ Function110ddd:
 	dec b
 	jr nz, .asm_110e53
 	push hl
-	ld b, HTTPUploadURL.End - HTTPUploadURL
-	ld c, $0
+	lb bc, HTTPUploadURL.End - HTTPUploadURL, $0
 	ld de, HTTPUploadURL
 .asm_110e64
 	ld a, [de]
@@ -2170,8 +2169,7 @@ Function110ddd:
 .asm_110e70
 	pop hl
 	push hl
-	ld b, HTTPRankingURL.End - HTTPRankingURL
-	ld c, $0
+	lb bc, HTTPRankingURL.End - HTTPRankingURL, $0
 	ld de, HTTPRankingURL
 .asm_110e79
 	ld a, [de]
@@ -2187,8 +2185,7 @@ Function110ddd:
 .asm_110e86
 	pop hl
 	push hl
-	ld b, HTTPUtilityURL.End - HTTPUtilityURL
-	ld c, $0
+	lb bc, HTTPUtilityURL.End - HTTPUtilityURL, $0
 	ld de, HTTPUtilityURL
 .asm_110e8f
 	ld a, [de]
@@ -2206,8 +2203,7 @@ Function110ddd:
 
 .asm_110ea2
 	pop hl
-	ld b, HTTPDownloadURL.End - HTTPDownloadURL
-	ld c, $0
+	lb bc, HTTPDownloadURL.End - HTTPDownloadURL, $0
 	ld de, HTTPDownloadURL
 .asm_110eaa
 	ld a, [de]
@@ -2728,8 +2724,7 @@ endr
 	dec b
 	jr nz, .asm_111256
 	push hl
-	ld b, HTTPDownloadURL.End - HTTPDownloadURL
-	ld c, $0
+	lb bc, HTTPDownloadURL.End - HTTPDownloadURL, $0
 	ld de, HTTPDownloadURL
 .asm_111268
 	ld a, [de]
@@ -2745,8 +2740,7 @@ endr
 .asm_111275
 	pop hl
 	push hl
-	ld b, HTTPRankingURL.End - HTTPRankingURL
-	ld c, $0
+	lb bc, HTTPRankingURL.End - HTTPRankingURL, $0
 	ld de, HTTPRankingURL
 .asm_11127e
 	ld a, [de]
@@ -2763,8 +2757,7 @@ endr
 
 .asm_11128f
 	pop hl
-	ld b, HTTPUploadURL.End - HTTPUploadURL
-	ld c, $0
+	lb bc, HTTPUploadURL.End - HTTPUploadURL, $0
 	ld de, HTTPUploadURL
 .asm_111297
 	ld a, [de]

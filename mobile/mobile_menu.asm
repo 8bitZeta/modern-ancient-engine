@@ -8,15 +8,13 @@ Function49f16:
 	ld c, 12
 	call DelayFrames
 	hlcoord 4, 0
-	ld b, 10
-	ld c, 10
+	lb bc, 10, 10
 	call Function48cdc
 	hlcoord 6, 2
 	ld de, MobileString1
 	call PlaceString
 	hlcoord 0, 12
-	ld b, 4
-	ld c, SCREEN_HEIGHT
+	lb bc, 4, SCREEN_HEIGHT
 	call Textbox
 	xor a
 	ld de, String_0x49fe9
@@ -75,8 +73,7 @@ Function49f16:
 	ld d, h
 	ld e, l
 	hlcoord 1, 13
-	ld b, 4
-	ld c, SCREEN_HEIGHT
+	lb bc, 4, SCREEN_HEIGHT
 	call ClearBox
 	hlcoord 1, 14
 	call PlaceString
@@ -87,8 +84,7 @@ Function49f16:
 	pop bc
 	ld hl, wMenuCursorY
 	ld [hl], b
-	ld b, $a
-	ld c, $1
+	lb bc, $a, $1
 	hlcoord 5, 1
 	call ClearBox
 	jr .joy_loop
@@ -239,15 +235,13 @@ Function4a13b:
 
 Function4a149:
 	hlcoord 1, 2
-	ld b, $6
-	ld c, $10
+	lb bc, $6, $10
 	call Function48cdc
 	hlcoord 3, 4
 	ld de, String_4a1ef
 	call PlaceString
 	hlcoord 0, 12
-	ld b, $4
-	ld c, $12
+	lb bc, $4, $12
 	call Textbox
 	ld a, [wMenuCursorY]
 	dec a
@@ -256,8 +250,7 @@ Function4a149:
 	ld d, h
 	ld e, l
 	hlcoord 1, 13
-	ld b, $4
-	ld c, $12
+	lb bc, $4, $12
 	call ClearBox
 	hlcoord 1, 14
 	call PlaceString
@@ -302,8 +295,7 @@ asm_4a19d:
 	ld d, h
 	ld e, l
 	hlcoord 1, 13
-	ld b, $4
-	ld c, $12
+	lb bc, $4, $12
 	call ClearBox
 	hlcoord 1, 14
 	call PlaceString
@@ -374,8 +366,7 @@ Function4a28a:
 	and a
 	jr z, .asm_4a2df
 	hlcoord 12, 0
-	ld b, $5
-	ld c, $6
+	lb bc, $5, $6
 	call Function48cdc
 	hlcoord 14, 1
 	ld de, String_4a34b
@@ -406,8 +397,7 @@ Function4a28a:
 	ld hl, DeleteSavedLoginPasswordText
 	call PrintText
 	hlcoord 14, 7
-	ld b, 3
-	ld c, 4
+	lb bc, 3, 4
 	call Textbox
 	farcall Mobile_OpenAndCloseMenu_HDMATransferTilemapAndAttrmap
 	ld hl, DeletePassword_YesNo_MenuHeader
@@ -573,8 +563,7 @@ Function4a4c4:
 	ld c, 20
 	call DelayFrames
 	hlcoord 2, 0
-	ld b, $a
-	ld c, $e
+	lb bc, $a, $e
 	call Function48cdc
 	hlcoord 4, 2
 	ld de, String_4a5c5
@@ -592,8 +581,7 @@ Function4a4c4:
 	ld de, String_4a5f2
 	call PlaceString
 	hlcoord 0, 12
-	ld b, $4
-	ld c, $12
+	lb bc, $4, $12
 	call Textbox
 	xor a
 	ld hl, Strings_4a5f6
@@ -657,8 +645,7 @@ asm_4a54d:
 	ld d, h
 	ld e, l
 	hlcoord 1, 13
-	ld b, $4
-	ld c, $12
+	lb bc, $4, $12
 	call ClearBox
 	hlcoord 1, 14
 	call PlaceString
@@ -677,8 +664,7 @@ Function4a5b0:
 	pop bc
 	ld hl, wMenuCursorY
 	ld [hl], b
-	ld b, $a
-	ld c, $1
+	lb bc, $a, $1
 	hlcoord 3, 1
 	call ClearBox
 	jr Function4a545

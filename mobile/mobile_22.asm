@@ -1049,8 +1049,7 @@ Function89771:
 	ret
 
 Function8977a:
-	ld e, $4
-	ld d, $13
+	lb de, $13, $4
 .asm_8977e
 	ld a, d
 	ld [hl], a
@@ -1311,8 +1310,7 @@ Function89915:
 	dec c
 	jr nz, .asm_8991c
 	pop hl
-	ld b, $4
-	ld c, $2b
+	lb bc, $4, $2b
 	ld a, $8
 	ld de, Unknown_8994a
 .asm_89932
@@ -1356,8 +1354,7 @@ Function8994e:
 
 Function89962:
 	push bc
-	ld c, $4
-	ld b, $20
+	lb bc, $20, $4
 .asm_89967
 	ld a, b
 	ld [hl], a
@@ -1483,15 +1480,13 @@ Function89a0c:
 
 Function89a23:
 	hlcoord 0, 11
-	ld b, $4
-	ld c, $12
+	lb bc, $4, $12
 	call Function8921f
 	ret
 
 Function89a2e:
 	hlcoord 11, 12
-	ld b, $2
-	ld c, $6
+	lb bc, $2, $6
 	call Textbox
 	hlcoord 13, 13
 	ld de, String_89a4e
@@ -1553,14 +1548,12 @@ Function89a57:
 	ret
 
 .MoveCursorDown:
-	ld d, 40
-	ld e,  1
+	lb de, 40,  1
 	call .ApplyCursorMovement
 	ret
 
 .MoveCursorUp:
-	ld d,  1
-	ld e, -1
+	lb de, 1, -1
 	call .ApplyCursorMovement
 	ret
 
@@ -1784,8 +1777,7 @@ Function89b97:
 	pop hl
 	dec c
 	jr nz, .asm_89bbb
-	ld b, $0
-	ld c, $4
+	lb bc, $0, $4
 	add hl, bc
 	jr .asm_89bb4
 
@@ -2382,8 +2374,7 @@ Function89f9a:
 Function89fa5:
 	ld de, $10
 	call Function89f9a
-	ld e, $2
-	ld d, $a
+	lb de, $a, $2
 .asm_89faf
 	push bc
 	ld a, $2
@@ -2469,8 +2460,7 @@ Function8a04c:
 	jmp Function89e36
 
 Function8a055:
-	ld c, $7
-	ld b, $4
+	lb bc, $4, $7
 .asm_8a059
 	call Function8a0a1
 	inc c
@@ -2646,8 +2636,7 @@ MenuHeader_0x8a176:
 
 Function8a17b:
 	decoord 14, 0
-	ld b, $5
-	ld c, $4
+	lb bc, $5, $4
 	call Function89b3b
 	ld hl, MenuHeader_0x8a19a
 	ld a, [wd030]
@@ -2675,8 +2664,7 @@ MenuData_0x8a1a2:
 
 Function8a1b0:
 	hlcoord 0, 12
-	ld b, $4
-	ld c, $12
+	lb bc, $4, $12
 	call Textbox
 	hlcoord 1, 14
 	ld a, [wMenuCursorY]
@@ -2918,15 +2906,13 @@ Function8a3b2:
 	call Function8a3df
 	jr nc, .asm_8a3ce
 	decoord 0, 2
-	ld b, $6
-	ld c, $9
+	lb bc, $6, $9
 	call Function89b3b
 	ld hl, MenuHeader_0x8a435
 	jr .asm_8a3db
 .asm_8a3ce
 	decoord 0, 2
-	ld b, $8
-	ld c, $9
+	lb bc, $8, $9
 	call Function89b3b
 	ld hl, MenuHeader_0x8a40f
 .asm_8a3db
@@ -2990,8 +2976,7 @@ MenuData_0x8a43d:
 
 Function8a453:
 	hlcoord 0, 12
-	ld b, $4
-	ld c, $12
+	lb bc, $4, $12
 	call Textbox
 	hlcoord 1, 14
 	ld de, String_8a476
@@ -3686,8 +3671,7 @@ MenuHeader_0x8a9c9:
 Function8a9ce:
 	push bc
 	decoord 11, 4
-	ld b, $6
-	ld c, $6
+	lb bc, $6, $6
 	call Function89b3b
 	pop bc
 	ld a, c
@@ -3968,8 +3952,7 @@ Function8aba9:
 	cp $2
 	jr z, .asm_8ac0f
 	hlcoord 0, 12
-	ld b, $4
-	ld c, $12
+	lb bc, $4, $12
 	call Textbox
 	hlcoord 1, 14
 	ld de, String_8ac3b
@@ -4040,8 +4023,7 @@ Function8ac7c:
 	call OpenSRAMBank4
 	ld h, b
 	ld l, c
-	ld d, $0
-	ld e, $6
+	lb de, $0, $6
 	add hl, de
 	ld d, h
 	ld e, l
@@ -4120,8 +4102,7 @@ Function8ad0b:
 	call Mobile22_SetBGMapMode0
 	push bc
 	hlcoord 0, 12
-	ld b, $4
-	ld c, $12
+	lb bc, $4, $12
 	call Textbox
 	ld de, String_8ad89
 	hlcoord 1, 14
@@ -4131,8 +4112,7 @@ Function8ad0b:
 	jr c, .asm_8ad87
 	call Mobile22_SetBGMapMode0
 	hlcoord 0, 12
-	ld b, $4
-	ld c, $12
+	lb bc, $4, $12
 	call Textbox
 	ld de, String_8ad9c
 	hlcoord 1, 14
@@ -4228,8 +4208,7 @@ Function8b391:
 	; find first e in range(4) such that [bc + e] == -1
 	; if none exist, return carry
 	push bc
-	ld e, 0
-	ld d, 4
+	lb de, 4, 0
 .loop
 	ld a, [bc]
 	inc bc
@@ -4501,8 +4480,7 @@ Function8b50a:
 	ld a, [wd02e]
 	and a
 	ret z
-	ld b, $0
-	ld c, $8
+	lb bc, $0, $8
 .asm_8b513
 	add hl, bc
 	dec a
@@ -4511,8 +4489,7 @@ Function8b50a:
 
 Function8b518:
 	push de
-	ld d, $0
-	ld e, $14
+	lb de, $0, $14
 	add hl, de
 	inc hl
 	pop de
@@ -4927,8 +4904,7 @@ Function8b7bd:
 
 .asm_8b7ea
 	hlcoord 0, 2
-	ld b, $b
-	ld c, $12
+	lb de, $b, $12
 	call Function8b703
 	call Function8b75d
 	call UpdateSprites
@@ -5046,8 +5022,7 @@ Function8b88c:
 	push hl
 	call PlaceString
 	pop hl
-	ld d, $0
-	ld e, $6
+	lb de, $0, $6
 	add hl, de
 	push hl
 	ld de, String_89116
@@ -5067,8 +5042,7 @@ Function8b88c:
 
 Function8b8c8:
 	hlcoord 0, 14
-	ld b, $2
-	ld c, $12
+	lb bc, $2, $12
 	call Textbox
 	ld a, [wd033]
 	ld b, 0
@@ -5125,15 +5099,13 @@ Function8b960:
 	call Function8b9e9
 	jr c, .asm_8b97a
 	hlcoord 11, 0
-	ld b, $6
-	ld c, $7
+	lb bc, $6, $7
 	call Function8b703
 	ld hl, MenuHeader_0x8b9b1
 	jr .asm_8b987
 .asm_8b97a
 	hlcoord 11, 0
-	ld b, $a
-	ld c, $7
+	lb bc, $a, $7
 	call Function8b703
 	ld hl, MenuHeader_0x8b9ca
 .asm_8b987

@@ -67,8 +67,7 @@ Function17a6a8:
 
 Function17a6f5:
 	ld hl, wd1ea
-	ld c, $0
-	ld b, $8
+	lb bc, $8, $0
 .asm_17a6fc
 	ld a, [de]
 	call Function17a713
@@ -509,8 +508,7 @@ Function17a97b:
 
 Function17a99e:
 	hlcoord 0, 12
-	ld b, $4
-	ld c, $12
+	lb bc, $4, $12
 	call Function17ac46
 	hlcoord 2, 14
 	ld de, String_17a9b2
@@ -540,8 +538,7 @@ Function17a9e3:
 	ld a, $3
 	ld [$d08e], a
 	ld hl, Unknown_17aa77
-	ld b, $8
-	ld c, $8
+	lb bc, $8, $8
 	ld a, $5
 	call Function17aa4a
 	ret
@@ -791,8 +788,7 @@ Function17ac0c:
 	call Function17ac1d
 	call Function17ac2a
 	hlcoord 0, 0
-	ld b, 2
-	ld c, SCREEN_WIDTH - 2
+	lb bc, 2, SCREEN_WIDTH - 2
 	call Function17ac46
 	ret
 

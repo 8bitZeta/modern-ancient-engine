@@ -49,8 +49,7 @@ InitMobileProfile:
 	call GetCrystalCGBLayout
 	call ClearBGPalettes
 	hlcoord 0, 0
-	ld b,  2
-	ld c, 20
+	lb bc, 2, 20
 	call ClearBox
 	hlcoord 0, 1
 	ld a, $c
@@ -62,8 +61,7 @@ InitMobileProfile:
 	hlcoord 1, 1
 	call PlaceString
 	hlcoord 0, 2
-	ld b, $a
-	ld c, $12
+	lb bc, $a, $12
 	call Function48cdc
 	hlcoord 2, 4
 	ld de, MobileString_Gender
@@ -105,8 +103,7 @@ InitMobileProfile:
 	hlcoord 11, 10
 	call Function489ea
 	hlcoord 0, 14
-	ld b, $2
-	ld c, $12
+	lb bc, $2, $12
 	call Textbox
 	hlcoord 1, 16
 	ld de, MobileString_PersonalInfo
@@ -240,8 +237,7 @@ Function4820d:
 	jr .asm_4825c
 
 	hlcoord 1, 15
-	ld b, $2
-	ld c, $12
+	lb bc, $2, $12
 	call ClearBox
 	ld de, MobileString_ProfileChanged
 	hlcoord 1, 16
@@ -283,8 +279,7 @@ asm_4828d:
 	call LoadMenuHeader
 	call Function4873c
 	hlcoord 11, 2
-	ld b, $4
-	ld c, $7
+	lb bc, $4, $7
 	call Function48cdc
 	hlcoord 13, 4
 	ld de, String_484fb
@@ -336,8 +331,7 @@ Function48304:
 	ld hl, MenuHeader_0x48513
 	call LoadMenuHeader
 	hlcoord 10, 0
-	ld b, $c
-	ld c, $8
+	lb bc, $c, $8
 	call Function48cdc
 	ld a, [wMenuCursorPosition]
 	ld b, a
@@ -442,8 +436,7 @@ Function483bb:
 .asm_483d5
 	ld d, h
 	ld e, l
-	ld b, $2
-	ld c, $8
+	lb bc, $2, $8
 	hlcoord 11, 7
 	call ClearBox
 	hlcoord 11, 8
@@ -491,15 +484,13 @@ Function4840c:
 	ld a, [wd002]
 	bit 6, a
 	jr nz, .narrower_box
-	ld b, 9
-	ld c, 1
+	lb bc, 9, 1
 	hlcoord 1, 4
 	call ClearBox
 	jmp Function48157
 
 .narrower_box
-	ld b, 7
-	ld c, 1
+	lb bc, 7, 1
 	hlcoord 1, 6
 	call ClearBox
 	jmp Function48157
@@ -654,8 +645,7 @@ Function48689:
 	call GetCrystalCGBLayout
 	call ClearBGPalettes
 	hlcoord 0, 0
-	ld b, 4
-	ld c, SCREEN_WIDTH
+	lb bc, 4, SCREEN_WIDTH
 	call ClearBox
 	hlcoord 0, 2
 	ld a, $c
@@ -667,8 +657,7 @@ Function48689:
 	hlcoord 1, 2
 	call PlaceString
 	hlcoord 0, 4
-	ld b, $8
-	ld c, $12
+	lb bc, $8, $12
 	call Function48cdc
 	ret
 
@@ -823,8 +812,7 @@ Function4876f:
 	ld a, $1
 	ldh [hInMenu], a
 	hlcoord 10, 5
-	ld b, $1
-	ld c, $8
+	lb bc, $1, $8
 	call Function48cdc
 	call WaitBGMap
 	ld a, [wd473]
@@ -888,8 +876,7 @@ Function487ff:
 	ld [hli], a
 	ld [hl], a
 	pop hl
-	ld b, PRINTNUM_LEADINGZEROS | 1
-	ld c, 3
+	lb bc, PRINTNUM_LEADINGZEROS | 1, 3
 	call PrintNum
 	ret
 
@@ -967,16 +954,14 @@ Function4880e:
 	jr .asm_488a7
 .asm_48887
 	hlcoord 10, 5
-	ld b, $1
-	ld c, $8
+	lb bc, $1, $8
 	call Function48cdc
 	hlcoord 12, 5
 	ld [hl], $10
 	jr .asm_488a7
 .asm_48898
 	hlcoord 10, 5
-	ld b, $1
-	ld c, $8
+	lb bc, $1, $8
 	call Function48cdc
 	hlcoord 12, 7
 	ld [hl], $11
@@ -1021,8 +1006,7 @@ Function488d3:
 	ld a, $1
 	ldh [hInMenu], a
 	hlcoord 10, 9
-	ld b, $1
-	ld c, $8
+	lb bc, $1, $8
 	call Function48cdc
 	ld a, [wd475]
 	and $f
@@ -1209,8 +1193,7 @@ Function48a3a:
 	ld a, $1
 	ld [wMenuCursorY], a
 	hlcoord 10, 8
-	ld b, $4
-	ld c, $8
+	lb bc, $4, $8
 	call Function48cdc
 	hlcoord 12, 10
 	ld de, String_48aa1
@@ -1363,8 +1346,7 @@ Function48ab5:
 	push de
 	push af
 	hlcoord 10, 9
-	ld b, $1
-	ld c, $8
+	lb bc, $1, $8
 	call Function48cdc
 	pop af
 	pop de
@@ -1401,8 +1383,7 @@ Function48ab5:
 .asm_48b9d
 	push de
 	hlcoord 10, 9
-	ld b, $1
-	ld c, $8
+	lb bc, $1, $8
 	call Function48cdc
 	pop de
 	ld a, d
@@ -1444,8 +1425,7 @@ asm_48bc7:
 Function48bd7:
 	push de
 	hlcoord 10, 9
-	ld b, $1
-	ld c, $8
+	lb bc, $1, $8
 	call Function48cdc
 	pop de
 	ld a, d
@@ -2429,8 +2409,7 @@ Function4ac58:
 	bit 1, [hl]
 	jr z, .asm_4ac89
 	hlcoord 11, 13
-	ld b, $3
-	ld c, $7
+	lb bc, $3, $7
 	call Textbox
 	hlcoord 13, 14
 	ld de, String_4ada7
@@ -2439,8 +2418,7 @@ Function4ac58:
 
 .asm_4ac89
 	hlcoord 11, 9
-	ld b, $7
-	ld c, $7
+	lb bc, $7, $7
 	call Textbox
 	call Function4ad68
 

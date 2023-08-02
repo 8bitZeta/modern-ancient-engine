@@ -12,8 +12,7 @@ CheckPlayerMoveTypeMatchups:
 	and a
 	jr z, .unknown_moves
 
-	ld d, NUM_MOVES
-	ld e, 0
+	lb de, NUM_MOVES, 0
 .loop
 	ld a, [hli]
 	and a
@@ -93,8 +92,7 @@ CheckPlayerMoveTypeMatchups:
 
 .CheckEnemyMoveMatchups:
 	ld de, wEnemyMonMoves
-	ld b, NUM_MOVES + 1
-	ld c, 0
+	lb bc, NUM_MOVES + 1, 0
 
 	ld a, [wTypeMatchup]
 	push af
@@ -286,8 +284,7 @@ FindAliveEnemyMons:
 
 	ld d, a
 	ld e, 0
-	ld b, 1 << (PARTY_LENGTH - 1)
-	ld c, 0
+	lb bc, 1 << (PARTY_LENGTH - 1), 0
 	ld hl, wOTPartyMon1HP
 
 .loop
@@ -395,8 +392,7 @@ FindAliveEnemyMonsWithASuperEffectiveMove:
 	ld a, [wOTPartyCount]
 	ld e, a
 	ld hl, wOTPartyMon1HP
-	ld b, 1 << (PARTY_LENGTH - 1)
-	ld c, 0
+	lb bc, 1 << (PARTY_LENGTH - 1), 0
 .loop
 	ld a, [hli]
 	or [hl]
@@ -427,8 +423,7 @@ FindEnemyMonsWithASuperEffectiveMove:
 	ld [wEnemyAISwitchScore], a
 	ld hl, wOTPartyMon1Moves
 	ld b, 1 << (PARTY_LENGTH - 1)
-	ld d, 0
-	ld e, 0
+	lb de, 0, 0
 .loop
 	ld a, b
 	and c
@@ -437,8 +432,7 @@ FindEnemyMonsWithASuperEffectiveMove:
 	push hl
 	push bc
 	; for move on mon:
-	ld b, NUM_MOVES
-	ld c, 0
+	lb bc, NUM_MOVES, 0
 .loop3
 	; if move is None: break
 	ld a, [hli]
@@ -526,8 +520,7 @@ FindEnemyMonsWithASuperEffectiveMove:
 FindEnemyMonsThatResistPlayer:
 	push bc
 	ld hl, wOTPartySpecies
-	ld b, 1 << (PARTY_LENGTH - 1)
-	ld c, 0
+	lb bc, 1 << (PARTY_LENGTH - 1), 0
 
 .loop
 	ld a, [hli]
@@ -579,8 +572,7 @@ FindEnemyMonsThatResistPlayer:
 FindEnemyMonsWithAtLeastQuarterMaxHP:
 	push bc
 	ld de, wOTPartySpecies
-	ld b, 1 << (PARTY_LENGTH - 1)
-	ld c, 0
+	lb bc, 1 << (PARTY_LENGTH - 1), 0
 	ld hl, wOTPartyMon1HP
 
 .loop

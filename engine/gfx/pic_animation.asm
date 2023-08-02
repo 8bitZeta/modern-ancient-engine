@@ -5,44 +5,37 @@ Unused_AnimateMon_Slow_Normal:
 	ld a, [wBattleMode]
 	cp WILD_BATTLE
 	jr z, .wild
-	ld e, ANIM_MON_SLOW
-	ld d, $0
+	lb de, $0, ANIM_MON_SLOW
 	call AnimateFrontpic
 	ret
 
 .wild
-	ld e, ANIM_MON_NORMAL
-	ld d, $0
+	lb de, $0, ANIM_MON_NORMAL
 	call AnimateFrontpic
 	ret
 
 AnimateMon_Menu:
-	ld e, ANIM_MON_MENU
-	ld d, $0
+	lb de, $0, ANIM_MON_MENU
 	call AnimateFrontpic
 	ret
 
 AnimateMon_Trade:
-	ld e, ANIM_MON_TRADE
-	ld d, $0
+	lb de, $0, ANIM_MON_TRADE
 	call AnimateFrontpic
 	ret
 
 AnimateMon_Evolve:
-	ld e, ANIM_MON_EVOLVE
-	ld d, $0
+	lb de, $0, ANIM_MON_EVOLVE
 	call AnimateFrontpic
 	ret
 
 AnimateMon_Hatch:
-	ld e, ANIM_MON_HATCH
-	ld d, $0
+	lb de, $0, ANIM_MON_HATCH
 	call AnimateFrontpic
 	ret
 
 AnimateMon_HOF:
-	ld e, ANIM_MON_HOF
-	ld d, $0
+	lb de, $0, ANIM_MON_HOF
 	call AnimateFrontpic
 	ret
 
@@ -164,8 +157,7 @@ PokeAnim_Wait:
 	ret
 
 PokeAnim_Setup:
-	ld c, FALSE
-	ld b, 0
+	lb bc, 0, FALSE
 	call PokeAnim_InitAnim
 	call PokeAnim_SetVBank1
 	ld a, [wPokeAnimSceneIndex]
@@ -174,8 +166,7 @@ PokeAnim_Setup:
 	ret
 
 PokeAnim_Setup2:
-	ld c, FALSE
-	ld b, 4
+	lb bc, 4, FALSE
 	call PokeAnim_InitAnim
 	call PokeAnim_SetVBank1
 	ld a, [wPokeAnimSceneIndex]
@@ -184,8 +175,7 @@ PokeAnim_Setup2:
 	ret
 
 PokeAnim_Idle:
-	ld c, TRUE
-	ld b, 0
+	lb bc, 0, TRUE
 	call PokeAnim_InitAnim
 	call PokeAnim_SetVBank1
 	ld a, [wPokeAnimSceneIndex]
@@ -798,8 +788,7 @@ PokeAnim_PlaceGraphic:
 	ld h, [hl]
 	ld l, a
 	add hl, bc
-	ld c, 7
-	ld b, 7
+	lb bc, 7, 7
 	ld a, [wPokeAnimGraphicStartTile]
 .loop
 	push bc
@@ -825,8 +814,7 @@ PokeAnim_PlaceGraphic:
 	ld a, [hli]
 	ld h, [hl]
 	ld l, a
-	ld b, 7
-	ld c, 7
+	lb bc, 7, 7
 	call ClearBox
 	ret
 
@@ -845,8 +833,7 @@ PokeAnim_SetVBank1:
 
 .SetFlag:
 	call PokeAnim_GetAttrmapCoord
-	ld b, 7
-	ld c, 7
+	lb bc, 7, 7
 	ld de, SCREEN_WIDTH
 .row
 	push bc
@@ -867,8 +854,7 @@ PokeAnim_SetVBank1:
 
 PokeAnim_SetVBank0:
 	call PokeAnim_GetAttrmapCoord
-	ld b, 7
-	ld c, 7
+	lb bc, 7, 7
 	ld de, SCREEN_WIDTH
 .row
 	push bc

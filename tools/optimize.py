@@ -322,14 +322,14 @@ patterns = {
 	(lambda line4, prev: re.match(r'ld [lh], a', line4.code)
 		and line4.code[3] == PAIRS[prev[1].code[3]]),
 ],
-# 'h,l|b,c|d,e = P,Q': [
-# 	# Bad: ld b, P / ld c, Q
-# 	# Good: lb bc, P, Q
-# 	(lambda line1, prev: re.match(r'ld [bcdehl], [^afbcdehl\[]', line1.code)),
-# 	(lambda line2, prev: re.match(r'ld [bcdehl], [^afbcdehl\[]', line2.code)
-# 		and line2.code[3] == PAIRS[prev[0].code[3]]
-# 		and line2.context == prev[0].context),
-# ],
+'h,l|b,c|d,e = P,Q': [
+	# Bad: ld b, P / ld c, Q
+	# Good: lb bc, P, Q
+	(lambda line1, prev: re.match(r'ld [bcdehl], [^afbcdehl\[]', line1.code)),
+	(lambda line2, prev: re.match(r'ld [bcdehl], [^afbcdehl\[]', line2.code)
+		and line2.code[3] == PAIRS[prev[0].code[3]]
+		and line2.context == prev[0].context),
+],
 # '*hl = N': [
 # 	# Bad: ld a, N / ld [hl], a (unless you need N in a too)
 # 	# Good: ld [hl], N

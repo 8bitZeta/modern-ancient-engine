@@ -230,8 +230,7 @@ DebugRoom_PrintStackBottomTop:
 	hlcoord 16, 12
 	ld de, .SPString
 	call PlaceString
-	ld d, LOW(wStackBottom)
-	ld e, HIGH(wStackBottom)
+	lb de, LOW(wStackBottom), HIGH(wStackBottom)
 	push de
 	ld hl, sp+0
 	ld d, h
@@ -474,8 +473,7 @@ DebugRoomMenu_DecorateAll:
 	call OpenSRAM
 	ld hl, sPlayerData + (wEventFlags - wPlayerData)
 	ld de, EVENT_DECO_BED_1 ; the first EVENT_DECO_* constant
-	ld b, SET_FLAG
-	ld c, EVENT_DECO_BIG_LAPRAS_DOLL - EVENT_DECO_BED_1 + 1
+	lb bc, SET_FLAG, EVENT_DECO_BIG_LAPRAS_DOLL - EVENT_DECO_BED_1 + 1
 .loop
 	push bc
 	push de
@@ -535,8 +533,7 @@ DebugRoom_EditPagedValues:
 	ld [hl], TRUE
 	call ClearBGPalettes
 	hlcoord 0, 0
-	ld b, SCREEN_HEIGHT - 2
-	ld c, SCREEN_WIDTH - 2
+	lb bc, SCREEN_HEIGHT - 2, SCREEN_WIDTH - 2
 	call Textbox
 	hlcoord 8, 17
 	ld de, DebugRoom_PageString
@@ -1367,8 +1364,7 @@ DebugRoom_GetClock:
 	ld [MBC3LatchClock], a
 	inc a
 	ld [MBC3LatchClock], a
-	ld b, RTC_DH - RTC_S + 1
-	ld c, RTC_S
+	lb bc, RTC_DH - RTC_S + 1, RTC_S
 .loop
 	ld a, c
 	ld [MBC3SRamBank], a
@@ -1383,8 +1379,7 @@ DebugRoom_GetClock:
 DebugRoom_SetClock:
 	ld a, SRAM_ENABLE
 	ld [MBC3SRamEnable], a
-	ld b, RTC_DH - RTC_S + 1
-	ld c, RTC_S
+	lb bc, RTC_DH - RTC_S + 1, RTC_S
 .loop
 	ld a, c
 	ld [MBC3SRamBank], a

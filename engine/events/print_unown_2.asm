@@ -55,8 +55,7 @@ RotateUnownFrontpic:
 
 .Rotate:
 	ld hl, wPrintedUnownTileDest
-	ld e, %10000000
-	ld d, 8
+	lb de, 8, %10000000
 .loop_decompress
 	push hl
 	ld hl, wPrintedUnownTileSource
@@ -76,8 +75,7 @@ RotateUnownFrontpic:
 	ret
 
 .CountSetBit:
-	ld b, 0
-	ld c, 8
+	lb bc, 0, 8
 .loop_count
 	ld a, [hli]
 	and e

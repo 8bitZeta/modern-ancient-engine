@@ -47,8 +47,7 @@ _LoadFontsExtra1::
 _LoadFontsExtra2::
 	ld de, FontsExtra2_UpArrowGFX
 	ld hl, vTiles2 tile "▲" ; $61
-	ld b, BANK(FontsExtra2_UpArrowGFX)
-	ld c, 1
+	lb bc, BANK(FontsExtra2_UpArrowGFX), 1
 	call Get2bppViaHDMA
 	ret
 
