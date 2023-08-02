@@ -254,15 +254,15 @@ patterns = {
 	(lambda line6, prev: re.match(r'ld [hbd], a', line6.code)
 		and line6.code[3] == prev[0].code[3]),
 ],
-# 'b|c|d|e|h|l += carry': [
-# 	# Bad: ld a, h|0 / adc 0|h / ld h, a
-# 	# Good: jr nc, .noCarry / inc h / .noCarry
-# 	(lambda line1, prev: re.match(r'ld a, (?:[bcdehl]|[%\$&]?0+$)', line1.code)),
-# 	(lambda line2, prev: re.match(r'adc (?:[bcdehl]|[%\$&]?0+$)', line2.code)),
-# 	(lambda line3, prev: re.match(r'ld [bcdehl], a', line3.code)
-# 		and (line3.code[3] == prev[0].code[6] or line3.code[3] == prev[1].code[4])
-# 		and (prev[0].code.endswith('0') or prev[1].code.endswith('0'))),
-# ],
+'b|c|d|e|h|l += carry': [
+	# Bad: ld a, h|0 / adc 0|h / ld h, a
+	# Good: jr nc, .noCarry / inc h / .noCarry
+	(lambda line1, prev: re.match(r'ld a, (?:[bcdehl]|[%\$&]?0+$)', line1.code)),
+	(lambda line2, prev: re.match(r'adc (?:[bcdehl]|[%\$&]?0+$)', line2.code)),
+	(lambda line3, prev: re.match(r'ld [bcdehl], a', line3.code)
+		and (line3.code[3] == prev[0].code[6] or line3.code[3] == prev[1].code[4])
+		and (prev[0].code.endswith('0') or prev[1].code.endswith('0'))),
+],
 # 'b|c|d|e|h|l -= carry': [
 # 	# Bad: ld a, h|0 / sbc 0|h / ld h, a
 # 	# Good: jr nc, .noCarry / dec h / .noCarry
