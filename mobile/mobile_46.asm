@@ -3990,8 +3990,7 @@ Function119e98:
 	rlca
 	rlca
 	or [hl]
-	ld [hl], a
-	inc hl
+	ld [hli], a
 	pop af
 	dec a
 	and a

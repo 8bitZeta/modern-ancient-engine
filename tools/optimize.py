@@ -343,12 +343,12 @@ patterns = {
 	(lambda line2, prev: line2.code in {'inc a', 'dec a'}),
 	(1, lambda line3, prev: line3.code == 'ld [hl], a'),
 ],
-# '*hl++|*hl-- = a': [
-# 	# Bad: ld [hl], a / inc|dec hl
-# 	# Good: ld [hli|hld], a
-# 	(lambda line1, prev: line1.code == 'ld [hl], a'),
-# 	(lambda line2, prev: line2.code in {'inc hl', 'dec hl'}),
-# ],
+'*hl++|*hl-- = a': [
+	# Bad: ld [hl], a / inc|dec hl
+	# Good: ld [hli|hld], a
+	(lambda line1, prev: line1.code == 'ld [hl], a'),
+	(lambda line2, prev: line2.code in {'inc hl', 'dec hl'}),
+],
 # '*hl++|*hl-- = N': [
 # 	# Bad: ld [hl], N / inc|dec hl (unless you can't use a)
 # 	# Good: ld a, N / ld [hli|hld], a
