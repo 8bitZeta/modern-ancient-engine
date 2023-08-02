@@ -742,10 +742,10 @@ Printer_PrintBoxListSegment:
 	pop hl
 
 	push hl
-	ld a, [wAddrOfBoxToPrint]
+	ld hl, wAddrOfBoxToPrint
+	ld a, [hli]
+	ld h, [hl]
 	ld l, a
-	ld a, [wAddrOfBoxToPrint + 1]
-	ld h, a
 	ld bc, sBoxMonNicknames - sBox
 	add hl, bc
 	ld bc, MON_NAME_LENGTH
@@ -762,10 +762,10 @@ Printer_PrintBoxListSegment:
 	ld bc, MON_NAME_LENGTH
 	add hl, bc
 	push hl
-	ld a, [wAddrOfBoxToPrint]
+	ld hl, wAddrOfBoxToPrint
+	ld a, [hli]
+	ld h, [hl]
 	ld l, a
-	ld a, [wAddrOfBoxToPrint + 1]
-	ld h, a
 	ld bc, 2 + MONS_PER_BOX + MON_LEVEL
 	add hl, bc
 	ld bc, BOXMON_STRUCT_LENGTH
@@ -794,10 +794,10 @@ Printer_PrintBoxListSegment:
 
 Printer_GetMonGender:
 	push hl
-	ld a, [wAddrOfBoxToPrint]
+	ld hl, wAddrOfBoxToPrint
+	ld a, [hli]
+	ld h, [hl]
 	ld l, a
-	ld a, [wAddrOfBoxToPrint + 1]
-	ld h, a
 	ld bc, 2 + MONS_PER_BOX + MON_DVS
 	add hl, bc
 	ld bc, BOXMON_STRUCT_LENGTH
@@ -828,10 +828,10 @@ Printer_GetBoxMonSpecies:
 	push hl
 	ld e, a
 	ld d, 0
-	ld a, [wAddrOfBoxToPrint]
+	ld hl, wAddrOfBoxToPrint
+	ld a, [hli]
+	ld h, [hl]
 	ld l, a
-	ld a, [wAddrOfBoxToPrint + 1]
-	ld h, a
 	add hl, de
 	ld e, l
 	ld d, h

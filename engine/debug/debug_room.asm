@@ -248,10 +248,10 @@ DebugRoom_PrintStackBottomTop:
 DebugRoomMenu_WinWorkClr:
 	call YesNoBox
 	ret c
-	ld a, [wWindowStackPointer]
+	ld hl, wWindowStackPointer
+	ld a, [hli]
+	ld h, [hl]
 	ld l, a
-	ld a, [wWindowStackPointer + 1]
-	ld h, a
 	inc hl
 	ld a, l
 	sub LOW(wWindowStack)
@@ -584,10 +584,10 @@ DebugRoom_EditPagedValues:
 ; call wDebugRoomAutoFunction if it's not null, then jump to .resume
 	ld hl, .resume
 	push hl
-	ld a, [wDebugRoomAutoFunction]
+	ld hl, wDebugRoomAutoFunction
+	ld a, [hli]
+	ld h, [hl]
 	ld l, a
-	ld a, [wDebugRoomAutoFunction+1]
-	ld h, a
 	or l
 	ret z
 	jp hl
@@ -1329,10 +1329,10 @@ DebugRoomMenu_RTCEdit_UpdateClock:
 	ld de, DebugRoom_DayHTimeString
 	hlcoord 3, 14
 	call PlaceString
-	ld a, [wDebugRoomRTCCurDay + 0]
+	ld hl, wDebugRoomRTCCurDay + 0
+	ld a, [hli]
+	ld l, [hl]
 	ld h, a
-	ld a, [wDebugRoomRTCCurDay + 1]
-	ld l, a
 	push hl
 	ld hl, sp+0
 	ld d, h

@@ -2299,10 +2299,10 @@ BattleCommand_BuildOpponentRage:
 	jmp BattleCommand_SwitchTurn
 
 EndMoveEffect:
-	ld a, [wBattleScriptBufferAddress]
+	ld hl, wBattleScriptBufferAddress
+	ld a, [hli]
+	ld h, [hl]
 	ld l, a
-	ld a, [wBattleScriptBufferAddress + 1]
-	ld h, a
 	ld a, endmove_command
 	ld [hli], a
 	ld [hli], a
@@ -5144,10 +5144,10 @@ ret
 	ret
 
 .loop_back_to_critical
-	ld a, [wBattleScriptBufferAddress + 1]
+	ld hl, wBattleScriptBufferAddress + 1
+	ld a, [hli]
+	ld l, [hl]
 	ld h, a
-	ld a, [wBattleScriptBufferAddress]
-	ld l, a
 .not_critical
 	ld a, [hld]
 	cp critical_command
@@ -6292,10 +6292,10 @@ BattleCommand_ClearText:
 
 SkipToBattleCommand:
 ; Skip over commands until reaching command b.
-	ld a, [wBattleScriptBufferAddress + 1]
+	ld hl, wBattleScriptBufferAddress + 1
+	ld a, [hli]
+	ld l, [hl]
 	ld h, a
-	ld a, [wBattleScriptBufferAddress]
-	ld l, a
 .loop
 	ld a, [hli]
 	cp b

@@ -758,10 +758,10 @@ PokegearRadio_Joypad:
 	ld a, [hl]
 	and D_LEFT
 	jr nz, .left
-	ld a, [wPokegearRadioChannelAddr]
+	ld hl, wPokegearRadioChannelAddr
+	ld a, [hli]
+	ld h, [hl]
 	ld l, a
-	ld a, [wPokegearRadioChannelAddr + 1]
-	ld h, a
 	ld a, [wPokegearRadioChannelBank]
 	and a
 	ret z
@@ -1901,10 +1901,10 @@ PlayRadio:
 	ldh a, [hJoyPressed]
 	and A_BUTTON | B_BUTTON
 	jr nz, .stop
-	ld a, [wPokegearRadioChannelAddr]
+	ld hl, wPokegearRadioChannelAddr
+	ld a, [hli]
+	ld h, [hl]
 	ld l, a
-	ld a, [wPokegearRadioChannelAddr + 1]
-	ld h, a
 	ld a, [wPokegearRadioChannelBank]
 	and a
 	jr z, .zero

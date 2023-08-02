@@ -308,20 +308,20 @@ patterns = {
 	(lambda line1, prev: line1.code == 'sla l'),
 	(lambda line2, prev: line2.code == 'rl h'),
 ],
-# 'hl = *Foo': [
-# 	# Bad: ld a, [Foo] / ld l, a / ld a, [Foo+1] / ld h, a
-# 	# Good: ld hl, Foo / ld a, [hli] / ld h, [hl] / ld l, a
-# 	#
-# 	# Bad: ld a, [Foo] / ld h, a / ld a, [Foo+1] / ld l, a
-# 	# Good: ld hl, Foo / ld a, [hli] / ld l, [hl] / ld h, a
-# 	(lambda line1, prev: re.match(r'ld a, \[[^hbd]', line1.code)),
-# 	(lambda line2, prev: re.match(r'ld [lh], a', line2.code)),
-# 	(lambda line3, prev: re.match(r'ld a, \[[^hbd]', line3.code)
-# 		and re.split(r'[^A-Za-z0-9_\.%\$&]', line3.code[7:])[0] ==
-# 			re.split(r'[^A-Za-z0-9_\.%\$&]', prev[0].code[7:])[0]),
-# 	(lambda line4, prev: re.match(r'ld [lh], a', line4.code)
-# 		and line4.code[3] == PAIRS[prev[1].code[3]]),
-# ],
+'hl = *Foo': [
+	# Bad: ld a, [Foo] / ld l, a / ld a, [Foo+1] / ld h, a
+	# Good: ld hl, Foo / ld a, [hli] / ld h, [hl] / ld l, a
+	#
+	# Bad: ld a, [Foo] / ld h, a / ld a, [Foo+1] / ld l, a
+	# Good: ld hl, Foo / ld a, [hli] / ld l, [hl] / ld h, a
+	(lambda line1, prev: re.match(r'ld a, \[[^hbd]', line1.code)),
+	(lambda line2, prev: re.match(r'ld [lh], a', line2.code)),
+	(lambda line3, prev: re.match(r'ld a, \[[^hbd]', line3.code)
+		and re.split(r'[^A-Za-z0-9_\.%\$&]', line3.code[7:])[0] ==
+			re.split(r'[^A-Za-z0-9_\.%\$&]', prev[0].code[7:])[0]),
+	(lambda line4, prev: re.match(r'ld [lh], a', line4.code)
+		and line4.code[3] == PAIRS[prev[1].code[3]]),
+],
 # 'h,l|b,c|d,e = P,Q': [
 # 	# Bad: ld b, P / ld c, Q
 # 	# Good: lb bc, P, Q
