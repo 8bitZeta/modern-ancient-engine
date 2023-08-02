@@ -302,12 +302,12 @@ patterns = {
 		line4.code[4] in {prev[0].code[3], PAIRS[prev[0].code[3]]}),
 	(lambda line5, prev: line5.code.lower() == 'endr'),
 ],
-# 'hl *= 2': [
-# 	# Bad: sla l / rl h
-# 	# Good: add hl, hl
-# 	(lambda line1, prev: line1.code == 'sla l'),
-# 	(lambda line2, prev: line2.code == 'rl h'),
-# ],
+'hl *= 2': [
+	# Bad: sla l / rl h
+	# Good: add hl, hl
+	(lambda line1, prev: line1.code == 'sla l'),
+	(lambda line2, prev: line2.code == 'rl h'),
+],
 # 'hl = *Foo': [
 # 	# Bad: ld a, [Foo] / ld l, a / ld a, [Foo+1] / ld h, a
 # 	# Good: ld hl, Foo / ld a, [hli] / ld h, [hl] / ld l, a
