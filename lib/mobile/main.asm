@@ -2410,7 +2410,7 @@ Function111044:
 	call nz, Function11115f
 	xor a
 	cp e
-	jmp z, .asm_1110eb
+	jr z, .asm_1110eb
 	xor a
 	cp b
 	jr nz, .asm_1110ac
@@ -4803,8 +4803,8 @@ Function111f8d:
 	ld a, [de]
 	add l
 	ld l, a
-	ld a, $0 ; no-optimize a = 0
 	adc h
+	sub l
 	ld h, a
 	dec b
 	ret
@@ -5199,8 +5199,8 @@ Function112271:
 	ld a, [hli]
 	add e
 	ld e, a
-	ld a, $0 ; no-optimize a = 0
 	adc d
+	sub e
 	ld d, a
 	dec b
 	jr nz, .asm_1122b3
@@ -5733,8 +5733,8 @@ Function11261c:
 	ld de, wMobileSDK_PacketBuffer + 118
 	add e
 	ld e, a
-	ld a, $0 ; no-optimize a = 0
 	adc d
+	sub e
 	ld d, a
 	call Function111f63
 	ld hl, wMobileSDK_PacketBuffer + 96
@@ -5764,8 +5764,8 @@ Function112654:
 	ld de, wMobileSDK_PacketBuffer + 166
 	add e
 	ld e, a
-	ld a, $0 ; no-optimize a = 0
 	adc d
+	sub e
 	ld d, a
 	call Function111f63
 	ld a, [wMobileSDK_PacketBuffer + 101]
@@ -5773,8 +5773,8 @@ Function112654:
 	ld de, wMobileSDK_PacketBuffer + 102
 	add e
 	ld e, a
-	ld a, $0 ; no-optimize a = 0
 	adc d
+	sub e
 	ld d, a
 	call Function111f63
 	ld hl, wMobileSDK_PacketBuffer + 128
@@ -6468,11 +6468,11 @@ Function112aac:
 	ld a, b
 	add e
 	ld e, a
-	ld a, $0 ; no-optimize a = 0
 	adc d
+	sub e
 	ld d, a
-	ld a, $0 ; no-optimize a = 0
 	adc c
+	sub d
 	ld c, a
 	jr .asm_112abe
 
@@ -8109,8 +8109,8 @@ Function113519:
 	ld a, [hli]
 	add e
 	ld e, a
-	ld a, $0 ; no-optimize a = 0
 	adc d
+	sub e
 	ld d, a
 	dec b
 	jr nz, .asm_113551

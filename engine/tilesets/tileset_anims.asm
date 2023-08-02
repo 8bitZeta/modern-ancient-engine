@@ -379,8 +379,8 @@ AnimateWaterTile:
 	add a
 	add LOW(.WaterTileFrames)
 	ld l, a
-	ld a, 0 ; no-optimize a = 0
 	adc HIGH(.WaterTileFrames)
+	sub l
 	ld h, a
 
 ; Write the tile graphic from hl (now sp) to de (now hl)
@@ -417,8 +417,8 @@ ForestTreeLeftAnimation:
 	add a
 	add LOW(ForestTreeLeftFrames)
 	ld l, a
-	ld a, 0 ; no-optimize a = 0
 	adc HIGH(ForestTreeLeftFrames)
+	sub l
 	ld h, a
 
 .got_frames
@@ -460,8 +460,8 @@ ForestTreeRightAnimation:
 	add a
 	add LOW(ForestTreeLeftFrames)
 	ld l, a
-	ld a, 0 ; no-optimize a = 0
 	adc HIGH(ForestTreeLeftFrames)
+	sub l
 	ld h, a
 	push bc
 	ld bc, ForestTreeRightFrames - ForestTreeLeftFrames
@@ -502,8 +502,8 @@ ForestTreeLeftAnimation2:
 	add a
 	add LOW(ForestTreeLeftFrames)
 	ld l, a
-	ld a, 0 ; no-optimize a = 0
 	adc HIGH(ForestTreeLeftFrames)
+	sub l
 	ld h, a
 
 .got_frames
@@ -540,8 +540,8 @@ ForestTreeRightAnimation2:
 	add a
 	add LOW(ForestTreeLeftFrames)
 	ld l, a
-	ld a, 0 ; no-optimize a = 0
 	adc HIGH(ForestTreeLeftFrames)
+	sub l
 	ld h, a
 	push bc
 	ld bc, ForestTreeRightFrames - ForestTreeLeftFrames
@@ -669,8 +669,8 @@ AnimateTowerPillarTile:
 	ld hl, .TowerPillarTileFrameOffsets
 	add l
 	ld l, a
-	ld a, 0 ; no-optimize a = 0
 	adc h
+	sub l
 	ld h, a
 	ld a, [hl]
 
@@ -687,8 +687,8 @@ AnimateTowerPillarTile:
 	inc hl
 	ld h, [hl]
 	ld l, a
-	ld a, 0 ; no-optimize a = 0
 	adc h
+	sub l
 	ld h, a
 
 ; Write the tile graphic from hl (now sp) to de (now hl)
@@ -739,8 +739,8 @@ AnimateWhirlpoolTile:
 	inc hl
 	ld h, [hl]
 	ld l, a
-	ld a, 0 ; no-optimize a = 0
 	adc h
+	sub l
 	ld h, a
 
 ; Write the tile graphic from hl (now sp) to de (now hl)

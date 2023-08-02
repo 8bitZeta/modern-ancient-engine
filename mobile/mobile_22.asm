@@ -4060,8 +4060,8 @@ Function8ac7c:
 	ld a, $6
 	add e
 	ld e, a
-	ld a, $0 ; no-optimize a = 0
 	adc d
+	sub e
 	ld d, a
 	ld c, $1f
 	call Function89193
@@ -4202,8 +4202,8 @@ Function8b379:
 	ld a, c
 	add e
 	ld c, a
-	ld a, $0 ; no-optimize a = 0
 	adc b
+	sub c
 	ld b, a
 	ld a, [bc]
 	ld d, a
@@ -4216,8 +4216,8 @@ Function8b385:
 	ld a, c
 	add e
 	ld c, a
-	ld a, $0 ; no-optimize a = 0
 	adc b
+	sub c
 	ld b, a
 	ld a, d
 	ld [bc], a

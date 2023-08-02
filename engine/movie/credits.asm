@@ -519,8 +519,8 @@ GetCreditsPalette:
 	push hl
 	add LOW(wBGPals1)
 	ld e, a
-	ld a, 0 ; no-optimize a = 0
 	adc HIGH(wBGPals1)
+	sub e
 	ld d, a
 	ld bc, 24
 	call CopyBytes
@@ -529,8 +529,8 @@ GetCreditsPalette:
 	pop af
 	add LOW(wBGPals2)
 	ld e, a
-	ld a, 0 ; no-optimize a = 0
 	adc HIGH(wBGPals2)
+	sub e
 	ld d, a
 	ld bc, 24
 	call CopyBytes
