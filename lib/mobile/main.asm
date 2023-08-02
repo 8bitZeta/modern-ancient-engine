@@ -73,8 +73,8 @@ MobileSDK_CopyStringLen:
 	pop bc
 	add c
 	ld c, a
-	ld a, b
-	adc 0
+	adc b
+	sub c
 	ld b, a
 	ret
 

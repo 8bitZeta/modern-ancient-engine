@@ -42,8 +42,8 @@ GetName::
 	add l
 	add LOW(NamesPointers)
 	ld l, a
-	ld a, HIGH(NamesPointers)
-	adc 0
+	adc HIGH(NamesPointers)
+	sub l
 	ld h, a
 	ld a, [hli]
 	rst Bankswitch

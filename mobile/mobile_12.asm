@@ -1710,8 +1710,8 @@ Function48d4a:
 	ld e, [hl]
 	add e
 	ld c, a
-	ld a, b
-	adc 0
+	adc b
+	sub c
 	ld b, a
 	ld a, c
 	ld [hld], a
