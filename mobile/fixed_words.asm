@@ -220,9 +220,8 @@ AnimateEZChatCursor:
 .seven
 	ld a, [wEZChatCursorYCoord]
 	cp $4
-	jr z, .cursor0
 	ld a, SPRITE_ANIM_FRAMESET_EZCHAT_CURSOR_3
-	jr .got_frameset
+	jr nz, .got_frameset
 
 .cursor0
 	ld a, SPRITE_ANIM_FRAMESET_EZCHAT_CURSOR_1

@@ -901,9 +901,8 @@ Function11878d:
 	sla a
 	jr c, .asm_1187fd
 	sla a
-	jr c, .asm_1187f5
 	ld a, MOBILEAPI_12
-	jr .asm_1187ff
+	jr nc, .asm_1187ff
 .asm_1187f5
 	ld a, MOBILEAPI_14
 	jr .asm_1187ff
@@ -4488,9 +4487,8 @@ BattleTowerRoomMenu2_UpdateYesNoMenu:
 	farcall ReloadMapPart
 	ld a, [wMobileInactivityTimerFrames]
 	cp $0
-	jr z, .asm_11a2b4
 	ld a, [wcd47]
-	jr .exit_carry
+	jr nz, .exit_carry
 
 .asm_11a2b4
 	ld a, [wcd33]
@@ -6039,9 +6037,8 @@ Function11b0ff:
 .asm_11b131
 	call Function11b20b
 	call CheckSeenMemMon
-	jr z, .asm_11b13d
 	ld a, $1
-	jr .asm_11b148
+	jr nz, .asm_11b148
 
 .asm_11b13d
 	ld a, $2

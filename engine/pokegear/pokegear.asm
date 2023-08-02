@@ -1858,9 +1858,8 @@ _TownMap:
 .InitTilemap:
 	ld a, [wTownMapPlayerIconLandmark]
 	cp KANTO_LANDMARK
-	jr nc, .kanto2
 	ld e, JOHTO_REGION
-	jr .okay_tilemap
+	jr c, .okay_tilemap
 
 .kanto2
 	ld e, KANTO_REGION

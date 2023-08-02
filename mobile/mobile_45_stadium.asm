@@ -116,9 +116,8 @@ Function117738:
 Function117764:
 	ld a, [wcd4a]
 	cp $10
-	jr nz, .asm_11776f
 	ld a, $1
-	jr .asm_117770
+	jr z, .asm_117770
 
 .asm_11776f
 	xor a

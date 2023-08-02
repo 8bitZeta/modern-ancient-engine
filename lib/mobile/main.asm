@@ -455,9 +455,8 @@ Function110236:
 	call Function1104b0
 	pop af
 	cp $35
-	jr nz, .asm_110289
 	ld a, $2b
-	jr .asm_11028b
+	jr z, .asm_11028b
 
 .asm_110289
 	ld a, $a
@@ -518,9 +517,8 @@ Function110291:
 	or a
 	jr z, .asm_1102f2
 	cp $80
-	jr nc, .asm_1102f2
 	ld c, $80
-	jr .asm_1102f4
+	jr c, .asm_1102f4
 
 .asm_1102f2
 	ld a, $80
@@ -601,9 +599,8 @@ Function11032c:
 	or a
 	jr z, .asm_11037f
 	cp $80
-	jr nc, .asm_11037f
 	ld c, $80
-	jr .asm_110381
+	jr c, .asm_110381
 
 .asm_11037f
 	ld a, $80
@@ -770,9 +767,8 @@ Mobile_DialTelephone:
 	push bc
 	ld a, [wMobileSDK_AdapterType]
 	cp $8c
-	jr c, .asm_11049e
 	ld a, $3
-	jr .asm_1104a1
+	jr nc, .asm_1104a1
 
 .asm_11049e
 	ld a, [wc871]
@@ -3252,9 +3248,8 @@ MobileAPI_TelephoneStatus:
 .asm_11156f
 	ld a, [wMobileAPIIndex]
 	cp $40
-	jr nz, .asm_11157a
 	ld a, $2c
-	jr .asm_11157c
+	jr z, .asm_11157c
 
 .asm_11157a
 	ld a, $1e
@@ -3658,9 +3653,8 @@ Function1117e7:
 	ld hl, wc80a
 	ld a, [hl]
 	or a
-	jr nz, .asm_111803
 	ld b, $99
-	jr .asm_111805
+	jr z, .asm_111805
 .asm_111803
 	ld b, $66
 .asm_111805
@@ -4076,9 +4070,8 @@ Function111abd:
 	ld [hli], a
 	ld a, [wc822]
 	bit 0, a
-	jr z, .asm_111af9
 	ld a, $b
-	jr .asm_111afb
+	jr nz, .asm_111afb
 .asm_111af9
 	ld a, $20
 .asm_111afb
@@ -4137,9 +4130,8 @@ Function111b3c:
 	ld hl, wc822
 	res 5, [hl]
 	bit 0, [hl]
-	jr z, .asm_111b59
 	ld a, [wMobileSDK_ReceivePacketBufferAlt]
-	jr .asm_111b5c
+	jr nz, .asm_111b5c
 .asm_111b59
 	ld a, [wMobileSDK_ReceivePacketBuffer]
 .asm_111b5c
@@ -4528,9 +4520,8 @@ Function111dd9:
 	ld b, $5
 	ld a, [wc822]
 	bit 0, a
-	jr z, .asm_111df8
 	ld a, [wc86a]
-	jr .asm_111dfb
+	jr nz, .asm_111dfb
 .asm_111df8
 	ld a, [wc985]
 .asm_111dfb
@@ -4631,9 +4622,8 @@ GetErrorCode:
 	or $0
 	jr z, .asm_111e9d
 	cp $2
-	jr z, .asm_111e99
 	ld a, $13
-	jr .store_error_code
+	jr nz, .store_error_code
 .asm_111e99
 	ld a, $17
 	jr .store_error_code

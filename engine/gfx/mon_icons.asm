@@ -139,9 +139,8 @@ PartyMenu_InitAnimatedMonIcon:
 	callfar ItemIsMail
 	pop bc
 	pop hl
-	jr c, .mail
 	ld a, SPRITE_ANIM_FRAMESET_PARTY_MON_WITH_ITEM
-	jr .okay
+	jr nc, .okay
 
 .mail
 	ld a, SPRITE_ANIM_FRAMESET_PARTY_MON_WITH_MAIL
@@ -350,9 +349,8 @@ FreezeMonIcons:
 	and a
 	jr z, .next
 	cp d
-	jr z, .loadwithtwo
 	ld a, SPRITE_ANIM_SEQ_NULL
-	jr .ok
+	jr nz, .ok
 
 .loadwithtwo
 	ld a, SPRITE_ANIM_SEQ_PARTY_MON_SWITCH
@@ -404,9 +402,8 @@ HoldSwitchmonIcon:
 	and a
 	jr z, .next
 	cp d
-	jr z, .is_switchmon
 	ld a, SPRITE_ANIM_SEQ_PARTY_MON_SELECTED
-	jr .join_back
+	jr nz, .join_back
 
 .is_switchmon
 	ld a, SPRITE_ANIM_SEQ_PARTY_MON_SWITCH

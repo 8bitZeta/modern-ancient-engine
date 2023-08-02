@@ -495,9 +495,8 @@ Function171beb:
 	call PlaceString
 	ld a, [wcd4a]
 	cp $2
-	jr z, .asm_171c1f
 	ld a, $8
-	jr .asm_171c21
+	jr nz, .asm_171c21
 .asm_171c1f
 	ld a, $c
 .asm_171c21

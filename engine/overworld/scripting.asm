@@ -1774,9 +1774,8 @@ Script_checkmoney:
 
 CompareMoneyAction:
 	jr c, .less
-	jr z, .exact
 	ld a, HAVE_MORE
-	jr .done
+	jr nz, .done
 .exact
 	ld a, HAVE_AMOUNT
 	jr .done

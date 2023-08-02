@@ -726,9 +726,8 @@ MovementFunction_FollowNotExact:
 	ld a, [hl]
 	cp d
 	jr z, .equal
-	jr c, .less
 	ld a, 3
-	jr .done
+	jr nc, .done
 
 .less
 	ld a, 2

@@ -796,9 +796,8 @@ Function4873c:
 	; inc a
 	ld a, [wPlayerGender]
 	and a
-	jr z, .male
 	ld a, 2
-	jr .okay_gender
+	jr nz, .okay_gender
 
 .male
 	ld a, 1

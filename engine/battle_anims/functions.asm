@@ -1595,9 +1595,8 @@ BattleAnimFunction_Bite:
 	add hl, bc
 	ld [hl], a
 	bit 7, a
-	jr nz, .flipped2
 	ld a, BATTLEANIMFRAMESET_3D
-	jr .got_frameset
+	jr z, .got_frameset
 
 .flipped2
 	ld a, BATTLEANIMFRAMESET_3C
@@ -3352,9 +3351,8 @@ BattleAnimFunction_SkyAttack:
 	call BattleAnim_IncAnonJumptableIndex
 	ldh a, [hBattleTurn]
 	and a
-	jr nz, .enemy_turn
 	ld a, $f0
-	jr .got_var1
+	jr z, .got_var1
 
 .enemy_turn
 	ld a, $cc

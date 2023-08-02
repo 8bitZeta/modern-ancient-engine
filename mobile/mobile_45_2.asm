@@ -167,9 +167,8 @@ Function11665c:
 	call Function11679c
 	ld a, [wc314 + 3]
 	and a
-	jr nz, .asm_116673
 	ld a, $48
-	jr .asm_116675
+	jr z, .asm_116675
 
 .asm_116673
 	ld a, $78

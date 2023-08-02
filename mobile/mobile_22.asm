@@ -4079,7 +4079,7 @@ Function8ac7c:
 	call PrintText
 	ld a, $2
 	call Function89259
-	jmp c, Function8ac7c
+	jr c, Function8ac7c
 	call LoadStandardFont
 	pop de
 	ld c, $0

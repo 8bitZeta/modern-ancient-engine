@@ -1904,10 +1904,9 @@ Music_TempoRelative:
 	ld e, a
 	; check sign
 	cp $80
-	jr nc, .negative
 ;positive
 	ld d, 0
-	jr .ok
+	jr c, .ok
 
 .negative
 	ld d, -1

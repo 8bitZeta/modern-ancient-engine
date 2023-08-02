@@ -174,28 +174,28 @@ patterns = {
 		and (not line3.code.startswith('adc [')
 			or line3.code in {'adc [hl]'})),
 ],
-# 'a = carry - X': [
-# 	# Bad: ld b, a / ld a, 0 / sbc c|N
-# 	# Good: ld b, a / sbc b / add c|N
-# 	(lambda line1, prev: re.match(r'ld ([bcdehl]|\[hl\]), a', line1.code)),
-# 	(lambda line2, prev: re.match(r'ld a, [%\$&]?0+$', line2.code)),
-# 	(lambda line3, prev: line3.code.startswith('sbc ')
-# 		and (not line3.code.startswith('sbc [')
-# 			or line3.code in {'sbc [hl]'})),
-# ],
-# 'a|b|c|d|e|h|l = z|nz|c|nc ? P : Q': [
-# 	# Bad: jr z|nz|c|nc, .p / ld a|b|c|d|e|h|l, Q / jr .ok / .p / (ld a|b|c|d|e|h|l, P | xor a) / (.ok | jr .ok)
-# 	# Good: ld a|b|c|d|e|h|l, Q / jr nz|z|nc|c, .ok / .p / (ld a|b|c|d|e|h|l, P | xor a) / .ok
-# 	(lambda line1, prev: re.match(r'(jr|jp|jmp) n?[zc],', line1.code)),
-# 	(lambda line2, prev: re.match(r'ldh? [abcdehl],', line2.code)),
-# 	(lambda line3, prev: re.match(r'(jr|jp|jmp) ', line3.code) and ',' not in line3.code
-# 		and line3.code != 'jp hl'),
-# 	(lambda line4, prev: line4.code.rstrip(':') == prev[0].code.split(',')[1].strip()),
-# 	(lambda line5, prev: re.match(r'ldh? [abcdehl],', line5.code)
-# 		or (line5.code in {'xor a', 'xor a, a'} and re.match(r'ldh? a,', prev[1].code))),
-# 	(lambda line6, prev: line6.code == prev[2].code
-# 		or line6.code.rstrip(':') == prev[2].code.split(maxsplit=1)[-1].strip()),
-# ],
+'a = carry - X': [
+	# Bad: ld b, a / ld a, 0 / sbc c|N
+	# Good: ld b, a / sbc b / add c|N
+	(lambda line1, prev: re.match(r'ld ([bcdehl]|\[hl\]), a', line1.code)),
+	(lambda line2, prev: re.match(r'ld a, [%\$&]?0+$', line2.code)),
+	(lambda line3, prev: line3.code.startswith('sbc ')
+		and (not line3.code.startswith('sbc [')
+			or line3.code in {'sbc [hl]'})),
+],
+'a|b|c|d|e|h|l = z|nz|c|nc ? P : Q': [
+	# Bad: jr z|nz|c|nc, .p / ld a|b|c|d|e|h|l, Q / jr .ok / .p / (ld a|b|c|d|e|h|l, P | xor a) / (.ok | jr .ok)
+	# Good: ld a|b|c|d|e|h|l, Q / jr nz|z|nc|c, .ok / .p / (ld a|b|c|d|e|h|l, P | xor a) / (.ok | jr .ok)
+	(lambda line1, prev: re.match(r'(jr|jp|jmp) n?[zc],', line1.code)),
+	(lambda line2, prev: re.match(r'ldh? [abcdehl],', line2.code)),
+	(lambda line3, prev: re.match(r'(jr|jp|jmp) ', line3.code) and ',' not in line3.code
+		and line3.code != 'jp hl'),
+	(lambda line4, prev: line4.code.rstrip(':') == prev[0].code.split(',')[1].strip()),
+	(lambda line5, prev: re.match(r'ldh? [abcdehl],', line5.code)
+		or (line5.code in {'xor a', 'xor a, a'} and re.match(r'ldh? a,', prev[1].code))),
+	(lambda line6, prev: line6.code == prev[2].code
+		or line6.code.rstrip(':') == prev[2].code.split(maxsplit=1)[-1].strip()),
+],
 # 'a & X == X': [
 # 	# Bad: and N / cp N
 # 	# Good: or ~N / inc a (unless you need the masked value or the carry flag)
