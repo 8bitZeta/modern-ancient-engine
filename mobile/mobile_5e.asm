@@ -279,20 +279,20 @@ Function17a83c:
 
 Function17a848:
 	ld a, c
-	and $60
-	cp $60
+	or ~$60
+	inc a
 	jr z, .asm_17a876
 	ld a, c
-	and $50
-	cp $50
+	or ~$50
+	inc a
 	jr z, .asm_17a87d
 	ld a, c
-	and $a0
-	cp $a0
+	or ~$a0
+	inc a
 	jr z, .asm_17a884
 	ld a, c
-	and $90
-	cp $90
+	or ~$90
+	inc a
 	jr z, .asm_17a88b
 	bit 6, c
 	jr nz, .asm_17a892

@@ -813,8 +813,8 @@ Hatch_LoadFrontpicPal:
 EggHatch_CrackShell:
 	ld a, [wFrameCounter]
 	dec a
-	and $7
-	cp $7
+	or ~$7
+	inc a
 	ret z
 	srl a
 	ret nc

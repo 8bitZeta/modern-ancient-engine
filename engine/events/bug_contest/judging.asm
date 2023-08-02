@@ -246,8 +246,8 @@ ComputeAIContestantScores:
 .loop2
 	; 0, 1, or 2 for 1st, 2nd, or 3rd
 	call Random
-	and 3
-	cp 3
+	or ~$3
+	inc a
 	jr z, .loop2
 	add a
 	add a

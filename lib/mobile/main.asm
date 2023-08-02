@@ -8193,8 +8193,8 @@ Function1135eb:
 .asm_1135ed
 	ld a, [hl]
 	swap a
-	and $f
-	cp $f
+	or ~$f
+	inc a
 	jr z, .asm_11361c
 	or $30
 	cp $3a
@@ -8204,8 +8204,8 @@ Function1135eb:
 	ld [de], a
 	inc de
 	ld a, [hli]
-	and $f
-	cp $f
+	or ~$f
+	inc a
 	jr z, .asm_11361c
 	or $30
 	cp $3a

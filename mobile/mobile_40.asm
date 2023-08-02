@@ -1493,8 +1493,8 @@ Function1009d2:
 
 Function1009f3:
 	ldh a, [hJoyDown]
-	and SELECT + A_BUTTON
-	cp SELECT + A_BUTTON
+	or ~SELECT + A_BUTTON
+	inc a
 	jr nz, .select_a
 	ld hl, wcd2a
 	set 4, [hl]
@@ -2969,8 +2969,8 @@ asm_101416:
 Function101418:
 	call GetJoypad
 	ldh a, [hJoyDown]
-	and SELECT + A_BUTTON
-	cp SELECT + A_BUTTON
+	or ~SELECT + A_BUTTON
+	inc a
 	jr z, .asm_101425
 	xor a
 	ret
@@ -4555,8 +4555,8 @@ Function102068:
 	ret
 
 Function102080:
-	and $0f
-	cp $0f
+	or ~$0f
+	inc a
 	jr z, .asm_10208a
 	add $30
 	ld [hli], a
