@@ -157,14 +157,14 @@ patterns = {
 		and (not line2.code.startswith('ld a, [') or line2.code == 'ld a, [hl]')),
 	(lambda line3, prev: re.match(r'(adc) [%\$&]?0+$', line3.code)),
 ],
-# 'a = X - carry': [
-# 	# Bad: ld b, a / ld a, c|N / sbc 0
-# 	# Good: ld b, a / sbc b / add c|N
-# 	(lambda line1, prev: re.match(r'ld ([bcdehl]|\[hl\]), a', line1.code)),
-# 	(lambda line2, prev: line2.code.startswith('ld a,')
-# 		and (not line2.code.startswith('ld a, [') or line2.code == 'ld a, [hl]')),
-# 	(lambda line3, prev: re.match(r'(sbc) [%\$&]?0+$', line3.code)),
-# ],
+'a = X - carry': [
+	# Bad: ld b, a / ld a, c|N / sbc 0
+	# Good: ld b, a / sbc b / add c|N
+	(lambda line1, prev: re.match(r'ld ([bcdehl]|\[hl\]), a', line1.code)),
+	(lambda line2, prev: line2.code.startswith('ld a,')
+		and (not line2.code.startswith('ld a, [') or line2.code == 'ld a, [hl]')),
+	(lambda line3, prev: re.match(r'(sbc) [%\$&]?0+$', line3.code)),
+],
 # 'a = carry + X': [
 # 	# Bad: ld b, a / ld a, 0 / adc c|N
 # 	# Good: ld b, a / adc c|N / sub b

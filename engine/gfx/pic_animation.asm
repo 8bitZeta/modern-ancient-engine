@@ -654,8 +654,8 @@ PokeAnim_ConvertAndApplyBitmask:
 	ld a, l
 	sub e
 	ld l, a
-	ld a, h
-	sbc 0
+	sbc l
+	add h
 	ld h, a
 
 .done

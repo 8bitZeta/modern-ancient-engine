@@ -720,8 +720,8 @@ LoadNote:
 	ld a, e
 	sub [hl]
 	ld e, a
-	ld a, d
-	sbc 0
+	sbc e
+	add d
 	ld d, a
 	ld hl, CHANNEL_PITCH_SLIDE_TARGET + 1
 	add hl, bc
@@ -742,8 +742,8 @@ LoadNote:
 	ld a, [hl]
 	sub e
 	ld e, a
-	ld a, d
-	sbc 0
+	sbc e
+	add d
 	ld d, a
 	; ????
 	ld hl, CHANNEL_PITCH_SLIDE_TARGET + 1
@@ -769,8 +769,8 @@ LoadNote:
 	ld a, e
 	sub [hl]
 	ld e, a
-	ld a, d
-	sbc 0
+	sbc e
+	add d
 	ld d, a
 	ld hl, CHANNEL_PITCH_SLIDE_TARGET + 1
 	add hl, bc
@@ -994,8 +994,8 @@ ApplyPitchSlide:
 	ld e, [hl]
 	sub e
 	ld e, a
-	ld a, d
-	sbc 0
+	sbc e
+	add d
 	ld d, a
 	; [Channel*Field25] *= 2
 	; if rollover: Frequency -= 1
@@ -1005,11 +1005,11 @@ ApplyPitchSlide:
 	add a
 	ld [hl], a
 	; could have done "jr nc, .no_rollover / dec de / .no_rollover"
-	ld a, e
-	sbc 0
+	sbc [hl]
+	add e
 	ld e, a
-	ld a, d
-	sbc 0
+	sbc e
+	add d
 	ld d, a
 	; Compare the dw at [Channel*PitchSlideTarget] to de.
 	; If frequency is lower, we're finished.
