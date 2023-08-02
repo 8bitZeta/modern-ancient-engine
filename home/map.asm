@@ -137,12 +137,12 @@ LoadMetatiles::
 	ld e, l
 	ld d, h
 	; Set hl to the address of the current metatile data ([wTilesetBlocksAddress] + (a) tiles).
+	swap a
 	ld l, a
-	ld h, 0
-	add hl, hl
-	add hl, hl
-	add hl, hl
-	add hl, hl
+	and $f
+	ld h, a
+	xor l
+	ld l, a
 	ld a, [wTilesetBlocksAddress]
 	add l
 	ld l, a
