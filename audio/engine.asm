@@ -408,14 +408,15 @@ UpdateChannels:
 	push hl
 	ld a, [wCurTrackVolumeEnvelope]
 	and $f ; only 0-9 are valid
-	ld l, a
-	ld h, 0
 	; hl << 4
 	; each wavepattern is $f bytes long
 	; so seeking is done in $10s
-rept 4
-	add hl, hl
-endr
+	swap a
+	ld l, a
+	and $f
+	ld h, a
+	xor l
+	ld l, a
 	ld de, WaveSamples
 	add hl, de
 	; load wavepattern into rWave_0-rWave_f
