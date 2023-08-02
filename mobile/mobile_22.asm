@@ -1021,8 +1021,8 @@ Function8975b:
 	ld [hli], a
 	inc a
 	ld [hli], a
-	ld [hl], $d
-	dec hl
+	ld a, $d
+	ld [hld], a
 	dec hl
 	ld a, $4
 	ld e, $3

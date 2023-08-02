@@ -2628,10 +2628,10 @@ AddBattleMoneyToAccount:
 	ld a, [hl]
 	sbc HIGH(MAX_MONEY >> 8)
 	ret c
-	ld [hl], HIGH(MAX_MONEY >> 8)
-	inc hl
-	ld [hl], HIGH(MAX_MONEY) ; mid
-	inc hl
+	ld a, HIGH(MAX_MONEY >> 8)
+	ld [hli], a
+	ld a, HIGH(MAX_MONEY) ; mid
+	ld [hli], a
 	ld [hl], LOW(MAX_MONEY)
 	ret
 
@@ -5873,8 +5873,8 @@ MoveInfoBox:
 	pop hl
 	inc hl
 	inc hl
-	ld [hl], "/"
-	inc hl
+	ld a, "/"
+	ld [hli], a
 	ld de, wNamedObjectIndex
 	lb bc, 1, 2
 	call PrintNum

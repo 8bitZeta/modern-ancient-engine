@@ -158,10 +158,10 @@ _TitleScreen:
 	ld hl, wLYOverrides
 .loop
 ; $00 is the middle position
-	ld [hl], +112 ; coming from the left
-	inc hl
-	ld [hl], -112 ; coming from the right
-	inc hl
+	ld a, +112 ; coming from the left
+	ld [hli], a
+	ld a, -112 ; coming from the right
+	ld [hli], a
 	dec b
 	jr nz, .loop
 

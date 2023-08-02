@@ -626,7 +626,7 @@ BattleAnimCmd_ClearObjs:
 	ld hl, wActiveAnimObjects
 	ld a, NUM_ANIM_OBJECTS * BATTLEANIMSTRUCT_LENGTH
 .loop
-	ld [hl], 0
+	ld [hl], 0 ; no-optimize *hl++|*hl-- = N
 	inc hl
 	dec a
 	jr nz, .loop

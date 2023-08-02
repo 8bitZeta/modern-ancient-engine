@@ -219,7 +219,7 @@ Function3f88::
 	ld a, [de]
 	inc de
 	cpl
-	ld [hl], 0
+	ld [hl], 0 ; no-optimize *hl++|*hl-- = N
 	inc hl
 	ld [hli], a
 	dec c
@@ -239,8 +239,8 @@ Function3f9f::
 	inc de
 	inc de
 	cpl
-	ld [hl], $0
-	inc hl
+	xor a
+	ld [hli], a
 	ld [hli], a
 	dec c
 	jr nz, .col

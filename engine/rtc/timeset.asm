@@ -312,8 +312,8 @@ OakText_ResponseToSetTime:
 	ld a, [wInitHourBuffer]
 	ld c, a
 	call PrintHour
-	ld [hl], ":"
-	inc hl
+	ld a, ":"
+	ld [hli], a
 	ld de, wInitMinuteBuffer
 	lb bc, PRINTNUM_LEADINGZEROS | 1, 2
 	call PrintNum

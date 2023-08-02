@@ -54,16 +54,16 @@ CatchTutorial::
 
 .LoadDudeData:
 	ld hl, wDudeNumItems
-	ld [hl], 1
-	inc hl
-	ld [hl], POTION
-	inc hl
-	ld [hl], 1
-	inc hl
+	ld a, 1
+	ld [hli], a
+	ld a, POTION
+	ld [hli], a
+	ld a, 1
+	ld [hli], a
 	ld [hl], -1
 	ld hl, wDudeNumKeyItems
-	ld [hl], 0
-	inc hl
+	xor a
+	ld [hli], a
 	ld [hl], -1
 	ld hl, wDudeNumBalls
 	ld a, 1

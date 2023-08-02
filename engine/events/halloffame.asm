@@ -621,8 +621,8 @@ HOF_AnimatePlayerPic:
 	ld de, wGameTimeHours
 	lb bc, 2, 3
 	call PrintNum
-	ld [hl], HALLOFFAME_COLON
-	inc hl
+	ld a, HALLOFFAME_COLON
+	ld [hli], a
 	ld de, wGameTimeMinutes
 	lb bc, PRINTNUM_LEADINGZEROS | 1, 2
 	call PrintNum

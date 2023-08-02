@@ -18,8 +18,8 @@ PlaceMenuItemQuantity:
 	jr nz, .done
 	ld de, $15
 	add hl, de
-	ld [hl], "×"
-	inc hl
+	ld a, "×"
+	ld [hli], a
 	ld de, wMenuSelectionQuantity
 	lb bc, 1, 2
 	call PrintNum

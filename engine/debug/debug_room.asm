@@ -928,8 +928,8 @@ DebugRoom_PrintPagedValue:
 .hex
 	ld c, 1
 	call PrintHexNumber
-	ld [hl], "H"
-	inc hl
+	ld a, "H"
+	ld [hli], a
 .printed
 	ld bc, 6
 	add hl, bc
@@ -1342,13 +1342,13 @@ DebugRoomMenu_RTCEdit_UpdateClock:
 	ld de, wDebugRoomRTCCurHour
 	lb bc, PRINTNUM_LEADINGZEROS | 1, 2
 	call PrintNum
-	ld [hl], ":"
-	inc hl
+	ld a, ":"
+	ld [hli], a
 	ld de, wDebugRoomRTCCurMin
 	lb bc, PRINTNUM_LEADINGZEROS | 1, 2
 	call PrintNum
-	ld [hl], ":"
-	inc hl
+	ld a, ":"
+	ld [hli], a
 	ld de, wDebugRoomRTCCurSec
 	lb bc, PRINTNUM_LEADINGZEROS | 1, 2
 	call PrintNum
