@@ -5720,10 +5720,9 @@ Function11261c:
 	call Function112724
 	ld a, [wMobileSDK_PacketBuffer + 117]
 	ld b, a
-	ld de, wMobileSDK_PacketBuffer + 118
-	add e
+	add LOW(wMobileSDK_PacketBuffer + 118)
 	ld e, a
-	adc d
+	adc HIGH(wMobileSDK_PacketBuffer + 118)
 	sub e
 	ld d, a
 	call Function111f63
@@ -5751,19 +5750,17 @@ Function112654:
 	call Function112724
 	ld a, [wMobileSDK_PacketBuffer + 165]
 	ld b, a
-	ld de, wMobileSDK_PacketBuffer + 166
-	add e
+	add LOW(wMobileSDK_PacketBuffer + 166)
 	ld e, a
-	adc d
+	adc HIGH(wMobileSDK_PacketBuffer + 166)
 	sub e
 	ld d, a
 	call Function111f63
 	ld a, [wMobileSDK_PacketBuffer + 101]
 	ld b, a
-	ld de, wMobileSDK_PacketBuffer + 102
-	add e
+	add LOW(wMobileSDK_PacketBuffer + 102)
 	ld e, a
-	adc d
+	adc HIGH(wMobileSDK_PacketBuffer + 102)
 	sub e
 	ld d, a
 	call Function111f63

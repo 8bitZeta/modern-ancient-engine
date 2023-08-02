@@ -1469,10 +1469,9 @@ GetMovementPermissions::
 
 	ld a, [wPlayerTile]
 	and 7
-	ld hl, .MovementPermissionsData
-	add l
+	add LOW(.MovementPermissionsData)
 	ld l, a
-	adc h
+	adc HIGH(.MovementPermissionsData)
 	sub l
 	ld h, a
 	ld a, [hl]
