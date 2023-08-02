@@ -6860,9 +6860,9 @@ ApplyStatLevelMultiplier:
 .got_pointers
 	add c
 	ld c, a
-	jr nc, .okay
-	inc b
-.okay
+	adc b
+	sub c
+	ld b, a
 	ld a, [bc]
 	pop bc
 	ld b, a
@@ -6873,9 +6873,9 @@ ApplyStatLevelMultiplier:
 	ld a, c
 	add e
 	ld e, a
-	jr nc, .okay2
-	inc d
-.okay2
+	adc d
+	sub e
+	ld d, a
 	pop bc
 	push hl
 	ld hl, StatLevelMultipliers_Applied
@@ -7215,9 +7215,9 @@ GiveExperiencePoints:
 	ld a, [hli]
 	add c
 	ld c, a
-	jr nc, .cont
-	inc b
-.cont
+	adc b
+	sub c
+	ld b, a
 	dec e
 	jr nz, .count_evs
 	ld a, d

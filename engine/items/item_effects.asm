@@ -1159,9 +1159,9 @@ VitaminEffect:
 	ld a, [hli]
 	add c
 	ld c, a
-	jr nc, .cont
-	inc b
-.cont
+	adc b
+	sub c
+	ld b, a
 	dec e
 	jr nz, .count_evs
 	ld a, d
