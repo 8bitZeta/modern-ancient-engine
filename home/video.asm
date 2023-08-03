@@ -329,9 +329,8 @@ endr
 	inc l
 	ld [hl], d
 	inc l
-	ld [hl], d
-
-	inc hl
+	ld a, d
+	ld [hli], a
 	dec b
 	jr nz, .next
 
@@ -406,9 +405,8 @@ endr
 	pop de
 	ld [hl], e
 	inc l
-	ld [hl], d
-
-	inc hl
+	ld a, d
+	ld [hli], a
 	dec b
 	jr nz, .next
 

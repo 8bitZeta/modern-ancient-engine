@@ -1129,8 +1129,8 @@ TitleScreenTimer:
 ; Start a timer
 	ld hl, wTitleScreenTimer
 	ld de, 73 * 60 + 36
-	ld [hl], e
-	inc hl
+	ld a, e
+	ld [hli], a
 	ld [hl], d
 	ret
 
@@ -1145,8 +1145,8 @@ TitleScreenMain:
 	jr z, .end
 
 	dec de
-	ld [hl], d
-	dec hl
+	ld a, d
+	ld [hld], a
 	ld [hl], e
 
 ; Save data can be deleted by pressing Up + B + Select.

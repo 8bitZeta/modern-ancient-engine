@@ -1257,10 +1257,10 @@ Function114867:
 	ld hl, $dc06
 	ld a, [wCurMapBGEventCount]
 	ld [hli], a
-	ld [hl], e
-	inc hl
-	ld [hl], d
-	inc hl
+	ld a, e
+	ld [hli], a
+	ld a, d
+	ld [hli], a
 	ld c, [hl]
 	inc hl
 	ld b, [hl]
@@ -1272,8 +1272,8 @@ Function114867:
 	jr z, .asm_1148b6
 	dec d
 	jr nz, .asm_1148a9
-	ld [hl], b
-	dec hl
+	ld a, b
+	ld [hld], a
 	ld [hl], c
 	xor a
 	ret
@@ -1347,10 +1347,10 @@ Function1148c2:
 	ld hl, $dc06
 	ld a, [wCurMapBGEventCount]
 	ld [hli], a
-	ld [hl], e
-	inc hl
-	ld [hl], d
-	inc hl
+	ld a, e
+	ld [hli], a
+	ld a, d
+	ld [hli], a
 	ld c, [hl]
 	inc hl
 	ld b, [hl]
@@ -1369,8 +1369,8 @@ Function1148c2:
 	jr z, .asm_114941
 	dec d
 	jr nz, .asm_114934
-	ld [hl], b
-	dec hl
+	ld a, b
+	ld [hld], a
 	ld [hl], c
 	xor a
 	ret
@@ -1436,10 +1436,10 @@ Function11494d:
 	ld hl, $dc06
 	ld a, [wCurMapBGEventCount]
 	ld [hli], a
-	ld [hl], e
-	inc hl
-	ld [hl], d
-	inc hl
+	ld a, e
+	ld [hli], a
+	ld a, d
+	ld [hli], a
 	ld c, [hl]
 	inc hl
 	ld b, [hl]
@@ -1458,8 +1458,8 @@ Function11494d:
 	jr z, .asm_1149c0
 	dec d
 	jr nz, .asm_1149b3
-	ld [hl], b
-	dec hl
+	ld a, b
+	ld [hld], a
 	ld [hl], c
 	xor a
 	ret
@@ -1494,8 +1494,8 @@ Function1149cc:
 	ld a, d
 	or e
 	jr z, .asm_114a0b
-	ld [hl], d
-	dec hl
+	ld a, d
+	ld [hld], a
 	ld [hl], e
 	ld hl, wCurMapSceneScriptCount
 	ld e, [hl]
@@ -1512,8 +1512,8 @@ Function1149cc:
 	ld hl, $dc06
 	ld a, [wCurMapBGEventCount]
 	ld [hli], a
-	ld [hl], e
-	inc hl
+	ld a, e
+	ld [hli], a
 	ld [hl], d
 	pop de
 	xor a
@@ -1573,8 +1573,8 @@ Function114a18:
 	ld hl, $dc03
 	ld a, [$dc00]
 	ld [hli], a
-	ld [hl], e
-	inc hl
+	ld a, e
+	ld [hli], a
 	ld [hl], d
 	xor a
 	ret
@@ -1639,8 +1639,8 @@ Function114a7a:
 	ld hl, $dc03
 	ld a, [$dc00]
 	ld [hli], a
-	ld [hl], e
-	inc hl
+	ld a, e
+	ld [hli], a
 	ld [hl], d
 	xor a
 	ret
@@ -1738,10 +1738,10 @@ Function114acf:
 	ld hl, wDecoPlant
 	ld a, [$dc00]
 	ld [hli], a
-	ld [hl], e
-	inc hl
-	ld [hl], d
-	inc hl
+	ld a, e
+	ld [hli], a
+	ld a, d
+	ld [hli], a
 .asm_114b31
 	ld a, [de]
 	cp $22
@@ -1796,14 +1796,14 @@ Function114b55:
 	ld a, $1
 	ld [hli], a
 	inc hl
-	ld [hl], e
-	inc hl
-	ld [hl], d
-	inc hl
-	ld [hl], c
-	inc hl
-	ld [hl], b
-	inc hl
+	ld a, e
+	ld [hli], a
+	ld a, d
+	ld [hli], a
+	ld a, c
+	ld [hli], a
+	ld a, b
+	ld [hli], a
 .asm_114b82
 	pop bc
 	pop de
@@ -2528,8 +2528,8 @@ Function114f39:
 	ld [hli], a
 	inc de
 	ld hl, $dc0d
-	ld [hl], e
-	inc hl
+	ld a, e
+	ld [hli], a
 	ld [hl], d
 	ld a, $1
 	ret
@@ -3219,7 +3219,7 @@ Function1152b8:
 
 .asm_115301
 	ld hl, $dc0d
-	ld [hl], e
+	ld [hl], e ; no-optimize *hl++|*hl-- = b|c|d|e
 	inc hl
 	ld [hl], d
 .asm_115307
@@ -3329,8 +3329,8 @@ Function11537d:
 	ld [hli], a
 	inc de
 	ld hl, $dc0d
-	ld [hl], e
-	inc hl
+	ld a, e
+	ld [hli], a
 	ld [hl], d
 	xor a
 	ld [$dc03], a
@@ -3357,8 +3357,8 @@ Function1153b5:
 	ld [wDecoBed], a
 	inc de
 	ld hl, $dc0d
-	ld [hl], e
-	inc hl
+	ld a, e
+	ld [hli], a
 	ld [hl], d
 	ret
 
@@ -3533,8 +3533,8 @@ Function1153d2:
 	ld hl, wDecoRightOrnament
 	ld a, [wCurMapBGEventCount]
 	ld [hli], a
-	ld [hl], e
-	inc hl
+	ld a, e
+	ld [hli], a
 	ld [hl], d
 	ld a, [wDecoConsole]
 	ld e, a
@@ -3695,7 +3695,7 @@ Function1155af:
 	inc de
 	ld a, [de]
 	ld [hli], a
-	ld [hl], b
+	ld [hl], b ; no-optimize *hl++|*hl-- = b|c|d|e
 	inc hl
 	ld [hli], a
 	inc de
@@ -3824,8 +3824,8 @@ Function11560a:
 	ld hl, $dc24
 	call Function115d53
 	ld hl, $dc18
-	ld [hl], e
-	inc hl
+	ld a, e
+	ld [hli], a
 	ld [hl], d
 	pop bc
 	ld a, [wCurMapBGEventCount]
@@ -3838,8 +3838,8 @@ Function11560a:
 	ld hl, $dc24
 	call Function115d6a
 	ld hl, wCurMapSceneScriptCount
-	ld [hl], e
-	inc hl
+	ld a, e
+	ld [hli], a
 	ld [hl], d
 	ld hl, $dc1a
 	ld c, [hl]
@@ -4147,8 +4147,8 @@ Function11581e:
 	ld hl, $dc02
 	ld a, [$dc00]
 	ld [hli], a
-	ld [hl], e
-	inc hl
+	ld a, e
+	ld [hli], a
 	ld [hl], d
 	ld hl, $dc24
 	ld de, wPartyMon5Defense
@@ -4309,8 +4309,8 @@ Function1158c2:
 rept 4
 	inc de
 endr
-	ld [hl], d
-	dec hl
+	ld a, d
+	ld [hld], a
 	ld [hl], e
 	pop hl
 	dec hl
@@ -4702,8 +4702,8 @@ Function115b00:
 	ld hl, $dc02
 	ld a, [$dc00]
 	ld [hli], a
-	ld [hl], e
-	inc hl
+	ld a, e
+	ld [hli], a
 	ld [hl], d
 	ld hl, wPartyMon5Defense
 	ld de, $dc24
@@ -4958,8 +4958,8 @@ endr
 	inc de
 	inc de
 	inc de
-	ld [hl], d
-	dec hl
+	ld a, d
+	ld [hld], a
 	ld [hl], e
 	pop hl
 	dec hl
@@ -4977,12 +4977,12 @@ endr
 	sla b
 	rla
 	ld [hli], a
-	ld [hl], b
-	inc hl
+	ld a, b
+	ld [hli], a
 	rrc c
 	rrc c
-	ld [hl], c
-	dec hl
+	ld a, c
+	ld [hld], a
 	ld a, $f
 	and c
 	or [hl]
@@ -5066,8 +5066,8 @@ endr
 	inc hl
 	ld d, [hl]
 	dec de
-	ld [hl], d
-	dec hl
+	ld a, d
+	ld [hld], a
 	ld [hl], e
 	pop hl
 	pop de

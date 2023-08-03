@@ -2116,7 +2116,7 @@ rept 3
 	srl a
 	rr b
 endr
-	ld [hl], b
+	ld [hl], b ; no-optimize *hl++|*hl-- = b|c|d|e
 	dec hl
 	ld [hli], a
 	or b

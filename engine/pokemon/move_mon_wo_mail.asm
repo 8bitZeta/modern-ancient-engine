@@ -74,7 +74,7 @@ InsertSpeciesIntoBoxOrParty:
 	ld c, a
 .loop
 	ld a, [hl]
-	ld [hl], c
+	ld [hl], c ; no-optimize *hl++|*hl-- = b|c|d|e
 	inc hl
 	inc c
 	ld c, a

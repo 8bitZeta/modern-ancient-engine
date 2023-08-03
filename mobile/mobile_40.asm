@@ -547,8 +547,8 @@ Function1003d8:
 	inc bc
 	call Function10043a
 	add hl, bc
-	ld [hl], e
-	inc hl
+	ld a, e
+	ld [hli], a
 	ld [hl], d
 	ld a, c
 	add $02
@@ -2426,8 +2426,8 @@ endr
 	ld bc, wc7bb - wc608
 	call Function1010de
 	ld hl, wc7bb
-	ld [hl], e
-	inc hl
+	ld a, e
+	ld [hli], a
 	ld [hl], d
 	ld a, BANK(s7_a001)
 	call OpenSRAM

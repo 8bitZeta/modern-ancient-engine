@@ -12,8 +12,8 @@ _NamingScreen:
 
 NamingScreen:
 	ld hl, wNamingScreenDestinationPointer
-	ld [hl], e
-	inc hl
+	ld a, e
+	ld [hli], a
 	ld [hl], d
 	ld hl, wNamingScreenType
 	ld [hl], b
@@ -878,8 +878,8 @@ INCBIN "gfx/naming_screen/underline.1bpp"
 
 _ComposeMailMessage:
 	ld hl, wNamingScreenDestinationPointer
-	ld [hl], e
-	inc hl
+	ld a, e
+	ld [hli], a
 	ld [hl], d
 	ldh a, [hMapAnims]
 	push af

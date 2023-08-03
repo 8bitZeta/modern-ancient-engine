@@ -190,7 +190,7 @@ MobileHome_PlaceBox:
 
 .FillRow:
 	push hl
-	ld [hl], d
+	ld [hl], d ; no-optimize *hl++|*hl-- = b|c|d|e
 	inc hl
 .FillLoop:
 	ld [hli], a

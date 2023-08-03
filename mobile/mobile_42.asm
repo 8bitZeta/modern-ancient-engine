@@ -88,8 +88,8 @@ Function10804d:
 
 RunMobileTradeAnim_Frontpics:
 	ld hl, wTradeAnimAddress
-	ld [hl], e
-	inc hl
+	ld a, e
+	ld [hli], a
 	ld [hl], d
 	ldh a, [hMapAnims]
 	push af
@@ -117,8 +117,8 @@ RunMobileTradeAnim_Frontpics:
 
 RunMobileTradeAnim_NoFrontpics:
 	ld hl, wTradeAnimAddress
-	ld [hl], e
-	inc hl
+	ld a, e
+	ld [hli], a
 	ld [hl], d
 	ldh a, [hMapAnims]
 	push af
@@ -386,8 +386,8 @@ GetMobileTradeAnimByte:
 	ld a, [de]
 	ld [wJumptableIndex], a
 	inc de
-	ld [hl], d
-	dec hl
+	ld a, d
+	ld [hld], a
 	ld [hl], e
 	ret
 

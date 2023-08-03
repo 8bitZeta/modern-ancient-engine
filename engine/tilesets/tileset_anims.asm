@@ -274,16 +274,16 @@ ScrollTileUp:
 	ld a, LEN_2BPP_TILE / 4
 .loop
 	ld c, [hl]
-	ld [hl], e
+	ld [hl], e ; no-optimize *hl++|*hl-- = b|c|d|e
 	dec hl
 	ld b, [hl]
-	ld [hl], d
+	ld [hl], d ; no-optimize *hl++|*hl-- = b|c|d|e
 	dec hl
 	ld e, [hl]
-	ld [hl], c
+	ld [hl], c ; no-optimize *hl++|*hl-- = b|c|d|e
 	dec hl
 	ld d, [hl]
-	ld [hl], b
+	ld [hl], b ; no-optimize *hl++|*hl-- = b|c|d|e
 	dec hl
 	dec a
 	jr nz, .loop
@@ -302,16 +302,16 @@ ScrollTileDown:
 	ld a, LEN_2BPP_TILE / 4
 .loop
 	ld b, [hl]
-	ld [hl], d
+	ld [hl], d ; no-optimize *hl++|*hl-- = b|c|d|e
 	inc hl
 	ld c, [hl]
-	ld [hl], e
+	ld [hl], e ; no-optimize *hl++|*hl-- = b|c|d|e
 	inc hl
 	ld d, [hl]
-	ld [hl], b
+	ld [hl], b ; no-optimize *hl++|*hl-- = b|c|d|e
 	inc hl
 	ld e, [hl]
-	ld [hl], c
+	ld [hl], c ; no-optimize *hl++|*hl-- = b|c|d|e
 	inc hl
 	dec a
 	jr nz, .loop
@@ -783,14 +783,14 @@ WriteTile:
 ; copy data with a "pop slide".
 
 	pop de
-	ld [hl], e
-	inc hl
+	ld a, e
+	ld [hli], a
 	ld [hl], d
 rept (LEN_2BPP_TILE - 2) / 2
 	pop de
 	inc hl
-	ld [hl], e
-	inc hl
+	ld a, e
+	ld [hli], a
 	ld [hl], d
 endr
 

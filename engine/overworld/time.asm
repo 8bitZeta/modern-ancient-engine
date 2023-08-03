@@ -307,8 +307,8 @@ CalcSecsMinsHoursDaysSince:
 	jr nc, .skip
 	add 60
 .skip
-	ld [hl], c ; current seconds
-	dec hl
+	ld [hl], c ; no-optimize *hl++|*hl-- = b|c|d|e
+	dec hl ; current seconds
 	ld [wSecondsSince], a ; seconds since
 
 _CalcMinsHoursDaysSince:
@@ -318,8 +318,8 @@ _CalcMinsHoursDaysSince:
 	jr nc, .skip
 	add 60
 .skip
-	ld [hl], c ; current minutes
-	dec hl
+	ld [hl], c ; no-optimize *hl++|*hl-- = b|c|d|e
+	dec hl ; current minutes
 	ld [wMinutesSince], a ; minutes since
 
 _CalcHoursDaysSince:
@@ -329,8 +329,8 @@ _CalcHoursDaysSince:
 	jr nc, .skip
 	add MAX_HOUR
 .skip
-	ld [hl], c ; current hours
-	dec hl
+	ld [hl], c ; no-optimize *hl++|*hl-- = b|c|d|e
+	dec hl ; current hours
 	ld [wHoursSince], a ; hours since
 
 _CalcDaysSince:

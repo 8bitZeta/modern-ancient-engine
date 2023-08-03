@@ -201,10 +201,10 @@ DrawMagnetTrain:
 	ret
 
 .FillAlt:
-	ld [hl], e
-	inc hl
-	ld [hl], d
-	inc hl
+	ld a, e
+	ld [hli], a
+	ld a, d
+	ld [hli], a
 	dec b
 	jr nz, .FillAlt
 	ret

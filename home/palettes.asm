@@ -255,10 +255,10 @@ CopyPals::
 ; dest
 	pop hl
 ; write color
-	ld [hl], e
-	inc hl
-	ld [hl], d
-	inc hl
+	ld a, e
+	ld [hli], a
+	ld a, d
+	ld [hli], a
 ; next pal color
 rept PAL_COLOR_SIZE
 	srl b

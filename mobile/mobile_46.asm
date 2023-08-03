@@ -3531,12 +3531,12 @@ Function119b6b:
 	sla b
 	rla
 	ld [hli], a
-	ld [hl], b
-	inc hl
+	ld a, b
+	ld [hli], a
 	rrc c
 	rrc c
-	ld [hl], c
-	dec hl
+	ld a, c
+	ld [hld], a
 	ld a, $f
 	and c
 	or [hl]

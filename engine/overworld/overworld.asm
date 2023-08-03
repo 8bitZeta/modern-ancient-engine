@@ -463,7 +463,7 @@ ArrangeUsedSprites:
 	jr nc, .SecondTable
 
 .loop
-	ld [hl], b
+	ld [hl], b ; no-optimize *hl++|*hl-- = b|c|d|e
 	inc hl
 	ld b, a
 
