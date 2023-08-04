@@ -1477,8 +1477,8 @@ AI_Smart_PainSplit:
 
 	push hl
 	ld hl, wEnemyMonHP
-	ld b, [hl]
-	inc hl
+	ld a, [hli]
+	ld b, a
 	ld c, [hl]
 	sla c
 	rl b
@@ -2805,8 +2805,8 @@ AICheckMaxHP:
 AICheckPlayerHalfHP:
 	push hl
 	ld hl, wBattleMonHP
-	ld b, [hl]
-	inc hl
+	ld a, [hli]
+	ld b, a
 	ld c, [hl]
 	sla c
 	rl b
@@ -2824,8 +2824,8 @@ AICheckEnemyHalfHP:
 	push de
 	push bc
 	ld hl, wEnemyMonHP
-	ld b, [hl]
-	inc hl
+	ld a, [hli]
+	ld b, a
 	ld c, [hl]
 	sla c
 	rl b
@@ -2845,8 +2845,8 @@ AICheckEnemyQuarterHP:
 	push de
 	push bc
 	ld hl, wEnemyMonHP
-	ld b, [hl]
-	inc hl
+	ld a, [hli]
+	ld b, a
 	ld c, [hl]
 	sla c
 	rl b
@@ -2866,8 +2866,8 @@ AICheckEnemyQuarterHP:
 AICheckPlayerQuarterHP:
 	push hl
 	ld hl, wBattleMonHP
-	ld b, [hl]
-	inc hl
+	ld a, [hli]
+	ld b, a
 	ld c, [hl]
 	sla c
 	rl b

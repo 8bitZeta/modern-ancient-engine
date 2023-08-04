@@ -32,10 +32,10 @@ LoadBattleAnimGFX:
 	add hl, hl
 	ld de, AnimObjGFX
 	add hl, de
-	ld c, [hl]
-	inc hl
-	ld b, [hl]
-	inc hl
+	ld a, [hli]
+	ld c, a
+	ld a, [hli]
+	ld b, a
 	ld a, [hli]
 	ld h, [hl]
 	ld l, a

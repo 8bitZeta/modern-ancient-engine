@@ -27,7 +27,7 @@ _Sine::
 	ld hl, .sinewave
 	add hl, de
 	add hl, de
-	ld e, [hl]
+	ld e, [hl] ; no-optimize b|c|d|e = *hl++|*hl--
 	inc hl
 	ld d, [hl]
 	ld hl, 0

@@ -206,8 +206,8 @@ MobileAPI_SetTimer:
 	ld b, a
 	ld hl, Unknown_112089
 	add hl, bc
-	ld c, [hl]
-	inc hl
+	ld a, [hli]
+	ld c, a
 	ldh a, [rKEY1]
 	bit 7, a
 	jr nz, .asm_1100f9
@@ -8428,7 +8428,7 @@ Function1136c1:
 	call Function113a32
 	pop hl
 	ld a, [hli]
-	ld d, [hl]
+	ld d, [hl] ; no-optimize b|c|d|e = *hl++|*hl--
 	inc hl
 	ld e, a
 	push hl
@@ -9016,10 +9016,10 @@ Function113c8e:
 	ld [wMobileSDK_PacketBuffer + 202], a
 	push de
 	dec hl
-	ld c, [hl]
-	dec hl
-	ld b, [hl]
-	dec hl
+	ld a, [hld]
+	ld c, a
+	ld a, [hld]
+	ld b, a
 	ld a, [hl]
 	ld d, a
 	srl a
@@ -9180,12 +9180,12 @@ endr
 	ld [wMobileSDK_PacketBuffer + 202], a
 	push de
 	dec hl
-	ld d, [hl]
-	dec hl
-	ld c, [hl]
-	dec hl
-	ld b, [hl]
-	dec hl
+	ld a, [hld]
+	ld d, a
+	ld a, [hld]
+	ld c, a
+	ld a, [hld]
+	ld b, a
 	ld a, [hl]
 	sla b
 	sla b

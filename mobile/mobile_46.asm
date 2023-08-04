@@ -3517,12 +3517,12 @@ Function119b6b:
 	ret c
 	ld [hl], a
 	push de
-	ld d, [hl]
-	dec hl
-	ld c, [hl]
-	dec hl
-	ld b, [hl]
-	dec hl
+	ld a, [hld]
+	ld d, a
+	ld a, [hld]
+	ld c, a
+	ld a, [hld]
+	ld b, a
 	ld a, [hl]
 	sla b
 	sla b
@@ -5776,8 +5776,8 @@ asm_11afbd:
 	add hl, bc
 	add hl, bc
 	ld a, e
-	ld e, [hl]
-	inc hl
+	ld a, [hli]
+	ld e, a
 	ld d, [hl]
 	ld [de], a
 	ret

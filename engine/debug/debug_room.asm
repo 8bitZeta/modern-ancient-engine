@@ -620,10 +620,10 @@ DebugRoom_PageString:
 
 DebugRoom_IncrementPagedValue:
 	call DebugRoom_GetCurPagedValuePointer
-	ld e, [hl] ; de = value address
-	inc hl
-	ld d, [hl]
-	inc hl
+	ld a, [hli] ; de = value address
+	ld e, a
+	ld a, [hli]
+	ld d, a
 	inc hl
 	ld a, [de] ; a = max value
 	cp [hl]
@@ -635,10 +635,10 @@ DebugRoom_IncrementPagedValue:
 
 DebugRoom_DecrementPagedValue:
 	call DebugRoom_GetCurPagedValuePointer
-	ld e, [hl] ; de = value address
-	inc hl
-	ld d, [hl]
-	inc hl
+	ld a, [hli] ; de = value address
+	ld e, a
+	ld a, [hli]
+	ld d, a
 	ld a, [de] ; a = min value
 	cp [hl]
 	ret z
@@ -824,10 +824,10 @@ DebugRoom_InitializePagedValues:
 	ld bc, PAGED_VALUE_SIZE
 	call AddNTimes
 	pop bc
-	ld e, [hl] ; de = value address
-	inc hl
-	ld d, [hl]
-	inc hl
+	ld a, [hli] ; de = value address
+	ld e, a
+	ld a, [hli]
+	ld d, a
 	inc hl
 	inc hl
 	ld a, [hl] ; a = initial value
@@ -891,18 +891,18 @@ DebugRoom_PrintPagedValue:
 	ld bc, PAGED_VALUE_SIZE
 	call AddNTimes
 	pop bc
-	ld e, [hl] ; de = value address
-	inc hl
-	ld d, [hl]
-	inc hl
+	ld a, [hli] ; de = value address
+	ld e, a
+	ld a, [hli]
+	ld d, a
 	push de
 	inc hl
 	inc hl
 	inc hl
-	ld e, [hl] ; de = label string
-	inc hl
-	ld d, [hl]
-	inc hl
+	ld a, [hli] ; de = label string
+	ld e, a
+	ld a, [hli]
+	ld d, a
 	push hl
 	hlcoord 2, 1
 	ld a, c

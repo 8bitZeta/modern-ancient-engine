@@ -301,8 +301,8 @@ AnimSeq_GSGameFreakLogoSparkle:
 
 	ld hl, SPRITEANIMSTRUCT_VAR1
 	add hl, bc
-	ld e, [hl]
-	inc hl
+	ld a, [hli]
+	ld e, a
 	ld d, [hl]
 
 	ld hl, SPRITEANIMSTRUCT_VAR3
@@ -593,8 +593,8 @@ AnimSeq_RadioTuningKnob:
 AnimSeq_CutLeaves:
 	ld hl, SPRITEANIMSTRUCT_VAR2
 	add hl, bc
-	ld e, [hl]
-	inc hl
+	ld a, [hli]
+	ld e, a
 	ld d, [hl]
 	ld hl, $80
 	add hl, de
@@ -836,8 +836,8 @@ AnimSeq_Celebi:
 
 AnimSeqs_AnonJumptable:
 	ld hl, sp+0
-	ld e, [hl]
-	inc hl
+	ld a, [hli]
+	ld e, a
 	ld d, [hl]
 	inc de
 

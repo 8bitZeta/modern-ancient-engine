@@ -163,12 +163,12 @@ Function114269:
 	ld [$dc00], a
 	ldh [hSRAMBank], a
 	ld [MBC3SRamBank], a
-	ld e, [hl]
-	inc hl
-	ld d, [hl]
-	inc hl
-	ld c, [hl]
-	inc hl
+	ld a, [hli]
+	ld e, a
+	ld a, [hli]
+	ld d, a
+	ld a, [hli]
+	ld c, a
 	ld b, [hl]
 .asm_114282
 	ld a, [de]
@@ -303,10 +303,10 @@ Function11433c:
 	push de
 	ld h, d
 	ld l, e
-	ld c, [hl]
-	inc hl
-	ld e, [hl]
-	inc hl
+	ld a, [hli]
+	ld c, a
+	ld a, [hli]
+	ld e, a
 	ld d, [hl]
 	ld b, $b
 	call Function1143f3
@@ -335,12 +335,12 @@ Function11433c:
 	pop hl
 	push bc
 	push de
-	ld c, [hl]
-	inc hl
-	ld e, [hl]
-	inc hl
-	ld d, [hl]
-	inc hl
+	ld a, [hli]
+	ld c, a
+	ld a, [hli]
+	ld e, a
+	ld a, [hli]
+	ld d, a
 	ld b, $c
 	call Function1143f3
 	cp $2
@@ -630,10 +630,10 @@ Function1144d1:
 	ld a, $2
 	ld [$dc0e], a
 	ld hl, $dc03
-	ld c, [hl]
-	inc hl
-	ld e, [hl]
-	inc hl
+	ld a, [hli]
+	ld c, a
+	ld a, [hli]
+	ld e, a
 	ld d, [hl]
 	call Function114576
 	cp $2
@@ -660,8 +660,8 @@ Function1144d1:
 	ld [wCurMapBGEventCount], a
 	ldh [hSRAMBank], a
 	ld [MBC3SRamBank], a
-	ld e, [hl]
-	inc hl
+	ld a, [hli]
+	ld e, a
 	ld d, [hl]
 	ld a, [$dc0d]
 	ld [de], a
@@ -678,16 +678,16 @@ Function1144d1:
 	ldh [hSRAMBank], a
 	ld [MBC3SRamBank], a
 	ld hl, $dc09
-	ld e, [hl]
-	inc hl
+	ld a, [hli]
+	ld e, a
 	ld d, [hl]
 	dec de
 	ld a, d
 	or e
 	jr z, .asm_114559
 	ld hl, wCurMapSceneScriptCount
-	ld e, [hl]
-	inc hl
+	ld a, [hli]
+	ld e, a
 	ld d, [hl]
 	xor a
 	ld [de], a
@@ -945,8 +945,8 @@ Function1146a4:
 	ld [$dc00], a
 	ldh [hSRAMBank], a
 	ld [MBC3SRamBank], a
-	ld e, [hl]
-	inc hl
+	ld a, [hli]
+	ld e, a
 	ld d, [hl]
 	call Function114a18
 	and a
@@ -959,8 +959,8 @@ Function1146a4:
 	ld [$dc00], a
 	ldh [hSRAMBank], a
 	ld [MBC3SRamBank], a
-	ld e, [hl]
-	inc hl
+	ld a, [hli]
+	ld e, a
 	ld d, [hl]
 	call Function114a7a
 	and a
@@ -1002,8 +1002,8 @@ Function1146fa:
 	ld [$dc00], a
 	ldh [hSRAMBank], a
 	ld [MBC3SRamBank], a
-	ld e, [hl]
-	inc hl
+	ld a, [hli]
+	ld e, a
 	ld d, [hl]
 	call Function114a18
 	and a
@@ -1043,8 +1043,8 @@ Function1146fa:
 	ld [$dc00], a
 	ldh [hSRAMBank], a
 	ld [MBC3SRamBank], a
-	ld e, [hl]
-	inc hl
+	ld a, [hli]
+	ld e, a
 	ld d, [hl]
 	call Function1147cd
 	and a
@@ -1230,8 +1230,8 @@ Function114867:
 	ld [wCurMapBGEventCount], a
 	ldh [hSRAMBank], a
 	ld [MBC3SRamBank], a
-	ld e, [hl]
-	inc hl
+	ld a, [hli]
+	ld e, a
 	ld d, [hl]
 	ld a, $2
 	ld [de], a
@@ -1261,8 +1261,8 @@ Function114867:
 	ld [hli], a
 	ld a, d
 	ld [hli], a
-	ld c, [hl]
-	inc hl
+	ld a, [hli]
+	ld c, a
 	ld b, [hl]
 	ld d, $5
 .asm_1148a9
@@ -1295,8 +1295,8 @@ Function1148c2:
 	ld [wCurMapBGEventCount], a
 	ldh [hSRAMBank], a
 	ld [MBC3SRamBank], a
-	ld e, [hl]
-	inc hl
+	ld a, [hli]
+	ld e, a
 	ld d, [hl]
 	ld a, c
 	ld [de], a
@@ -1351,8 +1351,8 @@ Function1148c2:
 	ld [hli], a
 	ld a, d
 	ld [hli], a
-	ld c, [hl]
-	inc hl
+	ld a, [hli]
+	ld c, a
 	ld b, [hl]
 	ld a, [$dc0e]
 	cp $3
@@ -1392,8 +1392,8 @@ Function11494d:
 	ld [wCurMapBGEventCount], a
 	ldh [hSRAMBank], a
 	ld [MBC3SRamBank], a
-	ld e, [hl]
-	inc hl
+	ld a, [hli]
+	ld e, a
 	ld d, [hl]
 	ld a, [$dc0e]
 	ld [de], a
@@ -1440,8 +1440,8 @@ Function11494d:
 	ld [hli], a
 	ld a, d
 	ld [hli], a
-	ld c, [hl]
-	inc hl
+	ld a, [hli]
+	ld c, a
 	ld b, [hl]
 	ld a, [$dc0e]
 	cp $3
@@ -1483,8 +1483,8 @@ Function1149cc:
 	ld [MBC3SRamBank], a
 	push de
 	ld hl, $dc09
-	ld e, [hl]
-	inc hl
+	ld a, [hli]
+	ld e, a
 	ld d, [hl]
 	dec de
 	ld a, d
@@ -1498,8 +1498,8 @@ Function1149cc:
 	ld [hld], a
 	ld [hl], e
 	ld hl, wCurMapSceneScriptCount
-	ld e, [hl]
-	inc hl
+	ld a, [hli]
+	ld e, a
 	ld d, [hl]
 	ld a, c
 	ld [de], a
@@ -1774,10 +1774,10 @@ Function114b55:
 	call Function114561
 	ld b, $0
 	ld hl, $dc03
-	ld c, [hl]
-	inc hl
-	ld e, [hl]
-	inc hl
+	ld a, [hli]
+	ld c, a
+	ld a, [hli]
+	ld e, a
 	ld d, [hl]
 	ld hl, $dc24
 .asm_114b65
@@ -1827,10 +1827,10 @@ endr
 	ld [wCurMapBGEventCount], a
 	ldh [hSRAMBank], a
 	ld [MBC3SRamBank], a
-	ld e, [hl]
-	inc hl
-	ld d, [hl]
-	inc hl
+	ld a, [hli]
+	ld e, a
+	ld a, [hli]
+	ld d, a
 	ld bc, $004e
 	ld hl, $dc24
 	call Function115d6a
@@ -1853,8 +1853,8 @@ Function114bbc:
 	ld c, a
 	ld a, [hli]
 	ld e, a
-	ld d, [hl]
-	inc hl
+	ld a, [hli]
+	ld d, a
 	push hl
 	call Function1143f3
 	cp $2
@@ -2057,14 +2057,14 @@ Function114c5e:
 Function114cd9:
 	ld h, d
 	ld l, e
-	ld b, [hl]
-	inc hl
-	ld c, [hl]
-	inc hl
-	ld e, [hl]
-	inc hl
-	ld d, [hl]
-	inc hl
+	ld a, [hli]
+	ld b, a
+	ld a, [hli]
+	ld c, a
+	ld a, [hli]
+	ld e, a
+	ld a, [hli]
+	ld d, a
 	push hl
 	call Function1143f3
 	and a
@@ -2498,8 +2498,8 @@ Function114f0a:
 	and a
 	jr nz, .asm_114f23
 	ld hl, $dc0d
-	ld e, [hl]
-	inc hl
+	ld a, [hli]
+	ld e, a
 	ld d, [hl]
 	ld a, [de]
 	and a
@@ -2509,10 +2509,10 @@ Function114f0a:
 
 Function114f39:
 	ld hl, $dc0d
-	ld e, [hl]
-	inc hl
-	ld d, [hl]
-	inc hl
+	ld a, [hli]
+	ld e, a
+	ld a, [hli]
+	ld d, a
 	ld a, [de]
 	and a
 	jr z, .asm_114f58
@@ -2586,14 +2586,14 @@ Function114f59:
 
 .asm_114fa7
 	ld hl, wDecoBed
-	ld c, [hl]
-	inc hl
+	ld a, [hli]
+	ld c, a
 	ld a, [hli]
 	ld [$dc00], a
 	ldh [hSRAMBank], a
 	ld [MBC3SRamBank], a
-	ld e, [hl]
-	inc hl
+	ld a, [hli]
+	ld e, a
 	ld d, [hl]
 	ld hl, $dc24
 	call Function115d53
@@ -2727,8 +2727,8 @@ Function115062:
 	ld [$dc00], a
 	ldh [hSRAMBank], a
 	ld [MBC3SRamBank], a
-	ld e, [hl]
-	inc hl
+	ld a, [hli]
+	ld e, a
 	ld d, [hl]
 	ld b, $0
 	ld hl, $dc24
@@ -2843,10 +2843,10 @@ Function1150b3:
 	pop de
 	ld h, d
 	ld l, e
-	ld c, [hl]
-	inc hl
-	ld b, [hl]
-	inc hl
+	ld a, [hli]
+	ld c, a
+	ld a, [hli]
+	ld b, a
 .asm_115119
 	ld a, [hli]
 	ld [de], a
@@ -3136,8 +3136,8 @@ Function115286:
 
 Function11528f:
 	ld hl, wDecoBed
-	ld c, [hl]
-	inc hl
+	ld a, [hli]
+	ld c, a
 	ld a, [hli]
 	ld [$dc00], a
 	ldh [hSRAMBank], a
@@ -3179,8 +3179,8 @@ Function1152b8:
 	jr nz, .asm_1152f9
 .asm_1152ca
 	ld hl, $dc0d
-	ld e, [hl]
-	inc hl
+	ld a, [hli]
+	ld e, a
 	ld d, [hl]
 .asm_1152d0
 	ld a, [$dc03]
@@ -3339,10 +3339,10 @@ Function11537d:
 
 Function1153b5:
 	ld hl, $dc0d
-	ld e, [hl]
-	inc hl
-	ld d, [hl]
-	inc hl
+	ld a, [hli]
+	ld e, a
+	ld a, [hli]
+	ld d, a
 	inc hl
 	ld a, [de]
 	ld [hli], a
@@ -3391,12 +3391,12 @@ Function1153d2:
 	ld [$dc00], a
 	ldh [hSRAMBank], a
 	ld [MBC3SRamBank], a
-	ld e, [hl]
-	inc hl
-	ld d, [hl]
-	inc hl
-	ld c, [hl]
-	inc hl
+	ld a, [hli]
+	ld e, a
+	ld a, [hli]
+	ld d, a
+	ld a, [hli]
+	ld c, a
 	push hl
 	ld a, [wDecoConsole]
 	ld l, a
@@ -3525,8 +3525,8 @@ Function1153d2:
 	ld [wCurMapBGEventCount], a
 	ldh [hSRAMBank], a
 	ld [MBC3SRamBank], a
-	ld e, [hl]
-	inc hl
+	ld a, [hli]
+	ld e, a
 	ld d, [hl]
 	ld hl, $ddc8
 	call Function115d6a
@@ -3759,8 +3759,8 @@ Function11560a:
 	ldh [hSRAMBank], a
 	ld [MBC3SRamBank], a
 	ld hl, $dc1a
-	ld c, [hl]
-	inc hl
+	ld a, [hli]
+	ld c, a
 	ld b, [hl]
 	ld a, [wCurMapCallbackCount]
 	cp b
@@ -3818,8 +3818,8 @@ Function11560a:
 	ld [$dc1b], a
 	push bc
 	ld hl, $dc18
-	ld e, [hl]
-	inc hl
+	ld a, [hli]
+	ld e, a
 	ld d, [hl]
 	ld hl, $dc24
 	call Function115d53
@@ -3832,8 +3832,8 @@ Function11560a:
 	ldh [hSRAMBank], a
 	ld [MBC3SRamBank], a
 	ld hl, wCurMapSceneScriptCount
-	ld e, [hl]
-	inc hl
+	ld a, [hli]
+	ld e, a
 	ld d, [hl]
 	ld hl, $dc24
 	call Function115d6a
@@ -3842,8 +3842,8 @@ Function11560a:
 	ld [hli], a
 	ld [hl], d
 	ld hl, $dc1a
-	ld c, [hl]
-	inc hl
+	ld a, [hli]
+	ld c, a
 	ld b, [hl]
 	ld a, b
 	or c
@@ -4137,8 +4137,8 @@ Function11581e:
 	ld [$dc00], a
 	ldh [hSRAMBank], a
 	ld [MBC3SRamBank], a
-	ld e, [hl]
-	inc hl
+	ld a, [hli]
+	ld e, a
 	ld d, [hl]
 	ld hl, $dc24
 	push bc
@@ -4154,10 +4154,10 @@ Function11581e:
 	ld de, wPartyMon5Defense
 	call Function1158c2
 	ld hl, wPartyMon5Defense
-	ld c, [hl]
-	inc hl
-	ld b, [hl]
-	inc hl
+	ld a, [hli]
+	ld c, a
+	ld a, [hli]
+	ld b, a
 	push hl
 	ld a, [wCurMapCallbackCount]
 	ld l, a
@@ -4191,8 +4191,8 @@ Function11581e:
 	ld [wCurMapBGEventCount], a
 	ldh [hSRAMBank], a
 	ld [MBC3SRamBank], a
-	ld e, [hl]
-	inc hl
+	ld a, [hli]
+	ld e, a
 	ld d, [hl]
 	ld hl, wPartyMon5Speed
 	call Function115d6a
@@ -4303,8 +4303,8 @@ Function1158c2:
 	ld a, [hli]
 	ld h, [hl]
 	ld l, a
-	ld e, [hl]
-	inc hl
+	ld a, [hli]
+	ld e, a
 	ld d, [hl]
 rept 4
 	inc de
@@ -4314,10 +4314,10 @@ endr
 	ld [hl], e
 	pop hl
 	dec hl
-	ld c, [hl]
-	dec hl
-	ld b, [hl]
-	dec hl
+	ld a, [hld]
+	ld c, a
+	ld a, [hld]
+	ld b, a
 	ld a, [hl]
 	ld d, a
 	srl a
@@ -4658,8 +4658,8 @@ Function115b00:
 	ld [$dc00], a
 	ldh [hSRAMBank], a
 	ld [MBC3SRamBank], a
-	ld e, [hl]
-	inc hl
+	ld a, [hli]
+	ld e, a
 	ld d, [hl]
 	ld hl, wPartyMon5Defense
 	push bc
@@ -4709,10 +4709,10 @@ Function115b00:
 	ld de, $dc24
 	call Function115c49
 	ld hl, $dc24
-	ld c, [hl]
-	inc hl
-	ld b, [hl]
-	inc hl
+	ld a, [hli]
+	ld c, a
+	ld a, [hli]
+	ld b, a
 	push hl
 	ld a, [wCurMapCallbackCount]
 	ld l, a
@@ -4746,8 +4746,8 @@ Function115b00:
 	ld [wCurMapBGEventCount], a
 	ldh [hSRAMBank], a
 	ld [MBC3SRamBank], a
-	ld e, [hl]
-	inc hl
+	ld a, [hli]
+	ld e, a
 	ld d, [hl]
 	ld hl, $dc26
 	call Function115d6a
@@ -4952,8 +4952,8 @@ endr
 	ld a, [hli]
 	ld h, [hl]
 	ld l, a
-	ld e, [hl]
-	inc hl
+	ld a, [hli]
+	ld e, a
 	ld d, [hl]
 	inc de
 	inc de
@@ -4963,12 +4963,12 @@ endr
 	ld [hl], e
 	pop hl
 	dec hl
-	ld d, [hl]
-	dec hl
-	ld c, [hl]
-	dec hl
-	ld b, [hl]
-	dec hl
+	ld a, [hld]
+	ld d, a
+	ld a, [hld]
+	ld c, a
+	ld a, [hld]
+	ld b, a
 	ld a, [hl]
 	sla b
 	sla b
@@ -5062,8 +5062,8 @@ endr
 	ld l, a
 	ld a, [wSwarmFlags]
 	ld h, a
-	ld e, [hl]
-	inc hl
+	ld a, [hli]
+	ld e, a
 	ld d, [hl]
 	dec de
 	ld a, d

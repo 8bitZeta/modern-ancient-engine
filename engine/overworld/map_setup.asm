@@ -27,8 +27,8 @@ ReadMapSetupScript:
 	add hl, bc
 
 	; bank
-	ld b, [hl]
-	inc hl
+	ld a, [hli]
+	ld b, a
 
 	; address
 	ld a, [hli]

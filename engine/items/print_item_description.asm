@@ -23,8 +23,8 @@ PrintItemDescription:
 	ld b, 0
 	add hl, bc
 	add hl, bc
-	ld e, [hl]
-	inc hl
+	ld a, [hli]
+	ld e, a
 	ld d, [hl]
 	pop hl
 	jmp PlaceString
