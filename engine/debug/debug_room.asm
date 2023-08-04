@@ -1326,7 +1326,7 @@ DebugRoomMenu_RTCEdit_UpdateClock:
 	ld de, DebugRoom_DayHTimeString
 	hlcoord 3, 14
 	call PlaceString
-	ld hl, wDebugRoomRTCCurDay + 0
+	ld hl, wDebugRoomRTCCurDay
 	ld a, [hli]
 	ld l, [hl]
 	ld h, a

@@ -314,6 +314,12 @@ patterns = {
 	#
 	# Bad: ld a, [Foo] / ld h, a / ld a, [Foo+1] / ld l, a
 	# Good: ld hl, Foo / ld a, [hli] / ld l, [hl] / ld h, a
+	#
+	# Bad: ld a, [Foo+1] / ld l, a / ld a, [Foo] / ld h, a
+	# Good: ld hl, Foo / ld a, [hld] / ld h, [hl] / ld l, a
+	#
+	# Bad: ld a, [Foo+1] / ld h, a / ld a, [Foo] / ld l, a
+	# Good: ld hl, Foo / ld a, [hld] / ld l, [hl] / ld h, a
 	(lambda line1, prev: re.match(r'ld a, \[[^hbd]', line1.code)),
 	(lambda line2, prev: re.match(r'ld [lh], a', line2.code)),
 	(lambda line3, prev: re.match(r'ld a, \[[^hbd]', line3.code)

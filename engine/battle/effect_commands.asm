@@ -5144,7 +5144,7 @@ ret
 
 .loop_back_to_critical
 	ld hl, wBattleScriptBufferAddress + 1
-	ld a, [hli]
+	ld a, [hld]
 	ld l, [hl]
 	ld h, a
 .not_critical
@@ -6292,7 +6292,7 @@ BattleCommand_ClearText:
 SkipToBattleCommand:
 ; Skip over commands until reaching command b.
 	ld hl, wBattleScriptBufferAddress + 1
-	ld a, [hli]
+	ld a, [hld]
 	ld l, [hl]
 	ld h, a
 .loop

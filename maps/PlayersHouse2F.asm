@@ -11,12 +11,16 @@ PlayersHouse2F_MapScripts:
 	callback MAPCALLBACK_NEWMAP, PlayersHouse2FInitializeRoomCallback
 	callback MAPCALLBACK_TILES, PlayersHouse2FSetUpTileDecorationsCallback
 
+PlayersHouse2FNoopScene: ; unreferenced
+	end
+
 PlayersHouse2FInitializeRoomCallback:
 	special ToggleDecorationsVisibility
 	setevent EVENT_TEMPORARY_UNTIL_MAP_RELOAD_8
 	checkevent EVENT_INITIALIZED_EVENTS
 	iftrue .SkipInitialization
 	jumpstd InitializeEventsScript
+	endcallback
 
 .SkipInitialization:
 	endcallback
@@ -24,6 +28,8 @@ PlayersHouse2FInitializeRoomCallback:
 PlayersHouse2FSetUpTileDecorationsCallback:
 	special ToggleMaptileDecorations
 	endcallback
+
+	db 0, 0, 0 ; unused
 
 PlayersHouseDoll1Script::
 	describedecoration DECODESC_LEFT_DOLL
@@ -62,7 +68,6 @@ PlayersHouseRadioScript:
 	giveitem HP_UP, 99
 	giveitem POKE_BALL, 2
 	giveitem TOWN_MAP, 1
-	giveitem EON_MAIL, 1
 	; all badges
 	setflag ENGINE_ZEPHYRBADGE
 	setflag ENGINE_HIVEBADGE
@@ -126,12 +131,12 @@ PlayersHouseRadioScript:
 	setflag ENGINE_CREDITS_SKIP
 	; Debug pokemon
 	givepoke MEW, 100, LEFTOVERS
-	givepokemove HEAT_WAVE,        wPartyMon1, 0
+	givepokemove BEAT_UP,        wPartyMon1, 0
 	givepokemove PSYCHIC_M,       wPartyMon1, 1
 	givepokemove STRENGTH,   wPartyMon1, 2
 	givepokemove BRICK_BREAK,        wPartyMon1, 3
 	givepoke MEW, 100, LEFTOVERS
-	givepokemove FLY,      wPartyMon2, 0
+	givepokemove FLASH,      wPartyMon2, 0
 	givepokemove ROCK_SMASH, wPartyMon2, 1
 	givepokemove HEADBUTT,   wPartyMon2, 2
 	givepokemove WATERFALL,  wPartyMon2, 3
