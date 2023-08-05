@@ -415,7 +415,7 @@ TrainerCard_Page2_3_PlaceLeadersFaces:
 	inc a
 	ld [hli], a
 	inc a
-	ld [hli], a
+	ld [hl], a
 	inc a
 	pop hl
 	pop de

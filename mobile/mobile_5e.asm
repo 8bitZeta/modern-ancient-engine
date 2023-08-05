@@ -660,7 +660,7 @@ Function17aac3:
 	ld a, $b
 	push hl
 	ld [hli], a
-	ld [hli], a
+	ld [hl], a
 	pop hl
 	ld de, SCREEN_WIDTH
 	add hl, de

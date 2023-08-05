@@ -1047,7 +1047,7 @@ rept 4
 endr
 	ld a, "@"
 	ld [hli], a
-	ld [hli], a
+	ld [hl], a
 	pop hl
 	ld a, EGG_TICKET
 	ld [wCurItem], a
