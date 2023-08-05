@@ -37,7 +37,6 @@ BlackthornGym2FSetUpStoneTableCallback:
 
 .Boulder3:
 	disappear BLACKTHORNGYM2F_BOULDER3
-	sjump .Fall
 
 .Fall:
 	pause 30

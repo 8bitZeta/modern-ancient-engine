@@ -62,7 +62,6 @@ BattleTowerHallwayChooseBattleRoomScript:
 
 .L90L100:
 	applymovement BATTLETOWERHALLWAY_RECEPTIONIST, MovementData_BattleTowerHallwayWalkTo90100Room
-	sjump .EnterBattleRoom
 
 .EnterBattleRoom:
 	faceobject PLAYER, BATTLETOWERHALLWAY_RECEPTIONIST

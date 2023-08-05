@@ -15,7 +15,6 @@ BillPhoneCalleeScript:
 .nitegreet
 	farwritetext BillPhoneNiteGreetingText
 	promptbutton
-	sjump .main
 
 .main
 	farwritetext BillPhoneGenericText

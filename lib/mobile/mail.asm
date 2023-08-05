@@ -3697,7 +3697,6 @@ Function1155af:
 	ld a, e
 	ld [hli], a
 	ld [hl], d
-	jr Function1155d1
 
 Function1155d1:
 	ld a, [$dc0d]

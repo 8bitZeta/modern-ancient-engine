@@ -100,7 +100,6 @@ PokecenterNurseScript:
 .nite_comcenter
 	farwritetext PokeComNurseNiteText
 	promptbutton
-	sjump .ok
 
 .ok
 	; only do this once

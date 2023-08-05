@@ -92,7 +92,6 @@ endc
 ResetWRAM:
 	xor a
 	ldh [hBGMapMode], a
-	jr _ResetWRAM
 
 _ResetWRAM:
 	ld a, BANK("16-bit WRAM tables")
@@ -495,7 +494,6 @@ DisplaySaveInfoOnContinue:
 
 DisplaySaveInfoOnSave:
 	lb de, 4, 0
-	jr DisplayNormalContinueData
 
 DisplayNormalContinueData:
 	call Continue_LoadMenuHeader

@@ -597,7 +597,6 @@ Function16cc25:
 	call .CopyPal
 	ld hl, Unknown_16cfb9
 	ld de, wOBPals1 + 1 palettes
-	jr .CopyPal
 
 .CopyPal:
 	ld bc, 1 palettes
@@ -610,7 +609,6 @@ Function16cc49:
 	call Function16cc5a
 	hlcoord 4, 16
 	ld a, $90
-	jr Function16cc5a
 
 Function16cc5a:
 	ld c, $10
@@ -629,7 +627,6 @@ Function16cc62:
 
 Function16cc6e:
 	hlbgcoord 0, 0, vBGMap1
-	jr Function16cc73
 
 Function16cc73:
 	ldh a, [rVBK]

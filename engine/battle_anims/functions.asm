@@ -617,7 +617,6 @@ BattleAnimFunction_MoveFromUserToTargetSpinAround:
 	jmp nc, DeinitBattleAnimation
 
 ; .retain
-	jr .SetCoords
 
 .SetCoords:
 	ld hl, BATTLEANIMSTRUCT_PARAM

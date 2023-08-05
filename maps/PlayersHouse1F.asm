@@ -64,7 +64,6 @@ MeetMomScript:
 	writetext ComeHomeForDSTText
 	yesorno
 	iffalse .ExplainPhone
-	sjump .KnowPhone
 
 .KnowPhone:
 	writetext KnowTheInstructionsText
@@ -74,7 +73,6 @@ MeetMomScript:
 .ExplainPhone:
 	writetext DontKnowTheInstructionsText
 	promptbutton
-	sjump .FinishPhone
 
 .FinishPhone:
 	writetext InstructionsNextText
@@ -92,7 +90,6 @@ MeetMomScript:
 
 .FromLeft:
 	applymovement PLAYERSHOUSE1F_MOM1, MomWalksBackMovement
-	sjump .Finish
 
 .Finish:
 	special RestartMapMusic
@@ -173,7 +170,6 @@ NeighborScript:
 .NiteScript:
 	writetext NeighborNiteIntroText
 	promptbutton
-	sjump .Main
 
 .Main:
 	writetext NeighborText

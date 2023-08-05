@@ -54,7 +54,6 @@ _LoadFontsBattleExtra::
 	ld hl, vTiles2 tile $60
 	lb bc, BANK(FontBattleExtra), 25
 	call Get2bppViaHDMA
-	jr LoadFrame
 
 LoadFrame:
 	ld a, [wTextboxFrame]

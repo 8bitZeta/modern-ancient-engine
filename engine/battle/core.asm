@@ -535,7 +535,6 @@ DetermineMoveOrder:
 	call BattleRandom
 	cp c
 	jr c, .enemy_first
-	jr .speed_check
 
 .speed_check
 	ld de, wBattleMonSpeed
@@ -994,7 +993,6 @@ EnemyTurn_EndOpponentProtectEndureDestinyBond:
 	call SetEnemyTurn
 	call EndUserDestinyBond
 	callfar DoEnemyTurn
-	jr EndOpponentProtectEndureDestinyBond
 
 EndOpponentProtectEndureDestinyBond:
 	ld a, BATTLE_VARS_SUBSTATUS1_OPP
@@ -1767,7 +1765,6 @@ HandleWeather:
 	call SetEnemyTurn
 	call .SandstormDamage
 	call SetPlayerTurn
-	jr .SandstormDamage
 
 .SandstormDamage:
 	ld a, BATTLE_VARS_SUBSTATUS3
@@ -3072,7 +3069,6 @@ EnemyMonFaintedAnimation:
 PlayerMonFaintedAnimation:
 	hlcoord 1, 10
 	decoord 1, 11
-	jr MonFaintedAnimation
 
 MonFaintedAnimation:
 	ld a, [wJoypadDisable]
@@ -4605,7 +4601,6 @@ HandleStatBoostingHeldItems:
 
 .player_1
 	call .DoEnemy
-	jr .DoPlayer
 
 .DoPlayer:
 	call GetPartymonItem
@@ -4996,7 +4991,6 @@ DrawEnemyHUD:
 
 UpdateEnemyHPPal:
 	ld hl, wEnemyHPPal
-	jr UpdateHPPal
 
 UpdateHPPal:
 	ld b, [hl]
@@ -8472,7 +8466,6 @@ DisplayLinkBattleResult:
 
 .lose
 	ld de, .YouLose
-	jr .store_result
 
 .store_result
 	hlcoord 6, 8

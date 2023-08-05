@@ -25,7 +25,6 @@ ResetFlashIfOutOfCave::
 
 EventFlagAction::
 	ld hl, wEventFlags
-	jr  FlagAction
 
 FlagAction::
 ; Perform action b on bit de in flag array hl.

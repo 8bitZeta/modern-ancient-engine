@@ -155,7 +155,6 @@ PrintWaitingTextAndSyncAndExchangeNybble:
 
 LinkTradeMenu:
 	call .MenuAction
-	jr .GetJoypad
 
 .GetJoypad:
 	push bc

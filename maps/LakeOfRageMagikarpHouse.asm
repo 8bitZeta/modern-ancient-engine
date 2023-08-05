@@ -47,7 +47,6 @@ MagikarpLengthRaterScript:
 	ifequal MAGIKARPLENGTH_REFUSED, .Refused
 	ifequal MAGIKARPLENGTH_TOO_SHORT, .TooShort
 	; MAGIKARPLENGTH_BEAT_RECORD
-	sjump .GetReward
 
 .GetReward:
 	writetext MagikarpLengthRaterText_Memento

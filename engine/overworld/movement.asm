@@ -303,7 +303,6 @@ Movement_step_sleep:
 ;	duration (DecimalParam)
 
 	call JumpMovementPointer
-	jr Movement_step_sleep_common
 
 Movement_step_sleep_common:
 	ld hl, OBJECT_STEP_DURATION
@@ -427,7 +426,6 @@ Movement_turn_head_left:
 
 Movement_turn_head_right:
 	ld a, OW_RIGHT
-	jr TurnHead
 
 TurnHead:
 	ld hl, OBJECT_DIRECTION
@@ -670,7 +668,6 @@ Movement_turn_step_left:
 
 Movement_turn_step_right:
 	ld a, OW_RIGHT
-	jr TurnStep
 
 TurnStep:
 	ld hl, OBJECT_1D ; new facing

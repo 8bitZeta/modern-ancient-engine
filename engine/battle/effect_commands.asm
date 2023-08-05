@@ -3061,7 +3061,6 @@ BattleCommand_ConstantDamage:
 	ld a, 0 ; no-optimize a = 0
 	jr nz, .got_power
 	ld b, 1
-	jr .got_power
 
 .got_power
 	ld hl, wCurDamage
@@ -3965,7 +3964,6 @@ BattleCommand_AccuracyUp2:
 
 BattleCommand_EvasionUp2:
 	ld b, $10 | EVASION
-	jr BattleCommand_StatUp
 
 BattleCommand_StatUp:
 	call RaiseStat
@@ -6131,7 +6129,6 @@ GetOpponentItem:
 	ld hl, wBattleMonItem
 .go
 	ld b, [hl]
-	jr GetItemHeldEffect
 
 GetItemHeldEffect:
 ; Return the effect of item b in bc.

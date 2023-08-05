@@ -23,7 +23,6 @@ Elevator::
 	ld [wElevatorPointer], a
 	ld a, d
 	ld [wElevatorPointer + 1], a
-	jr .LoadFloors
 
 .LoadFloors:
 	ld de, wCurElevatorCount

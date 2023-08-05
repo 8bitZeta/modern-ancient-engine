@@ -2046,7 +2046,6 @@ Function1191d3:
 	ld a, [wcd4a]
 	ld a, h
 	ld [wcd58], a
-	jr Function11920f
 
 Function11920f:
 .asm_11920f
@@ -5822,7 +5821,6 @@ Function11b022:
 	cp $3
 	ret z
 	ld hl, wStringBuffer4
-	jr Function11b03d
 
 Function11b03d:
 	push hl
@@ -6216,9 +6214,7 @@ Function11b272:
 	ret
 
 Function11b275:
-	jr Function11b279
-
-Function11b279:
+; Function11b279:
 	ld a, [wTempSpecies]
 	ld [wCurSpecies], a
 	call CheckSeenMemMon
@@ -6809,7 +6805,6 @@ Function11b5e8:
 	ld [wcd31], a
 	call CloseSRAM
 	call Mobile46_InitJumptable
-	jr .loop
 
 .loop
 	call .RunJumptable

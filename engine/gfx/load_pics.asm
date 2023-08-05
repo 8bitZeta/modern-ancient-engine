@@ -433,7 +433,6 @@ PadFrontpic:
 	jr nz, .five_loop
 	ld c, 7 << 4
 	xor a
-	jr .Fill
 
 .Fill:
 	ld [hli], a

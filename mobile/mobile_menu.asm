@@ -76,9 +76,8 @@ Function49f16:
 	call ClearBox
 	hlcoord 1, 14
 	call PlaceString
-	jr .useless_jump
 
-.useless_jump
+; .useless_jump
 	call MobileMenu_InitMenuBuffers
 	pop bc
 	ld hl, wMenuCursorY
@@ -298,8 +297,7 @@ asm_4a19d:
 	call ClearBox
 	hlcoord 1, 14
 	call PlaceString
-	jr .asm_4a1db
-.asm_4a1db
+; .asm_4a1db
 	call Function4a373
 	pop bc
 	ld hl, wMenuCursorY
@@ -330,8 +328,7 @@ Function4a221:
 	call Function4a373
 	ld a, $2
 	ld [wMenuCursorY], a
-	jr .asm_4a235
-.asm_4a235
+; .asm_4a235
 	pop bc
 	jmp Function4a149
 
@@ -653,9 +650,8 @@ asm_4a54d:
 	ld e, l
 	hlcoord 1, 16
 	call PlaceString
-	jr Function4a5b0
 
-Function4a5b0:
+; Function4a5b0:
 	call Function4a680
 	pop bc
 	ld hl, wMenuCursorY

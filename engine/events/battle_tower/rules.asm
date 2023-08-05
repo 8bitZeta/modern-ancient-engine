@@ -211,7 +211,6 @@ CheckBTRule_PartyCountEq3:
 
 CheckBTRule_PartySpeciesAreUnique:
 	ld hl, wPartyMon1Species
-	jr CheckPartyValueIsUnique
 
 CheckPartyValueIsUnique:
 	ld de, wPartyCount

@@ -273,7 +273,6 @@ CheckTileEvent:
 
 	call RandomEncounter
 	ret c
-	jr .ok ; pointless
 
 .ok
 	xor a
@@ -595,7 +594,6 @@ BGEventJumptable:
 
 .left:
 	ld b, OW_LEFT
-	jr .checkdir
 
 .checkdir:
 	ld a, [wPlayerDirection]
@@ -1080,7 +1078,6 @@ RandomEncounter::
 .ok_bug_contest
 	ld a, BANK(BugCatchingContestBattleScript)
 	ld hl, BugCatchingContestBattleScript
-	jr .done
 
 .done
 	call CallScript

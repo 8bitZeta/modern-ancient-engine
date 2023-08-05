@@ -22,7 +22,6 @@ SelectQuantityToSell:
 	ld [wBuySellItemPrice + 1], a
 	ld hl, SellItem_MenuHeader
 	call LoadMenuHeader
-	jr Toss_Sell_Loop
 
 Toss_Sell_Loop:
 	ld a, 1

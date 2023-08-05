@@ -66,7 +66,6 @@ FindPartyMonThatSpeciesYourTrainerID:
 	ld b, a
 	farcall _FindPartyMonThatSpeciesYourTrainerID
 	jr z, FoundNone
-	jr FoundOne
 
 FoundOne:
 	ld a, TRUE
@@ -191,7 +190,6 @@ CardFlip:
 	ret c
 	ld a, BANK(_CardFlip)
 	ld hl, _CardFlip
-	jr StartGameCornerGame
 
 StartGameCornerGame:
 	call FarQueueScript

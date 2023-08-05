@@ -135,7 +135,6 @@ LoadUsedSpritesGFX:
 	ld a, MAPCALLBACK_SPRITES
 	call RunMapCallback
 	call GetUsedSprites
-	jr LoadMiscTiles
 
 LoadMiscTiles:
 	ld a, [wSpriteFlags]

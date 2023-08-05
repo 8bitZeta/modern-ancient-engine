@@ -342,14 +342,13 @@ Function11619d:
 	ret z
 	ld a, [wc319]
 	cp $2
-	jr c, .asm_1161b4
+	jr c, Function1161b8
 	ld a, $a0
 	ld hl, wShadowOAM
 	ld bc, 25 * SPRITEOAMSTRUCT_LENGTH
 	call ByteFill
 
-.asm_1161b4
-	jr Function1161b8
+; .asm_1161b4
 
 Function1161b8:
 	jumptable .Jumptable, wc319

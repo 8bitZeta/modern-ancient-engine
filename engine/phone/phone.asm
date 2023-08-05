@@ -23,7 +23,6 @@ DelCellNum::
 	ret
 
 CheckCellNum::
-	jr _CheckCellNum ; useless
 
 _CheckCellNum:
 	ld hl, wPhoneList
@@ -424,7 +423,6 @@ Script_SpecialBillCall::
 
 RingTwice_StartCall:
 	call .Ring
-	jr .Ring
 
 .Ring:
 	call Phone_StartRinging
@@ -433,7 +431,6 @@ RingTwice_StartCall:
 	call Phone_Wait20Frames
 	call Phone_CallerTextbox
 	call Phone_Wait20Frames
-	jr .CallerTextboxWithName
 
 .CallerTextboxWithName:
 	ld a, [wCurCaller]
@@ -448,7 +445,6 @@ PhoneCall::
 	ld a, d
 	ld [wPhoneCaller + 1], a
 	call .Ring
-	jr .Ring
 
 .Ring:
 	call Phone_StartRinging
@@ -457,7 +453,6 @@ PhoneCall::
 	call Phone_Wait20Frames
 	call Phone_CallerTextbox
 	call Phone_Wait20Frames
-	jr .CallerTextboxWithName
 
 .CallerTextboxWithName:
 	call Phone_CallerTextbox
@@ -525,8 +520,6 @@ Phone_StartRinging:
 	ret
 
 HangUp_Wait20Frames:
-	jr Phone_Wait20Frames
-
 Phone_Wait20Frames:
 	ld c, 20
 	call DelayFrames

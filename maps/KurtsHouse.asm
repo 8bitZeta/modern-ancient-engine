@@ -164,7 +164,6 @@ Kurt1:
 
 .Pnk:
 	setevent EVENT_GAVE_KURT_PNK_APRICORN
-	sjump .GaveKurtApricorns
 
 .GaveKurtApricorns:
 	setevent EVENT_TEMPORARY_UNTIL_MAP_RELOAD_1

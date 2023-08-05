@@ -225,7 +225,6 @@ NamingScreen:
 .StoreBoxIconParams:
 	ld a, BOX_NAME_LENGTH - 1
 	hlcoord 5, 4
-	jr .StoreParams
 
 .StoreParams:
 	ld [wNamingScreenMaxNameLength], a

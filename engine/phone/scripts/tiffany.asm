@@ -87,7 +87,6 @@ TiffanysFamilyMembers:
 
 .Brother:
 	getstring STRING_BUFFER_4, BrotherString
-	sjump .PoorClefairy
 
 .PoorClefairy:
 	farsjump TiffanyItsAwful

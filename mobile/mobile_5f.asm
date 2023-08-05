@@ -3188,7 +3188,6 @@ Function17e566:
 	and a
 	ret z
 	ld a, $7f
-	jr Function17e571
 
 Function17e571:
 	push af
@@ -3430,7 +3429,6 @@ Function17e691:
 
 .asm_17e6c2
 	ld a, [wcd53]
-	jr .asm_17e6c7
 
 .asm_17e6c7
 	pop hl
@@ -4393,12 +4391,11 @@ DisplayMobileError:
 	call .RunJumptable
 	ld a, [wc303]
 	bit 7, a
-	jr nz, .quit
+	jr nz, .deinit
 	farcall HDMATransferAttrmapAndTilemapToWRAMBank3
 	jr .loop
 
-.quit
-	jr .deinit
+; .quit
 
 .deinit
 	ld a, [wMobileErrorCodeBuffer]
@@ -4592,7 +4589,6 @@ Function17f6b7:
 	and $f
 	call .bcd_digit
 	ld a, [wMobileErrorCodeBuffer + 1]
-	jr .bcd_two_digits
 
 .bcd_two_digits
 	ld c, a

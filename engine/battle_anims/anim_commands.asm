@@ -770,7 +770,6 @@ BattleAnimCmd_BattlerGFX_1Row:
 	ld a, 6 tiles ; Player pic height
 	ld [wBattleAnimGFXTempPicHeight], a
 	ld a, 6 ; Copy 6x1 tiles
-	jr .LoadFeet
 
 .LoadFeet:
 	push af
@@ -822,7 +821,6 @@ BattleAnimCmd_BattlerGFX_2Row:
 	ld a, 6 tiles ; Player pic height
 	ld [wBattleAnimGFXTempPicHeight], a
 	ld a, 6 ; Copy 6x2 tiles
-	jr .LoadHead
 
 .LoadHead:
 	push af

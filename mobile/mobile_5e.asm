@@ -517,13 +517,12 @@ Function17a9cb:
 	ld de, wShadowOAM
 	ld hl, $d088
 	bit 6, [hl]
-	jr nz, .bit_6_set
+	jr nz, Function17a9e3
 	call Function17a9e3
 	call Function17aa22
 	jr Function17a9f5
 
-.bit_6_set
-	jr Function17a9e3
+; .bit_6_set
 
 Function17a9e3:
 	ld a, $3
@@ -577,7 +576,6 @@ Function17aa22:
 	pop de
 	xor a
 	ld hl, Unknown_17aa77
-	jr Function17aa4a
 
 Function17aa4a:
 	ld [$d08d], a

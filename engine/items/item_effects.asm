@@ -2268,7 +2268,6 @@ GoodRodEffect:
 
 SuperRodEffect:
 	ld e, $2
-	jr UseRod
 
 UseRod:
 	farcall FishFunction
@@ -2646,7 +2645,6 @@ IsntTheTimeMessage:
 
 WontHaveAnyEffectMessage:
 	ld hl, ItemWontHaveEffectText
-	jr CantUseItemMessage
 
 CantUseItemMessage:
 ; Item couldn't be used.

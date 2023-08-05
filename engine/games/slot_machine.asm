@@ -644,7 +644,6 @@ Slots_InitReelTiles:
 	ld hl, REEL_X_COORD
 	add hl, bc
 	ld [hl], 14 * 8
-	jr .OAM
 
 .OAM:
 	ld hl, REEL_ACTION
@@ -664,7 +663,6 @@ Slots_SpinReels:
 	ld bc, wReel2
 	call .SpinReel
 	ld bc, wReel3
-	jr .SpinReel
 
 .SpinReel:
 	ld hl, REEL_SPIN_DISTANCE

@@ -212,7 +212,6 @@ DebugRoomMenu_SpClear:
 	ld [hli], a
 	ld [hl], a
 	call CloseSRAM
-	jmp DebugRoom_PrintStackBottomTop
 
 DebugRoom_PrintStackBottomTop:
 	ld a, BANK(sStackTop)
@@ -849,7 +848,6 @@ DebugRoom_PrintPageBValueC:
 	ld b, a
 	ld a, [wDebugRoomCurValue]
 	ld c, a
-	jr DebugRoom_PrintPagedValue
 
 DebugRoom_PrintPagedValue:
 ; Print the value for page b, value c
@@ -1167,7 +1165,6 @@ DebugRoom_PrintMoveName:
 	ld [wNamedObjectIndex], a
 	push bc
 	call GetMoveName
-	jr _DebugRoom_FinishGetName
 
 _DebugRoom_FinishGetName:
 	pop hl
@@ -1382,7 +1379,6 @@ DebugRoomMenu_HaltChkClr:
 	ld [hli], a
 	ld [hl], a
 	call CloseSRAM
-	jmp DebugRoom_PrintRTCHaltChk
 
 DebugRoom_PrintRTCHaltChk:
 	hlcoord 16, 9

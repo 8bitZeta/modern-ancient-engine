@@ -272,7 +272,6 @@ WillObjectBumpIntoSomeoneElse:
 	ld hl, OBJECT_MAP_Y
 	add hl, bc
 	ld e, [hl]
-	jr IsNPCAtCoord
 
 IsNPCAtCoord:
 	ld bc, wObjectStructs

@@ -1515,7 +1515,6 @@ Function89a57:
 
 .MoveCursorUp:
 	lb de, 1, -1
-	jr .ApplyCursorMovement
 
 .ApplyCursorMovement:
 	ld a, [wMenuSelection]
@@ -2979,7 +2978,6 @@ Function8a4fc:
 	ld b, a
 	ld c, $80
 	call Function89cdf
-	jr Function8a515
 
 Function8a515:
 	ld hl, wd012

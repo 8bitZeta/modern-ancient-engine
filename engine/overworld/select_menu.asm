@@ -71,7 +71,6 @@ CheckRegisteredItem:
 	ret
 
 .CheckTMHM:
-	jr .NoRegisteredItem
 
 .NoRegisteredItem:
 	xor a

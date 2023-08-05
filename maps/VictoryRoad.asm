@@ -84,7 +84,6 @@ VictoryRoadRivalNext:
 	startbattle
 	dontrestartmapmusic
 	reloadmapafterbattle
-	sjump .AfterBattle
 
 .AfterBattle:
 	playmusic MUSIC_RIVAL_AFTER

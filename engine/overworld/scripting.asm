@@ -872,7 +872,6 @@ Script_turnobject:
 	add a
 	add a
 	ld e, a
-	jr ApplyObjectFacing
 
 ApplyObjectFacing:
 	ld a, d
@@ -1162,7 +1161,6 @@ Script_reloadmapafterbattle:
 	ld de, Script_SpecialBillCall
 	farcall LoadScriptBDE
 .done
-	jr Script_reloadmap
 
 Script_reloadmap:
 	xor a

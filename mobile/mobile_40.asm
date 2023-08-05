@@ -288,7 +288,6 @@ Function10016f:
 	ld [wMobileErrorCodeBuffer + 2], a
 	ld a, [wcd2d]
 	ld [wMobileErrorCodeBuffer + 1], a
-	jr Function10020b
 
 Function10020b:
 	xor a
@@ -646,12 +645,7 @@ Function10047c:
 	ret
 
 Function100493:
-	jr asm_100497
-
 Function100495:
-	jr asm_100497
-
-asm_100497:
 	call Function100337
 	ret c
 	ret z
@@ -1399,7 +1393,6 @@ Function100989:
 	farcall ReloadMapPart
 	ld hl, w3_dd68
 	decoord 0, 0, wAttrmap
-	jr Function1009a5
 
 Function1009a5:
 	ld bc, SCREEN_WIDTH * SCREEN_HEIGHT
@@ -1598,16 +1591,11 @@ endc
 	ld a, [wcd27]
 	bit 7, a
 	jr z, .asm_100a92
-	call Function100ae7
-	jr .asm_100ace
+	jr Function100ae7
 
 .asm_100ac7
 	ld a, $0f
 	ld [wd430], a
-	jr .asm_100ace
-
-.asm_100ace
-	ret
 
 Function100acf:
 	ld de, Unknown_100b0a
@@ -2167,7 +2155,6 @@ Function100ec5:
 
 Function100eca:
 	farcall Mobile_InitPartyMenuBGPal7
-	jr Function100ed4
 
 Function100ed4:
 	farcall ApplyPals
@@ -2193,7 +2180,6 @@ Function100eed:
 Function100ef4:
 	ld hl, Unknown_100ff3
 	ld c, 1
-	jr Function100f02
 
 Function100f02:
 	ld a, c
@@ -2647,7 +2633,6 @@ Function101231:
 	lb de, 2, BANK(Jumptable_101297)
 	ld bc, Jumptable_101297
 	call Function100000
-	jr Function10123d
 
 Function10123d:
 	xor a
@@ -3920,7 +3905,7 @@ Function101bc8:
 	call Function10142c
 	ld e, $08
 	call Function101ee4
-	call Function102048
+	call Function10204c
 	call Function1013dd
 	xor a
 	ld [wcd26], a
@@ -3956,7 +3941,7 @@ Function101c11:
 	ld [wdc5f], a
 	ld e, $09
 	call Function101ee4
-	call Function102048
+	call Function10204c
 	ld hl, wcd29
 	set 5, [hl]
 	ld a, [wMobileCommsJumptableIndex]
@@ -4436,9 +4421,6 @@ Function10202c:
 	hlcoord 4, 4
 	jmp Function100681
 
-Function102048:
-	jr Function10204c
-
 Function10204c:
 	hlcoord 3, 2
 	ld c, $10
@@ -4594,7 +4576,6 @@ Function102112:
 	jr nz, .outer_loop
 	ld a, $01
 	and a
-	jr .done ; useless jr
 
 .done
 	push af
@@ -4731,9 +4712,8 @@ Function102233:
 Function102241:
 	call Function10226a
 	call Function102274
-	jr Function10224b
 
-Function10224b:
+; Function10224b:
 	ld hl, wcd4b
 	bit 1, [hl]
 	jr nz, .asm_10225e
@@ -5145,7 +5125,6 @@ Function10250c:
 
 .asm_102572
 	call Function102fce
-	jr .asm_102577
 
 .asm_102577
 	ld hl, wcd4b
@@ -6510,9 +6489,8 @@ Function10305d:
 	call Function10307f
 	ret c
 	call Function103094
-	jr Function10306e
 
-Function10306e:
+; Function10306e:
 	ld a, $01
 	ldh [hOAMUpdate], a
 	call ClearSprites
@@ -6899,7 +6877,6 @@ Function10343c:
 .asm_10347d
 	call Function10350f
 	ld bc, 11
-	jr Function103487
 
 Function103487:
 	push de

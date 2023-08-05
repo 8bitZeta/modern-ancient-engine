@@ -676,7 +676,6 @@ PrintPCBox_Page4:
 	call Printer_GetBoxMonSpecies
 	hlcoord 2, 0
 	ld c, 5
-	jr Printer_PrintBoxListSegment
 
 Printer_PrintBoxListSegment:
 	ld a, [wBankOfBoxToPrint]

@@ -120,7 +120,7 @@ endc
 	ld [hl], NUM_UNOWN + 1
 .wrap_around_left
 	dec [hl]
-	jr .return
+	jr .UpdateUnownFrontpic
 
 .press_right
 	ld hl, wJumptableIndex
@@ -130,9 +130,6 @@ endc
 	ld [hl], -1
 .wrap_around_right
 	inc [hl]
-
-.return
-	jr .UpdateUnownFrontpic
 
 .UpdateUnownFrontpic:
 	ld a, [wJumptableIndex]

@@ -117,7 +117,6 @@ PlateauRivalBattleCommon:
 	startbattle
 	dontrestartmapmusic
 	reloadmapafterbattle
-	sjump PlateauRivalPostBattle
 
 PlateauRivalPostBattle:
 	playmusic MUSIC_RIVAL_AFTER

@@ -43,7 +43,6 @@ IcePathB1FSetUpStoneTableCallback:
 .Boulder4:
 	disappear ICEPATHB1F_BOULDER4
 	clearevent EVENT_BOULDER_IN_ICE_PATH_4A
-	sjump .FinishBoulder
 
 .FinishBoulder:
 	pause 30

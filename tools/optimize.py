@@ -462,14 +462,14 @@ patterns = {
 	(lambda line3, prev: line3.code.startswith('ld hl,')
 		or line3.code == 'pop hl'),
 ],
-# 'Pointless jumps': [
-# 	# Bad: jr|jp Foo / Foo: ...
-# 	# Good: fall through to Foo: ...
-# 	(lambda line1, prev: re.match(r'^(jr|jp|jmp|jump|sjump|jumpchannel|sound_jump) ', line1.code)
-# 		and ',' not in line1.code),
-# 	(lambda line2, prev: line2.code.rstrip(':') == prev[0].code.split(maxsplit=1)[-1].strip()
-# 		and (line2.context == prev[0].context or line2.context == line2.code)),
-# ],
+'Pointless jumps': [
+	# Bad: jr|jp Foo / Foo: ...
+	# Good: fall through to Foo: ...
+	(lambda line1, prev: re.match(r'^(jr|jp|jmp|jump|sjump|jumpchannel|sound_jump) ', line1.code)
+		and ',' not in line1.code),
+	(lambda line2, prev: line2.code.rstrip(':') == prev[0].code.split(maxsplit=1)[-1].strip()
+		and (line2.context == prev[0].context or line2.context == line2.code)),
+],
 # 'Useless loads': [
 # 	# Bad: ld P, Q / ld P, R (unless the lds have side effects)
 # 	# Good: ld P, R

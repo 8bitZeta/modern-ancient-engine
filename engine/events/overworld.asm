@@ -1055,7 +1055,6 @@ TryStrengthOW:
 
 .already_using
 	xor a
-	jr .done
 
 .done
 	ld [wScriptVar], a
@@ -1393,7 +1392,6 @@ HasRockSmash:
 	jr c, .done
 .yes
 	xor a
-	jr .done
 .done
 	ld [wScriptVar], a
 	ret

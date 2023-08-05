@@ -7,7 +7,6 @@ Function11c075:
 	call Function11c254
 	pop de
 	ld bc, wcd36
-	jr Function11c08f
 
 Function11c08f:
 	ld l, e
