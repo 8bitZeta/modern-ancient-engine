@@ -1331,22 +1331,19 @@ Pack_GetItemName:
 	ld a, [wCurItem]
 	ld [wNamedObjectIndex], a
 	call GetItemName
-	call CopyName1
-	ret
+	jmp CopyName1
 
 ClearPocketList:
 	hlcoord 5, 2
 	lb bc, 10, SCREEN_WIDTH - 5
-	call ClearBox
-	ret
+	jmp ClearBox
 
 Pack_InitColors:
 	call WaitBGMap
 	ld b, SCGB_PACKPALS
 	call GetSGBLayout
 	call SetPalettes
-	call DelayFrame
-	ret
+	jmp DelayFrame
 
 ItemsPocketMenuHeader:
 	db MENU_BACKUP_TILES ; flags

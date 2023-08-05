@@ -148,8 +148,7 @@ Mom_GiveItemOrDoll:
 	ld a, 1
 	ld [wItemQuantityChange], a
 	ld hl, wNumPCItems
-	call ReceiveItem
-	ret
+	jmp ReceiveItem
 
 Mom_GetScriptPointer:
 	call GetItemFromMom

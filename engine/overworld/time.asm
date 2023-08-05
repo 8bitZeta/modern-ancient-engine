@@ -1,6 +1,5 @@
 _InitializeStartDay:
-	call InitializeStartDay
-	ret
+	jmp InitializeStartDay
 
 ClearDailyTimers:
 	xor a
@@ -53,8 +52,7 @@ InitNDaysCountdown:
 	call UpdateTime
 	pop hl
 	inc hl
-	call CopyDayToHL
-	ret
+	jmp CopyDayToHL
 
 CheckDayDependentEventHL:
 	inc hl
@@ -63,24 +61,21 @@ CheckDayDependentEventHL:
 	call GetDaysSince
 	pop hl
 	dec hl
-	call UpdateTimeRemaining
-	ret
+	jmp UpdateTimeRemaining
 
 RestartReceiveCallDelay:
 	ld hl, wReceiveCallDelay_MinsRemaining
 	ld [hl], a
 	call UpdateTime
 	ld hl, wReceiveCallDelay_StartTime
-	call CopyDayHourMinToHL
-	ret
+	jmp CopyDayHourMinToHL
 
 CheckReceiveCallDelay:
 	ld hl, wReceiveCallDelay_StartTime
 	call CalcMinsHoursDaysSince
 	call GetMinutesSinceIfLessThan60
 	ld hl, wReceiveCallDelay_MinsRemaining
-	call UpdateTimeRemaining
-	ret
+	jmp UpdateTimeRemaining
 
 RestartDailyResetTimer:
 	ld hl, wDailyResetTimer
@@ -134,8 +129,7 @@ StartBugContestTimer:
 	ld [wBugContestSecsRemaining], a
 	call UpdateTime
 	ld hl, wBugContestStartTime
-	call CopyDayHourMinSecToHL
-	ret
+	jmp CopyDayHourMinSecToHL
 
 CheckBugContestTimer::
 	ld hl, wBugContestStartTime
@@ -174,8 +168,7 @@ CheckBugContestTimer::
 InitializeStartDay:
 	call UpdateTime
 	ld hl, wTimerEventStartDay
-	call CopyDayToHL
-	ret
+	jmp CopyDayToHL
 
 CheckPokerusTick::
 	ld hl, wTimerEventStartDay
@@ -194,8 +187,7 @@ CheckUnusedTwoDayTimer:
 	call CalcDaysSince
 	call GetDaysSince
 	ld hl, wUnusedTwoDayTimer
-	call UpdateTimeRemaining
-	ret
+	jr UpdateTimeRemaining
 
 RestartLuckyNumberCountdown:
 	call .GetDaysUntilNextFriday
@@ -243,8 +235,7 @@ DoMysteryGiftIfDayHasPassed:
 	ld [sMysteryGiftTimer], a
 	ld a, [hl]
 	ld [sMysteryGiftTimer + 1], a
-	call CloseSRAM
-	ret
+	jmp CloseSRAM
 
 UpdateTimeRemaining:
 ; If the amount of time elapsed exceeds the capacity of its

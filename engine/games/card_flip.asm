@@ -467,8 +467,7 @@ CardFlip_PrintCoinBalance:
 	hlcoord 15, 16
 	ld de, wCoins
 	lb bc, PRINTNUM_LEADINGZEROS | 2, 4
-	call PrintNum
-	ret
+	jmp PrintNum
 
 .CoinStr:
 	db "COIN@"

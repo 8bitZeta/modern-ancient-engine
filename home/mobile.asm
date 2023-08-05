@@ -26,7 +26,7 @@ MobileAPI::
 	ld [wc981], a
 	rst Bankswitch
 
-	jmp _MobileAPI
+	jp _MobileAPI
 
 ReturnMobileAPI::
 ; Return from _MobileAPI
@@ -171,8 +171,7 @@ MobileHome_PlaceBox:
 	pop bc
 	dec b
 	jr nz, .RowLoop
-	call .FillBottom
-	ret
+	jr  .FillBottom
 
 .FillTop:
 	ld a, $63

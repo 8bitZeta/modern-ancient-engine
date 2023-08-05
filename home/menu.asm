@@ -198,14 +198,14 @@ PlaceVerticalMenuItems::
 	inc de
 	ld b, 0
 	add hl, bc
-	jmp PlaceString
+	jp PlaceString
 
 MenuBox::
 	call MenuBoxCoord2Tile
 	call GetMenuBoxDims
 	dec b
 	dec c
-	jmp Textbox
+	jp Textbox
 
 GetMenuTextStartCoord::
 	ld a, [wMenuBorderTopCoord]
@@ -235,14 +235,14 @@ ClearMenuBoxInterior::
 	call GetMenuBoxDims
 	dec b
 	dec c
-	jmp ClearBox
+	jp ClearBox
 
 ClearWholeMenuBox::
 	call MenuBoxCoord2Tile
 	call GetMenuBoxDims
 	inc c
 	inc b
-	jmp ClearBox
+	jp ClearBox
 
 MenuBoxCoord2Tile::
 	ld a, [wMenuBorderLeftCoord]
@@ -301,7 +301,7 @@ MenuBoxCoord2Attr::
 
 LoadMenuHeader::
 	call CopyMenuHeader
-	jmp PushWindow
+	jp PushWindow
 
 CopyMenuHeader::
 	ld de, wMenuHeader
@@ -319,7 +319,7 @@ MenuTextbox::
 	push hl
 	call LoadMenuTextbox
 	pop hl
-	jmp PrintText
+	jp PrintText
 
 LoadMenuTextbox::
 	ld hl, .MenuHeader
@@ -333,7 +333,7 @@ LoadMenuTextbox::
 
 MenuTextboxBackup::
 	call MenuTextbox
-	jmp CloseWindow
+	jp CloseWindow
 
 LoadStandardMenuHeader::
 	ld hl, .MenuHeader
@@ -346,8 +346,7 @@ LoadStandardMenuHeader::
 	db 1 ; default option
 
 Call_ExitMenu::
-	call ExitMenu
-	ret
+	jp  ExitMenu
 
 VerticalMenu::
 	xor a
@@ -463,7 +462,7 @@ YesNoMenuHeader::
 
 OffsetMenuHeader::
 	call _OffsetMenuHeader
-	jmp PushWindow
+	jp PushWindow
 
 _OffsetMenuHeader::
 	push de
@@ -495,7 +494,7 @@ DoNthMenu::
 	call InitMenuCursorAndButtonPermissions
 	call GetStaticMenuJoypad
 	call GetMenuJoypad
-	jmp MenuClickSound
+	jp MenuClickSound
 
 SetUpMenu::
 	call DrawVariableLengthMenuBox
@@ -509,7 +508,7 @@ DrawVariableLengthMenuBox::
 	call CopyMenuData
 	call GetMenuIndexSet
 	call AutomaticGetMenuBottomCoord
-	jmp MenuBox
+	jp MenuBox
 
 MenuWriteText::
 	xor a
@@ -682,7 +681,7 @@ PlaceMenuStrings::
 	ld d, h
 	ld e, l
 	pop hl
-	jmp PlaceString
+	jp PlaceString
 
 PlaceNthMenuStrings::
 	push de
@@ -694,7 +693,7 @@ PlaceNthMenuStrings::
 	ld d, [hl]
 	ld e, a
 	pop hl
-	jmp PlaceString
+	jp PlaceString
 
 MenuJumptable::
 	ld a, [wMenuSelection]
@@ -751,7 +750,7 @@ ClearWindowData::
 	assert wMenuMetadataEnd - wMenuMetadata == wMenuDataEnd - wMenuData
 	assert wMenuMetadataEnd - wMenuMetadata == wMoreMenuDataEnd - wMoreMenuData
 	xor a
-	jmp ByteFill
+	jp ByteFill
 
 MenuClickSound::
 	push af
@@ -775,7 +774,7 @@ PlayClickSFX::
 MenuTextboxWaitButton::
 	call MenuTextbox
 	call WaitButton
-	jmp ExitMenu
+	jp ExitMenu
 
 Place2DMenuItemName::
 	ldh [hTempBank], a

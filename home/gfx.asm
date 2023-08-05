@@ -4,7 +4,7 @@ DEF MOBILE_TILES_PER_CYCLE EQU 6
 Get2bppViaHDMA::
 	ldh a, [rLCDC]
 	bit rLCDC_ENABLE, a
-	jmp z, Copy2bpp
+	jp z, Copy2bpp
 
 	homecall HDMATransfer2bpp
 
@@ -13,7 +13,7 @@ Get2bppViaHDMA::
 Get1bppViaHDMA::
 	ldh a, [rLCDC]
 	bit rLCDC_ENABLE, a
-	jmp z, Copy1bpp
+	jp z, Copy1bpp
 
 	homecall HDMATransfer1bpp
 
@@ -64,8 +64,7 @@ DecompressRequest2bpp::
 
 	ld de, sScratch
 	call Request2bpp
-	call CloseSRAM
-	ret
+	jp  CloseSRAM
 
 FarCopyBytes::
 ; copy bc bytes from a:hl to de
@@ -271,7 +270,7 @@ Get2bpp::
 ; copy c 2bpp tiles from b:de to hl
 	ldh a, [rLCDC]
 	bit rLCDC_ENABLE, a
-	jmp nz, Request2bpp
+	jp nz, Request2bpp
 	; fallthrough
 
 Copy2bpp:
@@ -294,13 +293,13 @@ Copy2bpp:
 	ld c, a
 	pop af
 
-	jmp FarCopyBytes
+	jp FarCopyBytes
 
 Get1bpp::
 ; copy c 1bpp tiles from b:de to hl
 	ldh a, [rLCDC]
 	bit rLCDC_ENABLE, a
-	jmp nz, Request1bpp
+	jp nz, Request1bpp
 	; fallthrough
 
 Copy1bpp::
@@ -323,4 +322,4 @@ Copy1bpp::
 	pop af
 
 	pop hl
-	jmp FarCopyBytesDouble
+	jp FarCopyBytesDouble

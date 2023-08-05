@@ -96,8 +96,7 @@ CheckOwnMonAnywhere:
 	call CheckOwnMon
 	jr nc, .loop
 
-	call CloseSRAM
-	ret
+	jmp CloseSRAM
 
 .loop
 	push bc

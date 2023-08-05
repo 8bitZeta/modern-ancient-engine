@@ -31,7 +31,7 @@ ClearTilemap::
 	ldh a, [rLCDC]
 	bit rLCDC_ENABLE, a
 	ret z
-	jmp WaitBGMap
+	jp WaitBGMap
 
 ClearScreen::
 	ld a, PAL_BG_TEXT
@@ -148,8 +148,7 @@ BuenaPrintText::
 
 PrintTextboxText::
 	bccoord TEXTBOX_INNERX, TEXTBOX_INNERY
-	call PlaceHLTextAtBC
-	ret
+	jp  PlaceHLTextAtBC
 
 SetUpTextbox::
 	push hl
@@ -207,7 +206,7 @@ MACRO dict
 		; Locals can use a short jump
 		jr z, \2
 	else
-		jmp z, \2
+		jp z, \2
 	endc
 ENDM
 
@@ -283,13 +282,13 @@ ENDM
 .place
 	ld [hli], a
 	call PrintLetterDelay
-	jmp NextChar
+	jp NextChar
 
 MobileScriptChar::
 	ld c, l
 	ld b, h
 	farcall RunMobileScript
-	jmp PlaceNextChar
+	jp PlaceNextChar
 
 MACRO print_name
 	push de
@@ -392,7 +391,7 @@ PlaceCommandCharacter::
 	ld h, b
 	ld l, c
 	pop de
-	jmp NextChar
+	jp NextChar
 
 TMCharText::      db "TM@"
 TrainerCharText:: db "TRAINER@"
@@ -417,14 +416,14 @@ NextLineChar::
 	ld bc, SCREEN_WIDTH * 2
 	add hl, bc
 	push hl
-	jmp NextChar
+	jp NextChar
 
 LineFeedChar::
 	pop hl
 	ld bc, SCREEN_WIDTH
 	add hl, bc
 	push hl
-	jmp NextChar
+	jp NextChar
 
 CarriageReturnChar::
 	pop hl
@@ -465,13 +464,13 @@ CarriageReturnChar::
 	ld b, 0
 	add hl, bc
 	push hl
-	jmp NextChar
+	jp NextChar
 
 LineChar::
 	pop hl
 	hlcoord TEXTBOX_INNERX, TEXTBOX_INNERY + 2
 	push hl
-	jmp NextChar
+	jp NextChar
 
 Paragraph::
 	push de
@@ -494,7 +493,7 @@ Paragraph::
 	call DelayFrames
 	hlcoord TEXTBOX_INNERX, TEXTBOX_INNERY
 	pop de
-	jmp NextChar
+	jp NextChar
 
 _ContText::
 	ld a, [wLinkMode]
@@ -520,7 +519,7 @@ _ContTextNoPause::
 	call TextScroll
 	hlcoord TEXTBOX_INNERX, TEXTBOX_INNERY + 2
 	pop de
-	jmp NextChar
+	jp NextChar
 
 ContText::
 	push de
@@ -531,7 +530,7 @@ ContText::
 	ld h, b
 	ld l, c
 	pop de
-	jmp NextChar
+	jp NextChar
 
 .cont: db "<_CONT>@"
 
@@ -573,7 +572,7 @@ NullChar::
 	ld a, "?"
 	ld [hli], a
 	call PrintLetterDelay
-	jmp NextChar
+	jp NextChar
 
 TextScroll::
 	hlcoord TEXTBOX_INNERX, TEXTBOX_INNERY
@@ -604,8 +603,7 @@ TextScroll::
 	ld bc, TEXTBOX_INNERW
 	call ByteFill
 	ld c, 5
-	call DelayFrames
-	ret
+	jp  DelayFrames
 
 Text_WaitBGMap::
 	push bc
@@ -684,7 +682,7 @@ DoTextUntilTerminator::
 	pop bc
 	pop hl
 
-	; jmp de
+	; jr de
 	push de
 	ret
 
@@ -817,9 +815,9 @@ TextCommand_PROMPT_BUTTON::
 ; wait for button press; show arrow
 	ld a, [wLinkMode]
 	cp LINK_COLOSSEUM
-	jmp z, TextCommand_WAIT_BUTTON
+	jp z, TextCommand_WAIT_BUTTON
 	cp LINK_MOBILE
-	jmp z, TextCommand_WAIT_BUTTON
+	jp z, TextCommand_WAIT_BUTTON
 
 	push hl
 	call LoadBlinkingCursor

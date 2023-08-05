@@ -163,8 +163,7 @@ CheckUpdatePlayerSprite:
 
 FadeOutMapMusic:
 	ld a, 6
-	call SkipMusic
-	ret
+	jmp SkipMusic
 
 ApplyMapPalettes:
 	farcall _UpdateTimePals

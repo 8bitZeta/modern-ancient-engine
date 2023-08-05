@@ -43,8 +43,7 @@ _PlayBattleAnim:
 
 	ld c, 3
 	call DelayFrames
-	call WaitSFX
-	ret
+	jmp WaitSFX
 
 BattleAnimRunScript:
 	ld a, [wFXAnimID + 1]
@@ -90,8 +89,7 @@ BattleAnimRunScript:
 	call RunBattleAnimScript
 
 .done
-	call BattleAnim_RevertPals
-	ret
+	jmp BattleAnim_RevertPals
 
 RunBattleAnimScript:
 	call ClearBattleAnims
@@ -135,8 +133,7 @@ RunBattleAnimScript:
 	bit BATTLEANIM_STOP_F, a
 	jr z, .playframe
 
-	call BattleAnim_ClearOAM
-	ret
+	jr BattleAnim_ClearOAM
 
 BattleAnimClearHud:
 	call DelayFrame
@@ -145,8 +142,7 @@ BattleAnimClearHud:
 	ld a, $1
 	ldh [hBGMapMode], a
 	call Delay3
-	call WaitTop
-	ret
+	jmp WaitTop
 
 BattleAnimRestoreHuds:
 	call DelayFrame
@@ -167,8 +163,7 @@ BattleAnimRestoreHuds:
 	call DelayFrame
 	call DelayFrame
 	call DelayFrame
-	call WaitTop
-	ret
+	jmp WaitTop
 
 BattleAnimRequestPals:
 	ldh a, [hCGB]
@@ -242,8 +237,7 @@ endr
 RunBattleAnimCommand:
 	call .CheckTimer
 	ret nc
-	call .RunScript
-	ret
+	jr .RunScript
 
 .CheckTimer:
 	ld a, [wBattleAnimDelay]
@@ -582,8 +576,7 @@ BattleAnimCmd_Obj:
 	ld [wBattleObjectTempYCoord], a
 	call GetBattleAnimByte
 	ld [wBattleObjectTempParam], a
-	call QueueBattleAnimation
-	ret
+	jmp QueueBattleAnimation
 
 BattleAnimCmd_BGEffect:
 	call GetBattleAnimByte
@@ -594,8 +587,7 @@ BattleAnimCmd_BGEffect:
 	ld [wBattleBGEffectTempTurn], a
 	call GetBattleAnimByte
 	ld [wBattleBGEffectTempParam], a
-	call _QueueBGEffect
-	ret
+	jmp _QueueBGEffect
 
 BattleAnimCmd_BGP:
 	call GetBattleAnimByte
@@ -778,8 +770,7 @@ BattleAnimCmd_BattlerGFX_1Row:
 	ld a, 6 tiles ; Player pic height
 	ld [wBattleAnimGFXTempPicHeight], a
 	ld a, 6 ; Copy 6x1 tiles
-	call .LoadFeet
-	ret
+	jr .LoadFeet
 
 .LoadFeet:
 	push af
@@ -831,8 +822,7 @@ BattleAnimCmd_BattlerGFX_2Row:
 	ld a, 6 tiles ; Player pic height
 	ld [wBattleAnimGFXTempPicHeight], a
 	ld a, 6 ; Copy 6x2 tiles
-	call .LoadHead
-	ret
+	jr .LoadHead
 
 .LoadHead:
 	push af
@@ -909,14 +899,12 @@ BattleAnimCmd_UpdateActorPic:
 
 	ld hl, vTiles2 tile $00
 	lb bc, 0, 7 * 7
-	call Request2bpp
-	ret
+	jmp Request2bpp
 
 .player
 	ld hl, vTiles2 tile $31
 	lb bc, 0, 6 * 6
-	call Request2bpp
-	ret
+	jmp Request2bpp
 
 BattleAnimCmd_RaiseSub:
 	ldh a, [rSVBK]
@@ -990,8 +978,7 @@ GetSubstitutePic: ; used only for BANK(GetSubstitutePic)
 .CopyTile:
 	ld bc, 1 tiles
 	ld a, BANK(MonsterSpriteGFX)
-	call FarCopyBytes
-	ret
+	jmp FarCopyBytes
 
 GetMinimizePic:
 	ld hl, sScratch
@@ -1027,8 +1014,7 @@ CopyMinimizePic:
 	ld hl, MinimizePic
 	ld bc, $10
 	ld a, BANK(MinimizePic)
-	call FarCopyBytes
-	ret
+	jmp FarCopyBytes
 
 MinimizePic:
 INCBIN "gfx/battle/minimize.2bpp"
@@ -1376,8 +1362,7 @@ PlayHitSound:
 	ld de, SFX_NOT_VERY_EFFECTIVE
 
 .play
-	call PlaySFX
-	ret
+	jmp PlaySFX
 
 BattleAnimAssignPals:
 	ldh a, [hCGB]

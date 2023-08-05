@@ -170,12 +170,10 @@ MainMenu_PrintCurrentTimeAndDay:
 	jr nz, .TimeFail
 	hlcoord 0, 14
 	lb bc, 2, 18
-	call Textbox
-	ret
+	jmp Textbox
 
 .TimeFail:
-	call SpeechTextbox
-	ret
+	jmp SpeechTextbox
 
 .PlaceTime:
 	ld a, [wSaveFileExists]
@@ -197,14 +195,12 @@ MainMenu_PrintCurrentTimeAndDay:
 	ld [hli], a
 	ld de, hMinutes
 	lb bc, PRINTNUM_LEADINGZEROS | 1, 2
-	call PrintNum
-	ret
+	jmp PrintNum
 
 .PrintTimeNotSet:
 	hlcoord 1, 14
 	ld de, .TimeNotSetString
-	call PlaceString
-	ret
+	jmp PlaceString
 
 .TimeNotSetString:
 	db "TIME NOT SET@"

@@ -192,8 +192,7 @@ AnimSeq_GSTitleTrail:
 	ret
 
 .delete
-	call DeinitializeSprite
-	ret
+	jmp DeinitializeSprite
 
 AnimSeq_GSIntroHoOhLugia:
 	ld hl, SPRITEANIMSTRUCT_VAR1
@@ -267,8 +266,7 @@ AnimSeq_GSGameFreakLogoStar:
 .delete
 	ld a, 1
 	ld [wIntroSceneFrameCounter], a
-	call DeinitializeSprite
-	ret
+	jmp DeinitializeSprite
 
 AnimSeq_GSGameFreakLogoSparkle:
 	ld hl, SPRITEANIMSTRUCT_VAR1
@@ -344,8 +342,7 @@ AnimSeq_GSGameFreakLogoSparkle:
 	ret
 
 .delete
-	call DeinitializeSprite
-	ret
+	jmp DeinitializeSprite
 
 AnimSeq_SlotsGolem:
 	callfar Slots_AnimateGolem
@@ -359,8 +356,7 @@ AnimSeq_SlotsChansey:
 	ret nz
 	ld [hl], $3
 	ld a, SPRITE_ANIM_FRAMESET_SLOTS_CHANSEY_2
-	call _ReinitSpriteAnimFrame
-	ret
+	jmp _ReinitSpriteAnimFrame
 
 AnimSeq_SlotsChanseyEgg:
 	ld hl, SPRITEANIMSTRUCT_JUMPTABLE_INDEX
@@ -380,8 +376,7 @@ AnimSeq_SlotsChanseyEgg:
 	ld a, $4
 	ld [wSlotsDelay], a
 	ld de, SFX_PLACE_PUZZLE_PIECE_DOWN
-	call PlaySFX
-	ret
+	jmp PlaySFX
 
 .move_right
 	inc [hl]
@@ -511,8 +506,7 @@ AnimSeq_TradePokeBall:
 	sub $c
 	ld [hl], a
 	ld de, SFX_SWITCH_POKEMON
-	call PlaySFX
-	ret
+	jmp PlaySFX
 
 .done2
 	xor a
@@ -520,12 +514,10 @@ AnimSeq_TradePokeBall:
 	ld hl, SPRITEANIMSTRUCT_YOFFSET
 	add hl, bc
 	ld [hl], a
-	call AnimSeqs_IncAnonJumptableIndex
-	ret
+	jmp AnimSeqs_IncAnonJumptableIndex
 
 .delete
-	call DeinitializeSprite
-	ret
+	jmp DeinitializeSprite
 
 AnimSeq_TradeTubeBulge:
 	ld hl, SPRITEANIMSTRUCT_XCOORD
@@ -538,12 +530,10 @@ AnimSeq_TradeTubeBulge:
 	and $3
 	ret nz
 	ld de, SFX_POKEBALLS_PLACED_ON_TABLE
-	call PlaySFX
-	ret
+	jmp PlaySFX
 
 .delete
-	call DeinitializeSprite
-	ret
+	jmp DeinitializeSprite
 
 AnimSeq_TrademonInTube:
 	callfar TradeAnim_AnimateTrademonInTube
@@ -583,8 +573,7 @@ AnimSeq_RevealNewMon:
 	ret
 
 .finish_EggShell
-	call DeinitializeSprite
-	ret
+	jmp DeinitializeSprite
 
 AnimSeq_RadioTuningKnob:
 	callfar AnimateTuningKnob
@@ -694,8 +683,7 @@ AnimSeq_FlyLeaf:
 	ret
 
 .delete_leaf
-	call DeinitializeSprite
-	ret
+	jmp DeinitializeSprite
 
 AnimSeq_FlyTo:
 	ld hl, SPRITEANIMSTRUCT_YCOORD
@@ -762,8 +750,7 @@ AnimSeq_IntroSuicune:
 	add hl, bc
 	ld [hl], a
 	ld a, SPRITE_ANIM_FRAMESET_INTRO_SUICUNE_2
-	call _ReinitSpriteAnimFrame
-	ret
+	jmp _ReinitSpriteAnimFrame
 
 AnimSeq_IntroPichuWooper:
 	ld hl, SPRITEANIMSTRUCT_VAR1
@@ -815,8 +802,7 @@ AnimSeq_IntroUnownF:
 	cp $40
 	ret nz
 	ld a, SPRITE_ANIM_FRAMESET_INTRO_UNOWN_F_2
-	call _ReinitSpriteAnimFrame
-	ret
+	jmp _ReinitSpriteAnimFrame
 
 AnimSeq_IntroSuicuneAway:
 	ld hl, SPRITEANIMSTRUCT_YCOORD

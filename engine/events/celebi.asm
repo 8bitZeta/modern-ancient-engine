@@ -193,8 +193,7 @@ UpdateCelebiPosition:
 	ld hl, SPRITEANIMSTRUCT_FRAMESET_ID
 	add hl, bc
 	ld a, SPRITE_ANIM_FRAMESET_CELEBI_LEFT
-	call ReinitSpriteAnimFrame
-	ret 
+	jmp ReinitSpriteAnimFrame
 	
 GetCelebiSpriteTile:
 	push hl

@@ -55,8 +55,7 @@ ShowPlayerNamingChoices:
 	ld a, [wMenuCursorY]
 	dec a
 	call CopyNameFromMenu
-	call CloseWindow
-	ret
+	jmp CloseWindow
 
 INCLUDE "data/player_names.asm"
 
@@ -86,8 +85,7 @@ GetCardPic:
 	ld de, vTiles2 tile $23
 	ld bc, 6 tiles
 	ld a, BANK(TrainerCardGFX)
-	call FarCopyBytes
-	ret
+	jmp FarCopyBytes
 
 ChrisCardPic:
 INCBIN "gfx/trainer_card/chris_card.2bpp"
@@ -102,8 +100,7 @@ GetPlayerBackpic:
 	ld a, [wPlayerGender]
 	bit PLAYERGENDER_FEMALE_F, a
 	jr z, GetChrisBackpic
-	call GetKrisBackpic
-	ret
+	jmp GetKrisBackpic
 
 GetChrisBackpic:
 	ld hl, ChrisBackpic
@@ -187,8 +184,7 @@ GetKrisBackpic:
 	ld de, KrisBackpic
 	ld hl, vTiles2 tile $31
 	lb bc, BANK(KrisBackpic), 7 * 7 ; dimensions
-	call Get2bpp
-	ret
+	jmp Get2bpp
 
 KrisBackpic:
 INCBIN "gfx/player/kris_back.2bpp"
