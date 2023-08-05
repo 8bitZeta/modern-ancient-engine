@@ -289,8 +289,7 @@ MobileTradeAnim_GetFrontpic:
 	ld [wCurSpecies], a
 	call GetBaseData
 	pop de
-	predef GetMonFrontpic
-	ret
+	predef_jump GetMonFrontpic
 
 Function108201:
 	push de
@@ -301,15 +300,13 @@ Function108201:
 	ld [wCurSpecies], a
 	call GetBaseData
 	pop de
-	predef GetAnimatedFrontpic
-	ret
+	predef_jump GetAnimatedFrontpic
 
 Function108229:
 	ld [wCurPartySpecies], a
 	hlcoord 7, 2
 	lb de, $0, ANIM_MON_TRADE
-	predef LoadMonAnimation
-	ret
+	predef_jump LoadMonAnimation
 
 MobileTradeAnim_InitSpeciesName:
 	push de

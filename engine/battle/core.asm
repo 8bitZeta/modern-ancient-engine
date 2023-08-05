@@ -8353,8 +8353,7 @@ InitEnemyWildmon:
 	ldh [hGraphicStartTile], a
 	hlcoord 12, 0
 	lb bc, 7, 7
-	predef PlaceGraphic
-	ret
+	predef_jump PlaceGraphic
 
 ExitBattle:
 	call .HandleEndOfBattle
@@ -9078,8 +9077,7 @@ GetTrainerBackpic:
 .Decompress:
 	ld de, vTiles2 tile $31
 	ld c, 7 * 7
-	predef DecompressGet2bpp
-	ret
+	predef_jump DecompressGet2bpp
 
 CopyBackpic:
 	ldh a, [rSVBK]
@@ -9099,8 +9097,7 @@ CopyBackpic:
 	ldh [hGraphicStartTile], a
 	hlcoord 2, 6
 	lb bc, 6, 6
-	predef PlaceGraphic
-	ret
+	predef_jump PlaceGraphic
 
 .LoadTrainerBackpicAsOAM:
 	ld hl, wShadowOAMSprite00
