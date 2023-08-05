@@ -1171,10 +1171,9 @@ TitleScreenMain:
 .check_start
 	ld a, [hl]
 	and START | A_BUTTON
-	jr nz, .incave
-	ret
+	ret z
 
-.incave
+; .incave
 	ld a, TITLESCREENOPTION_MAIN_MENU
 	jr .done
 

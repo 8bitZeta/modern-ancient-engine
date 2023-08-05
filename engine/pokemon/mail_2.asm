@@ -74,10 +74,9 @@ else
 	and START
 endc
 	vc_patch_end
-	jr nz, .pressed_start
-	ret
+	ret z
 
-.pressed_start
+; .pressed_start
 	ld a, [wJumptableIndex]
 	push af
 	callfar PrintMailAndExit ; printer

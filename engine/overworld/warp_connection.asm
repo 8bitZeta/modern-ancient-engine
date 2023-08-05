@@ -229,10 +229,9 @@ EnterMapWarp:
 	cp TILESET_POKECENTER
 	jr z, .pokecenter_pokecom
 	cp TILESET_POKECOM_CENTER
-	jr z, .pokecenter_pokecom
-	ret
-.pokecenter_pokecom
+	ret nz
 
+.pokecenter_pokecom
 	ld a, [wPrevMapGroup]
 	ld [wLastSpawnMapGroup], a
 	ld a, [wPrevMapNumber]

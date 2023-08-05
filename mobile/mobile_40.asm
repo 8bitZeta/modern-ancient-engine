@@ -1317,8 +1317,7 @@ MobileBattleGetRemainingTime:
 	jr c, .fail
 	ld a, [wStringBuffer2]
 	and a
-	jr nz, .fail
-	ret
+	ret z
 
 .fail
 	call MobileBattleFixTimer
@@ -2253,10 +2252,9 @@ Function100f3d:
 	cp $01
 	jr z, .one
 	cp $03
-	jr z, .three
-	ret
+	ret nz
 
-.three
+; .three
 	; what was once in de gets copied to hl,
 	; modified by Function100f8d, and put back
 	; into this backup
@@ -5369,10 +5367,9 @@ Function1026f3:
 	bit D_UP_F, a
 	jr nz, .asm_102712
 	bit D_DOWN_F, a
-	jr nz, .asm_102702
-	ret
+	ret z
 
-.asm_102702
+; .asm_102702
 	hlcoord 9, 17
 	ld [hl], " "
 	ld a, $01
@@ -5453,10 +5450,9 @@ Function10278c:
 	bit B_BUTTON_F, a
 	jr nz, asm_1027e2
 	bit D_RIGHT_F, a
-	jr nz, .asm_10279b
-	ret
+	ret z
 
-.asm_10279b
+; .asm_10279b
 	ld a, $03
 	ld [wcd4a], a
 Function1027a0:

@@ -1071,8 +1071,7 @@ StatsScreen_AnimateEgg:
 	jr c, .animate
 	ld e, $8
 	cp 11
-	jr c, .animate
-	ret
+	ret nc
 
 .animate
 	push de

@@ -455,10 +455,9 @@ IntroScene10:
 	cp $20
 	jr z, .wooper
 	cp $40
-	jr z, .pichu
-	ret
+	ret nz
 
-.pichu
+; .pichu
 	depixel 21, 16, 1, 0
 	ld a, SPRITE_ANIM_INDEX_INTRO_PICHU
 	call InitSpriteAnimStruct
@@ -939,9 +938,8 @@ IntroScene22:
 	ld a, [hl]
 	inc [hl]
 	cp $8
-	jr nc, .done
-	ret
-.done
+	ret c
+; .done
 	farcall DeinitializeAllSprites
 	jmp NextIntroScene
 
@@ -1406,10 +1404,9 @@ Intro_Scene16_AnimateSuicune:
 	and $3
 	jr z, Intro_ColoredSuicuneFrameSwap
 	cp $3
-	jr z, .PrepareForSuicuneSwap
-	ret
+	ret nz
 
-.PrepareForSuicuneSwap:
+; .PrepareForSuicuneSwap:
 	xor a
 	ldh [hBGMapMode], a
 	ret

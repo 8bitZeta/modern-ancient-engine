@@ -390,9 +390,8 @@ endr
 .DrawBugContestStatus:
 	ld hl, wStatusFlags2
 	bit STATUSFLAGS2_BUG_CONTEST_TIMER_F, [hl]
-	jr nz, .contest
-	ret
-.contest
+	ret z
+; .contest
 	farcall StartMenu_PrintBugContestStatus
 	ret
 

@@ -606,10 +606,9 @@ Pokedex_UpdateOptionScreen:
 	jr nz, .return_to_main_screen
 	ld a, [hl]
 	and A_BUTTON
-	jr nz, .do_menu_action
-	ret
+	ret z
 
-.do_menu_action
+; .do_menu_action
 	ld a, [wDexArrowCursorPosIndex]
 	ld hl, .MenuActionJumptable
 	call Pokedex_LoadPointer
@@ -704,10 +703,9 @@ Pokedex_UpdateSearchScreen:
 	jr nz, .cancel
 	ld a, [hl]
 	and A_BUTTON
-	jr nz, .do_menu_action
-	ret
+	ret z
 
-.do_menu_action
+; .do_menu_action
 	ld a, [wDexArrowCursorPosIndex]
 	ld hl, .MenuActionJumptable
 	call Pokedex_LoadPointer

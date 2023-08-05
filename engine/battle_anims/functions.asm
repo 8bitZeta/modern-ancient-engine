@@ -2884,10 +2884,9 @@ BattleAnimFunction_PresentSmokescreen:
 	add hl, bc
 	ld a, [hl]
 	cp $6c
-	jr c, .do_move
-	ret
+	ret nc
 
-.do_move
+; .do_move
 	ld a, $2
 	call BattleAnim_StepToTarget
 	ld hl, BATTLEANIMSTRUCT_VAR1

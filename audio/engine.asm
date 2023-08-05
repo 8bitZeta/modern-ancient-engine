@@ -371,10 +371,9 @@ UpdateChannels:
 	bit NOTE_NOISE_SAMPLING, [hl]
 	jr nz, .ch3_noise_sampling
 	bit NOTE_VIBRATO_OVERRIDE, [hl]
-	jr nz, .ch3_vibrato_override
-	ret
+	ret z
 
-.ch3_vibrato_override
+; .ch3_vibrato_override
 	ld a, [wCurTrackFrequency]
 	ldh [rNR33], a
 	ret

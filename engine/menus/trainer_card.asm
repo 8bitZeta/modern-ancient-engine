@@ -119,10 +119,9 @@ TrainerCard_Page1_Joypad:
 	ld hl, hJoyLast
 	ld a, [hl]
 	and D_RIGHT | A_BUTTON
-	jr nz, .pressed_right_a
-	ret
+	ret z
 
-.pressed_right_a
+; .pressed_right_a
 	ld a, TRAINERCARDSTATE_PAGE2_LOADGFX
 	ld [wJumptableIndex], a
 	ret
@@ -153,10 +152,9 @@ TrainerCard_Page2_Joypad:
 	jr nz, .Quit
 	ld a, [hl]
 	and D_LEFT
-	jr nz, .d_left
-	ret
+	ret z
 
-.d_left
+; .d_left
 	ld a, TRAINERCARDSTATE_PAGE1_LOADGFX
 	ld [wJumptableIndex], a
 	ret

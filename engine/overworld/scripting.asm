@@ -2178,10 +2178,9 @@ Script_stopandsjump:
 
 Script_end:
 	call ExitScriptSubroutine
-	jr c, .resume
-	ret
+	ret nc
 
-.resume
+; .resume
 	xor a
 	ld [wScriptRunning], a
 	ld a, SCRIPT_OFF

@@ -399,10 +399,9 @@ Function106403:
 	bit 1, a
 	jr nz, .asm_106426
 	bit 0, a
-	jr z, .asm_10640f
-	ret
+	ret nz
 
-.asm_10640f
+; .asm_10640f
 	ld a, [wcd31]
 	and $80
 	ld c, a
