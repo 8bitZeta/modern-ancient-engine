@@ -15,11 +15,8 @@ GetCrystalCGBLayout:
 	ld a, [hli]
 	ld h, [hl]
 	ld l, a
-	ld de, .done
-	push de
-	jp hl
-.done:
-	ret
+	jmp _hl_
+; .done
 
 .Jumptable:
 	dw _CrystalCGB_MobileLayout0

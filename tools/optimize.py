@@ -443,15 +443,15 @@ patterns = {
 		and line2.code != 'jp hl'),
 	(lambda line3, prev: line3.code.rstrip(':') == prev[0].code.split(',')[1].strip()),
 ],
-# 'call hl': [
-# 	# Bad: ld bc|de, Foo / push bc|de / jp hl / Foo: ...
-# 	# Good: call _hl_ (defined in home as _hl_:: jp hl)
-# 	(lambda line1, prev: re.match(r'ld (?:bc|de), [^hbd]', line1.code)),
-# 	(lambda line2, prev: line2.code in {'push bc', 'push de'}
-# 		and line2.code[5:7] == prev[0].code[3:5]),
-# 	(lambda line3, prev: line3.code == 'jp hl'),
-# 	(lambda line4, prev: line4.code.rstrip(':') == prev[0].code.split(',')[1].strip()),
-# ],
+'call hl': [
+	# Bad: ld bc|de, Foo / push bc|de / jp hl / Foo: ...
+	# Good: call _hl_ (defined in home as _hl_:: jp hl)
+	(lambda line1, prev: re.match(r'ld (?:bc|de), [^hbd]', line1.code)),
+	(lambda line2, prev: line2.code in {'push bc', 'push de'}
+		and line2.code[5:7] == prev[0].code[3:5]),
+	(lambda line3, prev: line3.code == 'jp hl'),
+	(lambda line4, prev: line4.code.rstrip(':') == prev[0].code.split(',')[1].strip()),
+],
 # 'Pointless hli|hld': [
 # 	# Bad: { ld a, [hli|hld] | ld [hli|hld], a } / { ld hl, Foo | pop hl }
 # 	# Good: { ld a, [hl] | ld [hl], a }

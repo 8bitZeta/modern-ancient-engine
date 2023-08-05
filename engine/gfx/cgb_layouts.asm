@@ -22,11 +22,8 @@ LoadSGBLayoutCGB:
 	ld a, [hli]
 	ld h, [hl]
 	ld l, a
-	ld de, .done
-	push de
-	jp hl
-.done:
-	ret
+	jmp _hl_
+; .done
 
 CGBLayoutJumptable:
 	table_width 2, CGBLayoutJumptable

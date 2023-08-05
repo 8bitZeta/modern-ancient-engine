@@ -267,10 +267,7 @@ PokeBallEffect:
 	ld a, [hli]
 	ld h, [hl]
 	ld l, a
-	ld de, .skip_or_return_from_ball_fn
-	push de
-	jp hl
-
+	call _hl_
 .skip_or_return_from_ball_fn
 	ld a, [wCurItem]
 	cp LEVEL_BALL

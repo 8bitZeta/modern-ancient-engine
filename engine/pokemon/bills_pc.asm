@@ -1934,11 +1934,8 @@ MovePKMNWithoutMail_InsertMon:
 	ld a, [hli]
 	ld h, [hl]
 	ld l, a
-	ld de, .dw_return
-	push de
-	jp hl
-
-.dw_return
+	call _hl_
+; .dw_return
 	pop af
 	ld e, a
 	farcall MoveMonWOMail_InsertMon_SaveGame
