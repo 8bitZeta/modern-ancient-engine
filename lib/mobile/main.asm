@@ -3185,10 +3185,8 @@ Function11148c:
 	inc de
 	ld a, b
 	or a
-	jr z, .asm_111521
-	call MobileSDK_CopyBytes
-
 .asm_111521
+	call nz, MobileSDK_CopyBytes
 	ld hl, wMobileSDK_ReceivePacketBuffer + 5
 	ld b, c
 	call MobileSDK_CopyBytes
@@ -6996,8 +6994,7 @@ Function112d33:
 	or a
 	jr z, .asm_112e7f
 	cp $3
-	jr nc, .asm_112e7f
-	call Function1133fe
+	call c, Function1133fe
 
 .asm_112e7f
 	ld hl, wc821

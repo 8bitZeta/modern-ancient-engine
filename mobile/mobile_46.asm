@@ -109,8 +109,7 @@ Function1180b8:
 	cp $10
 	jr c, .asm_1180f2
 	cp $16
-	jr nc, .asm_1180f2
-	call Function11884c
+	call c, Function11884c
 
 .asm_1180f2
 	call Function1184ec
@@ -6846,8 +6845,7 @@ Function11b66d:
 	and a
 	jr z, .asm_11b691
 	cp $1
-	jr nz, .asm_11b6b0
-	call Function11b6b4
+	call z, Function11b6b4
 	jr .asm_11b6b0
 
 .asm_11b691

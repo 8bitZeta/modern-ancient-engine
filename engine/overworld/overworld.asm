@@ -558,10 +558,9 @@ GetUsedSprite:
 	push bc
 	ld a, [wSpriteFlags]
 	bit 7, a
-	jr nz, .skip
-	call .CopyToVram
+	call z, .CopyToVram
 
-.skip
+; .skip
 	pop bc
 	ld l, c
 	ld h, $0

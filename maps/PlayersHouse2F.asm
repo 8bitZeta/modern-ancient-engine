@@ -68,6 +68,7 @@ PlayersHouseRadioScript:
 	giveitem HP_UP, 99
 	giveitem POKE_BALL, 2
 	giveitem TOWN_MAP, 1
+	giveitem EON_MAIL, 1
 	; all badges
 	setflag ENGINE_ZEPHYRBADGE
 	setflag ENGINE_HIVEBADGE

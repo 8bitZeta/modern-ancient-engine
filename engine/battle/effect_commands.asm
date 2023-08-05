@@ -1505,10 +1505,9 @@ BattleCommand_CheckHit:
 	ld a, BATTLE_VARS_MOVE_EFFECT
 	call GetBattleVar
 	cp EFFECT_JUMP_KICK
-	jr z, .Missed
-	call ResetDamage
+	call nz, ResetDamage
 
-.Missed:
+; .Missed:
 	ld a, 1
 	ld [wAttackMissed], a
 	ret
@@ -5132,9 +5131,8 @@ ret
 	ld a, BATTLE_VARS_MOVE_EFFECT
 	call GetBattleVar
 	cp EFFECT_BEAT_UP
-	jr z, .beat_up_2
-	call StdBattleTextbox
-.beat_up_2
+	call nz, StdBattleTextbox
+; .beat_up_2
 
 	pop bc
 	xor a
@@ -5501,8 +5499,7 @@ BattleCommand_FinishConfusingTarget:
 	cp EFFECT_SNORE
 	jr z, .got_effect
 	cp EFFECT_SWAGGER
-	jr z, .got_effect
-	call AnimateCurrentMove
+	call nz, AnimateCurrentMove
 
 .got_effect
 	ld de, ANIM_CONFUSED

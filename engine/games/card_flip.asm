@@ -1044,10 +1044,9 @@ CardFlip_CheckWinCondition:
 .loop
 	push bc
 	call .IsCoinCaseFull
-	jr c, .full
-	call .AddCoinPlaySFX
+	call nc, .AddCoinPlaySFX
 
-.full
+; .full
 	call CardFlip_PrintCoinBalance
 	ld c, 2
 	call DelayFrames

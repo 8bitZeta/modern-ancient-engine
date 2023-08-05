@@ -369,32 +369,25 @@ ReceiverExchangeMysteryGiftDataPayloads:
 ReceiverExchangeMysteryGiftDataPayloads_GotPayload:
 	; Switch roles
 	call BeginSendingIRCommunication
-	jmp nz, EndOrContinueMysteryGiftIRCommunication
 	; Send the data payload
-	call SendMysteryGiftDataPayload
-	jmp nz, EndOrContinueMysteryGiftIRCommunication
+	call z, SendMysteryGiftDataPayload
 	; Switch roles
-	call BeginReceivingIRCommunication
-	jmp nz, EndOrContinueMysteryGiftIRCommunication
+	call z, BeginReceivingIRCommunication
 	; Receive an empty block
-	call ReceiveEmptyIRDataBlock
+	call z, ReceiveEmptyIRDataBlock
 	jmp EndOrContinueMysteryGiftIRCommunication
 
 SenderExchangeMysteryGiftDataPayloads:
 	; Send the data payload
 	call SendMysteryGiftDataPayload
-	jmp nz, EndOrContinueMysteryGiftIRCommunication
 	; Switch roles
-	call BeginReceivingIRCommunication
-	jmp nz, EndOrContinueMysteryGiftIRCommunication
+	call z, BeginReceivingIRCommunication
 	; Receive the data payload
-	call ReceiveMysteryGiftDataPayload
-	jmp nz, EndOrContinueMysteryGiftIRCommunication
+	call z, ReceiveMysteryGiftDataPayload
 	; Switch roles
-	call BeginSendingIRCommunication
-	jmp nz, EndOrContinueMysteryGiftIRCommunication
+	call z, BeginSendingIRCommunication
 	; Send an empty block
-	call SendEmptyIRDataBlock
+	call z, SendEmptyIRDataBlock
 	jmp EndOrContinueMysteryGiftIRCommunication
 
 ReceiveMysteryGiftDataPayload:
@@ -564,35 +557,27 @@ ExchangeNameCardData:
 
 	; Receive the data payload
 	call ReceiveNameCardDataPayload
-	jmp nz, EndNameCardIRCommunication
 	; Switch roles
-	call BeginSendingIRCommunication
-	jmp nz, EndNameCardIRCommunication
+	call z, BeginSendingIRCommunication
 	; Send the data payload
-	call SendNameCardDataPayload
-	jmp nz, EndNameCardIRCommunication
+	call z, SendNameCardDataPayload
 	; Switch roles
-	call BeginReceivingIRCommunication
-	jmp nz, EndNameCardIRCommunication
+	call z, BeginReceivingIRCommunication
 	; Receive an empty block
-	call ReceiveEmptyIRDataBlock
+	call z, ReceiveEmptyIRDataBlock
 	jmp EndNameCardIRCommunication
 
 .sender
 	; Send the data payload
 	call SendNameCardDataPayload
-	jmp nz, EndNameCardIRCommunication
 	; Switch roles
-	call BeginReceivingIRCommunication
-	jmp nz, EndNameCardIRCommunication
+	call z, BeginReceivingIRCommunication
 	; Receive the data payload
-	call ReceiveNameCardDataPayload
-	jmp nz, EndNameCardIRCommunication
+	call z, ReceiveNameCardDataPayload
 	; Switch roles
-	call BeginSendingIRCommunication
-	jmp nz, EndNameCardIRCommunication
+	call z, BeginSendingIRCommunication
 	; Send an empty block
-	call SendEmptyIRDataBlock
+	call z, SendEmptyIRDataBlock
 	jmp EndNameCardIRCommunication
 
 ReceiveNameCardDataPayload:

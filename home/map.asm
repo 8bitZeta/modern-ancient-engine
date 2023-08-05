@@ -638,10 +638,8 @@ endr
 	; destination warp number
 	ld a, [hli]
 	cp -1
-	jr nz, .skip
-	call .backup
-
-.skip
+; .skip
+	call z, .backup
 	farcall GetMapScreenCoords
 	ret
 

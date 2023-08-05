@@ -2140,9 +2140,8 @@ UpdateAllObjectsFrozen::
 .loop
 	ldh [hMapObjectIndex], a
 	call DoesObjectHaveASprite
-	jr z, .ok
-	call UpdateObjectFrozen
-.ok
+	call nz, UpdateObjectFrozen
+; .ok
 	ld hl, OBJECT_LENGTH
 	add hl, bc
 	ld b, h
@@ -2163,8 +2162,7 @@ RespawnPlayerAndOpponent:
 	jr z, .skip_opponent
 	ldh a, [hLastTalked]
 	and a
-	jr z, .skip_opponent
-	call RespawnObject
+	call nz, RespawnObject
 .skip_opponent
 	jmp _UpdateSprites
 

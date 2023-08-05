@@ -2723,8 +2723,7 @@ Function8a2aa:
 	call PrintText
 	ld a, $2
 	call Function89259
-	jr c, .asm_8a2ea
-	call Function8a20d
+	call nc, Function8a20d
 	jr .asm_8a2ea
 .asm_8a2cf
 	call ExitMenu

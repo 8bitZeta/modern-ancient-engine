@@ -2235,8 +2235,7 @@ UpdateBattleStateAndExperienceAfterEnemyFaint:
 	jr nz, .player_mon_did_not_faint
 	ld a, [wWhichMonFaintedFirst]
 	and a
-	jr nz, .player_mon_did_not_faint
-	call UpdateFaintedPlayerMon
+	call z, UpdateFaintedPlayerMon
 
 .player_mon_did_not_faint
 	call CheckPlayerPartyForFitMon
@@ -3194,9 +3193,8 @@ EnemySwitch:
 	; Shift Mode
 	call ResetEnemyBattleVars
 	call CheckWhetherSwitchmonIsPredetermined
-	jr c, .skip
-	call FindMonInOTPartyToSwitchIntoBattle
-.skip
+	call nc, FindMonInOTPartyToSwitchIntoBattle
+; .skip
 	; 'b' contains the PartyNr of the mon the AI will switch to
 	call LoadEnemyMonToSwitchTo
 	call OfferSwitch
@@ -3219,9 +3217,8 @@ EnemySwitch:
 EnemySwitch_SetMode:
 	call ResetEnemyBattleVars
 	call CheckWhetherSwitchmonIsPredetermined
-	jr c, .skip
-	call FindMonInOTPartyToSwitchIntoBattle
-.skip
+	call nc, FindMonInOTPartyToSwitchIntoBattle
+; .skip
 	; 'b' contains the PartyNr of the mon the AI will switch to
 	call LoadEnemyMonToSwitchTo
 	ld a, 1
@@ -5156,20 +5153,18 @@ BattleMenu_Pack:
 	callfar CheckItemPocket
 	ld a, [wItemAttributeValue]
 	cp BALL
-	jr z, .ball
-	call ClearBGPalettes
+	call nz, ClearBGPalettes
 
-.ball
+; .ball
 	xor a
 	ldh [hBGMapMode], a
 	call _LoadBattleFontsHPBar
 	call ClearSprites
 	ld a, [wBattleType]
 	cp BATTLETYPE_TUTORIAL
-	jr z, .tutorial2
-	call GetBattleMonBackpic
+	call nz, GetBattleMonBackpic
 
-.tutorial2
+; .tutorial2
 	call GetEnemyMonFrontpic
 	ld a, $1
 	ld [wMenuCursorY], a
@@ -5391,9 +5386,8 @@ BattleMonEntrance:
 
 	call SetEnemyTurn
 	call PursuitSwitch
-	jr c, .ok
-	call RecallPlayerMon
-.ok
+	call nc, RecallPlayerMon
+; .ok
 
 	hlcoord 9, 7
 	lb bc, 5, 11

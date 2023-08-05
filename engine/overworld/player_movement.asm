@@ -83,8 +83,7 @@ DoPlayerMovement::
 	ret c
 	ld a, [wWalkingDirection]
 	cp STANDING
-	jr z, .HitWall
-	call .BumpSound
+	call nz, .BumpSound
 .HitWall:
 	call .StandInPlace
 	xor a
@@ -98,9 +97,8 @@ DoPlayerMovement::
 ; Walking into an edge warp won't bump.
 	ld a, [wWalkingIntoEdgeWarp]
 	and a
-	jr nz, .CantMove
-	call .BumpSound
-.CantMove:
+; .CantMove:
+	call z, .BumpSound
 	call ._WalkInPlace
 	xor a
 	ret

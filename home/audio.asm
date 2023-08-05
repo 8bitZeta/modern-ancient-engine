@@ -366,9 +366,8 @@ PlayMapMusicBike::
 	ld de, MUSIC_BICYCLE
 	ld a, [wPlayerState]
 	cp PLAYER_BIKE
-	jr z, .play
-	call GetMapMusic_MaybeSpecial
-.play
+; .play
+	call nz, GetMapMusic_MaybeSpecial
 	push de
 	ld de, MUSIC_NONE
 	call PlayMusic

@@ -410,24 +410,24 @@ patterns = {
 	(lambda line1, prev: line1.code.startswith('predef ')),
 	(lambda line2, prev: line2.code == 'ret'),
 ],
-# 'Fallthrough': [
-# 	# Bad: call Foo / ret / Foo: ...
-# 	# Good: fall through to Foo: ...
-# 	(lambda line1, prev: line1.code.startswith('call ') and ',' not in line1.code),
-# 	(lambda line2, prev: line2.code == 'ret'),
-# 	(lambda line3, prev: line3.code.rstrip(':') == prev[0].code[4:].strip()),
-# ],
-# 'Conditional call': [
-# 	# Bad: jr z|nz|c|nc, .skip / call Foo / .skip
-# 	# Good: call nz|z|nc|c, Foo
-# 	# Bad: jr z|nz|c|nc, .ok / call Foo / jr .ok
-# 	# Good: call nz|z|nc|c, Foo / jr .ok
-# 	(lambda line1, prev: re.match(r'(jr|jp|jmp) n?[zc],', line1.code)),
-# 	(lambda line2, prev: line2.code.startswith('call ') and ',' not in line2.code),
-# 	(lambda line3, prev: (re.match(r'(jr|jp|jmp) ', line3.code) and ',' not in line3.code
-# 		and line3.code.split()[-1].strip() == prev[0].code.split(',')[1].strip())
-# 		or line3.code.rstrip(':') == prev[0].code.split(',')[1].strip()),
-# ],
+'Fallthrough': [
+	# Bad: call Foo / ret / Foo: ...
+	# Good: fall through to Foo: ...
+	(lambda line1, prev: line1.code.startswith('call ') and ',' not in line1.code),
+	(lambda line2, prev: line2.code == 'ret'),
+	(lambda line3, prev: line3.code.rstrip(':') == prev[0].code[4:].strip()),
+],
+'Conditional call': [
+	# Bad: jr z|nz|c|nc, .skip / call Foo / .skip
+	# Good: call nz|z|nc|c, Foo
+	# Bad: jr z|nz|c|nc, .ok / call Foo / jr .ok
+	# Good: call nz|z|nc|c, Foo / jr .ok
+	(lambda line1, prev: re.match(r'(jr|jp|jmp) n?[zc],', line1.code)),
+	(lambda line2, prev: line2.code.startswith('call ') and ',' not in line2.code),
+	(lambda line3, prev: (re.match(r'(jr|jp|jmp) ', line3.code) and ',' not in line3.code
+		and line3.code.split()[-1].strip() == prev[0].code.split(',')[1].strip())
+		or line3.code.rstrip(':') == prev[0].code.split(',')[1].strip()),
+],
 # 'Conditional return': [
 # 	# Bad: jr z|nz|c|nc, .skip / ret / .skip
 # 	# Good: ret nz|z|nc|c .bar

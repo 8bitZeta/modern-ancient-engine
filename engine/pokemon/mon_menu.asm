@@ -328,10 +328,8 @@ GivePartyItem:
 	ld [hl], a
 	ld d, a
 	farcall ItemIsMail
-	jr nc, .done
-	call ComposeMailMessage
-
-.done
+; .done
+	jmp c, ComposeMailMessage
 	ret
 
 TakePartyItem:
