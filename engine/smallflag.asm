@@ -53,7 +53,7 @@ SmallFarFlagAction:
 
 .check
 	ld a, d
-	cp 0
+	or a
 	jr nz, .farcheck
 
 	ld a, [hl]

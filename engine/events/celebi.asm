@@ -203,7 +203,7 @@ GetCelebiSpriteTile:
 	ld a, d
 	ld d, $3
 	ld e, d
-	cp $0
+	or a
 	jr z, .Frame1
 	cp d
 	jr z, .Frame2

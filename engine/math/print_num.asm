@@ -217,7 +217,7 @@ _PrintNum::
 	cp b
 	jr nc, .skip2
 	ldh a, [hPrintNumBuffer + 1]
-	or 0
+	or a
 	jr z, .skip3
 	dec a
 	ldh [hPrintNumBuffer + 1], a

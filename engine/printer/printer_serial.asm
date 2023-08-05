@@ -196,7 +196,7 @@ Printer_CheckConnectionStatus:
 	cp $81
 	jr nz, .printer_error
 	ld a, [wPrinterStatusFlags]
-	cp $0
+	or a
 	jr nz, .printer_error
 	ld hl, wPrinterConnectionOpen
 	set 1, [hl]

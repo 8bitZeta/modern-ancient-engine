@@ -379,13 +379,13 @@ patterns = {
 	(lambda line1, prev: re.match(r'ld [bcde], \[hl\]', line1.code)),
 	(lambda line2, prev: line2.code in {'inc hl', 'dec hl'}),
 ],
-# 'a == 0': [
-# 	# Bad: cp|or 0
-# 	# Bad: and $ff
-# 	# Good: and|or a
-# 	(lambda line1, prev: re.match(r'(?:cp|or) [%\$&]?0+$', line1.code)
-# 		or re.match(r'and (?:255|-1|\$[Ff][Ff]|%11111111|&377)$', line1.code)),
-# ],
+'a == 0': [
+	# Bad: cp|or 0
+	# Bad: and $ff
+	# Good: and|or a
+	(lambda line1, prev: re.match(r'(?:cp|or) [%\$&]?0+$', line1.code)
+		or re.match(r'and (?:255|-1|\$[Ff][Ff]|%11111111|&377)$', line1.code)),
+],
 # 'ei + ret': [
 # 	# Bad: ei / ret
 # 	# Good: reti

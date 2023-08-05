@@ -555,7 +555,7 @@ EvolveAfterBattle_MasterLoop:
 
 	call CheckCreate
 
-	cp 0
+	or a
 	jr z, .skip_create
 
 	call GiveShedinja

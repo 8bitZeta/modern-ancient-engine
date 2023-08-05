@@ -4649,7 +4649,7 @@ Function8b664:
 	ld de, $4
 .asm_8b668
 	ld a, [bc]
-	cp $0
+	or a
 	jr nz, .asm_8b66e
 	inc d
 .asm_8b66e
