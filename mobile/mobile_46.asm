@@ -2876,10 +2876,9 @@ Function1196f2:
 	ldh a, [hRandomSub]
 	cp d
 	jr c, .asm_11974c
-	jr z, .asm_11973e
-	jr .asm_119745
+	jr nz, .asm_119745
 
-.asm_11973e
+; .asm_11973e
 	ldh a, [hRandomAdd]
 	cp e
 	jr c, .asm_11974c
@@ -3455,10 +3454,9 @@ Function119b52:
 Function119b6b:
 	ld a, [w3_d090]
 	cp $1
-	jr z, .asm_119b75
-	jmp BattleTowerRoomMenu_IncrementJumptable
+	jmp nz, BattleTowerRoomMenu_IncrementJumptable
 
-.asm_119b75
+; .asm_119b75
 	ld a, [w3_d100]
 	ld b, a
 	ld a, [w3_d100 + 1]

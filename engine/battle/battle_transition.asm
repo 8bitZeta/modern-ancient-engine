@@ -344,10 +344,9 @@ StartTrainerBattle_SetUpForWavyOutro:
 StartTrainerBattle_SineWave:
 	ld a, [wBattleTransitionCounter]
 	cp $60
-	jr nc, .end
-	jr .DoSineWave
+	jr c, .DoSineWave
 
-.end
+; .end
 	ld a, BATTLETRANSITION_FINISH
 	ld [wJumptableIndex], a
 	ret

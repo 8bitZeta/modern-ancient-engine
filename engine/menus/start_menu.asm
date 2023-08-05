@@ -106,9 +106,8 @@ StartMenu::
 	cp B_BUTTON
 	jr z, .b
 	cp A_BUTTON
-	jr z, .a
-	jr .loop
-.a
+	jr nz, .loop
+; .a
 	call PlayClickSFX
 	and a
 	ret

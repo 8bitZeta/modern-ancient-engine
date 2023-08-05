@@ -91,13 +91,11 @@ INCLUDE "data/sprites/player_sprites.asm"
 AddMapSprites:
 	call GetMapEnvironment
 	call CheckOutdoorMap
-	jr z, .outdoor
-	jr AddIndoorSprites
 
-.outdoor
-	jr AddOutdoorSprites
+; .outdoor
+	jr z, AddOutdoorSprites
 
-AddIndoorSprites:
+; AddIndoorSprites:
 	ld hl, wMap1ObjectSprite
 	ld a, 1
 .loop

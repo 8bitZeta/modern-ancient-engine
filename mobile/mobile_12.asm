@@ -1771,11 +1771,10 @@ MobileCheckOwnMonAnywhere:
 	ld bc, sBoxMonOTs
 .openboxmon
 	call .CheckMatch
-	jr nc, .loop
 
-	jmp CloseSRAM
+	jmp c, CloseSRAM
 
-.loop
+; .loop
 	push bc
 	ld bc, BOXMON_STRUCT_LENGTH
 	add hl, bc
@@ -1860,10 +1859,9 @@ MobileCheckOwnMonAnywhere:
 	ld a, [wScriptVar]
 	ld b, [hl]
 	cp b
-	jr nz, .no_match
-	jr .match
+	jr z, .match
 
-.no_match
+; .no_match
 	pop de
 	pop hl
 	pop bc
@@ -2457,8 +2455,7 @@ Function4acaa:
 	bit 0, a
 	jr nz, .asm_4acf4
 	bit 1, a
-	jr nz, .asm_4acf3
-	jr .asm_4acaa
+	jr z, .asm_4acaa
 
 .asm_4acf3
 	ret
@@ -2474,13 +2471,13 @@ Function4acaa:
 	jr z, Function4ad56
 	cp $3
 	jr z, Function4ad60
-	jr .asm_4acf3
+	; jr .asm_4acf3
 
 .asm_4ad0e
 	ld a, [wMenuCursorY]
 	cp $1
 	jr z, Function4ad56
-	jr .asm_4acf3
+	; jr .asm_4acf3
 
 Function4ad17:
 	call Function4adb2

@@ -226,8 +226,7 @@ BattleTurn:
 	call HandleBetweenTurnEffects
 	ld a, [wBattleEnded]
 	and a
-	jr nz, .quit
-	jmp .loop
+	jmp z, .loop
 
 .quit
 	pop af
@@ -2220,10 +2219,9 @@ UpdateBattleStateAndExperienceAfterEnemyFaint:
 	call BreakAttraction
 	ld a, [wBattleMode]
 	dec a
-	jr z, .wild2
-	jr .trainer
+	jr nz, .trainer
 
-.wild2
+; .wild2
 	call StopDangerSound
 	ld a, $1
 	ld [wBattleLowHealthAlarm], a
@@ -5223,8 +5221,7 @@ BattleMenuPKMN_Loop:
 .Stats:
 	call Battle_StatsScreen
 	call CheckMobileBattleError
-	jr c, .Cancel
-	jr BattleMenuPKMN_ReturnFromStats
+	jr nc, BattleMenuPKMN_ReturnFromStats
 
 .Cancel:
 	call ClearSprites
@@ -5352,10 +5349,9 @@ PlayerSwitch:
 	cp BATTLEACTION_SWITCH1
 	jr c, .switch
 	cp BATTLEACTION_FORFEIT
-	jr nz, .dont_run
-	jmp WildFled_EnemyFled_LinkBattleCanceled
+	jmp z, WildFled_EnemyFled_LinkBattleCanceled
 
-.dont_run
+; .dont_run
 	ldh a, [hSerialConnectionStatus]
 	cp USING_EXTERNAL_CLOCK
 	jr z, .player_1

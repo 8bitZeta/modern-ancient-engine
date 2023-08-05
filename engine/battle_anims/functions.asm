@@ -156,10 +156,9 @@ BattleAnimFunction_MoveWaveToTarget:
 	add hl, bc
 	ld a, [hl]
 	cp $88
-	jr c, .move
-	jmp DeinitBattleAnimation
+	jmp nc, DeinitBattleAnimation
 
-.move
+; .move
 	add $2
 	ld [hl], a
 	ld hl, BATTLEANIMSTRUCT_YCOORD
@@ -399,10 +398,9 @@ BattleAnimFunction_PokeBallBlocked:
 	add hl, bc
 	ld a, [hl]
 	cp $70
-	jr nc, .next
-	jmp BattleAnimFunction_ThrowFromUserToTarget
+	jmp c, BattleAnimFunction_ThrowFromUserToTarget
 
-.next
+; .next
 	call BattleAnim_IncAnonJumptableIndex
 .two
 	ld hl, BATTLEANIMSTRUCT_YCOORD
@@ -549,10 +547,9 @@ BattleAnimFunction_MoveFromUserToTargetSpinAround:
 	add hl, bc
 	ld a, [hl]
 	cp $80
-	jr nc, .next
-	jr .SetCoords
+	jr c, .SetCoords
 
-.next
+; .next
 	call BattleAnim_IncAnonJumptableIndex
 .one
 	call BattleAnim_IncAnonJumptableIndex
@@ -617,10 +614,9 @@ BattleAnimFunction_MoveFromUserToTargetSpinAround:
 	add hl, bc
 	ld a, [hl]
 	cp $b0
-	jr c, .retain
-	jmp DeinitBattleAnimation
+	jmp nc, DeinitBattleAnimation
 
-.retain
+; .retain
 	jr .SetCoords
 
 .SetCoords:
@@ -872,10 +868,9 @@ BattleAnimFunction_RazorLeaf:
 	add hl, bc
 	ld a, [hl]
 	cp $20
-	jr nz, .sine_cosine_2
-	jmp DeinitBattleAnimation
+	jmp z, DeinitBattleAnimation
 
-.sine_cosine_2
+; .sine_cosine_2
 	ld hl, BATTLEANIMSTRUCT_VAR1
 	add hl, bc
 	ld a, [hl]
@@ -1006,10 +1001,9 @@ BattleAnimFunction_RockSmash:
 	add hl, bc
 	ld a, [hl]
 	cp $30
-	jr nc, .sine_cosine
-	jmp DeinitBattleAnimation
+	jmp c, DeinitBattleAnimation
 
-.sine_cosine
+; .sine_cosine
 	ld hl, BATTLEANIMSTRUCT_PARAM
 	add hl, bc
 	ld a, [hl]
@@ -1228,10 +1222,9 @@ BattleAnimFunction_Sing:
 	add hl, bc
 	ld a, [hl]
 	cp $b8
-	jr c, .move
-	jmp DeinitBattleAnimation
+	jmp nc, DeinitBattleAnimation
 
-.move
+; .move
 	ld a, $2
 	call BattleAnim_StepToTarget
 	ld hl, BATTLEANIMSTRUCT_VAR1
@@ -1311,10 +1304,9 @@ BattleAnimFunction_Powder:
 	add hl, bc
 	ld a, [hl]
 	cp $38
-	jr c, .move
-	jmp DeinitBattleAnimation
+	jmp nc, DeinitBattleAnimation
 
-.move
+; .move
 	ld a, [hl]
 	ld hl, BATTLEANIMSTRUCT_VAR1
 	add hl, bc
@@ -1372,10 +1364,9 @@ BattleAnimFunction_Recover:
 	add hl, bc
 	ld a, [hl]
 	and a
-	jr nz, .move
-	jmp DeinitBattleAnimation
+	jmp z, DeinitBattleAnimation
 
-.move
+; .move
 	ld hl, BATTLEANIMSTRUCT_VAR1
 	add hl, bc
 	ld a, [hl]
@@ -1674,8 +1665,7 @@ BattleAnimFunction_Gust:
 	add hl, bc
 	ld a, [hl]
 	cp $b8
-	jr c, .move
-	jmp DeinitBattleAnimation
+	jmp nc, DeinitBattleAnimation
 
 .move
 	call .GustWobble
@@ -1773,10 +1763,9 @@ BattleAnimFunction_Absorb:
 	add hl, bc
 	ld a, [hl]
 	cp $30
-	jr nc, .move
-	jmp DeinitBattleAnimation
+	jmp c, DeinitBattleAnimation
 
-.move
+; .move
 	ld hl, BATTLEANIMSTRUCT_PARAM
 	add hl, bc
 	ld a, [hl]
@@ -1838,10 +1827,9 @@ BattleAnimFunction_LeechSeed:
 	add hl, bc
 	ld a, [hl]
 	cp $20
-	jr c, .sprout
-	jr BattleAnim_StepThrownToTarget
+	jr nc, BattleAnim_StepThrownToTarget
 
-.sprout
+; .sprout
 	ld [hl], $40
 	ld a, BATTLEANIMFRAMESET_57
 	call ReinitBattleAnimFrameset
@@ -1932,10 +1920,9 @@ BattleAnimFunction_Spikes:
 	add hl, bc
 	ld a, [hl]
 	cp $20
-	jr c, .wait
-	jr BattleAnim_StepThrownToTarget
+	jr nc, BattleAnim_StepThrownToTarget
 
-.wait
+; .wait
 	call BattleAnim_IncAnonJumptableIndex
 .two
 	ret
@@ -2256,8 +2243,7 @@ BattleAnimFunction_MoveUp:
 	and a
 	jr z, .move
 	cp $d8
-	jr nc, .move
-	jmp DeinitBattleAnimation
+	jmp c, DeinitBattleAnimation
 
 .move
 	ld hl, BATTLEANIMSTRUCT_PARAM
@@ -2886,7 +2872,7 @@ BattleAnimFunction_PresentSmokescreen:
 	cp $6c
 	ret nc
 
-; .do_move
+.do_move
 	ld a, $2
 	call BattleAnim_StepToTarget
 	ld hl, BATTLEANIMSTRUCT_VAR1
@@ -2957,8 +2943,7 @@ BattleAnimFunction_Horn:
 	add hl, bc
 	ld a, [hl]
 	cp $20
-	jr c, .three
-	jmp DeinitBattleAnimation
+	jmp nc, DeinitBattleAnimation
 
 .three
 	ld hl, BATTLEANIMSTRUCT_VAR2
@@ -3029,10 +3014,9 @@ BattleAnimFunction_Needle:
 	add hl, bc
 	ld a, [hl]
 	cp $84
-	jr c, .move_to_target
-	jmp DeinitBattleAnimation
+	jmp nc, DeinitBattleAnimation
 
-.move_to_target
+; .move_to_target
 	ld hl, BATTLEANIMSTRUCT_PARAM
 	add hl, bc
 	ld a, [hl]
@@ -3547,10 +3531,9 @@ BattleAnimFunction_MetronomeSparkleSketch:
 	add hl, bc
 	ld a, [hl]
 	cp $20
-	jr c, .do_move
-	jmp DeinitBattleAnimation
+	jmp nc, DeinitBattleAnimation
 
-.do_move
+; .do_move
 	ld hl, BATTLEANIMSTRUCT_PARAM
 	add hl, bc
 	ld a, [hl]

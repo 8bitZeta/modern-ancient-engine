@@ -208,8 +208,7 @@ Options_BattleScene:
 
 .NonePressed:
 	bit BATTLE_SCENE, [hl]
-	jr z, .ToggleOn
-	jr .ToggleOff
+	jr nz, .ToggleOff
 
 .ToggleOn:
 	res BATTLE_SCENE, [hl]

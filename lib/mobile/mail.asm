@@ -1944,8 +1944,7 @@ Function114c0b:
 	cp $20
 	jr z, .asm_114c4e
 	cp $9
-	jr z, .asm_114c4e
-	jr .asm_114c24
+	jr nz, .asm_114c24
 
 .asm_114c4e
 	dec bc
@@ -2046,10 +2045,9 @@ Function114c5e:
 	ld [hli], a
 	inc de
 	and a
-	jr z, .asm_114cd7
-	jr .asm_114cce
+	jr nz, .asm_114cce
 
-.asm_114cd7
+; .asm_114cd7
 	dec bc
 	ret
 
@@ -2296,8 +2294,7 @@ Function114df1:
 	cp $42
 	jr z, .asm_114e29
 	cp $4a
-	jr z, .asm_114e29
-	jr .asm_114e0b
+	jr nz, .asm_114e0b
 
 .asm_114e29
 	ld a, [hli]
@@ -2576,8 +2573,7 @@ Function114f59:
 	jr c, .asm_115015
 	jr z, .asm_114fa5
 	cp $12
-	jr c, .asm_114fa5
-	jr .asm_114fe7
+	jr nc, .asm_114fe7
 
 .asm_114fa5
 	xor a
@@ -2795,8 +2791,7 @@ Function1150b3:
 	cp $42
 	jr z, .asm_1150dc
 	cp $40
-	jr z, .asm_1150dc
-	jr .asm_1150bb
+	jr nz, .asm_1150bb
 
 .asm_1150dc
 	push hl
@@ -2816,8 +2811,7 @@ Function1150b3:
 	cp $42
 	jr z, .asm_1150f8
 	cp $4a
-	jr z, .asm_1150f8
-	jr .asm_1150dd
+	jr nz, .asm_1150dd
 
 .asm_1150f8
 	ld a, l
@@ -3497,8 +3491,7 @@ Function1153d2:
 	ld a, c
 	cp l
 	jr c, .asm_11548c
-	jr z, .asm_11548c
-	jr .asm_11544b
+	jr nz, .asm_11544b
 
 .asm_11548c
 	ld hl, $dc18
@@ -4204,10 +4197,9 @@ Function11581e:
 	cp $3
 	jr z, .asm_1158b4
 	cp $4
-	jr z, .asm_1158ad
-	jr .asm_1158bc
+	jr nz, .asm_1158bc
 
-.asm_1158ad
+; .asm_1158ad
 	ld a, $5
 	ld [wTimerEventStartDay], a
 	jr .asm_1158b9
@@ -4759,10 +4751,9 @@ Function115b00:
 	cp $3
 	jr z, .asm_115bc1
 	cp $4
-	jr z, .asm_115bba
-	jr .asm_115b3b
+	jr nz, .asm_115b3b
 
-.asm_115bba
+; .asm_115bba
 	ld a, $5
 	ld [wTimerEventStartDay], a
 	jr .asm_115bc6

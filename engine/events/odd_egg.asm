@@ -25,9 +25,8 @@ _GiveOddEgg:
 	ldh a, [hRandomSub]
 	cp d
 	jr c, .done
-	jr z, .ok
-	jr .next
-.ok
+	jr nz, .next
+; .ok
 	ldh a, [hRandomAdd]
 	cp e
 	jr c, .done

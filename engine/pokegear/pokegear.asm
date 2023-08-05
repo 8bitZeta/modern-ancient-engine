@@ -2344,10 +2344,9 @@ Pokedex_GetArea:
 	ret nz
 	ld a, e
 	and $10
-	jr nz, .copy_sprites
-	jmp ClearSprites
+	jmp z, ClearSprites
 
-.copy_sprites
+; .copy_sprites
 	hlcoord 0, 0
 	ld de, wShadowOAM
 	ld bc, wShadowOAMEnd - wShadowOAM

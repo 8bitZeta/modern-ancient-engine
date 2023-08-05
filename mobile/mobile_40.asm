@@ -633,10 +633,9 @@ Function10047c:
 	ret c
 	ret z
 	cp $02
-	jr z, .asm_100487
-	jr .asm_10048d
+	jr nz, .asm_10048d
 
-.asm_100487
+; .asm_100487
 	ld a, $08
 	ld [wcd27], a
 	ret
@@ -2320,10 +2319,9 @@ Function100f8d:
 	res 7, a
 	jr z, .sram
 	and a
-	jr nz, .far_wram
-	jmp CopyBytes
+	jmp z, CopyBytes
 
-.far_wram
+; .far_wram
 	and $7f
 	jmp FarCopyWRAM
 
@@ -3492,8 +3490,7 @@ Function101826:
 	jr z, .asm_10185b
 	ld hl, Unknown_101895
 	cp $02
-	jr z, .asm_10185b
-	jr .asm_101869
+	jr nz, .asm_101869
 
 .asm_10185b
 	ld de, wccb4

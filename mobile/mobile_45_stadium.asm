@@ -164,10 +164,9 @@ Function1177b7:
 	ld [wcd24], a
 	ld a, [wcd4a]
 	and a
-	jr z, .asm_1177c5
-	jmp MobilePassword_IncrementJumptable
+	jmp nz, MobilePassword_IncrementJumptable
 
-.asm_1177c5
+; .asm_1177c5
 	ld a, $6
 	ld [wcd49], a
 	ret

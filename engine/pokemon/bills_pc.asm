@@ -1449,10 +1449,9 @@ BillsPC_GetSelectedPokemonSpecies:
 BillsPC_UpdateSelectionCursor:
 	ld a, [wBillsPC_NumMonsInBox]
 	and a
-	jr nz, .place_cursor
-	jmp ClearSprites
+	jmp z, ClearSprites
 
-.place_cursor
+; .place_cursor
 	ld hl, .OAM
 	ld de, wShadowOAMSprite00
 .loop
@@ -1644,10 +1643,9 @@ StatsScreenDPad:
 	ld a, [hl]
 	and D_DOWN | D_UP
 	ld [wMenuJoypad], a
-	jr nz, .pressed_down_up
-	jr .pressed_a_b_right_left
+	jr z, .pressed_a_b_right_left
 
-.pressed_down_up
+; .pressed_down_up
 	call _StatsScreenDPad
 	and a
 	jr z, .did_nothing

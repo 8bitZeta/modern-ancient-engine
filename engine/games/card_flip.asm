@@ -819,8 +819,7 @@ CardFlip_CheckWinCondition:
 .PoliOddish:
 	ld a, [wCardFlipFaceUpCard]
 	and 2
-	jr nz, .WinSix
-	jmp .Lose
+	jmp z, .Lose
 
 .WinSix:
 	ld c, 6
@@ -844,8 +843,7 @@ CardFlip_CheckWinCondition:
 	ld a, [wCardFlipFaceUpCard]
 	and $18
 	cp $10
-	jr z, .WinNine
-	jmp .Lose
+	jmp nz, .Lose
 
 .WinNine:
 	ld c, 9
@@ -876,8 +874,7 @@ CardFlip_CheckWinCondition:
 	ld a, [wCardFlipFaceUpCard]
 	or ~$3
 	inc a
-	jr z, .WinTwelve
-	jmp .Lose
+	jmp nz, .Lose
 
 .WinTwelve:
 	ld c, $c
@@ -922,8 +919,7 @@ CardFlip_CheckWinCondition:
 	ld a, [wCardFlipFaceUpCard]
 	and $1c
 	cp $14
-	jr z, .WinEighteen
-	jmp .Lose
+	jmp nz, .Lose
 
 .WinEighteen:
 	ld c, $12
@@ -1087,10 +1083,9 @@ CardFlip_CheckWinCondition:
 	ld a, [wCoins]
 	cp HIGH(MAX_COINS)
 	jr c, .less
-	jr z, .check_low
-	jr .more
+	jr nz, .more
 
-.check_low
+; .check_low
 	ld a, [wCoins + 1]
 	cp LOW(MAX_COINS)
 	jr c, .less

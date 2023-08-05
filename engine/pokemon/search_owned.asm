@@ -94,11 +94,9 @@ CheckOwnMonAnywhere:
 .openboxmon
 	and a
 	call CheckOwnMon
-	jr nc, .loop
+	jmp c, CloseSRAM
 
-	jmp CloseSRAM
-
-.loop
+; .loop
 	push bc
 	ld bc, BOXMON_STRUCT_LENGTH
 	add hl, bc

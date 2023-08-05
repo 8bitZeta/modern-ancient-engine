@@ -207,10 +207,9 @@ BattleBGEffect_FlashContinue:
 	add hl, bc
 	ld a, [hl]
 	and a
-	jr nz, .apply_pal
-	jmp EndBattleBGEffect
+	jmp z, EndBattleBGEffect
 
-.apply_pal
+; .apply_pal
 	dec a
 	ld [hl], a
 	and 1
@@ -370,10 +369,9 @@ BattleBGEffect_HideMon:
 
 BattleBGEffect_ShowMon:
 	call BGEffect_CheckFlyDigStatus
-	jr z, .not_flying
-	jmp EndBattleBGEffect
+	jmp nz, EndBattleBGEffect
 
-.not_flying
+; .not_flying
 	call BGEffect_CheckBattleTurn
 	jr nz, .player_side
 	ld de, .EnemyData
@@ -407,7 +405,7 @@ BattleBGEffect_BattlerObj_1Row:
 
 .zero
 	call BGEffect_CheckFlyDigStatus
-	jr z, .not_flying_digging
+	; jr z, .not_flying_digging
 	ld hl, wLastAnimObjectIndex
 	inc [hl]
 	jmp EndBattleBGEffect
@@ -1811,10 +1809,9 @@ BattleBGEffect_BetaSendOutMon1: ; unused
 
 .two
 	call .GetLYOverride
-	jr nc, .next
-	jr .SetLYOverridesBackup
+	jr c, .SetLYOverridesBackup
 
-.next
+; .next
 	ld hl, BG_EFFECT_STRUCT_PARAM
 	add hl, bc
 	ld [hl], $0
@@ -2384,10 +2381,9 @@ BGEffect_RapidCyclePals:
 	or [hl]
 	ld [hl], a
 	call BattleBGEffect_GetFirstDMGPal
-	jr c, .okay_2_dmg
-	jmp BGEffect_FillLYOverridesBackup
+	jmp nc, BGEffect_FillLYOverridesBackup
 
-.okay_2_dmg
+; .okay_2_dmg
 	ld hl, BG_EFFECT_STRUCT_PARAM
 	add hl, bc
 	dec [hl]
@@ -2444,10 +2440,9 @@ BGEffect_RapidCyclePals:
 	or [hl]
 	ld [hl], a
 	call BattleBGEffect_GetFirstDMGPal
-	jr c, .okay_2_cgb
-	jr BGEffects_LoadBGPal0_OBPal1
+	jr nc, BGEffects_LoadBGPal0_OBPal1
 
-.okay_2_cgb
+; .okay_2_cgb
 	ld hl, BG_EFFECT_STRUCT_PARAM
 	add hl, bc
 	dec [hl]
@@ -2473,10 +2468,9 @@ BGEffect_RapidCyclePals:
 	or [hl]
 	ld [hl], a
 	call BattleBGEffect_GetFirstDMGPal
-	jr c, .okay_4_cgb
-	jr BGEffects_LoadBGPal1_OBPal0
+	jr nc, BGEffects_LoadBGPal1_OBPal0
 
-.okay_4_cgb
+; .okay_4_cgb
 	ld hl, BG_EFFECT_STRUCT_PARAM
 	add hl, bc
 	dec [hl]

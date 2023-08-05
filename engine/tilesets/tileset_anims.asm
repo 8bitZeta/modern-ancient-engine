@@ -232,10 +232,9 @@ ScrollTileRightLeft:
 	and %111
 	ld [wTileAnimationTimer], a
 	and %100
-	jr nz, ScrollTileLeft
-	jr ScrollTileRight
+	jr z, ScrollTileRight
 
-ScrollTileLeft:
+; ScrollTileLeft:
 	ld h, d
 	ld l, e
 	ld c, LEN_2BPP_TILE / 4

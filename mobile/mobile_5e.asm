@@ -801,10 +801,9 @@ Function17ac2a:
 Function17ac46:
 	ld a, [$d088]
 	bit 4, a
-	jr nz, .bit_4_set
-	jmp Textbox
+	jmp z, Textbox
 
-.bit_4_set
+; .bit_4_set
 	jmp Function3eea
 
 Palette_17ac55:

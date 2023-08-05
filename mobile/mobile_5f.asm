@@ -1376,8 +1376,7 @@ Function17d85d:
 	and a
 	jr z, .asm_17d8fe
 	cp $a
-	jr z, .asm_17d8fe
-	jmp Function17e309
+	jmp nz, Function17e309
 
 .asm_17d8fe
 	jmp Function17e349
@@ -1408,8 +1407,7 @@ Function17d902:
 	and a
 	jr z, .asm_17d936
 	cp $a
-	jr z, .asm_17d936
-	jmp Function17e309
+	jmp nz, Function17e309
 
 .asm_17d936
 	jmp Function17e349
@@ -3495,10 +3493,9 @@ RunMobileScript::
 	inc de
 .loop
 	call _RunMobileScript
-	jr c, .finished
-	jr .loop
+	jr nc, .loop
 
-.finished
+; .finished
 	jmp CloseSRAM
 
 _RunMobileScript:

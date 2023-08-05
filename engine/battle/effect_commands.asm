@@ -1964,8 +1964,7 @@ BattleCommand_FailureText:
 	cp EFFECT_POISON_MULTI_HIT
 	jr z, .multihit
 	cp EFFECT_BEAT_UP
-	jr z, .multihit
-	jmp EndMoveEffect
+	jmp nz, EndMoveEffect
 
 .multihit
 	call BattleCommand_RaiseSub

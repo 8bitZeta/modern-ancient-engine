@@ -3690,8 +3690,7 @@ Function1117e7:
 	ld b, a
 	ld a, [wc821]
 	bit 3, a
-	jr nz, .asm_111864
-	jmp Function11177c
+	jmp z, Function11177c
 .asm_111864
 	ld a, [wc820]
 	ld [hli], a
@@ -5042,10 +5041,9 @@ Function1121f6:
 .asm_1121fe
 	ld a, [wMobileSDK_AdapterType]
 	or a
-	jr z, .asm_112206
-	jr Mobile_EndSession
+	jr nz, Mobile_EndSession
 
-.asm_112206
+; .asm_112206
 	ld a, $10
 	call Function11225d
 	res 0, [hl]
@@ -7346,8 +7344,7 @@ Function113095:
 	cp $20
 	jr z, .asm_1130b3
 	cp $22
-	jr z, .asm_1130b3
-	jr .asm_1130d6
+	jr nz, .asm_1130d6
 
 .asm_1130b3
 	xor a
@@ -9402,7 +9399,7 @@ Function113f2d:
 	dec a
 	jr z, .asm_113f35
 	dec a
-	jr z, .asm_113f4f
+	; jr z, .asm_113f4f
 	dec [hl]
 	ret
 
@@ -9419,8 +9416,7 @@ Function113f2d:
 	ld [wMobileSDK_ReceivePacketBufferAlt], a
 	ld a, [wMobileSDK_SendCommandID]
 	cp $91
-	jr z, .asm_113f4f
-	jr Function113eb8
+	jr nz, Function113eb8
 
 .asm_113f4f
 	xor a

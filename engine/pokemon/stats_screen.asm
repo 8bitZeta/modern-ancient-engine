@@ -13,8 +13,7 @@ BattleStatsScreenInit:
 
 	ld a, [wBattleMode]
 	and a
-	jr z, StatsScreenInit
-	jr _MobileStatsScreenInit
+	jr nz, _MobileStatsScreenInit
 
 StatsScreenInit:
 	ld hl, StatsScreenMain
@@ -313,7 +312,7 @@ StatsScreen_JoypadAction:
 	ld c, a
 	pop af
 	bit B_BUTTON_F, a
-	jmp nz, .b_button
+	jr nz, .b_button
 	bit D_LEFT_F, a
 	jr nz, .d_left
 	bit D_RIGHT_F, a
@@ -323,10 +322,9 @@ StatsScreen_JoypadAction:
 	bit D_UP_F, a
 	jr nz, .d_up
 	bit D_DOWN_F, a
-	jr nz, .d_down
-	jr .done
+	jr z, .done
 
-.d_down
+; .d_down
 	ld a, [wMonType]
 	cp BOXMON
 	jr nc, .done
@@ -514,10 +512,9 @@ StatsScreen_LoadGFX:
 	call .LoadPals
 	ld hl, wStatsScreenFlags
 	bit 4, [hl]
-	jr nz, .place_frontpic
-	jmp SetPalettes
+	jmp z, SetPalettes
 
-.place_frontpic
+; .place_frontpic
 	jmp StatsScreen_PlaceFrontpic
 
 .ClearBox:

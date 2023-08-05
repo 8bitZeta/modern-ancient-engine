@@ -1688,9 +1688,8 @@ Function89b78:
 
 Function89b97:
 	call Function89c34
-	jr c, .asm_89ba0
-	jmp Function89448
-.asm_89ba0
+	jmp nc, Function89448
+; .asm_89ba0
 	ld a, [wd011]
 	ld hl, Unknown_89bd8
 	and a
@@ -5088,9 +5087,8 @@ Function8b9e9:
 	call OpenSRAMBank4
 	call Function8931b
 	call Function8932d
-	jr nc, .asm_8b9f6
-	jr .asm_8b9ff
-.asm_8b9f6
+	jr c, .asm_8b9ff
+; .asm_8b9f6
 	ld hl, $11
 	add hl, bc
 	call Function89b45

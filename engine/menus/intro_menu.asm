@@ -476,10 +476,9 @@ FinishContinueFunction:
 	farcall OverworldLoop
 	ld a, [wSpawnAfterChampion]
 	cp SPAWN_RED
-	jr z, .AfterRed
-	jmp Reset
+	jmp nz, Reset
 
-.AfterRed:
+; .AfterRed:
 	call SpawnAfterRed
 	jr .loop
 
