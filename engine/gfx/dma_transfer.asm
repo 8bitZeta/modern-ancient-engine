@@ -73,9 +73,7 @@ ReloadMapPart::
 	call HDMATransfer_Wait127Scanlines_toBGMap
 	pop af
 	ldh [rVBK], a
-	ei
-
-	ret
+	reti
 
 Mobile_ReloadMapPart:
 	ld hl, ReloadMapPart ; useless
@@ -104,9 +102,7 @@ Mobile_ReloadMapPart:
 	call HDMATransfer_NoDI
 	pop af
 	ldh [rVBK], a
-	ei
-
-	ret
+	reti
 
 OpenAndCloseMenu_HDMATransferTilemapAndAttrmap::
 ; OpenText
@@ -138,8 +134,7 @@ OpenAndCloseMenu_HDMATransferTilemapAndAttrmap::
 	call HDMATransfer_Wait123Scanlines_toBGMap
 	pop af
 	ldh [rVBK], a
-	ei
-	ret
+	reti
 
 Mobile_OpenAndCloseMenu_HDMATransferTilemapAndAttrmap:
 	ld hl, .Function
@@ -354,9 +349,7 @@ _continue_HDMATransfer:
 	jr nz, .final_ly_loop
 	ld hl, rHDMA5
 	res 7, [hl]
-	ei
-
-	ret
+	reti
 
 _LoadHDMAParameters:
 	ld a, h

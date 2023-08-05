@@ -84,9 +84,7 @@ EnableMobile:
 	ld a, $01
 	ldh [hMobileReceive], a
 	ldh [hMobile], a
-	ei
-
-	ret
+	reti
 
 DisableMobile:
 	di
@@ -100,8 +98,7 @@ DisableMobile:
 	ldh [rIF], a
 	ld a, [wBGMapBuffer]
 	ldh [rIE], a
-	ei
-	ret
+	reti
 
 Function1000ba:
 .loop
