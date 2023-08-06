@@ -965,7 +965,6 @@ Function4880e:
 
 Function488b4:
 	xor a
-	and a
 	scf
 	ret
 
@@ -1324,7 +1323,6 @@ Function48ab5:
 	pop af
 	ld b, a
 	and $f
-	and a
 	ld a, b
 	jr nz, .asm_48b61
 	and $f0
@@ -1453,7 +1451,6 @@ Function48c00:
 
 Function48c0d:
 	xor a
-	and a
 
 Function48c0f:
 	scf

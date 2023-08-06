@@ -510,12 +510,12 @@ patterns = {
 	# Good: rla|rlca|rra|rrca
 	(lambda line1, prev: line1.code in {'rl a', 'rlc a', 'rr a', 'rrc a'}),
 ],
-# 'Redundant and|or': [
-# 	# Bad: and|or|xor X / and|or a
-# 	# Good: and|or|xor N
-# 	(lambda line1, prev: line1.code.startswith(('and ', 'or ', 'xor '))),
-# 	(lambda line2, prev: line2.code in {'and a', 'or a', 'and a, a', 'or a, a'}),
-# ],
+'Redundant and|or': [
+	# Bad: and|or|xor X / and|or a
+	# Good: and|or|xor N
+	(lambda line1, prev: line1.code.startswith(('and ', 'or ', 'xor '))),
+	(lambda line2, prev: line2.code in {'and a', 'or a', 'and a, a', 'or a, a'}),
+],
 # 'Pointless and|or a': [
 # 	# Bad: and|or a / (any instruction that affects z and c)
 # 	# Good: (the instruction that affects z and c)

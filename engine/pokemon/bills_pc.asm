@@ -896,7 +896,6 @@ BillsPC_PressRight:
 
 BillsPC_JoypadDidNothing:
 	xor a
-	and a
 	ret
 
 BillsPC_UpDownDidSomething:

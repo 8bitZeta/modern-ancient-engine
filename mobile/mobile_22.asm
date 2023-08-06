@@ -2652,7 +2652,6 @@ Function8a20d:
 	ld hl, MobileCardFolderDeletedText
 	call PrintText
 	xor a
-	and a
 	ret
 
 MobileCardFolderAskDeleteText:

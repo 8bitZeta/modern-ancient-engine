@@ -3632,7 +3632,6 @@ popc
 
 .asm_119c8c
 	xor a
-	and a
 	ret
 
 .asm_119c8f
