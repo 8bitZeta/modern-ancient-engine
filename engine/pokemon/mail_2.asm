@@ -114,8 +114,7 @@ endc
 	jr .loop2
 
 .invalid
-	ld hl, MailGFXPointers
-	inc hl
+	ld hl, MailGFXPointers + 1
 
 .got_pointer
 	ld a, c

@@ -526,13 +526,13 @@ patterns = {
 			'rlc ', 'rrc ', 'rl ', 'rr ', 'sla ', 'sra ', 'swap ', 'srl ',
 			'ld hl, sp', 'ldhl sp'))),
 ],
-# 'Redundant inc|dec': [
-# 	# Bad: ld P, N / inc|dec P (unless the inc|dec flags are needed)
-# 	# Good: ld P, X+/-1
-# 	(lambda line1, prev: re.match(r'ld .+, [^afbcdehl\[]', line1.code)),
-# 	(lambda line2, prev: line2.code.startswith(('inc ', 'dec '))
-# 		and line2.code[4:].strip() == prev[0].code.split(',')[0][2:].strip()),
-# ],
+'Redundant inc|dec': [
+	# Bad: ld P, N / inc|dec P (unless the inc|dec flags are needed)
+	# Good: ld P, X+/-1
+	(lambda line1, prev: re.match(r'ld .+, [^afbcdehl\[]', line1.code)),
+	(lambda line2, prev: line2.code.startswith(('inc ', 'dec '))
+		and line2.code[4:].strip() == prev[0].code.split(',')[0][2:].strip()),
+],
 # 'hl|bc|de = N / bc|de|hl = K / hl|bc|de += bc|de|hl': [
 # 	# Bad: hl|bc|de = N / bc|de|hl = K / hl|bc|de += bc|de|hl (unless K is needed in bc|de|hl)
 # 	# Good: hl|bc|de = N + K
