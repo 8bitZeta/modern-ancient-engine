@@ -131,12 +131,10 @@ BugContest_GetPlayersResult:
 .loop
 	ld a, [hl]
 	cp BUG_CONTEST_PLAYER
-	jr z, .done
+	ret z
 	add hl, de
 	dec b
 	jr nz, .loop
-
-.done
 	ret
 
 BugContest_JudgeContestants:
@@ -178,8 +176,7 @@ DetermineContestWinners:
 	ld bc, BUG_CONTESTANT_SIZE
 	call CopyBytes
 	ld hl, wBugContestFirstPlaceWinnerID
-	call CopyTempContestant
-	jr .done
+	jr CopyTempContestant
 
 .not_first_place
 	ld de, wBugContestTempScore
@@ -192,20 +189,15 @@ DetermineContestWinners:
 	ld bc, BUG_CONTESTANT_SIZE
 	call CopyBytes
 	ld hl, wBugContestSecondPlaceWinnerID
-	call CopyTempContestant
-	jr .done
+	jr CopyTempContestant
 
 .not_second_place
 	ld de, wBugContestTempScore
 	ld hl, wBugContestThirdPlaceScore
 	ld c, 2
 	call CompareBytes
-	jr c, .done
+	ret c
 	ld hl, wBugContestThirdPlaceWinnerID
-	call CopyTempContestant
-
-.done
-	ret
 
 CopyTempContestant:
 ; Could've just called CopyBytes.
@@ -294,7 +286,7 @@ ContestScore:
 
 	ld a, [wContestMonSpecies] ; Species
 	and a
-	jr z, .done
+	ret z
 
 	; Tally the following:
 
@@ -362,13 +354,9 @@ ContestScore:
 	; Whether it's holding an item
 	ld a, [wContestMonItem]
 	and a
-	jr z, .done
+	ret z
 
 	ld a, 1
-	call .AddContestStat
-
-.done
-	ret
 
 .AddContestStat:
 	ld hl, hMultiplicand

@@ -352,7 +352,7 @@ PlayerWithdrawItemMenu:
 	farcall SelectQuantityToToss
 	call ExitMenu
 	call ExitMenu
-	jr c, .done
+	ret c
 
 .withdraw
 	ld a, [wItemQuantityChange]
@@ -378,9 +378,6 @@ PlayerWithdrawItemMenu:
 .PackFull:
 	ld hl, .PlayersPCNoRoomWithdrawText
 	jmp MenuTextboxBackup
-
-.done
-	ret
 
 .PlayersPCHowManyWithdrawText:
 	text_far _PlayersPCHowManyWithdrawText
@@ -472,15 +469,12 @@ PlayerDepositItemMenu:
 .dw
 ; entries correspond to ITEMMENU_* constants
 	dw .tossable ; ITEMMENU_NOUSE
-	dw .no_toss
-	dw .no_toss
-	dw .no_toss
+	dw DoNothingFunction
+	dw DoNothingFunction
+	dw DoNothingFunction
 	dw .tossable ; ITEMMENU_CURRENT
 	dw .tossable ; ITEMMENU_PARTY
 	dw .tossable ; ITEMMENU_CLOSE
-
-.no_toss
-	ret
 
 .tossable
 	ld a, [wPCItemQuantityChange]

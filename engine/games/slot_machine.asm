@@ -785,7 +785,7 @@ ReelActionJumptable:
 	jp hl
 
 .Jumptable:
-	dw ReelAction_DoNothing                   ; 00
+	dw DoNothingFunction                   ; 00 - ReelAction_DoNothing
 	dw ReelAction_StopReelIgnoreJoypad        ; 01
 	dw ReelAction_QuadrupleRate               ; 02
 	dw ReelAction_DoubleRate                  ; 03
@@ -810,9 +810,6 @@ ReelActionJumptable:
 	dw ReelAction_WaitChansey                 ; 16
 	dw ReelAction_WaitEgg                     ; 17
 	dw ReelAction_DropReel                    ; 18
-
-ReelAction_DoNothing:
-	ret
 
 ReelAction_QuadrupleRate:
 	ld hl, REEL_SPIN_RATE
@@ -1286,7 +1283,7 @@ Slots_CheckMatchedFirstTwoReels:
 	ret
 
 .Jumptable:
-	dw .zero
+	dw DoNothingFunction
 	dw .one
 	dw .two
 	dw .three
@@ -1300,10 +1297,7 @@ Slots_CheckMatchedFirstTwoReels:
 	call .CheckTopRow
 
 .one
-	call .CheckMiddleRow
-
-.zero
-	ret
+	jr .CheckMiddleRow
 
 .CheckBottomRow:
 	ld hl, wCurReelStopped
@@ -1379,7 +1373,7 @@ Slots_CheckMatchedAllThreeReels:
 	ret
 
 .Jumptable:
-	dw .zero
+	dw DoNothingFunction
 	dw .one
 	dw .two
 	dw .three
@@ -1393,10 +1387,7 @@ Slots_CheckMatchedAllThreeReels:
 	call .CheckTopRow
 
 .one
-	call .CheckMiddleRow
-
-.zero
-	ret
+	jr .CheckMiddleRow
 
 .CheckBottomRow:
 	ld hl, wCurReelStopped

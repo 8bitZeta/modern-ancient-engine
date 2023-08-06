@@ -99,9 +99,6 @@ BattleTowerBattle:
 	jr nz, .loop
 	ret
 
-UnusedBattleTowerDummySpecial1:
-	ret
-
 InitBattleTowerChallengeRAM:
 	xor a
 	ld [wBattleTowerBattleEnded], a
@@ -124,7 +121,7 @@ _BattleTowerBattle:
 
 .dw
 	dw RunBattleTowerTrainer
-	dw SkipBattleTowerTrainer
+	dw DoNothingFunction ; SkipBattleTowerTrainer
 
 RunBattleTowerTrainer:
 	ld a, [wOptions]
@@ -376,9 +373,7 @@ CopyBTTrainer_FromBT_OT_TowBT_OTTemp:
 	ld [sBattleTowerChallengeState], a
 	ld hl, sNrOfBeatenBattleTowerTrainers
 	inc [hl]
-	call CloseSRAM
-SkipBattleTowerTrainer:
-	ret
+	jmp CloseSRAM
 
 Function1704e1:
 	call SpeechTextbox
@@ -395,13 +390,10 @@ Function1704e1:
 	call JoyTextDelay
 	ld a, [wJumptableIndex]
 	bit 7, a
-	jr nz, .done
+	ret nz
 	call .DoJumptable
 	farcall ReloadMapPart
 	jr .loop
-
-.done
-	ret
 
 .DoJumptable:
 	jumptable .dw, wJumptableIndex
@@ -1111,8 +1103,8 @@ BattleTowerAction_10:
 	jmp CloseSRAM
 
 .Jumptable:
-	dw .NoAction
-	dw .NoAction
+	dw DoNothingFunction
+	dw DoNothingFunction
 	dw .DoAction1
 	dw .DoAction1
 	dw .Action4
@@ -1123,10 +1115,7 @@ BattleTowerAction_10:
 	call OpenSRAM
 	ld a, 1
 	ld [s5_a800], a
-	call CloseSRAM
-
-.NoAction:
-	ret
+	jmp CloseSRAM
 
 .Action4:
 	ld a, BANK(s5_b023) ; aka BANK(sOfferReqGender) and BANK(sOfferReqSpecies)
@@ -1200,11 +1189,9 @@ BattleTowerAction_10:
 	call GetMapSceneID
 	ld a, d
 	or e
-	jr z, .no_scene_2
+	ret z
 	xor a
 	ld [de], a
-
-.no_scene_2
 	ret
 
 BattleTowerAction_11:
@@ -1332,9 +1319,6 @@ LoadOpponentTrainerAndPokemonWithOTSprite:
 	ret
 
 INCLUDE "data/trainers/sprites.asm"
-
-UnusedBattleTowerDummySpecial2:
-	ret
 
 CheckForBattleTowerRules:
 	farcall _CheckForBattleTowerRules

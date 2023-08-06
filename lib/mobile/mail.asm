@@ -2510,7 +2510,7 @@ Function114f39:
 	ld d, a
 	ld a, [de]
 	and a
-	jr z, .asm_114f58
+	ret z
 	ld [hli], a
 	inc de
 	ld a, [de]
@@ -2527,9 +2527,6 @@ Function114f39:
 	ld [hli], a
 	ld [hl], d
 	ld a, $1
-	ret
-
-.asm_114f58
 	ret
 
 Function114f59:
@@ -2732,7 +2729,7 @@ Function115062:
 	cp $2
 	jr z, .asm_115098
 	cp $3
-	jr nz, .asm_1150b2
+	ret nz
 	ld a, $2c
 	ld [hli], a
 	ld a, $d
@@ -2760,8 +2757,6 @@ Function115062:
 .asm_1150ae
 	ld [wTimerEventStartDay], a
 	xor a
-
-.asm_1150b2
 	ret
 
 Function1150b3:

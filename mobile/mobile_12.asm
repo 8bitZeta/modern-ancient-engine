@@ -191,18 +191,15 @@ Function48187:
 	jr nz, .asm_481f8
 	lb bc, 1, 8
 	hlcoord 11, 10
-	call ClearBox
-	jr .asm_48201
+	jmp ClearBox
 .asm_481f1
 	ld a, [wd479]
 	bit 0, a
-	jr nz, .asm_48201
+	ret nz
 .asm_481f8
 	hlcoord 11, 10
 	ld de, .String_TellLater
-	call PlaceString
-.asm_48201
-	ret
+	jmp PlaceString
 
 .String_TellLater:
 	db "Tell Later@"
@@ -1947,7 +1944,7 @@ Function4a94e:
 	ld bc, 3
 	call ByteFill
 	scf
-	jr .asm_4a9af
+	ret
 
 .asm_4a9a1
 	call Function4a9c3
@@ -1956,8 +1953,6 @@ Function4a94e:
 	jr c, .asm_4a974
 	call CloseSubmenu
 	and a
-
-.asm_4a9af
 	ret
 
 .asm_4a9b0
@@ -2042,15 +2037,13 @@ Function4aa34:
 	call SetPalettes
 	call DelayFrame
 	call Function4ab1a
-	jr z, .asm_4aa66
+	ret z
 	push af
 	call Function4aafb
 	jr c, .asm_4aa67
 	call Function4ab06
 	jr c, .asm_4aa67
 	pop af
-
-.asm_4aa66
 	ret
 
 .asm_4aa67
@@ -2104,13 +2097,11 @@ Function4aa7a:
 	pop de
 	dec d
 	jr nz, .loop
-	jr .finished
+	ret
 
 .done
 	pop hl
 	pop de
-
-.finished
 	ret
 
 Function4aab6:
@@ -2119,7 +2110,7 @@ Function4aab6:
 .loop
 	ld a, [hli]
 	cp -1
-	jr z, .done
+	ret z
 	push de
 	push hl
 	hlcoord 0, 1
@@ -2130,8 +2121,6 @@ Function4aab6:
 	pop de
 	dec d
 	jr nz, .loop
-
-.done
 	ret
 
 Function4aad3:
@@ -2180,10 +2169,8 @@ Function4ab06:
 	ld b, a
 	ld a, [hl]
 	or b
-	jr nz, .NotFainted
+	ret nz
 	scf
-
-.NotFainted:
 	ret
 
 Function4ab1a:
@@ -2445,8 +2432,6 @@ Function4acaa:
 	jr nz, .asm_4acf4
 	bit 1, a
 	jr z, .asm_4acaa
-
-.asm_4acf3
 	ret
 
 .asm_4acf4
@@ -2460,13 +2445,11 @@ Function4acaa:
 	jr z, Function4ad56
 	cp $3
 	jr z, Function4ad60
-	; jr .asm_4acf3
 
 .asm_4ad0e
 	ld a, [wMenuCursorY]
 	cp $1
 	jr z, Function4ad56
-	; jr .asm_4acf3
 
 Function4ad17:
 	call Function4adb2

@@ -92,13 +92,10 @@ StatsScreenMobile:
 	rst JumpTable
 	call StatsScreen_WaitAnim
 	farcall MobileComms_CheckInactivityTimer
-	jr c, .exit
+	ret c
 	ld a, [wJumptableIndex]
 	bit 7, a
 	jr z, .loop
-
-.exit
-	ret
 
 StatsScreenPointerTable:
 	dw MonStatsInit       ; regular pokémon
@@ -319,12 +316,12 @@ StatsScreen_JoypadAction:
 	bit D_UP_F, a
 	jr nz, .d_up
 	bit D_DOWN_F, a
-	jr z, .done
+	ret z
 
 ; .d_down
 	ld a, [wMonType]
 	cp BOXMON
-	jr nc, .done
+	ret nc
 	and a
 	ld a, [wPartyCount]
 	jr z, .next_mon
@@ -334,7 +331,7 @@ StatsScreen_JoypadAction:
 	ld a, [wCurPartyMon]
 	inc a
 	cp b
-	jr z, .done
+	ret z
 	ld [wCurPartyMon], a
 	ld b, a
 	ld a, [wMonType]
@@ -348,7 +345,7 @@ StatsScreen_JoypadAction:
 .d_up
 	ld a, [wCurPartyMon]
 	and a
-	jr z, .done
+	ret z
 	dec a
 	ld [wCurPartyMon], a
 	ld b, a
@@ -376,11 +373,7 @@ StatsScreen_JoypadAction:
 	dec c
 	jr nz, .set_page
 	ld c, BLUE_PAGE ; last page
-	jr .set_page
-
-.done
-	ret
-
+	
 .set_page
 	ld a, [wStatsScreenFlags]
 	and ~STAT_PAGE_MASK
@@ -767,9 +760,9 @@ LoadBluePage:
 	call PlaceString
 	ld a, [wTempMonCaughtGender]
 	and a
-	jr z, .done
+	ret z
 	cp $7f
-	jr z, .done
+	ret z
 	and CAUGHT_GENDER_MASK
 	ld a, "♂"
 	jr z, .got_gender
@@ -777,7 +770,6 @@ LoadBluePage:
 .got_gender
 	hlcoord 9, 13
 	ld [hl], a
-.done
 	ret
 
 .OTNamePointers:

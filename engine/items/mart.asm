@@ -230,14 +230,11 @@ FarReadMart:
 	ld a, [de]
 	inc de
 	cp -1
-	jr z, .done
+	ret z
 	push de
 	call GetMartItemPrice
 	pop de
 	jr .ReadMartItem
-
-.done
-	ret
 
 GetMartItemPrice:
 ; Return the price of item a in BCD at hl and in tiles at wStringBuffer1.
@@ -725,15 +722,12 @@ SellMenu:
 
 .dw
 	dw .try_sell
-	dw .cant_buy
-	dw .cant_buy
-	dw .cant_buy
+	dw DoNothingFunction
+	dw DoNothingFunction
+	dw DoNothingFunction
 	dw .try_sell
 	dw .try_sell
 	dw .try_sell
-
-.cant_buy
-	ret
 
 .try_sell
 	farcall _CheckTossableItem

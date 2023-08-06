@@ -49,7 +49,7 @@ GenerateEnemyPV:
 	IV state. Guides on how to implement later generation ability logic will eventually be posted on the Wiki pages
 	located at https://github.com/8bitZeta/modern-ancient-engine/
 */
-CalcBattleAbility:
+CalcBattleAbility: ; no-optimize Stub function
 	ret
 
 /*
@@ -68,82 +68,82 @@ CalcBattleAbility:
 		  Understandably, this means all calculations are done locally and nothing needs to be presumed.
 */
 ; Checks for abilities that activate on entrance
-CheckEntranceAbility:
+CheckEntranceAbility: ; no-optimize Stub function
 	ret
 
 ; Forecast is it's own thing
-CheckForecastAbility:
+CheckForecastAbility: ; no-optimize Stub function
 	ret
 
 ; Checks abilities that passibely boost stats
-CheckStatBoostPassiveAbilities:
+CheckStatBoostPassiveAbilities: ; no-optimize Stub function
 	ret
 
 ; Checks for weather activated abilities that boost stats
-CheckStatBoostWeatherAbilities:
+CheckStatBoostWeatherAbilities: ; no-optimize Stub function
 	ret
 
 ; Checks for abilities that block stat drops
-CheckStatProtectionAbility:
+CheckStatProtectionAbility: ; no-optimize Stub function
 	ret
 
 ; Checks for abilities that block status effects
-CheckStatusBlockAbility:
+CheckStatusBlockAbility: ; no-optimize Stub function
 	ret
 
 ; Check for abilities that prevent additional effects
-CheckPreventEffectAbility:
+CheckPreventEffectAbility: ; no-optimize Stub function
 	ret
 
 ; Check for abilities that activate on lower HP
-CheckHPLevelAbility:
+CheckHPLevelAbility: ; no-optimize Stub function
 	ret
 
 ; Checks for abilities that active on status effects
-CheckStatusActivatedAbility:
+CheckStatusActivatedAbility: ; no-optimize Stub function
 	ret
 
 ; Checks for abilities that prevent moves from working
-CheckMovePreventionAbility:
+CheckMovePreventionAbility: ; no-optimize Stub function
 	ret
 
 ; Checks for moves that have an effect before the move is used
-CheckPreMoveUsageAbility:
+CheckPreMoveUsageAbility: ; no-optimize Stub function
 	ret
 
 ; Checks for abilities that activate on contact
-CheckContactAbility:
+CheckContactAbility: ; no-optimize Stub function
 	ret
 
 ; Color Change is it's own thing
-CheckColorChangeAbility:
+CheckColorChangeAbility: ; no-optimize Stub function
 	ret
 
 ; Wonder Guard is it's own thing
-CheckWonderGuardAbility:
+CheckWonderGuardAbility: ; no-optimize Stub function
 	ret
 
 ; Serene Grace is it's own thing
-CheckSereneGraceAbility:
+CheckSereneGraceAbility: ; no-optimize Stub function
 	ret
 
 ; Checks for abilities that occur at the end of a turn
-CheckTurnAbility:
+CheckTurnAbility: ; no-optimize Stub function
 	ret
 
 ; Checks for abilities that activate on exit / attempted exit
-CheckExitAbility:
+CheckExitAbility: ; no-optimize Stub function
 	ret
 
 ; Suction Cups is it's own thing
-CheckSuctionCups:
+CheckSuctionCups: ; no-optimize Stub function
 	ret
 
 ; Checks for abilities that activate at the end of a battle
-CheckEndAbility:
+CheckEndAbility: ; no-optimize Stub function
 	ret
 
 ; Checks for abilities that passively do things outside of battle
 ; Note this only works for the FIRST MON in the party.
-CheckPassive1stPartyMonAbility:
+CheckPassive1stPartyMonAbility: ; no-optimize Stub function
 	ret

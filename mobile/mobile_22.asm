@@ -3608,7 +3608,7 @@ Function8a9ce:
 	ld a, c
 	ld hl, MenuHeader_0x8a9f2
 	call Function89d5e
-	ld hl, Function8aa09
+	ld hl, DoNothingFunction ; Function8aa09
 	call Function89d85
 	jr c, .asm_8a9ed
 	ld c, a
@@ -3633,8 +3633,6 @@ MenuData_0x8a9fa:
 	db "へんしゅう@"
 	db "みる@"
 	db "やめる@"
-
-Function8aa09:
 	ret
 
 Function8aa0a:
@@ -5023,7 +5021,7 @@ Function8b960:
 .asm_8b987
 	ld a, $1
 	call Function89d5e
-	ld hl, Function8b9ab
+	ld hl, DoNothingFunction ; Function8b9ab
 	call Function89d85
 	call ExitMenu
 	jr c, .asm_8b99c
@@ -5043,9 +5041,6 @@ Function8b99f:
 	add hl, bc
 	ld a, [hl]
 	cp $ff
-	ret
-
-Function8b9ab:
 	ret
 
 MenuHeader_0x8b9ac:

@@ -14,7 +14,7 @@ DoAnimFrame:
 .Jumptable:
 ; entries correspond to SPRITE_ANIM_SEQ_* constants (see constants/sprite_anim_constants.asm)
 	table_width 2, DoAnimFrame.Jumptable
-	dw AnimSeq_Null
+	dw DoNothingFunction
 	dw AnimSeq_PartyMon
 	dw AnimSeq_PartyMonSwitch
 	dw AnimSeq_PartyMonSelected
@@ -49,9 +49,6 @@ DoAnimFrame:
 	dw AnimSeq_IntroUnownF
 	dw AnimSeq_IntroSuicuneAway
 	assert_table_length NUM_SPRITE_ANIM_SEQS
-
-AnimSeq_Null:
-	ret
 
 AnimSeq_PartyMon:
 	ld a, [wMenuCursorY]
@@ -756,7 +753,7 @@ AnimSeq_IntroPichuWooper:
 	add hl, bc
 	ld a, [hl]
 	cp 20
-	jr nc, .done
+	ret nc
 	add 2
 	ld [hl], a
 	cpl
@@ -767,7 +764,6 @@ AnimSeq_IntroPichuWooper:
 	ld hl, SPRITEANIMSTRUCT_YOFFSET
 	add hl, bc
 	ld [hl], a
-.done
 	ret
 
 AnimSeq_IntroUnown:

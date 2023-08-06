@@ -135,10 +135,6 @@ BuySellToss_UpdateQuantityDisplay:
 	ld a, [wMenuDataBank]
 	jmp FarCall_de
 
-NoPriceToDisplay:
-; Does nothing.
-	ret
-
 DisplayPurchasePrice:
 	call BuySell_MultiplyPrice
 	jr BuySell_DisplaySubtotal
@@ -196,7 +192,7 @@ BuySell_DisplaySubtotal:
 TossItem_MenuHeader:
 	db MENU_BACKUP_TILES ; flags
 	menu_coords 15, 9, SCREEN_WIDTH - 1, TEXTBOX_Y - 1
-	dw NoPriceToDisplay
+	dw DoNothingFunction
 	db 0 ; default option
 
 BuyItem_MenuHeader:

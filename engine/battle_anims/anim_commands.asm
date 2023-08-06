@@ -298,7 +298,7 @@ RunBattleAnimCommand:
 BattleAnimCommands::
 ; entries correspond to anim_* constants (see macros/scripts/battle_anims.asm)
 	table_width 2, BattleAnimCommands
-	dw GenericDummyFunction            ; d0
+	dw DoNothingFunction            ; d0
 	dw BattleAnimCmd_1GFX              ; d1
 	dw BattleAnimCmd_2GFX              ; d2
 	dw BattleAnimCmd_3GFX              ; d3
@@ -316,18 +316,18 @@ BattleAnimCommands::
 	dw BattleAnimCmd_ResetObp0         ; df
 	dw BattleAnimCmd_Sound             ; e0
 	dw BattleAnimCmd_Cry               ; e1
-	dw GenericDummyFunction            ; e2
+	dw DoNothingFunction            ; e2
 	dw BattleAnimCmd_OAMOn             ; e3
 	dw BattleAnimCmd_OAMOff            ; e4
 	dw BattleAnimCmd_ClearObjs         ; e5
 	dw BattleAnimCmd_BeatUp            ; e6
-	dw GenericDummyFunction            ; e7
+	dw DoNothingFunction            ; e7
 	dw BattleAnimCmd_UpdateActorPic    ; e8
 	dw BattleAnimCmd_Minimize          ; e9
 	dw BattleAnimCmd_SetBgPal          ; ea
 	dw BattleAnimCmd_SetObjPal         ; eb
-	dw GenericDummyFunction            ; ec
-	dw GenericDummyFunction            ; ed
+	dw DoNothingFunction            ; ec
+	dw DoNothingFunction            ; ed
 	dw BattleAnimCmd_IfParamAnd        ; ee
 	dw BattleAnimCmd_JumpUntil         ; ef
 	dw BattleAnimCmd_BGEffect          ; f0
@@ -347,9 +347,6 @@ BattleAnimCommands::
 	dw BattleAnimCmd_Call              ; fe
 	dw BattleAnimCmd_Ret               ; ff
 	assert_table_length $100 - FIRST_BATTLE_ANIM_CMD
-
-GenericDummyFunction:
-	ret
 
 BattleAnimCmd_Ret:
 	ld hl, wBattleAnimFlags
@@ -849,9 +846,6 @@ BattleAnimCmd_CheckPokeball:
 	ld [wBattleAnimVar], a
 	ret
 
-BattleAnimCmd_E7:
-	ret
-
 BattleAnimCmd_Transform:
 	ldh a, [rSVBK]
 	push af
@@ -1207,15 +1201,6 @@ BattleAnimCmd_KeepSprites:
 	set BATTLEANIM_KEEPSPRITES_F, [hl]
 	ret
 
-BattleAnimCmd_F5:
-	ret
-
-BattleAnimCmd_F6:
-	ret
-
-BattleAnimCmd_F7:
-	ret
-
 BattleAnimCmd_Sound:
 	call GetBattleAnimByte
 	ld e, a
@@ -1504,7 +1489,7 @@ BattleAnim_UpdateOAM_All:
 	call BattleAnimOAMUpdate
 	pop de
 	pop hl
-	jr c, .done
+	ret c
 
 .next
 	ld bc, BATTLEANIMSTRUCT_LENGTH
@@ -1517,10 +1502,8 @@ BattleAnim_UpdateOAM_All:
 .loop2
 	ld a, l
 	cp LOW(wShadowOAMEnd)
-	jr nc, .done
+	ret nc
 	xor a
 	ld [hli], a
 	jr .loop2
-
-.done
 	ret

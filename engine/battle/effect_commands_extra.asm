@@ -269,12 +269,11 @@ DoubleDamage:
 	sla [hl]
 	dec hl
 	rl [hl]
-	jr nc, .quit
+	ret nc
 
 	ld a, $ff
 	ld [hli], a
 	ld [hl], a
-.quit
 	ret
 
 BattleCommand_DoubleMinimizeDamage:

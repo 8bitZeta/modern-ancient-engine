@@ -624,7 +624,7 @@ PokeAnim_ConvertAndApplyBitmask:
 	ld e, a
 	ld d, 0
 	add hl, de
-	jr .done
+	ret
 
 .subtract
 	; hl -= [wPokeAnimBitmaskCurCol]
@@ -636,8 +636,6 @@ PokeAnim_ConvertAndApplyBitmask:
 	sbc l
 	add h
 	ld h, a
-
-.done
 	ret
 
 .GetTilemap:

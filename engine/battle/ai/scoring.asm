@@ -1392,26 +1392,24 @@ AI_Smart_Counter:
 
 	ld a, [wLastPlayerCounterMove]
 	and a
-	jr z, .done
+	ret z
 
 	call AIGetEnemyMove
 
 	ld a, [wEnemyMoveStruct + MOVE_POWER]
 	and a
-	jr z, .done
+	ret z
 
 	ld a, [wEnemyMoveStruct + MOVE_TYPE]
 	cp SPECIAL
-	jr nc, .done
+	ret nc
 
 .encourage
 	call Random
 	cp 39 percent + 1
-	jr c, .done
+	ret c
 
 	dec [hl]
-
-.done
 	ret
 
 .discourage
@@ -2610,25 +2608,23 @@ AI_Smart_MirrorCoat:
 
 	ld a, [wLastPlayerCounterMove]
 	and a
-	jr z, .done
+	ret z
 
 	call AIGetEnemyMove
 
 	ld a, [wEnemyMoveStruct + MOVE_POWER]
 	and a
-	jr z, .done
+	ret z
 
 	ld a, [wEnemyMoveStruct + MOVE_TYPE]
 	cp SPECIAL
-	jr c, .done
+	ret c
 
 .encourage
 	call Random
 	cp 39 percent + 1
-	jr c, .done
+	ret c
 	dec [hl]
-
-.done
 	ret
 
 .discourage
@@ -2971,12 +2967,12 @@ AI_Opportunist:
 .checkmove
 	inc hl
 	dec c
-	jr z, .done
+	ret z
 
 	ld a, [de]
 	inc de
 	and a
-	jr z, .done
+	ret z
 
 	push hl
 	push de
@@ -2991,8 +2987,6 @@ AI_Opportunist:
 
 	inc [hl]
 	jr .checkmove
-
-.done
 	ret
 
 INCLUDE "data/battle/ai/stall_moves.asm"
@@ -3291,10 +3285,6 @@ endr
 	jr .checkmove
 
 INCLUDE "data/battle/ai/risky_effects.asm"
-
-
-AI_None:
-	ret
 
 AIDiscourageMove:
 	ld a, [hl]

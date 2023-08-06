@@ -1,14 +1,6 @@
 ; These functions deal with miscellaneous statistics
 ; which were used for Trainer Rankings in Pokémon News.
 
-; Used when SRAM bank 5 isn’t already loaded — what’s the point of this?
-UpdateTrainerRankingsChecksum2:
-	ret
-	ld a, BANK(sTrainerRankings)
-	call OpenSRAM
-	call UpdateTrainerRankingsChecksum
-	jmp CloseSRAM
-
 UpdateTrainerRankingsChecksum:
 	push de
 	call CalculateTrainerRankingsChecksum

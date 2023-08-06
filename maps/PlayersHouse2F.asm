@@ -140,7 +140,7 @@ PlayersHouseRadioScript:
 	givepokemove FLASH,      wPartyMon2, 0
 	givepokemove ROCK_SMASH, wPartyMon2, 1
 	givepokemove HEADBUTT,   wPartyMon2, 2
-	givepokemove WATERFALL,  wPartyMon2, 3
+	givepokemove FLY,  wPartyMon2, 3
 	; Test pokemon
 	; givepoke NINCADA, 50
 	; givepoke NINCADA, 50

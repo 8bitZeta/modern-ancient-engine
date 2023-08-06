@@ -1372,7 +1372,7 @@ HandleMysteryberry:
 	callfar GetUserItem
 	ld a, b
 	cp HELD_RESTORE_PP
-	jr nz, .quit
+	ret nz
 	ld hl, wPartyMon1PP
 	ld a, [wCurBattleMon]
 	call GetPartyLocation
@@ -1403,7 +1403,7 @@ HandleMysteryberry:
 .loop
 	ld a, [hl]
 	and a
-	jr z, .quit
+	ret z
 	ld a, [de]
 	and PP_MASK
 	jr z, .restore
@@ -1413,8 +1413,6 @@ HandleMysteryberry:
 	ld a, c
 	cp NUM_MOVES
 	jr nz, .loop
-
-.quit
 	ret
 
 .restore
@@ -1947,9 +1945,8 @@ GetSixteenthMaxHP:
 ; at least 1
 	ld a, c
 	and a
-	jr nz, .ok
+	ret nz
 	inc c
-.ok
 	ret
 
 GetEighthMaxHP:
@@ -1961,9 +1958,8 @@ GetEighthMaxHP:
 ; at least 1
 	ld a, c
 	and a
-	jr nz, .end
+	ret nz
 	inc c
-.end
 	ret
 
 GetQuarterMaxHP:
@@ -1980,9 +1976,8 @@ GetQuarterMaxHP:
 ; at least 1
 	ld a, c
 	and a
-	jr nz, .end
+	ret nz
 	inc c
-.end
 	ret
 
 GetHalfMaxHP:
@@ -1996,9 +1991,8 @@ GetHalfMaxHP:
 ; at least 1
 	ld a, c
 	or b
-	jr nz, .end
+	ret nz
 	inc c
-.end
 	ret
 
 GetMaxHP:
@@ -3330,10 +3324,10 @@ LookUpTheEffectivenessOfEveryMove:
 	ld e, NUM_MOVES + 1
 .loop
 	dec e
-	jr z, .done
+	ret z
 	ld a, [hli]
 	and a
-	jr z, .done
+	ret z
 	push hl
 	push de
 	push bc
@@ -3349,8 +3343,6 @@ LookUpTheEffectivenessOfEveryMove:
 	jr c, .loop
 	ld hl, wEnemyEffectivenessVsPlayerMons
 	set 0, [hl]
-	ret
-.done
 	ret
 
 IsThePlayerMonTypesEffectiveAgainstOTMon:
@@ -3433,7 +3425,7 @@ ScoreMonTypeMatchups:
 	inc b
 	sla c
 	jr nc, .loop3
-	jr .quit
+	ret
 
 .okay2
 	ld b, -1
@@ -3443,7 +3435,7 @@ ScoreMonTypeMatchups:
 	inc b
 	sla c
 	jr c, .loop4
-	jr .quit
+	ret
 
 .loop5
 	ld a, [wOTPartyCount]
@@ -3466,8 +3458,6 @@ ScoreMonTypeMatchups:
 	ld a, [hl]
 	or c
 	jr z, .loop5
-
-.quit
 	ret
 
 LoadEnemyMonToSwitchTo:
@@ -4747,7 +4737,7 @@ CheckDanger:
 	jr z, .no_danger
 	ld a, [wBattleLowHealthAlarm]
 	and a
-	jr nz, .done
+	ret nz
 	ld a, [wPlayerHPPal]
 	cp HP_RED
 	jr z, .danger
@@ -4755,19 +4745,17 @@ CheckDanger:
 .no_danger
 	ld hl, wLowHealthAlarm
 	res DANGER_ON_F, [hl]
-	jr .done
+	ret
 
 .danger
 	ld hl, wLowHealthAlarm
 	set DANGER_ON_F, [hl]
-
-.done
 	ret
 
 PrintPlayerHUD:
 	ld de, wBattleMonNickname
 	hlcoord 10, 7
-	call Battle_DummyFunction
+	call DoNothingFunction
 	call PlaceString
 
 	push bc
@@ -4853,7 +4841,7 @@ DrawEnemyHUD:
 	call GetBaseData
 	ld de, wEnemyMonNickname
 	hlcoord 1, 0
-	call Battle_DummyFunction
+	call DoNothingFunction
 	call PlaceString
 	ld h, b
 	ld l, c
@@ -4996,10 +4984,6 @@ UpdateHPPal:
 	cp b
 	ret z
 	jmp FinishBattleAnim
-
-Battle_DummyFunction:
-; called before placing either battler's nickname in the HUD
-	ret
 
 BattleMenu:
 	xor a
@@ -5775,8 +5759,7 @@ MoveInfoBox:
 
 	hlcoord 1, 10
 	ld de, .Disabled
-	call PlaceString
-	jr .done
+	jmp PlaceString
 
 .not_disabled
 	ld hl, wMenuCursorY
@@ -5822,10 +5805,7 @@ MoveInfoBox:
 	ld a, [wPlayerMoveStruct + MOVE_ANIM]
 	ld b, a
 	hlcoord 2, 10
-	predef PrintMoveType
-
-.done
-	ret
+	predef_jump PrintMoveType
 
 .Disabled:
 	db "Disabled!@"
@@ -8057,7 +8037,7 @@ PlaceExpBar:
 	ld a, $6a ; full bar
 	ld [hld], a
 	dec c
-	jr z, .finish
+	ret z
 	jr .loop1
 
 .next
@@ -8074,8 +8054,6 @@ PlaceExpBar:
 	ld a, $62 ; empty bar
 	dec c
 	jr nz, .loop2
-
-.finish
 	ret
 
 GetBattleMonBackpic:
@@ -8266,7 +8244,7 @@ InitEnemyTrainer:
 	ld [wBattleMode], a
 
 	call IsGymLeader
-	jr nc, .done
+	ret nc
 	xor a
 	ld [wCurPartyMon], a
 	ld a, [wPartyCount]
@@ -8283,11 +8261,10 @@ InitEnemyTrainer:
 .skipfaintedmon
 	pop bc
 	dec b
-	jr z, .done
+	ret z
 	ld hl, wCurPartyMon
 	inc [hl]
 	jr .partyloop
-.done
 	ret
 
 InitEnemyWildmon:
@@ -8613,7 +8590,7 @@ ReadAndPrintLinkBattleRecord:
 	hlcoord 6, 4
 	ld de, sLinkBattleWins
 	call .PrintZerosIfNoSaveFileExists
-	jr c, .quit
+	ret c
 
 	lb bc, 2, 4
 	call PrintNum
@@ -8630,10 +8607,7 @@ ReadAndPrintLinkBattleRecord:
 	call .PrintZerosIfNoSaveFileExists
 
 	lb bc, 2, 4
-	call PrintNum
-
-.quit
-	ret
+	jmp PrintNum
 
 .PrintZerosIfNoSaveFileExists:
 	ld a, [wSavedAtLeastOnce]

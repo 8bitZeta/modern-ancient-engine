@@ -438,8 +438,7 @@ _PrinterReceive::
 	jp hl
 
 .Jumptable:
-	dw Printer_DoNothing ; 00
-
+	dw DoNothingFunction ; 00 - Printer_DoNothing
 	dw Printer_Send0x33 ; 01
 	dw Printer_SendPrinterData1 ; 02
 	dw Printer_SendPrinterData2 ; 03
@@ -477,9 +476,6 @@ _PrinterReceive::
 Printer_NextInstruction:
 	ld hl, wPrinterOpcode
 	inc [hl]
-	ret
-
-Printer_DoNothing:
 	ret
 
 Printer_Send0x33:

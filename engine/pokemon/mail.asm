@@ -406,20 +406,18 @@ MailboxPC:
 	call LoadMenuHeader
 	call VerticalMenu
 	call ExitMenu
-	jr c, .subexit
+	ret c
 	ld a, [wMenuCursorY]
 	dec a
 	ld hl, .Jumptable
 	rst JumpTable
-
-.subexit
 	ret
 
 .Jumptable:
 	dw .ReadMail
 	dw .PutInPack
 	dw .AttachMail
-	dw .Cancel
+	dw DoNothingFunction
 
 .ReadMail:
 	call FadeToMenu
@@ -533,9 +531,6 @@ MailboxPC:
 .MailMovedFromBoxText:
 	text_far _MailMovedFromBoxText
 	text_end
-
-.Cancel:
-	ret
 
 .TopMenuHeader:
 	db MENU_BACKUP_TILES ; flags

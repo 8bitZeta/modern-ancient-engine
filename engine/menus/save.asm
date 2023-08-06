@@ -58,13 +58,11 @@ ChangeBoxSaveGame:
 
 Link_SaveGame:
 	call AskOverwriteSaveFile
-	jr c, .refused
+	ret c
 	call PauseGameLogic
 	call SavedTheGame
 	call ResumeGameLogic
 	and a
-
-.refused
 	ret
 
 MoveMonWOMail_SaveGame:

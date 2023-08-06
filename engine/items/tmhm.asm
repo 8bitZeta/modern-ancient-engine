@@ -395,7 +395,7 @@ TMHM_DisplayPocketItems:
 	pop hl
 	dec d
 	jr nz, .loop2
-	jr .done
+	ret
 
 .NotTMHM:
 	call TMHMPocket_GetCurrentLineCoord
@@ -406,7 +406,6 @@ TMHM_DisplayPocketItems:
 	ld de, TMHM_CancelString
 	call PlaceString
 	pop de
-.done
 	ret
 
 TMHMPocket_GetCurrentLineCoord:

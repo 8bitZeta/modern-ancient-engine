@@ -13,6 +13,11 @@ Bankswitch::
 	ldh [hROMBank], a
 	ld [MBC3RomBank], a
 	ret
+	
+_de_::
+	push de
+DoNothingFunction:: ; no-optimize Stub function
+	ret
 
 SECTION "rst18", ROM0[$0018]
 	rst $38

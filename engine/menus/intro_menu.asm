@@ -341,7 +341,7 @@ LoadOrRegenerateLuckyIDNumber:
 
 Continue:
 	farcall TryLoadSaveFile
-	jr c, .FailToLoad
+	ret c
 	farcall _LoadData
 	call LoadStandardMenuHeader
 	call DisplaySaveInfoOnContinue
@@ -350,15 +350,11 @@ Continue:
 	ld c, 20
 	call DelayFrames
 	call ConfirmContinue
-	jr nc, .Check1Pass
-	call CloseWindow
-	jr .FailToLoad
+	jmp c, CloseWindow
 
 .Check1Pass:
 	call Continue_CheckRTC_RestartClock
-	jr nc, .Check2Pass
-	call CloseWindow
-	jr .FailToLoad
+	jmp c, CloseWindow
 
 .Check2Pass:
 	ld a, $8
@@ -382,9 +378,6 @@ Continue:
 	ld a, MAPSETUP_CONTINUE
 	ldh [hMapEntryMethod], a
 	jmp FinishContinueFunction
-
-.FailToLoad:
-	ret
 
 .SpawnAfterE4:
 	ld a, SPAWN_NEW_BARK
@@ -438,13 +431,10 @@ ConfirmContinue:
 	call GetJoypad
 	ld hl, hJoyPressed
 	bit A_BUTTON_F, [hl]
-	jr nz, .PressA
+	ret nz
 	bit B_BUTTON_F, [hl]
 	jr z, .loop
 	scf
-	ret
-
-.PressA:
 	ret
 
 Continue_CheckRTC_RestartClock:

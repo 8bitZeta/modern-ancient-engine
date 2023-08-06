@@ -124,7 +124,7 @@ GameFreakPresentsScene:
 	jumptable .scenes, wJumptableIndex
 
 .scenes
-	dw GameFreakPresents_WaitSpriteAnim
+	dw DoNothingFunction
 	dw GameFreakPresents_PlaceGameFreak
 	dw GameFreakPresents_PlacePresents
 	dw GameFreakPresents_WaitForTimer
@@ -132,9 +132,6 @@ GameFreakPresentsScene:
 GameFreakPresents_NextScene:
 	ld hl, wJumptableIndex
 	inc [hl]
-	ret
-
-GameFreakPresents_WaitSpriteAnim:
 	ret
 
 GameFreakPresents_PlaceGameFreak:
@@ -212,7 +209,7 @@ GameFreakLogoSpriteAnim:
 	dw GameFreakLogo_Bounce
 	dw GameFreakLogo_Ditto
 	dw GameFreakLogo_Transform
-	dw GameFreakLogo_Done
+	dw DoNothingFunction
 
 GameFreakLogo_Init:
 	ld hl, SPRITEANIMSTRUCT_JUMPTABLE_INDEX
@@ -329,9 +326,7 @@ GameFreakLogo_Transform:
 	ld hl, SPRITEANIMSTRUCT_JUMPTABLE_INDEX
 	add hl, bc
 	inc [hl]
-	call GameFreakPresents_NextScene
-GameFreakLogo_Done:
-	ret
+	jmp GameFreakPresents_NextScene
 
 GameFreakDittoPaletteFade:
 INCLUDE "gfx/splash/ditto_fade.pal"

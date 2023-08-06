@@ -1638,11 +1638,11 @@ StatsScreenDPad:
 	ld a, [hl]
 	and A_BUTTON | B_BUTTON | D_RIGHT | D_LEFT
 	ld [wMenuJoypad], a
-	jr nz, .pressed_a_b_right_left
+	ret nz
 	ld a, [hl]
 	and D_DOWN | D_UP
 	ld [wMenuJoypad], a
-	jr z, .pressed_a_b_right_left
+	ret z
 
 ; .pressed_down_up
 	call _StatsScreenDPad
@@ -1657,9 +1657,7 @@ StatsScreenDPad:
 	ld hl, wTempMonDVs
 	predef GetUnownLetter
 	call GetBaseData
-	call BillsPC_CopyMon
-.pressed_a_b_right_left
-	ret
+	jr BillsPC_CopyMon
 
 .did_nothing
 	xor a

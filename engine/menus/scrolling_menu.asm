@@ -231,15 +231,13 @@ InitScrollingMenuCursor:
 	inc a
 	cp b
 	jr c, .wrap
-	jr nc, .done
+	ret c
 
 .wrap
 	xor a
 	ld [wMenuScrollPosition], a
 	ld a, $1
 	ld [wMenuCursorPosition], a
-
-.done
 	ret
 
 ScrollingMenu_InitFlags:
@@ -318,14 +316,12 @@ ScrollingMenu_ValidateSwitchItem:
 	ld c, a
 	ld a, [wSwitchItem]
 	and a
-	jr z, .done
+	ret z
 	dec a
 	cp c
-	jr c, .done
+	ret c
 	xor a
 	ld [wSwitchItem], a
-
-.done
 	ret
 
 ScrollingMenu_UpdateDisplay:
@@ -372,15 +368,13 @@ ScrollingMenu_UpdateDisplay:
 	jr nz, .loop
 	ld a, [wMenuDataFlags]
 	bit 4, a ; place arrows
-	jr z, .done
+	ret z
 	ld a, [wMenuBorderBottomCoord]
 	ld b, a
 	ld a, [wMenuBorderRightCoord]
 	ld c, a
 	call Coord2Tile
 	ld [hl], "▼"
-
-.done
 	ret
 
 .cancel
@@ -408,31 +402,28 @@ ScrollingMenu_CallFunctions1and2:
 	pop hl
 	ld a, [wMenuData_ScrollingMenuWidth]
 	and a
-	jr z, .done
+	ret z
 	ld e, a
 	ld d, 0
 	add hl, de
 	ld d, h
 	ld e, l
 	ld hl, wMenuData_ScrollingMenuFunction2
-	call CallPointerAt
-
-.done
-	ret
+	jmp CallPointerAt
 
 ScrollingMenu_PlaceCursor:
 	ld a, [wSwitchItem]
 	and a
-	jr z, .done
+	ret z
 	ld b, a
 	ld a, [wMenuScrollPosition]
 	cp b
-	jr nc, .done
+	ret nc
 	ld c, a
 	ld a, [wMenuData_ScrollingMenuHeight]
 	add c
 	cp b
-	jr c, .done
+	ret c
 	ld a, b
 	sub c
 	dec a
@@ -447,8 +438,6 @@ ScrollingMenu_PlaceCursor:
 	ld c, a
 	call Coord2Tile
 	ld [hl], "▷"
-
-.done
 	ret
 
 ScrollingMenu_CheckCallFunction3:

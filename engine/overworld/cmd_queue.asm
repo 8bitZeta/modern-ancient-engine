@@ -120,8 +120,8 @@ HandleQueuedCommand:
 	ret
 
 .Jumptable:
-	dba CmdQueue_Null
-	dba CmdQueue_Type1
+	dba DoNothingFunction
+	dba DoNothingFunction
 	dba CmdQueue_StoneTable
 	dba CmdQueue_Type3
 	dba CmdQueue_Type4
@@ -144,12 +144,6 @@ CmdQueues_DecAnonJumptableIndex:
 	ld hl, CMDQUEUE_JUMPTABLE_INDEX
 	add hl, bc
 	dec [hl]
-	ret
-
-CmdQueue_Null:
-	ret
-
-CmdQueue_Type1:
 	ret
 
 CmdQueue_Type4:
@@ -192,7 +186,7 @@ CmdQueue_Type4:
 	add hl, bc
 	ld a, [hl]
 	ldh [hSCY], a
-	jmp _DelCmdQueue
+	jr _DelCmdQueue
 
 CmdQueue_Type3:
 	call CmdQueues_AnonJumptable

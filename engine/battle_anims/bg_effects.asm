@@ -1115,7 +1115,7 @@ BattleBGEffect_DoubleTeam:
 	dw .one
 	dw .two
 	dw .three
-	dw .four
+	dw DoNothingFunction
 	dw .five
 
 .zero
@@ -1167,8 +1167,6 @@ BattleBGEffect_DoubleTeam:
 	ld a, [hl]
 	add $4
 	ld [hl], a
-
-.four
 	ret
 
 .UpdateLYOverrides:
@@ -1582,14 +1580,12 @@ BattleBGEffect_VitalThrow:
 .anon_dw
 	dw VitalThrow_MoveBackwards
 	dw Tackle_MoveForward
-	dw .two
+	dw DoNothingFunction
 	dw Tackle_ReturnMove
 	dw .four
 
 .four
-	call BattleAnim_ResetLCDStatCustom
-.two
-	ret
+	jmp BattleAnim_ResetLCDStatCustom
 
 BattleBGEffect_WobbleMon:
 ; Similar to BattleBGEffect_WobblePlayer, except it can affect either side and the sine movement has a radius of 8 instead of 6 and it moves at twice the rate
@@ -1773,10 +1769,10 @@ BattleBGEffect_BetaSendOutMon1: ; unused
 	call BattleBGEffects_AnonJumptable
 .anon_dw
 	dw .zero
-	dw .one
+	dw DoNothingFunction
 	dw .two
 	dw .three
-	dw .four
+	dw DoNothingFunction
 	dw .five
 
 .zero
@@ -1803,8 +1799,6 @@ BattleBGEffect_BetaSendOutMon1: ; unused
 	ld hl, BG_EFFECT_STRUCT_PARAM
 	add hl, bc
 	ld [hl], $0
-.one
-.four
 	ret
 
 .two

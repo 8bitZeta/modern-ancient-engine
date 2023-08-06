@@ -226,7 +226,7 @@ Function10016f:
 	cp $f2
 	jr z, .asm_1001c4
 	cp $fc
-	jr z, .asm_1001e6
+	ret z
 	cp $fb
 	jr z, .asm_1001af
 	cp $f8
@@ -268,9 +268,6 @@ Function10016f:
 	ld a, e
 	ld [wMobileErrorCodeBuffer + 1], a
 	jr Function10020b
-
-.asm_1001e6
-	ret
 
 .asm_1001e7
 	ld de, String10025e
@@ -1476,13 +1473,10 @@ _LinkBattleSendReceiveAction:
 	call .MobileBattle_SendReceiveAction
 	call Function100da5
 	farcall FinishBattleAnim
-	jr .done
+	ret
 
 .not_mobile
-	call .LinkBattle_SendReceiveAction
-
-.done
-	ret
+	jr .LinkBattle_SendReceiveAction
 
 .StageForSend:
 	ld a, [wBattlePlayerAction]
@@ -2117,7 +2111,7 @@ Jumptable_100e8c:
 	dw Function100eae
 	dw Function100eb4
 	dw Function100eae
-	dw Function100ec4
+	dw DoNothingFunction ; Function100ec4
 
 Function100ea2:
 	call Function100dc0
@@ -2142,10 +2136,6 @@ asm_100eb8:
 	cp $02
 	ret c
 	ld [hl], 0
-	jr Function100ec5
-
-Function100ec4:
-	ret
 
 Function100ec5:
 	ld hl, wcd67
@@ -2643,8 +2633,8 @@ Function10123d:
 
 Jumptable_101247:
 	dw Function101251
-	dw Function10127d
-	dw Function10127c
+	dw DoNothingFunction ; Function10127d
+	dw DoNothingFunction ; Function10127c
 	dw Function10126c
 	dw Function101265
 
@@ -2666,12 +2656,6 @@ Function10126c:
 	farcall Script_reloadmappart
 	ld hl, ClosingLinkText
 	jmp Function1021e0
-
-Function10127c:
-	ret
-
-Function10127d:
-	ret
 
 Function10127e:
 	ld a, [wdc5f]
@@ -2831,10 +2815,8 @@ Function10138b:
 	sla c
 	ld a, [wcd21]
 	cp $01
-	jr z, .asm_1013a9
+	ret z
 	inc c
-
-.asm_1013a9
 	ret
 
 Function1013aa:
@@ -4427,17 +4409,15 @@ Function10204c:
 	ld a, [de]
 	inc de
 	and a
-	jr z, .asm_102067
+	ret z
 	sub $30
-	jr c, .asm_102067
+	ret c
 	cp $0a
-	jr nc, .asm_102067
+	ret nc
 	add $f6
 	ld [hli], a
 	dec c
 	jr nz, .asm_102054
-
-.asm_102067
 	ret
 
 Function102068:
@@ -4446,16 +4426,14 @@ Function102068:
 .asm_10206d
 	ld a, [de]
 	call Function102080
-	jr c, .asm_10207f
+	ret c
 	ld a, [de]
 	swap a
 	call Function102080
-	jr c, .asm_10207f
+	ret c
 	inc de
 	dec c
 	jr nz, .asm_10206d
-
-.asm_10207f
 	ret
 
 Function102080:
@@ -5899,12 +5877,10 @@ Function102b12:
 	and a
 	jr nz, .asm_102b2b
 	farcall Function108026
-	jr .asm_102b31
+	ret
 
 .asm_102b2b
 	farcall Function10802a
-
-.asm_102b31
 	ret
 
 Function102b32:

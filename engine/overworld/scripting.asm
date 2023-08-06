@@ -135,7 +135,7 @@ ScriptCommandTable:
 	dw Script_opentext                   ; 47
 	dw Script_refreshscreen              ; 48
 	dw Script_closetext                  ; 49
-	dw GenericDummyFunction              ; 4a
+	dw DoNothingFunction              ; 4a
 	dw Script_farwritetext               ; 4b
 	dw Script_writetext                  ; 4c
 	dw Script_repeattext                 ; 4d
@@ -349,10 +349,10 @@ Script_repeattext:
 	call GetScriptByte
 	ld h, a
 	cp -1
-	jr nz, .done
+	ret nz
 	ld a, l
 	cp -1
-	jr nz, .done
+	ret nz
 	ld hl, wScriptTextBank
 	ld a, [hli]
 	ld b, a
@@ -360,9 +360,6 @@ Script_repeattext:
 	ld h, [hl]
 	ld l, a
 	jmp MapTextbox
-
-.done
-	ret
 
 Script_waitbutton:
 	jmp WaitButton
@@ -452,11 +449,8 @@ Script_verbosegiveitem:
 	ld de, GiveItemScript
 	jmp ScriptCall
 
-GiveItemScript_DummyFunction:
-	ret
-
 GiveItemScript:
-	callasm GiveItemScript_DummyFunction
+	callasm DoNothingFunction
 	writetext .ReceivedItemText
 	iffalse .Full
 	waitsfx
@@ -1400,10 +1394,9 @@ DoScene:
 	call GetMapSceneID
 	ld a, d
 	or e
-	jr z, .no_scene
+	ret z
 	call GetScriptByte
 	ld [de], a
-.no_scene
 	ret
 
 Script_readmem:

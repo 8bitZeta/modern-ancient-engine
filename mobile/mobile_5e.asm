@@ -490,14 +490,11 @@ Function17a97b:
 	ld a, [de]
 	inc de
 	cp $a
-	jr nc, .asm_17a99d
+	ret nc
 	add $f6
 	ld [hli], a
 	dec c
 	jr nz, .asm_17a990
-	ret
-
-.asm_17a99d
 	ret
 
 Function17a99e:

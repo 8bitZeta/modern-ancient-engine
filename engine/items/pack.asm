@@ -162,7 +162,7 @@ Pack:
 
 .Jumptable1:
 	dw .UseItem
-	dw GenericDummyFunction
+	dw DoNothingFunction
 
 .MenuHeader2:
 	db MENU_BACKUP_TILES ; flags
@@ -180,7 +180,7 @@ Pack:
 .Jumptable2:
 	dw .UseItem
 	dw GiveItem
-	dw GenericDummyFunction
+	dw DoNothingFunction
 
 .UseItem:
 	farcall AskTeachTMHM
@@ -307,7 +307,7 @@ Jumptable_UseGiveTossRegisterQuit:
 	dw GiveItem
 	dw TossMenu
 	dw RegisterItem
-	dw GenericDummyFunction
+	dw DoNothingFunction
 
 MenuHeader_UsableItem:
 	db MENU_BACKUP_TILES ; flags
@@ -327,7 +327,7 @@ Jumptable_UseGiveTossQuit:
 	dw UseItem
 	dw GiveItem
 	dw TossMenu
-	dw GenericDummyFunction
+	dw DoNothingFunction
 
 MenuHeader_UnusableItem:
 	db MENU_BACKUP_TILES ; flags
@@ -343,7 +343,7 @@ MenuHeader_UnusableItem:
 
 Jumptable_UseQuit:
 	dw UseItem
-	dw GenericDummyFunction
+	dw DoNothingFunction
 
 MenuHeader_UnusableKeyItem:
 	db MENU_BACKUP_TILES ; flags
@@ -361,7 +361,7 @@ MenuHeader_UnusableKeyItem:
 Jumptable_UseRegisterQuit:
 	dw UseItem
 	dw RegisterItem
-	dw GenericDummyFunction
+	dw DoNothingFunction
 
 MenuHeader_HoldableKeyItem:
 	db MENU_BACKUP_TILES ; flags
@@ -381,7 +381,7 @@ Jumptable_GiveTossRegisterQuit:
 	dw GiveItem
 	dw TossMenu
 	dw RegisterItem
-	dw GenericDummyFunction
+	dw DoNothingFunction
 
 MenuHeader_HoldableItem:
 	db MENU_BACKUP_TILES ; flags
@@ -399,7 +399,7 @@ MenuHeader_HoldableItem:
 Jumptable_GiveTossQuit:
 	dw GiveItem
 	dw TossMenu
-	dw GenericDummyFunction
+	dw DoNothingFunction
 
 UseItem:
 	farcall CheckItemMenu
@@ -737,7 +737,7 @@ TMHMSubmenu:
 
 .UsableJumptable:
 	dw .Use
-	dw GenericDummyFunction
+	dw DoNothingFunction
 
 .UnusableMenuHeader:
 	db MENU_BACKUP_TILES ; flags
@@ -751,7 +751,7 @@ TMHMSubmenu:
 	db "QUIT@"
 
 .UnusableJumptable:
-	dw GenericDummyFunction
+	dw DoNothingFunction
 
 .Use:
 	farcall CheckItemContext

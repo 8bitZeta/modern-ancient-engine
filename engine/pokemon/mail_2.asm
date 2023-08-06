@@ -122,11 +122,10 @@ endc
 	ld a, [hli]
 	ld h, [hl]
 	ld l, a
-	ld de, .done
+	ld de, DoNothingFunction
 	pop bc
 	push de
 	jp hl
-.done
 	ret
 
 MailGFXPointers:

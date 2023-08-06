@@ -524,7 +524,7 @@ StepFunction_FromMovement:
 .Pointers:
 ; entries correspond to SPRITEMOVEFN_* constants (see constants/map_object_constants.asm)
 	table_width 2, StepFunction_FromMovement.Pointers
-	dw MovementFunction_Null                 ; 00
+	dw DoNothingFunction                  ; 00 - MovementFunction_Null
 	dw MovementFunction_RandomWalkY          ; 01
 	dw MovementFunction_RandomWalkX          ; 02
 	dw MovementFunction_RandomWalkXY         ; 03
@@ -553,9 +553,6 @@ StepFunction_FromMovement:
 	dw MovementFunction_BoulderDust          ; 1a
 	dw MovementFunction_ShakingGrass         ; 1b
 	assert_table_length NUM_SPRITEMOVEFN
-
-MovementFunction_Null:
-	ret
 
 MovementFunction_RandomWalkY:
 	call Random

@@ -1115,7 +1115,7 @@ asm_17d721:
 	ret
 
 Jumptable17d72a:
-	dw Function17d78c
+	dw DoNothingFunction ; Function17d78c
 	dw Function17d78d
 	dw Function17d7b4
 	dw Function17d7c2
@@ -1164,8 +1164,6 @@ Jumptable17d72a:
 	dw Function17e3e0
 	dw Function17e3f0
 	dw Function17e409
-
-Function17d78c:
 	ret
 
 Function17d78d:
@@ -1518,13 +1516,10 @@ Function17d9e3:
 	jr c, .asm_17da2d
 	ld a, $4
 	ldh [rSVBK], a
-	jr .asm_17da30
+	ret
 
 .asm_17da2d
-	call CloseSRAM
-
-.asm_17da30
-	ret
+	jmp CloseSRAM
 
 Function17da31:
 	call IncCrashCheckPointer
@@ -1578,13 +1573,10 @@ Function17da31:
 	jr c, .asm_17da88
 	ld a, $4
 	ldh [rSVBK], a
-	jr .asm_17da8b
+	ret
 
 .asm_17da88
-	call CloseSRAM
-
-.asm_17da8b
-	ret
+	jmp CloseSRAM
 
 Unknown_17da8c:
 for x, 8
@@ -2933,7 +2925,8 @@ IncCrashCheckPointer_SaveChecksum:
 	inc_crash_check_pointer_farcall SaveChecksum
 
 IncCrashCheckPointer_SaveTrainerRankingsChecksum:
-	inc_crash_check_pointer_farcall UpdateTrainerRankingsChecksum2, BackupMobileEventIndex
+	inc_crash_check_pointer_farcall DoNothingFunction, BackupMobileEventIndex
+	; UpdateTrainerRankingsChecksum2
 
 Function17e3e0:
 	call IncCrashCheckPointer
