@@ -479,16 +479,16 @@ patterns = {
 		and line2.code.split(',')[0] == prev[0].code.split(',')[0]
 		and line2.code not in {'ld h, [hl]', 'ld l, [hl]'}),
 ],
-# 'Redundant loads': [
-# 	# Bad: ld P, Q / ld Q, P (unless the lds have side effects)
-# 	# Good: ld P, Q
-# 	(lambda line1, prev: line1.code.startswith(('ld ', 'ldh ')) and ',' in line1.code
-# 		and not isVolatile(line1.code)),
-# 	(lambda line2, prev: line2.code.startswith(('ld ', 'ldh ')) and ',' in line2.code
-# 		and line2.code[3:].split(',')[0].strip() == prev[0].code.split(',')[1].strip()
-# 		and line2.code.split(',')[1].strip() == prev[0].code[3:].split(',')[0].strip()
-# 		and line2.context == prev[0].context),
-# ],
+'Redundant loads': [
+	# Bad: ld P, Q / ld Q, P (unless the lds have side effects)
+	# Good: ld P, Q
+	(lambda line1, prev: line1.code.startswith(('ld ', 'ldh ')) and ',' in line1.code
+		and not isVolatile(line1.code)),
+	(lambda line2, prev: line2.code.startswith(('ld ', 'ldh ')) and ',' in line2.code
+		and line2.code[3:].split(',')[0].strip() == prev[0].code.split(',')[1].strip()
+		and line2.code.split(',')[1].strip() == prev[0].code[3:].split(',')[0].strip()
+		and line2.context == prev[0].context),
+],
 # 'Similar loads': [
 # 	# Bad: ld P, X / ld a, X (unless the lds have side effects)
 # 	# Good: ld a, X / ld P, a (if possible)

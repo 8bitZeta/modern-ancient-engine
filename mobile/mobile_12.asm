@@ -2304,7 +2304,6 @@ Function4abc3:
 	bit 6, a
 	jr z, .asm_4abeb
 	ld a, [wMenuCursorY]
-	ld [wMenuCursorY], a
 	and a
 	jr nz, .asm_4ac29
 	ld a, [wPartyCount]
@@ -2315,8 +2314,6 @@ Function4abc3:
 .asm_4abeb
 	bit 7, a
 	jr z, .asm_4ac08
-	ld a, [wMenuCursorY]
-	ld [wMenuCursorY], a
 	ld a, [wPartyCount]
 	inc a
 	inc a

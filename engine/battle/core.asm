@@ -4407,7 +4407,6 @@ HandleHPHealingItem:
 	ld [wHPBuffer2 + 1], a
 	adc a
 	ld b, a
-	ld a, b
 	cp [hl]
 	ld a, c
 	pop bc

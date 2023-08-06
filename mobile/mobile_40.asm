@@ -3364,7 +3364,6 @@ Function10177b:
 	ld a, [hli]
 	ld h, [hl]
 	ld l, a
-	ld a, l
 	sub e
 	ld l, a
 	ld a, h
@@ -7189,7 +7188,6 @@ Function103700:
 .asm_10370f
 	ld a, c
 	ld [wStringBuffer2], a
-	ld a, [wStringBuffer2]
 	cp 5
 	jr nc, .five_or_more_mins
 	cp 2
