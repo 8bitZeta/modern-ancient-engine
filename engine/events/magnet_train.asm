@@ -368,8 +368,6 @@ MagnetTrain_Jumptable:
 	ld [hl], a
 	ret
 
-	ret
-
 .PrepareToFinishAnim:
 	jmp .Next
 

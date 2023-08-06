@@ -554,40 +554,40 @@ patterns = {
 	(1, lambda line3, prev: re.match(r'(?:inc|dec) (?:hl|bc|de)', line3.code)
 		and line3.code[4] == prev[0].code[3]),
 ],
-# 'hl|bc|de = N / ... / bc|de|hl = K / hl|bc|de += bc|de|hl': [
-# 	# Bad: hl|bc|de = N / ... / bc|de|hl = K / hl|bc|de += bc|de|hl (unless K is needed in bc|de|hl)
-# 	# Good: hl|bc|de = N + K / ...
-# 	(lambda line1, prev: re.match(r'ld (?:hl|bc|de), [^\[]', line1.code)),
-# 	(1, lambda line2, prev: not re.match(r'^(jr|jp|jmp|call|rst|ret|predef)', line2.code)
-# 		and line2.code[:5] != prev[0].code[:5]
-# 		and '[' + prev[0].code[3:5] not in line2.code
-# 		and not re.match(r'^(?:push|pop) ' + prev[0].code[3:5], line2.code)
-# 		and not (line2.code.startswith('.') or line2.code.endswith(':'))),
-# 	(lambda line3, prev: re.match(r'ld (?:hl|bc|de), [^\[]', line3.code)
-# 		and line3.code[2] != prev[0].code[3]),
-# 	(1, lambda line4, prev: re.match(r'add (?:hl|bc|de), (?!hl|bc|de)', line4.code)
-# 		and line4.code[4] == prev[0].code[3] and line4.code[8] == prev[1].code[3]),
-# ],
-# 'dec a, then AddNTimes': [
-# 	# Bad: ld hl, Foo / dec a / ld bc, BAR / call|rst AddNTimes
-# 	# Bad: ld hl, Foo / ld bc, BAR / dec a / call|rst AddNTimes
-# 	# Good: ld hl, Foo - BAR / ld bc, BAR / call|rst AddNTimes
-# 	(lambda line1, prev: re.match(r'ld hl, [^\[]', line1.code)),
-# 	(lambda line2, prev: re.match(r'ld bc, [^\[]', line2.code) or line2.code == 'dec a'),
-# 	(lambda line3, prev: (re.match(r'ld bc, [^\[]', line3.code) or line3.code == 'dec a')
-# 		and (line3.code == 'dec a') != (prev[1].code == 'dec a')),
-# 	(lambda line4, prev: re.match(r'(?:call|rst) AddNTimes', line4.code)),
-# ],
-# 'Redundant ret': [
-# 	# Bad: ret z|nz|c|nc / ret
-# 	# Bad: ret / ret z|nz|c|nc
-# 	# Bad: ret z / ret nz
-# 	# Good: ret
-# 	(lambda line1, prev: line1.code == 'ret' or line1.code.startswith('ret ')),
-# 	(lambda line2, prev: line2.code == 'ret' or line2.code.startswith('ret ')
-# 		and (prev[0].code == 'ret' or
-# 			line2.code.split()[-1].lstrip('n') == prev[0].code.split()[-1].lstrip('n'))),
-# ],
+'hl|bc|de = N / ... / bc|de|hl = K / hl|bc|de += bc|de|hl': [
+	# Bad: hl|bc|de = N / ... / bc|de|hl = K / hl|bc|de += bc|de|hl (unless K is needed in bc|de|hl)
+	# Good: hl|bc|de = N + K / ...
+	(lambda line1, prev: re.match(r'ld (?:hl|bc|de), [^\[]', line1.code)),
+	(1, lambda line2, prev: not re.match(r'^(jr|jp|jmp|call|rst|ret|predef)', line2.code)
+		and line2.code[:5] != prev[0].code[:5]
+		and '[' + prev[0].code[3:5] not in line2.code
+		and not re.match(r'^(?:push|pop) ' + prev[0].code[3:5], line2.code)
+		and not (line2.code.startswith('.') or line2.code.endswith(':'))),
+	(lambda line3, prev: re.match(r'ld (?:hl|bc|de), [^\[]', line3.code)
+		and line3.code[2] != prev[0].code[3]),
+	(1, lambda line4, prev: re.match(r'add (?:hl|bc|de), (?!hl|bc|de)', line4.code)
+		and line4.code[4] == prev[0].code[3] and line4.code[8] == prev[1].code[3]),
+],
+'dec a, then AddNTimes': [
+	# Bad: ld hl, Foo / dec a / ld bc, BAR / call|rst AddNTimes
+	# Bad: ld hl, Foo / ld bc, BAR / dec a / call|rst AddNTimes
+	# Good: ld hl, Foo - BAR / ld bc, BAR / call|rst AddNTimes
+	(lambda line1, prev: re.match(r'ld hl, [^\[]', line1.code)),
+	(lambda line2, prev: re.match(r'ld bc, [^\[]', line2.code) or line2.code == 'dec a'),
+	(lambda line3, prev: (re.match(r'ld bc, [^\[]', line3.code) or line3.code == 'dec a')
+		and (line3.code == 'dec a') != (prev[1].code == 'dec a')),
+	(lambda line4, prev: re.match(r'(?:call|rst) AddNTimes', line4.code)),
+],
+'Redundant ret': [
+	# Bad: ret z|nz|c|nc / ret
+	# Bad: ret / ret z|nz|c|nc
+	# Bad: ret z / ret nz
+	# Good: ret
+	(lambda line1, prev: line1.code == 'ret' or line1.code.startswith('ret ')),
+	(lambda line2, prev: line2.code == 'ret' or line2.code.startswith('ret ')
+		and (prev[0].code == 'ret' or
+			line2.code.split()[-1].lstrip('n') == prev[0].code.split()[-1].lstrip('n'))),
+],
 # 'Stub function': [
 # 	# Bad: call [z|nz|c|nc,] Foo / ... / Foo: / ret
 # 	# Good: (do nothing)

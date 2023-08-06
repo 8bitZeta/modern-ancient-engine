@@ -669,7 +669,6 @@ GetBoxPokemonIndexesAddress:
 	ld l, a
 	pop af
 	ret
-	ret
 
 SaveBoxAddress:
 ; Save box via wBoxPartialData.
