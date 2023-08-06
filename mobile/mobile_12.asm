@@ -1415,8 +1415,6 @@ Function48bd7:
 	lb bc, $1, $8
 	call Function48cdc
 	pop de
-	ld a, d
-	and a
 	pop af
 	pop hl
 	ld b, a

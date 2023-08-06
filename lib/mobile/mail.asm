@@ -4047,7 +4047,6 @@ Function11575c:
 	inc bc
 
 .asm_1157c3
-	and a
 	sla c
 	rl b
 	pop hl

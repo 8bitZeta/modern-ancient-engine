@@ -1811,7 +1811,6 @@ BattleCommand_LowerSub:
 
 .rollout_rampage
 	ld a, [wSomeoneIsRampaging]
-	and a
 	xor a
 	ld [wSomeoneIsRampaging], a
 	ret

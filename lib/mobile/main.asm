@@ -3560,7 +3560,6 @@ Function11177c:
 	dec a
 	ld b, $3
 .asm_111785
-	or a
 	rra
 	rr e
 	dec b
@@ -8351,7 +8350,6 @@ Function1136c1:
 	jr .asm_113706
 
 .asm_11370d
-	or a
 	sla c
 	rl b
 	sla c
