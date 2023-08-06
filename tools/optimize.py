@@ -505,11 +505,11 @@ patterns = {
 	(lambda line2, prev: re.match(r'(jr|jp|jmp) nz,', line2.code)),
 	(lambda line3, prev: re.match(r'ld .+, [%\$&]?0+$', line3.code)),
 ],
-# 'Inefficient prefix opcodes': [
-# 	# Bad: rl|rlc|rr|rrc a (unless you need the z flag set for 0)
-# 	# Good: rla|rlca|rra|rrca
-# 	(lambda line1, prev: line1.code in {'rl a', 'rlc a', 'rr a', 'rrc a'}),
-# ],
+'Inefficient prefix opcodes': [
+	# Bad: rl|rlc|rr|rrc a (unless you need the z flag set for 0)
+	# Good: rla|rlca|rra|rrca
+	(lambda line1, prev: line1.code in {'rl a', 'rlc a', 'rr a', 'rrc a'}),
+],
 # 'Redundant and|or': [
 # 	# Bad: and|or|xor X / and|or a
 # 	# Good: and|or|xor N
