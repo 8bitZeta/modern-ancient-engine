@@ -498,13 +498,13 @@ patterns = {
 	(lambda line2, prev: line2.code.startswith('ld a,')
 		and line2.code.split(',')[1] == prev[0].code.split(',')[1]),
 ],
-# 'Conditionally load 0': [
-# 	# Bad: and|or X / jr|jp nz, .foo / ld P, 0
-# 	# Good: and|or X / jr|jp nz, .foo / ld P, a (if possible)
-# 	(lambda line1, prev: line1.code.startswith(('and ', 'or '))),
-# 	(lambda line2, prev: re.match(r'(jr|jp|jmp) nz,', line2.code)),
-# 	(lambda line3, prev: re.match(r'ld .+, [%\$&]?0+$', line3.code)),
-# ],
+'Conditionally load 0': [
+	# Bad: and|or X / jr|jp nz, .foo / ld P, 0
+	# Good: and|or X / jr|jp nz, .foo / ld P, a (if possible)
+	(lambda line1, prev: line1.code.startswith(('and ', 'or '))),
+	(lambda line2, prev: re.match(r'(jr|jp|jmp) nz,', line2.code)),
+	(lambda line3, prev: re.match(r'ld .+, [%\$&]?0+$', line3.code)),
+],
 # 'Inefficient prefix opcodes': [
 # 	# Bad: rl|rlc|rr|rrc a (unless you need the z flag set for 0)
 # 	# Good: rla|rlca|rra|rrca
