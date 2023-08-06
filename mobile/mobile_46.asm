@@ -2030,20 +2030,16 @@ Function1191d3:
 	call Function11920f
 	ld a, l
 	ld [wcd51], a
-	ld a, [wcd4a]
 	ld a, h
 	ld [wcd52], a
 	call Function11920f
 	ld a, l
 	ld [wcd55], a
-	ld a, [wcd4a]
 	ld a, h
 	ld [wcd56], a
 	call Function11920f
-	ld a, [wcd49]
 	ld a, l
 	ld [wcd57], a
-	ld a, [wcd4a]
 	ld a, h
 	ld [wcd58], a
 
@@ -5750,7 +5746,6 @@ asm_11afbd:
 	ld b, 0
 	add hl, bc
 	add hl, bc
-	ld a, e
 	ld a, [hli]
 	ld e, a
 	ld d, [hl]

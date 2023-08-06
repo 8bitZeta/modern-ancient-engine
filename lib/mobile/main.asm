@@ -3372,8 +3372,6 @@ Function11164f:
 	ld [hli], a
 	ld a, [wc81f]
 	ld b, a
-	ld a, [wMobileSDK_AdapterType]
-	ld a, b
 	srl a
 	srl a
 	add b

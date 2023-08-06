@@ -73,7 +73,6 @@ ReloadMapPart::
 	reti
 
 Mobile_ReloadMapPart:
-	ld hl, ReloadMapPart ; useless
 	ld hl, .Function
 	jmp CallInSafeGFXMode
 

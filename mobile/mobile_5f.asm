@@ -3812,8 +3812,7 @@ Function17f1d0:
 	push bc
 	call Function17f4f6
 	add hl, de
-	ld a, [hl]
-	ld a, BANK(wNamedObjectIndex)
+	ld a, $1
 	ldh [rSVBK], a
 	ld [wNamedObjectIndex], a
 	call GetPokemonName
@@ -3931,7 +3930,6 @@ Function17f27b:
 	push bc
 	call Function17f4f6
 	add hl, de
-	ld a, [hl]
 	ld a, $1
 	ldh [rSVBK], a
 	ld [wNamedObjectIndex], a

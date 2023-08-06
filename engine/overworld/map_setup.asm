@@ -169,10 +169,7 @@ ApplyMapPalettes:
 	ret
 
 FadeMapMusicAndPalettes:
-	ld e, LOW(MUSIC_NONE)
-	ld a, [wMusicFadeID]
-	ld d, HIGH(MUSIC_NONE)
-	ld a, [wMusicFadeID + 1]
+	lb de, HIGH(MUSIC_NONE), LOW(MUSIC_NONE)
 	ld a, $4
 	ld [wMusicFade], a
 	jmp RotateThreePalettesRight

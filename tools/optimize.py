@@ -470,15 +470,15 @@ patterns = {
 	(lambda line2, prev: line2.code.rstrip(':') == prev[0].code.split(maxsplit=1)[-1].strip()
 		and (line2.context == prev[0].context or line2.context == line2.code)),
 ],
-# 'Useless loads': [
-# 	# Bad: ld P, Q / ld P, R (unless the lds have side effects)
-# 	# Good: ld P, R
-# 	(lambda line1, prev: line1.code.startswith(('ld ', 'ldh ')) and ',' in line1.code
-# 		and not isVolatile(line1.code)),
-# 	(lambda line2, prev: line2.code.startswith(('ld ', 'ldh ')) and ',' in line2.code
-# 		and line2.code.split(',')[0] == prev[0].code.split(',')[0]
-# 		and line2.code not in {'ld h, [hl]', 'ld l, [hl]'}),
-# ],
+'Useless loads': [
+	# Bad: ld P, Q / ld P, R (unless the lds have side effects)
+	# Good: ld P, R
+	(lambda line1, prev: line1.code.startswith(('ld ', 'ldh ')) and ',' in line1.code
+		and not isVolatile(line1.code)),
+	(lambda line2, prev: line2.code.startswith(('ld ', 'ldh ')) and ',' in line2.code
+		and line2.code.split(',')[0] == prev[0].code.split(',')[0]
+		and line2.code not in {'ld h, [hl]', 'ld l, [hl]'}),
+],
 # 'Redundant loads': [
 # 	# Bad: ld P, Q / ld Q, P (unless the lds have side effects)
 # 	# Good: ld P, Q
