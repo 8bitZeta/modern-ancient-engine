@@ -1894,8 +1894,8 @@ Function89cdf:
 	ld a, $8
 	add c
 	ld c, a
-	ld e, $2
 	ld a, $2
+	ld e, a
 	ld hl, wShadowOAMSprite00
 .asm_89cee
 	push af

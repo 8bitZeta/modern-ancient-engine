@@ -489,15 +489,15 @@ patterns = {
 		and line2.code.split(',')[1].strip() == prev[0].code[3:].split(',')[0].strip()
 		and line2.context == prev[0].context),
 ],
-# 'Similar loads': [
-# 	# Bad: ld P, X / ld a, X (unless the lds have side effects)
-# 	# Good: ld a, X / ld P, a (if possible)
-# 	(lambda line1, prev: line1.code.startswith(('ld ', 'ldh ')) and ',' in line1.code
-# 		and not isVolatile(line1.code)
-# 		and line1.code.split(',')[1].strip() not in 'afbcdehl'),
-# 	(lambda line2, prev: line2.code.startswith('ld a,')
-# 		and line2.code.split(',')[1] == prev[0].code.split(',')[1]),
-# ],
+'Similar loads': [
+	# Bad: ld P, X / ld a, X (unless the lds have side effects)
+	# Good: ld a, X / ld P, a (if possible)
+	(lambda line1, prev: line1.code.startswith(('ld ', 'ldh ')) and ',' in line1.code
+		and not isVolatile(line1.code)
+		and line1.code.split(',')[1].strip() not in 'afbcdehl'),
+	(lambda line2, prev: line2.code.startswith('ld a,')
+		and line2.code.split(',')[1] == prev[0].code.split(',')[1]),
+],
 # 'Conditionally load 0': [
 # 	# Bad: and|or X / jr|jp nz, .foo / ld P, 0
 # 	# Good: and|or X / jr|jp nz, .foo / ld P, a (if possible)
