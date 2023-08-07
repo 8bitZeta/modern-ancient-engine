@@ -67,7 +67,7 @@ SwitchOften:
 	; $30
 	call Random
 	cp 4 percent
-	jmp c, AI_TryItem
+	jr c, AI_TryItem
 
 .switch
 	ld a, [wEnemySwitchMonParam]

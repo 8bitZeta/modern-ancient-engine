@@ -88,7 +88,7 @@ endc
 .skip_checks
 	ld a, [wMysteryGiftPlayerBackupItem]
 	and a
-	jmp nz, .GiftWaiting
+	jr nz, .GiftWaiting
 	ld a, [wMysteryGiftPartnerBackupItem]
 	and a
 	jr nz, .FriendNotReady

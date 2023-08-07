@@ -258,8 +258,7 @@ Script_callasm:
 	call GetScriptByte
 	ld h, a
 	ld a, b
-	rst FarCall
-	ret
+	jmp FarCall_hl
 
 Script_special:
 	call GetScriptByte
@@ -280,8 +279,7 @@ Script_memcallasm:
 	ld h, [hl]
 	ld l, a
 	ld a, b
-	rst FarCall
-	ret
+	jmp FarCall_hl
 
 Script_jumptextfaceplayer:
 	ld a, [wScriptBank]
@@ -413,7 +411,7 @@ Script_closepokepic:
 Script_verticalmenu:
 	ld a, [wScriptBank]
 	ld hl, VerticalMenu
-	rst FarCall
+	call FarCall_hl
 	ld a, [wMenuCursorY]
 	jr nc, .ok
 	xor a
@@ -424,7 +422,7 @@ Script_verticalmenu:
 Script__2dmenu:
 	ld a, [wScriptBank]
 	ld hl, _2DMenu
-	rst FarCall
+	call FarCall_hl
 	ld a, [wMenuCursorPosition]
 	jr nc, .ok
 	xor a
@@ -1600,7 +1598,7 @@ Script_getmoney:
 	lb bc, PRINTNUM_LEFTALIGN | 3, 6
 	call PrintNum
 	ld de, wStringBuffer1
-	jmp GetStringBuffer
+	jr GetStringBuffer
 
 Script_getcoins:
 	call ResetStringBuffer1
@@ -1633,7 +1631,7 @@ Script_getstring:
 	ld d, a
 	ld a, [wScriptBank]
 	ld hl, CopyName1
-	rst FarCall
+	call FarCall_hl
 	ld de, wStringBuffer2
 	jmp GetStringBuffer
 

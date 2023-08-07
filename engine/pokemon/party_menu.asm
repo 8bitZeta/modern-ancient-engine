@@ -566,7 +566,7 @@ InitPartyMenuGFX:
 	ld hl, LoadMenuMonIcon
 	ld a, BANK(LoadMenuMonIcon)
 	ld e, MONICON_PARTYMENU
-	rst FarCall
+	call FarCall_hl
 	ldh a, [hObjectStructIndex]
 	inc a
 	ldh [hObjectStructIndex], a

@@ -365,8 +365,7 @@ EvolveAfterBattle_MasterLoop:
 
 	call IsMonHoldingEverstone
 	jmp z, .skip_evolution_species_parameter
-
-	jmp .proceed
+	jr .proceed
 
 .pv
 	call GetNextEvoAttackByte

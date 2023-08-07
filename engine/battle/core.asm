@@ -162,7 +162,7 @@ BattleTurn:
 
 .loop
 	call CheckContestBattleOver
-	jmp c, .quit
+	jr c, .quit
 
 	xor a
 	ld [wPlayerIsSwitching], a
@@ -224,7 +224,7 @@ BattleTurn:
 	call HandleBetweenTurnEffects
 	ld a, [wBattleEnded]
 	and a
-	jmp z, .loop
+	jr z, .loop
 
 .quit
 	pop af
@@ -482,7 +482,7 @@ DetermineMoveOrder:
 .use_move
 	ld a, [wBattlePlayerAction]
 	and a ; BATTLEPLAYERACTION_USEMOVE?
-	jmp nz, .player_first
+	jr nz, .player_first
 	call CompareMovePriority
 	jr z, .equal_priority
 	jr c, .player_first ; player goes first
@@ -4272,7 +4272,7 @@ PursuitSwitch:
 	ld [wCurBattleMon], a
 .do_turn
 	ld a, BANK(DoPlayerTurn) ; aka BANK(DoEnemyTurn)
-	rst FarCall
+	call FarCall_hl
 
 	ld a, BATTLE_VARS_MOVE
 	call GetBattleVarAddr
@@ -4525,7 +4525,7 @@ UseHeldStatusHealingItem:
 .got_pointer
 	call SwitchTurnCore
 	ld a, BANK(CalcPlayerStats) ; aka BANK(CalcEnemyStats)
-	rst FarCall
+	call FarCall_hl
 	call SwitchTurnCore
 	call ItemRecoveryAnim
 	call UseOpponentItem
@@ -4623,7 +4623,7 @@ HandleStatBoostingHeldItems:
 	ld h, [hl]
 	ld l, a
 	ld a, BANK(BattleCommand_AttackUp)
-	rst FarCall
+	call FarCall_hl
 	pop bc
 	pop de
 	ld a, [wFailedMessage]
@@ -5935,7 +5935,7 @@ ParseEnemyAction:
 .loop
 	ld a, [hl]
 	and a
-	jmp z, .struggle
+	jr z, .struggle
 	ld a, [wEnemyDisabledMove]
 	cp [hl]
 	jr z, .disabled
@@ -8077,7 +8077,7 @@ GetBattleMonBackpic_DoAnim:
 	xor a
 	ldh [hBattleTurn], a
 	ld a, BANK(BattleAnimCommands)
-	rst FarCall
+	call FarCall_hl
 	pop af
 	ldh [hBattleTurn], a
 	ret
@@ -8108,7 +8108,7 @@ GetEnemyMonFrontpic_DoAnim:
 	push af
 	call SetEnemyTurn
 	ld a, BANK(BattleAnimCommands)
-	rst FarCall
+	call FarCall_hl
 	pop af
 	ldh [hBattleTurn], a
 	ret

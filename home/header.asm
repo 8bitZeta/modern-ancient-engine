@@ -6,7 +6,7 @@ SECTION "rst0", ROM0[$0000]
 
 SECTION "rst8", ROM0[$0008]
 FarCall::
-	jmp FarCall_hl
+	jmp RstFarCall
 
 SECTION "rst10", ROM0[$0010]
 Bankswitch::

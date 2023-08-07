@@ -106,7 +106,7 @@ DoMove:
 	bit 7, h
 	res 7, h
 	ld a, BANK("Effect Commands Extra")
-	jp nz, FarCall
+	jmp nz, FarCall_hl
 	jp hl
 
 CheckTurn:
@@ -6069,7 +6069,7 @@ BattleCommand_TimeBasedHealContinue:
 	ld h, [hl]
 	ld l, a
 	ld a, BANK(GetMaxHP)
-	rst FarCall
+	call FarCall_hl
 
 	call AnimateCurrentMove
 	call BattleCommand_SwitchTurn
@@ -6258,8 +6258,7 @@ PlayOpponentBattleAnim:
 
 CallBattleCore:
 	ld a, BANK("Battle Core")
-	rst FarCall
-	ret
+	jmp FarCall_hl
 
 AnimateFailedMove:
 	call BattleCommand_LowerSub

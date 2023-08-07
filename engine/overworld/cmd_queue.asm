@@ -116,8 +116,7 @@ HandleQueuedCommand:
 	ld h, [hl]
 	ld l, a
 	pop af
-	rst FarCall
-	ret
+	jmp FarCall_hl
 
 .Jumptable:
 	dba DoNothingFunction

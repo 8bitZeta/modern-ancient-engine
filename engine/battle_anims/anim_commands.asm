@@ -153,7 +153,7 @@ BattleAnimRestoreHuds:
 	ldh [rSVBK], a
 	ld hl, UpdateBattleHuds
 	ld a, BANK(UpdatePlayerHUD)
-	rst FarCall ; Why not "call UpdateBattleHuds"?
+	call FarCall_hl ; Why not "call UpdateBattleHuds"?
 	farcall FinishBattleAnim
 
 	pop af

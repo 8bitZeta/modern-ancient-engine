@@ -377,7 +377,7 @@ Continue:
 	jr z, .SpawnAfterE4
 	ld a, MAPSETUP_CONTINUE
 	ldh [hMapEntryMethod], a
-	jmp FinishContinueFunction
+	jr FinishContinueFunction
 
 .SpawnAfterE4:
 	ld a, SPAWN_NEW_BARK

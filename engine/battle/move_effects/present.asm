@@ -51,7 +51,7 @@ BattleCommand_Present:
 .got_hp_fn_pointer
 	assert BANK(AICheckPlayerMaxHP) == BANK(AICheckEnemyMaxHP)
 	ld a, BANK(AICheckPlayerMaxHP)
-	rst FarCall
+	call FarCall_hl
 	jr c, .already_fully_healed
 
 	ld hl, GetQuarterMaxHP
