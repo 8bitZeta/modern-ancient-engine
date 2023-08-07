@@ -9,6 +9,10 @@ LCD::
 ; At this point it's assumed we're in BANK(wLYOverrides)!
 	push bc
 	ldh a, [rLY]
+	cp 144
+	jr c, .continue
+	xor a
+.continue
 	ld c, a
 	ld b, HIGH(wLYOverrides)
 	ld a, [bc]
