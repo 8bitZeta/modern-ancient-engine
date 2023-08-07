@@ -2265,7 +2265,7 @@ BattleCommand_CheckFaint:
 	call BattleCommand_RaiseSub
 
 .finish
-	jr EndMoveEffect
+	jr EndMoveEffect ; no-optimize Stub jump
 
 BattleCommand_BuildOpponentRage:
 	ld a, [wAttackMissed]
@@ -4901,7 +4901,7 @@ BattleCommand_ForceSwitch:
 	jr nc, .wild_succeed_playeristarget
 
 .player_miss
-	jr .fail
+	jr .fail ; no-optimize Stub jump
 
 .wild_succeed_playeristarget
 	call UpdateBattleMonInParty

@@ -715,7 +715,7 @@ PokegearRadio_Init:
 	ld hl, SPRITEANIMSTRUCT_TILE_ID
 	add hl, bc
 	ld [hl], $08
-	call _UpdateRadioStation
+	call UpdateRadioStation
 	ld hl, wJumptableIndex
 	inc [hl]
 	ret
@@ -1297,9 +1297,6 @@ PhoneTilemapRLE:
 INCBIN "gfx/pokegear/phone.tilemap.rle"
 ClockTilemapRLE:
 INCBIN "gfx/pokegear/clock.tilemap.rle"
-
-_UpdateRadioStation:
-	jr UpdateRadioStation
 
 ; called from engine/gfx/sprite_anims.asm
 

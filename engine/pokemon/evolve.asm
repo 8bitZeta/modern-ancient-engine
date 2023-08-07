@@ -395,12 +395,11 @@ EvolveAfterBattle_MasterLoop:
 
 	cp 4
 
-	jr c, .low_pv
+	jr c, .proceed ; .low_pv
 
 	call GetNextEvoAttackByte
 	call GetNextEvoAttackByte
 
-.low_pv
 	jr .proceed
 
 .create_new

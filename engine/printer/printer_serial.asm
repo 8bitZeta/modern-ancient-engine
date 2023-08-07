@@ -35,7 +35,7 @@ PrinterJumptableIteration:
 	dw Printer_WaitUntilFinished ; 0c
 	dw Printer_Quit ; 0d
 
-	dw Printer_NextSection ; 0e
+	dw _Printer_NextSection ; 0e
 	dw Printer_WaitSerial ; 0f
 	dw Printer_SignalLoopBack ; 10
 	dw Printer_SectionOne ; 11
@@ -58,9 +58,6 @@ Printer_Quit:
 	ld hl, wJumptableIndex
 	set 7, [hl]
 	ret
-
-Printer_NextSection:
-	jr _Printer_NextSection
 
 Printer_SectionOne:
 	ld a, $1

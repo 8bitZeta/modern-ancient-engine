@@ -1224,7 +1224,7 @@ ScriptCall:
 	ld [wScriptPos + 1], a
 	ret
 
-CallCallback::
+CallCallback:: ; no-optimize Stub jump
 	jr ScriptCall
 
 Script_sjump:

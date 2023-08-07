@@ -599,17 +599,17 @@ patterns = {
 		and line1.code.lower() not in {'endc', 'endr', 'endm'}),
 	(lambda line2, prev: line2.code == 'ret'),
 ],
-# 'Stub jump': [
-# 	# Bad: call [z|nz|c|nc,] Foo / ... / Foo: / jr Bar
-# 	# Good: call [z|nz|c|nc,] Bar
-# 	#
-# 	# Bad: jr|jp [z|nz|c|nc,] Foo / ... / Foo: / jr Bar
-# 	# Good: jr|jp [z|nz|c|nc,] Bar
-# 	(lambda line1, prev: re.match(r'[A-Za-z_\.]', line1.text[0])
-# 		and ' ' not in line1.code
-# 		and line1.code.lower() not in {'endc', 'endr', 'endm'}),
-# 	(lambda line2, prev: line2.code.startswith('jr ') and ',' not in line2.code),
-# ],
+'Stub jump': [
+	# Bad: call [z|nz|c|nc,] Foo / ... / Foo: / jr Bar
+	# Good: call [z|nz|c|nc,] Bar
+	#
+	# Bad: jr|jp [z|nz|c|nc,] Foo / ... / Foo: / jr Bar
+	# Good: jr|jp [z|nz|c|nc,] Bar
+	(lambda line1, prev: re.match(r'[A-Za-z_\.]', line1.text[0])
+		and ' ' not in line1.code
+		and line1.code.lower() not in {'endc', 'endr', 'endm'}),
+	(lambda line2, prev: line2.code.startswith('jr ') and ',' not in line2.code),
+],
 # 'Inefficient WRAM increment/decrement': [
 # 	# Bad: ld a, [wFoo] / inc|dec a / ld [wFoo], a (unless hl needs to be preserved)
 # 	# Good: ld hl, wFoo / inc|dec [hl]

@@ -1468,15 +1468,12 @@ _LinkBattleSendReceiveAction:
 	farcall PlaceWaitingText
 	ld a, [wLinkMode]
 	cp LINK_MOBILE
-	jr nz, .not_mobile
+	jr nz, .LinkBattle_SendReceiveAction
 
 	call .MobileBattle_SendReceiveAction
 	call Function100da5
 	farcall FinishBattleAnim
 	ret
-
-.not_mobile
-	jr .LinkBattle_SendReceiveAction
 
 .StageForSend:
 	ld a, [wBattlePlayerAction]

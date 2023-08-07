@@ -29,7 +29,7 @@ StartMenu::
 	call .SetUpMenuItems
 	ld a, [wBattleMenuCursorPosition]
 	ld [wMenuCursorPosition], a
-	call .DrawMenuAccount
+	call ._DrawMenuAccount
 	call DrawVariableLengthMenuBox
 	call .DrawBugContestStatusBox
 	call SafeUpdateSprites
@@ -145,7 +145,7 @@ StartMenu::
 	call ClearBGPalettes
 	call ExitMenu
 	call ReloadTilesetAndPalettes
-	call .DrawMenuAccount
+	call ._DrawMenuAccount
 	call DrawVariableLengthMenuBox
 	call .DrawBugContestStatus
 	call UpdateSprites
@@ -353,9 +353,6 @@ endr
 	inc de
 	inc c
 	ret
-
-.DrawMenuAccount:
-	jr ._DrawMenuAccount
 
 .PrintMenuAccount:
 	call .IsMenuAccountOn
