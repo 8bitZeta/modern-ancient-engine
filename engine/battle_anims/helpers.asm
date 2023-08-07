@@ -1,6 +1,6 @@
 GetBattleAnimOAMPointer:
-	ld l, a
-	ld h, 0
+	ld h, d
+	ld l, e
 	ld de, BattleAnimOAMData
 	ld a, [wBattleAnimTempFrameOAMFlags]
 	add a
