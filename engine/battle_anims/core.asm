@@ -71,12 +71,6 @@ endr
 	ld [hl], a  ; BATTLEANIMSTRUCT_VAR2
 	ret
 
-DeinitBattleAnimation:
-	ld hl, BATTLEANIMSTRUCT_INDEX
-	add hl, bc
-	ld [hl], $0
-	ret
-
 BattleAnimOAMUpdate:
 	call InitBattleAnimBuffer
 	farcall GetBattleAnimFrame
