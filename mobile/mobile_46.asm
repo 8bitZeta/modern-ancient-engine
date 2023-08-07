@@ -5272,7 +5272,7 @@ Text_CheckBattleRoomListByMaxLevel:
 Function11ac3e:
 	call SpeechTextbox
 	call FadeToMenu
-	callfar ClearSpriteAnims2
+	farcall ClearSpriteAnims2
 	call Function11ac51
 	jmp CloseSubmenu
 

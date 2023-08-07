@@ -31,7 +31,7 @@ Multiply::
 	push de
 	push bc
 
-	callfar _Multiply
+	farcall _Multiply
 
 	pop bc
 	pop de

@@ -536,7 +536,7 @@ BattleBGEffect_BattlerObj_2Row:
 	jmp EndBattleBGEffect
 
 _QueueBattleAnimation:
-	callfar QueueBattleAnimation
+	farcall QueueBattleAnimation
 	ret
 
 BattleBGEffect_RemoveMon:

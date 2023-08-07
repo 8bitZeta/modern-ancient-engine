@@ -1042,7 +1042,7 @@ PCMonInfo:
 	ret z
 
 	ld d, a
-	callfar ItemIsMail
+	farcall ItemIsMail
 	jr c, .mail
 	ld a, $5d ; item icon
 	jr .printitem

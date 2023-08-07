@@ -18,7 +18,7 @@ TMHMPocket:
 	ld [wItemQuantity], a
 	ld a, [wCurItem]
 	ld c, a
-	callfar GetNumberedTMHM
+	farcall GetNumberedTMHM
 	ld a, c
 	ld [wCurItem], a
 	scf
@@ -27,7 +27,7 @@ TMHMPocket:
 ConvertCurItemIntoCurTMHM:
 	ld a, [wCurItem]
 	ld c, a
-	callfar GetTMHMNumber
+	farcall GetTMHMNumber
 	ld a, c
 	ld [wTempTMHM], a
 	ret
@@ -132,7 +132,7 @@ TeachTMHM:
 	jr .nope
 
 .compatible
-	callfar KnowsMove
+	farcall KnowsMove
 	jr c, .nope
 
 	predef LearnMove
@@ -144,7 +144,7 @@ TeachTMHM:
 	ret c
 
 	ld c, HAPPINESS_LEARNMOVE
-	callfar ChangeHappiness
+	farcall ChangeHappiness
 	call ConsumeTM
 	scf 
 	ret
