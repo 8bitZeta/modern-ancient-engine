@@ -4882,8 +4882,7 @@ Function11a5f5:
 	call PlaceString
 	hlcoord 15, 7
 	ld [hl], $ed
-	farcall ReloadMapPart
-	ret
+	farjp ReloadMapPart
 
 Function11a63c:
 	hlcoord 4, 1
@@ -5407,8 +5406,7 @@ Function11ad1b:
 	ld [wcd30], a
 	ld a, DEXMODE_ABC
 	ld [wCurDexMode], a
-	farcall Pokedex_OrderMonsByMode
-	ret
+	farjp Pokedex_OrderMonsByMode
 
 Function11ad6e:
 	ld a, [wJumptableIndex]
@@ -5524,8 +5522,7 @@ Function11adc4:
 
 .asm_11ae2e
 	call ExitMenu
-	farcall ReloadMapPart
-	ret
+	farjp ReloadMapPart
 
 MenuHeader_11ae38:
 	db MENU_BACKUP_TILES ; flags
@@ -5624,8 +5621,7 @@ Function11ae98:
 .asm_11aef7
 	call ExitMenu
 	call ExitMenu
-	farcall ReloadMapPart
-	ret
+	farjp ReloadMapPart
 
 Function11af04:
 	ld hl, MenuHeader_11afe8
@@ -5712,8 +5708,7 @@ Function11af4e:
 .asm_11afaa
 	call ExitMenu
 	call ExitMenu
-	farcall ReloadMapPart
-	ret
+	farjp ReloadMapPart
 
 Function11afb7:
 	ld e, $ed
@@ -7162,8 +7157,7 @@ Function11b93b:
 	ld a, HIGH(wUnknownMonMail)
 	ld [wMobileMonMailPointer + 1], a
 	call AddMobileMonToParty
-	farcall SaveAfterLinkTrade
-	ret
+	farjp SaveAfterLinkTrade
 
 AddMobileMonToParty:
 	ld hl, wPartyCount

@@ -1078,8 +1078,7 @@ AskGiveNicknameText:
 	text_end
 
 ReturnToBattle_UseBall:
-	farcall _ReturnToBattle_UseBall
-	ret
+	farjp _ReturnToBattle_UseBall
 
 TownMapEffect:
 	call FadeToMenu
@@ -1089,12 +1088,10 @@ TownMapEffect:
 	ldh [hBGMapMode], a
 	farcall Pack_InitGFX
 	farcall WaitBGMap_DrawPackGFX
-	farcall Pack_InitColors
-	ret
+	farjp Pack_InitColors
 
 BicycleEffect:
-	farcall BikeFunction
-	ret
+	farjp BikeFunction
 
 EvoStoneEffect:
 	ld b, PARTYMENUACTION_EVO_STONE
@@ -1736,8 +1733,7 @@ ChooseMonToUseItemOn:
 	call WaitBGMap
 	call SetPalettes
 	call DelayFrame
-	farcall PartyMenuSelect
-	ret
+	farjp PartyMenuSelect
 
 ItemActionText:
 	ld [wPartyMenuActionText], a
@@ -2140,8 +2136,7 @@ XItemEffect:
 	ld a, [wCurBattleMon]
 	ld [wCurPartyMon], a
 	ld c, HAPPINESS_USEDXITEM
-	farcall ChangeHappiness
-	ret
+	farjp ChangeHappiness
 
 INCLUDE "data/items/x_stats.asm"
 
@@ -2263,12 +2258,10 @@ SuperRodEffect:
 	ld e, $2
 
 UseRod:
-	farcall FishFunction
-	ret
+	farjp FishFunction
 
 ItemfinderEffect:
-	farcall ItemFinder
-	ret
+	farjp ItemFinder
 
 RestorePPEffect:
 	ld a, [wCurItem]
@@ -2529,16 +2522,13 @@ PPRestoredText:
 	text_end
 
 SquirtbottleEffect:
-	farcall _Squirtbottle
-	ret
+	farjp _Squirtbottle
 
 CardKeyEffect:
-	farcall _CardKey
-	ret
+	farjp _CardKey
 
 BasementKeyEffect:
-	farcall _BasementKey
-	ret
+	farjp _BasementKey
 
 SacredAshEffect:
 	farcall _SacredAsh

@@ -3,11 +3,6 @@ DEF MAP_NAME_SIGN_START EQU $60
 InitMapNameSign::
 	xor a
 	ldh [hBGMapMode], a
-	farcall .inefficient_farcall ; this is a waste of 6 ROM bytes and 6 stack bytes
-	ret
-
-; should have just been a fallthrough
-.inefficient_farcall
 	ld a, [wMapGroup]
 	ld b, a
 	ld a, [wMapNumber]
@@ -44,8 +39,7 @@ InitMapNameSign::
 	ld [wLandmarkSignTimer], a
 	call LoadMapNameSignGFX
 	call InitMapNameFrame
-	farcall HDMATransfer_OnlyTopFourRows
-	ret
+	farjp HDMATransfer_OnlyTopFourRows
 
 .dont_do_map_sign
 	ld a, [wCurLandmark]

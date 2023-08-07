@@ -149,8 +149,7 @@ LoadMiscTiles:
 	jr z, .outdoor
 	ld c, EMOTE_BOULDER_DUST
 .outdoor
-	farcall LoadEmote
-	ret
+	farjp LoadEmote
 
 SafeGetSprite:
 	push hl

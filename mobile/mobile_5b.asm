@@ -96,8 +96,7 @@ MobileSystemSplashScreen_InitGFX:
 	ld bc, 8
 	ld a, $5
 	call FarCopyWRAM
-	farcall ApplyPals
-	ret
+	farjp ApplyPals
 
 .LoadTilemap:
 	hlcoord 0, 0

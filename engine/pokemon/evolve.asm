@@ -1079,9 +1079,7 @@ GiveShedinja:
 
 ; Set the approprite Caught Data for the new mon
 	ld b, 0
-	farcall SetGiftPartyMonCaughtData
-
-	ret
+	farjp SetGiftPartyMonCaughtData
 
 CheckCreate:
 	ld a, [wPartyCount]

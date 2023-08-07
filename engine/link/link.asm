@@ -2386,12 +2386,10 @@ String_TooBadTheTradeWasCanceled:
 LinkTextboxAtHL:
 	ld d, h
 	ld e, l
-	farcall LinkTextbox
-	ret
+	farjp LinkTextbox
 
 LoadTradeScreenBorderGFX:
-	farcall _LoadTradeScreenBorderGFX
-	ret
+	farjp _LoadTradeScreenBorderGFX
 
 SetTradeRoomBGPals:
 	farcall LoadTradeRoomBGPals ; just a nested farcall; so wasteful

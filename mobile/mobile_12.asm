@@ -2146,8 +2146,7 @@ Function4aad3:
 	jr nz, .loop
 
 	call Function4aa7a
-	farcall PlaySpriteAnimations
-	ret
+	farjp PlaySpriteAnimations
 
 Function4aafb:
 	ld a, [wCurPartySpecies]
@@ -2492,8 +2491,7 @@ Function4ad56:
 	jmp WaitBGMap2
 
 Function4ad60:
-	farcall ManagePokemonMoves
-	ret
+	farjp ManagePokemonMoves
 
 Function4ad68:
 	hlcoord 13, 12

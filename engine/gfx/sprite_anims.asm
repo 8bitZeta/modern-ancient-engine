@@ -204,16 +204,13 @@ AnimSeq_GSIntroHoOhLugia:
 	ret
 
 AnimSeq_NamingScreenCursor:
-	farcall NamingScreen_AnimateCursor
-	ret
+	farjp NamingScreen_AnimateCursor
 
 AnimSeq_MailCursor:
-	farcall ComposeMail_AnimateCursor
-	ret
+	farjp ComposeMail_AnimateCursor
 
 AnimSeq_GameFreakLogo:
-	farcall GameFreakLogoSpriteAnim
-	ret
+	farjp GameFreakLogoSpriteAnim
 
 AnimSeq_GSGameFreakLogoStar:
 	ld hl, SPRITEANIMSTRUCT_VAR1
@@ -342,8 +339,7 @@ AnimSeq_GSGameFreakLogoSparkle:
 	jmp DeinitializeSprite
 
 AnimSeq_SlotsGolem:
-	farcall Slots_AnimateGolem
-	ret
+	farjp Slots_AnimateGolem
 
 AnimSeq_SlotsChansey:
 	farcall Slots_AnimateChansey
@@ -388,12 +384,10 @@ AnimSeq_SlotsChanseyEgg:
 	ret
 
 AnimSeq_PokegearArrow:
-	farcall AnimatePokegearModeIndicatorArrow
-	ret
+	farjp AnimatePokegearModeIndicatorArrow
 
 AnimSeq_MemoryGameCursor:
-	farcall MemoryGame_InterpretJoypad_AnimateCursor
-	ret
+	farjp MemoryGame_InterpretJoypad_AnimateCursor
 
 AnimSeq_TradePokeBall:
 	call AnimSeqs_AnonJumptable
@@ -533,8 +527,7 @@ AnimSeq_TradeTubeBulge:
 	jmp DeinitializeSprite
 
 AnimSeq_TrademonInTube:
-	farcall TradeAnim_AnimateTrademonInTube
-	ret
+	farjp TradeAnim_AnimateTrademonInTube
 
 AnimSeq_RevealNewMon:
 	ld hl, SPRITEANIMSTRUCT_VAR1
@@ -573,8 +566,7 @@ AnimSeq_RevealNewMon:
 	jmp DeinitializeSprite
 
 AnimSeq_RadioTuningKnob:
-	farcall AnimateTuningKnob
-	ret
+	farjp AnimateTuningKnob
 
 AnimSeq_CutLeaves:
 	ld hl, SPRITEANIMSTRUCT_VAR2
@@ -715,12 +707,10 @@ AnimSeq_FlyTo:
 	ret
 
 AnimSeq_MobileTradeSentPulse:
-	farcall MobileTradeAnim_AnimateSentPulse
-	ret
+	farjp MobileTradeAnim_AnimateSentPulse
 
 AnimSeq_MobileTradeOTPulse:
-	farcall MobileTradeAnim_AnimateOTPulse
-	ret
+	farjp MobileTradeAnim_AnimateOTPulse
 
 AnimSeq_IntroSuicune:
 	ld a, [wIntroSceneTimer]
@@ -808,12 +798,10 @@ AnimSeq_IntroSuicuneAway:
 	ret
 
 AnimSeq_EZChatCursor:
-	farcall AnimateEZChatCursor
-	ret
+	farjp AnimateEZChatCursor
 
 AnimSeq_Celebi:
-	farcall UpdateCelebiPosition
-	ret
+	farjp UpdateCelebiPosition
 
 AnimSeqs_AnonJumptable:
 	ld hl, sp+0

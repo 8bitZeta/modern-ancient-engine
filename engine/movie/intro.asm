@@ -676,8 +676,7 @@ IntroScene14:
 	ret
 
 .disappear
-	farcall DeinitializeAllSprites
-	ret
+	farjp DeinitializeAllSprites
 
 .run
 	ld a, [wGlobalAnimXOffset]

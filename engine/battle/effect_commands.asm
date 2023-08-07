@@ -3189,8 +3189,7 @@ PlayFXAnimID:
 PlaySelectedFXAnim:
 	ld c, 3
 	call DelayFrames
-	farcall PlayBattleAnim
-	ret
+	farjp PlayBattleAnim
 
 DoEnemyDamage:
 	ld hl, wCurDamage
@@ -3528,8 +3527,7 @@ BattleCommand_PoisonTarget:
 	ld hl, WasPoisonedText
 	call StdBattleTextbox
 
-	farcall UseHeldStatusHealingItem
-	ret
+	farjp UseHeldStatusHealingItem
 
 BattleCommand_Poison:
 	ld hl, DoesntAffectText
@@ -3608,8 +3606,7 @@ BattleCommand_Poison:
 	call StdBattleTextbox
 
 .finished
-	farcall UseHeldStatusHealingItem
-	ret
+	farjp UseHeldStatusHealingItem
 
 .failed
 	push hl
@@ -3796,8 +3793,7 @@ BattleCommand_BurnTarget:
 	ld hl, WasBurnedText
 	call StdBattleTextbox
 
-	farcall UseHeldStatusHealingItem
-	ret
+	farjp UseHeldStatusHealingItem
 
 Defrost:
 	ld a, [hl]
@@ -6296,16 +6292,13 @@ SkipToBattleCommand:
 	ret
 
 DisappearUser:
-	farcall _DisappearUser
-	ret
+	farjp _DisappearUser
 
 AppearUserLowerSub:
-	farcall _AppearUserLowerSub
-	ret
+	farjp _AppearUserLowerSub
 
 AppearUserRaiseSub:
-	farcall _AppearUserRaiseSub
-	ret
+	farjp _AppearUserRaiseSub
 
 _CheckBattleScene:
 ; Checks the options.  Returns carry if battle animations are disabled.

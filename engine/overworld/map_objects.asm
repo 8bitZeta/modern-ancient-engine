@@ -2088,8 +2088,7 @@ InitTempObject:
 	ret nc
 	ld d, h
 	ld e, l
-	farcall CopyTempObjectToObjectStruct
-	ret
+	farjp CopyTempObjectToObjectStruct
 
 CopyTempObjectData:
 ; load into wTempObjectCopy:
@@ -2237,8 +2236,7 @@ UpdateObjectTile:
 	ld hl, OBJECT_TILE
 	add hl, bc
 	ld [hl], a
-	farcall UpdateTallGrassFlags ; no need to farcall
-	ret
+	jmp UpdateTallGrassFlags
 
 CheckObjectOnScreen:
 	ld hl, OBJECT_MAP_X
@@ -2486,8 +2484,7 @@ StartFollow::
 	ret c
 	ld a, c
 	call SetFollowerIfVisible
-	farcall QueueFollowerFirstStep
-	ret
+	farjp QueueFollowerFirstStep
 
 SetLeaderIfVisible:
 	call CheckObjectVisibility

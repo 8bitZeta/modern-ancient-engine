@@ -114,8 +114,7 @@ LinkComms_LoadPleaseWaitTextboxBorderGFX:
 	jmp Get2bpp
 
 LoadTradeRoomBGPals:
-	farcall _LoadTradeRoomBGPals
-	ret
+	farjp _LoadTradeRoomBGPals
 
 LoadCableTradeBorderTilemap:
 	call LoadMobileTradeBorderTilemap

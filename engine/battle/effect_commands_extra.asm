@@ -1,6 +1,5 @@
 BattleCommand_UsedMoveText:
-	farcall DisplayUsedMoveText
-	ret
+	farjp DisplayUsedMoveText
 
 BattleCommand_DamageVariation:
 ; Modify the damage spread between 85% and 100%.

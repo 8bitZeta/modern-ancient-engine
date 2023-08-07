@@ -77,8 +77,7 @@ LoadGenderScreenPal:
 	ld bc, 1 palettes
 	ld a, BANK(wBGPals1)
 	call FarCopyWRAM
-	farcall ApplyPals
-	ret
+	farjp ApplyPals
 
 .Palette:
 INCLUDE "gfx/new_game/gender_screen.pal"

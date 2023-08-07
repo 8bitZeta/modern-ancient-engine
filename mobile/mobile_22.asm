@@ -1435,8 +1435,7 @@ Function89a0c:
 	jr c, .asm_89a1c
 	ld d, h
 	ld e, l
-	farcall Function11c08f
-	ret
+	farjp Function11c08f
 
 .asm_89a1c
 	ld de, String_89153
@@ -1587,14 +1586,12 @@ Function89a57:
 	ret
 
 Function89b00:
-	farcall MG_Mobile_Layout_LoadPals
-	ret
+	farjp MG_Mobile_Layout_LoadPals
 
 Function89b07:
 	call Mobile22_SetBGMapMode0
 	call DelayFrame
-	farcall Function4a3a7
-	ret
+	farjp Function4a3a7
 
 Function89b1e:
 	farcall Function4a485
@@ -1610,8 +1607,7 @@ Function89b28:
 
 Function89b3b:
 	call Mobile22_SetBGMapMode0
-	farcall Function48cda
-	ret
+	farjp Function48cda
 
 Function89b45:
 	; some sort of decoder?

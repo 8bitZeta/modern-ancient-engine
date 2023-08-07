@@ -46,12 +46,10 @@ NewGame_ClearTilemapEtc:
 MysteryGift:
 	call UpdateTime
 	farcall DoMysteryGiftIfDayHasPassed
-	farcall DoMysteryGift
-	ret
+	farjp DoMysteryGift
 
 Option:
-	farcall _Option
-	ret
+	farjp _Option
 
 NewGame:
 	xor a
@@ -75,13 +73,11 @@ NewGame:
 AreYouABoyOrAreYouAGirl:
 	farcall Mobile_AlwaysReturnNotCarry ; mobile
 	jr c, .ok
-	farcall InitGender
-	ret
+	farjp InitGender
 
 .ok
 	ld c, 0
-	farcall InitMobileProfile ; mobile
-	ret
+	farjp InitMobileProfile ; mobile
 
 if DEF(_DEBUG)
 DebugRoom: ; unreferenced
@@ -310,8 +306,7 @@ InitializeNPCNames:
 InitializeWorld:
 	call ShrinkPlayer
 	farcall SpawnPlayer
-	farcall _InitializeStartDay
-	ret
+	farjp _InitializeStartDay
 
 LoadOrRegenerateLuckyIDNumber:
 	ld a, BANK(sLuckyIDNumber)
@@ -741,8 +736,7 @@ NamePlayer:
 	jr z, .NewName
 	call StorePlayerName
 	farcall ApplyMonOrTrainerPals
-	farcall MovePlayerPicLeft
-	ret
+	farjp MovePlayerPicLeft
 
 .NewName:
 	ld b, NAME_PLAYER
@@ -1007,8 +1001,7 @@ StartTitleScreen:
 	dw ResetClock
 
 .TitleScreen:
-	farcall _TitleScreen
-	ret
+	farjp _TitleScreen
 
 RunTitleScreen:
 	ld a, [wJumptableIndex]
@@ -1070,8 +1063,7 @@ TitleScreenEntrance:
 	dec b
 	jr nz, .loop
 
-	farcall AnimateTitleCrystal
-	ret
+	farjp AnimateTitleCrystal
 
 .done
 ; Next scene

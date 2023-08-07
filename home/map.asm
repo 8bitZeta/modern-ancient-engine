@@ -639,8 +639,7 @@ endr
 	cp -1
 ; .skip
 	call z, .backup
-	farcall GetMapScreenCoords
-	ret
+	farjp GetMapScreenCoords
 
 .backup
 	ld a, [wPrevWarp]
