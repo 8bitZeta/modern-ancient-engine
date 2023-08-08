@@ -132,7 +132,7 @@ PlayersHouseRadioScript:
 	setflag ENGINE_CREDITS_SKIP
 	; Debug pokemon
 	givepoke MEW, 100, LEFTOVERS
-	givepokemove JUMP_KICK,        wPartyMon1, 0
+	givepokemove DOUBLESLAP,        wPartyMon1, 0
 	givepokemove ROLLING_KICK,       wPartyMon1, 1
 	givepokemove SAND_ATTACK,   wPartyMon1, 2
 	givepokemove HEADBUTT,        wPartyMon1, 3
