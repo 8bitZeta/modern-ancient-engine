@@ -822,7 +822,7 @@ BattleAnim_Solarbeam:
 	; charge turn
 	anim_1gfx ANIM_GFX_CHARGE
 	anim_sound 0, 0, SFX_CHARGE
-	anim_obj ANIM_OBJ_BELLY_DRUM_NOTESORB_CENTER, 48, 84, $0
+	anim_obj ANIM_OBJ_ABSORB_CENTER, 48, 84, $0
 	anim_obj ANIM_OBJ_SOLAR_BEAM_CHARGE, 48, 84, $0
 	anim_obj ANIM_OBJ_SOLAR_BEAM_CHARGE, 48, 84, $8
 	anim_obj ANIM_OBJ_SOLAR_BEAM_CHARGE, 48, 84, $10
@@ -1251,16 +1251,16 @@ BattleAnim_Recover:
 
 BattleAnim_Absorb:
 	anim_1gfx ANIM_GFX_CHARGE
-	anim_obj ANIM_OBJ_BELLY_DRUM_NOTESORB_CENTER, 44, 88, $0
+	anim_obj ANIM_OBJ_ABSORB_CENTER, 44, 88, $0
 .loop
 	anim_sound 6, 3, SFX_WATER_GUN
-	anim_obj ANIM_OBJ_BELLY_DRUM_NOTESORB, 128, 48, $2
+	anim_obj ANIM_OBJ_ABSORB, 128, 48, $2
 	anim_wait 6
 	anim_sound 6, 3, SFX_WATER_GUN
-	anim_obj ANIM_OBJ_BELLY_DRUM_NOTESORB, 136, 64, $3
+	anim_obj ANIM_OBJ_ABSORB, 136, 64, $3
 	anim_wait 6
 	anim_sound 6, 3, SFX_WATER_GUN
-	anim_obj ANIM_OBJ_BELLY_DRUM_NOTESORB, 136, 32, $4
+	anim_obj ANIM_OBJ_ABSORB, 136, 32, $4
 	anim_wait 6
 	anim_loop 5, .loop
 	anim_wait 32
@@ -1273,13 +1273,13 @@ BattleAnim_MegaDrain:
 	anim_setvar $0
 .loop
 	anim_sound 6, 3, SFX_WATER_GUN
-	anim_obj ANIM_OBJ_BELLY_DRUM_NOTESORB, 128, 48, $2
+	anim_obj ANIM_OBJ_ABSORB, 128, 48, $2
 	anim_wait 6
 	anim_sound 6, 3, SFX_WATER_GUN
-	anim_obj ANIM_OBJ_BELLY_DRUM_NOTESORB, 136, 64, $3
+	anim_obj ANIM_OBJ_ABSORB, 136, 64, $3
 	anim_wait 6
 	anim_sound 6, 3, SFX_WATER_GUN
-	anim_obj ANIM_OBJ_BELLY_DRUM_NOTESORB, 136, 32, $4
+	anim_obj ANIM_OBJ_ABSORB, 136, 32, $4
 	anim_wait 6
 	anim_incvar
 	anim_if_var_equal $7, .done
@@ -1287,7 +1287,7 @@ BattleAnim_MegaDrain:
 	anim_jump .loop
 
 .spawn
-	anim_obj ANIM_OBJ_BELLY_DRUM_NOTESORB_CENTER, 44, 88, $0
+	anim_obj ANIM_OBJ_ABSORB_CENTER, 44, 88, $0
 	anim_jump .loop
 
 .done
@@ -2922,7 +2922,7 @@ BattleAnim_Aeroblast:
 	anim_bgeffect ANIM_BG_SHAKE_SCREEN_X, $50, $4, $10
 	anim_bgeffect ANIM_BG_CYCLE_OBPALS_GRAY_AND_YELLOW, $0, $2, $0
 	anim_sound 0, 0, SFX_AEROBLAST
-	anim_obj ANIM_OBJ_SHOOTING_SPARKLEROBLAST, 72, 88, $0
+	anim_obj ANIM_OBJ_AEROBLAST, 72, 88, $0
 	anim_wait 32
 	anim_sound 0, 0, SFX_HYPER_BEAM
 	anim_obj ANIM_OBJ_BEAM, 80, 84, $0
@@ -3752,9 +3752,9 @@ BattleAnim_Pursuit_branch_cb62b:
 	anim_bgeffect ANIM_BG_HIDE_MON, $0, $0, $0
 	anim_wait 4
 	anim_call BattleAnim_UserObj_1Row_1
-	anim_obj ANIM_OBJ_BETA_PURSUIT, 132, 64, $0
+	anim_obj ANIM_OBJ_MEAN_LOOK, 132, 64, $0
 	anim_wait 64
-	anim_obj ANIM_OBJ_BETA_PURSUIT, 132, 64, $1
+	anim_obj ANIM_OBJ_MEAN_LOOK, 132, 64, $1
 	anim_sound 0, 1, SFX_BALL_POOF
 	anim_bgeffect ANIM_BG_ENTER_MON, $0, $0, $0
 	anim_wait 64
@@ -4368,7 +4368,7 @@ BattleAnim_Acid_branch_cbc35:
 BattleAnim_Toxic_branch_cbc35:
 .loop
 	anim_sound 6, 2, SFX_BUBBLEBEAM
-	anim_obj ANIM_OBJ_MEAN_LOOKID, 64, 92, $10
+	anim_obj ANIM_OBJ_ACID, 64, 92, $10
 	anim_wait 5
 	anim_loop 8, .loop
 	anim_ret

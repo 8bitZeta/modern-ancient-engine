@@ -143,7 +143,7 @@ BattleAnim_SendOutMon:
 	anim_call BattleAnim_TargetObj_1Row_Special
 	anim_bgeffect ANIM_BG_BETA_SEND_OUT_MON2, $0, $1, $0
 	anim_sound 0, 0, SFX_BALL_POOF
-	anim_obj ANIM_OBJ_BETA_BALL_POOF, 48, 96, $0
+	anim_obj ANIM_OBJ_BALL_POOF_YFIX, 48, 96, $0
 	anim_bgeffect ANIM_BG_ENTER_MON, $0, $1, $0
 	anim_wait 128
 	anim_wait 4
@@ -158,7 +158,7 @@ BattleAnim_SendOutMon:
 	anim_bgeffect ANIM_BG_SHOW_MON, $0, $1, $0
 	anim_wait 4
 	anim_sound 0, 0, SFX_BALL_POOF
-	anim_obj ANIM_OBJ_BETA_BALL_POOF, 48, 96, $0
+	anim_obj ANIM_OBJ_BALL_POOF_YFIX, 48, 96, $0
 	anim_incbgeffect ANIM_BG_BETA_SEND_OUT_MON1
 	anim_wait 96
 	anim_incbgeffect ANIM_BG_BETA_SEND_OUT_MON1
@@ -252,13 +252,13 @@ BattleAnim_Psn:
 BattleAnim_Sap:
 	anim_1gfx ANIM_GFX_CHARGE
 	anim_sound 6, 3, SFX_WATER_GUN
-	anim_obj ANIM_OBJ_BELLY_DRUM_NOTESORB, 128, 48, $2
+	anim_obj ANIM_OBJ_ABSORB, 128, 48, $2
 	anim_wait 6
 	anim_sound 6, 3, SFX_WATER_GUN
-	anim_obj ANIM_OBJ_BELLY_DRUM_NOTESORB, 136, 64, $3
+	anim_obj ANIM_OBJ_ABSORB, 136, 64, $3
 	anim_wait 6
 	anim_sound 6, 3, SFX_WATER_GUN
-	anim_obj ANIM_OBJ_BELLY_DRUM_NOTESORB, 136, 32, $4
+	anim_obj ANIM_OBJ_ABSORB, 136, 32, $4
 	anim_wait 16
 	anim_ret
 
