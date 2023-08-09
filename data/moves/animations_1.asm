@@ -1907,6 +1907,7 @@ BattleAnim_PoisonSting:
 	anim_ret
 
 BattleAnim_Twineedle:
+	anim_setobjpal PAL_BATTLE_OB_BLUE, PAL_BTLCUSTOM_GRAY
 	anim_2gfx ANIM_GFX_HORN, ANIM_GFX_HIT
 	anim_sound 0, 1, SFX_POISON_STING
 	anim_obj ANIM_OBJ_NEEDLE, 64, 92, $14
