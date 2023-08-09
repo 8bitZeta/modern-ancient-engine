@@ -543,7 +543,7 @@ BattleAnim_Charge:
     anim_wait 40
     anim_clearobjs
     anim_sound 0, 0, SFX_ZAP_CANNON
-	anim_obj ANIM_OBJ_SPARKS_CIRCLE_BIG, 44, 88, $0
+	anim_obj ANIM_OBJ_THUNDERBOLT_SPARKS, 44, 88, $0
     anim_wait 40
     anim_ret
 
