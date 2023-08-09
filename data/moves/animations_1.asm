@@ -467,6 +467,7 @@ BattleAnim_SuperFang:
 	anim_ret
 
 BattleAnim_Ember:
+	anim_setobjpal PAL_BATTLE_OB_RED, PAL_BTLCUSTOM_FIRE
 	anim_1gfx ANIM_GFX_FIRE
 	anim_sound 6, 2, SFX_EMBER
 	anim_obj ANIM_OBJ_EMBER, 64, 96, $12
