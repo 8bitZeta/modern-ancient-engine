@@ -792,8 +792,6 @@ DEF NUM_BATTLEANIMOAMSETS EQU const_value
 	const ANIM_BG_REMOVE_MON
 	const ANIM_BG_WAVE_DEFORM_MON
 	const ANIM_BG_PSYCHIC
-	const ANIM_BG_BETA_SEND_OUT_MON1
-	const ANIM_BG_BETA_SEND_OUT_MON2
 	const ANIM_BG_FLAIL
 	const ANIM_BG_BETA_PURSUIT
 	const ANIM_BG_ROLLOUT
@@ -804,7 +802,7 @@ DEF NUM_BATTLEANIMOAMSETS EQU const_value
 	const ANIM_BG_VIBRATE_MON
 	const ANIM_BG_WOBBLE_PLAYER
 	const ANIM_BG_WOBBLE_SCREEN
-DEF NUM_ANIM_BGS EQU const_value - 1
+DEF NUM_ANIM_BGS EQU const_value
 
 ; wBattleAnimTileDict keys (see wram.asm)
 ; AnimObjGFX indexes (see data/battle_anims/object_gfx.asm)
