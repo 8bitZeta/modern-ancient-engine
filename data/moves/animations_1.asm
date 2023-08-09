@@ -1897,6 +1897,7 @@ BattleAnim_HornDrill:
 	anim_ret
 
 BattleAnim_PoisonSting:
+	anim_setobjpal PAL_BATTLE_OB_BLUE, PAL_BTLCUSTOM_PURPLE
 	anim_2gfx ANIM_GFX_HORN, ANIM_GFX_HIT
 	anim_obj ANIM_OBJ_NEEDLE, 64, 92, $14
 	anim_wait 16
