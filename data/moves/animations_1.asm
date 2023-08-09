@@ -736,6 +736,7 @@ BattleAnim_HydroPump:
 	anim_ret
 
 BattleAnim_Surf:
+	anim_setobjpal PAL_BATTLE_OB_BLUE, PAL_BTLCUSTOM_WATER
 	anim_1gfx ANIM_GFX_BUBBLE
 	anim_bgeffect ANIM_BG_SURF, $0, $0, $0
 	anim_obj ANIM_OBJ_SURF, 88, 104, $8
