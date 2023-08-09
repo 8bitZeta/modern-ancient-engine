@@ -853,6 +853,7 @@ DEF NUM_ANIM_BGS EQU const_value
 	const ANIM_GFX_STARS
  	const ANIM_GFX_METEOR
 	const ANIM_GFX_FLATTER
+	const ANIM_GFX_BEAM_LIGHT
 DEF NUM_ANIM_GFX EQU const_value - 1
 
 ; battle_bg_effect struct members (see macros/ram.asm)
