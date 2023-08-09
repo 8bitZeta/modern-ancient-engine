@@ -871,10 +871,10 @@ BattleAnim_Thunderpunch:
 BattleAnim_Thundershock:
 	anim_2gfx ANIM_GFX_LIGHTNING, ANIM_GFX_EXPLOSION
 	anim_bgeffect ANIM_BG_CYCLE_OBPALS_GRAY_AND_YELLOW, $0, $2, $0
-	anim_obj ANIM_OBJ_THUNDERSHOCK_BALL, 136, 56, $2
+	anim_obj ANIM_OBJ_THUNDERSHOCK_CORE, 136, 56, $2
 	anim_wait 16
 	anim_sound 0, 1, SFX_THUNDERSHOCK
-	anim_obj ANIM_OBJ_SPARKS_CIRCLE, 136, 56, $0
+	anim_obj ANIM_OBJ_THUNDERSHOCK_SPARKS, 136, 56, $0
 	anim_wait 96
 	anim_ret
 
@@ -3490,7 +3490,7 @@ BattleAnim_Spark:
 	anim_wait 1
 	anim_sound 0, 1, SFX_THUNDERSHOCK
 	anim_obj ANIM_OBJ_THUNDERBOLT_BALL, 136, 56, $2
-	anim_obj ANIM_OBJ_SPARKS_CIRCLE, 136, 56, $0
+	anim_obj ANIM_OBJ_THUNDERSHOCK_SPARKS, 136, 56, $0
 	anim_wait 32
 	anim_ret
 
