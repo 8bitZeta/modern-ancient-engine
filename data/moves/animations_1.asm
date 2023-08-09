@@ -1711,8 +1711,8 @@ BattleAnim_BodySlam:
 	anim_bgeffect ANIM_BG_BOUNCE_DOWN, $0, $1, $0
 	anim_wait 32
 	anim_incbgeffect ANIM_BG_BOUNCE_DOWN
-	anim_wait 4
-	anim_bgeffect ANIM_BG_WOBBLE_MON, $0, $1, $0
+	anim_wait 7
+	anim_bgeffect ANIM_BG_BODY_SLAM, $0, $1, $0
 	anim_wait 3
 	anim_sound 0, 1, SFX_TACKLE
 	anim_obj ANIM_OBJ_HIT_YFIX, 136, 48, $0
