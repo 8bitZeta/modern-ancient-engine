@@ -698,6 +698,7 @@ BattleAnim_WaterGun:
 	anim_ret
 
 BattleAnim_HydroPump:
+	anim_setobjpal PAL_BATTLE_OB_BLUE, PAL_BTLCUSTOM_WATER
 	anim_bgeffect ANIM_BG_START_WATER, $0, $0, $0
 	anim_1gfx ANIM_GFX_WATER
 	anim_call BattleAnim_UserObj_2Row_1
