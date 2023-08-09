@@ -132,35 +132,35 @@ PlayersHouseRadioScript:
 	setflag ENGINE_CREDITS_SKIP
 	; Debug pokemon
 	givepoke MEW, 100, LEFTOVERS
-	givepokemove DOUBLESLAP,        wPartyMon1, 0
-	givepokemove ROLLING_KICK,       wPartyMon1, 1
-	givepokemove SAND_ATTACK,   wPartyMon1, 2
-	givepokemove HEADBUTT,        wPartyMon1, 3
+	givepokemove ACID,        wPartyMon1, 0
+	givepokemove EMBER,       wPartyMon1, 1
+	givepokemove FLAMETHROWER,   wPartyMon1, 2
+	givepokemove MIST,        wPartyMon1, 3
 	givepoke MEW, 100, LEFTOVERS
-	givepokemove HORN_ATTACK,      wPartyMon2, 0
-	givepokemove FURY_ATTACK, wPartyMon2, 1
-	givepokemove HORN_DRILL,   wPartyMon2, 2
-	givepokemove TACKLE,  wPartyMon2, 3
+	givepokemove WATER_GUN,      wPartyMon2, 0
+	givepokemove HYDRO_PUMP, wPartyMon2, 1
+	givepokemove SURF,   wPartyMon2, 2
+	givepokemove ICE_BEAM,  wPartyMon2, 3
 	givepoke MEW, 100, LEFTOVERS
-	givepokemove BODY_SLAM,        wPartyMon3, 0
-	givepokemove WRAP,       wPartyMon3, 1
-	givepokemove TAKE_DOWN,   wPartyMon3, 2
-	givepokemove THRASH,        wPartyMon3, 3
+	givepokemove BLIZZARD,        wPartyMon3, 0
+	givepokemove PSYBEAM,       wPartyMon3, 1
+	givepokemove BUBBLEBEAM,   wPartyMon3, 2
+	givepokemove AURORA_BEAM,        wPartyMon3, 3
 	givepoke MEW, 100, LEFTOVERS
-	givepokemove DOUBLE_EDGE,      wPartyMon4, 0
-	givepokemove TAIL_WHIP, wPartyMon4, 1
-	givepokemove POISON_STING,   wPartyMon4, 2
-	givepokemove TWINEEDLE,  wPartyMon4, 3
+	givepokemove HYPER_BEAM,      wPartyMon4, 0
+	givepokemove PECK, wPartyMon4, 1
+	givepokemove DRILL_PECK,   wPartyMon4, 2
+	givepokemove SUBMISSION,  wPartyMon4, 3
 	givepoke MEW, 100, LEFTOVERS
-	givepokemove PIN_MISSILE,        wPartyMon5, 0
-	givepokemove BITE,       wPartyMon5, 1
-	givepokemove GROWL,   wPartyMon5, 2
-	givepokemove ROAR,        wPartyMon5, 3
+	givepokemove LOW_KICK,        wPartyMon5, 0
+	givepokemove COUNTER,       wPartyMon5, 1
+	givepokemove SEISMIC_TOSS,   wPartyMon5, 2
+	givepokemove STRENGTH,        wPartyMon5, 3
 	givepoke MEW, 100, LEFTOVERS
-	givepokemove SING,      wPartyMon6, 0
-	givepokemove SUPERSONIC, wPartyMon6, 1
-	givepokemove SONICBOOM,   wPartyMon6, 2
-	givepokemove DISABLE,  wPartyMon6, 3
+	givepokemove ABSORB,      wPartyMon6, 0
+	givepokemove MEGA_DRAIN, wPartyMon6, 1
+	givepokemove LEECH_SEED,   wPartyMon6, 2
+	givepokemove GROWTH,  wPartyMon6, 3
 	; Test pokemon
 	; givepoke NINCADA, 50
 	; givepoke NINCADA, 50
