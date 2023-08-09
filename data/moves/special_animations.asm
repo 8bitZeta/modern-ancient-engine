@@ -231,6 +231,7 @@ BattleAnim_Psn:
 	anim_ret
 
 BattleAnim_Sap:
+	anim_setobjpal PAL_BATTLE_OB_YELLOW, PAL_BTLCUSTOM_GREEN
 	anim_1gfx ANIM_GFX_CHARGE
 	anim_sound 6, 3, SFX_WATER_GUN
 	anim_obj ANIM_OBJ_ABSORB, 128, 48, $2
