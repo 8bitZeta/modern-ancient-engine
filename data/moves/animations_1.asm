@@ -779,6 +779,7 @@ BattleAnim_LeechSeed:
 	anim_ret
 
 BattleAnim_RazorLeaf:
+	anim_setobjpal PAL_BATTLE_OB_YELLOW, PAL_BTLCUSTOM_GREEN
 	anim_1gfx ANIM_GFX_PLANT
 	anim_sound 0, 0, SFX_VINE_WHIP
 	anim_obj ANIM_OBJ_RAZOR_LEAF, 48, 80, $28
@@ -828,6 +829,8 @@ BattleAnim_RazorLeaf:
 BattleAnim_Solarbeam:
 	anim_if_param_equal $0, .FireSolarBeam
 	; charge turn
+	anim_bgeffect ANIM_BG_CYCLE_OBPALS_GRAY_AND_YELLOW, $0, $2, $0
+	anim_bgeffect ANIM_BG_FADE_MON_TO_LIGHT_REPEATING, $0, $1, $40
 	anim_1gfx ANIM_GFX_CHARGE
 	anim_sound 0, 0, SFX_CHARGE
 	anim_obj ANIM_OBJ_ABSORB_CENTER, 48, 84, $0
@@ -840,6 +843,7 @@ BattleAnim_Solarbeam:
 	anim_obj ANIM_OBJ_SOLAR_BEAM_CHARGE, 48, 84, $30
 	anim_obj ANIM_OBJ_SOLAR_BEAM_CHARGE, 48, 84, $38
 	anim_wait 104
+	anim_incbgeffect ANIM_BG_FADE_MON_TO_LIGHT_REPEATING
 	anim_bgeffect ANIM_BG_FLASH_WHITE, $0, $4, $2
 	anim_wait 64
 	anim_ret
@@ -847,6 +851,7 @@ BattleAnim_Solarbeam:
 .FireSolarBeam
 	anim_1gfx ANIM_GFX_BEAM
 	anim_bgeffect ANIM_BG_CYCLE_OBPALS_GRAY_AND_YELLOW, $0, $2, $0
+	anim_bgeffect ANIM_BG_ALTERNATE_HUES, $0, $1, $0
 	anim_call BattleAnim_Solarbeam_branch_cbb39
 	anim_wait 48
 	anim_ret
