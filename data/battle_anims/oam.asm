@@ -179,7 +179,7 @@ BattleAnimOAMData:
 	battleanimoam $1e,  9, .OAMData_a4 ; BATTLEANIMOAMSET_A9
 	battleanimoam $24,  9, .OAMData_a4 ; BATTLEANIMOAMSET_AA
 	battleanimoam $2a,  9, .OAMData_a4 ; BATTLEANIMOAMSET_AB
-	battleanimoam $03,  4, .OAMData_ac ; BATTLEANIMOAMSET_AC
+	battleanimoam $00,  4, .OAMData_ac ; BATTLEANIMOAMSET_AC
 	battleanimoam $12,  4, .OAMData_03 ; BATTLEANIMOAMSET_AD
 	battleanimoam $10,  4, .OAMData_04 ; BATTLEANIMOAMSET_AE
 	battleanimoam $16,  1, .OAMData_0f ; BATTLEANIMOAMSET_AF
