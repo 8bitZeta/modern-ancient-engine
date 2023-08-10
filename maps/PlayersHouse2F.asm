@@ -132,35 +132,35 @@ PlayersHouseRadioScript:
 	setflag ENGINE_CREDITS_SKIP
 	; Debug pokemon
 	givepoke MEW, 100, LEFTOVERS
-	givepokemove AURORA_BEAM,        wPartyMon1, 0
-	givepokemove SOLARBEAM,       wPartyMon1, 1
-	givepokemove POISONPOWDER,   wPartyMon1, 2
-	givepokemove STUN_SPORE,        wPartyMon1, 3
+	givepokemove RAGE,        wPartyMon1, 0
+	givepokemove TELEPORT,       wPartyMon1, 1
+	givepokemove NIGHT_SHADE,   wPartyMon1, 2
+	givepokemove MIMIC,        wPartyMon1, 3
 	givepoke MEW, 100, LEFTOVERS
-	givepokemove SLEEP_POWDER,      wPartyMon2, 0
-	givepokemove PETAL_DANCE, wPartyMon2, 1
-	givepokemove STRING_SHOT,   wPartyMon2, 2
-	givepokemove DRAGON_RAGE,  wPartyMon2, 3
+	givepokemove SCREECH,      wPartyMon2, 0
+	givepokemove DOUBLE_TEAM, wPartyMon2, 1
+	givepokemove RECOVER,   wPartyMon2, 2
+	givepokemove HARDEN,  wPartyMon2, 3
 	givepoke MEW, 100, LEFTOVERS
-	givepokemove FIRE_SPIN,        wPartyMon3, 0
-	givepokemove THUNDERSHOCK,       wPartyMon3, 1
-	givepokemove THUNDERBOLT,   wPartyMon3, 2
-	givepokemove THUNDER_WAVE,        wPartyMon3, 3
+	givepokemove MINIMIZE,        wPartyMon3, 0
+	givepokemove SMOKESCREEN,       wPartyMon3, 1
+	givepokemove CONFUSE_RAY,   wPartyMon3, 2
+	givepokemove WITHDRAW,        wPartyMon3, 3
 	givepoke MEW, 100, LEFTOVERS
-	givepokemove THUNDER,      wPartyMon4, 0
-	givepokemove ROCK_THROW, wPartyMon4, 1
-	givepokemove EARTHQUAKE,   wPartyMon4, 2
-	givepokemove FISSURE,  wPartyMon4, 3
+	givepokemove DEFENSE_CURL,      wPartyMon4, 0
+	givepokemove BARRIER, wPartyMon4, 1
+	givepokemove LIGHT_SCREEN,   wPartyMon4, 2
+	givepokemove HAZE,  wPartyMon4, 3
 	givepoke MEW, 100, LEFTOVERS
-	givepokemove DIG,        wPartyMon5, 0
-	givepokemove TOXIC,       wPartyMon5, 1
-	givepokemove CONFUSION,   wPartyMon5, 2
-	givepokemove PSYCHIC_M,        wPartyMon5, 3
+	givepokemove REFLECT,        wPartyMon5, 0
+	givepokemove FOCUS_ENERGY,       wPartyMon5, 1
+	givepokemove BIDE,   wPartyMon5, 2
+	givepokemove METRONOME,        wPartyMon5, 3
 	givepoke MEW, 100, LEFTOVERS
-	givepokemove HYPNOSIS,      wPartyMon6, 0
-	givepokemove MEDITATE, wPartyMon6, 1
-	givepokemove AGILITY,   wPartyMon6, 2
-	givepokemove QUICK_ATTACK,  wPartyMon6, 3
+	givepokemove MIRROR_MOVE,      wPartyMon6, 0
+	givepokemove SELFDESTRUCT, wPartyMon6, 1
+	givepokemove EGG_BOMB,   wPartyMon6, 2
+	givepokemove LICK,  wPartyMon6, 3
 	; Test pokemon
 	; givepoke NINCADA, 50
 	; givepoke NINCADA, 50
