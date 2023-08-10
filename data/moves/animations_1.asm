@@ -1581,6 +1581,7 @@ BattleAnim_Reflect:
 	anim_ret
 
 BattleAnim_LightScreen:
+	anim_setobjpal PAL_BATTLE_OB_GRAY, PAL_BTLCUSTOM_LIGHT_SCREEN
 	anim_2gfx ANIM_GFX_SPEED, ANIM_GFX_REFLECT
 	anim_bgeffect ANIM_BG_CYCLE_OBPALS_GRAY_AND_YELLOW, $0, $2, $0
 	anim_sound 0, 0, SFX_FLASH
