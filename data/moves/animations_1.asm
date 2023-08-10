@@ -2363,13 +2363,21 @@ BattleAnim_Psybeam:
 	anim_ret
 
 BattleAnim_DreamEater:
-	anim_1gfx ANIM_GFX_BUBBLE
+	anim_setobjpal PAL_BATTLE_OB_YELLOW, PAL_BTLCUSTOM_RED
+	anim_1gfx ANIM_GFX_CHARGE
 	anim_bgp $1b
-	anim_obp0 $27
-	anim_sound 6, 3, SFX_WATER_GUN
-	anim_call BattleAnim_DreamEater_branch_cbab3
-	anim_wait 128
-	anim_wait 48
+.loop
+	anim_sound 6, 3, SFX_WARP_TO
+	anim_obj ANIM_OBJ_ABSORB, 128, 48, $2
+	anim_wait 5
+	anim_sound 6, 3, SFX_WARP_TO
+	anim_obj ANIM_OBJ_ABSORB, 136, 64, $3
+	anim_wait 5
+	anim_sound 6, 3, SFX_WARP_TO
+	anim_obj ANIM_OBJ_ABSORB, 136, 32, $4
+	anim_wait 5
+	anim_loop 7, .loop
+	anim_wait 32
 	anim_ret
 
 BattleAnim_LeechLife:
