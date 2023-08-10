@@ -132,35 +132,35 @@ PlayersHouseRadioScript:
 	setflag ENGINE_CREDITS_SKIP
 	; Debug pokemon
 	givepoke MEW, 100, LEFTOVERS
-	givepokemove RAGE,        wPartyMon1, 0
-	givepokemove TELEPORT,       wPartyMon1, 1
-	givepokemove NIGHT_SHADE,   wPartyMon1, 2
-	givepokemove MIMIC,        wPartyMon1, 3
 	givepoke MEW, 100, LEFTOVERS
-	givepokemove SCREECH,      wPartyMon2, 0
-	givepokemove DOUBLE_TEAM, wPartyMon2, 1
-	givepokemove RECOVER,   wPartyMon2, 2
-	givepokemove HARDEN,  wPartyMon2, 3
 	givepoke MEW, 100, LEFTOVERS
-	givepokemove MINIMIZE,        wPartyMon3, 0
-	givepokemove SMOKESCREEN,       wPartyMon3, 1
-	givepokemove CONFUSE_RAY,   wPartyMon3, 2
-	givepokemove WITHDRAW,        wPartyMon3, 3
 	givepoke MEW, 100, LEFTOVERS
-	givepokemove DEFENSE_CURL,      wPartyMon4, 0
-	givepokemove BARRIER, wPartyMon4, 1
-	givepokemove LIGHT_SCREEN,   wPartyMon4, 2
-	givepokemove HAZE,  wPartyMon4, 3
 	givepoke MEW, 100, LEFTOVERS
-	givepokemove REFLECT,        wPartyMon5, 0
-	givepokemove FOCUS_ENERGY,       wPartyMon5, 1
-	givepokemove BIDE,   wPartyMon5, 2
-	givepokemove METRONOME,        wPartyMon5, 3
 	givepoke MEW, 100, LEFTOVERS
-	givepokemove MIRROR_MOVE,      wPartyMon6, 0
-	givepokemove SELFDESTRUCT, wPartyMon6, 1
-	givepokemove EGG_BOMB,   wPartyMon6, 2
-	givepokemove LICK,  wPartyMon6, 3
+	givepokemove SMOG,        wPartyMon1, 0
+	givepokemove SLUDGE,       wPartyMon1, 1
+	givepokemove BONE_CLUB,   wPartyMon1, 2
+	givepokemove FIRE_BLAST,        wPartyMon1, 3
+	givepokemove WATERFALL,      wPartyMon2, 0
+	givepokemove CLAMP, wPartyMon2, 1
+	givepokemove SWIFT,   wPartyMon2, 2
+	givepokemove SKULL_BASH,  wPartyMon2, 3
+	givepokemove SPIKE_CANNON,        wPartyMon3, 0
+	givepokemove CONSTRICT,       wPartyMon3, 1
+	givepokemove AMNESIA,   wPartyMon3, 2
+	givepokemove KINESIS,        wPartyMon3, 3
+	givepokemove SOFTBOILED,      wPartyMon4, 0
+	givepokemove HI_JUMP_KICK, wPartyMon4, 1
+	givepokemove GLARE,   wPartyMon4, 2
+	givepokemove DREAM_EATER,  wPartyMon4, 3
+	givepokemove POISON_GAS,        wPartyMon5, 0
+	givepokemove BARRAGE,       wPartyMon5, 1
+	givepokemove LEECH_LIFE,   wPartyMon5, 2
+	givepokemove LOVELY_KISS,        wPartyMon5, 3
+	givepokemove SKY_ATTACK,      wPartyMon6, 0
+	givepokemove TRANSFORM, wPartyMon6, 1
+	givepokemove BUBBLE,   wPartyMon6, 2
+	givepokemove DIZZY_PUNCH,  wPartyMon6, 3
 	; Test pokemon
 	; givepoke NINCADA, 50
 	; givepoke NINCADA, 50
