@@ -2350,6 +2350,7 @@ BattleAnim_TriAttack:
 	anim_wait 16
 	anim_call BattleAnim_TriAttack_branch_cbbdf
 	anim_wait 16
+	anim_bgeffect ANIM_BG_CYCLE_OBPALS_GRAY_AND_YELLOW, $0, $2, $0
 	anim_bgeffect ANIM_BG_FLASH_INVERTED, $0, $4, $4
 	anim_sound 0, 1, SFX_THUNDER
 	anim_obj ANIM_OBJ_THUNDER_RIGHT, 152, 68, $0
@@ -4465,6 +4466,7 @@ BattleAnim_Snore_branch_cbbbc:
 
 BattleAnim_FirePunch_branch_cbbcc:
 BattleAnim_TriAttack_branch_cbbcc:
+	anim_setobjpal PAL_BATTLE_OB_RED, PAL_BTLCUSTOM_FIRE
 	anim_sound 0, 1, SFX_EMBER
 .loop
 	anim_obj ANIM_OBJ_BURNED, 136, 56, $10
@@ -4476,6 +4478,7 @@ BattleAnim_TriAttack_branch_cbbcc:
 BattleAnim_IcePunch_branch_cbbdf:
 BattleAnim_PowderSnow_branch_cbbdf:
 BattleAnim_TriAttack_branch_cbbdf:
+	anim_setobjpal PAL_BATTLE_OB_BLUE, PAL_BTLCUSTOM_ICE
 	anim_sound 0, 1, SFX_SHINE
 	anim_obj ANIM_OBJ_ICE, 128, 42, $0
 	anim_wait 6
