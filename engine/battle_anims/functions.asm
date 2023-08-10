@@ -990,6 +990,41 @@ BattleAnimFunction_RazorWind:
 	ld [hl], a
 	ret
 
+BattleAnimFunction_PoisonGas:
+	call BattleAnim_AnonJumptable
+.anon_dw
+	dw .zero
+	dw BattleAnimFunction_SpiralDescent
+
+.zero:
+	ld hl, BATTLEANIMSTRUCT_XCOORD
+	add hl, bc
+	ld a, [hl]
+	cp $84
+	jr nc, .next
+	inc [hl]
+	ld hl, BATTLEANIMSTRUCT_VAR1
+	add hl, bc
+	ld a, [hl]
+	inc [hl]
+	ld d, $18
+	call Cosine
+	ld hl, BATTLEANIMSTRUCT_XOFFSET
+	add hl, bc
+	ld [hl], a
+	ld hl, BATTLEANIMSTRUCT_XCOORD
+	add hl, bc
+	ld a, [hl]
+	and $1
+	ret nz
+	ld hl, BATTLEANIMSTRUCT_YCOORD
+	add hl, bc
+	dec [hl]
+	ret
+
+.next
+	jmp BattleAnim_IncAnonJumptableIndex
+
 BattleAnimFunction_SpiralDescent:
 	ld hl, BATTLEANIMSTRUCT_VAR1
 	add hl, bc
@@ -3624,44 +3659,6 @@ BattleAnimFunction_PetalDance:
 
 .end
 	jmp DeinitBattleAnimation
-
-
-SECTION "BattleAnimFunction_PoisonGas", ROMX
-
-BattleAnimFunction_PoisonGas:
-	call BattleAnim_AnonJumptable
-.anon_dw
-	dw .zero
-	dw BattleAnimFunction_SpiralDescent
-
-.zero:
-	ld hl, BATTLEANIMSTRUCT_XCOORD
-	add hl, bc
-	ld a, [hl]
-	cp $84
-	jr nc, .next
-	inc [hl]
-	ld hl, BATTLEANIMSTRUCT_VAR1
-	add hl, bc
-	ld a, [hl]
-	inc [hl]
-	ld d, $18
-	call Cosine
-	ld hl, BATTLEANIMSTRUCT_XOFFSET
-	add hl, bc
-	ld [hl], a
-	ld hl, BATTLEANIMSTRUCT_XCOORD
-	add hl, bc
-	ld a, [hl]
-	and $1
-	ret nz
-	ld hl, BATTLEANIMSTRUCT_YCOORD
-	add hl, bc
-	dec [hl]
-	ret
-
-.next
-	jmp BattleAnim_IncAnonJumptableIndex
 
 
 SECTION "BattleAnimFunction_SmokeFlameWheel", ROMX
