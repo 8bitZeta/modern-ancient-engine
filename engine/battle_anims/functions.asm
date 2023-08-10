@@ -105,6 +105,7 @@ DoBattleAnimFrame:
 	dba BattleAnimFunction_RadialMoveOut_Slow
 	dba BattleAnimFunction_RadialMoveOut_Fast
 	dba BattleAnimFunction_RadialMoveIn
+	dba BattleAnimFunction_BubbleSplash
 	assert_table_length NUM_BATTLEANIMFUNCS
 
 BattleAnimFunction_ThrowFromUserToTargetAndDisappear:
@@ -618,10 +619,16 @@ BattleAnim_ScatterHorizontal:
 	ld de, -$100
 	ret
 
+BattleAnimFunction_BubbleSplash:
+	call BattleAnim_AnonJumptable
+
+	dw BattleAnimFunction_RockSmash.after_frameset
+	dw BattleAnimFunction_RockSmash.one
+
 BattleAnimFunction_RockSmash:
 ; Object moves at an arc
 ; Obj Param: Bit 7 makes arc flip horizontally
-;            Bit 6 defines offset from base frameset FRAMESET_19
+;            Bit 6 defines offset from base frameset BATTLEANIMFRAMESET_BIG_ROCK_STAR_HEART
 ;            Rest defines arc radius
 	call BattleAnim_AnonJumptable
 .anon_dw
@@ -638,6 +645,7 @@ BattleAnimFunction_RockSmash:
 	ld hl, BATTLEANIMSTRUCT_FRAMESET_ID
 	add hl, bc
 	ld [hl], a
+.after_frameset
 	call BattleAnim_IncAnonJumptableIndex
 	ld hl, BATTLEANIMSTRUCT_VAR1
 	add hl, bc
@@ -649,7 +657,6 @@ BattleAnimFunction_RockSmash:
 	cp $30
 	jmp c, DeinitBattleAnimation
 
-; .sine_cosine
 	ld hl, BATTLEANIMSTRUCT_PARAM
 	add hl, bc
 	ld a, [hl]
