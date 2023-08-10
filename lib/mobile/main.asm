@@ -6620,8 +6620,8 @@ Function112bec:
 	ld h, [hl]
 	sub b
 	ld l, a
-	sbc l
-	add h
+	ld a, h ; no-optmization a++|a-- if not carry
+	sbc $0
 	ld h, a
 	jr nc, .asm_112c56
 	cp $ff
@@ -6656,8 +6656,8 @@ Function112bec:
 	ld a, l
 	sub c
 	ld l, a
-	sbc l
-	add h
+	ld a, h ; no-optmization a++|a-- if not carry
+	sbc $0
 	ld h, a
 	jr nc, .asm_112c9f
 	cp $ff

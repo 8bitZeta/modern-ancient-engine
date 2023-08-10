@@ -6415,8 +6415,8 @@ Function11b3d9:
 	ld a, e
 	sub c
 	ld e, a
-	sbc e
-	add d
+	ld a, d ; no-optmization a++|a-- if not carry
+	sbc $0
 	ld d, a
 	jr c, .load_sprites
 	inc b
