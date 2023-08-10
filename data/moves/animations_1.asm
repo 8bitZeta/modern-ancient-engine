@@ -1331,6 +1331,7 @@ BattleAnim_MegaDrain:
 	anim_ret
 
 BattleAnim_EggBomb:
+	anim_setobjpal PAL_BATTLE_OB_RED, PAL_BTLCUSTOM_FIRE
 	anim_2gfx ANIM_GFX_EGG, ANIM_GFX_EXPLOSION
 	anim_sound 0, 0, SFX_SWITCH_POKEMON
 	anim_obj ANIM_OBJ_EGG, 44, 104, $1
