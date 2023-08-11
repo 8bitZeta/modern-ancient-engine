@@ -304,6 +304,7 @@ BattleAnim_Stockpile:
 	anim_ret
 
 BattleAnim_SpitUp:
+	anim_setobjpal PAL_BATTLE_OB_YELLOW, PAL_BTLCUSTOM_RED
 	anim_2gfx ANIM_GFX_HIT, ANIM_GFX_CHARGE
 	anim_bgeffect ANIM_BG_SHAKE_SCREEN_X, $30, $2, $0
 	anim_sound 0, 0, SFX_SPARK
