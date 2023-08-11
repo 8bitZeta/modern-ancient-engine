@@ -3937,7 +3937,7 @@ BattleAnim_RapidSpin:
 	anim_loop 5, .loop
 	anim_wait 24
 	anim_call BattleAnim_TargetObj_2Row_1
-	anim_bgeffect ANIM_BG_WOBBLE_MON, $0, $1, $0
+	anim_bgeffect ANIM_BG_BODY_SLAM, $0, $1, $0
 	anim_wait 4
 	anim_resetobp0
 	anim_sound 0, 1, SFX_MEGA_KICK
