@@ -3922,30 +3922,9 @@ BattleAnim_Encore:
 
 BattleAnim_Pursuit:
 	anim_1gfx ANIM_GFX_HIT
-	anim_if_param_equal $1, BattleAnim_Pursuit_branch_cb62b
 	anim_sound 0, 1, SFX_COMET_PUNCH
 	anim_obj ANIM_OBJ_HIT_YFIX, 136, 56, $0
 	anim_wait 16
-	anim_ret
-
-BattleAnim_Pursuit_branch_cb62b:
-	anim_bgeffect ANIM_BG_HIDE_MON, $0, $0, $0
-	anim_wait 4
-	anim_call BattleAnim_UserObj_1Row_1
-	anim_obj ANIM_OBJ_MEAN_LOOK, 132, 64, $0
-	anim_wait 64
-	anim_obj ANIM_OBJ_MEAN_LOOK, 132, 64, $1
-	anim_sound 0, 1, SFX_BALL_POOF
-	anim_bgeffect ANIM_BG_ENTER_MON, $0, $0, $0
-	anim_wait 64
-	anim_incobj 3
-	anim_wait 16
-	anim_sound 0, 1, SFX_MEGA_PUNCH
-	anim_obj ANIM_OBJ_HIT_BIG_YFIX, 120, 56, $0
-	anim_bgeffect ANIM_BG_BETA_PURSUIT, $0, $0, $0
-	anim_wait 16
-	anim_call BattleAnim_ShowMon_1_1
-	anim_wait 1
 	anim_ret
 
 BattleAnim_RapidSpin:
