@@ -137,30 +137,30 @@ PlayersHouseRadioScript:
 	givepoke MEW, 100, LEFTOVERS
 	givepoke MEW, 100, LEFTOVERS
 	givepoke MEW, 100, LEFTOVERS
-	givepokemove ICY_WIND,        wPartyMon1, 0
-	givepokemove DETECT,       wPartyMon1, 1
-	givepokemove BONE_RUSH,   wPartyMon1, 2
-	givepokemove LOCK_ON,        wPartyMon1, 3
-	givepokemove OUTRAGE,      wPartyMon2, 0
-	givepokemove SANDSTORM, wPartyMon2, 1
-	givepokemove GIGA_DRAIN,   wPartyMon2, 2
-	givepokemove ENDURE,  wPartyMon2, 3
-	givepokemove CHARM,        wPartyMon3, 0
-	givepokemove ROLLOUT,       wPartyMon3, 1
-	givepokemove FALSE_SWIPE,   wPartyMon3, 2
-	givepokemove SWAGGER,        wPartyMon3, 3
-	givepokemove MILK_DRINK,      wPartyMon4, 0
-	givepokemove SPARK, wPartyMon4, 1
-	givepokemove FURY_CUTTER,   wPartyMon4, 2
-	givepokemove STEEL_WING,  wPartyMon4, 3
-	givepokemove MEAN_LOOK,        wPartyMon5, 0
-	givepokemove ATTRACT,       wPartyMon5, 1
-	givepokemove SLEEP_TALK,   wPartyMon5, 2
-	givepokemove HEAL_BELL,        wPartyMon5, 3
-	givepokemove RETURN,      wPartyMon6, 0
-	givepokemove PRESENT, wPartyMon6, 1
-	givepokemove FRUSTRATION,   wPartyMon6, 2
-	givepokemove SAFEGUARD,  wPartyMon6, 3
+	givepokemove PAIN_SPLIT,        wPartyMon1, 0
+	givepokemove SACRED_FIRE,       wPartyMon1, 1
+	givepokemove MAGNITUDE,   wPartyMon1, 2
+	givepokemove DYNAMICPUNCH,        wPartyMon1, 3
+	givepokemove MEGAHORN,      wPartyMon2, 0
+	givepokemove DRAGONBREATH, wPartyMon2, 1
+	givepokemove BATON_PASS,   wPartyMon2, 2
+	givepokemove ENCORE,  wPartyMon2, 3
+	givepokemove PURSUIT,        wPartyMon3, 0
+	givepokemove RAPID_SPIN,       wPartyMon3, 1
+	givepokemove SWEET_SCENT,   wPartyMon3, 2
+	givepokemove IRON_TAIL,        wPartyMon3, 3
+	givepokemove METAL_CLAW,      wPartyMon4, 0
+	givepokemove VITAL_THROW, wPartyMon4, 1
+	givepokemove MORNING_SUN,   wPartyMon4, 2
+	givepokemove SYNTHESIS,  wPartyMon4, 3
+	givepokemove MOONLIGHT,        wPartyMon5, 0
+	givepokemove HIDDEN_POWER,       wPartyMon5, 1
+	givepokemove CROSS_CHOP,   wPartyMon5, 2
+	givepokemove TWISTER,        wPartyMon5, 3
+	givepokemove RAIN_DANCE,      wPartyMon6, 0
+	givepokemove SUNNY_DAY, wPartyMon6, 1
+	givepokemove CRUNCH,   wPartyMon6, 2
+	givepokemove MIRROR_COAT,  wPartyMon6, 3
 	; Test pokemon
 	; givepoke NINCADA, 50
 	; givepoke NINCADA, 50

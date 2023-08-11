@@ -3813,7 +3813,7 @@ BattleAnim_Safeguard:
 BattleAnim_PainSplit:
 	anim_2gfx ANIM_GFX_HIT, ANIM_GFX_OBJECTS
 	anim_call BattleAnim_TargetObj_2Row_1
-	anim_bgeffect ANIM_BG_WOBBLE_MON, $0, $1, $0
+	anim_bgeffect ANIM_BG_BODY_SLAM, $0, $1, $0
 	anim_wait 4
 	anim_sound 0, 1, SFX_TACKLE
 	anim_obj ANIM_OBJ_HIT, 112, 48, $0
