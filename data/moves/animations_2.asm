@@ -548,12 +548,22 @@ BattleAnim_FocusPunch:
 	anim_ret
 
 BattleAnim_SmellingSalts:
-	anim_1gfx ANIM_GFX_HIT
-	anim_sound 0, 1, SFX_POUND
-	anim_obj ANIM_OBJ_PALM, 136, 56, $0
-	anim_wait 6
-	anim_obj ANIM_OBJ_HIT_YFIX, 136, 56, $0
-	anim_wait 16
+	anim_1gfx ANIM_GFX_OBJECTS
+	anim_call BattleAnim_UserObj_1Row_2
+.loop
+	anim_bgeffect ANIM_BG_VIBRATE_MON, $0, $0, $0
+	anim_obj ANIM_OBJ_SMELLINGSALT_L, 120, 48, $0
+	anim_obj ANIM_OBJ_SMELLINGSALT_R, 150, 48, $20
+	anim_wait 8
+	anim_sound 0, 1, SFX_DOUBLESLAP
+	anim_loop 6, .loop
+	anim_call BattleAnim_ShowMon_1_2
+	anim_wait 1
+.loop2
+	anim_sound 0, 1, SFX_PAY_DAY
+	anim_obj ANIM_OBJ_SMELLINGSALT_SUPRISED, 136, 38, $0
+	anim_wait 8
+	anim_loop 2, .loop2
 	anim_ret
 
 BattleAnim_NaturePower:
