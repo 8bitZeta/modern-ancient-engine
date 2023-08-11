@@ -277,7 +277,7 @@ BattleAnim_Uproar:
 	anim_ret
 
 BattleAnim_Stockpile:
-	anim_setobjpal PAL_BATTLE_OB_RED, PAL_BTLCUSTOM_GRAY
+	anim_setobjpal PAL_BATTLE_OB_YELLOW, PAL_BTLCUSTOM_GRAY
 	anim_1gfx ANIM_GFX_CHARGE
 	anim_bgeffect ANIM_BG_FADE_MON_TO_LIGHT_REPEATING, $0, $1, $40
 .loop
@@ -299,7 +299,6 @@ BattleAnim_Stockpile:
 	anim_obj ANIM_OBJ_ENERGY_ORB, 48, 88, $30
 	anim_wait 4
 	anim_loop 3, .loop
-	anim_incbgeffect ANIM_BG_BOUNCE_DOWN
 	anim_call BattleAnim_ShowMon_0_2
 	anim_wait 32
 	anim_ret
