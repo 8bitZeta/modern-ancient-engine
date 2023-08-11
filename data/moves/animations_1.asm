@@ -4206,6 +4206,7 @@ BattleAnim_SunnyDay:
 	anim_ret
 
 BattleAnim_MirrorCoat:
+	anim_setobjpal PAL_BATTLE_OB_GRAY, PAL_BTLCUSTOM_MIRROR_COAT
 	anim_2gfx ANIM_GFX_REFLECT, ANIM_GFX_SPEED
 	anim_bgeffect ANIM_BG_CYCLE_OBPALS_GRAY_AND_YELLOW, $0, $2, $0
 .loop
