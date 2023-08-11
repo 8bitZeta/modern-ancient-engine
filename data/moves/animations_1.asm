@@ -4413,6 +4413,7 @@ BattleAnim_Solarbeam_branch_cbb39:
 
 BattleAnim_Explosion_branch_cbb62:
 BattleAnim_Selfdestruct_branch_cbb62:
+	anim_setobjpal PAL_BATTLE_OB_RED, PAL_BTLCUSTOM_FIRE
 	anim_sound 0, 0, SFX_EGG_BOMB
 	anim_obj ANIM_OBJ_EXPLOSION1, 24, 64, $0
 	anim_wait 5
@@ -4433,6 +4434,7 @@ BattleAnim_Dynamicpunch_branch_cbb8f:
 BattleAnim_Explosion_branch_cbb8f:
 BattleAnim_Present_branch_cbb8f:
 BattleAnim_Selfdestruct_branch_cbb8f:
+	anim_setobjpal PAL_BATTLE_OB_RED, PAL_BTLCUSTOM_FIRE
 	anim_sound 0, 1, SFX_EGG_BOMB
 	anim_obj ANIM_OBJ_EXPLOSION1, 148, 32, $0
 	anim_wait 5
