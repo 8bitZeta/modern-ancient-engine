@@ -202,6 +202,7 @@ BattleAnimFrameData:
 	dw .Frameset_SmellingSalt_Surprised  ; BATTLEANIMFRAMESET_SMELLINGSALT_SURPRISED
 	dw .Frameset_DropletR                ; BATTLEANIMFRAMESET_DROPLET_R
 	dw .Frameset_DropletL                ; BATTLEANIMFRAMESET_DROPLET_L
+	dw .Frameset_LongPunch               ; BATTLEANIMFRAMESET_LONG_PUNCH
 	assert_table_length NUM_BATTLEANIMFRAMESETS
 
 .Frameset_HitBig:
@@ -1364,3 +1365,8 @@ BattleAnimFrameData:
 .Frameset_DropletL:
 	battleoamframe BATTLEANIMOAMSET_DD,  16, OAM_X_FLIP
 	battleoamdelete
+
+.Frameset_LongPunch:
+	battleoamframe BATTLEANIMOAMSET_03,  4
+	battleoamframe BATTLEANIMOAMSET_01,  1
+	battleoamrestart

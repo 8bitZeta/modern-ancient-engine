@@ -524,12 +524,27 @@ BattleAnim_Facade:
 	anim_ret
 
 BattleAnim_FocusPunch:
-	anim_1gfx ANIM_GFX_HIT
-	anim_sound 0, 1, SFX_POUND
-	anim_obj ANIM_OBJ_PALM, 136, 56, $0
+	anim_2gfx ANIM_GFX_HIT, ANIM_GFX_CHARGE
+	anim_bgeffect ANIM_BG_SHAKE_SCREEN_X, $1c, $2, $0
+	anim_wait 28
+.loop
+	anim_sound 0, 1, SFX_HORN_ATTACK
+	anim_obj ANIM_OBJ_LONG_PUNCH, 136, 48, $0
 	anim_wait 6
-	anim_obj ANIM_OBJ_HIT_YFIX, 136, 56, $0
-	anim_wait 16
+	anim_clearobjs
+	anim_obj ANIM_OBJ_HIT_BIG, 136, 48, $0
+	anim_wait 8
+	anim_loop 2, .loop
+	anim_bgp $1b
+	anim_setobjpal PAL_BATTLE_OB_GRAY, PAL_BTLCUSTOM_FIRE
+	anim_bgeffect ANIM_BG_SHAKE_SCREEN_X, $60, $4, $10
+	anim_sound 0, 1, SFX_EGG_BOMB
+	anim_obj ANIM_OBJ_LONG_PUNCH, 136, 48, $0
+	anim_wait 6
+.loop2
+	anim_obj ANIM_OBJ_HIT_BIG, 136, 48, $0
+	anim_wait 8
+	anim_loop 6, .loop2
 	anim_ret
 
 BattleAnim_SmellingSalts:
