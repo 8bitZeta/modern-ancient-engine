@@ -137,14 +137,14 @@ PlayersHouseRadioScript:
 	givepoke MEW, 100, LEFTOVERS
 	givepoke MEW, 100, LEFTOVERS
 	givepoke MEW, 100, LEFTOVERS
-	givepokemove PAIN_SPLIT,        wPartyMon1, 0
-	givepokemove SACRED_FIRE,       wPartyMon1, 1
-	givepokemove MAGNITUDE,   wPartyMon1, 2
-	givepokemove DYNAMICPUNCH,        wPartyMon1, 3
-	givepokemove MEGAHORN,      wPartyMon2, 0
-	givepokemove DRAGONBREATH, wPartyMon2, 1
-	givepokemove BATON_PASS,   wPartyMon2, 2
-	givepokemove ENCORE,  wPartyMon2, 3
+	givepokemove PSYCH_UP,        wPartyMon1, 0
+	givepokemove EXTREMESPEED,       wPartyMon1, 1
+	givepokemove ANCIENTPOWER,   wPartyMon1, 2
+	givepokemove SHADOW_BALL,        wPartyMon1, 3
+	givepokemove FUTURE_SIGHT,      wPartyMon2, 0
+	givepokemove ROCK_SMASH, wPartyMon2, 1
+	givepokemove WHIRLPOOL,   wPartyMon2, 2
+	givepokemove BEAT_UP,  wPartyMon2, 3
 	givepokemove PURSUIT,        wPartyMon3, 0
 	givepokemove RAPID_SPIN,       wPartyMon3, 1
 	givepokemove SWEET_SCENT,   wPartyMon3, 2
