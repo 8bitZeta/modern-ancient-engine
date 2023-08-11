@@ -4366,19 +4366,6 @@ BattleAnim_BeatUp:
 	anim_wait 8
 	anim_ret
 
-BattleAnim_DreamEater_branch_cbab3:
-BattleAnim_GigaDrain_branch_cbab3:
-BattleAnim_LeechLife_branch_cbab3:
-	anim_obj ANIM_OBJ_DRAIN, 132, 44, $0
-	anim_obj ANIM_OBJ_DRAIN, 132, 44, $8
-	anim_obj ANIM_OBJ_DRAIN, 132, 44, $10
-	anim_obj ANIM_OBJ_DRAIN, 132, 44, $18
-	anim_obj ANIM_OBJ_DRAIN, 132, 44, $20
-	anim_obj ANIM_OBJ_DRAIN, 132, 44, $28
-	anim_obj ANIM_OBJ_DRAIN, 132, 44, $30
-	anim_obj ANIM_OBJ_DRAIN, 132, 44, $38
-	anim_ret
-
 BattleAnim_Glare_branch_cbadc:
 BattleAnim_Leer_branch_cbadc:
 BattleAnim_ScaryFace_branch_cbadc:
