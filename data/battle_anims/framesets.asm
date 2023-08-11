@@ -200,6 +200,8 @@ BattleAnimFrameData:
 	dw .Frameset_SmellingSalt_L          ; BATTLEANIMFRAMESET_SMELLINGSALT_L
 	dw .Frameset_SmellingSalt_R          ; BATTLEANIMFRAMESET_SMELLINGSALT_R
 	dw .Frameset_SmellingSalt_Surprised  ; BATTLEANIMFRAMESET_SMELLINGSALT_SURPRISED
+	dw .Frameset_DropletR                ; BATTLEANIMFRAMESET_DROPLET_R
+	dw .Frameset_DropletL                ; BATTLEANIMFRAMESET_DROPLET_L
 	assert_table_length NUM_BATTLEANIMFRAMESETS
 
 .Frameset_HitBig:
@@ -1353,4 +1355,12 @@ BattleAnimFrameData:
 
 .Frameset_SmellingSalt_Surprised:
 	battleoamframe BATTLEANIMOAMSET_DB,  6
+	battleoamdelete
+
+.Frameset_DropletR:
+	battleoamframe BATTLEANIMOAMSET_DD,  16
+	battleoamdelete
+
+.Frameset_DropletL:
+	battleoamframe BATTLEANIMOAMSET_DD,  16, OAM_X_FLIP
 	battleoamdelete

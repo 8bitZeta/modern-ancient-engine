@@ -490,10 +490,35 @@ BattleAnim_Memento:
 	anim_ret
 
 BattleAnim_Facade:
-	anim_1gfx ANIM_GFX_HIT
-	anim_sound 0, 1, SFX_POUND
-	anim_obj ANIM_OBJ_PALM, 136, 56, $0
-	anim_wait 6
+	anim_setobjpal PAL_BATTLE_OB_BLUE, PAL_BTLCUSTOM_WATER
+	anim_bgeffect ANIM_BG_FADE_MON_TO_LIGHT_REPEATING, $0, $1, $40
+	anim_2gfx ANIM_GFX_HIT, ANIM_GFX_MISC_2
+	anim_call BattleAnim_TargetObj_2Row_2
+	anim_bgeffect ANIM_BG_BOUNCE_DOWN, $0, $1, $0
+	anim_setbgpal PAL_BATTLE_BG_USER, PAL_BTLCUSTOM_RED
+	anim_sound 0, 0, SFX_RETURN
+	anim_obj ANIM_OBJ_DROPLET_R, 64, 102, $3b
+	anim_obj ANIM_OBJ_DROPLET_L, 44, 102, $24
+	anim_wait 24
+	anim_setbgpal PAL_BATTLE_BG_USER, PAL_BTLCUSTOM_WATER
+	anim_sound 0, 0, SFX_RETURN
+	anim_obj ANIM_OBJ_DROPLET_R, 64, 82, $3b
+	anim_obj ANIM_OBJ_DROPLET_L, 44, 82, $24
+	anim_wait 24
+	anim_setbgpal PAL_BATTLE_BG_USER, PAL_BTLCUSTOM_YELLOW
+	anim_sound 0, 0, SFX_RETURN
+	anim_obj ANIM_OBJ_DROPLET_R, 64, 102, $3b
+	anim_obj ANIM_OBJ_DROPLET_L, 44, 102, $24
+	anim_wait 24
+	; anim_setbgpal PAL_BATTLE_BG_USER, PAL_BATTLE_BG_USER
+	anim_sound 0, 0, SFX_RETURN
+	anim_obj ANIM_OBJ_DROPLET_R, 64, 82, $3b
+	anim_obj ANIM_OBJ_DROPLET_L, 44, 82, $24
+	anim_wait 24
+	anim_incbgeffect ANIM_BG_FADE_MON_TO_LIGHT_REPEATING
+	anim_incbgeffect ANIM_BG_BOUNCE_DOWN
+	anim_call BattleAnim_ShowMon_0_2
+	anim_sound 0, 1, SFX_COMET_PUNCH
 	anim_obj ANIM_OBJ_HIT_YFIX, 136, 56, $0
 	anim_wait 16
 	anim_ret
