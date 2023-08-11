@@ -326,7 +326,7 @@ BattleAnim_SpitUp:
 	anim_ret
 
 BattleAnim_Swallow:
-	anim_setobjpal PAL_BATTLE_OB_RED, PAL_BTLCUSTOM_WATER
+	anim_setobjpal PAL_BATTLE_OB_YELLOW, PAL_BTLCUSTOM_WATER
 	anim_2gfx ANIM_GFX_SHINE, ANIM_GFX_CHARGE
 	anim_call BattleAnim_TargetObj_2Row_2
 	anim_bgeffect ANIM_BG_BOUNCE_DOWN, $0, $1, $0
@@ -366,14 +366,7 @@ BattleAnim_Swallow:
 	anim_obj ANIM_OBJ_ENERGY_ORB_OUT_YFIX, 68, 30, $10
 	anim_wait 2
 	anim_bgeffect ANIM_BG_CYCLE_MID_OBPALS_GRAY_AND_YELLOW, $0, $0, $0
-	anim_sound 0, 0, SFX_METRONOME
-	anim_obj ANIM_OBJ_GLIMMER, 44, 64, $0
-	anim_wait 5
-	anim_obj ANIM_OBJ_GLIMMER, 24, 96, $0
-	anim_wait 5
-	anim_obj ANIM_OBJ_GLIMMER, 56, 104, $0
-	anim_wait 21
-	anim_ret
+	anim_jump BattleAnim_Glimmer_branch
 
 BattleAnim_HeatWave:
 	anim_setobjpal PAL_BATTLE_OB_RED, PAL_BTLCUSTOM_FIRE
@@ -914,6 +907,17 @@ BattleAnim_SlackOff:
 	anim_wait 6
 	anim_obj ANIM_OBJ_HIT_YFIX, 136, 56, $0
 	anim_wait 16
+	anim_ret
+
+
+BattleAnim_Glimmer_branch:
+	anim_sound 0, 0, SFX_METRONOME
+	anim_obj ANIM_OBJ_GLIMMER, 44, 64, $0
+	anim_wait 5
+	anim_obj ANIM_OBJ_GLIMMER, 24, 96, $0
+	anim_wait 5
+	anim_obj ANIM_OBJ_GLIMMER, 56, 104, $0
+	anim_wait 21
 	anim_ret
 
 BattleAnim_HyperVoice:
