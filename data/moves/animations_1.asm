@@ -3559,7 +3559,7 @@ BattleAnim_Rollout:
 	anim_sound 0, 0, SFX_SPARK
 	anim_call BattleAnim_TargetObj_2Row_1
 	anim_bgeffect ANIM_BG_ROLLOUT, $60, $1, $1
-	anim_bgeffect ANIM_BG_WOBBLE_MON, $0, $1, $0
+	anim_bgeffect ANIM_BG_BODY_SLAM, $0, $1, $0
 	anim_wait 4
 	anim_sound 0, 1, SFX_MEGA_PUNCH
 	anim_obj ANIM_OBJ_HIT_BIG, 136, 40, $0
