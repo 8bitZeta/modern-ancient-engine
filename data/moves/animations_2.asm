@@ -226,14 +226,20 @@ MoveAnimations2:
 
 BattleAnim_FakeOut:
 	anim_1gfx ANIM_GFX_OBJECTS
-	anim_obj ANIM_OBJ_ENCORE_HAND, 136, 46, $e0
-	anim_obj ANIM_OBJ_ENCORE_HAND, 136, 46, $20
-	anim_wait 16
-	anim_sound 0, 0, SFX_CUT
+	anim_obj ANIM_OBJ_FAKE_OUT_L, 112, 48, $0
+	anim_obj ANIM_OBJ_FAKE_OUT_R, 158, 48, $0
+	anim_wait 32
+	anim_clearobjs
+	anim_sound 0, 0, SFX_DOUBLESLAP
+	anim_obj ANIM_OBJ_SMELLINGSALT_L, 112, 48, $0
+	anim_obj ANIM_OBJ_SMELLINGSALT_R, 158, 48, $20
+	anim_wait 8
 	anim_bgeffect ANIM_BG_FLASH_INVERTED, $0, $8, $2
 	anim_clearobjs
 	anim_wait 1
 	anim_sound 0, 0, SFX_RAGE
+	anim_obj ANIM_OBJ_FAKE_OUT_L, 112, 48, $0
+	anim_obj ANIM_OBJ_FAKE_OUT_R, 158, 48, $0
 	anim_bgeffect ANIM_BG_SHAKE_SCREEN_X, $14, $2, $0
 	anim_wait 32
 	anim_ret
