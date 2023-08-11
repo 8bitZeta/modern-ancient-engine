@@ -137,30 +137,30 @@ PlayersHouseRadioScript:
 	givepoke MEW, 100, LEFTOVERS
 	givepoke MEW, 100, LEFTOVERS
 	givepoke MEW, 100, LEFTOVERS
-	givepokemove FLAME_WHEEL,        wPartyMon1, 0
-	givepokemove SNORE,       wPartyMon1, 1
-	givepokemove CURSE,   wPartyMon1, 2
-	givepokemove FLAIL,        wPartyMon1, 3
-	givepokemove CONVERSION2,      wPartyMon2, 0
-	givepokemove AEROBLAST, wPartyMon2, 1
-	givepokemove COTTON_SPORE,   wPartyMon2, 2
-	givepokemove REVERSAL,  wPartyMon2, 3
-	givepokemove SPITE,        wPartyMon3, 0
-	givepokemove POWDER_SNOW,       wPartyMon3, 1
-	givepokemove PROTECT,   wPartyMon3, 2
-	givepokemove MACH_PUNCH,        wPartyMon3, 3
-	givepokemove SCARY_FACE,      wPartyMon4, 0
-	givepokemove FAINT_ATTACK, wPartyMon4, 1
-	givepokemove SWEET_KISS,   wPartyMon4, 2
-	givepokemove BELLY_DRUM,  wPartyMon4, 3
-	givepokemove SLUDGE_BOMB,        wPartyMon5, 0
-	givepokemove MUD_SLAP,       wPartyMon5, 1
-	givepokemove OCTAZOOKA,   wPartyMon5, 2
-	givepokemove SPIKES,        wPartyMon5, 3
-	givepokemove ZAP_CANNON,      wPartyMon6, 0
-	givepokemove FORESIGHT, wPartyMon6, 1
-	givepokemove DESTINY_BOND,   wPartyMon6, 2
-	givepokemove PERISH_SONG,  wPartyMon6, 3
+	givepokemove ICY_WIND,        wPartyMon1, 0
+	givepokemove DETECT,       wPartyMon1, 1
+	givepokemove BONE_RUSH,   wPartyMon1, 2
+	givepokemove LOCK_ON,        wPartyMon1, 3
+	givepokemove OUTRAGE,      wPartyMon2, 0
+	givepokemove SANDSTORM, wPartyMon2, 1
+	givepokemove GIGA_DRAIN,   wPartyMon2, 2
+	givepokemove ENDURE,  wPartyMon2, 3
+	givepokemove CHARM,        wPartyMon3, 0
+	givepokemove ROLLOUT,       wPartyMon3, 1
+	givepokemove FALSE_SWIPE,   wPartyMon3, 2
+	givepokemove SWAGGER,        wPartyMon3, 3
+	givepokemove MILK_DRINK,      wPartyMon4, 0
+	givepokemove SPARK, wPartyMon4, 1
+	givepokemove FURY_CUTTER,   wPartyMon4, 2
+	givepokemove STEEL_WING,  wPartyMon4, 3
+	givepokemove MEAN_LOOK,        wPartyMon5, 0
+	givepokemove ATTRACT,       wPartyMon5, 1
+	givepokemove SLEEP_TALK,   wPartyMon5, 2
+	givepokemove HEAL_BELL,        wPartyMon5, 3
+	givepokemove RETURN,      wPartyMon6, 0
+	givepokemove PRESENT, wPartyMon6, 1
+	givepokemove FRUSTRATION,   wPartyMon6, 2
+	givepokemove SAFEGUARD,  wPartyMon6, 3
 	; Test pokemon
 	; givepoke NINCADA, 50
 	; givepoke NINCADA, 50

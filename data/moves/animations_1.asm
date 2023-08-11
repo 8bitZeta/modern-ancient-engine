@@ -3375,10 +3375,11 @@ BattleAnim_PerishSong:
 	anim_ret
 
 BattleAnim_IcyWind:
+	anim_setobjpal PAL_BATTLE_OB_YELLOW, PAL_BTLCUSTOM_ICE
 	anim_1gfx ANIM_GFX_SPEED
 	anim_bgeffect ANIM_BG_CYCLE_OBPALS_GRAY_AND_YELLOW, $0, $2, $0
 	anim_bgeffect ANIM_BG_ALTERNATE_HUES, $0, $2, $0
-	anim_battlergfx_1row
+	anim_playerheadobj
 	anim_sound 0, 0, SFX_PSYCHIC
 .loop
 	anim_wait 8
@@ -3397,7 +3398,7 @@ BattleAnim_IcyWind:
 	anim_incbgeffect ANIM_BG_NIGHT_SHADE
 	anim_bgeffect ANIM_BG_SHOW_MON, $0, $1, $0
 	anim_wait 4
-	anim_incobj 7
+	anim_incobj  7
 	anim_wait 1
 	anim_ret
 
