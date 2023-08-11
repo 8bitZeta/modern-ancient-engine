@@ -3671,6 +3671,7 @@ BattleAnim_SteelWing:
 
 BattleAnim_MeanLook:
 	anim_1gfx ANIM_GFX_PSYCHIC
+	anim_setobjpal PAL_BATTLE_OB_GRAY, PAL_BTLCUSTOM_BLUE
 	anim_obp0 $e0
 	anim_sound 0, 1, SFX_MEAN_LOOK
 	anim_obj ANIM_OBJ_MEAN_LOOK, 148, 32, $0
