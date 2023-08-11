@@ -369,23 +369,21 @@ BattleAnim_Swallow:
 	anim_jump BattleAnim_Glimmer_branch
 
 BattleAnim_HeatWave:
-	anim_setobjpal PAL_BATTLE_OB_RED, PAL_BTLCUSTOM_FIRE
-	anim_2gfx ANIM_GFX_WIND, ANIM_GFX_FIRE
+	anim_setobjpal PAL_BATTLE_OB_YELLOW, PAL_BTLCUSTOM_HEAT_WAVE
+	anim_1gfx ANIM_GFX_HAZE
+	anim_bgeffect ANIM_BG_CYCLE_OBPALS_GRAY_AND_YELLOW, $0, $4, $0
 	anim_bgp $90
 	anim_bgeffect ANIM_BG_WHIRLPOOL, $0, $0, $0
 	anim_sound 0, 0, SFX_EMBER
-.loop
-	anim_obj ANIM_OBJ_HEAT_WAVE, 88, 0, $1
-	anim_wait 8
-	anim_obj ANIM_OBJ_HEAT_WAVE, 28, 0, $1
-	anim_wait 8
-	anim_obj ANIM_OBJ_HEAT_WAVE, 238, 0, $1
-	anim_wait 8
-	anim_obj ANIM_OBJ_HEAT_WAVE, 188, 0, $1
-	anim_wait 8
-	anim_obj ANIM_OBJ_HEAT_WAVE, 138, 0, $1
-	anim_loop 3, .loop
-	anim_wait 64
+	anim_obj ANIM_OBJ_MIST_BALL_BG, 8, 24, $10
+	anim_obj ANIM_OBJ_MIST_BALL_BG, 8, 48, $2
+	anim_obj ANIM_OBJ_MIST_BALL_BG, 8, 88, $8
+	anim_wait 4
+	anim_obj ANIM_OBJ_MIST_BALL_BG, 8, 32, $6
+	anim_obj ANIM_OBJ_MIST_BALL_BG, 8, 56, $c
+	anim_obj ANIM_OBJ_MIST_BALL_BG, 8, 80, $4
+	anim_obj ANIM_OBJ_MIST_BALL_BG, 8, 104, $e
+	anim_wait 160
 	anim_incbgeffect ANIM_BG_WHIRLPOOL
 	anim_ret
 
