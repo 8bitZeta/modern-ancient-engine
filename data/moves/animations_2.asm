@@ -1072,12 +1072,26 @@ BattleAnim_Refresh:
 	anim_jump BattleAnim_Glimmer_branch
 
 BattleAnim_Grudge:
-	anim_1gfx ANIM_GFX_HIT
-	anim_sound 0, 1, SFX_POUND
-	anim_obj ANIM_OBJ_PALM, 136, 56, $0
-	anim_wait 6
-	anim_obj ANIM_OBJ_HIT_YFIX, 136, 56, $0
+	anim_setobjpal PAL_BATTLE_OB_RED, PAL_BTLCUSTOM_WILL_O_WISP
+	anim_1gfx ANIM_GFX_FIRE
+	anim_bgp $1b
+	anim_sound 0, 1, SFX_SPITE
+	anim_obj ANIM_OBJ_GRUDGE, 48, 80, $0
 	anim_wait 16
+	anim_obj ANIM_OBJ_GRUDGE, 48, 96, $0
+	anim_wait 16
+	anim_obj ANIM_OBJ_GRUDGE, 48, 88, $0
+	anim_wait 16
+	anim_obj ANIM_OBJ_GRUDGE, 48, 92, $0
+	anim_wait 16
+	anim_obj ANIM_OBJ_GRUDGE, 48, 98, $0
+	anim_wait 16
+	anim_obj ANIM_OBJ_GRUDGE, 48, 80, $0
+	anim_wait 16
+	anim_obj ANIM_OBJ_GRUDGE, 48, 92, $0
+	anim_wait 16
+	anim_obj ANIM_OBJ_GRUDGE, 48, 88, $0
+	anim_wait 64
 	anim_ret
 
 BattleAnim_Snatch:
