@@ -2180,3 +2180,24 @@ SecretPower:
 	buildopponentrage
 	secretpower
 	endmove
+
+WeatherBall:
+	checkobedience
+	usedmovetext
+	doturn
+	critical
+	damagestats
+	damagecalc
+	stab
+	damagevariation
+	doubleweatherballdamage
+	checkhit
+	effectchance
+	moveanim
+	failuretext
+	applydamage
+	criticaltext
+	supereffectivetext
+	checkfaint
+	buildopponentrage
+	endmove

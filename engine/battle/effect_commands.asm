@@ -1188,9 +1188,7 @@ BattleCommand_Stab:
 	ld e, [hl]
 
 .go
-	ld a, BATTLE_VARS_MOVE_TYPE
-	call GetBattleVarAddr
-	and TYPE_MASK
+	call GetCurrentMoveType
 	ld [wCurType], a
 
 	push hl
@@ -1234,9 +1232,7 @@ BattleCommand_Stab:
 	set 7, [hl]
 
 .SkipStab:
-	ld a, BATTLE_VARS_MOVE_TYPE
-	call GetBattleVar
-	and TYPE_MASK
+	call GetCurrentMoveType_hl
 	ld b, a
 	ld hl, TypeMatchups
 
@@ -1851,7 +1847,13 @@ BattleCommand_MoveAnimNoSub:
 	jr z, .alternate_anim
 	cp EFFECT_TRIPLE_KICK
 	jr z, .triplekick
+	cp EFFECT_WEATHER_BALL
+	jr z, .weather_anim
 	xor a
+	jr .got_anim
+.weather_anim
+	ld a, [wBattleWeather]
+.got_anim
 	ld [wBattleAnimParam], a
 
 .triplekick
@@ -2865,8 +2867,7 @@ ConfusionDamageCalc:
 
 ; Type
 	ld b, a
-	ld a, BATTLE_VARS_MOVE_TYPE
-	call GetBattleVar
+	call GetCurrentMoveType_hl
 	cp b
 	jr nz, .DoneItem
 
@@ -5627,9 +5628,7 @@ CheckMoveTypeMatchesTarget:
 	ld hl, wBattleMonType1
 .ok
 
-	ld a, BATTLE_VARS_MOVE_TYPE
-	call GetBattleVar
-	and TYPE_MASK
+	call GetCurrentMoveType_hl
 	cp NORMAL
 	jr z, .normal
 
@@ -6385,5 +6384,56 @@ CheckMoveInList:
 	ld de, 2
 	call IsInWordArray
 	pop de
+	pop bc
+	ret
+
+GetCurrentMoveType_hl:
+	push hl
+	call GetCurrentMoveType
+	pop hl
+	ret
+
+GetCurrentMoveType:
+	ld a, BATTLE_VARS_MOVE_EFFECT
+	call GetBattleVar
+	cp EFFECT_WEATHER_BALL
+	jr z, .weather_ball_type
+
+	ld a, BATTLE_VARS_MOVE_TYPE
+	call GetBattleVarAddr
+	and TYPE_MASK
+	ret
+
+	.weather_ball_type
+	push bc
+	ld a, [wBattleWeather]
+	cp WEATHER_NONE
+	jr z, .set_normal_type
+	cp WEATHER_RAIN
+	jr z, .set_water_type
+	cp WEATHER_SUN
+	jr z, .set_fire_type
+	cp WEATHER_HAIL
+	jr z, .set_ice_type
+; sandstorm
+	ld a, WEATHER_SANDSTORM
+	ld b, ROCK
+	jr .got_weather_type
+
+.set_normal_type
+	ld b, NORMAL
+	jr .got_weather_type
+.set_water_type
+	ld b, WATER
+	jr .got_weather_type
+.set_fire_type
+	ld b, FIRE
+	jr .got_weather_type
+.set_ice_type
+	ld b, ICE
+	;fallthrough
+
+.got_weather_type
+	ld a, b
 	pop bc
 	ret

@@ -161,4 +161,5 @@ MoveEffectsPointers:
 	dw SecretPower
 	dw Surf
 	dw Whirlpool
+	dw WeatherBall
 	assert_table_length NUM_MOVE_EFFECTS

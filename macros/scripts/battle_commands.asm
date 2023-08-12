@@ -186,6 +186,7 @@ ENDM
 	command checksnatch             ; b0
 	command secretpower             ; b1
 	command doubledivingdamage      ; b2
+	command doubleweatherballdamage ; b3
 
 DEF NUM_EFFECT_COMMANDS EQU const_value - 1
 
