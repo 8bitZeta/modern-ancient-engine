@@ -50,7 +50,7 @@ AnimObjGFX:
 	anim_obj_gfx  1, NULL
 	anim_obj_gfx  1, NULL
 	anim_obj_gfx 13, AnimObjTauntGFX
-	anim_obj_gfx  5, AnimObjStarsGFX
+	anim_obj_gfx  7, AnimObjStarsGFX
  	anim_obj_gfx 18, AnimObjMeteorGFX
 	anim_obj_gfx  4, AnimObjFlatterGFX
 	anim_obj_gfx 10, AnimObjBeamLightGFX
