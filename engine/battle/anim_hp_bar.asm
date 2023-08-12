@@ -363,9 +363,9 @@ ShortHPBar_CalcPixelFrame:
 	ld a, l
 	sub HP_BAR_LENGTH_PX
 	ld l, a
-	ld a, h ; no-optmization a++|a-- if not carry
-	sbc $0
-	ld h, a
+	jr nc, .no_dec_h
+	dec h
+.no_dec_h
 	jr z, .done
 	jr c, .done
 	inc b
@@ -379,9 +379,9 @@ ShortHPBar_CalcPixelFrame:
 	ld a, l
 	sub HP_BAR_LENGTH_PX
 	ld l, a
-	ld a, h ; no-optmization a++|a-- if not carry
-	sbc $0
-	ld h, a
+	jr nc, .no_dec_l
+	dec l
+.no_dec_l
 	jr c, .no_carry
 	inc b
 .no_carry

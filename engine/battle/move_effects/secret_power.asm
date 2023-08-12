@@ -12,14 +12,13 @@ BattleCommand_SecretPower:
 	ld b, a
 	add b
 	add b
-	ld hl, SecretPowerEffectCommands
-	add l
+	add LOW(SecretPowerEffectCommands)
 	ld l, a
-	jr nc, .no_carry
-	inc h
-.no_carry
+	adc HIGH(SecretPowerEffectCommands)
+	sub l
+	ld h, a
 	ld a, [hli]
-	ld b, [hl]
+	ld b, [hl] ; no-optimize b|c|d|e = *hl++|*hl--
 	inc hl
 	ld h, [hl]
 	ld l, b

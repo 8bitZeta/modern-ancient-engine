@@ -26,8 +26,8 @@ BattleCommand_Substitute:
 	ld [de], a
 	ld a, [hld]
 	sub b
-	ld e, a
-	ld a, [hl] ; no-optmization a++|a-- if not carry
+	ld e, a ; no-optimize a = X - carry
+	ld a, [hl]
 	sbc 0
 	ld d, a
 	jr c, .too_weak_to_sub
