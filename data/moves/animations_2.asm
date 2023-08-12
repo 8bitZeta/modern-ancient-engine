@@ -1033,12 +1033,28 @@ BattleAnim_Transfer_Orbs_branch:
 	anim_ret
 
 BattleAnim_Imprison:
-	anim_1gfx ANIM_GFX_HIT
-	anim_sound 0, 1, SFX_POUND
-	anim_obj ANIM_OBJ_PALM, 136, 56, $0
-	anim_wait 6
-	anim_obj ANIM_OBJ_HIT_YFIX, 136, 56, $0
-	anim_wait 16
+	anim_1gfx ANIM_GFX_OBJECTS
+	anim_bgeffect ANIM_BG_BLACK_HUES, $0, $8, $0
+	anim_bgeffect ANIM_BG_CYCLE_OBPALS_GRAY_AND_YELLOW, $0, $2, $0
+	anim_sound 0, 1, SFX_THIEF_2
+	anim_obj ANIM_OBJ_IMPRISON_RING, 140, 44, $0
+	anim_wait 8
+	anim_sound 0, 1, SFX_THIEF_2
+	anim_obj ANIM_OBJ_IMPRISON_RING, 124, 60, $0
+	anim_wait 8
+	anim_sound 0, 1, SFX_THIEF_2
+	anim_obj ANIM_OBJ_IMPRISON_RING, 140, 60, $0
+	anim_wait 8
+	anim_sound 0, 1, SFX_THIEF_2
+	anim_obj ANIM_OBJ_IMPRISON_RING, 124, 44, $0
+	anim_wait 8
+	anim_sound 0, 1, SFX_THIEF_2
+	anim_obj ANIM_OBJ_IMPRISON_RING, 132, 52, $0
+	anim_wait 64
+	anim_clearobjs
+	anim_sound 6, 3, SFX_PLACE_PUZZLE_PIECE_DOWN
+	anim_obj ANIM_OBJ_RED_X, 132, 44, $2e
+	anim_wait 64
 	anim_ret
 
 BattleAnim_Refresh:

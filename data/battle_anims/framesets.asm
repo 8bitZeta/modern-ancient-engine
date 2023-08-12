@@ -31,7 +31,6 @@ BattleAnimFrameData:
 	dw .Frameset_Strength            	 ; BATTLEANIMFRAMESET_STRENGTH
 	dw .Frameset_SkullCrossbone      	 ; BATTLEANIMFRAMESET_SKULL_CROSSBONE
 	dw .Frameset_Acid                	 ; BATTLEANIMFRAMESET_ACID
-	dw .Frameset_ImprisonRing        	 ; BATTLEANIMFRAMESET_IMPRISON_RING
 	dw .Frameset_SludgeBubble        	 ; BATTLEANIMFRAMESET_SLUDGE_BUBBLE
 	dw .Frameset_SludgeBubbleBurst   	 ; BATTLEANIMFRAMESET_SLUDGE_BUBBLE_BURST
 	dw .Frameset_SmallBubble         	 ; BATTLEANIMFRAMESET_SMALL_BUBBLE
@@ -212,6 +211,8 @@ BattleAnimFrameData:
 	dw .Frameset_Recycle                 ; BATTLEANIMFRAMESET_RECYCLE
 	dw .Frameset_VerticalChop            ; BATTLEANIMFRAMESET_VERTICAL_CHOP
 	dw .Frameset_Drowziness              ; BATTLEANIMFRAMESET_DROWZINESS
+	dw .Frameset_ImprisonRing            ; BATTLEANIMFRAMESET_IMPRISON_RING
+	dw .Frameset_BigRedXFlashing         ; BATTLEANIMFRAMESET_BIG_RED_X_FLASHING
 	assert_table_length NUM_BATTLEANIMFRAMESETS
 
 .Frameset_HitBig:
@@ -473,10 +474,6 @@ BattleAnimFrameData:
 
 .Frameset_Acid:
 	battleoamframe BATTLEANIMOAMSET_1D,  8
-	battleoamend
-
-.Frameset_ImprisonRing:
-	battleoamframe BATTLEANIMOAMSET_17,  8
 	battleoamend
 
 .Frameset_SludgeBubble:
@@ -1426,3 +1423,11 @@ BattleAnimFrameData:
 	battleoamframe BATTLEANIMOAMSET_10, 32
 	battleoamframe BATTLEANIMOAMSET_1E,  8
 	battleoamdelete
+
+.Frameset_ImprisonRing:
+	battleoamframe BATTLEANIMOAMSET_17,  8
+	battleoamend
+
+.Frameset_BigRedXFlashing:
+	battleoamframe BATTLEANIMOAMSET_E6,  8
+	battleoamend
