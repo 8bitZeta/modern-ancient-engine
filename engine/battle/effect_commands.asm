@@ -316,13 +316,14 @@ CantMove:
 	ld a, BATTLE_VARS_MOVE_ANIM
 	call GetBattleVar
 	push hl
-	ld hl, FlyDigMoves
+	ld hl, SemiInvulnerableMoves
 	call CheckMoveInList
 	pop hl
 	ret nc
 
 	res SUBSTATUS_UNDERGROUND, [hl]
 	res SUBSTATUS_FLYING, [hl]
+	res SUBSTATUS_DIVING, [hl]
 	jmp AppearUserRaiseSub
 
 OpponentCantMove:
@@ -459,7 +460,7 @@ CheckEnemyTurn:
 	ld de, ANIM_HIT_CONFUSION
 	ld a, BATTLE_VARS_SUBSTATUS3_OPP
 	call GetBattleVar
-	and 1 << SUBSTATUS_FLYING | 1 << SUBSTATUS_UNDERGROUND
+	and SEMI_INVULNERABLE
 	call z, PlayFXAnimID
 
 	ld c, TRUE
@@ -556,7 +557,7 @@ HitConfusion:
 	ld de, ANIM_HIT_CONFUSION
 	ld a, BATTLE_VARS_SUBSTATUS3_OPP
 	call GetBattleVar
-	and 1 << SUBSTATUS_FLYING | 1 << SUBSTATUS_UNDERGROUND
+	and SEMI_INVULNERABLE
 	call z, PlayFXAnimID
 
 	ld hl, UpdatePlayerHUD
@@ -1547,7 +1548,7 @@ BattleCommand_CheckHit:
 
 .LockOn:
 ; Return nz if we are locked-on and aren't trying to use Earthquake,
-; Fissure or Magnitude on a monster that is flying.
+; Fissure or Magnitude on a monster that is flying or diving.
 	ld a, BATTLE_VARS_SUBSTATUS5_OPP
 	call GetBattleVarAddr
 	bit SUBSTATUS_LOCK_ON, [hl]
@@ -1556,7 +1557,7 @@ BattleCommand_CheckHit:
 
 	ld a, BATTLE_VARS_SUBSTATUS3_OPP
 	call GetBattleVar
-	bit SUBSTATUS_FLYING, a
+	and 1 << SUBSTATUS_FLYING | 1 << SUBSTATUS_DIVING
 	ld hl, DigHitMoves
 	jr nz, .check_move_in_list
 	ld a, 1
@@ -1587,13 +1588,16 @@ BattleCommand_CheckHit:
 
 	ld a, BATTLE_VARS_SUBSTATUS3_OPP
 	call GetBattleVar
-	and 1 << SUBSTATUS_FLYING | 1 << SUBSTATUS_UNDERGROUND
+	and SEMI_INVULNERABLE
 	ret z
 
 	bit SUBSTATUS_FLYING, a
 	ld hl, FlyHitMoves
-	jr z, .check_move_in_list
+	jr nz, .check_move_in_list
+	bit SUBSTATUS_UNDERGROUND, a
 	ld hl, DigHitMoves
+	jr nz, .check_move_in_list
+	ld hl, DiveHitMoves
 .check_move_in_list
 	; returns z (and a = 0) if the current move is in a given list, or nz (and a = 1) if not
 	ld a, BATTLE_VARS_MOVE_ANIM
@@ -1858,7 +1862,7 @@ BattleCommand_MoveAnimNoSub:
 
 	ld a, BATTLE_VARS_MOVE_ANIM
 	call GetBattleVar
-	ld hl, FlyDigMoves
+	ld hl, SemiInvulnerableMoves
 	call CheckMoveInList
 	ret nc
 	jmp AppearUserLowerSub
@@ -1947,7 +1951,7 @@ BattleCommand_FailureText:
 	call GetBattleVarAddr
 
 	push hl
-	ld hl, FlyDigMoves
+	ld hl, SemiInvulnerableMoves
 	call CheckMoveInList
 	pop hl
 	jr c, .fly_dig
@@ -1974,13 +1978,9 @@ BattleCommand_FailureText:
 	call GetBattleVarAddr
 	res SUBSTATUS_UNDERGROUND, [hl]
 	res SUBSTATUS_FLYING, [hl]
+	res SUBSTATUS_DIVING, [hl]
 	call AppearUserRaiseSub
 	jmp EndMoveEffect
-
-.fly_dig_moves
-	dw FLY
-	dw DIG
-	dw -1
 
 BattleCommand_ApplyDamage:
 	ld a, BATTLE_VARS_SUBSTATUS1_OPP
@@ -3176,7 +3176,7 @@ FarPlayBattleAnimation:
 
 	ld a, BATTLE_VARS_SUBSTATUS3
 	call GetBattleVar
-	and 1 << SUBSTATUS_FLYING | 1 << SUBSTATUS_UNDERGROUND
+	and SEMI_INVULNERABLE
 	ret nz
 
 	; fallthrough
@@ -3362,7 +3362,7 @@ DoSubstituteDamage:
 	call BattleCommand_LowerSubNoAnim
 	ld a, BATTLE_VARS_SUBSTATUS3
 	call GetBattleVar
-	and 1 << SUBSTATUS_FLYING | 1 << SUBSTATUS_UNDERGROUND
+	and SEMI_INVULNERABLE
 	call z, AppearUserLowerSub
 	call BattleCommand_SwitchTurn
 
@@ -5282,6 +5282,7 @@ BattleCommand_CheckCharge:
 	res SUBSTATUS_CHARGED, [hl]
 	res SUBSTATUS_UNDERGROUND, [hl]
 	res SUBSTATUS_FLYING, [hl]
+	res SUBSTATUS_DIVING, [hl]
 	ld b, charge_command
 	jmp SkipToBattleCommand
 
@@ -5328,6 +5329,15 @@ BattleCommand_Charge:
 	ld a, h
 	call CompareMove
 	ld a, 1 << SUBSTATUS_UNDERGROUND
+	jr z, .got_move_type
+	if HIGH(DIVE) != HIGH(DIG)
+		ld bc, DIVE
+	else
+		ld c, LOW(DIVE)
+	endc
+	ld a, h
+	call CompareMove
+	ld a, 1 << SUBSTATUS_DIVING
 	jr z, .got_move_type
 	call BattleCommand_RaiseSub
 	xor a
@@ -5396,6 +5406,7 @@ BattleCommand_Charge:
 	dw SKY_ATTACK, .BattleGlowingText
 	dw FLY,        .BattleFlewText
 	dw DIG,        .BattleDugText
+	dw DIVE,       .BattleDoveText
 	dw -1
 
 .BattleMadeWhirlwindText:
@@ -5420,6 +5431,10 @@ BattleCommand_Charge:
 
 .BattleDugText:
 	text_far _BattleDugText
+	text_end
+
+.BattleDoveText:
+	text_far _BattleDoveText
 	text_end
 
 BattleCommand_ConfuseTarget:

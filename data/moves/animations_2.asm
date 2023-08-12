@@ -41,7 +41,7 @@ MoveAnimations2:
 	dw BattleAnim_Grudge
 	dw BattleAnim_Snatch
 	dw BattleAnim_SecretPower
-	dw BattleAnim_Dewater
+	dw BattleAnim_Dive
 	dw BattleAnim_ArmThrust
 	dw BattleAnim_Camouflage
 	dw BattleAnim_TailGlow
@@ -1109,12 +1109,54 @@ BattleAnim_Snatch:
 BattleAnim_SecretPower:
 	anim_ret
 
-BattleAnim_Dewater:
-	anim_1gfx ANIM_GFX_HIT
-	anim_sound 0, 1, SFX_POUND
-	anim_obj ANIM_OBJ_PALM, 136, 56, $0
-	anim_wait 6
+BattleAnim_Dive:
+	anim_setobjpal PAL_BATTLE_OB_BLUE, PAL_BTLCUSTOM_WATER
+	anim_2gfx ANIM_GFX_HIT, ANIM_GFX_MISC_2
+	anim_if_param_equal $0, .hit
+	anim_if_param_equal $2, .fail
+	anim_call BattleAnim_TargetObj_2Row_2
+	anim_bgeffect ANIM_BG_BOUNCE_DOWN, $0, $1, $0
+	anim_sound 0, 0, SFX_WATER_GUN
+	anim_wait 16
+	anim_bgeffect ANIM_BG_HIDE_MON, $0, $1, $0
+	anim_wait 8
+	anim_incbgeffect ANIM_BG_BOUNCE_DOWN
+	anim_obj ANIM_OBJ_DROPLET_L, 44, 92, $24
+	anim_obj ANIM_OBJ_DROPLET_R, 64, 92, $3b
+	anim_call BattleAnim_ShowMon_0_2
+	anim_wait 40
+	anim_ret
+.hit
+	anim_3gfx ANIM_GFX_HIT, ANIM_GFX_BUBBLE, ANIM_GFX_MISC_2
+	anim_setobjpal PAL_BATTLE_OB_GRAY, PAL_BTLCUSTOM_WATER
+	anim_setobjpal PAL_BATTLE_OB_BLUE, PAL_BTLCUSTOM_BUBBLE
+	anim_sound 0, 1, SFX_BUBBLEBEAM
 	anim_obj ANIM_OBJ_HIT_YFIX, 136, 56, $0
+	anim_obj ANIM_OBJ_BUBBLE_SPLASH, 140, 56, $d0
+	anim_obj ANIM_OBJ_BUBBLE_SPLASH, 140, 56, $50
+	anim_wait 3
+	anim_obj ANIM_OBJ_HIT_YFIX, 136, 48, $0
+	anim_obj ANIM_OBJ_BUBBLE_SPLASH, 140, 48, $d0
+	anim_obj ANIM_OBJ_BUBBLE_SPLASH, 140, 48, $50
+	anim_wait 3
+	anim_obj ANIM_OBJ_HIT_YFIX, 136, 40, $0
+	anim_obj ANIM_OBJ_BUBBLE_SPLASH, 140, 40, $d0
+	anim_obj ANIM_OBJ_BUBBLE_SPLASH, 140, 40, $50
+	anim_wait 3
+	anim_obj ANIM_OBJ_HIT_YFIX, 136, 32, $0
+	anim_obj ANIM_OBJ_BUBBLE_SPLASH, 140, 32, $d0
+	anim_obj ANIM_OBJ_BUBBLE_SPLASH, 140, 32, $50
+	anim_wait 3
+	anim_obj ANIM_OBJ_HIT_YFIX, 136, 24, $0
+	anim_obj ANIM_OBJ_BUBBLE_SPLASH, 140, 24, $d0
+	anim_obj ANIM_OBJ_BUBBLE_SPLASH, 140, 24, $50
+	anim_wait 8
+.fail
+	anim_bgeffect ANIM_BG_ENTER_MON, $0, $1, $0
+	anim_wait 8
+	anim_setobjpal PAL_BATTLE_OB_BLUE, PAL_BTLCUSTOM_WATER
+	anim_obj ANIM_OBJ_DROPLET_L, 44, 92, $24
+	anim_obj ANIM_OBJ_DROPLET_R, 64, 92, $3b
 	anim_wait 16
 	anim_ret
 

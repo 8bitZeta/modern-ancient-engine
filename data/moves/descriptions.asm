@@ -300,7 +300,7 @@ MoveDescriptions2:
 	dw GrudgeDescription
 	dw SnatchDescription
 	dw SecretPowerDescription
-	dw DewaterDescription
+	dw DiveDescription
 	dw ArmThrustDescription
 	dw CamouflageDescription
 	dw TailGlowDescription
@@ -1632,7 +1632,7 @@ SecretPowerDescription:
 	db   "Pounds with fore-"
 	next "legs or tail.@"
 
-DewaterDescription:
+DiveDescription:
 	db   "Pounds with fore-"
 	next "legs or tail.@"
 

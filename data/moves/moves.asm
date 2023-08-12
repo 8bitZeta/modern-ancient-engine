@@ -75,7 +75,7 @@ Moves1:
 	move EFFECT_MIST,                0, ICE,            STATUS,   100, 30,   0 ;MIST
 	move EFFECT_NORMAL_HIT,         40, WATER,          SPECIAL,  100, 25,   0 ;WATER_GUN
 	move EFFECT_NORMAL_HIT,        120, WATER,          SPECIAL,   80,  5,   0 ;HYDRO_PUMP
-	move EFFECT_NORMAL_HIT,         95, WATER,          SPECIAL,  100, 15,   0 ;SURF
+	move EFFECT_SURF,               95, WATER,          SPECIAL,  100, 15,   0 ;SURF
 	move EFFECT_FREEZE_HIT,         95, ICE,            SPECIAL,  100, 10,  10 ;ICE_BEAM
 	move EFFECT_BLIZZARD,          120, ICE,            SPECIAL,   70,  5,  10 ;BLIZZARD
 	move EFFECT_CONFUSE_HIT,        65, PSYCHIC_TYPE,   SPECIAL,  100, 20,  10 ;PSYBEAM
@@ -268,7 +268,7 @@ Moves1:
 	move EFFECT_SP_DEF_DOWN_HIT,    80, GHOST,          SPECIAL,  100, 15,  20 ;SHADOW_BALL
 	move EFFECT_FUTURE_SIGHT,       80, PSYCHIC_TYPE,   SPECIAL,   90, 15,   0 ;FUTURE_SIGHT
 	move EFFECT_DEFENSE_DOWN_HIT,   40, FIGHTING,       PHYSICAL, 100, 15,  50 ;ROCK_SMASH
-	move EFFECT_TRAP_TARGET,        15, WATER,          SPECIAL,   70, 15,   0 ;WHIRLPOOL
+	move EFFECT_WHIRLPOOL,          15, WATER,          SPECIAL,   70, 15,   0 ;WHIRLPOOL
 	move EFFECT_BEAT_UP,            10, DARK,           PHYSICAL, 100, 10,   0 ;BEAT_UP
 .IndirectEnd::
 

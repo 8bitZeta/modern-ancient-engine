@@ -291,7 +291,7 @@ MoveNames::
 	li "GRUDGE"
 	li "SNATCH"
 	li "SECRET POWER"
-	li "DEWATER"
+	li "DIVE"
 	li "ARM THRUST"
 	li "CAMOUFLAGE"
 	li "TAIL GLOW"

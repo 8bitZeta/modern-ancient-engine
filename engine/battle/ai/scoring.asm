@@ -1154,13 +1154,13 @@ AI_Smart_SpDefenseUp2:
 	ret
 
 AI_Smart_Fly:
-; Fly, Dig
+; Fly, Dig, Dive
 
 ; Greatly encourage this move if the player is
 ; flying or underground, and slower than the enemy.
 
 	ld a, [wPlayerSubStatus3]
-	and 1 << SUBSTATUS_FLYING | 1 << SUBSTATUS_UNDERGROUND
+	and SEMI_INVULNERABLE
 	ret z
 
 	call AICompareSpeed
@@ -1651,7 +1651,7 @@ AI_Smart_PriorityHit:
 
 ; Dismiss this move if the player is flying or underground.
 	ld a, [wPlayerSubStatus3]
-	and 1 << SUBSTATUS_FLYING | 1 << SUBSTATUS_UNDERGROUND
+	and SEMI_INVULNERABLE
 	jmp nz, AIDiscourageMove
 
 ; Greatly encourage this move if it will KO the player.
@@ -2679,7 +2679,7 @@ AI_Smart_FutureSight:
 	ret nc
 
 	ld a, [wPlayerSubStatus3]
-	and 1 << SUBSTATUS_FLYING | 1 << SUBSTATUS_UNDERGROUND
+	and SEMI_INVULNERABLE
 	ret z
 
 	dec [hl]

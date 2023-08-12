@@ -186,4 +186,5 @@ BattleCommandPointers:
 	effectfn BattleCommand_Snatch
 	effectfn BattleCommand_CheckSnatch
 	effectfn BattleCommand_SecretPower
+	effectfn BattleCommand_DoubleDivingDamage
 	assert_table_length NUM_EFFECT_COMMANDS

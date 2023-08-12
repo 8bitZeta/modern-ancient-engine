@@ -35,9 +35,10 @@ ThawingMoves:
 	dw SACRED_FIRE
 	dw -1
 
-FlyDigMoves:
+SemiInvulnerableMoves:
 	dw FLY
 	dw DIG
+	dw DIVE
 	dw -1
 
 FlyHitMoves:
@@ -51,6 +52,11 @@ DigHitMoves:
 	dw EARTHQUAKE
 	dw FISSURE
 	dw MAGNITUDE
+	dw -1
+
+DiveHitMoves:
+	dw SURF
+	dw WHIRLPOOL
 	dw -1
 
 NoEncoreMoves:
