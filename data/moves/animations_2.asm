@@ -1255,12 +1255,16 @@ BattleAnim_MistBall:
 	anim_ret
 
 BattleAnim_FeatherDance:
-	anim_1gfx ANIM_GFX_HIT
-	anim_sound 0, 1, SFX_POUND
-	anim_obj ANIM_OBJ_PALM, 136, 56, $0
-	anim_wait 6
-	anim_obj ANIM_OBJ_HIT_YFIX, 136, 56, $0
+	anim_1gfx ANIM_GFX_MISC
+	anim_sound 0, 0, SFX_MORNING_SUN 
+.loop
+	anim_obj ANIM_OBJ_FEATHER_DANCE, 132, 36, $0
 	anim_wait 16
+	anim_loop 5, .loop
+	anim_bgeffect ANIM_BG_FADE_MON_TO_BLACK_REPEATING, $0, $0, $40
+	anim_wait 96
+	anim_incbgeffect ANIM_BG_FADE_MON_TO_BLACK_REPEATING
+	anim_call BattleAnim_ShowMon_1_2
 	anim_ret
 
 BattleAnim_TeeterDance:
