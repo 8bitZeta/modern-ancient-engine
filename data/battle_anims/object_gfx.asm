@@ -59,4 +59,5 @@ AnimObjGFX:
 	anim_obj_gfx  9, AnimObjSmokePuffGFX
 	anim_obj_gfx  5, AnimObjCosmicPowerGFX
 	anim_obj_gfx 16, AnimObjRootsGFX
+	anim_obj_gfx 64, AnimObjRecycleGFX
 	assert_table_length NUM_ANIM_GFX + 1

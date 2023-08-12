@@ -137,30 +137,30 @@ PlayersHouseRadioScript:
 	givepoke MEW, 100, LEFTOVERS
 	givepoke MEW, 100, LEFTOVERS
 	givepoke MEW, 100, LEFTOVERS
-	givepokemove FAKE_OUT,        wPartyMon1, 0
-	givepokemove UPROAR,       wPartyMon1, 1
-	givepokemove STOCKPILE,   wPartyMon1, 2
-	givepokemove SPIT_UP,        wPartyMon1, 3
-	givepokemove SWALLOW,      wPartyMon2, 0
-	givepokemove HEAT_WAVE, wPartyMon2, 1
-	givepokemove HAIL,   wPartyMon2, 2
-	givepokemove TORMENT,  wPartyMon2, 3
-	givepokemove FLATTER,        wPartyMon3, 0
-	givepokemove WILL_O_WISP,       wPartyMon3, 1
-	givepokemove MEMENTO,   wPartyMon3, 2
-	givepokemove FACADE,        wPartyMon3, 3
-	givepokemove FOCUS_PUNCH,      wPartyMon4, 0
-	givepokemove SMELLINGSALT, wPartyMon4, 1
-	givepokemove NATURE_POWER,   wPartyMon4, 2
-	givepokemove CHARGE,  wPartyMon4, 3
-	givepokemove TAUNT,        wPartyMon5, 0
-	givepokemove TRICK,       wPartyMon5, 1
-	givepokemove ROLE_PLAY,   wPartyMon5, 2
-	givepokemove WISH,        wPartyMon5, 3
-	givepokemove ASSIST,      wPartyMon6, 0
-	givepokemove INGRAIN, wPartyMon6, 1
-	givepokemove SUPERPOWER,   wPartyMon6, 2
-	givepokemove MAGIC_COAT,  wPartyMon6, 3
+	givepokemove RECYCLE,        wPartyMon1, 0
+	givepokemove REVENGE,       wPartyMon1, 1
+	givepokemove BRICK_BREAK,   wPartyMon1, 2
+	givepokemove YAWN,        wPartyMon1, 3
+	givepokemove KNOCK_OFF,      wPartyMon2, 0
+	givepokemove ENDEAVOR, wPartyMon2, 1
+	givepokemove ERUPTION,   wPartyMon2, 2
+	givepokemove SKILL_SWAP,  wPartyMon2, 3
+	givepokemove IMPRISON,        wPartyMon3, 0
+	givepokemove REFRESH,       wPartyMon3, 1
+	givepokemove GRUDGE,   wPartyMon3, 2
+	givepokemove SNATCH,        wPartyMon3, 3
+	givepokemove SECRET_POWER,      wPartyMon4, 0
+	givepokemove DIVE, wPartyMon4, 1
+	givepokemove ARM_THRUST,   wPartyMon4, 2
+	givepokemove CAMOUFLAGE,  wPartyMon4, 3
+	givepokemove TAIL_GLOW,        wPartyMon5, 0
+	givepokemove LUSTER_PURGE,       wPartyMon5, 1
+	givepokemove MIST_BALL,   wPartyMon5, 2
+	givepokemove FEATHER_DANCE,        wPartyMon5, 3
+	givepokemove TEETER_DANCE,      wPartyMon6, 0
+	givepokemove BLAZE_KICK, wPartyMon6, 1
+	givepokemove MUD_SPORT,   wPartyMon6, 2
+	givepokemove ICE_BALL,  wPartyMon6, 3
 	; Test pokemon
 	; givepoke NINCADA, 50
 	; givepoke NINCADA, 50

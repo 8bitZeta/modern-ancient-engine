@@ -209,6 +209,7 @@ BattleAnimFrameData:
 	dw .Frameset_RootL                   ; BATTLEANIMFRAMESET_ROOT_L
 	dw .Frameset_RootR                   ; BATTLEANIMFRAMESET_ROOT_R
 	dw .Frameset_EnergyOrbIngrain        ; BATTLEANIMFRAMESET_ENERGY_ORB_INGRAIN
+	dw .Frameset_Recycle                 ; BATTLEANIMFRAMESET_RECYCLE
 	assert_table_length NUM_BATTLEANIMFRAMESETS
 
 .Frameset_HitBig:
@@ -1407,3 +1408,10 @@ BattleAnimFrameData:
 	battleoamframe BATTLEANIMOAMSET_1F,  8
 	battleoamframe BATTLEANIMOAMSET_1E,  8
 	battleoamdelete
+
+.Frameset_Recycle:
+	battleoamframe BATTLEANIMOAMSET_E1,  6
+	battleoamframe BATTLEANIMOAMSET_E2,  6
+	battleoamframe BATTLEANIMOAMSET_E3,  6
+	battleoamframe BATTLEANIMOAMSET_E4,  6
+	battleoamrestart
