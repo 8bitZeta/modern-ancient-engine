@@ -1436,15 +1436,16 @@ BattleAnim_NeedleArm:
 	anim_ret
 
 BattleAnim_SlackOff:
-	anim_1gfx ANIM_GFX_HIT
-	anim_sound 0, 1, SFX_POUND
-	anim_obj ANIM_OBJ_PALM, 136, 56, $0
-	anim_wait 6
-	anim_obj ANIM_OBJ_HIT_YFIX, 136, 56, $0
-	anim_wait 16
-	anim_ret
-
-
+	anim_1gfx ANIM_GFX_SHINE
+	anim_call BattleAnim_TargetObj_2Row_2
+	anim_sound 16, 2, SFX_CURSE
+	anim_bgeffect ANIM_BG_WITHDRAW, $0, $1, $50
+	anim_wait 64
+	anim_incbgeffect ANIM_BG_WITHDRAW
+	anim_bgeffect ANIM_BG_SHOW_MON, $0, $0, $0
+	anim_wait 1
+	anim_bgeffect ANIM_BG_CYCLE_OBPALS_GRAY_AND_YELLOW, $0, $2, $0
+; fallthrough
 BattleAnim_Glimmer_branch:
 	anim_sound 0, 0, SFX_METRONOME
 	anim_obj ANIM_OBJ_GLIMMER, 44, 64, $0
