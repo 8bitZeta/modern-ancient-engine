@@ -183,4 +183,6 @@ BattleCommandPointers:
 ;	New Moves Start Here
 ;==========================
 	effectfn BattleCommand_StartHail
+	effectfn BattleCommand_Snatch
+	effectfn BattleCommand_CheckSnatch
 	assert_table_length NUM_EFFECT_COMMANDS

@@ -1,4 +1,5 @@
 MoveEffectPriorities:
+	db EFFECT_SNATCH,       3
 	db EFFECT_PROTECT,      3
 	db EFFECT_ENDURE,       3
 	db EFFECT_PRIORITY_HIT, 2

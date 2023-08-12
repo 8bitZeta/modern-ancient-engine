@@ -133,6 +133,7 @@ BattleAnimFrameData:
 	dw .Frameset_SpeedLine2          	 ; BATTLEANIMFRAMESET_SPEED_LINE_2
 	dw .Frameset_SpeedLine3          	 ; BATTLEANIMFRAMESET_SPEED_LINE_3
 	dw .Frameset_SeismicToss         	 ; BATTLEANIMFRAMESET_SEISMIC_TOSS
+	dw .Frameset_SeismicTossFlipped      ; BATTLEANIMFRAMESET_SEISMIC_TOSS_FLIPPED
 	dw .Frameset_Sharpen             	 ; BATTLEANIMFRAMESET_SHARPEN
 	dw .Frameset_DefenseCurl         	 ; BATTLEANIMFRAMESET_DEFENSE_CURL
 	dw .Frameset_MetronomeHand       	 ; BATTLEANIMFRAMESET_METRONOME_HAND
@@ -1027,6 +1028,10 @@ BattleAnimFrameData:
 .Frameset_SeismicToss:
 	battleoamframe BATTLEANIMOAMSET_A3,  8
 	battleoamend
+
+.Frameset_SeismicTossFlipped:
+	battleoamframe BATTLEANIMOAMSET_A3,  8, OAM_X_FLIP
+	battleoamrestart
 
 .Frameset_Sharpen:
 	battleoamframe BATTLEANIMOAMSET_A4,  4

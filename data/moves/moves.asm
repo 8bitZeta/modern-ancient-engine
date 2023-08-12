@@ -311,7 +311,7 @@ Moves2:
 	move EFFECT_NORMAL_HIT,          0, PSYCHIC_TYPE,   STATUS,   100, 10,   0 ; IMPRISON
 	move EFFECT_NORMAL_HIT,          0, NORMAL,         STATUS,   100, 20,   0 ; REFRESH
 	move EFFECT_NORMAL_HIT,          0, GHOST,          STATUS,   100,  5,   0 ; GRUDGE
-	move EFFECT_NORMAL_HIT,          0, DARK,           STATUS,   100, 10,   0 ; SNATCH EFFECT_SNATCH
+	move EFFECT_SNATCH,              0, DARK,           STATUS,   100, 10,   0 ; SNATCH EFFECT_SNATCH
 	move EFFECT_NORMAL_HIT,         70, NORMAL,         PHYSICAL, 100, 20,  30 ; SECRET_POWER EFFECT_SECRET_POWER
 	move EFFECT_FLY,                80, WATER,          PHYSICAL, 100, 10,   0 ; DIVE
 	move EFFECT_MULTI_HIT,          15, FIGHTING,       PHYSICAL, 100, 20,   0 ; ARM_THRUST

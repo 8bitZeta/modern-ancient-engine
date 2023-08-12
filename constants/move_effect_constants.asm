@@ -156,4 +156,5 @@
 ;==========================
 	const EFFECT_BLIZZARD
 	const EFFECT_HAIL
+	const EFFECT_SNATCH
 DEF NUM_MOVE_EFFECTS EQU const_value

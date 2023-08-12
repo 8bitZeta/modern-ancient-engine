@@ -182,6 +182,8 @@ ENDM
 ;	New Moves Start Here
 ;==========================
 	command starthail               ; ae
+	command snatch                  ; af
+	command checksnatch             ; b0
 
 DEF NUM_EFFECT_COMMANDS EQU const_value - 1
 
