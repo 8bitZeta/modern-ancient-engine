@@ -997,12 +997,39 @@ BattleAnim_Eruption_branch:
 	anim_ret
 
 BattleAnim_SkillSwap:
-	anim_1gfx ANIM_GFX_HIT
-	anim_sound 0, 1, SFX_POUND
-	anim_obj ANIM_OBJ_PALM, 136, 56, $0
+	anim_setobjpal PAL_BATTLE_OB_YELLOW, PAL_BTLCUSTOM_SKILL_SWAP
+	anim_jump BattleAnim_Transfer_Orbs_branch
+
+BattleAnim_Transfer_Orbs_branch:
+	anim_bgeffect ANIM_BG_CYCLE_OBPALS_GRAY_AND_YELLOW, $0, $4, $0
+	anim_1gfx ANIM_GFX_CHARGE
+.loop
+	anim_sound 6, 3, SFX_STOP_SLOT
+	anim_obj ANIM_OBJ_SKILL_SWAP_1, 136, 64, $2
 	anim_wait 6
-	anim_obj ANIM_OBJ_HIT_YFIX, 136, 56, $0
-	anim_wait 16
+	anim_sound 6, 3, SFX_STOP_SLOT
+	anim_obj ANIM_OBJ_SKILL_SWAP_1, 136, 64, $2
+	anim_wait 6
+	anim_sound 6, 3, SFX_STOP_SLOT
+	anim_obj ANIM_OBJ_SKILL_SWAP_1, 136, 64, $2
+	anim_wait 6
+	anim_sound 6, 3, SFX_STOP_SLOT
+	anim_obj ANIM_OBJ_SKILL_SWAP_1, 136, 64, $2
+	anim_wait 6
+	anim_sound 6, 3, SFX_UNKNOWN_66
+	anim_obj ANIM_OBJ_SKILL_SWAP_2, 52, 88, $8
+	anim_wait 6
+	anim_sound 6, 3, SFX_UNKNOWN_66
+	anim_obj ANIM_OBJ_SKILL_SWAP_2, 52, 88, $8
+	anim_wait 6
+	anim_sound 6, 3, SFX_UNKNOWN_66
+	anim_obj ANIM_OBJ_SKILL_SWAP_2, 52, 88, $8
+	anim_wait 6
+	anim_sound 6, 3, SFX_UNKNOWN_66
+	anim_obj ANIM_OBJ_SKILL_SWAP_2, 52, 88, $8
+	anim_wait 6
+	anim_loop 2, .loop
+	anim_wait 32
 	anim_ret
 
 BattleAnim_Imprison:
