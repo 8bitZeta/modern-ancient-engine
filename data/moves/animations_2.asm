@@ -1229,12 +1229,29 @@ BattleAnim_LusterPurge:
 	anim_ret
 
 BattleAnim_MistBall:
-	anim_1gfx ANIM_GFX_HIT
-	anim_sound 0, 1, SFX_POUND
-	anim_obj ANIM_OBJ_PALM, 136, 56, $0
-	anim_wait 6
-	anim_obj ANIM_OBJ_HIT_YFIX, 136, 56, $0
+	anim_3gfx ANIM_GFX_EGG, ANIM_GFX_SMOKE, ANIM_GFX_HAZE
+	anim_setobjpal PAL_BATTLE_OB_YELLOW, PAL_BTLCUSTOM_BRIGHT
+	anim_setobjpal PAL_BATTLE_OB_GRAY, PAL_BTLCUSTOM_VERY_BRIGHT
+	anim_sound 0, 1, SFX_MEGA_PUNCH
+	anim_obj ANIM_OBJ_OCTAZOOKA, 64, 92, $4
 	anim_wait 16
+	anim_sound 0, 1, SFX_BALL_POOF
+	anim_obj ANIM_OBJ_BALL_POOF, 132, 56, $10
+	anim_wait 8
+	anim_bgeffect ANIM_BG_SHAKE_SCREEN_X, $24, $2, $0
+	anim_setobjpal PAL_BATTLE_OB_PLAYER, PAL_BTLCUSTOM_VERY_BRIGHT
+	anim_setobjpal PAL_BATTLE_BG_TARGET, PAL_BTLCUSTOM_VERY_BRIGHT
+	anim_setbgpal PAL_BATTLE_BG_USER, PAL_BTLCUSTOM_VERY_BRIGHT
+	anim_sound 0, 1, SFX_SPITE
+	anim_obj ANIM_OBJ_MIST_BALL_BG, 8, 24, $10
+	anim_obj ANIM_OBJ_MIST_BALL_BG, 8, 48, $2
+	anim_obj ANIM_OBJ_MIST_BALL_BG, 8, 88, $8
+	anim_wait 4
+	anim_obj ANIM_OBJ_MIST_BALL_BG, 8, 32, $6
+	anim_obj ANIM_OBJ_MIST_BALL_BG, 8, 56, $c
+	anim_obj ANIM_OBJ_MIST_BALL_BG, 8, 80, $4
+	anim_obj ANIM_OBJ_MIST_BALL_BG, 8, 104, $e
+	anim_wait 64
 	anim_ret
 
 BattleAnim_FeatherDance:
