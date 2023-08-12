@@ -1268,12 +1268,24 @@ BattleAnim_FeatherDance:
 	anim_ret
 
 BattleAnim_TeeterDance:
-	anim_1gfx ANIM_GFX_HIT
-	anim_sound 0, 1, SFX_POUND
-	anim_obj ANIM_OBJ_PALM, 136, 56, $0
-	anim_wait 6
-	anim_obj ANIM_OBJ_HIT_YFIX, 136, 56, $0
-	anim_wait 16
+	anim_1gfx ANIM_GFX_NOISE
+	anim_call BattleAnim_TargetObj_2Row_2
+	anim_bgeffect ANIM_BG_FLAIL, $0, $1, $0
+	anim_wait 8
+	anim_sound 0, 0, SFX_SQUEAK
+	anim_obj ANIM_OBJ_TEETER_DANCE, 64, 80, $0
+	anim_wait 32
+	anim_sound 0, 0, SFX_SQUEAK
+	anim_obj ANIM_OBJ_TEETER_DANCE, 16, 80, $2
+	anim_wait 32
+	anim_sound 0, 0, SFX_SQUEAK
+	anim_obj ANIM_OBJ_TEETER_DANCE, 70, 80, $1
+	anim_wait 32
+	anim_sound 0, 0, SFX_SQUEAK
+	anim_obj ANIM_OBJ_TEETER_DANCE, 32, 80, $2
+	anim_wait 24
+	anim_incbgeffect ANIM_BG_FLAIL
+	anim_call BattleAnim_ShowMon_0_2
 	anim_ret
 
 BattleAnim_BlazeKick:

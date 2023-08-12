@@ -216,7 +216,8 @@ BattleAnimFrameData:
 	dw .Frameset_BigRedXFlashing         ; BATTLEANIMFRAMESET_BIG_RED_X_FLASHING
 	dw .Frameset_SparkleLong             ; BATTLEANIMFRAMESET_SPARKLE_LONG
 	dw .Frameset_SmallGlow               ; BATTLEANIMFRAMESET_SMALL_GLOW
-	dw .Frameset_BigGlow               ; BATTLEANIMFRAMESET_BIG_GLOW
+	dw .Frameset_BigGlow                 ; BATTLEANIMFRAMESET_BIG_GLOW
+	dw .Frameset_TeeterDance             ; BATTLEANIMFRAMESET_TEETER_DANCE
 	assert_table_length NUM_BATTLEANIMFRAMESETS
 
 .Frameset_HitBig:
@@ -1454,3 +1455,7 @@ BattleAnimFrameData:
 	battleoamframe BATTLEANIMOAMSET_E7,  1
 	battleoamframe BATTLEANIMOAMSET_E8,  1
 	battleoamrestart
+
+.Frameset_TeeterDance:
+	battleoamframe BATTLEANIMOAMSET_1B,  40
+	battleoamdelete
