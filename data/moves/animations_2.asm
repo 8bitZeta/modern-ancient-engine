@@ -1289,19 +1289,41 @@ BattleAnim_TeeterDance:
 	anim_ret
 
 BattleAnim_BlazeKick:
+	anim_setobjpal PAL_BATTLE_OB_RED, PAL_BTLCUSTOM_FIRE
 	anim_2gfx ANIM_GFX_HIT, ANIM_GFX_FIRE
-	anim_bgeffect ANIM_BG_SHAKE_SCREEN_X, $05, $2, $0
+	anim_bgeffect ANIM_BG_SHAKE_SCREEN_X, $20, $2, $0
+	anim_wait 32
 	anim_bgeffect ANIM_BG_FLASH_INVERTED, $0, $8, $3
-	anim_obj ANIM_OBJ_KICK, 136, 48, $43
 	anim_sound 0, 1, SFX_EMBER
-.loop
-	anim_obj ANIM_OBJ_FIRE_BLAST, 136, 48, $1
-	anim_obj ANIM_OBJ_FIRE_BLAST, 136, 48, $4
-	anim_obj ANIM_OBJ_FIRE_BLAST, 136, 48, $5
-	anim_obj ANIM_OBJ_KICK, 136, 48, $0
-	anim_obj ANIM_OBJ_HIT_BIG_YFIX, 136, 48, $0
-	anim_wait 16
-	anim_loop 3, .loop
+	anim_obj ANIM_OBJ_KICK, 136, 56, $0
+	anim_obj ANIM_OBJ_HIT_BIG_YFIX, 136, 56, $0
+	anim_wait 6
+	anim_obj ANIM_OBJ_KICK, 136, 56, $0
+	anim_obj ANIM_OBJ_RADIAL_FLAME_SLOW, 136, 56, $0
+	anim_wait 1
+	anim_obj ANIM_OBJ_RADIAL_FLAME_SLOW, 136, 56, $28
+	anim_wait 1
+	anim_obj ANIM_OBJ_RADIAL_FLAME_SLOW, 136, 56, $30
+	anim_wait 1
+	anim_obj ANIM_OBJ_RADIAL_FLAME_SLOW, 136, 56, $38
+	anim_wait 1
+	anim_obj ANIM_OBJ_RADIAL_FLAME_SLOW, 136, 56, $20
+	anim_wait 1
+	anim_obj ANIM_OBJ_RADIAL_FLAME_SLOW, 136, 56, $8
+	anim_wait 1
+	anim_obj ANIM_OBJ_RADIAL_FLAME_SLOW, 136, 56, $18
+	anim_wait 1
+	anim_obj ANIM_OBJ_RADIAL_FLAME_SLOW, 136, 56, $4
+	anim_wait 1
+	anim_obj ANIM_OBJ_RADIAL_FLAME_SLOW, 136, 56, $2b
+	anim_wait 1
+	anim_obj ANIM_OBJ_RADIAL_FLAME_SLOW, 136, 56, $14
+	anim_wait 1
+	anim_obj ANIM_OBJ_RADIAL_FLAME_SLOW, 136, 56, $3b
+	anim_wait 1
+	anim_obj ANIM_OBJ_RADIAL_FLAME_SLOW, 136, 56, $24
+	anim_wait 1
+	anim_obj ANIM_OBJ_RADIAL_FLAME_SLOW, 136, 56, $b
 	anim_wait 32
 	anim_ret
 
