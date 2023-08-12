@@ -1199,12 +1199,33 @@ BattleAnim_TailGlow:
 	anim_ret
 
 BattleAnim_LusterPurge:
-	anim_1gfx ANIM_GFX_HIT
-	anim_sound 0, 1, SFX_POUND
-	anim_obj ANIM_OBJ_PALM, 136, 56, $0
-	anim_wait 6
-	anim_obj ANIM_OBJ_HIT_YFIX, 136, 56, $0
-	anim_wait 16
+	anim_setobjpal PAL_BATTLE_OB_YELLOW, PAL_BTLCUSTOM_ICE
+	anim_2gfx ANIM_GFX_BIG_GLOW, ANIM_GFX_GLOW
+	anim_bgeffect ANIM_BG_CYCLE_OBPALS_GRAY_AND_YELLOW, $0, $2, $0
+	anim_bgp $90
+	anim_obj ANIM_OBJ_SMALL_GLOW, 48, 96, $0
+	anim_sound 0, 1, SFX_SWEET_KISS
+	anim_wait 32
+	anim_clearobjs
+	anim_2gfx ANIM_GFX_BIG_GLOW, ANIM_GFX_HIT
+	anim_setobjpal PAL_BATTLE_OB_YELLOW, PAL_BTLCUSTOM_GLOW_LUSTER
+	anim_setobjpal PAL_BATTLE_OB_PLAYER, PAL_BTLCUSTOM_VERY_BRIGHT
+	anim_setobjpal PAL_BATTLE_BG_TARGET, PAL_BTLCUSTOM_VERY_BRIGHT
+	anim_setbgpal PAL_BATTLE_BG_USER, PAL_BTLCUSTOM_VERY_BRIGHT
+	anim_obj ANIM_OBJ_BIG_GLOW, 48, 96, $0
+	anim_sound 0, 1, SFX_GS_INTRO_CHARIZARD_FIREBALL
+	anim_wait 64
+	anim_bgeffect ANIM_BG_SHAKE_SCREEN_X, $24, $2, $0
+	anim_obj ANIM_OBJ_HIT_YFIX, 140, 44, $0
+	anim_wait 8
+	anim_obj ANIM_OBJ_HIT_YFIX, 124, 60, $0
+	anim_wait 8
+	anim_obj ANIM_OBJ_HIT_YFIX, 140, 60, $0
+	anim_wait 8
+	anim_obj ANIM_OBJ_HIT_YFIX, 124, 44, $0
+	anim_wait 8
+	anim_obj ANIM_OBJ_HIT_YFIX, 132, 52, $0
+	anim_wait 32
 	anim_ret
 
 BattleAnim_MistBall:
