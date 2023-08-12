@@ -205,7 +205,7 @@ BattleAnimFrameData:
 	dw .Frameset_LongPunch               ; BATTLEANIMFRAMESET_LONG_PUNCH
 	dw .Frameset_Taunt                   ; BATTLEANIMFRAMESET_TAUNT
 	dw .Frameset_CosmicPowerBG           ; BATTLEANIMFRAMESET_COSMIC_POWER_BG
-	; dw .Frameset_CosmicPowerBG           ; BATTLEANIMFRAMESET_COSMIC_POWER_BG
+	dw .Frameset_Assist                  ; BATTLEANIMFRAMESET_ASSIST
 	assert_table_length NUM_BATTLEANIMFRAMESETS
 
 .Frameset_HitBig:
@@ -1381,4 +1381,8 @@ BattleAnimFrameData:
 
 .Frameset_CosmicPowerBG:
 	battleoamframe BATTLEANIMOAMSET_F2,  1
+	battleoamend
+
+.Frameset_Assist:
+	battleoamframe BATTLEANIMOAMSET_DC,  4
 	battleoamend
