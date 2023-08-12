@@ -200,12 +200,15 @@ BattleAnimFrameData:
 	dw .Frameset_SmellingSalt_L          ; BATTLEANIMFRAMESET_SMELLINGSALT_L
 	dw .Frameset_SmellingSalt_R          ; BATTLEANIMFRAMESET_SMELLINGSALT_R
 	dw .Frameset_SmellingSalt_Surprised  ; BATTLEANIMFRAMESET_SMELLINGSALT_SURPRISED
-	dw .Frameset_DropletR                ; BATTLEANIMFRAMESET_DROPLET_R
 	dw .Frameset_DropletL                ; BATTLEANIMFRAMESET_DROPLET_L
+	dw .Frameset_DropletR                ; BATTLEANIMFRAMESET_DROPLET_R
 	dw .Frameset_LongPunch               ; BATTLEANIMFRAMESET_LONG_PUNCH
 	dw .Frameset_Taunt                   ; BATTLEANIMFRAMESET_TAUNT
 	dw .Frameset_CosmicPowerBG           ; BATTLEANIMFRAMESET_COSMIC_POWER_BG
 	dw .Frameset_Assist                  ; BATTLEANIMFRAMESET_ASSIST
+	dw .Frameset_RootL                   ; BATTLEANIMFRAMESET_ROOT_L
+	dw .Frameset_RootR                   ; BATTLEANIMFRAMESET_ROOT_R
+	dw .Frameset_EnergyOrbIngrain        ; BATTLEANIMFRAMESET_ENERGY_ORB_INGRAIN
 	assert_table_length NUM_BATTLEANIMFRAMESETS
 
 .Frameset_HitBig:
@@ -1361,12 +1364,12 @@ BattleAnimFrameData:
 	battleoamframe BATTLEANIMOAMSET_DB,  6
 	battleoamdelete
 
-.Frameset_DropletR:
-	battleoamframe BATTLEANIMOAMSET_DD,  16
-	battleoamdelete
-
 .Frameset_DropletL:
 	battleoamframe BATTLEANIMOAMSET_DD,  16, OAM_X_FLIP
+	battleoamdelete
+
+.Frameset_DropletR:
+	battleoamframe BATTLEANIMOAMSET_DD,  16
 	battleoamdelete
 
 .Frameset_LongPunch:
@@ -1386,3 +1389,21 @@ BattleAnimFrameData:
 .Frameset_Assist:
 	battleoamframe BATTLEANIMOAMSET_DC,  4
 	battleoamend
+
+.Frameset_RootL:
+	battleoamframe BATTLEANIMOAMSET_DE,  8, OAM_X_FLIP
+	battleoamframe BATTLEANIMOAMSET_DF,  8, OAM_X_FLIP
+	battleoamframe BATTLEANIMOAMSET_E0,  8, OAM_X_FLIP
+	battleoamend
+
+.Frameset_RootR:
+	battleoamframe BATTLEANIMOAMSET_DE,  8
+	battleoamframe BATTLEANIMOAMSET_DF,  8
+	battleoamframe BATTLEANIMOAMSET_E0,  8
+	battleoamend
+
+.Frameset_EnergyOrbIngrain:
+	battleoamframe BATTLEANIMOAMSET_20,  8
+	battleoamframe BATTLEANIMOAMSET_1F,  8
+	battleoamframe BATTLEANIMOAMSET_1E,  8
+	battleoamdelete
