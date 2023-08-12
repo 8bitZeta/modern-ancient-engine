@@ -184,6 +184,7 @@ ENDM
 	command starthail               ; ae
 	command snatch                  ; af
 	command checksnatch             ; b0
+	command secretpower             ; b1
 
 DEF NUM_EFFECT_COMMANDS EQU const_value - 1
 

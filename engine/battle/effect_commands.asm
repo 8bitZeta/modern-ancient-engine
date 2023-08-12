@@ -6222,14 +6222,49 @@ PlayUserBattleAnim:
 	ret
 
 SetMoveAnimationID:
+	; Secret Power has a dynamic animation
+	push af
+	ld a, BATTLE_VARS_MOVE_EFFECT
+	call GetBattleVar
+	cp EFFECT_SECRET_POWER
+	jr nz, .no_secret_power
+	pop af
+	push hl
+	ld hl, SecretPowerAnims
+	ld a, [wBattleEnvironment]
+	add a
+	add l
+	ld l, a
+	jr nc, .no_carry
+	inc h
+.no_carry
+	ld a, [hli]
+	ld h, [hl]
+	ld l, a
+	jr .got_anim
+
+.no_secret_power
+	pop af
 	push hl
 	call GetMoveIndexFromID
+.got_anim
 	ld a, l
 	ld [wFXAnimID], a
 	ld a, h
 	ld [wFXAnimID + 1], a
 	pop hl
 	ret
+
+SecretPowerAnims:
+	dw SPLASH ; Shouldn't happen
+	dw BODY_SLAM
+	dw ROCK_THROW
+	dw ROCK_SMASH
+	dw RAZOR_LEAF
+	dw SLEEP_POWDER
+	dw SURF
+	dw WATER_PULSE
+	dw BLIZZARD
 
 PlayOpponentBattleAnim:
 	ld a, e

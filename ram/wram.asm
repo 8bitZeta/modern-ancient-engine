@@ -272,7 +272,8 @@ wGlobalAnimXOffset:: db
 
 wSpriteAnimDataEnd::
 
-	ds 11
+	ds 10
+wBattleEnvironment:: db
 
 ; mobile data
 wc3cc:: ds 1
