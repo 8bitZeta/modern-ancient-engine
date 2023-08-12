@@ -1179,12 +1179,12 @@ BattleAnim_ArmThrust_branch:
 	anim_ret
 
 BattleAnim_Camouflage:
-	anim_1gfx ANIM_GFX_HIT
-	anim_sound 0, 1, SFX_POUND
-	anim_obj ANIM_OBJ_PALM, 136, 56, $0
-	anim_wait 6
-	anim_obj ANIM_OBJ_HIT_YFIX, 136, 56, $0
-	anim_wait 16
+	anim_sound 6, 3, SFX_WARP_TO
+	anim_bgeffect ANIM_BG_FADE_MON_TO_WHITE_WAIT_FADE_BACK, $0, $1, $60
+	anim_wait 112
+	anim_incbgeffect ANIM_BG_FADE_MON_TO_WHITE_WAIT_FADE_BACK
+	anim_call BattleAnim_ShowMon_0_2
+	anim_wait 4
 	anim_ret
 
 BattleAnim_TailGlow:
