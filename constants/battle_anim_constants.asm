@@ -295,6 +295,9 @@ DEF BATTLEANIM_BASE_TILE EQU 7 * 7  ; Maximum size of a pokemon picture
 	const ANIM_OBJ_CLAW_TEAR
 	const ANIM_OBJ_RADIAL_FLAME
 	const ANIM_OBJ_BLAST_BURN
+	const ANIM_OBJ_VORTEX
+	const ANIM_OBJ_HYDRO_CANNON
+	const ANIM_OBJ_SHRINKING_GLOW
 DEF NUM_ANIM_OBJS EQU const_value
 
 ; DoBattleAnimFrame arguments (see engine/battle_anims/functions.asm)
@@ -622,6 +625,8 @@ DEF NUM_BATTLEANIMFUNCS EQU const_value
 	const BATTLEANIMFRAMESET_NEEDLE_ARM_SE
 	const BATTLEANIMFRAMESET_CLAW_TEAR
 	const BATTLEANIMFRAMESET_BLAST_BURN
+	const BATTLEANIMFRAMESET_VORTEX
+	const BATTLEANIMFRAMESET_SHRINKING_GLOW
 DEF NUM_BATTLEANIMFRAMESETS EQU const_value
 
 ; BattleAnimOAMData indexes (see data/battle_anims/oam.asm)
@@ -987,6 +992,8 @@ DEF NUM_ANIM_BGS EQU const_value
 	const ANIM_GFX_BIG_GLOW
 	const ANIM_GFX_TEAR
 	const ANIM_GFX_BLAST_BURN
+	const ANIM_GFX_VORTEX
+	const ANIM_GFX_HYDRO_CANNON
 DEF NUM_ANIM_GFX EQU const_value - 1
 
 ; battle_bg_effect struct members (see macros/ram.asm)
