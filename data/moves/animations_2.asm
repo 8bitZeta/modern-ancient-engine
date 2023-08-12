@@ -1402,12 +1402,37 @@ BattleAnim_IceBall_branch_cbbdf:
 	anim_ret
 
 BattleAnim_NeedleArm:
-	anim_1gfx ANIM_GFX_HIT
-	anim_sound 0, 1, SFX_POUND
-	anim_obj ANIM_OBJ_PALM, 136, 56, $0
-	anim_wait 6
-	anim_obj ANIM_OBJ_HIT_YFIX, 136, 56, $0
+	anim_2gfx ANIM_GFX_HORN, ANIM_GFX_HIT
+	anim_sound 0, 1, SFX_MEGA_PUNCH
+	anim_obj ANIM_OBJ_LONG_PUNCH, 136, 56, $0
 	anim_wait 16
+.loop
+	anim_sound 0, 1, SFX_POISON_STING
+	anim_obj ANIM_OBJ_NEEDLE_ARM_N, 136, 56, $30
+	anim_wait 1
+	anim_sound 0, 1, SFX_POISON_STING
+	anim_obj ANIM_OBJ_NEEDLE_ARM_NE, 136, 56, $38
+	anim_wait 1
+	anim_sound 0, 1, SFX_POISON_STING
+	anim_obj ANIM_OBJ_NEEDLE_ARM_E, 136, 56, $0
+	anim_wait 1
+	anim_sound 0, 1, SFX_POISON_STING
+	anim_obj ANIM_OBJ_NEEDLE_ARM_SE, 136, 56, $8
+	anim_wait 1
+	anim_sound 0, 1, SFX_POISON_STING
+	anim_obj ANIM_OBJ_NEEDLE_ARM_S, 136, 56, $10
+	anim_wait 1
+	anim_sound 0, 1, SFX_POISON_STING
+	anim_obj ANIM_OBJ_NEEDLE_ARM_SW, 136, 56, $18
+	anim_wait 1
+	anim_sound 0, 1, SFX_POISON_STING
+	anim_obj ANIM_OBJ_NEEDLE_ARM_W, 136, 56, $20
+	anim_wait 1
+	anim_sound 0, 1, SFX_POISON_STING
+	anim_obj ANIM_OBJ_NEEDLE_ARM_NW, 136, 56, $28
+	anim_wait 1
+	anim_loop 5, .loop
+	anim_wait 32
 	anim_ret
 
 BattleAnim_SlackOff:

@@ -220,6 +220,14 @@ BattleAnimFrameData:
 	dw .Frameset_TeeterDance             ; BATTLEANIMFRAMESET_TEETER_DANCE
 	dw .Frameset_BurnedShort             ; BATTLEANIMFRAMESET_BURNED_SHORT
 	dw .Frameset_IceBall                 ; BATTLEANIMFRAMESET_ICE_BALL
+	dw .Frameset_NeedleArmS              ; BATTLEANIMFRAMESET_NEEDLE_ARM_S
+	dw .Frameset_NeedleArmSW             ; BATTLEANIMFRAMESET_NEEDLE_ARM_SW
+	dw .Frameset_NeedleArmW              ; BATTLEANIMFRAMESET_NEEDLE_ARM_W
+	dw .Frameset_NeedleArmNW             ; BATTLEANIMFRAMESET_NEEDLE_ARM_NW
+	dw .Frameset_NeedleArmN              ; BATTLEANIMFRAMESET_NEEDLE_ARM_N
+	dw .Frameset_NeedleArmNE             ; BATTLEANIMFRAMESET_NEEDLE_ARM_NE
+	dw .Frameset_NeedleArmE              ; BATTLEANIMFRAMESET_NEEDLE_ARM_E
+	dw .Frameset_NeedleArmSE             ; BATTLEANIMFRAMESET_NEEDLE_ARM_SE
 	assert_table_length NUM_BATTLEANIMFRAMESETS
 
 .Frameset_HitBig:
@@ -1473,4 +1481,36 @@ BattleAnimFrameData:
 
 .Frameset_IceBall:
 	battleoamframe BATTLEANIMOAMSET_E9, 32
+	battleoamend
+
+.Frameset_NeedleArmS:
+	battleoamframe BATTLEANIMOAMSET_1F, 16
+	battleoamend
+
+.Frameset_NeedleArmSW:
+	battleoamframe BATTLEANIMOAMSET_1E, 16
+	battleoamend
+
+.Frameset_NeedleArmW:
+	battleoamframe BATTLEANIMOAMSET_20, 16
+	battleoamend
+
+.Frameset_NeedleArmNW:
+	battleoamframe BATTLEANIMOAMSET_1E, 16, OAM_Y_FLIP
+	battleoamend
+
+.Frameset_NeedleArmN:
+	battleoamframe BATTLEANIMOAMSET_1F, 16, OAM_Y_FLIP
+	battleoamend
+
+.Frameset_NeedleArmNE:
+	battleoamframe BATTLEANIMOAMSET_1E, 16, OAM_X_FLIP, OAM_Y_FLIP
+	battleoamend
+
+.Frameset_NeedleArmE:
+	battleoamframe BATTLEANIMOAMSET_20, 16, OAM_X_FLIP
+	battleoamend
+
+.Frameset_NeedleArmSE:
+	battleoamframe BATTLEANIMOAMSET_1E, 16, OAM_X_FLIP
 	battleoamend
