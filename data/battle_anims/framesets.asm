@@ -213,6 +213,7 @@ BattleAnimFrameData:
 	dw .Frameset_Drowziness              ; BATTLEANIMFRAMESET_DROWZINESS
 	dw .Frameset_ImprisonRing            ; BATTLEANIMFRAMESET_IMPRISON_RING
 	dw .Frameset_BigRedXFlashing         ; BATTLEANIMFRAMESET_BIG_RED_X_FLASHING
+	dw .Frameset_SparkleLong             ; BATTLEANIMFRAMESET_SPARKLE_LONG
 	assert_table_length NUM_BATTLEANIMFRAMESETS
 
 .Frameset_HitBig:
@@ -1431,3 +1432,8 @@ BattleAnimFrameData:
 .Frameset_BigRedXFlashing:
 	battleoamframe BATTLEANIMOAMSET_E6,  8
 	battleoamend
+
+.Frameset_SparkleLong:
+	battleoamframe BATTLEANIMOAMSET_14,  3
+	battleoamframe BATTLEANIMOAMSET_15,  3
+	battleoamrestart

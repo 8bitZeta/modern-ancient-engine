@@ -1058,13 +1058,18 @@ BattleAnim_Imprison:
 	anim_ret
 
 BattleAnim_Refresh:
-	anim_1gfx ANIM_GFX_HIT
-	anim_sound 0, 1, SFX_POUND
-	anim_obj ANIM_OBJ_PALM, 136, 56, $0
-	anim_wait 6
-	anim_obj ANIM_OBJ_HIT_YFIX, 136, 56, $0
-	anim_wait 16
-	anim_ret
+	anim_2gfx ANIM_GFX_SPEED, ANIM_GFX_SHINE
+	anim_sound 0, 1, SFX_GAME_FREAK_LOGO_GS
+	anim_setobjpal PAL_BATTLE_OB_YELLOW, PAL_BTLCUSTOM_LIGHT_SCREEN
+	anim_setbgpal PAL_BATTLE_BG_USER, PAL_BTLCUSTOM_ICE
+	anim_bgeffect ANIM_BG_CYCLE_OBPALS_GRAY_AND_YELLOW, $0, $2, $0
+	anim_bgeffect ANIM_BG_CYCLE_MON_LIGHT_DARK_REPEATING, $0, $1, $20
+.loop
+	anim_obj ANIM_OBJ_DESCENDING_SPARKLE, 48, 64, $5
+	anim_wait 11
+	anim_loop 8, .loop
+	anim_wait 128
+	anim_jump BattleAnim_Glimmer_branch
 
 BattleAnim_Grudge:
 	anim_1gfx ANIM_GFX_HIT
