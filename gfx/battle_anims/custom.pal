@@ -96,5 +96,10 @@ INCLUDE "gfx/battle_anims/battle_anims.pal"
 	RGB 01, 22, 25
 	RGB 26, 28, 00
 	RGB 31, 30, 13
+; glowyellow
+	RGB 31, 31, 31
+	RGB 31, 31, 07
+	RGB 31, 24, 02
+	RGB 31, 16, 01
 rept NUM_CUSTOM_BATTLE_PALETTES - 6
 endr
