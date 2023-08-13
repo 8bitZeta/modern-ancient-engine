@@ -312,3 +312,15 @@ Sfx_GrassWhistle_Ch6:
 	note E_, 2
 	note G_, 6
 	endchannel
+
+Sfx_Gravity:
+	channel_count 1
+	channel 8, Sfx_Gravity_Ch8
+
+Sfx_Gravity_Ch8:
+	noise_note 11, 14, -2, 89
+	noise_note 11, 14, -2, 105
+	noise_note 11, 14, -2, 106
+	noise_note 11, 14, -2, 107
+	noise_note 11, 14, 1, 108
+	sound_ret

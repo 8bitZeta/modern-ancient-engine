@@ -208,4 +208,5 @@
 	const SFX_4_NOTE_DITTY                ; cc
 	const SFX_TWINKLE                     ; cd
 	const SFX_GRASS_WHISTLE               ; ce
+	const SFX_GRAVITY                     ; cf
 DEF NUM_SFX EQU const_value
