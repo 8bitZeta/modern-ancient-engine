@@ -2565,13 +2565,17 @@ BattleAnim_MudShot:
 	anim_ret
 
 BattleAnim_PoisonTail:
-	anim_1gfx ANIM_GFX_HIT
-	anim_sound 0, 1, SFX_POUND
-	anim_obj ANIM_OBJ_PALM, 136, 56, $0
-	anim_wait 6
-	anim_obj ANIM_OBJ_HIT_YFIX, 136, 56, $0
+	anim_2gfx ANIM_GFX_HIT, ANIM_GFX_POISON
+	anim_setobjpal PAL_BATTLE_OB_GRAY, PAL_BTLCUSTOM_PURPLE
+	anim_call BattleAnim_TargetObj_1Row_2
+	anim_bgeffect ANIM_BG_WOBBLE_MON, $0, $1, $0
 	anim_wait 16
-	anim_ret
+	anim_sound 0, 1, SFX_MEGA_KICK
+	anim_obj ANIM_OBJ_HIT_BIG_YFIX, 136, 48, $0
+	anim_wait 8
+	anim_incbgeffect ANIM_BG_WOBBLE_MON
+	anim_call BattleAnim_ShowMon_0_2
+	anim_jump BattleAnim_PoisonBubble_branch
 
 BattleAnim_Covet:
 	anim_1gfx ANIM_GFX_HIT
