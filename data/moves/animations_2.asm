@@ -2893,25 +2893,30 @@ BattleAnim_ShockWave:
 	anim_ret
 
 BattleAnim_WaterPulse:
-    anim_2gfx ANIM_GFX_PSYCHIC, ANIM_GFX_BUBBLE
-    anim_bgeffect ANIM_BG_WHIRLPOOL, $0, $0, $0
-    anim_sound 0, 1, SFX_SURF
+	anim_setobjpal PAL_BATTLE_OB_GRAY, PAL_BTLCUSTOM_WATER
+	anim_bgeffect ANIM_BG_CYCLE_OBPALS_GRAY_AND_YELLOW, $0, $4, $0
+	anim_2gfx ANIM_GFX_BUBBLE, ANIM_GFX_PSYCHIC
+	anim_battlergfx_2row
+	anim_bgeffect ANIM_BG_WHIRLPOOL, $0, $0, $0
+	anim_sound 6, 2, SFX_BUBBLEBEAM
+	anim_wait 64
 .loop
-    anim_sound 0, 1, SFX_TOXIC
-    anim_wait 8
-    anim_loop 3, .loop
-    anim_sound 0, 1, SFX_BUBBLEBEAM
-    anim_wait 16
-.rings
-    anim_obj ANIM_OBJ_WAVE, 64, 88, $2
-    anim_wait 4
-    anim_obj ANIM_OBJ_BUBBLE, 64, 92, $92
-    anim_wait 4
-    anim_loop 3, .rings
-    anim_wait 32
-    anim_incbgeffect ANIM_BG_WHIRLPOOL
-    anim_wait 1
-    anim_ret
+	anim_sound 0, 1, SFX_TOXIC
+	anim_obj ANIM_OBJ_WAVE, 64, 88, $2
+	anim_wait 6
+	anim_loop 3, .loop
+	anim_wait 6
+	anim_incbgeffect ANIM_BG_WHIRLPOOL
+	anim_bgeffect ANIM_BG_BATTLEROBJ_1ROW, $0, $1, $0
+	anim_wait 6
+	anim_bgeffect ANIM_BG_VIBRATE_MON, $0, $0, $0
+.loop2
+	anim_sound 0, 1, SFX_LICK
+	anim_wait 3
+	anim_loop 3, .loop2
+	anim_wait 32
+	anim_call BattleAnim_ShowMon_1_2
+	anim_ret
 
 BattleAnim_DoomDesire:
 	anim_1gfx ANIM_GFX_HIT
