@@ -2391,12 +2391,21 @@ BattleAnim_Block:
 	anim_ret
 
 BattleAnim_Howl:
-	anim_1gfx ANIM_GFX_HIT
-	anim_sound 0, 1, SFX_POUND
-	anim_obj ANIM_OBJ_PALM, 136, 56, $0
-	anim_wait 6
-	anim_obj ANIM_OBJ_HIT_YFIX, 136, 56, $0
+	anim_1gfx ANIM_GFX_NOISE
+	anim_call BattleAnim_TargetObj_1Row_2
+	anim_wait 1
+	anim_bgeffect ANIM_BG_VIBRATE_MON, $0, $1, $0
+	anim_bgeffect ANIM_BG_CYCLE_OBPALS_GRAY_AND_YELLOW, $0, $2, $0
+	anim_bgeffect ANIM_BG_FADE_MON_TO_LIGHT_REPEATING, $0, $1, $40
+	anim_cry 1
+.loop
+	anim_obj ANIM_OBJ_SOUND, 64, 76, $0
+	anim_obj ANIM_OBJ_SOUND, 64, 88, $1
+	anim_obj ANIM_OBJ_SOUND, 64, 100, $2
 	anim_wait 16
+	anim_loop 3, .loop
+	anim_wait 16
+	anim_call BattleAnim_ShowMon_0_2
 	anim_ret
 
 BattleAnim_DragonClaw:
