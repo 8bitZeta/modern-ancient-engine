@@ -2231,12 +2231,55 @@ BattleAnim_SandTomb:
 	anim_jump BattleAnim_ShowMon_1_2
 
 BattleAnim_SheerCold:
-	anim_1gfx ANIM_GFX_HIT
-	anim_sound 0, 1, SFX_POUND
-	anim_obj ANIM_OBJ_PALM, 136, 56, $0
-	anim_wait 6
-	anim_obj ANIM_OBJ_HIT_YFIX, 136, 56, $0
-	anim_wait 16
+	anim_setobjpal PAL_BATTLE_OB_BLUE, PAL_BTLCUSTOM_ICE
+	anim_1gfx ANIM_GFX_ICE
+	anim_sound 0, 1, SFX_SHINE
+	anim_obj ANIM_OBJ_ICE, 16, 36, $0
+	anim_wait 8
+	anim_sound 0, 1, SFX_SHINE
+	anim_obj ANIM_OBJ_ICE, 40, 96, $0
+	anim_wait 8
+	anim_sound 0, 1, SFX_SHINE
+	anim_obj ANIM_OBJ_ICE, 64, 26, $0
+	anim_wait 4
+	anim_sound 0, 1, SFX_SHINE
+	anim_obj ANIM_OBJ_ICE, 80, 64, $0
+	anim_wait 4
+	anim_obj ANIM_OBJ_ICE_BUILDUP, 136, 74, $10
+	anim_bgp $90
+	anim_setbgpal PAL_BATTLE_BG_TARGET, PAL_BTLCUSTOM_ICE
+.loop
+	anim_sound 0, 1, SFX_SHINE
+	anim_obj ANIM_OBJ_ICE, 108, 88, $0
+	anim_wait 2
+	anim_sound 0, 1, SFX_SHINE
+	anim_obj ANIM_OBJ_ICE, 112, 31, $0
+	anim_wait 2
+	anim_sound 0, 1, SFX_SHINE
+	anim_obj ANIM_OBJ_ICE, 138, 68, $0
+	anim_wait 2
+	anim_sound 0, 1, SFX_SHINE
+	anim_obj ANIM_OBJ_ICE, 144, 110, $0
+	anim_wait 2
+	anim_sound 0, 1, SFX_SHINE
+	anim_obj ANIM_OBJ_ICE, 154, 40, $0
+	anim_wait 2
+	anim_sound 0, 1, SFX_SHINE
+	anim_obj ANIM_OBJ_ICE, 16, 36, $0
+	anim_wait 2
+	anim_sound 0, 1, SFX_SHINE
+	anim_obj ANIM_OBJ_ICE, 40, 96, $0
+	anim_wait 2
+	anim_sound 0, 1, SFX_SHINE
+	anim_obj ANIM_OBJ_ICE, 64, 26, $0
+	anim_wait 2
+	anim_sound 0, 1, SFX_SHINE
+	anim_obj ANIM_OBJ_ICE, 80, 64, $0
+	anim_wait 2
+	anim_loop 4, .loop
+	anim_sound 0, 1, SFX_CUT
+	anim_bgp $0b
+	anim_wait 80
 	anim_ret
 
 BattleAnim_MuddyWater:
