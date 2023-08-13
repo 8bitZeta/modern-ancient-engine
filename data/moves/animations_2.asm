@@ -2367,13 +2367,19 @@ BattleAnim_IcicleSpear:
 	anim_ret
 
 BattleAnim_IronDefense:
-	anim_1gfx ANIM_GFX_HIT
-	anim_sound 0, 1, SFX_POUND
-	anim_obj ANIM_OBJ_PALM, 136, 56, $0
+	anim_1gfx ANIM_GFX_REFLECT
+	anim_obp0 $0
+	anim_call BattleAnim_TargetObj_1Row_2
+.loop
+	anim_bgp $90
+	anim_sound 0, 0, SFX_FORESIGHT
+	anim_obj ANIM_OBJ_HARDEN, 48, 84, $0
 	anim_wait 6
-	anim_obj ANIM_OBJ_HIT_YFIX, 136, 56, $0
-	anim_wait 16
-	anim_ret
+	anim_bgp $f8
+	anim_wait 6
+	anim_loop 5, .loop
+	anim_wait 6
+	anim_jump BattleAnim_ShowMon_0_2
 
 BattleAnim_Block:
 	anim_1gfx ANIM_GFX_HIT
