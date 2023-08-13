@@ -2382,12 +2382,12 @@ BattleAnim_IronDefense:
 	anim_jump BattleAnim_ShowMon_0_2
 
 BattleAnim_Block:
-	anim_1gfx ANIM_GFX_HIT
-	anim_sound 0, 1, SFX_POUND
-	anim_obj ANIM_OBJ_PALM, 136, 56, $0
-	anim_wait 6
-	anim_obj ANIM_OBJ_HIT_YFIX, 136, 56, $0
-	anim_wait 16
+	anim_1gfx ANIM_GFX_OBJECTS
+	anim_sound 0, 1, SFX_MEGA_PUNCH
+	anim_obj ANIM_OBJ_BLOCK, 132, 48, $20
+	anim_wait 48
+	anim_sound 0, 1, SFX_WRONG
+	anim_wait 20
 	anim_ret
 
 BattleAnim_Howl:

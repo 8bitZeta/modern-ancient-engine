@@ -239,6 +239,7 @@ BattleAnimFrameData:
 	dw .Frameset_TinyGlow                ; BATTLEANIMFRAMESET_TINY_GLOW
 	dw .Frameset_VerticalAgility         ; BATTLEANIMFRAMESET_VERTICAL_AGILITY
 	dw .Frameset_LongHit                 ; BATTLEANIMFRAMESET_LONG_HIT
+	dw .Frameset_BigRedX                 ; BATTLEANIMFRAMESET_BIG_RED_X
 	assert_table_length NUM_BATTLEANIMFRAMESETS
 
 .Frameset_HitBig:
@@ -1581,4 +1582,13 @@ BattleAnimFrameData:
 	battleoamframe BATTLEANIMOAMSET_01,  6
 	battleoamwait 4
 	battleoamframe BATTLEANIMOAMSET_01,  6
+	battleoamdelete
+
+.Frameset_BigRedX:
+	battleoamframe BATTLEANIMOAMSET_E6,  32
+	battleoamframe BATTLEANIMOAMSET_E6,  16
+	battleoamwait 4
+	battleoamframe BATTLEANIMOAMSET_E6,  6
+	battleoamwait 4
+	battleoamframe BATTLEANIMOAMSET_E6,  6
 	battleoamdelete
