@@ -1954,12 +1954,44 @@ BattleAnim_RockTomb:
 	anim_ret
 
 BattleAnim_SilverWind:
-	anim_1gfx ANIM_GFX_HIT
-	anim_sound 0, 1, SFX_POUND
-	anim_obj ANIM_OBJ_PALM, 136, 56, $0
-	anim_wait 6
-	anim_obj ANIM_OBJ_HIT_YFIX, 136, 56, $0
-	anim_wait 16
+	anim_2gfx ANIM_GFX_HAZE, ANIM_GFX_SPEED
+	anim_sound 0, 1, SFX_GAME_FREAK_LOGO_GS
+	anim_bgp $90
+	anim_bgeffect ANIM_BG_CYCLE_OBPALS_GRAY_AND_YELLOW, $0, $2, $0
+	anim_setobjpal PAL_BATTLE_OB_YELLOW, PAL_BTLCUSTOM_GRAY
+	anim_obj ANIM_OBJ_WIND, 88, 32, $1
+	anim_wait 8
+	anim_obj ANIM_OBJ_WIND, 56, 48, $1
+	anim_wait 8
+	anim_obj ANIM_OBJ_WIND_SPARKLE, 96, 80, $1
+	anim_obj ANIM_OBJ_WIND, 72, 64, $1
+	anim_wait 8
+	anim_obj ANIM_OBJ_WIND, 24, 80, $1
+	anim_wait 8
+	anim_obj ANIM_OBJ_WIND_SPARKLE, 80, 56, $1
+	anim_obj ANIM_OBJ_WIND, 40, 96, $1
+	anim_wait 8
+	anim_obj ANIM_OBJ_WIND, 88, 64, $1
+	anim_wait 8
+	anim_obj ANIM_OBJ_WIND_SPARKLE, 48, 64, $1
+	anim_obj ANIM_OBJ_WIND, 56, 48, $1
+	anim_wait 8
+	anim_obj ANIM_OBJ_WIND, 72, 64, $1
+	anim_wait 8
+	anim_obj ANIM_OBJ_WIND_SPARKLE, 64, 32, $1
+	anim_obj ANIM_OBJ_WIND, 24, 80, $1
+	anim_wait 8
+	anim_obj ANIM_OBJ_WIND, 40, 96, $1
+	anim_wait 8
+	anim_obj ANIM_OBJ_WIND_SPARKLE, 32, 96, $1
+	anim_obj ANIM_OBJ_WIND, 88, 32, $1
+	anim_wait 8
+	anim_obj ANIM_OBJ_WIND, 56, 48, $1
+	anim_wait 8
+	anim_obj ANIM_OBJ_WIND, 72, 64, $1
+	anim_wait 8
+	anim_obj ANIM_OBJ_WIND, 24, 80, $1
+	anim_wait 8
 	anim_ret
 
 BattleAnim_MetalSound:
