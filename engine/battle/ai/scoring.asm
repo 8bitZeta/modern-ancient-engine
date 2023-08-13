@@ -1154,7 +1154,7 @@ AI_Smart_SpDefenseUp2:
 	ret
 
 AI_Smart_Fly:
-; Fly, Dig, Dive
+; Fly, Dig, Dive, Bounce
 
 ; Greatly encourage this move if the player is
 ; flying or underground, and slower than the enemy.

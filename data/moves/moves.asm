@@ -362,7 +362,7 @@ Moves2:
 	move EFFECT_NORMAL_HIT,         80, DRAGON,         PHYSICAL, 100, 15,   0 ; DRAGON_CLAW
 	move EFFECT_HYPER_BEAM,        150, GRASS,          SPECIAL,   90,  5,   0 ; FRENZY_PLANT
 	move EFFECT_NORMAL_HIT,          0, FIGHTING,       STATUS,   100, 20,   0 ; BULK_UP
-	move EFFECT_FLY,                85, FLYING,         PHYSICAL,  85,  5,   0 ; BOUNCE
+	move EFFECT_BOUNCE,             85, FLYING,         PHYSICAL,  85,  5,   0 ; BOUNCE
 	move EFFECT_SPEED_DOWN_HIT,     55, GROUND,         SPECIAL,   95, 15, 100 ; MUD_SHOT
 	move EFFECT_POISON_HIT,         50, POISON,         PHYSICAL, 100, 25,  10 ; POISON_TAIL
 	move EFFECT_THIEF,              40, NORMAL,         PHYSICAL, 100, 40, 100 ; COVET

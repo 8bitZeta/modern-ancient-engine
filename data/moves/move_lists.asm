@@ -39,6 +39,7 @@ SemiInvulnerableMoves:
 	dw FLY
 	dw DIG
 	dw DIVE
+	dw BOUNCE
 	dw -1
 
 FlyHitMoves:
@@ -46,6 +47,7 @@ FlyHitMoves:
 	dw WHIRLWIND
 	dw THUNDER
 	dw TWISTER
+	dw SKY_UPPERCUT
 	dw -1
 
 DigHitMoves:

@@ -5322,11 +5322,12 @@ BattleCommand_Charge:
 	call CompareMove
 	ld a, 1 << SUBSTATUS_FLYING
 	jr z, .got_move_type
-	if HIGH(FLY) != HIGH(DIG)
-		ld bc, DIG
-	else
-		ld c, LOW(DIG)
-	endc
+	ld bc, BOUNCE
+	ld a, h
+	call CompareMove
+	ld a, 1 << SUBSTATUS_FLYING
+	jr z, .got_move_type
+	ld bc, DIG
 	ld a, h
 	call CompareMove
 	ld a, 1 << SUBSTATUS_UNDERGROUND
@@ -5408,6 +5409,7 @@ BattleCommand_Charge:
 	dw FLY,        .BattleFlewText
 	dw DIG,        .BattleDugText
 	dw DIVE,       .BattleDoveText
+	dw BOUNCE,     .BattleBounceText
 	dw -1
 
 .BattleMadeWhirlwindText:
@@ -5436,6 +5438,10 @@ BattleCommand_Charge:
 
 .BattleDoveText:
 	text_far _BattleDoveText
+	text_end
+
+.BattleBounceText:
+	text_far _BattleBounceText
 	text_end
 
 BattleCommand_ConfuseTarget:

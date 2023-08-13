@@ -727,6 +727,11 @@ _BattleDoveText::
 	line "hid underwater!"
 	prompt
 
+_BattleBounceText::
+	text_start
+	line "sprang up!"
+	prompt
+
 _ActorNameText::
 	text "<USER>@"
 	text_end

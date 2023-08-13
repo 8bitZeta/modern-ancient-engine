@@ -1619,9 +1619,9 @@ BattleAnimFrameData:
 	battleoamend
 
 .Frameset_BlurVerticalUp:
-	battleoamframe BATTLEANIMOAMSET_127, 24
+	battleoamframe BATTLEANIMOAMSET_127, 32
 	battleoamend
 
 .Frameset_BlurVerticalDown:
-	battleoamframe BATTLEANIMOAMSET_127, 24, OAM_X_FLIP, OAM_Y_FLIP
+	battleoamframe BATTLEANIMOAMSET_127, 32, OAM_X_FLIP, OAM_Y_FLIP
 	battleoamend
