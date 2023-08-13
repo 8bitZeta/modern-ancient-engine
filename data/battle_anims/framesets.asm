@@ -254,6 +254,8 @@ BattleAnimFrameData:
 	dw .Frameset_PulsingEnergyOrbBig     ; BATTLEANIMFRAMESET_PULSING_ENERGY_ORB_BIG
 	dw .Frameset_ShockWaveSparks         ; BATTLEANIMFRAMESET_SHOCK_WAVE_SPARKS
 	dw .Frameset_ExplosionSmall          ; BATTLEANIMFRAMESET_EXPLOSION_SMALL
+	dw .Frameset_WakeUpSlapL             ; BATTLEANIMFRAMESET_WAKE_UP_SLAP_L
+	dw .Frameset_WakeUpSlapR             ; BATTLEANIMFRAMESET_WAKE_UP_SLAP_R
 	assert_table_length NUM_BATTLEANIMFRAMESETS
 
 .Frameset_HitBig:
@@ -1699,3 +1701,21 @@ BattleAnimFrameData:
 	battleoamframe BATTLEANIMOAMSET_54,  2
 	battleoamframe BATTLEANIMOAMSET_53,  2
 	battleoamdelete
+
+.Frameset_WakeUpSlapL:
+	battleoamframe BATTLEANIMOAMSET_1B,  1, OAM_X_FLIP
+	battleoamframe BATTLEANIMOAMSET_21,  1, OAM_X_FLIP
+	battleoamframe BATTLEANIMOAMSET_BB,  1, OAM_X_FLIP
+	battleoamframe BATTLEANIMOAMSET_BB,  1
+	battleoamframe BATTLEANIMOAMSET_21,  1
+	battleoamframe BATTLEANIMOAMSET_1B,  1
+	battleoamend
+
+.Frameset_WakeUpSlapR:
+	battleoamframe BATTLEANIMOAMSET_1B,  1
+	battleoamframe BATTLEANIMOAMSET_21,  1
+	battleoamframe BATTLEANIMOAMSET_BB,  1
+	battleoamframe BATTLEANIMOAMSET_BB,  1, OAM_X_FLIP
+	battleoamframe BATTLEANIMOAMSET_21,  1, OAM_X_FLIP
+	battleoamframe BATTLEANIMOAMSET_1B,  1, OAM_X_FLIP
+	battleoamend
