@@ -2317,26 +2317,25 @@ BattleAnim_BulletSeed:
 	anim_ret
 
 BattleAnim_AerialAce:
-    anim_2gfx ANIM_GFX_SPEED, ANIM_GFX_CUT
-    anim_sound 0, 0, SFX_MENU
-    anim_bgeffect ANIM_BG_HIDE_MON, $0, $1, $0
-    anim_obj ANIM_OBJ_SPEED_LINE, 24, 88, $2
-    anim_obj ANIM_OBJ_SPEED_LINE, 32, 88, $1
-    anim_obj ANIM_OBJ_SPEED_LINE, 40, 88, $0
-    anim_obj ANIM_OBJ_SPEED_LINE, 48, 88, $80
-    anim_obj ANIM_OBJ_SPEED_LINE, 56, 88, $81
-    anim_obj ANIM_OBJ_SPEED_LINE, 64, 88, $82
-    anim_wait 12
-    anim_sound 0, 1, SFX_WING_ATTACK
-    anim_obj ANIM_OBJ_CUT_LONG_DOWN_LEFT, 160, 40, $0
-    anim_wait 24
-    anim_sound 0, 1, SFX_CUT
-    anim_bgeffect ANIM_BG_FLASH_INVERTED, $0, $8, $2
-    anim_obj ANIM_OBJ_CUT_UP_RIGHT, 120, 68, $0
-    anim_wait 8
-    anim_bgeffect ANIM_BG_SHOW_MON, $0, $1, $0
-    anim_wait 24
-    anim_ret
+	anim_2gfx ANIM_GFX_SPEED, ANIM_GFX_CUT
+	anim_sound 0, 0, SFX_MENU
+	anim_bgeffect ANIM_BG_HIDE_MON, $0, $1, $0
+	anim_obj ANIM_OBJ_SPEED_LINE, 24, 88, $2
+	anim_obj ANIM_OBJ_SPEED_LINE, 32, 88, $1
+	anim_obj ANIM_OBJ_SPEED_LINE, 40, 88, $0
+	anim_obj ANIM_OBJ_SPEED_LINE, 48, 88, $80
+	anim_obj ANIM_OBJ_SPEED_LINE, 56, 88, $81
+	anim_obj ANIM_OBJ_SPEED_LINE, 64, 88, $82
+	anim_wait 12
+	anim_sound 0, 1, SFX_WING_ATTACK
+	anim_obj ANIM_OBJ_CUT_LONG_DOWN_LEFT, 160, 40, $0
+	anim_wait 24
+	anim_sound 0, 1, SFX_CUT
+	anim_bgeffect ANIM_BG_FLASH_INVERTED, $0, $8, $2
+	anim_obj ANIM_OBJ_CUT_UP_RIGHT, 120, 68, $0
+	anim_wait 32
+	anim_bgeffect ANIM_BG_SHOW_MON, $0, $1, $0
+	anim_ret
 
 BattleAnim_IcicleSpear:
 	anim_1gfx ANIM_GFX_HIT
