@@ -330,6 +330,8 @@ DEF BATTLEANIM_BASE_TILE EQU 7 * 7  ; Maximum size of a pokemon picture
 	const ANIM_OBJ_SHRINKING_RING
 	const ANIM_OBJ_SHRINKING_RING_BIG
 	const ANIM_OBJ_CUT_LONG_UP_RIGHT
+	const ANIM_OBJ_CUT_LONG_UP_LEFT
+	const ANIM_OBJ_DRAGON_DANCE
 DEF NUM_ANIM_OBJS EQU const_value
 
 ; DoBattleAnimFrame arguments (see engine/battle_anims/functions.asm)
@@ -679,6 +681,7 @@ DEF NUM_BATTLEANIMFUNCS EQU const_value
 	const BATTLEANIMFRAMESET_SHRINKING_RING_BIG
 	const BATTLEANIMFRAMESET_CUT_LONG_UP_RIGHT
 	const BATTLEANIMFRAMESET_CUT_LONG_UP_LEFT
+	const BATTLEANIMFRAMESET_PULSING_ENERGY_ORB_BIG
 DEF NUM_BATTLEANIMFRAMESETS EQU const_value
 
 ; BattleAnimOAMData indexes (see data/battle_anims/oam.asm)

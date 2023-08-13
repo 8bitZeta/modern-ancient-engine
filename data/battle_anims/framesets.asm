@@ -251,6 +251,7 @@ BattleAnimFrameData:
 	dw .Frameset_ShrinkingRingBig        ; BATTLEANIMFRAMESET_SHRINKING_RING_BIG
 	dw .Frameset_CutLongUpRight          ; BATTLEANIMFRAMESET_CUT_LONG_UP_RIGHT
 	dw .Frameset_CutLongUpLeft           ; BATTLEANIMFRAMESET_CUT_LONG_UP_LEFT
+	dw .Frameset_PulsingEnergyOrbBig     ; BATTLEANIMFRAMESET_PULSING_ENERGY_ORB_BIG
 	assert_table_length NUM_BATTLEANIMFRAMESETS
 
 .Frameset_HitBig:
@@ -1681,3 +1682,8 @@ BattleAnimFrameData:
 	battleoamwait 2
 	battleoamframe BATTLEANIMOAMSET_52,  2, OAM_Y_FLIP
 	battleoamdelete
+
+.Frameset_PulsingEnergyOrbBig:
+	battleoamframe BATTLEANIMOAMSET_54,  1
+	battleoamframe BATTLEANIMOAMSET_F5,  1
+	battleoamrestart
