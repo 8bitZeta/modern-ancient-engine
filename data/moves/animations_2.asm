@@ -2283,6 +2283,7 @@ BattleAnim_SheerCold:
 	anim_ret
 
 BattleAnim_MuddyWater:
+	anim_setobjpal PAL_BATTLE_OB_BLUE, PAL_BTLCUSTOM_BROWN
 	anim_1gfx ANIM_GFX_BUBBLE
 	anim_bgp $f8
 	anim_bgeffect ANIM_BG_SURF, $0, $0, $0
