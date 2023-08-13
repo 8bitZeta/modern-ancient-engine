@@ -2578,12 +2578,24 @@ BattleAnim_PoisonTail:
 	anim_jump BattleAnim_PoisonBubble_branch
 
 BattleAnim_Covet:
-	anim_1gfx ANIM_GFX_HIT
-	anim_sound 0, 1, SFX_POUND
-	anim_obj ANIM_OBJ_PALM, 136, 56, $0
-	anim_wait 6
-	anim_obj ANIM_OBJ_HIT_YFIX, 136, 56, $0
-	anim_wait 16
+	anim_2gfx ANIM_GFX_OBJECTS, ANIM_GFX_HIT
+	anim_call BattleAnim_TargetObj_1Row_2
+	anim_bgeffect ANIM_BG_WOBBLE_MON, $0, $1, $0
+	anim_sound 0, 0, SFX_ATTRACT
+	anim_obj ANIM_OBJ_HEART, 64, 80, $0
+	anim_wait 32
+	anim_incbgeffect ANIM_BG_WOBBLE_MON
+	anim_call BattleAnim_ShowMon_0_2
+	anim_wait 1
+	anim_clearobjs
+	anim_wait 1
+	anim_1gfx ANIM_GFX_STATUS
+	anim_call BattleAnim_UserObj_1Row_2
+	anim_bgeffect ANIM_BG_VIBRATE_MON, $0, $0, $0
+	anim_sound 0, 1, SFX_THIEF_2
+	anim_obj ANIM_OBJ_THIEF, 120, 76, $1
+	anim_wait 64
+	anim_call BattleAnim_ShowMon_1_2
 	anim_ret
 
 BattleAnim_VoltTackle:
