@@ -233,6 +233,7 @@ BattleAnimFrameData:
 	dw .Frameset_Vortex                  ; BATTLEANIMFRAMESET_VORTEX
 	dw .Frameset_ShrinkingGlow           ; BATTLEANIMFRAMESET_SHRINKING_GLOW
 	dw .Frameset_WeatherBall             ; BATTLEANIMFRAMESET_WEATHER_BALL
+	dw .Frameset_GrassWhistleLeaf        ; BATTLEANIMFRAMESET_GRASS_WHISTLE_LEAF
 	assert_table_length NUM_BATTLEANIMFRAMESETS
 
 .Frameset_HitBig:
@@ -1547,3 +1548,7 @@ BattleAnimFrameData:
 .Frameset_WeatherBall:
 	battleoamframe BATTLEANIMOAMSET_125,  8
 	battleoamend
+
+.Frameset_GrassWhistleLeaf:
+	battleoamframe BATTLEANIMOAMSET_14, 32
+	battleoamdelete
