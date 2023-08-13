@@ -137,30 +137,30 @@ PlayersHouseRadioScript:
 	givepoke MEW, 100, LEFTOVERS
 	givepoke MEW, 100, LEFTOVERS
 	givepoke MEW, 100, LEFTOVERS
-	givepokemove BLAZE_KICK,        wPartyMon1, 0
-	givepokemove MUD_SPORT,       wPartyMon1, 1
-	givepokemove ICE_BALL,   wPartyMon1, 2
-	givepokemove NEEDLE_ARM,        wPartyMon1, 3
-	givepokemove SLACK_OFF,      wPartyMon2, 0
-	givepokemove HYPER_VOICE, wPartyMon2, 1
-	givepokemove POISON_FANG,   wPartyMon2, 2
-	givepokemove CRUSH_CLAW,  wPartyMon2, 3
-	givepokemove BLAST_BURN,        wPartyMon3, 0
-	givepokemove HYDRO_CANNON,       wPartyMon3, 1
-	givepokemove METEOR_MASH,   wPartyMon3, 2
-	givepokemove ASTONISH,        wPartyMon3, 3
-	givepokemove WEATHER_BALL,      wPartyMon4, 0
-	givepokemove AROMATHERAPY, wPartyMon4, 1
-	givepokemove FAKE_TEARS,   wPartyMon4, 2
-	givepokemove AIR_CUTTER,  wPartyMon4, 3
-	givepokemove OVERHEAT,        wPartyMon5, 0
-	givepokemove ODOR_SLEUTH,       wPartyMon5, 1
-	givepokemove ROCK_TOMB,   wPartyMon5, 2
-	givepokemove SILVER_WIND,        wPartyMon5, 3
-	givepokemove METAL_SOUND,      wPartyMon6, 0
-	givepokemove GRASSWHISTLE, wPartyMon6, 1
-	givepokemove TICKLE,   wPartyMon6, 2
-	givepokemove COSMIC_POWER,  wPartyMon6, 3
+	givepokemove WATER_SPOUT,        wPartyMon1, 0
+	givepokemove SIGNAL_BEAM,       wPartyMon1, 1
+	givepokemove SHADOW_PUNCH,   wPartyMon1, 2
+	givepokemove EXTRASENSORY,        wPartyMon1, 3
+	givepokemove SKY_UPPERCUT,      wPartyMon2, 0
+	givepokemove SAND_TOMB, wPartyMon2, 1
+	givepokemove SHEER_COLD,   wPartyMon2, 2
+	givepokemove MUDDY_WATER,  wPartyMon2, 3
+	givepokemove BULLET_SEED,        wPartyMon3, 0
+	givepokemove AERIAL_ACE,       wPartyMon3, 1
+	givepokemove ICICLE_SPEAR,   wPartyMon3, 2
+	givepokemove IRON_DEFENSE,        wPartyMon3, 3
+	givepokemove BLOCK,      wPartyMon4, 0
+	givepokemove HOWL, wPartyMon4, 1
+	givepokemove DRAGON_CLAW,   wPartyMon4, 2
+	givepokemove FRENZY_PLANT,  wPartyMon4, 3
+	givepokemove BULK_UP,        wPartyMon5, 0
+	givepokemove BOUNCE,       wPartyMon5, 1
+	givepokemove MUD_SHOT,   wPartyMon5, 2
+	givepokemove POISON_TAIL,        wPartyMon5, 3
+	givepokemove COVET,      wPartyMon6, 0
+	givepokemove VOLT_TACKLE, wPartyMon6, 1
+	givepokemove MAGICAL_LEAF,   wPartyMon6, 2
+	givepokemove WATER_SPORT,  wPartyMon6, 3
 	; Test pokemon
 	; givepoke NINCADA, 50
 	; givepoke NINCADA, 50

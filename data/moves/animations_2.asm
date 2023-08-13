@@ -2068,12 +2068,68 @@ BattleAnim_CosmicPower:
 	anim_ret
 
 BattleAnim_WaterSpout:
-	anim_1gfx ANIM_GFX_HIT
-	anim_sound 0, 1, SFX_POUND
-	anim_obj ANIM_OBJ_PALM, 136, 56, $0
-	anim_wait 6
-	anim_obj ANIM_OBJ_HIT_YFIX, 136, 56, $0
-	anim_wait 16
+	anim_2gfx ANIM_GFX_WATER, ANIM_GFX_HIT
+	anim_setobjpal PAL_BATTLE_OB_BLUE, PAL_BTLCUSTOM_WATER
+	anim_setobjpal PAL_BATTLE_OB_GRAY, PAL_BTLCUSTOM_WATER
+.loop
+	anim_sound 0, 0, SFX_WATER_GUN
+	anim_obj ANIM_OBJ_WATER_SPOUT_RISING, 48, 80, $30
+	anim_wait 2
+	anim_obj ANIM_OBJ_WATER_SPOUT_RISING, 52, 80, $30
+	anim_wait 2
+	anim_sound 0, 0, SFX_WATER_GUN
+	anim_obj ANIM_OBJ_WATER_SPOUT_RISING, 48, 80, $30
+	anim_wait 2
+	anim_obj ANIM_OBJ_WATER_SPOUT_RISING, 46, 80, $30
+	anim_wait 2
+	anim_sound 0, 0, SFX_WATER_GUN
+	anim_obj ANIM_OBJ_WATER_SPOUT_RISING, 48, 80, $30
+	anim_wait 2
+	anim_obj ANIM_OBJ_WATER_SPOUT_RISING, 54, 80, $30
+	anim_wait 2
+	anim_sound 0, 0, SFX_WATER_GUN
+	anim_obj ANIM_OBJ_WATER_SPOUT_RISING, 48, 80, $30
+	anim_wait 2
+	anim_loop 3, .loop
+	anim_wait 32
+	anim_sound 0, 0, SFX_BUBBLEBEAM
+	anim_obj ANIM_OBJ_WATER_SPOUT_FALLING, 108, 1, $10
+	anim_wait 2
+	anim_obj ANIM_OBJ_WATER_SPOUT_FALLING, 156, 1, $10
+	anim_wait 2
+	anim_obj ANIM_OBJ_WATER_SPOUT_FALLING, 116, 1, $10
+	anim_wait 2
+	anim_bgeffect ANIM_BG_SHAKE_SCREEN_X, $55, $1, $0
+.loop2
+	anim_obj ANIM_OBJ_HIT_YFIX, 108, 68, $0
+	anim_obj ANIM_OBJ_WATER_SPOUT_FALLING, 150, 1, $10
+	anim_wait 2
+	anim_obj ANIM_OBJ_HIT_YFIX, 156, 68, $0
+	anim_obj ANIM_OBJ_WATER_SPOUT_FALLING, 124, 1, $10
+	anim_wait 2
+	anim_obj ANIM_OBJ_HIT_YFIX, 116, 68, $0
+	anim_obj ANIM_OBJ_WATER_SPOUT_FALLING, 140, 1, $10
+	anim_wait 2
+	anim_obj ANIM_OBJ_HIT_YFIX, 150, 68, $0
+	anim_obj ANIM_OBJ_WATER_SPOUT_FALLING, 132, 1, $10
+	anim_wait 2
+	anim_obj ANIM_OBJ_HIT_YFIX, 124, 68, $0
+	anim_obj ANIM_OBJ_WATER_SPOUT_FALLING, 108, 1, $10
+	anim_wait 2
+	anim_obj ANIM_OBJ_HIT_YFIX, 140, 68, $0
+	anim_obj ANIM_OBJ_WATER_SPOUT_FALLING, 156, 1, $10
+	anim_wait 2
+	anim_obj ANIM_OBJ_HIT_YFIX, 132, 68, $0
+	anim_obj ANIM_OBJ_WATER_SPOUT_FALLING, 116, 1, $10
+	anim_wait 2
+	anim_loop 2, .loop2
+	anim_obj ANIM_OBJ_HIT_YFIX, 108, 68, $0
+	anim_wait 2
+	anim_obj ANIM_OBJ_HIT_YFIX, 156, 68, $0
+	anim_wait 2
+	anim_obj ANIM_OBJ_HIT_YFIX, 116, 68, $0
+	anim_wait 2
+	anim_wait 32
 	anim_ret
 
 BattleAnim_SignalBeam:
