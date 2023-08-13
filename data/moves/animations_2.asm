@@ -2980,12 +2980,73 @@ BattleAnim_DoomDesire:
 	anim_ret
 
 BattleAnim_PsychoBoost:
-	anim_1gfx ANIM_GFX_HIT
-	anim_sound 0, 1, SFX_POUND
-	anim_obj ANIM_OBJ_PALM, 136, 56, $0
-	anim_wait 6
-	anim_obj ANIM_OBJ_HIT_YFIX, 136, 56, $0
-	anim_wait 16
+	anim_setobjpal PAL_BATTLE_OB_YELLOW, PAL_BTLCUSTOM_ICE
+	anim_3gfx ANIM_GFX_BIG_GLOW, ANIM_GFX_GLOW, ANIM_GFX_SPEED
+	anim_bgeffect ANIM_BG_CYCLE_OBPALS_GRAY_AND_YELLOW, $0, $2, $0
+	anim_obj ANIM_OBJ_SMALL_GLOW, 48, 96, $0
+	anim_sound 0, 1, SFX_KINESIS
+	anim_wait 8
+	anim_clearobjs
+	anim_setobjpal PAL_BATTLE_OB_YELLOW, PAL_BTLCUSTOM_RED
+	anim_obj ANIM_OBJ_BIG_GLOW, 48, 96, $0
+	anim_bgeffect ANIM_BG_SHAKE_SCREEN_X, $60, $2, $0
+	anim_sound 0, 1, SFX_KINESIS
+	anim_obj ANIM_OBJ_WIND_SPARKLE, 48, 88, $0
+	anim_wait 8
+	anim_sound 0, 1, SFX_KINESIS
+	anim_obj ANIM_OBJ_WIND_SPARKLE, 48, 88, $28
+	anim_wait 8
+	anim_sound 0, 1, SFX_KINESIS
+	anim_obj ANIM_OBJ_WIND_SPARKLE, 48, 88, $30
+	anim_wait 8
+	anim_sound 0, 1, SFX_KINESIS
+	anim_obj ANIM_OBJ_WIND_SPARKLE, 48, 88, $38
+	anim_wait 8
+	anim_sound 0, 1, SFX_KINESIS
+	anim_obj ANIM_OBJ_WIND_SPARKLE, 48, 88, $20
+	anim_wait 8
+	anim_sound 0, 1, SFX_KINESIS
+	anim_obj ANIM_OBJ_WIND_SPARKLE, 48, 88, $8
+	anim_wait 8
+	anim_sound 0, 1, SFX_KINESIS
+	anim_obj ANIM_OBJ_WIND_SPARKLE, 48, 88, $18
+	anim_wait 8
+	anim_sound 0, 1, SFX_KINESIS
+	anim_obj ANIM_OBJ_WIND_SPARKLE, 48, 88, $4
+	anim_wait 8
+	anim_setobjpal PAL_BATTLE_OB_YELLOW, PAL_BTLCUSTOM_PSYCHO_BOOST_1
+	anim_bgeffect ANIM_BG_SHAKE_SCREEN_X, $60, $3, $0
+.loop2
+	anim_sound 0, 1, SFX_KINESIS
+	anim_wait 4
+	anim_loop 16, .loop2
+	anim_bgeffect ANIM_BG_SHAKE_SCREEN_X, $50, $4, $0
+	anim_setobjpal PAL_BATTLE_OB_YELLOW, PAL_BTLCUSTOM_PSYCHO_BOOST_2
+.loop3
+	anim_sound 0, 1, SFX_KINESIS
+	anim_wait 2
+	anim_loop 24, .loop3
+	anim_clearobjs
+	anim_bgeffect ANIM_BG_SHAKE_SCREEN_X, $70, $6, $0
+	anim_bgeffect ANIM_BG_CYCLE_BGPALS_INVERTED, $0, $4, $0
+.loop4
+	anim_sound 0, 1, SFX_THUNDER
+	anim_obj ANIM_OBJ_SHRINKING_GLOW, 140, 44, $0
+	anim_wait 4
+	anim_sound 0, 1, SFX_THUNDER
+	anim_obj ANIM_OBJ_SHRINKING_GLOW, 124, 60, $0
+	anim_wait 4
+	anim_sound 0, 1, SFX_THUNDER
+	anim_obj ANIM_OBJ_SHRINKING_GLOW, 140, 60, $0
+	anim_wait 4
+	anim_sound 0, 1, SFX_THUNDER
+	anim_obj ANIM_OBJ_SHRINKING_GLOW, 124, 44, $0
+	anim_wait 4
+	anim_sound 0, 1, SFX_THUNDER
+	anim_obj ANIM_OBJ_SHRINKING_GLOW, 132, 52, $0
+	anim_wait 4
+	anim_loop 2, .loop4
+	anim_wait 32
 	anim_ret
 
 BattleAnim_Roost:
