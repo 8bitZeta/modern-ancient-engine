@@ -252,6 +252,7 @@ BattleAnimFrameData:
 	dw .Frameset_CutLongUpRight          ; BATTLEANIMFRAMESET_CUT_LONG_UP_RIGHT
 	dw .Frameset_CutLongUpLeft           ; BATTLEANIMFRAMESET_CUT_LONG_UP_LEFT
 	dw .Frameset_PulsingEnergyOrbBig     ; BATTLEANIMFRAMESET_PULSING_ENERGY_ORB_BIG
+	dw .Frameset_ShockWaveSparks         ; BATTLEANIMFRAMESET_SHOCK_WAVE_SPARKS
 	assert_table_length NUM_BATTLEANIMFRAMESETS
 
 .Frameset_HitBig:
@@ -1687,3 +1688,7 @@ BattleAnimFrameData:
 	battleoamframe BATTLEANIMOAMSET_54,  1
 	battleoamframe BATTLEANIMOAMSET_F5,  1
 	battleoamrestart
+
+.Frameset_ShockWaveSparks:
+	battleoamframe BATTLEANIMOAMSET_82,  8
+	battleoamend
