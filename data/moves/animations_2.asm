@@ -2513,7 +2513,29 @@ BattleAnim_BulkUp:
 	anim_ret
 
 BattleAnim_Bounce:
-    anim_ret
+	anim_if_param_equal $1, BattleAnim_Bounce_branch_1
+	anim_if_param_equal $2, BattleAnim_Bounce_branch_2
+	anim_2gfx ANIM_GFX_BLUR, ANIM_GFX_HIT
+	anim_sound 0, 0, SFX_KINESIS
+	anim_obj ANIM_OBJ_BLUR_VERTICAL_DOWN, 136, 230, $10
+	anim_wait 16
+	anim_bgeffect ANIM_BG_SHAKE_SCREEN_X, $10, $4, $0
+	anim_sound 0, 1, SFX_STOMP
+	anim_obj ANIM_OBJ_HIT_BIG_YFIX, 136, 56, $0
+	anim_wait 16
+BattleAnim_Bounce_branch_2:
+	anim_bgeffect ANIM_BG_SHOW_MON, $0, $1, $0
+	anim_wait 16
+	anim_ret
+
+BattleAnim_Bounce_branch_1:
+	anim_1gfx ANIM_GFX_BLUR
+	anim_sound 0, 0, SFX_POTION
+	anim_bgeffect ANIM_BG_HIDE_MON, $0, $1, $0
+	anim_obj ANIM_OBJ_BLUR_VERTICAL_UP, 48, 88, $30
+	anim_wait 32
+	anim_clearobjs
+	anim_ret
 
 BattleAnim_MudShot:
 	anim_1gfx ANIM_GFX_HIT
