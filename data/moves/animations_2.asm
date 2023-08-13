@@ -2297,23 +2297,24 @@ BattleAnim_MuddyWater:
 	anim_ret
 
 BattleAnim_BulletSeed:
-    anim_2gfx ANIM_GFX_PLANT, ANIM_GFX_HIT
+	anim_2gfx ANIM_GFX_PLANT, ANIM_GFX_HIT    
+	anim_sound 0, 1, SFX_BONE_CLUB
 .loop
-    anim_obj ANIM_OBJ_BULLET_SEED, 64, 92, $18
-    anim_wait 8
-    anim_obj ANIM_OBJ_BULLET_SEED, 56, 84, $18
-    anim_sound 0, 1, SFX_VINE_WHIP
-    anim_obj ANIM_OBJ_HIT_YFIX, 136, 56, $0
-    anim_wait 8
-    anim_obj ANIM_OBJ_BULLET_SEED, 52, 88, $18
-    anim_sound 0, 1, SFX_VINE_WHIP
-    anim_obj ANIM_OBJ_HIT_YFIX, 128, 48, $0
-    anim_wait 8
-    anim_sound 0, 1, SFX_VINE_WHIP
-    anim_obj ANIM_OBJ_HIT_YFIX, 132, 52, $0
-    anim_loop 3, .loop
-    anim_wait 16
-    anim_ret
+	anim_obj ANIM_OBJ_BULLET_SEED, 64, 90, $6
+	anim_wait 7
+	anim_obj ANIM_OBJ_BULLET_SEED, 64, 90, $6
+	anim_sound 0, 1, SFX_HORN_ATTACK
+	anim_obj ANIM_OBJ_HIT_YFIX, 136, 56, $0
+	anim_wait 7
+	anim_obj ANIM_OBJ_BULLET_SEED, 64, 90, $6
+	anim_sound 0, 1, SFX_HORN_ATTACK
+	anim_obj ANIM_OBJ_HIT_YFIX, 136, 56, $0
+	anim_wait 7
+	anim_sound 0, 1, SFX_HORN_ATTACK
+	anim_obj ANIM_OBJ_HIT_YFIX, 136, 56, $0
+	anim_loop 3, .loop
+	anim_wait 16
+	anim_ret
 
 BattleAnim_AerialAce:
     anim_2gfx ANIM_GFX_SPEED, ANIM_GFX_CUT
