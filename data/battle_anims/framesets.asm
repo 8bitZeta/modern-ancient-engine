@@ -250,7 +250,7 @@ BattleAnimFrameData:
 	dw .Frameset_ShrinkingRing           ; BATTLEANIMFRAMESET_SHRINKING_RING
 	dw .Frameset_ShrinkingRingBig        ; BATTLEANIMFRAMESET_SHRINKING_RING_BIG
 	dw .Frameset_CutLongUpRight          ; BATTLEANIMFRAMESET_CUT_LONG_UP_RIGHT
-	dw .Frameset_CutLongUpLeft          ; BATTLEANIMFRAMESET_CUT_LONG_UP_LEFT
+	dw .Frameset_CutLongUpLeft           ; BATTLEANIMFRAMESET_CUT_LONG_UP_LEFT
 	assert_table_length NUM_BATTLEANIMFRAMESETS
 
 .Frameset_HitBig:
@@ -1490,7 +1490,7 @@ BattleAnimFrameData:
 	battleoamrestart
 
 .Frameset_TeeterDance:
-	battleoamframe BATTLEANIMOAMSET_1B,  40
+	battleoamframe BATTLEANIMOAMSET_1B, 40
 	battleoamdelete
 
 .Frameset_BurnedShort:
@@ -1596,8 +1596,8 @@ BattleAnimFrameData:
 	battleoamdelete
 
 .Frameset_BigRedX:
-	battleoamframe BATTLEANIMOAMSET_E6,  32
-	battleoamframe BATTLEANIMOAMSET_E6,  16
+	battleoamframe BATTLEANIMOAMSET_E6, 32
+	battleoamframe BATTLEANIMOAMSET_E6, 16
 	battleoamwait 4
 	battleoamframe BATTLEANIMOAMSET_E6,  6
 	battleoamwait 4
