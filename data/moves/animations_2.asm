@@ -2040,12 +2040,31 @@ BattleAnim_Tickle:
 	anim_jump BattleAnim_ShowMon_1_2
 
 BattleAnim_CosmicPower:
-	anim_1gfx ANIM_GFX_HIT
-	anim_sound 0, 1, SFX_POUND
-	anim_obj ANIM_OBJ_PALM, 136, 56, $0
-	anim_wait 6
-	anim_obj ANIM_OBJ_HIT_YFIX, 136, 56, $0
-	anim_wait 16
+	anim_setobjpal PAL_BATTLE_OB_GREEN, PAL_BTLCUSTOM_COSMIC
+	anim_2gfx ANIM_GFX_STARS, ANIM_GFX_COSMIC_POWER
+	anim_clearenemyhud
+	anim_bgp $1b
+	anim_bgeffect ANIM_BG_HIDE_MON, $0, $0, $0
+	anim_sound 0, 0, SFX_GAME_FREAK_LOGO_GS
+	anim_obj ANIM_OBJ_COSMIC_POWER_BG, 61, 75, $30
+	anim_wait 64
+	anim_sound 0, 0, SFX_METRONOME
+	anim_bgeffect ANIM_BG_CYCLE_OBPALS_GRAY_AND_YELLOW, $0, $2, $0
+	anim_bgeffect ANIM_BG_CYCLE_BGPALS_INVERTED, $0, $4, $0
+.loop
+	anim_obj ANIM_OBJ_COSMIC_POWER, 56, 88, $32
+	anim_wait 4
+	anim_obj ANIM_OBJ_COSMIC_POWER, 40, 88, $2c
+	anim_wait 4
+	anim_obj ANIM_OBJ_COSMIC_POWER, 60, 104, $34
+	anim_wait 4
+	anim_obj ANIM_OBJ_COSMIC_POWER, 36, 104, $2e
+	anim_wait 4
+	anim_loop 3, .loop
+	anim_wait 32
+	anim_clearobjs
+	anim_wait 1
+	anim_bgeffect ANIM_BG_SHOW_MON, $0, $0, $0
 	anim_ret
 
 BattleAnim_WaterSpout:
