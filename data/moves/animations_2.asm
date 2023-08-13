@@ -2491,12 +2491,25 @@ BattleAnim_FrenzyPlant:
 	anim_ret
 
 BattleAnim_BulkUp:
-	anim_1gfx ANIM_GFX_HIT
-	anim_sound 0, 1, SFX_POUND
-	anim_obj ANIM_OBJ_PALM, 136, 56, $0
-	anim_wait 6
-	anim_obj ANIM_OBJ_HIT_YFIX, 136, 56, $0
+	anim_2gfx ANIM_GFX_BULK_UP, ANIM_GFX_WIND
+	anim_sound 0, 0, SFX_SQUEAK
+	anim_obj ANIM_OBJ_BULK_UP, 48, 88, $0
+	anim_wait 32
+	anim_bgeffect ANIM_BG_SHAKE_SCREEN_X, $08, $2, $0
+	anim_setobjpal PAL_BATTLE_OB_GRAY, PAL_BTLCUSTOM_BULK_UP
+	anim_sound 0, 0, SFX_HORN_ATTACK
 	anim_wait 16
+	anim_setobjpal PAL_BATTLE_OB_GRAY, PAL_BTLCUSTOM_GRAY
+	anim_wait 8
+	anim_bgeffect ANIM_BG_SHAKE_SCREEN_X, $08, $2, $0
+	anim_setobjpal PAL_BATTLE_OB_GRAY, PAL_BTLCUSTOM_BULK_UP
+	anim_sound 0, 0, SFX_HORN_ATTACK
+	anim_wait 24
+	anim_clearobjs
+	anim_setobjpal PAL_BATTLE_OB_GRAY, PAL_BTLCUSTOM_GRAY
+	anim_sound 0, 0, SFX_MENU
+	anim_obj ANIM_OBJ_SWAGGER, 72, 88, $44
+	anim_wait 32
 	anim_ret
 
 BattleAnim_Bounce:

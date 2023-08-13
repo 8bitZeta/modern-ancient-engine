@@ -242,6 +242,7 @@ BattleAnimFrameData:
 	dw .Frameset_BigRedX                 ; BATTLEANIMFRAMESET_BIG_RED_X
 	dw .Framset_FrenzyPlantL             ; BATTLEANIMFRAMESET_FRENZY_PLANT_L
 	dw .Framset_FrenzyPlantR             ; BATTLEANIMFRAMESET_FRENZY_PLANT_R
+	dw .Frameset_BulkUp                  ; BATTLEANIMFRAMESET_BULK_UP
 	assert_table_length NUM_BATTLEANIMFRAMESETS
 
 .Frameset_HitBig:
@@ -1607,4 +1608,10 @@ BattleAnimFrameData:
 	battleoamframe BATTLEANIMOAMSET_EF,  1, OAM_X_FLIP
 	battleoamframe BATTLEANIMOAMSET_F0,  1, OAM_X_FLIP
 	battleoamframe BATTLEANIMOAMSET_F1,  1, OAM_X_FLIP
+	battleoamend
+
+.Frameset_BulkUp:
+	battleoamframe BATTLEANIMOAMSET_F7,  32
+	battleoamframe BATTLEANIMOAMSET_F8,  24
+	battleoamframe BATTLEANIMOAMSET_F8,  24
 	battleoamend

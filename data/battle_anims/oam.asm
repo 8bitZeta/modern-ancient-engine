@@ -254,8 +254,8 @@ BattleAnimOAMData:
 	battleanimoam $0a,  1, .OAMData_60  ; BATTLEANIMOAMSET_F4
 	; battleanimoam $09,  4, .OAMData_02  ; BATTLEANIMOAMSET_F5
 	battleanimoam $02,  4, .OAMData_f6  ; BATTLEANIMOAMSET_F6
-	; battleanimoam $00, 18, .OAMData_f7  ; BATTLEANIMOAMSET_F7
-	; battleanimoam $09, 18, .OAMData_f7  ; BATTLEANIMOAMSET_F8
+	battleanimoam $00, 18, .OAMData_f7  ; BATTLEANIMOAMSET_F7
+	battleanimoam $09, 18, .OAMData_f7  ; BATTLEANIMOAMSET_F8
 	; battleanimoam $0f,  1, .OAMData_0f  ; BATTLEANIMOAMSET_F9
 	; battleanimoam $00,  8, .OAMData_fa  ; BATTLEANIMOAMSET_FA
 	; battleanimoam $00, 24, .OAMData_fb  ; BATTLEANIMOAMSET_FB
@@ -1470,3 +1470,23 @@ BattleAnimOAMData:
 	dbsprite   0,   0, 0, 0, $05, X_FLIP
 	dbsprite   1,   1, 0, 0, $06, X_FLIP
 	dbsprite   0,   1, 0, 0, $07, X_FLIP
+
+.OAMData_f7:
+	dbsprite   0,  -2, 4, 4, $00, $0
+	dbsprite   1,  -2, 4, 4, $01, $0
+	dbsprite   2,  -2, 4, 4, $02, $0
+	dbsprite   0,  -1, 4, 4, $03, $0
+	dbsprite   1,  -1, 4, 4, $04, $0
+	dbsprite   2,  -1, 4, 4, $05, $0
+	dbsprite   0,   0, 4, 4, $06, $0
+	dbsprite   1,   0, 4, 4, $07, $0
+	dbsprite   2,   0, 4, 4, $08, $0
+	dbsprite  -3,  -2, 4, 4, $00, X_FLIP
+	dbsprite  -4,  -2, 4, 4, $01, X_FLIP
+	dbsprite  -5,  -2, 4, 4, $02, X_FLIP
+	dbsprite  -3,  -1, 4, 4, $03, X_FLIP
+	dbsprite  -4,  -1, 4, 4, $04, X_FLIP
+	dbsprite  -5,  -1, 4, 4, $05, X_FLIP
+	dbsprite  -3,   0, 4, 4, $06, X_FLIP
+	dbsprite  -4,   0, 4, 4, $07, X_FLIP
+	dbsprite  -5,   0, 4, 4, $08, X_FLIP
