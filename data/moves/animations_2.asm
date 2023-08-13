@@ -1926,10 +1926,10 @@ BattleAnim_OdorSleuth:
 	anim_sound 0, 0, SFX_FORESIGHT
 	anim_obj ANIM_OBJ_FORESIGHT, 64, 88, $0
 	anim_wait 24
-	anim_ret	
+	anim_ret
 
 BattleAnim_RockTomb:
-	anim_1gfx ANIM_GFX_ROCKS
+	anim_2gfx ANIM_GFX_ROCKS, ANIM_GFX_OBJECTS
 	anim_obj ANIM_OBJ_ROCK_TOMB, 128, 70, $30
 	anim_wait 18
 	anim_sound 0, 1, SFX_EGG_BOMB
@@ -1946,6 +1946,10 @@ BattleAnim_RockTomb:
 	anim_wait 18
 	anim_sound 0, 1, SFX_EGG_BOMB
 	anim_bgeffect ANIM_BG_SHAKE_SCREEN_X, $20, $2, $0
+	anim_wait 40
+	anim_clearobjs
+	anim_sound 6, 3, SFX_PLACE_PUZZLE_PIECE_DOWN
+	anim_obj ANIM_OBJ_RED_X, 132, 44, $2e
 	anim_wait 32
 	anim_ret
 
