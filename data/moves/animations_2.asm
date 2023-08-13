@@ -2696,12 +2696,48 @@ BattleAnim_MagicalLeaf:
 	anim_ret
 
 BattleAnim_WaterSport:
-	anim_1gfx ANIM_GFX_HIT
-	anim_sound 0, 1, SFX_POUND
-	anim_obj ANIM_OBJ_PALM, 136, 56, $0
-	anim_wait 6
-	anim_obj ANIM_OBJ_HIT_YFIX, 136, 56, $0
-	anim_wait 16
+	anim_1gfx ANIM_GFX_WATER
+	anim_setobjpal PAL_BATTLE_OB_BLUE, PAL_BTLCUSTOM_WATER
+	anim_call BattleAnim_TargetObj_2Row_2
+	anim_bgeffect ANIM_BG_BOUNCE_DOWN, $0, $1, $0
+	anim_wait 22
+	anim_call BattleAnim_WaterSport_branch
+	anim_incbgeffect ANIM_BG_BOUNCE_DOWN
+	anim_call BattleAnim_ShowMon_0_2
+	anim_clearobjs
+.loop
+	anim_sound 6, 2, SFX_SQUEAK
+	anim_obj ANIM_OBJ_WATER_SPORT, 40, 20, $10
+	anim_wait 8
+	anim_sound 6, 2, SFX_SQUEAK
+	anim_obj ANIM_OBJ_WATER_SPORT, 90, 20, $10
+	anim_wait 8
+	anim_sound 6, 2, SFX_SQUEAK
+	anim_obj ANIM_OBJ_WATER_SPORT, 140, 20, $10
+	anim_wait 8
+	anim_sound 6, 2, SFX_SQUEAK
+	anim_obj ANIM_OBJ_WATER_SPORT, 65, 20, $10
+	anim_wait 8
+	anim_sound 6, 2, SFX_SQUEAK
+	anim_obj ANIM_OBJ_WATER_SPORT, 115, 20, $10
+	anim_wait 8
+	anim_sound 6, 2, SFX_SQUEAK
+	anim_loop 2, .loop
+	anim_wait 32
+	anim_ret
+
+BattleAnim_WaterSport_branch:
+.loop
+	anim_sound 0, 1, SFX_WATER_GUN
+	anim_obj ANIM_OBJ_WATER_SPOUT_RISING, 48, 80, $32
+	anim_wait 2
+	anim_obj ANIM_OBJ_WATER_SPOUT_RISING, 48, 80, $2e
+	anim_wait 2
+	anim_obj ANIM_OBJ_WATER_SPOUT_RISING, 48, 80, $31
+	anim_wait 2
+	anim_obj ANIM_OBJ_WATER_SPOUT_RISING, 48, 80, $2f
+	anim_wait 28
+	anim_loop 2, .loop
 	anim_ret
 
 BattleAnim_CalmMind:
