@@ -2647,12 +2647,52 @@ BattleAnim_VoltTackle:
 	anim_ret
 
 BattleAnim_MagicalLeaf:
-	anim_1gfx ANIM_GFX_HIT
-	anim_sound 0, 1, SFX_POUND
-	anim_obj ANIM_OBJ_PALM, 136, 56, $0
+	anim_setobjpal PAL_BATTLE_OB_YELLOW, PAL_BTLCUSTOM_AURORA
+	anim_bgeffect ANIM_BG_CYCLE_OBPALS_GRAY_AND_YELLOW, $0, $2, $0
+	anim_1gfx ANIM_GFX_PLANT
+	anim_sound 0, 0, SFX_VINE_WHIP
+	anim_obj ANIM_OBJ_RAZOR_LEAF, 48, 80, $28
+	anim_obj ANIM_OBJ_RAZOR_LEAF, 48, 80, $5c
+	anim_obj ANIM_OBJ_RAZOR_LEAF, 48, 80, $10
+	anim_obj ANIM_OBJ_RAZOR_LEAF, 48, 80, $e8
+	anim_obj ANIM_OBJ_RAZOR_LEAF, 48, 80, $9c
+	anim_obj ANIM_OBJ_RAZOR_LEAF, 48, 80, $d0
 	anim_wait 6
-	anim_obj ANIM_OBJ_HIT_YFIX, 136, 56, $0
-	anim_wait 16
+	anim_obj ANIM_OBJ_RAZOR_LEAF, 48, 80, $1c
+	anim_obj ANIM_OBJ_RAZOR_LEAF, 48, 80, $50
+	anim_obj ANIM_OBJ_RAZOR_LEAF, 48, 80, $dc
+	anim_obj ANIM_OBJ_RAZOR_LEAF, 48, 80, $90
+	anim_wait 80
+	anim_sound 16, 2, SFX_SWEET_SCENT
+	anim_incobj 3
+	anim_wait 2
+	anim_sound 16, 2, SFX_SWEET_SCENT
+	anim_incobj 5
+	anim_wait 2
+	anim_sound 16, 2, SFX_SWEET_SCENT
+	anim_incobj 7
+	anim_wait 2
+	anim_sound 16, 2, SFX_SWEET_SCENT
+	anim_incobj 9
+	anim_wait 2
+	anim_sound 16, 2, SFX_SWEET_SCENT
+	anim_incobj 1
+	anim_wait 2
+	anim_sound 16, 2, SFX_SWEET_SCENT
+	anim_incobj 2
+	anim_wait 2
+	anim_sound 16, 2, SFX_SWEET_SCENT
+	anim_incobj 4
+	anim_wait 2
+	anim_sound 16, 2, SFX_SWEET_SCENT
+	anim_incobj 6
+	anim_wait 2
+	anim_sound 16, 2, SFX_SWEET_SCENT
+	anim_incobj 8
+	anim_wait 2
+	anim_sound 16, 2, SFX_SWEET_SCENT
+	anim_incobj 10
+	anim_wait 64
 	anim_ret
 
 BattleAnim_WaterSport:
