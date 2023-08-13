@@ -109,6 +109,7 @@ DoBattleAnimFrame:
 	dba BattleAnimFunction_RadialMoveIn
 	dba BattleAnimFunction_BubbleSplash
 	dba BattleAnimFunction_ObjectHover
+	dba BattleAnimFunction_Roost
 	assert_table_length NUM_BATTLEANIMFUNCS
 
 BattleAnimFunction_ThrowFromUserToTargetAndDisappear:
@@ -4772,3 +4773,47 @@ BattleAnimFunction_RadialMoveOut_Slow:
 	add hl, bc
 	ld [hl], a
 	ret
+
+BattleAnimFunction_Roost:
+; Moves object in a circle where the height is 1/8 the width, while also moving downward 1 pixel per frame
+; Obj Param: Defines where the object starts in the circle
+	ld hl, BATTLEANIMSTRUCT_PARAM
+	add hl, bc
+	ld a, [hl]
+	ld d, $18
+	call Sine
+	sra a
+	sra a
+	sra a
+	ld hl, BATTLEANIMSTRUCT_VAR2
+	add hl, bc
+	add [hl]
+	ld hl, BATTLEANIMSTRUCT_YOFFSET
+	add hl, bc
+	ld [hl], a
+	ld hl, BATTLEANIMSTRUCT_PARAM
+	add hl, bc
+	ld a, [hl]
+	inc [hl]
+	ld d, $18
+	call Cosine
+	ld hl, BATTLEANIMSTRUCT_XOFFSET
+	add hl, bc
+	ld [hl], a
+	ld hl, BATTLEANIMSTRUCT_VAR1
+	add hl, bc
+	inc [hl]
+	ld a, [hl]
+	and $7
+	ret nz
+	ld hl, BATTLEANIMSTRUCT_VAR2
+	add hl, bc
+	ld a, [hl]
+	cp $1e
+	jr nc, .delete
+	inc [hl]
+	inc [hl]
+	ret
+
+.delete
+	jmp DeinitBattleAnimation

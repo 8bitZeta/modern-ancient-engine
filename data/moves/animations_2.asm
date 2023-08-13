@@ -3049,14 +3049,22 @@ BattleAnim_PsychoBoost:
 	anim_wait 32
 	anim_ret
 
+; - Gen 4 Anims
+
 BattleAnim_Roost:
-	anim_1gfx ANIM_GFX_HIT
-	anim_sound 0, 1, SFX_POUND
-	anim_obj ANIM_OBJ_PALM, 136, 56, $0
-	anim_wait 6
-	anim_obj ANIM_OBJ_HIT_YFIX, 136, 56, $0
+	anim_2gfx ANIM_GFX_MISC, ANIM_GFX_SHINE
+	anim_bgeffect ANIM_BG_FADE_MON_TO_LIGHT_REPEATING, $0, $1, $40
 	anim_wait 16
-	anim_ret
+	anim_sound 0, 0, SFX_MORNING_SUN 
+	anim_obj ANIM_OBJ_ROOST, 48, 80, $00
+	anim_obj ANIM_OBJ_ROOST, 48, 80, $0d
+	anim_obj ANIM_OBJ_ROOST, 48, 80, $1a
+	anim_obj ANIM_OBJ_ROOST, 48, 80, $27
+	anim_obj ANIM_OBJ_ROOST, 48, 80, $34
+	anim_wait 130
+	anim_incbgeffect ANIM_BG_FADE_MON_TO_LIGHT_REPEATING
+	anim_bgeffect ANIM_BG_CYCLE_MID_OBPALS_GRAY_AND_YELLOW, $0, $0, $0
+	anim_jump BattleAnim_Glimmer_branch
 
 BattleAnim_Gravity:
 	anim_1gfx ANIM_GFX_HIT
