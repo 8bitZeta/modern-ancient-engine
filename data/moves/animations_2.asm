@@ -2338,11 +2338,31 @@ BattleAnim_AerialAce:
 	anim_ret
 
 BattleAnim_IcicleSpear:
-	anim_1gfx ANIM_GFX_HIT
-	anim_sound 0, 1, SFX_POUND
-	anim_obj ANIM_OBJ_PALM, 136, 56, $0
-	anim_wait 6
+	anim_setobjpal PAL_BATTLE_OB_YELLOW, PAL_BTLCUSTOM_ICE
+	anim_setobjpal PAL_BATTLE_OB_BLUE, PAL_BTLCUSTOM_ICE
+	anim_3gfx ANIM_GFX_HORN, ANIM_GFX_ICE, ANIM_GFX_HIT
+	anim_sound 0, 0, SFX_SHINE
+	anim_obj ANIM_OBJ_MEDIUM_HORN, 64, 92, $28
+	anim_wait 12
+	anim_obj ANIM_OBJ_MEDIUM_HORN, 56, 84, $28
+	anim_sound 0, 1, SFX_HORN_ATTACK
 	anim_obj ANIM_OBJ_HIT_YFIX, 136, 56, $0
+	anim_obj ANIM_OBJ_ICE_SPLASH, 136, 56, $28
+	anim_obj ANIM_OBJ_ICE_SPLASH, 136, 56, $10
+	anim_obj ANIM_OBJ_ICE_SPLASH, 136, 56, $9c
+	anim_wait 12
+	anim_obj ANIM_OBJ_MEDIUM_HORN, 52, 88, $28
+	anim_sound 0, 1, SFX_HORN_ATTACK
+	anim_obj ANIM_OBJ_HIT_YFIX, 128, 48, $0
+	anim_obj ANIM_OBJ_ICE_SPLASH, 128, 48, $28
+	anim_obj ANIM_OBJ_ICE_SPLASH, 128, 48, $10
+	anim_obj ANIM_OBJ_ICE_SPLASH, 128, 48, $9c
+	anim_wait 12
+	anim_sound 0, 1, SFX_HORN_ATTACK
+	anim_obj ANIM_OBJ_HIT_YFIX, 132, 52, $0
+	anim_obj ANIM_OBJ_ICE_SPLASH, 132, 52, $28
+	anim_obj ANIM_OBJ_ICE_SPLASH, 132, 52, $10
+	anim_obj ANIM_OBJ_ICE_SPLASH, 132, 52, $9c
 	anim_wait 16
 	anim_ret
 

@@ -1367,7 +1367,7 @@ BattleAnimFrameData:
 	battleoamend
 
 .Frameset_MediumHorn:
-	battleoamframe BATTLEANIMOAMSET_04,  9
+	battleoamframe BATTLEANIMOAMSET_03,  9
 	battleoamdelete
 
 .Frameset_BubbleSplash:
