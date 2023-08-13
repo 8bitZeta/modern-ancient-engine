@@ -1820,12 +1820,21 @@ BattleAnim_Aromatherapy:
 	anim_jump BattleAnim_Glimmer_branch
 
 BattleAnim_FakeTears:
-	anim_1gfx ANIM_GFX_HIT
-	anim_sound 0, 1, SFX_POUND
-	anim_obj ANIM_OBJ_PALM, 136, 56, $0
-	anim_wait 6
-	anim_obj ANIM_OBJ_HIT_YFIX, 136, 56, $0
-	anim_wait 16
+	anim_setobjpal PAL_BATTLE_OB_BLUE, PAL_BTLCUSTOM_WATER
+	anim_1gfx ANIM_GFX_MISC_2
+	anim_call BattleAnim_TargetObj_2Row_2
+	anim_bgeffect ANIM_BG_WOBBLE_MON, $0, $1, $0
+.loop
+	anim_sound 0, 0, SFX_ATTRACT
+	anim_obj ANIM_OBJ_TEARS_2, 44, 82, $24
+	anim_wait 8
+	anim_sound 0, 0, SFX_ATTRACT
+	anim_obj ANIM_OBJ_TEARS_1, 64, 82, $3b
+	anim_wait 8
+	anim_loop 6, .loop
+	anim_incbgeffect ANIM_BG_WOBBLE_MON
+	anim_call BattleAnim_ShowMon_0_2
+	anim_wait 12
 	anim_ret
 
 BattleAnim_AirCutter:
