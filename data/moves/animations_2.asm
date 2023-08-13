@@ -2133,12 +2133,26 @@ BattleAnim_WaterSpout:
 	anim_ret
 
 BattleAnim_SignalBeam:
-	anim_1gfx ANIM_GFX_HIT
-	anim_sound 0, 1, SFX_POUND
-	anim_obj ANIM_OBJ_PALM, 136, 56, $0
-	anim_wait 6
-	anim_obj ANIM_OBJ_HIT_YFIX, 136, 56, $0
-	anim_wait 16
+	anim_1gfx ANIM_GFX_GLOW
+	anim_setobjpal PAL_BATTLE_OB_GRAY, PAL_BTLCUSTOM_SIGNAL_BEAM_RED
+	anim_setobjpal PAL_BATTLE_OB_YELLOW, PAL_BTLCUSTOM_SIGNAL_BEAM_BLUE
+	anim_bgeffect ANIM_BG_ALTERNATE_HUES, $0, $2, $0
+	anim_bgeffect ANIM_BG_CYCLE_OBPALS_GRAY_AND_YELLOW, $0, $2, $0
+.loop
+	anim_sound 0, 0, SFX_SPITE
+	anim_obj ANIM_OBJ_SIGNAL_BEAM_RED, 64, 92, $0
+	anim_wait 4
+	anim_sound 0, 0, SFX_SPITE
+	anim_obj ANIM_OBJ_SIGNAL_BEAM_BLUE, 64, 92, $0
+	anim_wait 4
+	anim_sound 0, 0, SFX_SPITE
+	anim_obj ANIM_OBJ_SIGNAL_BEAM_RED, 64, 92, $0
+	anim_wait 4
+	anim_sound 0, 0, SFX_SPITE
+	anim_obj ANIM_OBJ_SIGNAL_BEAM_BLUE, 64, 92, $0
+	anim_wait 4
+	anim_loop 4, .loop
+	anim_wait 64
 	anim_ret
 
 BattleAnim_ShadowPunch:
