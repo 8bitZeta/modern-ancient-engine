@@ -245,6 +245,7 @@ BattleAnimFrameData:
 	dw .Frameset_BulkUp                  ; BATTLEANIMFRAMESET_BULK_UP
 	dw .Frameset_BlurVerticalUp          ; BATTLEANIMFRAMESET_BLUR_VERTICAL_UP
 	dw .Frameset_BlurVerticalDown        ; BATTLEANIMFRAMESET_BLUR_VERTICAL_DOWN
+	dw .Frameset_MudShot                 ; BATTLEANIMFRAMESET_MUD_SHOT
 	assert_table_length NUM_BATTLEANIMFRAMESETS
 
 .Frameset_HitBig:
@@ -1624,4 +1625,8 @@ BattleAnimFrameData:
 
 .Frameset_BlurVerticalDown:
 	battleoamframe BATTLEANIMOAMSET_127, 32, OAM_X_FLIP, OAM_Y_FLIP
+	battleoamend
+
+.Frameset_MudShot:
+	battleoamframe BATTLEANIMOAMSET_F5,  8
 	battleoamend
