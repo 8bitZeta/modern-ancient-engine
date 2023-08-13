@@ -247,6 +247,8 @@ BattleAnimFrameData:
 	dw .Frameset_BlurVerticalDown        ; BATTLEANIMFRAMESET_BLUR_VERTICAL_DOWN
 	dw .Frameset_MudShot                 ; BATTLEANIMFRAMESET_MUD_SHOT
 	dw .Frameset_VoltTackleSparks        ; BATTLEANIMFRAMESET_VOLT_TACKLE_SPARKS
+	dw .Frameset_ShrinkingRing           ; BATTLEANIMFRAMESET_SHRINKING_RING
+	dw .Frameset_ShrinkingRingBig        ; BATTLEANIMFRAMESET_SHRINKING_RING_BIG
 	assert_table_length NUM_BATTLEANIMFRAMESETS
 
 .Frameset_HitBig:
@@ -1635,3 +1637,13 @@ BattleAnimFrameData:
 .Frameset_VoltTackleSparks:
 	battleoamframe BATTLEANIMOAMSET_F9,  8
 	battleoamend
+
+.Frameset_ShrinkingRing:
+	battleoamframe BATTLEANIMOAMSET_FA,  2
+	battleoamframe BATTLEANIMOAMSET_54,  2
+	battleoamdelete
+
+.Frameset_ShrinkingRingBig:
+	battleoamframe BATTLEANIMOAMSET_FB,  2
+	battleoamframe BATTLEANIMOAMSET_E8,  2
+	battleoamdelete
