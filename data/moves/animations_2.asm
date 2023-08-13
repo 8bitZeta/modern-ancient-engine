@@ -3095,12 +3095,30 @@ BattleAnim_Gravity:
 	anim_ret
 
 BattleAnim_MiracleEye:
-	anim_1gfx ANIM_GFX_HIT
-	anim_sound 0, 1, SFX_POUND
-	anim_obj ANIM_OBJ_PALM, 136, 56, $0
-	anim_wait 6
-	anim_obj ANIM_OBJ_HIT_YFIX, 136, 56, $0
-	anim_wait 16
+	anim_2gfx ANIM_GFX_PSYCHIC, ANIM_GFX_SPEED
+	anim_setobjpal PAL_BATTLE_OB_YELLOW, PAL_BTLCUSTOM_AURORA
+	anim_setobjpal PAL_BATTLE_OB_GRAY, PAL_BTLCUSTOM_AURORA
+	anim_bgeffect ANIM_BG_CYCLE_MID_OBPALS_GRAY_AND_YELLOW, $0, $2, $0
+	anim_sound 0, 1, SFX_GAME_FREAK_LOGO_GS
+	anim_obj ANIM_OBJ_MIRACLE_EYE, 48, 96, $0
+	anim_obj ANIM_OBJ_WIND_SPARKLE, 48, 96, $0
+	anim_wait 8
+	anim_obj ANIM_OBJ_WIND_SPARKLE, 48, 96, $28
+	anim_wait 8
+	anim_obj ANIM_OBJ_WIND_SPARKLE, 48, 96, $30
+	anim_wait 8
+	anim_obj ANIM_OBJ_WIND_SPARKLE, 48, 96, $38
+	anim_wait 8
+	anim_obj ANIM_OBJ_WIND_SPARKLE, 48, 96, $20
+	anim_wait 8
+	anim_obj ANIM_OBJ_WIND_SPARKLE, 48, 96, $8
+	anim_wait 8
+	anim_obj ANIM_OBJ_WIND_SPARKLE, 48, 96, $18
+	anim_wait 8
+	anim_obj ANIM_OBJ_WIND_SPARKLE, 48, 96, $4
+	anim_wait 8
+	anim_bgeffect ANIM_BG_FADE_MON_TO_LIGHT_REPEATING, $0, $0, $40
+	anim_wait 64
 	anim_ret
 
 BattleAnim_WakeUpSlap:
