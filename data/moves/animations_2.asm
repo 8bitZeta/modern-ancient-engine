@@ -2919,12 +2919,64 @@ BattleAnim_WaterPulse:
 	anim_ret
 
 BattleAnim_DoomDesire:
-	anim_1gfx ANIM_GFX_HIT
-	anim_sound 0, 1, SFX_POUND
-	anim_obj ANIM_OBJ_PALM, 136, 56, $0
-	anim_wait 6
-	anim_obj ANIM_OBJ_HIT_YFIX, 136, 56, $0
-	anim_wait 16
+	anim_2gfx ANIM_GFX_EXPLOSION_SMALL, ANIM_GFX_SHINE
+	anim_bgp $90
+	anim_setobjpal PAL_BATTLE_OB_YELLOW, PAL_BTLCUSTOM_GRAY
+	anim_setobjpal PAL_BATTLE_OB_RED, PAL_BTLCUSTOM_DRAGONBREATH
+	anim_bgeffect ANIM_BG_CYCLE_MID_OBPALS_GRAY_AND_YELLOW, $0, $0, $0
+	anim_sound 0, 0, SFX_RAZOR_WIND
+	anim_obj ANIM_OBJ_MOONLIGHT, 0, 24, $0
+	anim_obj ANIM_OBJ_MOONLIGHT, 16, 40, $0
+	anim_obj ANIM_OBJ_MOONLIGHT, 32, 56, $0
+	anim_obj ANIM_OBJ_MOONLIGHT, 48, 72, $0
+	anim_obj ANIM_OBJ_MOONLIGHT, 64, 88, $0
+	anim_obj ANIM_OBJ_MOONLIGHT, 80, 104, $0
+	anim_wait 8
+	anim_clearobjs
+	anim_wait 1
+	anim_sound 0, 0, SFX_RAZOR_WIND
+	anim_obj ANIM_OBJ_MOONLIGHT, 48, 24, $0
+	anim_obj ANIM_OBJ_MOONLIGHT, 64, 40, $0
+	anim_obj ANIM_OBJ_MOONLIGHT, 80, 56, $0
+	anim_obj ANIM_OBJ_MOONLIGHT, 96, 72, $0
+	anim_obj ANIM_OBJ_MOONLIGHT, 112, 88, $0
+	anim_obj ANIM_OBJ_MOONLIGHT, 128, 104, $0
+	anim_wait 8
+	anim_clearobjs
+	anim_wait 1
+	anim_sound 0, 0, SFX_RAZOR_WIND
+	anim_obj ANIM_OBJ_MOONLIGHT, 80, 24, $0
+	anim_obj ANIM_OBJ_MOONLIGHT, 96, 40, $0
+	anim_obj ANIM_OBJ_MOONLIGHT, 112, 56, $0
+	anim_obj ANIM_OBJ_MOONLIGHT, 128, 72, $0
+	anim_obj ANIM_OBJ_MOONLIGHT, 144, 88, $0
+	anim_obj ANIM_OBJ_MOONLIGHT, 160, 104, $0
+	anim_wait 8
+	anim_clearobjs
+	anim_wait 1
+	anim_sound 0, 0, SFX_RAZOR_WIND
+	anim_obj ANIM_OBJ_MOONLIGHT, 112, 24, $0
+	anim_obj ANIM_OBJ_MOONLIGHT, 128, 40, $0
+	anim_obj ANIM_OBJ_MOONLIGHT, 144, 56, $0
+	anim_obj ANIM_OBJ_MOONLIGHT, 160, 72, $0
+	anim_obj ANIM_OBJ_MOONLIGHT, 176, 88, $0
+	anim_wait 8
+	anim_bgeffect ANIM_BG_SHAKE_SCREEN_X, $60, $4, $10
+	anim_sound 0, 1, SFX_EGG_BOMB
+	anim_obj ANIM_OBJ_EXPLOSION_SMALL, 140, 42, $0
+	anim_wait 8
+	anim_sound 0, 1, SFX_EGG_BOMB
+	anim_obj ANIM_OBJ_EXPLOSION_SMALL, 124, 62, $0
+	anim_wait 8
+	anim_sound 0, 1, SFX_EGG_BOMB
+	anim_obj ANIM_OBJ_EXPLOSION_SMALL, 140, 62, $0
+	anim_wait 8
+	anim_sound 0, 1, SFX_EGG_BOMB
+	anim_obj ANIM_OBJ_EXPLOSION_SMALL, 124, 42, $0
+	anim_wait 8
+	anim_sound 0, 1, SFX_EGG_BOMB
+	anim_obj ANIM_OBJ_EXPLOSION_SMALL, 132, 52, $0
+	anim_wait 32
 	anim_ret
 
 BattleAnim_PsychoBoost:
