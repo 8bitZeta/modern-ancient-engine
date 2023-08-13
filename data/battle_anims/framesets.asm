@@ -249,6 +249,8 @@ BattleAnimFrameData:
 	dw .Frameset_VoltTackleSparks        ; BATTLEANIMFRAMESET_VOLT_TACKLE_SPARKS
 	dw .Frameset_ShrinkingRing           ; BATTLEANIMFRAMESET_SHRINKING_RING
 	dw .Frameset_ShrinkingRingBig        ; BATTLEANIMFRAMESET_SHRINKING_RING_BIG
+	dw .Frameset_CutLongUpRight          ; BATTLEANIMFRAMESET_CUT_LONG_UP_RIGHT
+	dw .Frameset_CutLongUpLeft          ; BATTLEANIMFRAMESET_CUT_LONG_UP_LEFT
 	assert_table_length NUM_BATTLEANIMFRAMESETS
 
 .Frameset_HitBig:
@@ -1646,4 +1648,36 @@ BattleAnimFrameData:
 .Frameset_ShrinkingRingBig:
 	battleoamframe BATTLEANIMOAMSET_FB,  2
 	battleoamframe BATTLEANIMOAMSET_E8,  2
+	battleoamdelete
+
+.Frameset_CutLongUpRight:
+	battleoamframe BATTLEANIMOAMSET_4B,  1, OAM_X_FLIP, OAM_Y_FLIP
+	battleoamframe BATTLEANIMOAMSET_4C,  1, OAM_X_FLIP, OAM_Y_FLIP
+	battleoamframe BATTLEANIMOAMSET_4D,  1, OAM_X_FLIP, OAM_Y_FLIP
+	battleoamframe BATTLEANIMOAMSET_4F,  1, OAM_X_FLIP, OAM_Y_FLIP
+	battleoamframe BATTLEANIMOAMSET_50,  1, OAM_X_FLIP, OAM_Y_FLIP
+	battleoamframe BATTLEANIMOAMSET_51,  1, OAM_X_FLIP, OAM_Y_FLIP
+	battleoamframe BATTLEANIMOAMSET_52,  2, OAM_X_FLIP, OAM_Y_FLIP
+	battleoamwait 2
+	battleoamframe BATTLEANIMOAMSET_52,  2, OAM_X_FLIP, OAM_Y_FLIP
+	battleoamwait 2
+	battleoamframe BATTLEANIMOAMSET_52,  2, OAM_X_FLIP, OAM_Y_FLIP
+	battleoamwait 2
+	battleoamframe BATTLEANIMOAMSET_52,  2, OAM_X_FLIP, OAM_Y_FLIP
+	battleoamdelete
+
+.Frameset_CutLongUpLeft:
+	battleoamframe BATTLEANIMOAMSET_4B,  1, OAM_Y_FLIP
+	battleoamframe BATTLEANIMOAMSET_4C,  1, OAM_Y_FLIP
+	battleoamframe BATTLEANIMOAMSET_4D,  1, OAM_Y_FLIP
+	battleoamframe BATTLEANIMOAMSET_4F,  1, OAM_Y_FLIP
+	battleoamframe BATTLEANIMOAMSET_50,  1, OAM_Y_FLIP
+	battleoamframe BATTLEANIMOAMSET_51,  1, OAM_Y_FLIP
+	battleoamframe BATTLEANIMOAMSET_52,  2, OAM_Y_FLIP
+	battleoamwait 2
+	battleoamframe BATTLEANIMOAMSET_52,  2, OAM_Y_FLIP
+	battleoamwait 2
+	battleoamframe BATTLEANIMOAMSET_52,  2, OAM_Y_FLIP
+	battleoamwait 2
+	battleoamframe BATTLEANIMOAMSET_52,  2, OAM_Y_FLIP
 	battleoamdelete
