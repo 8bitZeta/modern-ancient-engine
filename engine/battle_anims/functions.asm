@@ -105,6 +105,7 @@ DoBattleAnimFrame:
 	dba BattleAnimFunction_RadialMoveOut_CP_BG
 	dba BattleAnimFunction_RadialMoveOut_Slow
 	dba BattleAnimFunction_RadialMoveOut_Fast
+	dba BattleAnimFunction_RadialMoveOut_VeryFast_NoStop
 	dba BattleAnimFunction_RadialMoveIn
 	dba BattleAnimFunction_BubbleSplash
 	dba BattleAnimFunction_ObjectHover

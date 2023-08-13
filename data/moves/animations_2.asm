@@ -2172,21 +2172,47 @@ BattleAnim_ShadowPunch:
 	anim_jump BattleAnim_ShowMon_0_2
 
 BattleAnim_Extrasensory:
-	anim_1gfx ANIM_GFX_HIT
-	anim_sound 0, 1, SFX_POUND
-	anim_obj ANIM_OBJ_PALM, 136, 56, $0
-	anim_wait 6
-	anim_obj ANIM_OBJ_HIT_YFIX, 136, 56, $0
-	anim_wait 16
+	anim_1gfx ANIM_GFX_SHINE
+	anim_call BattleAnim_UserObj_2Row_2
+	anim_sound 0, 1, SFX_CUT
+	anim_bgp $1b
+	anim_bgeffect ANIM_BG_VIBRATE_MON, $0, $0, $0
+	anim_obj ANIM_OBJ_GLIMMER, 44, 96, $0
+	anim_wait 40
+	anim_sound 0, 1, SFX_CUT
+	anim_bgeffect ANIM_BG_NIGHT_SHADE, $0, $0, $8
+	anim_obj ANIM_OBJ_GLIMMER, 44, 96, $0
+	anim_wait 32
+	anim_incbgeffect ANIM_BG_NIGHT_SHADE
+	anim_wait 8
+	anim_sound 0, 1, SFX_CUT
+	anim_bgeffect ANIM_BG_TELEPORT, $0, $0, $0
+	anim_obj ANIM_OBJ_GLIMMER, 44, 96, $0
+	anim_wait 4
+	anim_sound 0, 1, SFX_PSYCHIC
+	anim_wait 64
+	anim_incbgeffect ANIM_BG_TELEPORT
+	anim_call BattleAnim_ShowMon_1_2
 	anim_ret
 
 BattleAnim_SkyUppercut:
-	anim_1gfx ANIM_GFX_HIT
-	anim_sound 0, 1, SFX_POUND
-	anim_obj ANIM_OBJ_PALM, 136, 56, $0
+	anim_2gfx ANIM_GFX_WIND_BG, ANIM_GFX_HIT
+	anim_sound 3, 0, SFX_RAZOR_WIND
+	anim_obj ANIM_OBJ_SKY_UPPERCUT,  12, 36, $30
+	anim_obj ANIM_OBJ_SKY_UPPERCUT,  40, 133, $30
+	anim_obj ANIM_OBJ_SKY_UPPERCUT,  68, 67, $30
+	anim_obj ANIM_OBJ_SKY_UPPERCUT,  96, 11, $30
+	anim_obj ANIM_OBJ_SKY_UPPERCUT, 122, 109, $30
+	anim_obj ANIM_OBJ_SKY_UPPERCUT, 140, 162, $30
+	anim_wait 40
+	anim_bgeffect ANIM_BG_SHAKE_SCREEN_X, $28, $2, $0
+	anim_sound 0, 1, SFX_MEGA_PUNCH
+	anim_obj ANIM_OBJ_UPPERCUT_PUNCH, 136, 86, $30
 	anim_wait 6
-	anim_obj ANIM_OBJ_HIT_YFIX, 136, 56, $0
-	anim_wait 16
+	anim_obj ANIM_OBJ_RISING_HIT, 136, 56, $30
+	anim_wait 8
+	anim_clearobjs
+	anim_wait 14
 	anim_ret
 
 BattleAnim_SandTomb:
