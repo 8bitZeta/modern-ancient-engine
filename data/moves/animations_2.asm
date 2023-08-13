@@ -2216,13 +2216,19 @@ BattleAnim_SkyUppercut:
 	anim_ret
 
 BattleAnim_SandTomb:
-	anim_1gfx ANIM_GFX_HIT
-	anim_sound 0, 1, SFX_POUND
-	anim_obj ANIM_OBJ_PALM, 136, 56, $0
-	anim_wait 6
-	anim_obj ANIM_OBJ_HIT_YFIX, 136, 56, $0
-	anim_wait 16
-	anim_ret
+	anim_1gfx ANIM_GFX_POWDER
+	anim_bgeffect ANIM_BG_FADE_MON_TO_BLACK_REPEATING, $0, $0, $40
+.loop
+	anim_sound 0, 0, SFX_MENU
+	anim_obj ANIM_OBJ_SAND_TOMB, 136, 70, $0
+	anim_wait 4
+	anim_sound 0, 0, SFX_MENU
+	anim_obj ANIM_OBJ_SAND_TOMB, 136, 62, $0
+	anim_wait 4
+	anim_loop 7, .loop
+	anim_wait 40
+	anim_incbgeffect ANIM_BG_FADE_MON_TO_BLACK_REPEATING
+	anim_jump BattleAnim_ShowMon_1_2
 
 BattleAnim_SheerCold:
 	anim_1gfx ANIM_GFX_HIT
