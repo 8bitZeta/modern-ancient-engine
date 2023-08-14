@@ -3317,12 +3317,20 @@ BattleAnim_NaturalGift:
 
 BattleAnim_Feint:
 	anim_1gfx ANIM_GFX_HIT
-	anim_sound 0, 1, SFX_POUND
-	anim_obj ANIM_OBJ_PALM, 136, 56, $0
-	anim_wait 6
-	anim_obj ANIM_OBJ_HIT_YFIX, 136, 56, $0
+.loop
+	anim_sound 6, 2, SFX_SQUEAK
+	anim_obj ANIM_OBJ_SIDE_PUNCH_NO_HIT, 94, 48, $0
 	anim_wait 16
-	anim_ret
+	anim_sound 6, 2, SFX_SQUEAK
+	anim_obj ANIM_OBJ_SIDE_PUNCH_NO_HIT, 166, 48, $20
+	anim_wait 16
+	anim_loop 2, .loop
+	anim_bgeffect ANIM_BG_FLASH_INVERTED, $0, $8, $2
+	anim_sound 0, 1, SFX_MEGA_PUNCH
+	anim_obj ANIM_OBJ_PUNCH, 136, 48, $43
+	anim_obj ANIM_OBJ_HIT_YFIX, 136, 48, $0
+	anim_wait 32
+	anim_jump BattleAnim_ShowMon_0_2
 
 BattleAnim_Pluck:
 	anim_1gfx ANIM_GFX_HIT
