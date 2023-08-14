@@ -104,6 +104,7 @@ DoBattleAnimFrame:
 	dba BattleAnimFunction_RadialMoveOut
 	dba BattleAnimFunction_RadialMoveOut_CP_BG
 	dba BattleAnimFunction_RadialMoveOut_Slow
+	dba BattleAnimFunction_RadialMoveOut_VerySlow
 	dba BattleAnimFunction_RadialMoveOut_Fast
 	dba BattleAnimFunction_RadialMoveOut_VeryFast_NoStop
 	dba BattleAnimFunction_RadialMoveIn
@@ -1763,7 +1764,7 @@ BattleAnimFunction_RadialMoveOut_VerySlow:
 	ld a, [hli]
 	ld e, [hl]
 	ld d, a
-	ld hl, 0.08 ; speed
+	ld hl, 0.5 ; speed
 	add hl, de
 	ld a, h
 	ld e, l

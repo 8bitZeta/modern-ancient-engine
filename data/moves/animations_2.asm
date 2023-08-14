@@ -3202,12 +3202,23 @@ BattleAnim_GyroBall:
 	anim_ret
 
 BattleAnim_HealingWish:
-	anim_1gfx ANIM_GFX_HIT
-	anim_sound 0, 1, SFX_POUND
-	anim_obj ANIM_OBJ_PALM, 136, 56, $0
-	anim_wait 6
-	anim_obj ANIM_OBJ_HIT_YFIX, 136, 56, $0
-	anim_wait 16
+	anim_clearenemyhud
+	anim_bgeffect ANIM_BG_SHOW_MON, $0, $0, $0
+	anim_setobjpal PAL_BATTLE_OB_YELLOW, PAL_BTLCUSTOM_ICE
+	anim_2gfx ANIM_GFX_STARS, ANIM_GFX_GLOW
+	anim_bgp $1b
+	anim_bgeffect ANIM_BG_CYCLE_OBPALS_GRAY_AND_YELLOW, $0, $2, $0
+	anim_sound 0, 1, SFX_FLASH
+	anim_obj ANIM_OBJ_SMALL_GLOW_SLOW, 48, 96, $0
+	anim_wait 40
+	anim_sound 0, 1, SFX_MOONLIGHT
+	anim_obj ANIM_OBJ_HEALING_WISH_1, 48, 96, $30
+	anim_wait 18
+	anim_obj ANIM_OBJ_HEALING_WISH_2, 50, 96, $31
+	anim_wait 18
+	anim_obj ANIM_OBJ_HEALING_WISH_2, 46, 96, $2f
+	anim_wait 96
+	anim_clearobjs
 	anim_ret
 
 BattleAnim_Brinewater:
