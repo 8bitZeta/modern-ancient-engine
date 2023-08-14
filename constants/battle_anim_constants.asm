@@ -351,6 +351,8 @@ DEF BATTLEANIM_BASE_TILE EQU 7 * 7  ; Maximum size of a pokemon picture
 	const ANIM_OBJ_ACUPRESSURE
 	const ANIM_OBJ_METAL_BURST
 	const ANIM_OBJ_METAL_BURST_DEBRIS
+	const ANIM_OBJ_GLOW_SPIKED
+	const ANIM_OBJ_BIG_GLOW_SPIKED
 DEF NUM_ANIM_OBJS EQU const_value
 
 ; DoBattleAnimFrame arguments (see engine/battle_anims/functions.asm)
@@ -712,6 +714,7 @@ DEF NUM_BATTLEANIMFUNCS EQU const_value
 	const BATTLEANIMFRAMESET_LONG_PUNCH_NOT_HIT
 	const BATTLEANIMFRAMESET_ACUPRESSURE_HAND
 	const BATTLEANIMFRAMESET_METAL_BURST
+	const BATTLEANIMFRAMESET_BIG_GLOW_SPIKED
 DEF NUM_BATTLEANIMFRAMESETS EQU const_value
 
 ; BattleAnimOAMData indexes (see data/battle_anims/oam.asm)
@@ -1143,6 +1146,8 @@ DEF NUM_ANIM_BGS EQU const_value
 	const ANIM_GFX_WAKE_UP_SLAP
 	const ANIM_GFX_GYRO_BALL
 	const ANIM_GFX_BIG_GLOW_CLEAR
+	const ANIM_GFX_GLOW_SPIKED
+	const ANIM_GFX_BIG_GLOW_SPIKED
 	DEF NUM_ANIM_GFX EQU const_value - 1
 
 ; battle_bg_effect struct members (see macros/ram.asm)
@@ -1226,6 +1231,7 @@ DEF NUM_BG_EFFECTS EQU 5 ; see wActiveBGEffects
     const PAL_BTLCUSTOM_PSYCHO_BOOST_2     ; 23
 	const PAL_BTLCUSTOM_GRAVITY            ; 24
 	const PAL_BTLCUSTOM_GLOW_GREEN         ; 25
+	const PAL_BTLCUSTOM_PAYBACK            ; 26
 DEF NUM_CUSTOM_BATTLE_PALETTES EQU const_value
 
 DEF PAL_BTLCUSTOM_DEFAULT EQU -1

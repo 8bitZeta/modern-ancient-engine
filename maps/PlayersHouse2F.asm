@@ -137,30 +137,30 @@ PlayersHouseRadioScript:
 	givepoke MEW, 100, LEFTOVERS
 	givepoke MEW, 100, LEFTOVERS
 	givepoke MEW, 100, LEFTOVERS
-	givepokemove CALM_MIND,        wPartyMon1, 0
-	givepokemove LEAF_BLADE,       wPartyMon1, 1
-	givepokemove DRAGON_DANCE,   wPartyMon1, 2
-	givepokemove ROCK_BLAST,        wPartyMon1, 3
-	givepokemove SHOCK_WAVE,      wPartyMon2, 0
-	givepokemove WATER_PULSE, wPartyMon2, 1
-	givepokemove DOOM_DESIRE,   wPartyMon2, 2
-	givepokemove PSYCHO_BOOST,  wPartyMon2, 3
-	givepokemove ROOST,        wPartyMon3, 0
-	givepokemove GRAVITY,       wPartyMon3, 1
-	givepokemove MIRACLE_EYE,   wPartyMon3, 2
-	givepokemove WAKE_UP_SLAP,        wPartyMon3, 3
-	givepokemove HAMMER_ARM,      wPartyMon4, 0
-	givepokemove GYRO_BALL, wPartyMon4, 1
-	givepokemove HEALING_WISH,   wPartyMon4, 2
-	givepokemove BRINE,  wPartyMon4, 3
-	givepokemove NATURAL_GIFT,        wPartyMon5, 0
-	givepokemove FEINT,       wPartyMon5, 1
-	givepokemove PLUCK,   wPartyMon5, 2
-	givepokemove TAILWIND,        wPartyMon5, 3
-	givepokemove ACUPRESSURE,      wPartyMon6, 0
-	givepokemove METAL_BURST, wPartyMon6, 1
-	givepokemove U_TURN,   wPartyMon6, 2
-	givepokemove CLOSE_COMBAT,  wPartyMon6, 3
+	givepokemove PAYBACK,        wPartyMon1, 0
+	givepokemove ASSURANCE,       wPartyMon1, 1
+	givepokemove EMBARGO,   wPartyMon1, 2
+	givepokemove FLING,        wPartyMon1, 3
+	givepokemove PSYCHO_SHIFT,      wPartyMon2, 0
+	givepokemove TRUMP_CARD, wPartyMon2, 1
+	givepokemove HEAL_BLOCK,   wPartyMon2, 2
+	givepokemove WRING_OUT,  wPartyMon2, 3
+	givepokemove POWER_TRICK,        wPartyMon3, 0
+	givepokemove GASTRO_ACID,       wPartyMon3, 1
+	givepokemove LUCKY_CHANT,   wPartyMon3, 2
+	givepokemove ME_FIRST,        wPartyMon3, 3
+	givepokemove COPYCAT,      wPartyMon4, 0
+	givepokemove POWER_SWAP, wPartyMon4, 1
+	givepokemove GUARD_SWAP,   wPartyMon4, 2
+	givepokemove PUNISHMENT,  wPartyMon4, 3
+	givepokemove LAST_RESORT,        wPartyMon5, 0
+	givepokemove WORRY_SEED,       wPartyMon5, 1
+	givepokemove SUCKER_PUNCH,   wPartyMon5, 2
+	givepokemove TOXIC_SPIKES,        wPartyMon5, 3
+	givepokemove HEART_SWAP,      wPartyMon6, 0
+	givepokemove AQUA_RING, wPartyMon6, 1
+	givepokemove MAGNET_RISE,   wPartyMon6, 2
+	givepokemove FLARE_BLITZ,  wPartyMon6, 3
 	; Test pokemon
 	; givepoke NINCADA, 50
 	; givepoke NINCADA, 50

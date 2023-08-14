@@ -261,6 +261,7 @@ BattleAnimFrameData:
 	dw .Frameset_LongPunchNoHit          ; BATTLEANIMFRAMESET_LONG_PUNCH_NOT_HIT
 	dw .Frameset_AcupressureHand         ; BATTLEANIMFRAMESET_ACUPRESSURE_HAND
 	dw .Frameset_MetalBurst              ; BATTLEANIMFRAMESET_METAL_BURST
+	dw .Frameset_BigGlowSpiked           ; BATTLEANIMFRAMESET_BIG_GLOW_SPIKED
 	assert_table_length NUM_BATTLEANIMFRAMESETS
 
 .Frameset_HitBig:
@@ -1752,3 +1753,8 @@ BattleAnimFrameData:
 .Frameset_MetalBurst:
 	battleoamframe BATTLEANIMOAMSET_20, 60
 	battleoamdelete
+
+.Frameset_BigGlowSpiked:
+	battleoamframe BATTLEANIMOAMSET_DA,  1
+	battleoamframe BATTLEANIMOAMSET_7E,  1
+	battleoamrestart
