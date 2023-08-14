@@ -3278,12 +3278,41 @@ BattleAnim_Brine:
 	anim_ret
 
 BattleAnim_NaturalGift:
-	anim_1gfx ANIM_GFX_HIT
-	anim_sound 0, 1, SFX_POUND
-	anim_obj ANIM_OBJ_PALM, 136, 56, $0
-	anim_wait 6
-	anim_obj ANIM_OBJ_HIT_YFIX, 136, 56, $0
-	anim_wait 16
+	anim_setobjpal PAL_BATTLE_OB_YELLOW, PAL_BTLCUSTOM_GLOW_GREEN
+	anim_3gfx  ANIM_GFX_BIG_GLOW_CLEAR, ANIM_GFX_SPEED, ANIM_GFX_GLOW
+	anim_bgeffect ANIM_BG_CYCLE_OBPALS_GRAY_AND_YELLOW, $0, $2, $0
+	anim_sound 0, 1, SFX_MORNING_SUN
+	anim_obj ANIM_OBJ_SMALL_GLOW_SLOW, 48, 96, $0
+.loop
+	anim_obj ANIM_OBJ_DESCENDING_SPARKLE, 48, 64, $5
+	anim_wait 11
+	anim_loop 5, .loop
+	anim_wait 64
+	anim_clearobjs
+	anim_sound 0, 1, SFX_METRONOME
+	anim_obj ANIM_OBJ_BIG_GLOW, 48, 96, $0
+	anim_wait 8
+	anim_clearobjs
+.loop2
+	anim_obj ANIM_OBJ_WIND_SPARKLE, 48, 96, $0
+	anim_wait 2
+	anim_obj ANIM_OBJ_WIND_SPARKLE, 48, 96, $28
+	anim_wait 2
+	anim_obj ANIM_OBJ_WIND_SPARKLE, 48, 96, $30
+	anim_wait 2
+	anim_obj ANIM_OBJ_WIND_SPARKLE, 48, 96, $38
+	anim_wait 2
+	anim_obj ANIM_OBJ_WIND_SPARKLE, 48, 96, $20
+	anim_wait 2
+	anim_obj ANIM_OBJ_WIND_SPARKLE, 48, 96, $8
+	anim_wait 2
+	anim_obj ANIM_OBJ_WIND_SPARKLE, 48, 96, $18
+	anim_wait 2
+	anim_obj ANIM_OBJ_WIND_SPARKLE, 48, 96, $4
+	anim_wait 2
+	anim_loop 3, .loop2
+	anim_wait 32
+	anim_clearobjs
 	anim_ret
 
 BattleAnim_Feint:

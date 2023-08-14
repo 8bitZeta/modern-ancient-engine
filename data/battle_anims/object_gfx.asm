@@ -77,4 +77,5 @@ AnimObjGFX:
 	anim_obj_gfx  6, AnimObjExplosionSmallGFX
 	anim_obj_gfx 10, AnimObjWakeUpSlapGFX
 	anim_obj_gfx 55, AnimObjGyroBallGFX
+	anim_obj_gfx 13, AnimObjBigGlowClearGFX
 	assert_table_length NUM_ANIM_GFX + 1

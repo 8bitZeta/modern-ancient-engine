@@ -1133,6 +1133,7 @@ DEF NUM_ANIM_BGS EQU const_value
 	const ANIM_GFX_EXPLOSION_SMALL
 	const ANIM_GFX_WAKE_UP_SLAP
 	const ANIM_GFX_GYRO_BALL
+	const ANIM_GFX_BIG_GLOW_CLEAR
 	DEF NUM_ANIM_GFX EQU const_value - 1
 
 ; battle_bg_effect struct members (see macros/ram.asm)
@@ -1215,6 +1216,7 @@ DEF NUM_BG_EFFECTS EQU 5 ; see wActiveBGEffects
 	const PAL_BTLCUSTOM_PSYCHO_BOOST_1     ; 22
     const PAL_BTLCUSTOM_PSYCHO_BOOST_2     ; 23
 	const PAL_BTLCUSTOM_GRAVITY            ; 24
+	const PAL_BTLCUSTOM_GLOW_GREEN         ; 25
 DEF NUM_CUSTOM_BATTLE_PALETTES EQU const_value
 
 DEF PAL_BTLCUSTOM_DEFAULT EQU -1
