@@ -369,7 +369,7 @@ MoveNames::
 	li "TAILWIND"
 	li "ACUPRESSURE"
 	li "METAL BURST"
-	li "U TURN"
+	li "U-TURN"
 	li "CLOSE COMBAT"
 	li "PAYBACK"
 	li "ASSURANCE"
