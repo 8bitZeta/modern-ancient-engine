@@ -262,6 +262,9 @@ BattleAnimFrameData:
 	dw .Frameset_AcupressureHand         ; BATTLEANIMFRAMESET_ACUPRESSURE_HAND
 	dw .Frameset_MetalBurst              ; BATTLEANIMFRAMESET_METAL_BURST
 	dw .Frameset_BigGlowSpiked           ; BATTLEANIMFRAMESET_BIG_GLOW_SPIKED
+	dw .Frameset_HealBlockSlow           ; BATTLEANIMFRAMESET_HEAL_BLOCK_SLOW
+	dw .Frameset_HealBlockSlower         ; BATTLEANIMFRAMESET_HEAL_BLOCK_SLOWER
+	dw .Frameset_HealBlockSlowest        ; BATTLEANIMFRAMESET_HEAL_BLOCK_SLOWEST
 	assert_table_length NUM_BATTLEANIMFRAMESETS
 
 .Frameset_HitBig:
@@ -1758,3 +1761,18 @@ BattleAnimFrameData:
 	battleoamframe BATTLEANIMOAMSET_DA,  1
 	battleoamframe BATTLEANIMOAMSET_7E,  1
 	battleoamrestart
+
+.Frameset_HealBlockSlow:
+	battleoamframe BATTLEANIMOAMSET_BF,  8
+	battleoamframe BATTLEANIMOAMSET_C0,  8
+	battleoamframe BATTLEANIMOAMSET_C1,  8
+	battleoamend
+
+.Frameset_HealBlockSlower:
+	battleoamframe BATTLEANIMOAMSET_BF,  16
+	battleoamframe BATTLEANIMOAMSET_C0,  16
+	battleoamend
+
+.Frameset_HealBlockSlowest:
+	battleoamframe BATTLEANIMOAMSET_BF,  16
+	battleoamend

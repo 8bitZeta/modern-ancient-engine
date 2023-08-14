@@ -3673,12 +3673,28 @@ BattleAnim_TrumpCard:
 	anim_ret
 
 BattleAnim_HealBlock:
-	anim_1gfx ANIM_GFX_HIT
-	anim_sound 0, 1, SFX_POUND
-	anim_obj ANIM_OBJ_PALM, 136, 56, $0
-	anim_wait 6
-	anim_obj ANIM_OBJ_HIT_YFIX, 136, 56, $0
-	anim_wait 16
+	anim_1gfx ANIM_GFX_SHINE
+	anim_bgeffect ANIM_BG_CYCLE_MID_OBPALS_GRAY_AND_YELLOW, $0, $0, $0
+	anim_sound 0, 0, SFX_METRONOME
+	anim_obj ANIM_OBJ_HEAL_BLOCK, 132, 28, $0
+	anim_wait 5
+	anim_obj ANIM_OBJ_HEAL_BLOCK, 112, 60, $0
+	anim_wait 5
+	anim_obj ANIM_OBJ_HEAL_BLOCK, 144, 68, $0
+	anim_wait 21
+	anim_sound 0, 0, SFX_METRONOME
+	anim_wait 5
+	anim_sound 0, 0, SFX_KINESIS
+	anim_bgp $f8
+	anim_obp0 $14
+	anim_obj ANIM_OBJ_HEAL_BLOCK_SLOW, 132, 28, $0
+	anim_wait 10
+	anim_obj ANIM_OBJ_HEAL_BLOCK_SLOWER, 112, 60, $0
+	anim_wait 20
+	anim_bgp $03
+	anim_sound 0, 0, SFX_SLUDGE_BOMB
+	anim_obj ANIM_OBJ_HEAL_BLOCK_SLOWEST, 144, 68, $0
+	anim_wait 90
 	anim_ret
 
 BattleAnim_WringOut:
