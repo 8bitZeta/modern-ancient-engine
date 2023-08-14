@@ -2085,7 +2085,7 @@ BattleAnim_Mimic:
 	anim_ret
 
 BattleAnim_LovelyKiss:
-	anim_2gfx ANIM_GFX_OBJECTS, ANIM_GFX_ANGELS
+	anim_2gfx ANIM_GFX_OBJECTS_1, ANIM_GFX_ANGELS
 	anim_bgeffect ANIM_BG_CYCLE_MID_OBPALS_GRAY_AND_YELLOW, $0, $2, $0
 	anim_obj ANIM_OBJ_LOVELY_KISS, 152, 40, $0
 	anim_wait 32
@@ -2105,7 +2105,7 @@ BattleAnim_Bonemerang:
 	anim_ret
 
 BattleAnim_Swift:
-	anim_1gfx ANIM_GFX_OBJECTS
+	anim_1gfx ANIM_GFX_OBJECTS_1
 	anim_sound 6, 2, SFX_METRONOME
 	anim_obj ANIM_OBJ_SWIFT, 64, 88, $4
 	anim_wait 4
@@ -2863,7 +2863,7 @@ BattleAnim_Struggle:
 	anim_ret
 
 BattleAnim_Sketch:
-	anim_1gfx ANIM_GFX_OBJECTS
+	anim_1gfx ANIM_GFX_OBJECTS_1
 	anim_call BattleAnim_TargetObj_1Row_1
 	anim_bgeffect ANIM_BG_CYCLE_MON_LIGHT_DARK_REPEATING, $0, $1, $20
 	anim_sound 0, 0, SFX_SKETCH
@@ -2992,7 +2992,7 @@ BattleAnim_Snore:
 
 BattleAnim_Curse:
 	anim_if_param_equal $1, .NotGhost
-	anim_2gfx ANIM_GFX_HIT, ANIM_GFX_OBJECTS
+	anim_2gfx ANIM_GFX_HIT, ANIM_GFX_OBJECTS_1
 	anim_obj ANIM_OBJ_CURSE, 68, 72, $0
 	anim_sound 0, 0, SFX_CURSE
 	anim_wait 32
@@ -3146,7 +3146,7 @@ BattleAnim_PowderSnow:
 	anim_ret
 
 BattleAnim_Protect:
-	anim_1gfx ANIM_GFX_OBJECTS
+	anim_1gfx ANIM_GFX_OBJECTS_1
 	anim_bgeffect ANIM_BG_CYCLE_MID_OBPALS_GRAY_AND_YELLOW, $0, $2, $0
 	anim_obj ANIM_OBJ_PROTECT, 80, 80, $0
 	anim_obj ANIM_OBJ_PROTECT, 80, 80, $d
@@ -3206,7 +3206,7 @@ BattleAnim_FaintAttack:
 	anim_ret
 
 BattleAnim_SweetKiss:
-	anim_2gfx ANIM_GFX_OBJECTS, ANIM_GFX_ANGELS
+	anim_2gfx ANIM_GFX_OBJECTS_1, ANIM_GFX_ANGELS
 	anim_bgeffect ANIM_BG_CYCLE_MID_OBPALS_GRAY_AND_YELLOW, $0, $2, $0
 	anim_obj ANIM_OBJ_SWEET_KISS, 96, 40, $0
 	anim_sound 0, 1, SFX_SWEET_KISS
@@ -3543,7 +3543,7 @@ BattleAnim_Endure:
 	anim_ret
 
 BattleAnim_Charm:
-	anim_1gfx ANIM_GFX_OBJECTS
+	anim_1gfx ANIM_GFX_OBJECTS_1
 	anim_call BattleAnim_TargetObj_1Row_1
 	anim_bgeffect ANIM_BG_WOBBLE_MON, $0, $1, $0
 	anim_sound 0, 0, SFX_ATTRACT
@@ -3687,7 +3687,7 @@ BattleAnim_MeanLook:
 	anim_ret
 
 BattleAnim_Attract:
-	anim_1gfx ANIM_GFX_OBJECTS
+	anim_1gfx ANIM_GFX_OBJECTS_1
 .loop
 	anim_sound 0, 0, SFX_ATTRACT
 	anim_obj ANIM_OBJ_ATTRACT, 44, 80, $2
@@ -3811,7 +3811,7 @@ BattleAnim_Safeguard:
 	anim_ret
 
 BattleAnim_PainSplit:
-	anim_2gfx ANIM_GFX_HIT, ANIM_GFX_OBJECTS
+	anim_2gfx ANIM_GFX_HIT, ANIM_GFX_OBJECTS_1
 	anim_call BattleAnim_TargetObj_2Row_1
 	anim_bgeffect ANIM_BG_BODY_SLAM, $0, $1, $0
 	anim_wait 4
@@ -3909,7 +3909,7 @@ BattleAnim_BatonPass:
 	anim_ret
 
 BattleAnim_Encore:
-	anim_1gfx ANIM_GFX_OBJECTS
+	anim_1gfx ANIM_GFX_OBJECTS_1
 	anim_obj ANIM_OBJ_ENCORE_HAND, 64, 80, $90
 	anim_obj ANIM_OBJ_ENCORE_HAND, 64, 80, $10
 	anim_sound 0, 0, SFX_ENCORE

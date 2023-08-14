@@ -190,7 +190,7 @@ MoveAnimations2:
 ;==========================
 
 BattleAnim_FakeOut:
-	anim_1gfx ANIM_GFX_OBJECTS
+	anim_1gfx ANIM_GFX_OBJECTS_1
 	anim_obj ANIM_OBJ_FAKE_OUT_L, 112, 48, $0
 	anim_obj ANIM_OBJ_FAKE_OUT_R, 158, 48, $0
 	anim_wait 32
@@ -513,7 +513,7 @@ BattleAnim_FocusPunch:
 	anim_ret
 
 BattleAnim_SmellingSalts:
-	anim_1gfx ANIM_GFX_OBJECTS
+	anim_1gfx ANIM_GFX_OBJECTS_1
 	anim_call BattleAnim_UserObj_1Row_2
 .loop
 	anim_bgeffect ANIM_BG_VIBRATE_MON, $0, $0, $0
@@ -998,7 +998,7 @@ BattleAnim_Transfer_Orbs_branch:
 	anim_ret
 
 BattleAnim_Imprison:
-	anim_1gfx ANIM_GFX_OBJECTS
+	anim_1gfx ANIM_GFX_OBJECTS_1
 	anim_bgeffect ANIM_BG_BLACK_HUES, $0, $8, $0
 	anim_bgeffect ANIM_BG_CYCLE_OBPALS_GRAY_AND_YELLOW, $0, $2, $0
 	anim_sound 0, 1, SFX_THIEF_2
@@ -1894,7 +1894,7 @@ BattleAnim_OdorSleuth:
 	anim_ret
 
 BattleAnim_RockTomb:
-	anim_2gfx ANIM_GFX_ROCKS, ANIM_GFX_OBJECTS
+	anim_2gfx ANIM_GFX_ROCKS, ANIM_GFX_OBJECTS_1
 	anim_obj ANIM_OBJ_ROCK_TOMB, 128, 70, $30
 	anim_wait 18
 	anim_sound 0, 1, SFX_EGG_BOMB
@@ -2347,7 +2347,7 @@ BattleAnim_IronDefense:
 	anim_jump BattleAnim_ShowMon_0_2
 
 BattleAnim_Block:
-	anim_1gfx ANIM_GFX_OBJECTS
+	anim_1gfx ANIM_GFX_OBJECTS_1
 	anim_sound 0, 1, SFX_MEGA_PUNCH
 	anim_obj ANIM_OBJ_BLOCK, 132, 48, $20
 	anim_wait 48
@@ -2543,7 +2543,7 @@ BattleAnim_PoisonTail:
 	anim_jump BattleAnim_PoisonBubble_branch
 
 BattleAnim_Covet:
-	anim_2gfx ANIM_GFX_OBJECTS, ANIM_GFX_HIT
+	anim_2gfx ANIM_GFX_OBJECTS_1, ANIM_GFX_HIT
 	anim_call BattleAnim_TargetObj_1Row_2
 	anim_bgeffect ANIM_BG_WOBBLE_MON, $0, $1, $0
 	anim_sound 0, 0, SFX_ATTRACT
@@ -3641,12 +3641,35 @@ BattleAnim_PsychoShift:
 	anim_ret
 
 BattleAnim_TrumpCard:
-	anim_1gfx ANIM_GFX_HIT
-	anim_sound 0, 1, SFX_POUND
-	anim_obj ANIM_OBJ_PALM, 136, 56, $0
-	anim_wait 6
-	anim_obj ANIM_OBJ_HIT_YFIX, 136, 56, $0
-	anim_wait 16
+	anim_setobjpal PAL_BATTLE_OB_BLUE, PAL_BTLCUSTOM_WATER
+	anim_2gfx ANIM_GFX_OBJECTS_2, ANIM_GFX_CUT
+	anim_sound 63, 3, SFX_SHARPEN
+	anim_obj ANIM_OBJ_TRUMP_CARD_R, 112, 56, $0
+	anim_setobj $1, $3
+	anim_wait 12
+	anim_obj ANIM_OBJ_TRUMP_CARD_B, 112, 56, $0
+	anim_setobj $2, $3
+	anim_wait 12
+	anim_obj ANIM_OBJ_TRUMP_CARD_Y, 112, 56, $0
+	anim_setobj $3, $3
+	anim_wait 12
+	anim_obj ANIM_OBJ_TRUMP_CARD_R, 112, 56, $0
+	anim_setobj $4, $3
+	anim_wait 12
+	anim_obj ANIM_OBJ_TRUMP_CARD_B, 112, 56, $0
+	anim_setobj $5, $3
+	anim_wait 24
+	anim_clearobjs
+	anim_wait 1
+	anim_setobjpal PAL_BATTLE_OB_BLUE, PAL_BTLCUSTOM_BLUE
+	anim_2gfx ANIM_GFX_FLATTER, ANIM_GFX_CUT
+	anim_sound 0, 1, SFX_CUT
+	anim_obj ANIM_OBJ_CUT_LONG_DOWN_LEFT, 152, 40, $0
+	anim_obj ANIM_OBJ_FLATTER_1, 136, 46, $1c
+	anim_obj ANIM_OBJ_FLATTER_2, 136, 46, $50
+	anim_obj ANIM_OBJ_FLATTER_1, 136, 46, $dc
+	anim_obj ANIM_OBJ_FLATTER_2, 136, 46, $90
+	anim_wait 32
 	anim_ret
 
 BattleAnim_HealBlock:

@@ -286,7 +286,7 @@ BattleAnim_Par:
 	anim_ret
 
 BattleAnim_InLove:
-	anim_1gfx ANIM_GFX_OBJECTS
+	anim_1gfx ANIM_GFX_OBJECTS_1
 	anim_sound 0, 0, SFX_LICK
 	anim_obj ANIM_OBJ_HEART, 64, 76, $0
 	anim_wait 32
