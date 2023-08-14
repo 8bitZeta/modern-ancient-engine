@@ -3580,12 +3580,22 @@ BattleAnim_Assurance:
 	anim_ret
 
 BattleAnim_Embargo:
-	anim_1gfx ANIM_GFX_HIT
-	anim_sound 0, 1, SFX_POUND
-	anim_obj ANIM_OBJ_PALM, 136, 56, $0
-	anim_wait 6
-	anim_obj ANIM_OBJ_HIT_YFIX, 136, 56, $0
+	anim_setobjpal PAL_BATTLE_OB_GRAY, PAL_BTLCUSTOM_PAYBACK
+	anim_2gfx ANIM_GFX_MISC, ANIM_GFX_SHINE
+	anim_bgeffect ANIM_BG_CYCLE_MID_OBPALS_GRAY_AND_YELLOW, $0, $4, $0
+	anim_bgeffect ANIM_BG_FADE_MON_TO_BLACK_REPEATING, $0, $0, $40
 	anim_wait 16
+	anim_sound 0, 0, SFX_MILK_DRINK
+.loop
+	anim_obj ANIM_OBJ_EMBARGO, 132, 44, $00
+	anim_obj ANIM_OBJ_EMBARGO, 132, 44, $0d
+	anim_obj ANIM_OBJ_EMBARGO, 132, 44, $1a
+	anim_obj ANIM_OBJ_EMBARGO, 132, 44, $27
+	anim_obj ANIM_OBJ_EMBARGO, 132, 44, $34
+	anim_wait 44
+	anim_loop 3, .loop
+	anim_wait 36
+	anim_incbgeffect ANIM_BG_FADE_MON_TO_BLACK_REPEATING
 	anim_ret
 
 BattleAnim_Fling:
