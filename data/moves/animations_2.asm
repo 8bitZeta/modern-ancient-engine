@@ -3785,12 +3785,42 @@ BattleAnim_GastroAcid:
 	anim_ret
 
 BattleAnim_LuckyChant:
-	anim_1gfx ANIM_GFX_HIT
-	anim_sound 0, 1, SFX_POUND
-	anim_obj ANIM_OBJ_PALM, 136, 56, $0
+	anim_setobjpal PAL_BATTLE_OB_YELLOW, PAL_BTLCUSTOM_PAYBACK
+	anim_3gfx ANIM_GFX_BIG_GLOW_CLEAR, ANIM_GFX_STARS, ANIM_GFX_SPEED
+	anim_bgeffect ANIM_BG_CYCLE_MON_LIGHT_DARK_REPEATING, $0, $1, $20
+	anim_bgeffect ANIM_BG_CYCLE_MID_OBPALS_GRAY_AND_YELLOW, $0, $2, $0
+	anim_sound 0, 0, SFX_METRONOME
+	anim_obj ANIM_OBJ_LUCKY_CHANT, 44, 88, $0
+	anim_obj ANIM_OBJ_LUCKY_CHANT, 44, 88, $8
+	anim_obj ANIM_OBJ_LUCKY_CHANT, 44, 88, $10
+	anim_obj ANIM_OBJ_LUCKY_CHANT, 44, 88, $18
+	anim_obj ANIM_OBJ_LUCKY_CHANT, 44, 88, $20
+	anim_obj ANIM_OBJ_LUCKY_CHANT, 44, 88, $28
+	anim_obj ANIM_OBJ_LUCKY_CHANT, 44, 88, $30
+	anim_obj ANIM_OBJ_LUCKY_CHANT, 44, 88, $38
+	anim_wait 96
+	anim_clearobjs
+	anim_wait 1
+	anim_incbgeffect ANIM_BG_CYCLE_MON_LIGHT_DARK_REPEATING
+	anim_sound 0, 0, SFX_GAME_FREAK_PRESENTS
+	anim_obj ANIM_OBJ_BIG_GLOW, 48, 96, $0
 	anim_wait 6
-	anim_obj ANIM_OBJ_HIT_YFIX, 136, 56, $0
-	anim_wait 16
+	anim_clearobjs
+	anim_obj ANIM_OBJ_RISING_SPARKLE, 44, 108, $6
+	anim_wait 2
+	anim_obj ANIM_OBJ_RISING_SPARKLE, 36, 108, $6
+	anim_wait 2
+	anim_obj ANIM_OBJ_RISING_SPARKLE, 52, 108, $6
+	anim_wait 2
+	anim_obj ANIM_OBJ_RISING_SPARKLE, 28, 108, $6
+	anim_wait 2
+	anim_obj ANIM_OBJ_RISING_SPARKLE, 60, 108, $6
+	anim_wait 2
+	anim_obj ANIM_OBJ_RISING_SPARKLE, 20, 108, $6
+	anim_wait 2
+	anim_obj ANIM_OBJ_RISING_SPARKLE, 68, 108, $6
+	anim_wait 2
+	anim_wait 48
 	anim_ret
 
 BattleAnim_MeFirst:
