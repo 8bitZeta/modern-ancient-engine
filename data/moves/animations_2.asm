@@ -3903,13 +3903,8 @@ BattleAnim_PowerSwap:
 	anim_ret
 
 BattleAnim_GuardSwap:
-	anim_1gfx ANIM_GFX_HIT
-	anim_sound 0, 1, SFX_POUND
-	anim_obj ANIM_OBJ_PALM, 136, 56, $0
-	anim_wait 6
-	anim_obj ANIM_OBJ_HIT_YFIX, 136, 56, $0
-	anim_wait 16
-	anim_ret
+	anim_setobjpal PAL_BATTLE_OB_YELLOW, PAL_BTLCUSTOM_WATER
+	anim_jump BattleAnim_Transfer_Orbs_branch
 
 BattleAnim_Punishment:
 	anim_1gfx ANIM_GFX_HIT
