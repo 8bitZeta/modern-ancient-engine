@@ -3724,12 +3724,22 @@ BattleAnim_WringOut:
 	anim_ret
 
 BattleAnim_PowerTrick:
-	anim_1gfx ANIM_GFX_HIT
-	anim_sound 0, 1, SFX_POUND
-	anim_obj ANIM_OBJ_PALM, 136, 56, $0
-	anim_wait 6
-	anim_obj ANIM_OBJ_HIT_YFIX, 136, 56, $0
-	anim_wait 16
+	anim_setobjpal PAL_BATTLE_OB_YELLOW, PAL_BTLCUSTOM_AURORA
+	anim_1gfx ANIM_GFX_BIG_GLOW_SPIKED
+	anim_battlergfx_2row
+	anim_bgeffect ANIM_BG_BATTLEROBJ_1ROW, $0, $0, $0
+	anim_wait 1
+	anim_bgeffect ANIM_BG_CYCLE_OBPALS_GRAY_AND_YELLOW, $0, $4, $0
+	anim_sound 0, 0, SFX_PSYBEAM
+	anim_bgeffect ANIM_BG_TELEPORT, $0, $1, $0
+	anim_obj ANIM_OBJ_BIG_GLOW_SPIKED, 48, 96, $0
+	anim_wait 94
+	anim_incbgeffect ANIM_BG_TELEPORT
+	anim_wait 1
+	anim_bgeffect ANIM_BG_SHOW_MON, $0, $0, $0
+	anim_wait 1
+	anim_clearobjs
+	anim_wait 32
 	anim_ret
 
 BattleAnim_GastroAcid:
