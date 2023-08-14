@@ -293,10 +293,14 @@ SECTION "bank21", ROMX
 
 INCLUDE "engine/printer/printer_serial.asm"
 INCLUDE "engine/printer/printer.asm"
-INCLUDE "gfx/battle_anims.asm"
 INCLUDE "engine/events/halloffame.asm"
 INCLUDE "engine/events/field_moves.asm"
 INCLUDE "engine/events/magnet_train.asm"
+
+
+SECTION "BattleAnims", ROMX
+
+INCLUDE "gfx/battle_anims.asm"
 
 
 SECTION "Crystal Features 2", ROMX
