@@ -258,6 +258,7 @@ BattleAnimFrameData:
 	dw .Frameset_WakeUpSlapR             ; BATTLEANIMFRAMESET_WAKE_UP_SLAP_R
 	dw .Frameset_GyroBall                ; BATTLEANIMFRAMESET_GYRO_BALL
 	dw .Frameset_LongPunchNoHit          ; BATTLEANIMFRAMESET_LONG_PUNCH_NOT_HIT
+	dw .Frameset_AcupressureHand         ; BATTLEANIMFRAMESET_ACUPRESSURE_HAND
 	assert_table_length NUM_BATTLEANIMFRAMESETS
 
 .Frameset_HitBig:
@@ -1735,4 +1736,9 @@ BattleAnimFrameData:
 
 .Frameset_LongPunchNoHit:
 	battleoamframe BATTLEANIMOAMSET_03,  6
+	battleoamend
+
+.Frameset_AcupressureHand:
+	battleoamwait 12
+	battleoamframe BATTLEANIMOAMSET_1B,  8, OAM_Y_FLIP
 	battleoamend
