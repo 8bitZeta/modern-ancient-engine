@@ -256,6 +256,7 @@ BattleAnimFrameData:
 	dw .Frameset_ExplosionSmall          ; BATTLEANIMFRAMESET_EXPLOSION_SMALL
 	dw .Frameset_WakeUpSlapL             ; BATTLEANIMFRAMESET_WAKE_UP_SLAP_L
 	dw .Frameset_WakeUpSlapR             ; BATTLEANIMFRAMESET_WAKE_UP_SLAP_R
+	dw .Frameset_GyroBall                ; BATTLEANIMFRAMESET_GYRO_BALL
 	assert_table_length NUM_BATTLEANIMFRAMESETS
 
 .Frameset_HitBig:
@@ -1719,3 +1720,14 @@ BattleAnimFrameData:
 	battleoamframe BATTLEANIMOAMSET_21,  1, OAM_X_FLIP
 	battleoamframe BATTLEANIMOAMSET_1B,  1, OAM_X_FLIP
 	battleoamend
+
+.Frameset_GyroBall:
+	battleoamframe BATTLEANIMOAMSET_85,  1
+	battleoamframe BATTLEANIMOAMSET_95,  1
+	battleoamframe BATTLEANIMOAMSET_B9,  1
+	battleoamframe BATTLEANIMOAMSET_BD,  1
+	battleoamframe BATTLEANIMOAMSET_85,  1, OAM_X_FLIP, OAM_Y_FLIP
+	battleoamframe BATTLEANIMOAMSET_95,  1, OAM_X_FLIP, OAM_Y_FLIP
+	battleoamframe BATTLEANIMOAMSET_B9,  1, OAM_X_FLIP, OAM_Y_FLIP
+	battleoamframe BATTLEANIMOAMSET_BD,  1, OAM_X_FLIP, OAM_Y_FLIP
+	battleoamrestart
