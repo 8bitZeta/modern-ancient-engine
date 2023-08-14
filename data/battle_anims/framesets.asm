@@ -259,6 +259,7 @@ BattleAnimFrameData:
 	dw .Frameset_GyroBall                ; BATTLEANIMFRAMESET_GYRO_BALL
 	dw .Frameset_LongPunchNoHit          ; BATTLEANIMFRAMESET_LONG_PUNCH_NOT_HIT
 	dw .Frameset_AcupressureHand         ; BATTLEANIMFRAMESET_ACUPRESSURE_HAND
+	dw .Frameset_MetalBurst              ; BATTLEANIMFRAMESET_METAL_BURST
 	assert_table_length NUM_BATTLEANIMFRAMESETS
 
 .Frameset_HitBig:
@@ -1742,3 +1743,7 @@ BattleAnimFrameData:
 	battleoamwait 12
 	battleoamframe BATTLEANIMOAMSET_1B,  8, OAM_Y_FLIP
 	battleoamend
+
+.Frameset_MetalBurst:
+	battleoamframe BATTLEANIMOAMSET_20, 60
+	battleoamdelete

@@ -3400,12 +3400,68 @@ BattleAnim_Acupressure:
 	anim_ret
 
 BattleAnim_MetalBurst:
-	anim_1gfx ANIM_GFX_HIT
-	anim_sound 0, 1, SFX_POUND
-	anim_obj ANIM_OBJ_PALM, 136, 56, $0
-	anim_wait 6
-	anim_obj ANIM_OBJ_HIT_YFIX, 136, 56, $0
-	anim_wait 16
+	anim_2gfx ANIM_GFX_SHINE, ANIM_GFX_HIT
+	anim_bgp $1b
+	anim_bgeffect ANIM_BG_CYCLE_OBPALS_GRAY_AND_YELLOW, $0, $2, $0
+	anim_sound 0, 0, SFX_MEGA_KICK
+	anim_obj ANIM_OBJ_METAL_BURST, 44, 92, $0
+	anim_wait 1
+	anim_obj ANIM_OBJ_METAL_BURST, 28, 90, $0
+	anim_wait 1
+	anim_sound 0, 0, SFX_MEGA_KICK
+	anim_obj ANIM_OBJ_METAL_BURST, 38, 82, $0
+	anim_wait 1
+	anim_obj ANIM_OBJ_METAL_BURST, 46, 104, $0
+	anim_wait 1
+	anim_sound 0, 0, SFX_MEGA_KICK
+	anim_obj ANIM_OBJ_METAL_BURST, 32, 102, $0
+	anim_wait 1
+	anim_obj ANIM_OBJ_METAL_BURST, 58, 98, $0
+	anim_wait 1
+	anim_sound 0, 0, SFX_MEGA_KICK
+	anim_obj ANIM_OBJ_METAL_BURST, 54, 78, $0
+	anim_wait 1
+	anim_obj ANIM_OBJ_METAL_BURST, 62, 88, $0
+	anim_wait 50
+	anim_sound 0, 0, SFX_RAGE
+	anim_obj ANIM_OBJ_METAL_BURST_DEBRIS, 46, 96, $38
+	anim_wait 2
+	anim_sound 0, 0, SFX_RAGE
+	anim_obj ANIM_OBJ_METAL_BURST_DEBRIS, 28, 90, $20
+	anim_wait 2
+	anim_sound 0, 0, SFX_RAGE
+	anim_obj ANIM_OBJ_METAL_BURST_DEBRIS, 38, 82, $28
+	anim_wait 2
+	anim_sound 0, 0, SFX_RAGE
+	anim_obj ANIM_OBJ_METAL_BURST_DEBRIS, 44, 92, $0
+	anim_wait 2
+	anim_sound 0, 0, SFX_RAGE
+	anim_obj ANIM_OBJ_METAL_BURST_DEBRIS, 32, 100, $18
+	anim_wait 2
+	anim_sound 0, 0, SFX_RAGE
+	anim_obj ANIM_OBJ_METAL_BURST_DEBRIS, 58, 104, $10
+	anim_wait 2
+	anim_sound 0, 0, SFX_RAGE
+	anim_obj ANIM_OBJ_METAL_BURST_DEBRIS, 54, 78, $38
+	anim_wait 2
+	anim_sound 0, 0, SFX_RAGE
+	anim_obj ANIM_OBJ_METAL_BURST_DEBRIS, 62, 92, $8
+	anim_wait 36
+	anim_sound 0, 0, SFX_HEADBUTT
+	anim_obj ANIM_OBJ_HIT_SMALL_YFIX, 140, 44, $0
+	anim_wait 2
+	anim_sound 0, 0, SFX_HEADBUTT
+	anim_obj ANIM_OBJ_HIT_SMALL_YFIX, 124, 60, $0
+	anim_wait 2
+	anim_sound 0, 0, SFX_HEADBUTT
+	anim_obj ANIM_OBJ_HIT_SMALL_YFIX, 140, 60, $0
+	anim_wait 2
+	anim_sound 0, 0, SFX_HEADBUTT
+	anim_obj ANIM_OBJ_HIT_SMALL_YFIX, 124, 44, $0
+	anim_wait 2
+	anim_sound 0, 0, SFX_HEADBUTT
+	anim_obj ANIM_OBJ_HIT_SMALL_YFIX, 132, 52, $0
+	anim_wait 40
 	anim_ret
 
 BattleAnim_UTurn:

@@ -348,6 +348,8 @@ DEF BATTLEANIM_BASE_TILE EQU 7 * 7  ; Maximum size of a pokemon picture
 	const ANIM_OBJ_SMALL_GLOW_SLOW
 	const ANIM_OBJ_SIDE_PUNCH_NO_HIT
 	const ANIM_OBJ_ACUPRESSURE
+	const ANIM_OBJ_METAL_BURST
+	const ANIM_OBJ_METAL_BURST_DEBRIS
 DEF NUM_ANIM_OBJS EQU const_value
 
 ; DoBattleAnimFrame arguments (see engine/battle_anims/functions.asm)
@@ -707,6 +709,7 @@ DEF NUM_BATTLEANIMFUNCS EQU const_value
 	const BATTLEANIMFRAMESET_GYRO_BALL
 	const BATTLEANIMFRAMESET_LONG_PUNCH_NOT_HIT
 	const BATTLEANIMFRAMESET_ACUPRESSURE_HAND
+	const BATTLEANIMFRAMESET_METAL_BURST
 DEF NUM_BATTLEANIMFRAMESETS EQU const_value
 
 ; BattleAnimOAMData indexes (see data/battle_anims/oam.asm)
