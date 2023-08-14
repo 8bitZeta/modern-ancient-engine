@@ -3614,11 +3614,29 @@ BattleAnim_Fling:
 	anim_ret
 
 BattleAnim_PsychoShift:
-	anim_1gfx ANIM_GFX_HIT
-	anim_sound 0, 1, SFX_POUND
-	anim_obj ANIM_OBJ_PALM, 136, 56, $0
-	anim_wait 6
-	anim_obj ANIM_OBJ_HIT_YFIX, 136, 56, $0
+	anim_setobjpal PAL_BATTLE_OB_YELLOW, PAL_BTLCUSTOM_PAYBACK
+	anim_2gfx ANIM_GFX_BIG_GLOW_CLEAR, ANIM_GFX_GLOW
+	anim_bgeffect ANIM_BG_FADE_MON_TO_LIGHT_REPEATING, $0, $1, $40
+	anim_sound 0, 1, SFX_THIEF_2
+	anim_obj ANIM_OBJ_SMALL_GLOW, 48, 96, $0
+	anim_wait 16
+	anim_clearobjs
+	anim_sound 0, 1, SFX_THIEF_2
+	anim_obj ANIM_OBJ_BIG_GLOW, 48, 96, $0
+	anim_wait 64
+	anim_incbgeffect ANIM_BG_FADE_MON_TO_LIGHT_REPEATING
+	anim_clearobjs
+	anim_bgeffect ANIM_BG_FADE_MON_TO_BLACK_REPEATING, $0, $0, $40
+	anim_sound 0, 1, SFX_THIEF_2
+	anim_obj ANIM_OBJ_SMALL_GLOW, 48, 96, $0
+	anim_obj ANIM_OBJ_SMALL_GLOW, 136, 48, $0
+	anim_wait 16
+	anim_clearobjs
+	anim_sound 0, 1, SFX_THIEF_2
+	anim_obj ANIM_OBJ_BIG_GLOW, 136, 48, $0
+	anim_wait 64
+	anim_clearobjs
+	anim_obj ANIM_OBJ_SMALL_GLOW, 136, 48, $0
 	anim_wait 16
 	anim_ret
 
