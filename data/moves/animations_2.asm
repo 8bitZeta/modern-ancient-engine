@@ -3499,11 +3499,46 @@ BattleAnim_UTurn:
 	anim_ret
 
 BattleAnim_CloseCombat:
-	anim_1gfx ANIM_GFX_HIT
-	anim_sound 0, 1, SFX_POUND
-	anim_obj ANIM_OBJ_PALM, 136, 56, $0
-	anim_wait 6
-	anim_obj ANIM_OBJ_HIT_YFIX, 136, 56, $0
+	anim_2gfx ANIM_GFX_WIND_BG, ANIM_GFX_HIT
+	anim_sound 0, 0, SFX_RAZOR_WIND
+	anim_obj ANIM_OBJ_AGILITY, 8, 24, $10
+	anim_obj ANIM_OBJ_AGILITY, 8, 48, $2
+	anim_obj ANIM_OBJ_AGILITY, 8, 88, $8
+	anim_wait 4
+	anim_obj ANIM_OBJ_AGILITY, 8, 32, $6
+	anim_obj ANIM_OBJ_AGILITY, 8, 56, $c
+	anim_obj ANIM_OBJ_AGILITY, 8, 80, $4
+	anim_obj ANIM_OBJ_AGILITY, 8, 104, $e
+	anim_wait 12
+	anim_bgeffect ANIM_BG_SHAKE_SCREEN_X, $60, $2, $0
+	anim_bgp $90
+.loop
+	anim_sound 0, 1, SFX_KARATE_CHOP
+	anim_obj ANIM_OBJ_PUNCH, 148, 56, $0
+	anim_wait 1
+	anim_obj ANIM_OBJ_HIT_YFIX, 148, 56, $0
+	anim_wait 2
+	anim_sound 0, 1, SFX_KARATE_CHOP
+	anim_obj ANIM_OBJ_PUNCH, 122, 34, $0
+	anim_wait 1
+	anim_obj ANIM_OBJ_HIT_YFIX, 122, 34, $0
+	anim_wait 2
+	anim_sound 0, 1, SFX_KARATE_CHOP
+	anim_obj ANIM_OBJ_PUNCH, 132, 64, $0
+	anim_wait 1
+	anim_obj ANIM_OBJ_HIT_YFIX, 132, 64, $0
+	anim_wait 2
+	anim_sound 0, 1, SFX_KARATE_CHOP
+	anim_obj ANIM_OBJ_PUNCH, 140, 42, $0
+	anim_wait 1
+	anim_obj ANIM_OBJ_HIT_YFIX, 140, 42, $0
+	anim_wait 2
+	anim_sound 0, 1, SFX_KARATE_CHOP
+	anim_obj ANIM_OBJ_PUNCH, 114, 52, $0
+	anim_wait 1
+	anim_obj ANIM_OBJ_HIT_YFIX, 114, 52, $0
+	anim_wait 2
+	anim_loop 4, .loop
 	anim_wait 16
 	anim_ret
 
