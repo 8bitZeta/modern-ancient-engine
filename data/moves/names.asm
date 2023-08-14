@@ -362,7 +362,7 @@ MoveNames::
 	li "HAMMER ARM"
 	li "GYRO BALL"
 	li "HEALING WISH"
-	li "BRINEWATER"
+	li "BRINE"
 	li "NATURAL GIFT"
 	li "FEINT"
 	li "PLUCK"

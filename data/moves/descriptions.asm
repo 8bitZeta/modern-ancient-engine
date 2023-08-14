@@ -371,7 +371,7 @@ MoveDescriptions2:
 	dw HammerArmDescription
 	dw GyroBallDescription
 	dw HealingWishDescription
-	dw BrinewaterDescription
+	dw BrineDescription
 	dw NaturalGiftDescription
 	dw FeintDescription
 	dw PluckDescription
@@ -1916,7 +1916,7 @@ HealingWishDescription:
 	db   "Pounds with fore-"
 	next "legs or tail.@"
 
-BrinewaterDescription:
+BrineDescription:
 	db   "Pounds with fore-"
 	next "legs or tail.@"
 
