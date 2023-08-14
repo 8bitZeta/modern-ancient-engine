@@ -3859,12 +3859,38 @@ BattleAnim_MeFirst:
 	anim_ret
 
 BattleAnim_Copycat:
-	anim_1gfx ANIM_GFX_HIT
-	anim_sound 0, 1, SFX_POUND
-	anim_obj ANIM_OBJ_PALM, 136, 56, $0
-	anim_wait 6
-	anim_obj ANIM_OBJ_HIT_YFIX, 136, 56, $0
-	anim_wait 16
+	anim_setobjpal PAL_BATTLE_OB_GRAY, PAL_BTLCUSTOM_GLOW_YELLOW
+	anim_setobjpal PAL_BATTLE_OB_YELLOW, PAL_BTLCUSTOM_GLOW_YELLOW
+	anim_3gfx ANIM_GFX_BIG_GLOW_CLEAR, ANIM_GFX_CHARGE, ANIM_GFX_GLOW,
+	anim_bgeffect ANIM_BG_CYCLE_OBPALS_GRAY_AND_YELLOW, $0, $4, $0
+	anim_sound 0, 0, SFX_WARP_TO
+	anim_obj ANIM_OBJ_ENERGY_ORB, 48, 96, $38
+	anim_wait 4
+	anim_obj ANIM_OBJ_ENERGY_ORB, 48, 96, $20
+	anim_wait 4
+	anim_obj ANIM_OBJ_ENERGY_ORB, 48, 96, $8
+	anim_wait 4
+	anim_sound 0, 0, SFX_WARP_TO
+	anim_obj ANIM_OBJ_ENERGY_ORB, 48, 96, $10
+	anim_wait 4
+	anim_obj ANIM_OBJ_ENERGY_ORB, 48, 96, $28
+	anim_wait 4
+	anim_obj ANIM_OBJ_ENERGY_ORB, 48, 96, $0
+	anim_wait 4
+	anim_sound 0, 0, SFX_WARP_TO
+	anim_obj ANIM_OBJ_ENERGY_ORB, 48, 96, $18
+	anim_wait 4
+	anim_obj ANIM_OBJ_ENERGY_ORB, 48, 96, $30
+	anim_wait 4
+	anim_sound 0, 0, SFX_ATTRACT
+	anim_obj ANIM_OBJ_SMALL_GLOW, 48, 96, $0
+	anim_wait 22
+	anim_clearobjs
+	anim_bgeffect ANIM_BG_FADE_MON_TO_BLACK_REPEATING, $0, $1, $40
+	anim_sound 0, 0, SFX_POTION
+	anim_obj ANIM_OBJ_BIG_GLOW, 48, 96, $0
+	anim_wait 56
+	anim_clearobjs
 	anim_ret
 
 BattleAnim_PowerSwap:
