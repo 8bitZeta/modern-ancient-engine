@@ -3599,12 +3599,18 @@ BattleAnim_Embargo:
 	anim_ret
 
 BattleAnim_Fling:
-	anim_1gfx ANIM_GFX_HIT
-	anim_sound 0, 1, SFX_POUND
-	anim_obj ANIM_OBJ_PALM, 136, 56, $0
-	anim_wait 6
-	anim_obj ANIM_OBJ_HIT_YFIX, 136, 56, $0
-	anim_wait 16
+	anim_2gfx ANIM_GFX_STATUS, ANIM_GFX_HIT
+	anim_battlergfx_2row
+	anim_bgeffect ANIM_BG_BATTLEROBJ_1ROW, $0, $1, $0
+	anim_sound 6, 2, SFX_THROW_BALL
+	anim_obj ANIM_OBJ_FLING, 64, 92, $10
+	anim_wait 36
+	anim_bgeffect ANIM_BG_FLASH_INVERTED, $0, $8, $2
+	anim_sound 0, 1, SFX_MEGA_KICK
+	anim_obj ANIM_OBJ_HIT_BIG_YFIX, 136, 56, $0
+	anim_bgeffect ANIM_BG_VIBRATE_MON, $0, $0, $0
+	anim_wait 36
+	anim_bgeffect ANIM_BG_SHOW_MON, $0, $1, $0
 	anim_ret
 
 BattleAnim_PsychoShift:
