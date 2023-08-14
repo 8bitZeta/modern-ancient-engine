@@ -3333,12 +3333,32 @@ BattleAnim_Feint:
 	anim_jump BattleAnim_ShowMon_0_2
 
 BattleAnim_Pluck:
-	anim_1gfx ANIM_GFX_HIT
-	anim_sound 0, 1, SFX_POUND
-	anim_obj ANIM_OBJ_PALM, 136, 56, $0
-	anim_wait 6
-	anim_obj ANIM_OBJ_HIT_YFIX, 136, 56, $0
-	anim_wait 16
+	anim_2gfx ANIM_GFX_HIT, ANIM_GFX_ROCKS
+	anim_call BattleAnim_UserObj_1Row_2
+	anim_bgeffect ANIM_BG_VIBRATE_MON, $0, $0, $0
+	anim_sound 0, 1, SFX_HORN_ATTACK
+	anim_obj ANIM_OBJ_ROCK_SMASH, 136, 48, $5c
+	anim_obj ANIM_OBJ_HIT_SMALL_YFIX, 140, 44, $0
+	anim_wait 8
+	anim_sound 0, 1, SFX_HORN_ATTACK
+	anim_obj ANIM_OBJ_ROCK_SMASH, 136, 48, $d0
+	anim_obj ANIM_OBJ_HIT_SMALL_YFIX, 124, 60, $0
+	anim_wait 8
+	anim_bgeffect ANIM_BG_VIBRATE_MON, $0, $0, $0
+	anim_sound 0, 1, SFX_HORN_ATTACK
+	anim_obj ANIM_OBJ_ROCK_SMASH, 136, 48, $e8
+	anim_obj ANIM_OBJ_HIT_SMALL_YFIX, 140, 60, $0
+	anim_wait 8
+	anim_sound 0, 1, SFX_HORN_ATTACK
+	anim_obj ANIM_OBJ_ROCK_SMASH, 136, 48, $50
+	anim_obj ANIM_OBJ_HIT_SMALL_YFIX, 124, 44, $0
+	anim_wait 8
+	anim_bgeffect ANIM_BG_VIBRATE_MON, $0, $0, $0
+	anim_sound 0, 1, SFX_HORN_ATTACK
+	anim_obj ANIM_OBJ_ROCK_SMASH, 136, 48, $5c
+	anim_obj ANIM_OBJ_HIT_SMALL_YFIX, 132, 52, $0
+	anim_wait 40
+	anim_call BattleAnim_ShowMon_1_2
 	anim_ret
 
 BattleAnim_Tailwind:
