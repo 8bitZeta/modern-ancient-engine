@@ -266,6 +266,7 @@ BattleAnimFrameData:
 	dw .Frameset_HealBlockSlower         ; BATTLEANIMFRAMESET_HEAL_BLOCK_SLOWER
 	dw .Frameset_HealBlockSlowest        ; BATTLEANIMFRAMESET_HEAL_BLOCK_SLOWEST
 	dw .Frameset_WringOut                ; BATTLEANIMFRAMESET_WRING_OUT
+	dw .Frameset_GastroAcid              ; BATTLEANIMFRAMESET_GASTRO_ACID
 	assert_table_length NUM_BATTLEANIMFRAMESETS
 
 .Frameset_HitBig:
@@ -1781,3 +1782,7 @@ BattleAnimFrameData:
 .Frameset_WringOut:
 	battleoamframe BATTLEANIMOAMSET_05,  6
 	battleoamend
+
+.Frameset_GastroAcid:
+	battleoamframe BATTLEANIMOAMSET_17,  24
+	battleoamdelete

@@ -366,6 +366,7 @@ DEF BATTLEANIM_BASE_TILE EQU 7 * 7  ; Maximum size of a pokemon picture
 	const ANIM_OBJ_HEAL_BLOCK_SLOWEST
 	const ANIM_OBJ_SWIRL
 	const ANIM_OBJ_WRING_OUT
+	const ANIM_OBJ_GASTRO_ACID
 DEF NUM_ANIM_OBJS EQU const_value
 
 ; DoBattleAnimFrame arguments (see engine/battle_anims/functions.asm)
@@ -733,6 +734,7 @@ DEF NUM_BATTLEANIMFUNCS EQU const_value
 	const BATTLEANIMFRAMESET_HEAL_BLOCK_SLOWER
 	const BATTLEANIMFRAMESET_HEAL_BLOCK_SLOWEST
 	const BATTLEANIMFRAMESET_WRING_OUT
+	const BATTLEANIMFRAMESET_GASTRO_ACID
 DEF NUM_BATTLEANIMFRAMESETS EQU const_value
 
 ; BattleAnimOAMData indexes (see data/battle_anims/oam.asm)
@@ -1251,6 +1253,7 @@ DEF NUM_BG_EFFECTS EQU 5 ; see wActiveBGEffects
 	const PAL_BTLCUSTOM_GRAVITY            ; 24
 	const PAL_BTLCUSTOM_GLOW_GREEN         ; 25
 	const PAL_BTLCUSTOM_PAYBACK            ; 26
+	const PAL_BTLCUSTOM_GASTRO_ACID        ; 27
 DEF NUM_CUSTOM_BATTLE_PALETTES EQU const_value
 
 DEF PAL_BTLCUSTOM_DEFAULT EQU -1

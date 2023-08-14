@@ -3743,12 +3743,45 @@ BattleAnim_PowerTrick:
 	anim_ret
 
 BattleAnim_GastroAcid:
-	anim_1gfx ANIM_GFX_HIT
-	anim_sound 0, 1, SFX_POUND
-	anim_obj ANIM_OBJ_PALM, 136, 56, $0
-	anim_wait 6
-	anim_obj ANIM_OBJ_HIT_YFIX, 136, 56, $0
-	anim_wait 16
+	anim_setobjpal PAL_BATTLE_OB_GRAY, PAL_BTLCUSTOM_GASTRO_ACID
+	anim_setobjpal PAL_BATTLE_OB_BLUE, PAL_BTLCUSTOM_GASTRO_ACID
+	anim_1gfx ANIM_GFX_POISON
+	anim_battlergfx_2row
+	anim_bgeffect ANIM_BG_BATTLEROBJ_1ROW, $0, $1, $0
+	anim_sound 6, 2, SFX_AEROBLAST
+	anim_obj ANIM_OBJ_ACID, 64, 92, $10
+	anim_wait 36
+	anim_sound 0, 1, SFX_TOXIC
+	anim_obj ANIM_OBJ_INK_SPLASH, 136, 56, $5c
+	anim_obj ANIM_OBJ_INK_SPLASH, 136, 56, $e8
+	anim_obj ANIM_OBJ_INK_SPLASH, 136, 56, $d0
+	anim_obj ANIM_OBJ_INK_SPLASH, 136, 56, $50
+	anim_wait 8
+	anim_bgeffect ANIM_BG_VIBRATE_MON, $0, $0, $0
+	anim_bgeffect ANIM_BG_FADE_MON_TO_BLACK_REPEATING, $0, $0, $40
+	anim_sound 0, 1, SFX_TOXIC
+	anim_obj ANIM_OBJ_GASTRO_ACID, 128, 32, $11
+	anim_wait 2
+	anim_obj ANIM_OBJ_GASTRO_ACID, 144, 32, $0f
+	anim_wait 2
+	anim_obj ANIM_OBJ_GASTRO_ACID, 124, 32, $11
+	anim_wait 2
+	anim_obj ANIM_OBJ_GASTRO_ACID, 148, 32, $0f
+	anim_wait 2
+	anim_sound 0, 1, SFX_TOXIC
+	anim_obj ANIM_OBJ_GASTRO_ACID, 120, 32, $11
+	anim_wait 2
+	anim_obj ANIM_OBJ_GASTRO_ACID, 152, 32, $0f
+	anim_wait 2
+	anim_obj ANIM_OBJ_GASTRO_ACID, 132, 32, $11
+	anim_wait 2
+	anim_obj ANIM_OBJ_GASTRO_ACID, 140, 32, $0f
+	anim_wait 22
+	anim_bgeffect ANIM_BG_SHOW_MON, $0, $1, $0
+	anim_wait 8
+	anim_incbgeffect ANIM_BG_FADE_MON_TO_BLACK_REPEATING
+	anim_wait 8
+	anim_clearobjs
 	anim_ret
 
 BattleAnim_LuckyChant:
