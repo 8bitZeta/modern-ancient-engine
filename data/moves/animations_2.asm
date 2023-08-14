@@ -3698,12 +3698,29 @@ BattleAnim_HealBlock:
 	anim_ret
 
 BattleAnim_WringOut:
-	anim_1gfx ANIM_GFX_HIT
-	anim_sound 0, 1, SFX_POUND
-	anim_obj ANIM_OBJ_PALM, 136, 56, $0
+	anim_setobjpal PAL_BATTLE_OB_GRAY, PAL_BTLCUSTOM_PAYBACK
+	anim_3gfx ANIM_GFX_HIT, ANIM_GFX_SWIRL, ANIM_GFX_STARS
+	anim_battlergfx_2row
+	anim_bgeffect ANIM_BG_BATTLEROBJ_1ROW, $0, $1, $0
+	anim_sound 0, 0, SFX_SQUEAK
+	anim_obj ANIM_OBJ_SWIRL, 136, 48, $0
+	anim_obj ANIM_OBJ_WRING_OUT, 136, 48, $0
+	anim_wait 1
+	anim_obj ANIM_OBJ_WRING_OUT, 136, 48, $0
+	anim_wait 1
+	anim_obj ANIM_OBJ_WRING_OUT, 136, 48, $0
 	anim_wait 6
-	anim_obj ANIM_OBJ_HIT_YFIX, 136, 56, $0
-	anim_wait 16
+.loop
+	anim_sound 0, 0, SFX_SLUDGE_BOMB
+	anim_bgeffect ANIM_BG_VIBRATE_MON, $0, $0, $0
+	anim_obj ANIM_OBJ_STAR_BURST, 136, 48, $5c
+	anim_obj ANIM_OBJ_STAR_BURST, 136, 48, $e8
+	anim_wait 36
+	anim_loop 3, .loop
+	anim_bgeffect ANIM_BG_SHOW_MON, $0, $1, $0
+	anim_wait 1
+	anim_clearobjs
+	anim_wait 32
 	anim_ret
 
 BattleAnim_PowerTrick:

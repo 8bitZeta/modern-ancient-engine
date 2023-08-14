@@ -108,6 +108,7 @@ DoBattleAnimFrame:
 	dba BattleAnimFunction_RadialMoveOut_Fast
 	dba BattleAnimFunction_RadialMoveOut_VeryFast_NoStop
 	dba BattleAnimFunction_RadialMoveIn
+	dba BattleAnimFunction_RadialSpin
 	dba BattleAnimFunction_BubbleSplash
 	dba BattleAnimFunction_ObjectHover
 	dba BattleAnimFunction_Roost
@@ -1837,6 +1838,38 @@ BattleAnimFunction_RadialMoveIn:
 	ld a, e
 	ld [hld], a
 	ld [hl], d
+	ret
+
+BattleAnimFunction_RadialSpin:
+	ld hl, BATTLEANIMSTRUCT_VAR1
+	add hl, bc
+	ld a, [hl]
+	ld d, $10
+	push af
+	push de
+	call Sine
+	ld hl, BATTLEANIMSTRUCT_YOFFSET
+	add hl, bc
+	ld [hl], a
+	pop de
+	pop af
+	call Cosine
+	ld hl, BATTLEANIMSTRUCT_XOFFSET
+	add hl, bc
+	ld [hl], a
+	ld hl, BATTLEANIMSTRUCT_VAR1
+	add hl, bc
+	push hl
+	ld a, [hli]
+	ld e, [hl]
+	ld d, a
+	ld hl, 500 ; speed
+	add hl, de
+	ld a, h
+	ld e, l
+	pop hl
+	ld [hli], a
+	ld [hl], e
 	ret
 
 BattleAnimFunction_ObjectHover:

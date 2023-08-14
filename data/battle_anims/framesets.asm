@@ -265,6 +265,7 @@ BattleAnimFrameData:
 	dw .Frameset_HealBlockSlow           ; BATTLEANIMFRAMESET_HEAL_BLOCK_SLOW
 	dw .Frameset_HealBlockSlower         ; BATTLEANIMFRAMESET_HEAL_BLOCK_SLOWER
 	dw .Frameset_HealBlockSlowest        ; BATTLEANIMFRAMESET_HEAL_BLOCK_SLOWEST
+	dw .Frameset_WringOut                ; BATTLEANIMFRAMESET_WRING_OUT
 	assert_table_length NUM_BATTLEANIMFRAMESETS
 
 .Frameset_HitBig:
@@ -1775,4 +1776,8 @@ BattleAnimFrameData:
 
 .Frameset_HealBlockSlowest:
 	battleoamframe BATTLEANIMOAMSET_BF,  16
+	battleoamend
+
+.Frameset_WringOut:
+	battleoamframe BATTLEANIMOAMSET_05,  6
 	battleoamend
