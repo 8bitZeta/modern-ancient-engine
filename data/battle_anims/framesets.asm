@@ -305,6 +305,7 @@ BattleAnimFrameData:
 	dw .Frameset_DragonPulse             ; BATTLEANIMFRAMESET_DRAGON_PULSE
 	dw .Frameset_DragonRush              ; BATTLEANIMFRAMESET_DRAGON_RUSH
 	dw .Frameset_DragonRushFlipped       ; BATTLEANIMFRAMESET_DRAGON_RUSH_FLIPPED
+	dw .Frameset_PowerGem                ; BATTLEANIMFRAMESET_POWER_GEM
 	assert_table_length NUM_BATTLEANIMFRAMESETS
 
 .Frameset_HitBig:
@@ -2070,4 +2071,9 @@ BattleAnimFrameData:
 	battleoamframe BATTLEANIMOAMSET_FC,  1, OAM_X_FLIP
 	battleoamframe BATTLEANIMOAMSET_E5,  1
 	battleoamframe BATTLEANIMOAMSET_FC,  1
+	battleoamend
+
+.Frameset_PowerGem:
+	battleoamframe BATTLEANIMOAMSET_20, 8
+	battleoamframe BATTLEANIMOAMSET_54, 8
 	battleoamend
