@@ -404,7 +404,7 @@ MoveNames::
 	li "AQUA TAIL"
 	li "SEED BOMB"
 	li "AIR SLASH"
-	li "X SCISSOR"
+	li "X-SCISSOR"
 	li "BUG BUZZ"
 	li "DRAGON PULSE"
 	li "DRAGON RUSH"
