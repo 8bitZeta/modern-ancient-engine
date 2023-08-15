@@ -303,6 +303,8 @@ BattleAnimFrameData:
 	dw .Frameset_BugBuzzL                ; BATTLEANIMFRAMESET_BUG_BUZZ_R
 	dw .Frameset_MidGlowShrinking        ; BATTLEANIMFRAMESET_MID_GLOW_SHRINKING
 	dw .Frameset_DragonPulse             ; BATTLEANIMFRAMESET_DRAGON_PULSE
+	dw .Frameset_DragonRush              ; BATTLEANIMFRAMESET_DRAGON_RUSH
+	dw .Frameset_DragonRushFlipped       ; BATTLEANIMFRAMESET_DRAGON_RUSH_FLIPPED
 	assert_table_length NUM_BATTLEANIMFRAMESETS
 
 .Frameset_HitBig:
@@ -2055,3 +2057,17 @@ BattleAnimFrameData:
 	battleoamframe BATTLEANIMOAMSET_54,  3
 	battleoamframe BATTLEANIMOAMSET_53,  3
 	battleoamdelete
+
+.Frameset_DragonRush:
+	battleoamwait 8
+	battleoamframe BATTLEANIMOAMSET_FC,  1
+	battleoamframe BATTLEANIMOAMSET_E5,  1
+	battleoamframe BATTLEANIMOAMSET_FC,  1, OAM_X_FLIP
+	battleoamend
+
+.Frameset_DragonRushFlipped:
+	battleoamwait 8
+	battleoamframe BATTLEANIMOAMSET_FC,  1, OAM_X_FLIP
+	battleoamframe BATTLEANIMOAMSET_E5,  1
+	battleoamframe BATTLEANIMOAMSET_FC,  1
+	battleoamend
