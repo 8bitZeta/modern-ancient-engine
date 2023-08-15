@@ -4169,12 +4169,26 @@ BattleAnim_FlareBlitz:
 	anim_ret
 
 BattleAnim_ForcePalm:
-	anim_1gfx ANIM_GFX_HIT
-	anim_sound 0, 1, SFX_POUND
-	anim_obj ANIM_OBJ_PALM, 136, 56, $0
+	anim_setobjpal PAL_BATTLE_OB_BLUE, PAL_BTLCUSTOM_GRAY
+	anim_setobjpal PAL_BATTLE_OB_YELLOW, PAL_BTLCUSTOM_PAYBACK
+	anim_2gfx ANIM_GFX_HIT, ANIM_GFX_BIG_GLOW_SPIKED
+	anim_battlergfx_2row
+	anim_bgeffect ANIM_BG_BATTLEROBJ_1ROW, $0, $1, $0
+	anim_obj ANIM_OBJ_PALM_STILL, 94, 48, $0
+	anim_wait 32
+	anim_clearobjs
+	anim_bgeffect ANIM_BG_BATTLEROBJ_1ROW, $0, $1, $0
+	anim_obj ANIM_OBJ_FORCE_PALM, 94, 48, $0
 	anim_wait 6
-	anim_obj ANIM_OBJ_HIT_YFIX, 136, 56, $0
-	anim_wait 16
+	anim_sound 0, 1, SFX_KARATE_CHOP
+	anim_obj ANIM_OBJ_BIG_GLOW_SPIKED, 136, 48, $0
+	anim_bgeffect ANIM_BG_VIBRATE_MON, $0, $0, $0
+	anim_wait 2
+	anim_clearobjs
+	anim_bgeffect ANIM_BG_BATTLEROBJ_1ROW, $0, $1, $0
+	anim_obj ANIM_OBJ_PALM_STILL, 166, 48, $0
+	anim_wait 32
+	anim_bgeffect ANIM_BG_SHOW_MON, $0, $1, $0
 	anim_ret
 
 BattleAnim_AuraSphere:

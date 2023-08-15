@@ -273,6 +273,7 @@ BattleAnimFrameData:
 	dw .Frameset_SuckerPunchR            ; BATTLEANIMFRAMESET_SUCKER_PUNCH_R
 	dw .Frameset_AquaRing                ; BATTLEANIMFRAMESET_AQUA_RING
 	dw .Frameset_MagnetRise              ; BATTLEANIMFRAMESET_MAGNET_RISE
+	dw .Frameset_PalmStill               ; BATTLEANIMFRAMESET_PALM_STILL
 	assert_table_length NUM_BATTLEANIMFRAMESETS
 
 .Frameset_HitBig:
@@ -1827,4 +1828,8 @@ BattleAnimFrameData:
 
 .Frameset_MagnetRise:
 	battleoamframe BATTLEANIMOAMSET_102,  8
+	battleoamend
+
+.Frameset_PalmStill:
+	battleoamframe BATTLEANIMOAMSET_05,  6, OAM_X_FLIP
 	battleoamend

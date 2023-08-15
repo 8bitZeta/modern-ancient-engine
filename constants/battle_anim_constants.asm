@@ -380,6 +380,8 @@ DEF BATTLEANIM_BASE_TILE EQU 7 * 7  ; Maximum size of a pokemon picture
 	const ANIM_OBJ_TINY_GLOW_CLEAR
 	const ANIM_OBJ_ORBITING_ORBS
 	const ANIM_OBJ_MAGNET_RISE
+	const ANIM_OBJ_PALM_STILL
+	const ANIM_OBJ_FORCE_PALM
 DEF NUM_ANIM_OBJS EQU const_value
 
 ; DoBattleAnimFrame arguments (see engine/battle_anims/functions.asm)
@@ -755,6 +757,7 @@ DEF NUM_BATTLEANIMFUNCS EQU const_value
 	const BATTLEANIMFRAMESET_SUCKER_PUNCH_R
 	const BATTLEANIMFRAMESET_AQUA_RING
 	const BATTLEANIMFRAMESET_MAGNET_RISE
+	const BATTLEANIMFRAMESET_PALM_STILL
 DEF NUM_BATTLEANIMFRAMESETS EQU const_value
 
 ; BattleAnimOAMData indexes (see data/battle_anims/oam.asm)

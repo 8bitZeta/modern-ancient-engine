@@ -137,30 +137,30 @@ PlayersHouseRadioScript:
 	givepoke MEW, 100, LEFTOVERS
 	givepoke MEW, 100, LEFTOVERS
 	givepoke MEW, 100, LEFTOVERS
-	givepokemove PAYBACK,        wPartyMon1, 0
-	givepokemove ASSURANCE,       wPartyMon1, 1
-	givepokemove EMBARGO,   wPartyMon1, 2
-	givepokemove FLING,        wPartyMon1, 3
-	givepokemove PSYCHO_SHIFT,      wPartyMon2, 0
-	givepokemove TRUMP_CARD, wPartyMon2, 1
-	givepokemove HEAL_BLOCK,   wPartyMon2, 2
-	givepokemove WRING_OUT,  wPartyMon2, 3
-	givepokemove POWER_TRICK,        wPartyMon3, 0
-	givepokemove GASTRO_ACID,       wPartyMon3, 1
-	givepokemove LUCKY_CHANT,   wPartyMon3, 2
-	givepokemove ME_FIRST,        wPartyMon3, 3
-	givepokemove COPYCAT,      wPartyMon4, 0
-	givepokemove POWER_SWAP, wPartyMon4, 1
-	givepokemove GUARD_SWAP,   wPartyMon4, 2
-	givepokemove PUNISHMENT,  wPartyMon4, 3
-	givepokemove LAST_RESORT,        wPartyMon5, 0
-	givepokemove WORRY_SEED,       wPartyMon5, 1
-	givepokemove SUCKER_PUNCH,   wPartyMon5, 2
-	givepokemove TOXIC_SPIKES,        wPartyMon5, 3
-	givepokemove HEART_SWAP,      wPartyMon6, 0
-	givepokemove AQUA_RING, wPartyMon6, 1
-	givepokemove MAGNET_RISE,   wPartyMon6, 2
-	givepokemove FLARE_BLITZ,  wPartyMon6, 3
+	givepokemove FORCE_PALM,        wPartyMon1, 0
+	givepokemove AURA_SPHERE,       wPartyMon1, 1
+	givepokemove ROCK_POLISH,   wPartyMon1, 2
+	givepokemove POISON_JAB,        wPartyMon1, 3
+	givepokemove DARK_PULSE,      wPartyMon2, 0
+	givepokemove NIGHT_SLASH, wPartyMon2, 1
+	givepokemove AQUA_TAIL,   wPartyMon2, 2
+	givepokemove SEED_BOMB,  wPartyMon2, 3
+	givepokemove AIR_SLASH,        wPartyMon3, 0
+	givepokemove X_SCISSOR,       wPartyMon3, 1
+	givepokemove BUG_BUZZ,   wPartyMon3, 2
+	givepokemove DRAGON_PULSE,        wPartyMon3, 3
+	givepokemove DRAGON_RUSH,      wPartyMon4, 0
+	givepokemove POWER_GEM, wPartyMon4, 1
+	givepokemove DRAIN_PUNCH,   wPartyMon4, 2
+	givepokemove VACUUM_WAVE,  wPartyMon4, 3
+	givepokemove FOCUS_BLAST,        wPartyMon5, 0
+	givepokemove ENERGY_BALL,       wPartyMon5, 1
+	givepokemove BRAVE_BIRD,   wPartyMon5, 2
+	givepokemove EARTH_POWER,        wPartyMon5, 3
+	givepokemove SWITCHEROO,      wPartyMon6, 0
+	givepokemove GIGA_IMPACT, wPartyMon6, 1
+	givepokemove NASTY_PLOT,   wPartyMon6, 2
+	givepokemove BULLET_PUNCH,  wPartyMon6, 3
 	; Test pokemon
 	; givepoke NINCADA, 50
 	; givepoke NINCADA, 50
