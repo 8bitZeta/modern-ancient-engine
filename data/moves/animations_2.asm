@@ -3961,12 +3961,17 @@ BattleAnim_LastResort:
 	anim_ret
 
 BattleAnim_WorrySeed:
-	anim_1gfx ANIM_GFX_HIT
-	anim_sound 0, 1, SFX_POUND
-	anim_obj ANIM_OBJ_PALM, 136, 56, $0
-	anim_wait 6
-	anim_obj ANIM_OBJ_HIT_YFIX, 136, 56, $0
+	anim_3gfx ANIM_GFX_PLANT, ANIM_GFX_DEPRESSION, ANIM_GFX_SMOKE
+	anim_sound 0, 0, SFX_BONE_CLUB
+	anim_obj ANIM_OBJ_WORRY_SEED, 64, 92, $10
+	anim_wait 40
+	anim_sound 0, 1, SFX_JUMP_OVER_LEDGE
+	anim_obj ANIM_OBJ_BALL_POOF_YFIX, 136, 56, $0
 	anim_wait 16
+	anim_setobjpal PAL_BATTLE_BG_TARGET, PAL_BTLCUSTOM_GRAY
+	anim_sound 0, 1, SFX_SLUDGE_BOMB
+	anim_obj ANIM_OBJ_DEPRESSION, 116, 32, $0
+	anim_wait 64
 	anim_ret
 
 BattleAnim_SuckerPunch:

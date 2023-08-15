@@ -268,6 +268,7 @@ BattleAnimFrameData:
 	dw .Frameset_WringOut                ; BATTLEANIMFRAMESET_WRING_OUT
 	dw .Frameset_GastroAcid              ; BATTLEANIMFRAMESET_GASTRO_ACID
 	dw .Frameset_BigWhip                 ; BATTLEANIMFRAMESET_BIG_WHIP
+	dw .Frameset_Depression              ; BATTLEANIMFRAMESET_DEPRESSION
 	assert_table_length NUM_BATTLEANIMFRAMESETS
 
 .Frameset_HitBig:
@@ -1798,3 +1799,9 @@ BattleAnimFrameData:
 	battleoamframe BATTLEANIMOAMSET_FC,  1
 	battleoamframe BATTLEANIMOAMSET_E5,  1
 	battleoamrestart
+
+.Frameset_Depression:
+	battleoamframe BATTLEANIMOAMSET_1B,  6
+	battleoamframe BATTLEANIMOAMSET_21,  6
+	battleoamframe BATTLEANIMOAMSET_7F,  6
+	battleoamend
