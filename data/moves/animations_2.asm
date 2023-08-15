@@ -4615,12 +4615,18 @@ BattleAnim_DrainPunch:
 	anim_ret
 
 BattleAnim_VacuumWave:
-	anim_1gfx ANIM_GFX_HIT
-	anim_sound 0, 1, SFX_POUND
-	anim_obj ANIM_OBJ_PALM, 136, 56, $0
-	anim_wait 6
-	anim_obj ANIM_OBJ_HIT_YFIX, 136, 56, $0
-	anim_wait 16
+	anim_setobjpal PAL_BATTLE_OB_GRAY, PAL_BTLCUSTOM_VERY_BRIGHT
+	anim_setobjpal PAL_BATTLE_OB_YELLOW, PAL_BTLCUSTOM_VERY_BRIGHT
+	anim_bgeffect ANIM_BG_CYCLE_MID_OBPALS_GRAY_AND_YELLOW, $0, $2, $0
+	anim_2gfx ANIM_GFX_HIT, ANIM_GFX_BIG_GLOW_CLEAR
+	anim_sound 0, 1, SFX_MEGA_PUNCH
+	anim_obj ANIM_OBJ_PUNCH, 136, 52, $0
+	anim_wait 8
+	anim_obj ANIM_OBJ_VACUUM_SHRINKING, 136, 52, $0
+	anim_wait 8
+	anim_sound 0, 1, SFX_KARATE_CHOP
+	anim_obj ANIM_OBJ_HIT, 136, 52, $0
+	anim_wait 32
 	anim_ret
 
 BattleAnim_FocusBlast:
