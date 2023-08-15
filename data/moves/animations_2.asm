@@ -4008,13 +4008,18 @@ BattleAnim_SuckerPunch:
 	anim_ret
 
 BattleAnim_ToxicSpikes:
-	anim_1gfx ANIM_GFX_HIT
-	anim_sound 0, 1, SFX_POUND
-	anim_obj ANIM_OBJ_PALM, 136, 56, $0
-	anim_wait 6
-	anim_obj ANIM_OBJ_HIT_YFIX, 136, 56, $0
-	anim_wait 16
-	anim_ret
+	anim_2gfx ANIM_GFX_MISC, ANIM_GFX_POISON
+	anim_sound 6, 2, SFX_MENU
+	anim_obj ANIM_OBJ_SPIKES, 48, 88, $20
+	anim_wait 8
+	anim_sound 6, 2, SFX_MENU
+	anim_obj ANIM_OBJ_SPIKES, 48, 88, $30
+	anim_wait 8
+	anim_sound 6, 2, SFX_MENU
+	anim_obj ANIM_OBJ_SPIKES, 48, 88, $28
+	anim_wait 40
+	anim_setobjpal PAL_BATTLE_OB_GRAY, PAL_BTLCUSTOM_PURPLE
+	anim_jump BattleAnim_PoisonBubble_branch
 
 BattleAnim_HeartSwap:
 	anim_1gfx ANIM_GFX_HIT
