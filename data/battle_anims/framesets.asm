@@ -274,6 +274,7 @@ BattleAnimFrameData:
 	dw .Frameset_AquaRing                ; BATTLEANIMFRAMESET_AQUA_RING
 	dw .Frameset_MagnetRise              ; BATTLEANIMFRAMESET_MAGNET_RISE
 	dw .Frameset_PalmStill               ; BATTLEANIMFRAMESET_PALM_STILL
+	dw .Frameset_SwirlShort              ; BATTLEANIMFRAMESET_SWIRL_SHORT
 	assert_table_length NUM_BATTLEANIMFRAMESETS
 
 .Frameset_HitBig:
@@ -1833,3 +1834,14 @@ BattleAnimFrameData:
 .Frameset_PalmStill:
 	battleoamframe BATTLEANIMOAMSET_05,  6, OAM_X_FLIP
 	battleoamend
+
+.Frameset_SwirlShort:
+	battleoamframe BATTLEANIMOAMSET_CD,  1
+	battleoamframe BATTLEANIMOAMSET_BA,  1
+	battleoamframe BATTLEANIMOAMSET_CE,  1
+	battleoamframe BATTLEANIMOAMSET_94,  1
+	battleoamframe BATTLEANIMOAMSET_CD,  1, OAM_X_FLIP, OAM_Y_FLIP
+	battleoamframe BATTLEANIMOAMSET_BA,  1, OAM_X_FLIP, OAM_Y_FLIP
+	battleoamframe BATTLEANIMOAMSET_CE,  1, OAM_X_FLIP, OAM_Y_FLIP
+	battleoamframe BATTLEANIMOAMSET_94,  1, OAM_X_FLIP, OAM_Y_FLIP
+	battleoamdelete
