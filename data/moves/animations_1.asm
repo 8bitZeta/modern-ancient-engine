@@ -4286,11 +4286,31 @@ BattleAnim_Ancientpower:
 	anim_ret
 
 BattleAnim_ShadowBall:
-	anim_2gfx ANIM_GFX_EGG, ANIM_GFX_SMOKE
+	anim_setobjpal PAL_BATTLE_OB_YELLOW, PAL_BTLCUSTOM_BLUE
+	anim_setobjpal PAL_BATTLE_OB_GRAY, PAL_BTLCUSTOM_BLUE
+	anim_setobjpal PAL_BATTLE_OB_BLUE, PAL_BTLCUSTOM_BLUE
+	anim_3gfx ANIM_GFX_GLOW, ANIM_GFX_SMOKE, ANIM_GFX_CHARGE,
 	anim_bgp $1b
-	anim_sound 6, 2, SFX_SLUDGE_BOMB
-	anim_obj ANIM_OBJ_SHADOW_BALL, 64, 92, $2
+	anim_obj ANIM_OBJ_ABSORB_CENTER, 44, 88, $0
+	anim_obj ANIM_OBJ_CHARGE, 44, 88, $30
+	anim_obj ANIM_OBJ_CHARGE, 44, 88, $31
+	anim_obj ANIM_OBJ_CHARGE, 44, 88, $32
+	anim_obj ANIM_OBJ_CHARGE, 44, 88, $33
+	anim_obj ANIM_OBJ_CHARGE, 44, 88, $34
+	anim_obj ANIM_OBJ_CHARGE, 44, 88, $35
+	anim_obj ANIM_OBJ_CHARGE, 44, 88, $36
+	anim_obj ANIM_OBJ_CHARGE, 44, 88, $37
+.loop
+	anim_sound 0, 0, SFX_SWORDS_DANCE
+	anim_wait 16
+	anim_loop 4, .loop
 	anim_wait 32
+	anim_clearobjs
+	anim_sound 0, 1, SFX_SLUDGE_BOMB
+	anim_obj ANIM_OBJ_SIGNAL_BEAM_RED, 64, 92, $2
+	anim_wait 32
+	anim_setobjpal PAL_BATTLE_OB_GRAY, PAL_BTLCUSTOM_GRAY
+	anim_bgeffect ANIM_BG_SHAKE_SCREEN_X, $6, $1, $0
 	anim_obj ANIM_OBJ_BALL_POOF, 132, 56, $10
 	anim_wait 24
 	anim_ret
