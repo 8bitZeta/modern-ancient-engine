@@ -296,6 +296,8 @@ BattleAnimFrameData:
 	dw .Frameset_PoisonJabSW             ; BATTLEANIMFRAMESET_POISON_JAB_SW
 	dw .Frameset_PoisonJabW              ; BATTLEANIMFRAMESET_POISON_JAB_W
 	dw .Frameset_PoisonJabNW             ; BATTLEANIMFRAMESET_POISON_JAB_NW
+	dw .Frameset_CutRight                ; BATTLEANIMFRAMESET_CUT_RIGHT
+	dw .Frameset_CutLeft                 ; BATTLEANIMFRAMESET_CUT_LEFT
 	assert_table_length NUM_BATTLEANIMFRAMESETS
 
 .Frameset_HitBig:
@@ -1986,3 +1988,37 @@ BattleAnimFrameData:
 .Frameset_PoisonJabNW:
 	battleoamframe BATTLEANIMOAMSET_AD,  32, OAM_X_FLIP
 	battleoamend
+
+.Frameset_CutRight:
+	battleoamframe BATTLEANIMOAMSET_10E,  1
+	battleoamframe BATTLEANIMOAMSET_10F,  1
+	battleoamframe BATTLEANIMOAMSET_110,  1
+	battleoamframe BATTLEANIMOAMSET_111,  1
+	battleoamframe BATTLEANIMOAMSET_112,  1
+	battleoamframe BATTLEANIMOAMSET_113,  1
+	battleoamframe BATTLEANIMOAMSET_114,  2
+	battleoamframe BATTLEANIMOAMSET_115,  2
+	battleoamwait 2
+	battleoamframe BATTLEANIMOAMSET_115,  2
+	battleoamwait 2
+	battleoamframe BATTLEANIMOAMSET_115,  2
+	battleoamwait 2
+	battleoamframe BATTLEANIMOAMSET_115,  2
+	battleoamdelete
+
+.Frameset_CutLeft:
+	battleoamframe BATTLEANIMOAMSET_10E,  1, OAM_X_FLIP
+	battleoamframe BATTLEANIMOAMSET_10F,  1, OAM_X_FLIP
+	battleoamframe BATTLEANIMOAMSET_110,  1, OAM_X_FLIP
+	battleoamframe BATTLEANIMOAMSET_111,  1, OAM_X_FLIP
+	battleoamframe BATTLEANIMOAMSET_112,  1, OAM_X_FLIP
+	battleoamframe BATTLEANIMOAMSET_113,  1, OAM_X_FLIP
+	battleoamframe BATTLEANIMOAMSET_114,  2, OAM_X_FLIP
+	battleoamframe BATTLEANIMOAMSET_115,  2, OAM_X_FLIP
+	battleoamwait 2
+	battleoamframe BATTLEANIMOAMSET_115,  2, OAM_X_FLIP
+	battleoamwait 2
+	battleoamframe BATTLEANIMOAMSET_115,  2, OAM_X_FLIP
+	battleoamwait 2
+	battleoamframe BATTLEANIMOAMSET_115,  2, OAM_X_FLIP
+	battleoamdelete
