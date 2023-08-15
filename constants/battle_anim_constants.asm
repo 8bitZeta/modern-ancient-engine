@@ -473,6 +473,8 @@ DEF BATTLEANIM_BASE_TILE EQU 7 * 7  ; Maximum size of a pokemon picture
 	const ANIM_OBJ_GUNK_SHOT_BUBBLES
 	const ANIM_OBJ_MAGNET_BOMB_SPINNING
 	const ANIM_OBJ_MAGNET_BOMB_IMPACT
+	const ANIM_OBJ_STONE_EDGE_STILL
+	const ANIM_OBJ_STONE_EDGE
 DEF NUM_ANIM_OBJS EQU const_value
 
 ; DoBattleAnimFrame arguments (see engine/battle_anims/functions.asm)
@@ -914,6 +916,7 @@ DEF NUM_BATTLEANIMFUNCS EQU const_value
 	const BATTLEANIMFRAMESET_ROCK_WRECKER_GROW
 	const BATTLEANIMFRAMESET_GUNK_SHOT
 	const BATTLEANIMFRAMESET_MAGNET_BOMB
+	const BATTLEANIMFRAMESET_STONE_EDGE
 DEF NUM_BATTLEANIMFRAMESETS EQU const_value
 
 ; BattleAnimOAMData indexes (see data/battle_anims/oam.asm)
@@ -1214,6 +1217,7 @@ DEF NUM_BATTLEANIMFRAMESETS EQU const_value
 	const BATTLEANIMOAMSET_125
 	const BATTLEANIMOAMSET_126
 	const BATTLEANIMOAMSET_127
+	const BATTLEANIMOAMSET_128
 DEF NUM_BATTLEANIMOAMSETS EQU const_value
 
 ; BattleBGEffects indexes (see engine/battle_anims/bg_effects.asm)
