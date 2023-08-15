@@ -950,6 +950,28 @@ BattleAnim_ChargeBeam:
 	anim_ret
 
 BattleAnim_WoodHammer:
+	anim_setobjpal PAL_BATTLE_OB_YELLOW, PAL_BTLCUSTOM_GREEN
+	anim_3gfx ANIM_GFX_WOOD_HAMMER, ANIM_GFX_PLANT, ANIM_GFX_HIT
+	anim_bgeffect ANIM_BG_FLASH_INVERTED, $0, $4, $2
+	anim_sound 0, 1, SFX_EGG_BOMB
+	anim_obj ANIM_OBJ_HIT_BIG_YFIX, 136, 48, $0
+	anim_wait 1
+	anim_bgeffect ANIM_BG_SHAKE_SCREEN_X, $40, $4, $10
+	anim_obj ANIM_OBJ_RAZOR_LEAF, 136, 40, $1c
+	anim_obj ANIM_OBJ_WOOD_HAMMER, 136, 56, $5c
+	anim_wait 1
+	anim_obj ANIM_OBJ_RAZOR_LEAF, 136, 40, $50
+	anim_obj ANIM_OBJ_WOOD_HAMMER, 136, 56, $e8
+	anim_wait 1
+	anim_obj ANIM_OBJ_RAZOR_LEAF, 136, 40, $dc
+	anim_obj ANIM_OBJ_WOOD_HAMMER, 136, 56, $d0
+	anim_wait 1
+	anim_obj ANIM_OBJ_RAZOR_LEAF, 136, 40, $90
+	anim_obj ANIM_OBJ_WOOD_HAMMER, 136, 56, $50
+	anim_wait 4
+	anim_bgeffect ANIM_BG_FLASH_INVERTED, $0, $4, $2
+	anim_wait 60
+	anim_ret
 
 BattleAnim_AquaJet:
 
