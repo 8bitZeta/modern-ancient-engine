@@ -1476,13 +1476,10 @@ BattleAnimFunction_DarkPulse:
 	ld hl, BATTLEANIMSTRUCT_PARAM
 	add hl, bc
 	ld a, [hl]
-	jr .step_circle
+	jr BattleAnim_StepCircle
 
 .done
 	jmp DeinitBattleAnimation
-
-.step_circle
-	jr BattleAnim_StepCircle
 
 BattleAnimFunction_PsychUp:
 ; Object moves in a circle
