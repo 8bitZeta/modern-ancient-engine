@@ -436,6 +436,8 @@ DEF BATTLEANIM_BASE_TILE EQU 7 * 7  ; Maximum size of a pokemon picture
 	const ANIM_OBJ_SNOW_FALL
 	const ANIM_OBJ_AVALANCHE_SMALL
 	const ANIM_OBJ_AVALANCHE_BIG
+	const ANIM_OBJ_ICE_SHARD
+	const ANIM_OBJ_ICE_SHARD_MIST
 DEF NUM_ANIM_OBJS EQU const_value
 
 ; DoBattleAnimFrame arguments (see engine/battle_anims/functions.asm)
@@ -537,6 +539,7 @@ DEF NUM_ANIM_OBJS EQU const_value
 	const BATTLEANIMFUNC_LAST_RESORT
 	const BATTLEANIMFUNC_DARK_PULSE
 	const BATTLEANIMFUNC_PAUSE_THEN_RUSH
+	const BATTLEANIMFUNC_SPIRAL_DESCENT_FAST
 DEF NUM_BATTLEANIMFUNCS EQU const_value
 
 ; BattleAnimFrameData indexes (see data/battle_anims/framesets.asm)
@@ -850,6 +853,7 @@ DEF NUM_BATTLEANIMFUNCS EQU const_value
 	const BATTLEANIMFRAMESET_FOCUS_BLAST
 	const BATTLEANIMFRAMESET_BULLET_PUNCH
 	const BATTLEANIMFRAMESET_SNOW_FALL
+	const BATTLEANIMFRAMESET_ICE_LONG
 DEF NUM_BATTLEANIMFRAMESETS EQU const_value
 
 ; BattleAnimOAMData indexes (see data/battle_anims/oam.asm)

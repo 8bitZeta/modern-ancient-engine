@@ -4883,12 +4883,62 @@ BattleAnim_Avalanche:
 	anim_ret
 
 BattleAnim_IceShard:
-	anim_1gfx ANIM_GFX_HIT
-	anim_sound 0, 1, SFX_POUND
-	anim_obj ANIM_OBJ_PALM, 136, 56, $0
+	anim_4gfx ANIM_GFX_ICE, ANIM_GFX_HAZE, ANIM_GFX_SPEED, ANIM_GFX_HIT
+	anim_setobjpal PAL_BATTLE_OB_BLUE, PAL_BTLCUSTOM_ICE
+	anim_setobjpal PAL_BATTLE_OB_YELLOW, PAL_BTLCUSTOM_ICE
+	anim_bgeffect ANIM_BG_WHITE_HUES, $0, $8, $0
+	anim_sound 0, 0, SFX_SWORDS_DANCE
+	anim_obp0 $54
+.loop
+	anim_obj ANIM_OBJ_ICE_SHARD_MIST, 48, 80, $0
+	anim_wait 8
+	anim_loop 4, .loop
+	anim_obj ANIM_OBJ_ICE, 40, 78, $0
 	anim_wait 6
-	anim_obj ANIM_OBJ_HIT_YFIX, 136, 56, $0
-	anim_wait 16
+	anim_obj ANIM_OBJ_ICE, 56, 106, $0
+	anim_wait 6
+	anim_obj ANIM_OBJ_ICE, 32, 92, $0
+	anim_wait 6
+	anim_obj ANIM_OBJ_ICE, 64, 92, $0
+	anim_wait 6
+	anim_obj ANIM_OBJ_ICE, 56, 78, $0
+	anim_wait 6
+	anim_obj ANIM_OBJ_ICE, 40, 106, $0
+	anim_wait 6
+	anim_resetobp0
+	anim_setobjpal PAL_BATTLE_OB_GRAY, PAL_BTLCUSTOM_ICE
+	anim_sound 0, 0, SFX_MEGA_PUNCH
+	anim_obj ANIM_OBJ_ICE_SHARD, 48, 84, $18
+	anim_wait 6
+	anim_obj ANIM_OBJ_ICE_SHARD, 48, 116, $18
+	anim_wait 6
+	anim_obj ANIM_OBJ_HIT_YFIX, 140, 44, $0
+	anim_sound 6, 2, SFX_SHINE
+	anim_obj ANIM_OBJ_ICE_SHARD, 48, 108, $18
+	anim_wait 4
+	anim_obj ANIM_OBJ_HIT_YFIX, 124, 60, $0
+	anim_sound 6, 2, SFX_SHINE
+	anim_wait 2
+	anim_obj ANIM_OBJ_ICE_SHARD, 48, 92, $18
+	anim_wait 2
+	anim_obj ANIM_OBJ_HIT_YFIX, 140, 60, $0
+	anim_sound 6, 2, SFX_SHINE
+	anim_wait 4
+	anim_obj ANIM_OBJ_HIT_YFIX, 124, 44, $0
+	anim_sound 6, 2, SFX_SHINE
+	anim_wait 4
+	anim_obj ANIM_OBJ_HIT_YFIX, 132, 52, $0
+	anim_sound 6, 2, SFX_SHINE
+	anim_obj ANIM_OBJ_PULSING_SPARKLE_YFIX, 148, 32, $0
+	anim_wait 6
+	anim_obj ANIM_OBJ_PULSING_SPARKLE_YFIX, 116, 64, $0
+	anim_wait 6
+	anim_obj ANIM_OBJ_PULSING_SPARKLE_YFIX, 148, 64, $0
+	anim_wait 6
+	anim_obj ANIM_OBJ_PULSING_SPARKLE_YFIX, 116, 32, $0
+	anim_wait 6
+	anim_obj ANIM_OBJ_PULSING_SPARKLE_YFIX, 132, 48, $0
+	anim_wait 32
 	anim_ret
 
 BattleAnim_ShadowClaw:

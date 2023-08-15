@@ -115,6 +115,7 @@ DoBattleAnimFrame:
 	dba BattleAnimFunction_LastResort
 	dba BattleAnimFunction_DarkPulse
 	dba BattleAnimFunction_PauseThenRush
+	dba BattleAnimFunction_SpiralDescent_Fast
 	assert_table_length NUM_BATTLEANIMFUNCS
 
 BattleAnimFunction_ThrowFromUserToTargetAndDisappear:
@@ -4967,4 +4968,50 @@ BattleAnimFunction_LastResort:
 	dec [hl]
 	and a
 	ret nz
+	jmp DeinitBattleAnimation
+
+BattleAnimFunction_SpiralDescent_Fast:
+	ld hl, BATTLEANIMSTRUCT_VAR1
+	add hl, bc
+	ld a, [hl]
+	ld d, $18
+	push af
+	push de
+	call Sine
+	sra a
+	sra a
+	sra a
+	ld hl, BATTLEANIMSTRUCT_VAR2
+	add hl, bc
+	add [hl]
+	ld hl, BATTLEANIMSTRUCT_YOFFSET
+	add hl, bc
+	ld [hl], a
+	pop de
+	pop af
+	call Cosine
+	ld hl, BATTLEANIMSTRUCT_XOFFSET
+	add hl, bc
+	ld [hl], a
+	ld hl, BATTLEANIMSTRUCT_VAR1
+	add hl, bc
+	inc [hl]
+	inc [hl]
+	inc [hl]
+	ld a, [hl]
+	and $7
+	ret nz
+	ld hl, BATTLEANIMSTRUCT_VAR2
+	add hl, bc
+	ld a, [hl]
+	cp $18
+	jr nc, .delete
+	inc [hl]
+	inc [hl]
+	inc [hl]
+	inc [hl]
+	inc [hl]
+	ret
+
+.delete
 	jmp DeinitBattleAnimation
