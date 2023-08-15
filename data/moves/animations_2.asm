@@ -4359,13 +4359,51 @@ BattleAnim_NightSlash:
 	anim_ret
 
 BattleAnim_AquaTail:
-	anim_1gfx ANIM_GFX_HIT
-	anim_sound 0, 1, SFX_POUND
-	anim_obj ANIM_OBJ_PALM, 136, 56, $0
-	anim_wait 6
-	anim_obj ANIM_OBJ_HIT_YFIX, 136, 56, $0
+	anim_setobjpal PAL_BATTLE_OB_BROWN, PAL_BTLCUSTOM_WATER
+	anim_setobjpal PAL_BATTLE_OB_BLUE, PAL_BTLCUSTOM_BUBBLE
+	anim_1gfx ANIM_GFX_BUBBLE
+	anim_sound 0, 1, SFX_TOXIC
+	anim_obj ANIM_OBJ_RISING_BUBBLE, 64, 104, $0
 	anim_wait 16
-	anim_ret
+	anim_sound 0, 1, SFX_TOXIC
+	anim_obj ANIM_OBJ_RISING_BUBBLE, 32, 104, $0
+	anim_wait 16
+	anim_sound 0, 1, SFX_TOXIC
+	anim_obj ANIM_OBJ_RISING_BUBBLE, 48, 104, $0
+	anim_wait 32
+	anim_clearobjs
+	anim_wait 1
+	anim_call BattleAnim_TargetObj_1Row_2
+	anim_3gfx ANIM_GFX_BUBBLE, ANIM_GFX_HIT, ANIM_GFX_SAND
+	anim_bgeffect ANIM_BG_WOBBLE_MON, $0, $1, $0
+	anim_wait 16
+	anim_sound 0, 1, SFX_BUBBLEBEAM
+	anim_obj ANIM_OBJ_DIG_SAND, 104, 60, $0
+	anim_wait 1
+	anim_obj ANIM_OBJ_DIG_SAND, 112, 60, $0
+	anim_wait 1
+	anim_obj ANIM_OBJ_DIG_SAND, 120, 60, $0
+	anim_wait 1
+	anim_obj ANIM_OBJ_DIG_SAND, 128, 60, $0
+	anim_wait 1
+	anim_obj ANIM_OBJ_DIG_SAND, 136, 60, $0
+	anim_wait 1
+	anim_obj ANIM_OBJ_DIG_SAND, 144, 60, $0
+	anim_wait 1
+	anim_obj ANIM_OBJ_DIG_SAND, 152, 60, $0
+	anim_wait 1
+	anim_obj ANIM_OBJ_DIG_SAND, 160, 60, $0
+	anim_wait 8
+	anim_bgeffect ANIM_BG_FLASH_INVERTED, $0, $4, $2
+	anim_sound 0, 1, SFX_MEGA_KICK
+	anim_obj ANIM_OBJ_HIT_BIG_YFIX, 136, 48, $0
+	anim_obj ANIM_OBJ_BUBBLE_SPLASH, 140, 64, $5c
+	anim_obj ANIM_OBJ_BUBBLE_SPLASH, 140, 64, $e8
+	anim_obj ANIM_OBJ_BUBBLE_SPLASH, 140, 64, $d0
+	anim_wait 8
+	anim_incbgeffect ANIM_BG_WOBBLE_MON
+	anim_wait 16
+	anim_jump BattleAnim_ShowMon_0_2
 
 BattleAnim_SeedBomb:
 	anim_1gfx ANIM_GFX_HIT
