@@ -5087,12 +5087,32 @@ BattleAnim_MudBomb:
 	anim_ret
 
 BattleAnim_PsychoCut:
-	anim_1gfx ANIM_GFX_HIT
-	anim_sound 0, 1, SFX_POUND
-	anim_obj ANIM_OBJ_PALM, 136, 56, $0
-	anim_wait 6
-	anim_obj ANIM_OBJ_HIT_YFIX, 136, 56, $0
+	anim_setobjpal PAL_BATTLE_OB_YELLOW, PAL_BTLCUSTOM_PSYCHO_BOOST_2
+	anim_2gfx ANIM_GFX_BIG_WHIP, ANIM_GFX_GLOW
+	anim_battlergfx_1row
+	anim_bgeffect ANIM_BG_FADE_MON_TO_LIGHT_REPEATING, $0, $1, $40
+	anim_sound 0, 0, SFX_PSYBEAM
+	anim_obj ANIM_OBJ_SMALL_GLOW, 44, 96, $0
 	anim_wait 16
+	anim_obj ANIM_OBJ_SPINNING_CRESCENT, 44, 96, $0
+	anim_wait 32
+	anim_clearobjs
+	anim_obj ANIM_OBJ_SPINNING_CRESCENT, 44, 96, $0
+	anim_wait 36
+	anim_clearobjs
+	anim_incbgeffect ANIM_BG_FADE_MON_TO_LIGHT_REPEATING
+	anim_sound 0, 1, SFX_CUT
+	anim_obj ANIM_OBJ_PSYCHO_CUT_CRESCENT, 44, 96, $18
+	anim_wait 20
+	anim_sound 0, 1, SFX_PSYCHIC
+	anim_bgeffect ANIM_BG_BATTLEROBJ_2ROW, $0, $1, $0
+	anim_bgeffect ANIM_BG_TELEPORT, $0, $0, $8
+	anim_wait 64
+	anim_incbgeffect ANIM_BG_TELEPORT
+	anim_wait 1
+	anim_bgeffect ANIM_BG_SHOW_MON, $0, $1, $0
+	anim_wait 1
+	anim_clearobjs
 	anim_ret
 
 BattleAnim_ZenHeadbutt:

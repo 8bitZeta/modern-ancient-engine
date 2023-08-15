@@ -313,6 +313,7 @@ BattleAnimFrameData:
 	dw .Frameset_IceLong                 ; BATTLEANIMFRAMESET_ICE_LONG
 	dw .Frameset_ShadowSneak             ; BATTLEANIMFRAMESET_SHADOW_SNEAK
 	dw .Frameset_MudBomb                 ; BATTLEANIMFRAMESET_MUD_BOMB
+	dw .Frameset_PsychoCut               ; BATTLEANIMFRAMESET_PSYCHO_CUT
 	assert_table_length NUM_BATTLEANIMFRAMESETS
 
 .Frameset_HitBig:
@@ -2127,4 +2128,8 @@ BattleAnimFrameData:
 
 .Frameset_MudBomb:
 	battleoamframe BATTLEANIMOAMSET_11C,  1
+	battleoamend
+
+.Frameset_PsychoCut:
+	battleoamframe BATTLEANIMOAMSET_FC,  1, OAM_Y_FLIP
 	battleoamend
