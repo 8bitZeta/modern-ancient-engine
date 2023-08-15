@@ -95,4 +95,5 @@ AnimObjGFX:
 	anim_obj_gfx 14, AnimObjSmokePuffBigGFX
 	anim_obj_gfx  6, AnimObjLeafStormGFX
 	anim_obj_gfx 16, AnimObjHugeRockGFX
+	anim_obj_gfx 27, AnimObjGrassKnotGFX
 	assert_table_length NUM_ANIM_GFX + 1

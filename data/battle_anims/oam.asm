@@ -304,6 +304,8 @@ BattleAnimOAMData:
 	battleanimoam $00, 15, .OAMData_126 ; BATTLEANIMOAMSET_126
 	battleanimoam $00, 16, .OAMData_127 ; BATTLEANIMOAMSET_127
 	battleanimoam $11,  2, .OAMData_11  ; BATTLEANIMOAMSET_128
+	battleanimoam $09,  9, .OAMData_c3  ; BATTLEANIMOAMSET_129
+	battleanimoam $12,  9, .OAMData_c3  ; BATTLEANIMOAMSET_12A
 	assert_table_length NUM_BATTLEANIMOAMSETS
 
 .OAMData_11:

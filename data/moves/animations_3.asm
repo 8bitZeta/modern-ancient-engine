@@ -733,6 +733,20 @@ BattleAnim_StealthRock:
 	anim_wait 32
 
 BattleAnim_GrassKnot:
+	anim_setobjpal PAL_BATTLE_OB_YELLOW, PAL_BTLCUSTOM_GREEN
+	anim_2gfx ANIM_GFX_GRASS_KNOT, ANIM_GFX_PLANT
+	anim_call BattleAnim_UserObj_1Row_3
+	anim_obj ANIM_OBJ_GRASS_KNOT, 136, 56, $0
+	anim_wait 26
+	anim_bgeffect ANIM_BG_FLASH_INVERTED, $0, $4, $2
+	anim_sound 0, 1, SFX_RAZOR_WIND
+	anim_obj ANIM_OBJ_RAZOR_LEAF, 144, 40, $90
+	anim_wait 2
+	anim_obj ANIM_OBJ_RAZOR_LEAF, 144, 40, $50
+	anim_bgeffect ANIM_BG_VIBRATE_MON, $0, $0, $0
+	anim_wait 40
+	anim_bgeffect ANIM_BG_SHOW_MON, $0, $1, $0
+	anim_ret
 
 BattleAnim_Chatter:
 
