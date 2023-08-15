@@ -339,6 +339,7 @@ BattleAnimFrameData:
 	dw .Frameset_SteathRock              ; BATTLEANIMFRAMESET_STEALTH_ROCK
 	dw .Frameset_Grassknot               ; BATTLEANIMFRAMESET_GRASS_KNOT
 	dw .Frameset_Chatter                 ; BATTLEANIMFRAMESET_CHATTER
+	dw .Frameset_ChargeBeam              ; BATTLEANIMFRAMESET_CHARGE_BEAM
 	assert_table_length NUM_BATTLEANIMFRAMESETS
 
 .Frameset_HitBig:
@@ -2326,3 +2327,7 @@ BattleAnimFrameData:
 	battleoamwait 4
 	battleoamframe BATTLEANIMOAMSET_0F,  25
 	battleoamdelete
+
+.Frameset_ChargeBeam:
+	battleoamframe  BATTLEANIMOAMSET_120,  8
+	battleoamend

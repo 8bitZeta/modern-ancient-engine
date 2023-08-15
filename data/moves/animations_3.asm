@@ -898,6 +898,56 @@ BattleAnim_BugBite:
 	anim_ret
 
 BattleAnim_ChargeBeam:
+	anim_2gfx ANIM_GFX_LIGHTNING, ANIM_GFX_CHARGE
+	anim_bgeffect ANIM_BG_CYCLE_OBPALS_GRAY_AND_YELLOW, $0, 4, $0
+	anim_sound 0, 0, SFX_ZAP_CANNON
+	anim_obj ANIM_OBJ_ENERGY_ORB, 48, 96, $38
+	anim_wait 4
+	anim_obj ANIM_OBJ_ENERGY_ORB, 48, 96, $20
+	anim_wait 4
+	anim_sound 0, 0, SFX_ZAP_CANNON
+	anim_obj ANIM_OBJ_ENERGY_ORB, 48, 96, $8
+	anim_wait 4
+	anim_obj ANIM_OBJ_ENERGY_ORB, 48, 96, $10
+	anim_wait 4
+	anim_sound 0, 0, SFX_ZAP_CANNON
+	anim_obj ANIM_OBJ_ENERGY_ORB, 48, 96, $28
+	anim_wait 4
+	anim_obj ANIM_OBJ_ENERGY_ORB, 48, 96, $0
+	anim_wait 4
+	anim_sound 0, 0, SFX_ZAP_CANNON
+	anim_obj ANIM_OBJ_ENERGY_ORB, 48, 96, $18
+	anim_obj ANIM_OBJ_THUNDERSHOCK_SPARKS, 48, 96, $0
+	anim_wait 4
+	anim_obj ANIM_OBJ_ENERGY_ORB, 48, 96, $30
+	anim_wait 64
+	anim_clearobjs
+	anim_bgeffect ANIM_BG_FLASH_INVERTED, $0, $4, $2
+	anim_sound 0, 0, SFX_RAGE
+	anim_obj ANIM_OBJ_CHARGE_BEAM, 64, 96, $18
+	anim_wait 2
+	anim_sound 0, 0, SFX_RAGE
+	anim_obj ANIM_OBJ_CHARGE_BEAM, 64, 94, $18
+	anim_wait 2
+	anim_sound 0, 0, SFX_RAGE
+	anim_obj ANIM_OBJ_CHARGE_BEAM, 64, 98, $18
+	anim_wait 2
+.loop2
+	anim_sound 0, 0, SFX_RAGE
+	anim_obj ANIM_OBJ_CHARGE_BEAM, 64, 94, $18
+	anim_wait 2
+	anim_sound 0, 0, SFX_RAGE
+	anim_obj ANIM_OBJ_CHARGE_BEAM, 64, 96, $18
+	anim_wait 2
+	anim_sound 0, 0, SFX_RAGE
+	anim_obj ANIM_OBJ_CHARGE_BEAM, 64, 98, $18
+	anim_wait 2
+	anim_sound 0, 0, SFX_RAGE
+	anim_obj ANIM_OBJ_CHARGE_BEAM, 64, 92, $18
+	anim_wait 2
+	anim_loop 6, .loop2
+	anim_wait 32
+	anim_ret
 
 BattleAnim_WoodHammer:
 
