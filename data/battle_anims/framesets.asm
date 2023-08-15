@@ -275,6 +275,19 @@ BattleAnimFrameData:
 	dw .Frameset_MagnetRise              ; BATTLEANIMFRAMESET_MAGNET_RISE
 	dw .Frameset_PalmStill               ; BATTLEANIMFRAMESET_PALM_STILL
 	dw .Frameset_SwirlShort              ; BATTLEANIMFRAMESET_SWIRL_SHORT
+	dw .Frameset_RockPolish5DegR         ; BATTLEANIMFRAMESET_ROCK_POLISH_5DEG_R
+	dw .Frameset_RockPolish45DegR        ; BATTLEANIMFRAMESET_ROCK_POLISH_45DEG_R
+	dw .Frameset_RockPolish85DegR        ; BATTLEANIMFRAMESET_ROCK_POLISH_85DEG_R
+	dw .Frameset_RockPolish5DegL         ; BATTLEANIMFRAMESET_ROCK_POLISH_5DEG_L
+	dw .Frameset_RockPolish45DegL        ; BATTLEANIMFRAMESET_ROCK_POLISH_45DEG_L
+	dw .Frameset_RockPolish85DegL        ; BATTLEANIMFRAMESET_ROCK_POLISH_85DEG_L
+	dw .Frameset_RockPolish5DegRYFlip    ; BATTLEANIMFRAMESET_ROCK_POLISH_5DEG_R_Y_FLIP
+	dw .Frameset_RockPolish45DegRYFlip   ; BATTLEANIMFRAMESET_ROCK_POLISH_45DEG_R_Y_FLIP
+	dw .Frameset_RockPolish85DegRYFlip   ; BATTLEANIMFRAMESET_ROCK_POLISH_85DEG_R_Y_FLIP
+	dw .Frameset_RockPolish5DegLYFlip    ; BATTLEANIMFRAMESET_ROCK_POLISH_5DEG_L_Y_FLIP
+	dw .Frameset_RockPolish45DegLYFlip   ; BATTLEANIMFRAMESET_ROCK_POLISH_45DEG_L_Y_FLIP
+	dw .Frameset_RockPolish85DegLYFlip   ; BATTLEANIMFRAMESET_ROCK_POLISH_85DEG_L_Y_FLIP
+	dw .Frameset_PulsingGlow             ; BATTLEANIMFRAMESET_PULSING_SPARKLE
 	assert_table_length NUM_BATTLEANIMFRAMESETS
 
 .Frameset_HitBig:
@@ -1844,4 +1857,92 @@ BattleAnimFrameData:
 	battleoamframe BATTLEANIMOAMSET_BA,  1, OAM_X_FLIP, OAM_Y_FLIP
 	battleoamframe BATTLEANIMOAMSET_CE,  1, OAM_X_FLIP, OAM_Y_FLIP
 	battleoamframe BATTLEANIMOAMSET_94,  1, OAM_X_FLIP, OAM_Y_FLIP
+	battleoamdelete
+
+.Frameset_RockPolish5DegR:
+	battleoamframe BATTLEANIMOAMSET_103,  1
+	battleoamframe BATTLEANIMOAMSET_104,  1
+	battleoamframe BATTLEANIMOAMSET_105,  1
+	battleoamframe BATTLEANIMOAMSET_106,  4
+	battleoamdelete
+
+.Frameset_RockPolish45DegR:
+	battleoamframe BATTLEANIMOAMSET_107,  1
+	battleoamframe BATTLEANIMOAMSET_108,  1
+	battleoamframe BATTLEANIMOAMSET_109,  4
+	battleoamdelete
+
+.Frameset_RockPolish85DegR:
+	battleoamframe BATTLEANIMOAMSET_10A,  1
+	battleoamframe BATTLEANIMOAMSET_10B,  1
+	battleoamframe BATTLEANIMOAMSET_10C,  1
+	battleoamframe BATTLEANIMOAMSET_10D,  4
+	battleoamdelete
+
+.Frameset_RockPolish5DegL:
+	battleoamframe BATTLEANIMOAMSET_103,  1, OAM_X_FLIP
+	battleoamframe BATTLEANIMOAMSET_104,  1, OAM_X_FLIP
+	battleoamframe BATTLEANIMOAMSET_105,  1, OAM_X_FLIP
+	battleoamframe BATTLEANIMOAMSET_106,  4, OAM_X_FLIP
+	battleoamdelete
+
+.Frameset_RockPolish45DegL:
+	battleoamframe BATTLEANIMOAMSET_107,  1, OAM_X_FLIP
+	battleoamframe BATTLEANIMOAMSET_108,  1, OAM_X_FLIP
+	battleoamframe BATTLEANIMOAMSET_109,  4, OAM_X_FLIP
+	battleoamdelete
+
+.Frameset_RockPolish85DegL:
+	battleoamframe BATTLEANIMOAMSET_10A,  1, OAM_X_FLIP
+	battleoamframe BATTLEANIMOAMSET_10B,  1, OAM_X_FLIP
+	battleoamframe BATTLEANIMOAMSET_10C,  1, OAM_X_FLIP
+	battleoamframe BATTLEANIMOAMSET_10D,  4, OAM_X_FLIP
+	battleoamdelete
+
+.Frameset_RockPolish5DegRYFlip:
+	battleoamframe BATTLEANIMOAMSET_103,  1, OAM_Y_FLIP
+	battleoamframe BATTLEANIMOAMSET_104,  1, OAM_Y_FLIP
+	battleoamframe BATTLEANIMOAMSET_105,  1, OAM_Y_FLIP
+	battleoamframe BATTLEANIMOAMSET_106,  4, OAM_Y_FLIP
+	battleoamdelete
+
+.Frameset_RockPolish45DegRYFlip:
+	battleoamframe BATTLEANIMOAMSET_107,  1, OAM_Y_FLIP
+	battleoamframe BATTLEANIMOAMSET_108,  1, OAM_Y_FLIP
+	battleoamframe BATTLEANIMOAMSET_109,  4, OAM_Y_FLIP
+	battleoamdelete
+
+.Frameset_RockPolish85DegRYFlip:
+	battleoamframe BATTLEANIMOAMSET_10A,  1, OAM_Y_FLIP
+	battleoamframe BATTLEANIMOAMSET_10B,  1, OAM_Y_FLIP
+	battleoamframe BATTLEANIMOAMSET_10C,  1, OAM_Y_FLIP
+	battleoamframe BATTLEANIMOAMSET_10D,  4, OAM_Y_FLIP
+	battleoamdelete
+
+.Frameset_RockPolish5DegLYFlip:
+	battleoamframe BATTLEANIMOAMSET_103,  1, OAM_X_FLIP, OAM_Y_FLIP
+	battleoamframe BATTLEANIMOAMSET_104,  1, OAM_X_FLIP, OAM_Y_FLIP
+	battleoamframe BATTLEANIMOAMSET_105,  1, OAM_X_FLIP, OAM_Y_FLIP
+	battleoamframe BATTLEANIMOAMSET_106,  4, OAM_X_FLIP, OAM_Y_FLIP
+	battleoamdelete
+
+.Frameset_RockPolish45DegLYFlip:
+	battleoamframe BATTLEANIMOAMSET_107,  1, OAM_X_FLIP, OAM_Y_FLIP
+	battleoamframe BATTLEANIMOAMSET_108,  1, OAM_X_FLIP, OAM_Y_FLIP
+	battleoamframe BATTLEANIMOAMSET_109,  4, OAM_X_FLIP, OAM_Y_FLIP
+	battleoamdelete
+
+.Frameset_RockPolish85DegLYFlip:
+	battleoamframe BATTLEANIMOAMSET_10A,  1, OAM_X_FLIP, OAM_Y_FLIP
+	battleoamframe BATTLEANIMOAMSET_10B,  1, OAM_X_FLIP, OAM_Y_FLIP
+	battleoamframe BATTLEANIMOAMSET_10C,  1, OAM_X_FLIP, OAM_Y_FLIP
+	battleoamframe BATTLEANIMOAMSET_10D,  4, OAM_X_FLIP, OAM_Y_FLIP
+	battleoamdelete
+
+.Frameset_PulsingGlow:
+	battleoamframe BATTLEANIMOAMSET_14,  1
+	battleoamframe BATTLEANIMOAMSET_15,  1
+	battleoamframe BATTLEANIMOAMSET_74,  1
+	battleoamframe BATTLEANIMOAMSET_15,  1
+	battleoamframe BATTLEANIMOAMSET_14,  1
 	battleoamdelete
