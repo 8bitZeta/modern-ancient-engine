@@ -4058,12 +4058,46 @@ BattleAnim_AquaRing:
 	anim_ret
 
 BattleAnim_MagnetRise:
-	anim_1gfx ANIM_GFX_HIT
-	anim_sound 0, 1, SFX_POUND
-	anim_obj ANIM_OBJ_PALM, 136, 56, $0
-	anim_wait 6
-	anim_obj ANIM_OBJ_HIT_YFIX, 136, 56, $0
-	anim_wait 16
+	anim_2gfx ANIM_GFX_CHARGE, ANIM_GFX_MISC_2
+	anim_battlergfx_1row
+	anim_bgeffect ANIM_BG_CYCLE_OBPALS_GRAY_AND_YELLOW, $0, $2, $0
+	anim_obj ANIM_OBJ_ORBITING_ORBS, 44, 88, $0
+	anim_obj ANIM_OBJ_ORBITING_ORBS, 44, 88, $8
+	anim_obj ANIM_OBJ_ORBITING_ORBS, 44, 88, $10
+	anim_obj ANIM_OBJ_ORBITING_ORBS, 44, 88, $18
+	anim_obj ANIM_OBJ_ORBITING_ORBS, 44, 88, $20
+	anim_obj ANIM_OBJ_ORBITING_ORBS, 44, 88, $28
+	anim_obj ANIM_OBJ_ORBITING_ORBS, 44, 88, $30
+	anim_obj ANIM_OBJ_ORBITING_ORBS, 44, 88, $38
+.loop
+	anim_sound 0, 0, SFX_WARP_TO
+	anim_wait 32
+	anim_loop 2, .loop
+	anim_clearobjs
+	anim_bgeffect ANIM_BG_BATTLEROBJ_2ROW, $0, $0, $0
+	anim_wait 1
+	anim_bgeffect ANIM_BG_HOVER_DOWN, $0, $1, $0
+.loop2
+	anim_sound 0, 0, SFX_WARP_FROM
+	anim_obj ANIM_OBJ_MAGNET_RISE, 44, 108, $6
+	anim_wait 2
+	anim_obj ANIM_OBJ_MAGNET_RISE, 36, 108, $6
+	anim_wait 2
+	anim_obj ANIM_OBJ_MAGNET_RISE, 52, 108, $8
+	anim_wait 2
+	anim_obj ANIM_OBJ_MAGNET_RISE, 28, 108, $8
+	anim_wait 2
+	anim_obj ANIM_OBJ_MAGNET_RISE, 60, 108, $6
+	anim_wait 2
+	anim_obj ANIM_OBJ_MAGNET_RISE, 20, 108, $8
+	anim_wait 2
+	anim_obj ANIM_OBJ_MAGNET_RISE, 68, 108, $8
+	anim_wait 2
+	anim_loop 6, .loop2
+	anim_incbgeffect ANIM_BG_HOVER_DOWN
+	anim_bgeffect ANIM_BG_SHOW_MON, $0, $0, $0
+	anim_wait 1
+	anim_clearobjs
 	anim_ret
 
 BattleAnim_FlareBlitz:
