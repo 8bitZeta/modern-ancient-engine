@@ -4043,12 +4043,18 @@ BattleAnim_HeartSwap:
 	anim_ret
 
 BattleAnim_AquaRing:
-	anim_1gfx ANIM_GFX_HIT
-	anim_sound 0, 1, SFX_POUND
-	anim_obj ANIM_OBJ_PALM, 136, 56, $0
-	anim_wait 6
-	anim_obj ANIM_OBJ_HIT_YFIX, 136, 56, $0
-	anim_wait 16
+	anim_setobjpal PAL_BATTLE_OB_GRAY, PAL_BTLCUSTOM_WATER
+	anim_setobjpal PAL_BATTLE_OB_YELLOW, PAL_BTLCUSTOM_BUBBLE
+	anim_2gfx ANIM_GFX_CHARGE, ANIM_GFX_AQUA_RING
+	anim_bgeffect ANIM_BG_CYCLE_OBPALS_GRAY_AND_YELLOW, $0, $4, $0
+	anim_bgeffect ANIM_BG_FADE_MON_TO_LIGHT_REPEATING, $0, $1, $40
+	anim_obj ANIM_OBJ_TINY_GLOW_CLEAR, 48, 96, $0
+	anim_obj ANIM_OBJ_AQUA_RING, 48, 96, $0
+	anim_wait 1
+	anim_obj ANIM_OBJ_AQUA_RING, 48, 96, $0
+	anim_sound 0, 1, SFX_GAME_FREAK_LOGO_GS
+	anim_wait 96
+	anim_incbgeffect ANIM_BG_FADE_MON_TO_LIGHT_REPEATING
 	anim_ret
 
 BattleAnim_MagnetRise:

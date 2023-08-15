@@ -84,4 +84,5 @@ AnimObjGFX:
 	anim_obj_gfx 18, AnimObjBigWhipGFX
 	anim_obj_gfx 12, AnimObjDepressionGFX
 	anim_obj_gfx  5, AnimObjHeartsGFX
+	anim_obj_gfx 12, AnimObjAquaRingGFX
 	assert_table_length NUM_ANIM_GFX + 1
