@@ -176,5 +176,10 @@ INCLUDE "gfx/battle_anims/battle_anims.pal"
 	RGB 25, 00, 08
 	RGB 09, 00, 06
 	RGB 19, 00, 06
+; glowlime
+	RGB 31, 31, 31
+	RGB 29, 31, 06
+	RGB 22, 25, 00
+	RGB 15, 20, 00
 rept NUM_CUSTOM_BATTLE_PALETTES - 6
 endr

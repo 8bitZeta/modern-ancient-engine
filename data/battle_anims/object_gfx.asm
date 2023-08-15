@@ -87,4 +87,6 @@ AnimObjGFX:
 	anim_obj_gfx 12, AnimObjAquaRingGFX
 	anim_obj_gfx 16, AnimObjAuraSphereGFX
 	anim_obj_gfx  6, AnimObjRockPolishGFX
+	anim_obj_gfx  9, AnimObjBugBuzzGFX
+	anim_obj_gfx  9, AnimObjMidGlowClearGFX
 	assert_table_length NUM_ANIM_GFX + 1

@@ -299,6 +299,9 @@ BattleAnimFrameData:
 	dw .Frameset_CutRight                ; BATTLEANIMFRAMESET_CUT_RIGHT
 	dw .Frameset_CutLeft                 ; BATTLEANIMFRAMESET_CUT_LEFT
 	dw .Frameset_SeedBomb                ; BATTLEANIMFRAMESET_SEED_BOMB
+	dw .Frameset_BugBuzzR                ; BATTLEANIMFRAMESET_BUG_BUZZ_L
+	dw .Frameset_BugBuzzL                ; BATTLEANIMFRAMESET_BUG_BUZZ_R
+	dw .Frameset_MidGlowShrinking        ; BATTLEANIMFRAMESET_MID_GLOW_SHRINKING
 	assert_table_length NUM_BATTLEANIMFRAMESETS
 
 .Frameset_HitBig:
@@ -2026,4 +2029,21 @@ BattleAnimFrameData:
 
 .Frameset_SeedBomb:
 	battleoamframe BATTLEANIMOAMSET_69,  40
+	battleoamdelete
+
+.Frameset_BugBuzzR:
+	battleoamframe BATTLEANIMOAMSET_20,  4
+	battleoamframe BATTLEANIMOAMSET_117,  4
+	battleoamframe BATTLEANIMOAMSET_116,  4
+	battleoamdelete
+
+.Frameset_BugBuzzL:
+	battleoamframe BATTLEANIMOAMSET_20,  4, OAM_X_FLIP
+	battleoamframe BATTLEANIMOAMSET_117,  4, OAM_X_FLIP
+	battleoamframe BATTLEANIMOAMSET_116,  4, OAM_X_FLIP
+	battleoamdelete
+
+.Frameset_MidGlowShrinking:
+	battleoamframe BATTLEANIMOAMSET_118,  1
+	battleoamframe BATTLEANIMOAMSET_119,  1
 	battleoamdelete
