@@ -334,6 +334,7 @@ BattleAnimFrameData:
 	dw .Frameset_LeafStormBigLeaf        ; BATTLEANIMFRAMESET_LEAF_STORM_BIG_LEAF
 	dw .Frameset_RockWreckerGrow         ; BATTLEANIMFRAMESET_ROCK_WRECKER_GROW
 	dw .Frameset_GunkShot                ; BATTLEANIMFRAMESET_GUNK_SHOT
+	dw .Frameset_MagnetBomb              ; BATTLEANIMFRAMESET_MAGNET_BOMB
 	assert_table_length NUM_BATTLEANIMFRAMESETS
 
 .Frameset_HitBig:
@@ -2290,4 +2291,9 @@ BattleAnimFrameData:
 	battleoamframe BATTLEANIMOAMSET_11C, 4
 	battleoamwait 4
 	battleoamframe BATTLEANIMOAMSET_11C, 4
+	battleoamdelete
+
+.Frameset_MagnetBomb:
+	battleoamwait 4
+	battleoamframe BATTLEANIMOAMSET_0F,  54
 	battleoamdelete
