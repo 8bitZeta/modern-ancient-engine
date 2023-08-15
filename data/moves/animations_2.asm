@@ -4959,12 +4959,19 @@ BattleAnim_ShadowClaw:
 	anim_ret
 
 BattleAnim_ThunderFang:
-	anim_1gfx ANIM_GFX_HIT
-	anim_sound 0, 1, SFX_POUND
-	anim_obj ANIM_OBJ_PALM, 136, 56, $0
-	anim_wait 6
-	anim_obj ANIM_OBJ_HIT_YFIX, 136, 56, $0
-	anim_wait 16
+	anim_3gfx ANIM_GFX_CUT, ANIM_GFX_HIT, ANIM_GFX_LIGHTNING
+	anim_obj ANIM_OBJ_BITE, 136, 56, $98
+	anim_obj ANIM_OBJ_BITE, 136, 56, $18
+	anim_wait 8
+	anim_obj ANIM_OBJ_HIT, 136, 56, $0
+	anim_bgeffect ANIM_BG_SHAKE_SCREEN_X, $14, $2, $0
+	anim_wait 4
+	anim_clearobjs
+	anim_bgeffect ANIM_BG_FLASH_INVERTED, $0, $8, $2
+	anim_bgeffect ANIM_BG_CYCLE_OBPALS_GRAY_AND_YELLOW, $0, $2, $0
+	anim_sound 0, 1, SFX_THUNDER
+	anim_obj ANIM_OBJ_THUNDER_RIGHT, 152, 68, $0
+	anim_wait 32
 	anim_ret
 
 BattleAnim_IceFang:
