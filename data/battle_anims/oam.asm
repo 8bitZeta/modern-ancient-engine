@@ -260,7 +260,7 @@ BattleAnimOAMData:
 	battleanimoam $00,  8, .OAMData_fa  ; BATTLEANIMOAMSET_FA
 	battleanimoam $00, 24, .OAMData_fb  ; BATTLEANIMOAMSET_FB
 	battleanimoam $0c,  6, .OAMData_fc  ; BATTLEANIMOAMSET_FC
-	; battleanimoam $1f,  4, .OAMData_03  ; BATTLEANIMOAMSET_FD
+	battleanimoam $1f,  4, .OAMData_03  ; BATTLEANIMOAMSET_FD
 	battleanimoam $04,  6, .OAMData_93  ; BATTLEANIMOAMSET_FE
 	battleanimoam $00,  6, .OAMData_ff  ; BATTLEANIMOAMSET_FF
 	battleanimoam $03, 10, .OAMData_100 ; BATTLEANIMOAMSET_100

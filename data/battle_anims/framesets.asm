@@ -308,6 +308,7 @@ BattleAnimFrameData:
 	dw .Frameset_PowerGem                ; BATTLEANIMFRAMESET_POWER_GEM
 	dw .Frameset_VacuumShrinking         ; BATTLEANIMFRAMESET_VACUUM_SHRINKING
 	dw .Frameset_FocusBlast              ; BATTLEANIMFRAMESET_FOCUS_BLAST
+	dw .Frameset_BulletPunch             ; BATTLEANIMFRAMESET_BULLET_PUNCH
 	assert_table_length NUM_BATTLEANIMFRAMESETS
 
 .Frameset_HitBig:
@@ -2089,3 +2090,14 @@ BattleAnimFrameData:
 	battleoamframe BATTLEANIMOAMSET_00,  1
 	battleoamframe BATTLEANIMOAMSET_07,  1
 	battleoamrestart
+
+.Frameset_BulletPunch:
+	battleoamframe BATTLEANIMOAMSET_FD,  4
+	battleoamframe BATTLEANIMOAMSET_02,  1
+	battleoamframe BATTLEANIMOAMSET_FD,  4
+	battleoamframe BATTLEANIMOAMSET_02,  1
+	battleoamframe BATTLEANIMOAMSET_FD,  4
+	battleoamframe BATTLEANIMOAMSET_02,  1
+	battleoamframe BATTLEANIMOAMSET_FD,  4
+	battleoamframe BATTLEANIMOAMSET_02,  1
+	battleoamdelete

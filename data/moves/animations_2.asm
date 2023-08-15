@@ -4817,11 +4817,28 @@ BattleAnim_NastyPlot:
 
 BattleAnim_BulletPunch:
 	anim_1gfx ANIM_GFX_HIT
-	anim_sound 0, 1, SFX_POUND
-	anim_obj ANIM_OBJ_PALM, 136, 56, $0
-	anim_wait 6
-	anim_obj ANIM_OBJ_HIT_YFIX, 136, 56, $0
-	anim_wait 16
+	anim_call BattleAnim_UserObj_1Row_2
+	anim_resetobp0
+	anim_bgeffect ANIM_BG_VIBRATE_MON, $0, $0, $0
+	anim_obj ANIM_OBJ_BULLET_PUNCH, 140, 44, $0
+	anim_sound 0, 1, SFX_TACKLE
+	anim_wait 3
+	anim_obj ANIM_OBJ_BULLET_PUNCH, 112, 46, $0
+	anim_sound 0, 1, SFX_TACKLE
+	anim_wait 3
+	anim_obj ANIM_OBJ_BULLET_PUNCH, 150, 60, $0
+	anim_sound 0, 1, SFX_TACKLE
+	anim_wait 3
+	anim_obj ANIM_OBJ_BULLET_PUNCH, 120, 30, $0
+	anim_sound 0, 1, SFX_TACKLE
+	anim_wait 3
+	anim_obj ANIM_OBJ_BULLET_PUNCH, 116, 64, $0
+	anim_sound 0, 1, SFX_TACKLE
+	anim_wait 3
+	anim_obj ANIM_OBJ_BULLET_PUNCH, 132, 68, $0
+	anim_sound 0, 1, SFX_TACKLE
+	anim_wait 32
+	anim_bgeffect ANIM_BG_SHOW_MON, $0, $1, $0
 	anim_ret
 
 BattleAnim_Avalanche:
