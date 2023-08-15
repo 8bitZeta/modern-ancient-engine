@@ -288,6 +288,14 @@ BattleAnimFrameData:
 	dw .Frameset_RockPolish45DegLYFlip   ; BATTLEANIMFRAMESET_ROCK_POLISH_45DEG_L_Y_FLIP
 	dw .Frameset_RockPolish85DegLYFlip   ; BATTLEANIMFRAMESET_ROCK_POLISH_85DEG_L_Y_FLIP
 	dw .Frameset_PulsingGlow             ; BATTLEANIMFRAMESET_PULSING_SPARKLE
+	dw .Frameset_PoisonJabN              ; BATTLEANIMFRAMESET_POISON_JAB_N
+	dw .Frameset_PoisonJabNE             ; BATTLEANIMFRAMESET_POISON_JAB_NE
+	dw .Frameset_PoisonJabE              ; BATTLEANIMFRAMESET_POISON_JAB_E
+	dw .Frameset_PoisonJabSE             ; BATTLEANIMFRAMESET_POISON_JAB_SE
+	dw .Frameset_PoisonJabS              ; BATTLEANIMFRAMESET_POISON_JAB_S
+	dw .Frameset_PoisonJabSW             ; BATTLEANIMFRAMESET_POISON_JAB_SW
+	dw .Frameset_PoisonJabW              ; BATTLEANIMFRAMESET_POISON_JAB_W
+	dw .Frameset_PoisonJabNW             ; BATTLEANIMFRAMESET_POISON_JAB_NW
 	assert_table_length NUM_BATTLEANIMFRAMESETS
 
 .Frameset_HitBig:
@@ -1946,3 +1954,35 @@ BattleAnimFrameData:
 	battleoamframe BATTLEANIMOAMSET_15,  1
 	battleoamframe BATTLEANIMOAMSET_14,  1
 	battleoamdelete
+
+.Frameset_PoisonJabN:
+	battleoamframe BATTLEANIMOAMSET_6D,  32, OAM_Y_FLIP
+	battleoamend
+
+.Frameset_PoisonJabNE:
+	battleoamframe BATTLEANIMOAMSET_AD,  32
+	battleoamend
+
+.Frameset_PoisonJabE:
+	battleoamframe BATTLEANIMOAMSET_6C,  32
+	battleoamend
+
+.Frameset_PoisonJabSE:
+	battleoamframe BATTLEANIMOAMSET_AD,  32, OAM_Y_FLIP
+	battleoamend
+
+.Frameset_PoisonJabS:
+	battleoamframe BATTLEANIMOAMSET_6D,  32
+	battleoamend
+
+.Frameset_PoisonJabSW:
+	battleoamframe BATTLEANIMOAMSET_AD,  32, OAM_X_FLIP, OAM_Y_FLIP
+	battleoamend
+
+.Frameset_PoisonJabW:
+	battleoamframe BATTLEANIMOAMSET_6C,  32, OAM_X_FLIP
+	battleoamdelete
+
+.Frameset_PoisonJabNW:
+	battleoamframe BATTLEANIMOAMSET_AD,  32, OAM_X_FLIP
+	battleoamend

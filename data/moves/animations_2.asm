@@ -4284,13 +4284,41 @@ BattleAnim_RockPolish:
 	anim_ret
 
 BattleAnim_PoisonJab:
-	anim_1gfx ANIM_GFX_HIT
-	anim_sound 0, 1, SFX_POUND
-	anim_obj ANIM_OBJ_PALM, 136, 56, $0
-	anim_wait 6
-	anim_obj ANIM_OBJ_HIT_YFIX, 136, 56, $0
-	anim_wait 16
-	anim_ret
+	anim_setobjpal PAL_BATTLE_OB_GRAY, PAL_BTLCUSTOM_PURPLE
+	anim_setobjpal PAL_BATTLE_OB_BLUE, PAL_BTLCUSTOM_PURPLE
+	anim_3gfx ANIM_GFX_OBJECTS_2, ANIM_GFX_HIT, ANIM_GFX_POISON
+	anim_bgeffect ANIM_BG_SHAKE_SCREEN_X, $60, $2, $0
+.loop
+	anim_sound 0, 1, SFX_KARATE_CHOP
+	anim_obj ANIM_OBJ_POISON_JAB_SW, 132, 56, $38
+	anim_wait 4
+	anim_sound 0, 1, SFX_KARATE_CHOP
+	anim_obj ANIM_OBJ_HIT_YFIX, 140, 44, $0
+	anim_obj ANIM_OBJ_POISON_JAB_E, 132, 56, $20
+	anim_wait 4
+	anim_sound 0, 1, SFX_KARATE_CHOP
+	anim_obj ANIM_OBJ_POISON_JAB_NW, 132, 56, $8
+	anim_wait 4
+	anim_sound 0, 1, SFX_KARATE_CHOP
+	anim_obj ANIM_OBJ_HIT_YFIX, 124, 60, $0
+	anim_obj ANIM_OBJ_POISON_JAB_N, 132, 56, $10
+	anim_wait 4
+	anim_sound 0, 1, SFX_KARATE_CHOP
+	anim_obj ANIM_OBJ_POISON_JAB_SE, 132, 56, $28
+	anim_wait 4
+	anim_sound 0, 1, SFX_KARATE_CHOP
+	anim_obj ANIM_OBJ_HIT_YFIX, 140, 60, $0
+	anim_obj ANIM_OBJ_POISON_JAB_W, 132, 56, $0
+	anim_wait 4
+	anim_sound 0, 1, SFX_KARATE_CHOP
+	anim_obj ANIM_OBJ_POISON_JAB_NE, 132, 56, $18
+	anim_wait 4
+	anim_sound 0, 1, SFX_KARATE_CHOP
+	anim_obj ANIM_OBJ_HIT_YFIX, 124, 44, $0
+	anim_obj ANIM_OBJ_POISON_JAB_S, 132, 56, $30
+	anim_wait 4
+	anim_loop 2, .loop
+	anim_jump BattleAnim_PoisonBubble_branch
 
 BattleAnim_DarkPulse:
 	anim_1gfx ANIM_GFX_HIT
