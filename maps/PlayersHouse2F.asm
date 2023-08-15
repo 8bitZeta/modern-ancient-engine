@@ -137,30 +137,30 @@ PlayersHouseRadioScript:
 	givepoke MEW, 100, LEFTOVERS
 	givepoke MEW, 100, LEFTOVERS
 	givepoke MEW, 100, LEFTOVERS
-	givepokemove SHADOW_BALL,        wPartyMon1, 0
-	givepokemove AURA_SPHERE,       wPartyMon1, 1
-	givepokemove ROCK_POLISH,   wPartyMon1, 2
-	givepokemove POISON_JAB,        wPartyMon1, 3
-	givepokemove DARK_PULSE,      wPartyMon2, 0
-	givepokemove NIGHT_SLASH, wPartyMon2, 1
-	givepokemove AQUA_TAIL,   wPartyMon2, 2
-	givepokemove SEED_BOMB,  wPartyMon2, 3
-	givepokemove AIR_SLASH,        wPartyMon3, 0
-	givepokemove X_SCISSOR,       wPartyMon3, 1
-	givepokemove BUG_BUZZ,   wPartyMon3, 2
-	givepokemove DRAGON_PULSE,        wPartyMon3, 3
-	givepokemove DRAGON_RUSH,      wPartyMon4, 0
-	givepokemove POWER_GEM, wPartyMon4, 1
-	givepokemove DRAIN_PUNCH,   wPartyMon4, 2
-	givepokemove VACUUM_WAVE,  wPartyMon4, 3
-	givepokemove FOCUS_BLAST,        wPartyMon5, 0
-	givepokemove ENERGY_BALL,       wPartyMon5, 1
-	givepokemove BRAVE_BIRD,   wPartyMon5, 2
-	givepokemove EARTH_POWER,        wPartyMon5, 3
-	givepokemove SWITCHEROO,      wPartyMon6, 0
-	givepokemove GIGA_IMPACT, wPartyMon6, 1
-	givepokemove NASTY_PLOT,   wPartyMon6, 2
-	givepokemove BULLET_PUNCH,  wPartyMon6, 3
+	givepokemove AVALANCHE,        wPartyMon1, 0
+	givepokemove ICE_SHARD,       wPartyMon1, 1
+	givepokemove SHADOW_CLAW,   wPartyMon1, 2
+	givepokemove THUNDER_FANG,        wPartyMon1, 3
+	givepokemove ICE_FANG,      wPartyMon2, 0
+	givepokemove FIRE_FANG, wPartyMon2, 1
+	givepokemove SHADOW_SNEAK,   wPartyMon2, 2
+	givepokemove MUD_BOMB,  wPartyMon2, 3
+	givepokemove PSYCHO_CUT,        wPartyMon3, 0
+	givepokemove ZEN_HEADBUTT,       wPartyMon3, 1
+	givepokemove MIRROR_SHOT,   wPartyMon3, 2
+	givepokemove FLASH_CANNON,        wPartyMon3, 3
+	givepokemove ROCK_CLIMB,      wPartyMon4, 0
+	givepokemove DEFOG, wPartyMon4, 1
+	givepokemove TRICK_ROOM,   wPartyMon4, 2
+	givepokemove DRACO_METEOR,  wPartyMon4, 3
+	givepokemove DISCHARGE,        wPartyMon5, 0
+	givepokemove LAVA_PLUME,       wPartyMon5, 1
+	givepokemove LEAF_STORM,   wPartyMon5, 2
+	givepokemove POWER_WHIP,        wPartyMon5, 3
+	givepokemove ROCK_WRECKER,      wPartyMon6, 0
+	givepokemove CROSS_POISON, wPartyMon6, 1
+	givepokemove GUNK_SHOT,   wPartyMon6, 2
+	givepokemove IRON_HEAD,  wPartyMon6, 3
 	; Test pokemon
 	; givepoke NINCADA, 50
 	; givepoke NINCADA, 50
