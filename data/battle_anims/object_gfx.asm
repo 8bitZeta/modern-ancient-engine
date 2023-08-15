@@ -91,4 +91,5 @@ AnimObjGFX:
 	anim_obj_gfx  9, AnimObjMidGlowClearGFX
 	anim_obj_gfx 18, AnimObjFocusBlastGFX
 	anim_obj_gfx 10, AnimObjEnergyBallGFX
+	anim_obj_gfx 14, AnimObjTrickRoomGFX
 	assert_table_length NUM_ANIM_GFX + 1

@@ -317,6 +317,7 @@ BattleAnimFrameData:
 	dw .Frameset_FlashCannonChargeOrb    ; BATTLEANIMFRAMESET_FLASH_CANNON_CHARGE_ORB
 	dw .Frameset_SlowGrowingGlow         ; BATTLEANIMFRAMESET_SLOW_GROWING_GLOW
 	dw .Frameset_FlashCannonSparks       ; BATTLEANIMFRAMESET_FLASH_CANNON_SPARKS
+	dw .Frameset_TrickRoom               ; BATTLEANIMFRAMESET_TRICK_ROOM
 	assert_table_length NUM_BATTLEANIMFRAMESETS
 
 .Frameset_HitBig:
@@ -2154,4 +2155,20 @@ BattleAnimFrameData:
 	battleoamframe BATTLEANIMOAMSET_20,  4
 	battleoamframe BATTLEANIMOAMSET_1F,  4
 	battleoamframe BATTLEANIMOAMSET_1E,  8
+	battleoamdelete
+
+.Frameset_TrickRoom:
+	battleoamframe BATTLEANIMOAMSET_0F,   1
+	battleoamframe BATTLEANIMOAMSET_11D,   1
+	battleoamframe BATTLEANIMOAMSET_0F,   1
+	battleoamframe BATTLEANIMOAMSET_11D,   1
+	battleoamframe BATTLEANIMOAMSET_1D,   1
+	battleoamframe BATTLEANIMOAMSET_11D,   1
+	battleoamframe BATTLEANIMOAMSET_1D,   1
+	battleoamframe BATTLEANIMOAMSET_11E,  1
+	battleoamframe BATTLEANIMOAMSET_1D,   1
+	battleoamframe BATTLEANIMOAMSET_11E,  1
+	battleoamframe BATTLEANIMOAMSET_18,  1
+	battleoamframe BATTLEANIMOAMSET_11E,  1
+	battleoamframe BATTLEANIMOAMSET_18,  1
 	battleoamdelete
