@@ -338,6 +338,7 @@ BattleAnimFrameData:
 	dw .Frameset_StoneEdge               ; BATTLEANIMFRAMESET_STONE_EDGE
 	dw .Frameset_SteathRock              ; BATTLEANIMFRAMESET_STEALTH_ROCK
 	dw .Frameset_Grassknot               ; BATTLEANIMFRAMESET_GRASS_KNOT
+	dw .Frameset_Chatter                 ; BATTLEANIMFRAMESET_CHATTER
 	assert_table_length NUM_BATTLEANIMFRAMESETS
 
 .Frameset_HitBig:
@@ -2320,3 +2321,8 @@ BattleAnimFrameData:
 	battleoamframe BATTLEANIMOAMSET_129,  2
 	battleoamframe BATTLEANIMOAMSET_11F,  2
 	battleoamend
+
+.Frameset_Chatter:
+	battleoamwait 4
+	battleoamframe BATTLEANIMOAMSET_0F,  25
+	battleoamdelete

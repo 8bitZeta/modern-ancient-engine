@@ -749,6 +749,33 @@ BattleAnim_GrassKnot:
 	anim_ret
 
 BattleAnim_Chatter:
+	anim_2gfx ANIM_GFX_NOISE, ANIM_GFX_MISC_2
+	anim_call BattleAnim_TargetObj_1Row_3
+	anim_bgeffect ANIM_BG_FLAIL, $0, $1, $0
+	anim_cry $0
+.loop
+	anim_setobjpal PAL_BATTLE_OB_GRAY, PAL_BTLCUSTOM_RED
+	anim_obj ANIM_OBJ_SOUND, 64, 76, $0
+	anim_obj ANIM_OBJ_SOUND, 64, 88, $1
+	anim_obj ANIM_OBJ_SOUND, 64, 100, $2
+	anim_obj ANIM_OBJ_CHATTER_NOTE, 56, 84, $36
+	anim_wait 9
+	anim_setobjpal PAL_BATTLE_OB_GRAY, PAL_BTLCUSTOM_GLOW_YELLOW
+	anim_obj ANIM_OBJ_CHATTER_NOTE, 46, 84, $2e
+	anim_wait 9
+	anim_obj ANIM_OBJ_SOUND, 64, 76, $0
+	anim_obj ANIM_OBJ_SOUND, 64, 88, $1
+	anim_obj ANIM_OBJ_SOUND, 64, 100, $2
+	anim_setobjpal PAL_BATTLE_OB_GRAY, PAL_BTLCUSTOM_WATER
+	anim_obj ANIM_OBJ_CHATTER_NOTE, 38, 84, $2a
+	anim_wait 9
+	anim_setobjpal PAL_BATTLE_OB_GRAY, PAL_BTLCUSTOM_GLOW_YELLOW
+	anim_obj ANIM_OBJ_CHATTER_NOTE, 50, 84, $32
+	anim_wait 9
+	anim_loop 2, .loop
+	anim_wait 20
+	anim_incbgeffect ANIM_BG_FLAIL
+	anim_jump BattleAnim_ShowMon_0_3
 
 BattleAnim_Judgment:
 
