@@ -112,6 +112,7 @@ DoBattleAnimFrame:
 	dba BattleAnimFunction_BubbleSplash
 	dba BattleAnimFunction_ObjectHover
 	dba BattleAnimFunction_Roost
+	dba BattleAnimFunction_LastResort
 	assert_table_length NUM_BATTLEANIMFUNCS
 
 BattleAnimFunction_ThrowFromUserToTargetAndDisappear:
@@ -4850,4 +4851,50 @@ BattleAnimFunction_Roost:
 	ret
 
 .delete
+	jmp DeinitBattleAnimation
+
+BattleAnimFunction_LastResort:
+; A rotating circle of objects centered at a position. It expands for $40 frames and then shrinks. Once radius reaches 0, the object disappears.
+; Obj Param: Defines starting point in the circle
+	ld hl, BATTLEANIMSTRUCT_PARAM
+	add hl, bc
+	ld a, [hl]
+	inc [hl] ; These speed up spinning
+	ld hl, BATTLEANIMSTRUCT_VAR1
+	add hl, bc
+	ld d, [hl]
+	push af
+	push de
+	call Sine
+	ld hl, BATTLEANIMSTRUCT_YOFFSET
+	add hl, bc
+	ld [hl], a
+	pop de
+	pop af
+	call Cosine
+	ld hl, BATTLEANIMSTRUCT_XOFFSET
+	add hl, bc
+	ld [hl], a
+	ld hl, BATTLEANIMSTRUCT_VAR2
+	add hl, bc
+	ld a, [hl]
+	inc [hl]
+	inc [hl] ; the rest of these control the in and out.
+	inc [hl]
+	ld hl, BATTLEANIMSTRUCT_VAR1
+	add hl, bc
+	cp $40
+	jr nc, .shrink
+	inc [hl]
+	inc [hl] ; in and out
+	inc [hl]
+	ret
+
+.shrink
+	ld a, [hl]
+	dec [hl]
+	dec [hl] ; in and out
+	dec [hl]
+	and a
+	ret nz
 	jmp DeinitBattleAnimation
