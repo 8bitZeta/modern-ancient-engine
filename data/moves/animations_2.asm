@@ -4975,12 +4975,34 @@ BattleAnim_ThunderFang:
 	anim_ret
 
 BattleAnim_IceFang:
-	anim_1gfx ANIM_GFX_HIT
-	anim_sound 0, 1, SFX_POUND
-	anim_obj ANIM_OBJ_PALM, 136, 56, $0
+	anim_setobjpal PAL_BATTLE_OB_BLUE, PAL_BTLCUSTOM_ICE
+	anim_3gfx ANIM_GFX_CUT, ANIM_GFX_HIT, ANIM_GFX_ICE
+	anim_obj ANIM_OBJ_BITE, 136, 56, $98
+	anim_obj ANIM_OBJ_BITE, 136, 56, $18
+	anim_wait 8
+	anim_sound 0, 1, SFX_BITE
+	anim_obj ANIM_OBJ_HIT, 136, 56, $0
+	anim_bgeffect ANIM_BG_SHAKE_SCREEN_X, $14, $2, $0
+	anim_wait 4
+	anim_clearobjs
+	anim_sound 0, 1, SFX_SHINE
+	anim_obj ANIM_OBJ_ICE, 128, 42, $0
 	anim_wait 6
-	anim_obj ANIM_OBJ_HIT_YFIX, 136, 56, $0
-	anim_wait 16
+	anim_sound 0, 1, SFX_SHINE
+	anim_obj ANIM_OBJ_ICE, 144, 70, $0
+	anim_wait 6
+	anim_sound 0, 1, SFX_SHINE
+	anim_obj ANIM_OBJ_ICE, 120, 56, $0
+	anim_wait 6
+	anim_sound 0, 1, SFX_SHINE
+	anim_obj ANIM_OBJ_ICE, 152, 56, $0
+	anim_wait 6
+	anim_sound 0, 1, SFX_SHINE
+	anim_obj ANIM_OBJ_ICE, 144, 42, $0
+	anim_wait 6
+	anim_sound 0, 1, SFX_SHINE
+	anim_obj ANIM_OBJ_ICE, 128, 70, $0
+	anim_wait 32
 	anim_ret
 
 BattleAnim_FireFang:
