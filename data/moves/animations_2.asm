@@ -5316,33 +5316,47 @@ BattleAnim_FlashCannon:
 	anim_ret
 
 BattleAnim_RockClimb:
-    anim_2gfx ANIM_GFX_ROCKS, ANIM_GFX_HIT
-;   anim_call BattleAnim_FollowPlayerHead_0
-    anim_sound 0, 0, SFX_SPARK
-    anim_bgeffect ANIM_BG_BODY_SLAM, $0, $1, $0
-    anim_wait 16
-    anim_call BattleAnim_ShowMon_0_2
-    anim_sound 0, 1, SFX_HEADBUTT
-    anim_obj ANIM_OBJ_ROCK_SMASH, 140, 56, $50
-    anim_obj ANIM_OBJ_HIT_YFIX, 136, 56, $0
-    anim_wait 3
-    anim_sound 0, 1, SFX_HEADBUTT
-    anim_obj ANIM_OBJ_ROCK_SMASH, 132, 56, $d0
-    anim_obj ANIM_OBJ_HIT_YFIX, 136, 48, $0
-    anim_wait 3
-    anim_sound 0, 1, SFX_HEADBUTT
-    anim_obj ANIM_OBJ_ROCK_SMASH, 140, 40, $50
-    anim_obj ANIM_OBJ_HIT_YFIX, 136, 40, $0
-    anim_wait 3
-    anim_sound 0, 1, SFX_HEADBUTT
-    anim_obj ANIM_OBJ_ROCK_SMASH, 132, 56, $d0
-    anim_obj ANIM_OBJ_HIT_YFIX, 136, 32, $0
-    anim_wait 3
-    anim_sound 0, 1, SFX_HEADBUTT
-    anim_obj ANIM_OBJ_ROCK_SMASH, 140, 24, $50
-    anim_obj ANIM_OBJ_HIT_YFIX, 136, 24, $0
-    anim_wait 8
-    anim_ret
+	anim_2gfx ANIM_GFX_ROCKS, ANIM_GFX_HIT
+	anim_call BattleAnim_TargetObj_2Row_2
+	anim_bgeffect ANIM_BG_BOUNCE_DOWN, $0, $1, $0
+	anim_wait 8
+.loop
+	anim_obj ANIM_OBJ_ROCK_CLIMB, 56, 108, $5c
+	anim_obj ANIM_OBJ_ROCK_CLIMB, 40, 108, $e8
+	anim_sound 6, 2, SFX_SPARK
+	anim_wait 28
+	anim_loop 2, .loop
+	anim_incbgeffect ANIM_BG_BOUNCE_DOWN
+	anim_wait 8
+	anim_bgeffect ANIM_BG_BODY_SLAM, $0, $1, $0
+	anim_wait 16
+	anim_call BattleAnim_ShowMon_0_2
+	anim_sound 0, 1, SFX_KARATE_CHOP
+	anim_obj ANIM_OBJ_HIT_YFIX, 136, 62, $0
+	anim_obj ANIM_OBJ_ROCK_SMASH, 136, 62, $5c
+	anim_obj ANIM_OBJ_ROCK_SMASH, 136, 62, $e8
+	anim_wait 3
+	anim_sound 0, 1, SFX_KARATE_CHOP
+	anim_obj ANIM_OBJ_HIT_YFIX, 136, 54, $0
+	anim_obj ANIM_OBJ_ROCK_SMASH, 136, 54, $5c
+	anim_obj ANIM_OBJ_ROCK_SMASH, 136, 54, $e8
+	anim_wait 3
+	anim_sound 0, 1, SFX_KARATE_CHOP
+	anim_obj ANIM_OBJ_HIT_YFIX, 136, 46, $0
+	anim_obj ANIM_OBJ_ROCK_SMASH, 136, 46, $5c
+	anim_obj ANIM_OBJ_ROCK_SMASH, 136, 46, $e8
+	anim_wait 3
+	anim_sound 0, 1, SFX_KARATE_CHOP
+	anim_obj ANIM_OBJ_HIT_YFIX, 136, 38, $0
+	anim_obj ANIM_OBJ_ROCK_SMASH, 136, 38, $5c
+	anim_obj ANIM_OBJ_ROCK_SMASH, 136, 38, $e8
+	anim_wait 3
+	anim_sound 0, 1, SFX_KARATE_CHOP
+	anim_obj ANIM_OBJ_HIT_YFIX, 136, 30, $0
+	anim_obj ANIM_OBJ_ROCK_SMASH, 136, 30, $5c
+	anim_obj ANIM_OBJ_ROCK_SMASH, 136, 30, $e8
+	anim_wait 8
+	anim_ret
 
 BattleAnim_Defog:
 	anim_1gfx ANIM_GFX_HIT
