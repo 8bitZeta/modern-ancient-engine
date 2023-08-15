@@ -89,4 +89,5 @@ AnimObjGFX:
 	anim_obj_gfx  6, AnimObjRockPolishGFX
 	anim_obj_gfx  9, AnimObjBugBuzzGFX
 	anim_obj_gfx  9, AnimObjMidGlowClearGFX
+	anim_obj_gfx 18, AnimObjFocusBlastGFX
 	assert_table_length NUM_ANIM_GFX + 1

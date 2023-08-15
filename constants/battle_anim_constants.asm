@@ -426,6 +426,7 @@ DEF BATTLEANIM_BASE_TILE EQU 7 * 7  ; Maximum size of a pokemon picture
 	const ANIM_OBJ_DRAGON_RUSH_XFLIP
 	const ANIM_OBJ_POWER_GEM
 	const ANIM_OBJ_VACUUM_SHRINKING
+	const ANIM_OBJ_FOCUS_BLAST
 DEF NUM_ANIM_OBJS EQU const_value
 
 ; DoBattleAnimFrame arguments (see engine/battle_anims/functions.asm)
@@ -836,6 +837,7 @@ DEF NUM_BATTLEANIMFUNCS EQU const_value
 	const BATTLEANIMFRAMESET_DRAGON_RUSH_FLIPPED
 	const BATTLEANIMFRAMESET_POWER_GEM
 	const BATTLEANIMFRAMESET_VACUUM_SHRINKING
+	const BATTLEANIMFRAMESET_FOCUS_BLAST
 DEF NUM_BATTLEANIMFRAMESETS EQU const_value
 
 ; BattleAnimOAMData indexes (see data/battle_anims/oam.asm)
@@ -1279,6 +1281,7 @@ DEF NUM_ANIM_BGS EQU const_value
 	const ANIM_GFX_ROCK_POLISH
 	const ANIM_GFX_BUG_BUZZ
 	const ANIM_GFX_MID_GLOW_CLEAR
+	const ANIM_GFX_FOCUS_BLAST
 	DEF NUM_ANIM_GFX EQU const_value - 1
 
 ; battle_bg_effect struct members (see macros/ram.asm)
