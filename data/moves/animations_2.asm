@@ -4788,26 +4788,32 @@ BattleAnim_GigaImpact:
 	anim_ret
 
 BattleAnim_NastyPlot:
-    anim_2gfx ANIM_GFX_STATUS, ANIM_GFX_SHINE
-    anim_sound 0, 0, SFX_LICK
-    anim_obj ANIM_OBJ_AMNESIA, 64, 88, $2
-    anim_wait 16
-    anim_obj ANIM_OBJ_AMNESIA, 32, 88, $2
-    anim_obj ANIM_OBJ_AMNESIA, 68, 88, $1
-    anim_wait 16
-    anim_obj ANIM_OBJ_AMNESIA, 48, 80, $2
-    anim_obj ANIM_OBJ_AMNESIA, 28, 88, $1
-    anim_obj ANIM_OBJ_AMNESIA, 72, 88, $0
-    anim_wait 16
-    anim_obj ANIM_OBJ_AMNESIA, 48, 80, $1
-    anim_obj ANIM_OBJ_AMNESIA, 24, 88, $0
-    anim_wait 16
-    anim_obj ANIM_OBJ_AMNESIA, 48, 80, $0
-    anim_wait 32
-    anim_sound 0, 1, SFX_FORESIGHT
-    anim_obj ANIM_OBJ_FORESIGHT, 68, 88, $0
-    anim_wait 16
-    anim_ret
+	anim_1gfx ANIM_GFX_STATUS
+	anim_sound 0, 0, SFX_LICK
+	anim_obj ANIM_OBJ_NASTY_PLOT_1, 64, 88, $2
+	anim_wait 16
+	anim_sound 0, 0, SFX_LICK
+	anim_obj ANIM_OBJ_NASTY_PLOT_1, 68, 88, $1
+	anim_obj ANIM_OBJ_NASTY_PLOT_1, 28, 88, $2
+	anim_wait 16
+	anim_sound 0, 0, SFX_LICK
+	anim_obj ANIM_OBJ_NASTY_PLOT_1, 72, 88, $0
+	anim_obj ANIM_OBJ_NASTY_PLOT_1, 24, 88, $1
+	anim_obj ANIM_OBJ_NASTY_PLOT_2, 46, 80, $2
+	anim_wait 16
+	anim_obj ANIM_OBJ_NASTY_PLOT_1, 20, 88, $0
+	anim_obj ANIM_OBJ_NASTY_PLOT_2, 46, 80, $1
+	anim_wait 16
+	anim_obj ANIM_OBJ_NASTY_PLOT_2, 46, 80, $0
+	anim_wait 32
+	anim_clearobjs
+	anim_wait 1
+	anim_2gfx ANIM_GFX_OBJECTS_1, ANIM_GFX_MISC
+	anim_obj ANIM_OBJ_NASTY_PLOT_HAND, 48, 72, $0
+	anim_sound 0, 1, SFX_FORESIGHT
+	anim_obj ANIM_OBJ_NASTY_PLOT_SURPRISED, 48, 72, $0
+	anim_wait 24
+	anim_ret
 
 BattleAnim_BulletPunch:
 	anim_1gfx ANIM_GFX_HIT
