@@ -336,6 +336,7 @@ BattleAnimFrameData:
 	dw .Frameset_GunkShot                ; BATTLEANIMFRAMESET_GUNK_SHOT
 	dw .Frameset_MagnetBomb              ; BATTLEANIMFRAMESET_MAGNET_BOMB
 	dw .Frameset_StoneEdge               ; BATTLEANIMFRAMESET_STONE_EDGE
+	dw .Frameset_SteathRock              ; BATTLEANIMFRAMESET_STEALTH_ROCK
 	assert_table_length NUM_BATTLEANIMFRAMESETS
 
 .Frameset_HitBig:
@@ -2301,4 +2302,14 @@ BattleAnimFrameData:
 
 .Frameset_StoneEdge:
 	battleoamframe BATTLEANIMOAMSET_128,  50
+	battleoamdelete
+
+.Frameset_SteathRock:
+	battleoamframe BATTLEANIMOAMSET_128,  50
+	battleoamwait 4
+	battleoamframe BATTLEANIMOAMSET_128,  4
+	battleoamwait 2
+	battleoamframe BATTLEANIMOAMSET_128,  2
+	battleoamwait 2
+	battleoamframe BATTLEANIMOAMSET_128,  2
 	battleoamdelete

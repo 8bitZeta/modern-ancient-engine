@@ -674,6 +674,63 @@ BattleAnim_Captivate:
 	anim_ret
 
 BattleAnim_StealthRock:
+	anim_1gfx ANIM_GFX_ROCKS
+	anim_sound 0, 0, SFX_SPARK
+	anim_obj ANIM_OBJ_STEALTH_ROCK, 48, 80, $20
+	anim_wait 8
+
+	anim_obj ANIM_OBJ_STEALTH_ROCK, 48, 80, $30
+	anim_wait 8
+	anim_sound 0, 0, SFX_SPARK
+	anim_obj ANIM_OBJ_STEALTH_ROCK, 48, 80, $28
+	anim_wait 8
+
+	anim_obj ANIM_OBJ_STEALTH_ROCK, 52, 80, $20
+	anim_wait 8
+	anim_sound 0, 0, SFX_SPARK
+	anim_obj ANIM_OBJ_STEALTH_ROCK, 44, 80, $30
+	anim_wait 8
+
+	anim_obj ANIM_OBJ_STEALTH_ROCK, 44, 80, $28
+	anim_wait 8
+	anim_sound 0, 0, SFX_SPARK
+	anim_obj ANIM_OBJ_STEALTH_ROCK, 44, 80, $20
+	anim_wait 8
+
+	anim_obj ANIM_OBJ_STEALTH_ROCK, 52, 80, $30
+	anim_wait 8
+	anim_sound 0, 0, SFX_SPARK
+	anim_obj ANIM_OBJ_STEALTH_ROCK, 52, 80, $28
+	anim_wait 8
+
+	anim_obj ANIM_OBJ_STEALTH_ROCK, 48, 80, $20
+	anim_wait 64
+	anim_ret
+
+	anim_obj ANIM_OBJ_STONE_EDGE_STILL, 156, 64, $8
+	anim_wait 1
+	anim_obj ANIM_OBJ_STONE_EDGE_STILL, 152, 64, $8
+	anim_wait 1
+	anim_sound 0, 0, SFX_SPARK
+	anim_obj ANIM_OBJ_STONE_EDGE_STILL, 128, 64, $8
+	anim_wait 1
+	anim_obj ANIM_OBJ_STONE_EDGE_STILL, 108, 64, $8
+	anim_wait 1
+	anim_sound 0, 0, SFX_SPARK
+	anim_obj ANIM_OBJ_STONE_EDGE_STILL, 112, 64, $8
+	anim_wait 1
+	anim_obj ANIM_OBJ_STONE_EDGE_STILL, 148, 64, $8
+	anim_wait 1
+	anim_sound 0, 0, SFX_SPARK
+	anim_obj ANIM_OBJ_STONE_EDGE_STILL, 118, 64, $8
+	anim_wait 1
+	anim_obj ANIM_OBJ_STONE_EDGE_STILL, 136, 64, $8
+	anim_wait 1
+	anim_sound 0, 0, SFX_SPARK
+	anim_obj ANIM_OBJ_STONE_EDGE_STILL, 116, 64, $8
+	anim_wait 1
+	anim_obj ANIM_OBJ_STONE_EDGE_STILL, 144, 64, $8
+	anim_wait 32
 
 BattleAnim_GrassKnot:
 
