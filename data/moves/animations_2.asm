@@ -5060,12 +5060,30 @@ BattleAnim_ShadowSneak:
 	anim_ret
 
 BattleAnim_MudBomb:
-	anim_1gfx ANIM_GFX_HIT
-	anim_sound 0, 1, SFX_POUND
-	anim_obj ANIM_OBJ_PALM, 136, 56, $0
-	anim_wait 6
-	anim_obj ANIM_OBJ_HIT_YFIX, 136, 56, $0
-	anim_wait 16
+	anim_setobjpal PAL_BATTLE_OB_GRAY, PAL_BTLCUSTOM_BROWN
+	anim_setobjpal PAL_BATTLE_OB_RED, PAL_BTLCUSTOM_BROWN
+	anim_2gfx ANIM_GFX_POISON, ANIM_GFX_EXPLOSION
+	anim_sound 6, 2, SFX_SLUDGE_BOMB
+	anim_obj ANIM_OBJ_MUD_BOMB, 64, 92, $10
+	anim_wait 36
+	anim_bgeffect ANIM_BG_SHAKE_SCREEN_X, $14, $2, $0
+	anim_sound 0, 1, SFX_AEROBLAST
+	anim_obj ANIM_OBJ_EXPLOSION2, 136, 60, $0
+	anim_obj ANIM_OBJ_INK_SPLASH, 128, 56, $5c
+	anim_obj ANIM_OBJ_INK_SPLASH, 128, 56, $e8
+	anim_obj ANIM_OBJ_INK_SPLASH, 128, 56, $d0
+	anim_obj ANIM_OBJ_INK_SPLASH, 128, 56, $50
+	anim_wait 8
+	anim_obj ANIM_OBJ_INK_SPLASH, 144, 64, $5c
+	anim_obj ANIM_OBJ_INK_SPLASH, 144, 64, $e8
+	anim_obj ANIM_OBJ_INK_SPLASH, 144, 64, $d0
+	anim_obj ANIM_OBJ_INK_SPLASH, 144, 64, $50
+	anim_wait 8
+	anim_obj ANIM_OBJ_INK_SPLASH, 136, 72, $5c
+	anim_obj ANIM_OBJ_INK_SPLASH, 136, 72, $e8
+	anim_obj ANIM_OBJ_INK_SPLASH, 136, 72, $d0
+	anim_obj ANIM_OBJ_INK_SPLASH, 136, 72, $50
+	anim_wait 24
 	anim_ret
 
 BattleAnim_PsychoCut:
