@@ -329,6 +329,7 @@ BattleAnimFrameData:
 	dw .Frameset_DischargeSparksW        ; BATTLEANIMFRAMESET_DISCHARGE_SPARKS_W
 	dw .Frameset_DischargeSparksNW       ; BATTLEANIMFRAMESET_DISCHARGE_SPARKS_NW
 	dw .Frameset_DischargeSparksSmall    ; BATTLEANIMFRAMESET_DISCHARGE_SPARKS_SMALL
+	dw .Frameset_LavaPlumeSmoke          ; BATTLEANIMFRAMESET_LAVA_PLUME_SMOKE
 	assert_table_length NUM_BATTLEANIMFRAMESETS
 
 .Frameset_HitBig:
@@ -2246,3 +2247,9 @@ BattleAnimFrameData:
 	battleoamframe BATTLEANIMOAMSET_44,  2
 	battleoamwait 2
 	battleoamrestart
+
+.Frameset_LavaPlumeSmoke:
+	battleoamframe BATTLEANIMOAMSET_03, 2
+	battleoamframe BATTLEANIMOAMSET_11F , 2
+	battleoamframe BATTLEANIMOAMSET_03, 2
+	battleoamdelete
