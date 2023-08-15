@@ -320,6 +320,15 @@ BattleAnimFrameData:
 	dw .Frameset_TrickRoom               ; BATTLEANIMFRAMESET_TRICK_ROOM
 	dw .Frameset_MeteorSmall             ; BATTLEANIMFRAMESET_METEOR_SMALL
 	dw .Frameset_MeteorBig               ; BATTLEANIMFRAMESET_METEOR_BIG
+	dw .Frameset_DischargeSparksN        ; BATTLEANIMFRAMESET_DISCHARGE_SPARKS_N
+	dw .Frameset_DischargeSparksNE       ; BATTLEANIMFRAMESET_DISCHARGE_SPARKS_NE
+	dw .Frameset_DischargeSparksE        ; BATTLEANIMFRAMESET_DISCHARGE_SPARKS_E
+	dw .Frameset_DischargeSparksSE       ; BATTLEANIMFRAMESET_DISCHARGE_SPARKS_SE
+	dw .Frameset_DischargeSparksS        ; BATTLEANIMFRAMESET_DISCHARGE_SPARKS_S
+	dw .Frameset_DischargeSparksSW       ; BATTLEANIMFRAMESET_DISCHARGE_SPARKS_SW
+	dw .Frameset_DischargeSparksW        ; BATTLEANIMFRAMESET_DISCHARGE_SPARKS_W
+	dw .Frameset_DischargeSparksNW       ; BATTLEANIMFRAMESET_DISCHARGE_SPARKS_NW
+	dw .Frameset_DischargeSparksSmall    ; BATTLEANIMFRAMESET_DISCHARGE_SPARKS_SMALL
 	assert_table_length NUM_BATTLEANIMFRAMESETS
 
 .Frameset_HitBig:
@@ -2182,3 +2191,58 @@ BattleAnimFrameData:
 .Frameset_MeteorBig:
 	battleoamframe BATTLEANIMOAMSET_11F,  14
 	battleoamdelete
+
+.Frameset_DischargeSparksN:
+	battleoamframe BATTLEANIMOAMSET_F9,  2, OAM_X_FLIP, OAM_Y_FLIP
+	battleoamframe BATTLEANIMOAMSET_120, 2, OAM_X_FLIP
+	battleoamframe BATTLEANIMOAMSET_82,  2
+	battleoamend
+
+.Frameset_DischargeSparksNE:
+	battleoamframe BATTLEANIMOAMSET_120, 2, OAM_X_FLIP
+	battleoamframe BATTLEANIMOAMSET_82,  2
+	battleoamframe BATTLEANIMOAMSET_120, 2
+	battleoamend
+
+.Frameset_DischargeSparksE:
+	battleoamframe BATTLEANIMOAMSET_82,  2
+	battleoamframe BATTLEANIMOAMSET_120, 2
+	battleoamframe BATTLEANIMOAMSET_F9,  2
+	battleoamend
+
+.Frameset_DischargeSparksSE:
+	battleoamframe BATTLEANIMOAMSET_120, 2
+	battleoamframe BATTLEANIMOAMSET_F9,  2
+	battleoamframe BATTLEANIMOAMSET_120, 2, OAM_Y_FLIP
+	battleoamend
+
+.Frameset_DischargeSparksS:
+	battleoamframe BATTLEANIMOAMSET_F9,  2
+	battleoamframe BATTLEANIMOAMSET_120, 2, OAM_Y_FLIP
+	battleoamframe BATTLEANIMOAMSET_82,  2, OAM_X_FLIP, OAM_Y_FLIP
+	battleoamend
+
+.Frameset_DischargeSparksSW:
+	battleoamframe BATTLEANIMOAMSET_120, 2, OAM_Y_FLIP
+	battleoamframe BATTLEANIMOAMSET_82,  2, OAM_X_FLIP, OAM_Y_FLIP
+	battleoamframe BATTLEANIMOAMSET_120, 2, OAM_X_FLIP, OAM_Y_FLIP
+	battleoamend
+
+.Frameset_DischargeSparksW:
+	battleoamframe BATTLEANIMOAMSET_82,  2, OAM_X_FLIP, OAM_Y_FLIP
+	battleoamframe BATTLEANIMOAMSET_120, 2, OAM_X_FLIP, OAM_Y_FLIP
+	battleoamframe BATTLEANIMOAMSET_F9,  2, OAM_X_FLIP, OAM_Y_FLIP
+	battleoamend
+
+.Frameset_DischargeSparksNW:
+	battleoamframe BATTLEANIMOAMSET_120, 2, OAM_X_FLIP, OAM_Y_FLIP
+	battleoamframe BATTLEANIMOAMSET_F9,  2, OAM_X_FLIP, OAM_Y_FLIP
+	battleoamframe BATTLEANIMOAMSET_120, 2, OAM_X_FLIP
+	battleoamend
+
+.Frameset_DischargeSparksSmall:
+	battleoamframe BATTLEANIMOAMSET_42,  2
+	battleoamwait 2
+	battleoamframe BATTLEANIMOAMSET_44,  2
+	battleoamwait 2
+	battleoamrestart

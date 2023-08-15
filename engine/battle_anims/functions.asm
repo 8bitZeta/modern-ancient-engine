@@ -116,6 +116,7 @@ DoBattleAnimFrame:
 	dba BattleAnimFunction_DarkPulse
 	dba BattleAnimFunction_PauseThenRush
 	dba BattleAnimFunction_SpiralDescent_Fast
+	dba BattleAnimFunction_Discharge
 	assert_table_length NUM_BATTLEANIMFUNCS
 
 BattleAnimFunction_ThrowFromUserToTargetAndDisappear:
@@ -5011,4 +5012,52 @@ BattleAnimFunction_SpiralDescent_Fast:
 	ret
 
 .delete
+	jmp DeinitBattleAnimation
+
+BattleAnimFunction_Discharge:
+; A rotating circle of objects centered at a position. It expands for $40 frames and then ends.
+; Obj Param: Defines starting point in the circle
+	ld hl, BATTLEANIMSTRUCT_PARAM
+	add hl, bc
+	ld a, [hl]
+	inc [hl] ; These speed up spinning
+	ld hl, BATTLEANIMSTRUCT_VAR1
+	add hl, bc
+	ld d, [hl]
+	push af
+	push de
+	call Sine
+	ld hl, BATTLEANIMSTRUCT_YOFFSET
+	add hl, bc
+	ld [hl], a
+	pop de
+	pop af
+	call Cosine
+	ld hl, BATTLEANIMSTRUCT_XOFFSET
+	add hl, bc
+	ld [hl], a
+	ld hl, BATTLEANIMSTRUCT_VAR2
+	add hl, bc
+	ld a, [hl]
+	inc [hl]
+	inc [hl] ; the rest of these control the in and out.
+	inc [hl]
+	ld hl, BATTLEANIMSTRUCT_VAR1
+	add hl, bc
+	cp $1b
+	jr nc, .shrink
+	inc [hl]
+	inc [hl] ; expand speed
+	inc [hl]
+	inc [hl]
+	inc [hl]
+	inc [hl]
+	inc [hl]
+	inc [hl]
+	inc [hl]
+	inc [hl]
+	inc [hl]
+	ret
+
+.shrink
 	jmp DeinitBattleAnimation

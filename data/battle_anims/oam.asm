@@ -295,7 +295,7 @@ BattleAnimOAMData:
 	battleanimoam $03,  4, .OAMData_02  ; BATTLEANIMOAMSET_11D
 	battleanimoam $01,  4, .OAMData_02  ; BATTLEANIMOAMSET_11E
 	battleanimoam $00,  9, .OAMData_c3  ; BATTLEANIMOAMSET_11F
-	; battleanimoam $0e,  1, .OAMData_0f  ; BATTLEANIMOAMSET_120
+	battleanimoam $0e,  1, .OAMData_0f  ; BATTLEANIMOAMSET_120
 	; battleanimoam $00, 16, .OAMData_121 ; BATTLEANIMOAMSET_121
 	; battleanimoam $10, 16, .OAMData_121 ; BATTLEANIMOAMSET_122
 	; battleanimoam $20, 16, .OAMData_121 ; BATTLEANIMOAMSET_123

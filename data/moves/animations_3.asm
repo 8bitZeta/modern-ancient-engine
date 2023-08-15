@@ -155,12 +155,78 @@ BattleAnim_DracoMeteor:
 	anim_ret
 
 BattleAnim_Discharge:
-	anim_1gfx ANIM_GFX_HIT
-	anim_sound 0, 1, SFX_POUND
-	anim_obj ANIM_OBJ_PALM, 136, 56, $0
-	anim_wait 6
-	anim_obj ANIM_OBJ_HIT_YFIX, 136, 56, $0
-	anim_wait 16
+	anim_2gfx ANIM_GFX_LIGHTNING, ANIM_GFX_EXPLOSION
+	anim_bgeffect ANIM_BG_CYCLE_OBPALS_GRAY_AND_YELLOW, $0, $6, $0
+	anim_sound 0, 1, SFX_THUNDERSHOCK
+	anim_obj ANIM_OBJ_THUNDERSHOCK_CORE, 48, 88, $2
+	anim_obj ANIM_OBJ_THUNDERSHOCK_SPARKS, 48, 88, $0
+	anim_wait 4
+	anim_sound 0, 1, SFX_THUNDERSHOCK
+	anim_wait 4
+	anim_sound 0, 1, SFX_THUNDERSHOCK
+	anim_wait 4
+	anim_clearobjs
+	anim_sound 0, 1, SFX_THUNDERSHOCK
+	anim_bgeffect ANIM_BG_FLASH_INVERTED, $0, $4, $2
+	anim_obj ANIM_OBJ_THUNDERBOLT_CORE, 48, 88, $2
+	anim_obj ANIM_OBJ_THUNDERSHOCK_SPARKS, 48, 88, $0
+	anim_wait 4
+	anim_sound 0, 1, SFX_THUNDERSHOCK
+	anim_wait 4
+	anim_clearobjs
+	anim_sound 0, 1, SFX_THUNDERSHOCK
+	anim_obj ANIM_OBJ_THUNDERBOLT_CORE, 48, 88, $2
+	anim_obj ANIM_OBJ_THUNDERBOLT_SPARKS, 48, 88, $0
+	anim_wait 4
+	anim_bgeffect ANIM_BG_FLASH_INVERTED, $0, $4, $2
+	anim_sound 0, 1, SFX_THUNDERSHOCK
+	anim_wait 4
+	anim_clearobjs
+	anim_setobjpal PAL_BATTLE_OB_GRAY, PAL_BTLCUSTOM_ICE
+	anim_sound 0, 1, SFX_THUNDERSHOCK
+	anim_obj ANIM_OBJ_THUNDERBOLT_CORE, 48, 88, $2
+	anim_obj ANIM_OBJ_DISCHARGE_SPARKS_SMALL, 48, 88, $0
+.loop
+	anim_obj ANIM_OBJ_DISCHARGE_SPARKS_N,  48, 88, $0
+	anim_obj ANIM_OBJ_DISCHARGE_SPARKS_NE, 48, 88, $8
+	anim_obj ANIM_OBJ_DISCHARGE_SPARKS_E,  48, 88, $10
+	anim_obj ANIM_OBJ_DISCHARGE_SPARKS_SE, 48, 88, $18
+	anim_obj ANIM_OBJ_DISCHARGE_SPARKS_S,  48, 88, $20
+	anim_obj ANIM_OBJ_DISCHARGE_SPARKS_SW, 48, 88, $28
+	anim_obj ANIM_OBJ_DISCHARGE_SPARKS_W,  48, 88, $30
+	anim_obj ANIM_OBJ_DISCHARGE_SPARKS_NW, 48, 88, $38
+	anim_wait 10
+	anim_obj ANIM_OBJ_DISCHARGE_SPARKS_N,  48, 88, $4
+	anim_obj ANIM_OBJ_DISCHARGE_SPARKS_NE, 48, 88, $b
+	anim_obj ANIM_OBJ_DISCHARGE_SPARKS_E,  48, 88, $14
+	anim_obj ANIM_OBJ_DISCHARGE_SPARKS_SE, 48, 88, $1b
+	anim_obj ANIM_OBJ_DISCHARGE_SPARKS_S,  48, 88, $24
+	anim_obj ANIM_OBJ_DISCHARGE_SPARKS_SW, 48, 88, $2b
+	anim_obj ANIM_OBJ_DISCHARGE_SPARKS_W,  48, 88, $34
+	anim_obj ANIM_OBJ_DISCHARGE_SPARKS_NW, 48, 88, $3b
+	anim_wait 10
+	anim_bgeffect ANIM_BG_FLASH_INVERTED, $0, $4, $2
+	anim_obj ANIM_OBJ_DISCHARGE_SPARKS_N,  48, 88, $0
+	anim_obj ANIM_OBJ_DISCHARGE_SPARKS_NE, 48, 88, $8
+	anim_obj ANIM_OBJ_DISCHARGE_SPARKS_E,  48, 88, $10
+	anim_obj ANIM_OBJ_DISCHARGE_SPARKS_SE, 48, 88, $18
+	anim_obj ANIM_OBJ_DISCHARGE_SPARKS_S,  48, 88, $20
+	anim_obj ANIM_OBJ_DISCHARGE_SPARKS_SW, 48, 88, $28
+	anim_obj ANIM_OBJ_DISCHARGE_SPARKS_W,  48, 88, $30
+	anim_obj ANIM_OBJ_DISCHARGE_SPARKS_NW, 48, 88, $38
+	anim_wait 10
+	anim_obj ANIM_OBJ_DISCHARGE_SPARKS_N,  48, 88, $4
+	anim_obj ANIM_OBJ_DISCHARGE_SPARKS_NE, 48, 88, $b
+	anim_obj ANIM_OBJ_DISCHARGE_SPARKS_E,  48, 88, $14
+	anim_obj ANIM_OBJ_DISCHARGE_SPARKS_SE, 48, 88, $1b
+	anim_obj ANIM_OBJ_DISCHARGE_SPARKS_S,  48, 88, $24
+	anim_obj ANIM_OBJ_DISCHARGE_SPARKS_SW, 48, 88, $2b
+	anim_obj ANIM_OBJ_DISCHARGE_SPARKS_W,  48, 88, $34
+	anim_obj ANIM_OBJ_DISCHARGE_SPARKS_NW, 48, 88, $3b
+	anim_wait 10
+	anim_loop 2, .loop
+	anim_clearobjs
+	anim_wait 4
 	anim_ret
 
 BattleAnim_LavaPlume:
