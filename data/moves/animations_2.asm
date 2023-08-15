@@ -4406,12 +4406,39 @@ BattleAnim_AquaTail:
 	anim_jump BattleAnim_ShowMon_0_2
 
 BattleAnim_SeedBomb:
-	anim_1gfx ANIM_GFX_HIT
-	anim_sound 0, 1, SFX_POUND
-	anim_obj ANIM_OBJ_PALM, 136, 56, $0
-	anim_wait 6
-	anim_obj ANIM_OBJ_HIT_YFIX, 136, 56, $0
-	anim_wait 16
+	anim_setobjpal PAL_BATTLE_OB_RED, PAL_BTLCUSTOM_FIRE
+	anim_2gfx ANIM_GFX_PLANT, ANIM_GFX_EXPLOSION
+	anim_sound 16, 2, SFX_VINE_WHIP
+	anim_obj ANIM_OBJ_SEED_BOMB, 56, 72, $20
+	anim_wait 8
+	anim_sound 16, 2, SFX_VINE_WHIP
+	anim_obj ANIM_OBJ_SEED_BOMB, 48, 72, $30
+	anim_wait 8
+	anim_sound 16, 2, SFX_VINE_WHIP
+	anim_obj ANIM_OBJ_SEED_BOMB, 64, 72, $28
+	anim_wait 8
+	anim_sound 16, 2, SFX_VINE_WHIP
+	anim_obj ANIM_OBJ_SEED_BOMB, 48, 72, $20
+	anim_wait 8
+	anim_sound 16, 2, SFX_VINE_WHIP
+	anim_obj ANIM_OBJ_SEED_BOMB, 56, 72, $30
+	anim_sound 0, 1, SFX_EGG_BOMB
+	anim_bgeffect ANIM_BG_FLASH_INVERTED, $0, $8, $3
+	anim_bgeffect ANIM_BG_SHAKE_SCREEN_X, $40, $2, $0
+	anim_obj ANIM_OBJ_EXPLOSION2, 136, 56, $0
+	anim_wait 8
+	anim_sound 0, 1, SFX_EGG_BOMB
+	anim_obj ANIM_OBJ_EXPLOSION2, 130, 68, $0
+	anim_wait 8
+	anim_sound 0, 1, SFX_EGG_BOMB
+	anim_obj ANIM_OBJ_EXPLOSION2, 134, 50, $0
+	anim_wait 8
+	anim_sound 0, 1, SFX_EGG_BOMB
+	anim_obj ANIM_OBJ_EXPLOSION2, 132, 54, $0
+	anim_wait 8
+	anim_sound 0, 1, SFX_EGG_BOMB
+	anim_obj ANIM_OBJ_EXPLOSION2, 136, 62, $0
+	anim_wait 24
 	anim_ret
 
 BattleAnim_AirSlash:

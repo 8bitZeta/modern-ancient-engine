@@ -298,6 +298,7 @@ BattleAnimFrameData:
 	dw .Frameset_PoisonJabNW             ; BATTLEANIMFRAMESET_POISON_JAB_NW
 	dw .Frameset_CutRight                ; BATTLEANIMFRAMESET_CUT_RIGHT
 	dw .Frameset_CutLeft                 ; BATTLEANIMFRAMESET_CUT_LEFT
+	dw .Frameset_SeedBomb                ; BATTLEANIMFRAMESET_SEED_BOMB
 	assert_table_length NUM_BATTLEANIMFRAMESETS
 
 .Frameset_HitBig:
@@ -2021,4 +2022,8 @@ BattleAnimFrameData:
 	battleoamframe BATTLEANIMOAMSET_115,  2, OAM_X_FLIP
 	battleoamwait 2
 	battleoamframe BATTLEANIMOAMSET_115,  2, OAM_X_FLIP
+	battleoamdelete
+
+.Frameset_SeedBomb:
+	battleoamframe BATTLEANIMOAMSET_69,  40
 	battleoamdelete
