@@ -311,6 +311,7 @@ BattleAnimFrameData:
 	dw .Frameset_BulletPunch             ; BATTLEANIMFRAMESET_BULLET_PUNCH
 	dw .Frameset_SnowFall                ; BATTLEANIMFRAMESET_SNOW_FALL
 	dw .Frameset_IceLong                 ; BATTLEANIMFRAMESET_ICE_LONG
+	dw .Frameset_ShadowSneak             ; BATTLEANIMFRAMESET_SHADOW_SNEAK
 	assert_table_length NUM_BATTLEANIMFRAMESETS
 
 .Frameset_HitBig:
@@ -2114,4 +2115,11 @@ BattleAnimFrameData:
 	battleoamframe BATTLEANIMOAMSET_10,  3
 	battleoamframe BATTLEANIMOAMSET_0F,  3
 	battleoamframe BATTLEANIMOAMSET_12,  1
+	battleoamend
+
+.Frameset_ShadowSneak:
+	battleoamwait 8
+	battleoamframe BATTLEANIMOAMSET_11A,10
+	battleoamframe BATTLEANIMOAMSET_11B,10
+	battleoamframe BATTLEANIMOAMSET_BC, 32
 	battleoamend

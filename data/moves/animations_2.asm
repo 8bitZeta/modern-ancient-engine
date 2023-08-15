@@ -5026,22 +5026,38 @@ BattleAnim_FireFang:
 	anim_ret
 
 BattleAnim_ShadowSneak:
-    anim_2gfx ANIM_GFX_WATER, ANIM_GFX_ANGELS
-    anim_bgp $f8
-    anim_obp0 $fc
-    anim_sound 6, 2, SFX_WHIRLWIND
-    anim_obj ANIM_OBJ_DESTINY_BOND, 44, 120, $2
-    anim_wait 48
-    anim_sound 0, 1, SFX_RAZOR_WIND
-    anim_obj ANIM_OBJ_LICK, 120, 38, $0
-    anim_wait 8
-    anim_sound 0, 1, SFX_RAZOR_WIND
-    anim_obj ANIM_OBJ_LICK, 148, 46, $0
-    anim_wait 8
-    anim_sound 0, 1, SFX_RAZOR_WIND
-    anim_obj ANIM_OBJ_LICK, 134, 54, $0
-    anim_wait 32
-    anim_ret
+	anim_2gfx ANIM_GFX_ANGELS, ANIM_GFX_HIT
+	anim_battlergfx_2row
+	anim_bgp $f8
+	anim_obp0 $ef
+	anim_sound 6, 2, SFX_WHIRLWIND
+.loop
+	anim_obj ANIM_OBJ_SHADOW_SNEAK, 44, 120, $2
+	anim_wait 2
+	anim_loop 4, .loop
+	anim_wait 32
+	anim_bgeffect ANIM_BG_BATTLEROBJ_1ROW, $0, $1, $0
+	anim_wait 1
+	anim_bgeffect ANIM_BG_VIBRATE_MON, $0, $0, $0
+	anim_sound 0, 1, SFX_RAZOR_WIND
+	anim_obj ANIM_OBJ_HIT_YFIX, 140, 44, $0
+	anim_wait 4
+	anim_sound 0, 1, SFX_RAZOR_WIND
+	anim_obj ANIM_OBJ_HIT_YFIX, 124, 60, $0
+	anim_wait 4
+	anim_sound 0, 1, SFX_RAZOR_WIND
+	anim_obj ANIM_OBJ_HIT_YFIX, 140, 60, $0
+	anim_wait 4
+	anim_sound 0, 1, SFX_RAZOR_WIND
+	anim_obj ANIM_OBJ_HIT_YFIX, 124, 44, $0
+	anim_wait 4
+	anim_sound 0, 1, SFX_RAZOR_WIND
+	anim_obj ANIM_OBJ_HIT_YFIX, 132, 52, $0
+	anim_wait 32
+	anim_bgeffect ANIM_BG_SHOW_MON, $0, $1, $0
+	anim_wait 1
+	anim_clearobjs
+	anim_ret
 
 BattleAnim_MudBomb:
 	anim_1gfx ANIM_GFX_HIT
