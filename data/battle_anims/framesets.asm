@@ -318,6 +318,8 @@ BattleAnimFrameData:
 	dw .Frameset_SlowGrowingGlow         ; BATTLEANIMFRAMESET_SLOW_GROWING_GLOW
 	dw .Frameset_FlashCannonSparks       ; BATTLEANIMFRAMESET_FLASH_CANNON_SPARKS
 	dw .Frameset_TrickRoom               ; BATTLEANIMFRAMESET_TRICK_ROOM
+	dw .Frameset_MeteorSmall             ; BATTLEANIMFRAMESET_METEOR_SMALL
+	dw .Frameset_MeteorBig               ; BATTLEANIMFRAMESET_METEOR_BIG
 	assert_table_length NUM_BATTLEANIMFRAMESETS
 
 .Frameset_HitBig:
@@ -2171,4 +2173,12 @@ BattleAnimFrameData:
 	battleoamframe BATTLEANIMOAMSET_18,  1
 	battleoamframe BATTLEANIMOAMSET_11E,  1
 	battleoamframe BATTLEANIMOAMSET_18,  1
+	battleoamdelete
+
+.Frameset_MeteorSmall:
+	battleoamframe BATTLEANIMOAMSET_03,  30
+	battleoamdelete
+
+.Frameset_MeteorBig:
+	battleoamframe BATTLEANIMOAMSET_11F,  14
 	battleoamdelete
