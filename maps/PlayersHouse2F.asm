@@ -137,7 +137,7 @@ PlayersHouseRadioScript:
 	givepoke MEW, 100, LEFTOVERS
 	givepoke MEW, 100, LEFTOVERS
 	givepoke MEW, 100, LEFTOVERS
-	givepokemove MAGNET_BOMB,        wPartyMon1, 0
+	givepokemove SPIKES,        wPartyMon1, 0
 	givepokemove STONE_EDGE,       wPartyMon1, 1
 	givepokemove CAPTIVATE,   wPartyMon1, 2
 	givepokemove STEALTH_ROCK,        wPartyMon1, 3

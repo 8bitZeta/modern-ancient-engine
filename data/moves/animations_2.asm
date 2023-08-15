@@ -381,7 +381,7 @@ BattleAnim_Hail:
 	anim_ret
 
 BattleAnim_Torment:
-	anim_2gfx ANIM_GFX_MISC, ANIM_GFX_STATUS
+	anim_2gfx ANIM_GFX_MISC_1, ANIM_GFX_STATUS
 	anim_sound 0, 1, SFX_HORN_ATTACK
 	anim_obj ANIM_OBJ_TORMENT, 64, 106, $2
 	anim_wait 32
@@ -559,7 +559,7 @@ BattleAnim_Charge:
 	anim_ret
 
 BattleAnim_Taunt:
-	anim_2gfx ANIM_GFX_MISC, ANIM_GFX_TAUNT
+	anim_2gfx ANIM_GFX_MISC_1, ANIM_GFX_TAUNT
 	anim_obj ANIM_OBJ_TAUNT, 72, 84, $0
 	anim_wait 16
 .loop
@@ -1222,7 +1222,7 @@ BattleAnim_MistBall:
 	anim_ret
 
 BattleAnim_FeatherDance:
-	anim_1gfx ANIM_GFX_MISC
+	anim_1gfx ANIM_GFX_MISC_1
 	anim_sound 0, 0, SFX_MORNING_SUN 
 .loop
 	anim_obj ANIM_OBJ_FEATHER_DANCE, 132, 36, $0
@@ -3019,7 +3019,7 @@ BattleAnim_PsychoBoost:
 ; - Gen 4 Anims
 
 BattleAnim_Roost:
-	anim_2gfx ANIM_GFX_MISC, ANIM_GFX_SHINE
+	anim_2gfx ANIM_GFX_MISC_1, ANIM_GFX_SHINE
 	anim_bgeffect ANIM_BG_FADE_MON_TO_LIGHT_REPEATING, $0, $1, $40
 	anim_wait 16
 	anim_sound 0, 0, SFX_MORNING_SUN 
@@ -3351,7 +3351,7 @@ BattleAnim_Tailwind:
 	anim_ret
 
 BattleAnim_Acupressure:
-	anim_2gfx ANIM_GFX_MISC, ANIM_GFX_LIGHTNING
+	anim_2gfx ANIM_GFX_MISC_1, ANIM_GFX_LIGHTNING
 	anim_setobjpal PAL_BATTLE_OB_YELLOW, PAL_BTLCUSTOM_SIGNAL_BEAM_BLUE
 	anim_sound 0, 1, SFX_SLOT_MACHINE_START
 	anim_obj ANIM_OBJ_ACUPRESSURE, 51, 96, $10
@@ -3583,7 +3583,7 @@ BattleAnim_Assurance:
 
 BattleAnim_Embargo:
 	anim_setobjpal PAL_BATTLE_OB_GRAY, PAL_BTLCUSTOM_PAYBACK
-	anim_2gfx ANIM_GFX_MISC, ANIM_GFX_SHINE
+	anim_2gfx ANIM_GFX_MISC_1, ANIM_GFX_SHINE
 	anim_bgeffect ANIM_BG_CYCLE_MID_OBPALS_GRAY_AND_YELLOW, $0, $4, $0
 	anim_bgeffect ANIM_BG_FADE_MON_TO_BLACK_REPEATING, $0, $0, $40
 	anim_wait 16
@@ -4010,7 +4010,7 @@ BattleAnim_SuckerPunch:
 	anim_ret
 
 BattleAnim_ToxicSpikes:
-	anim_2gfx ANIM_GFX_MISC, ANIM_GFX_POISON
+	anim_2gfx ANIM_GFX_MISC_1, ANIM_GFX_POISON
 	anim_sound 6, 2, SFX_MENU
 	anim_obj ANIM_OBJ_SPIKES, 48, 88, $20
 	anim_wait 8
@@ -4808,7 +4808,7 @@ BattleAnim_NastyPlot:
 	anim_wait 32
 	anim_clearobjs
 	anim_wait 1
-	anim_2gfx ANIM_GFX_OBJECTS_1, ANIM_GFX_MISC
+	anim_2gfx ANIM_GFX_OBJECTS_1, ANIM_GFX_MISC_1
 	anim_obj ANIM_OBJ_NASTY_PLOT_HAND, 48, 72, $0
 	anim_sound 0, 1, SFX_FORESIGHT
 	anim_obj ANIM_OBJ_NASTY_PLOT_SURPRISED, 48, 72, $0
