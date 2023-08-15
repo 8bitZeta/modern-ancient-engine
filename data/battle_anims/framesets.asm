@@ -1534,10 +1534,10 @@ BattleAnimFrameData:
 	battleoamdelete
 
 .Frameset_Recycle:
-	battleoamframe BATTLEANIMOAMSET_E1,  6
-	battleoamframe BATTLEANIMOAMSET_E2,  6
-	battleoamframe BATTLEANIMOAMSET_E3,  6
-	battleoamframe BATTLEANIMOAMSET_E4,  6
+	battleoamframe BATTLEANIMOAMSET_121,  6
+	battleoamframe BATTLEANIMOAMSET_122,  6
+	battleoamframe BATTLEANIMOAMSET_123,  6
+	battleoamframe BATTLEANIMOAMSET_124,  6
 	battleoamrestart
 
 .Frameset_VerticalChop:
