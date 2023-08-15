@@ -5164,12 +5164,62 @@ BattleAnim_ZenHeadbutt:
 	anim_ret
 
 BattleAnim_MirrorShot:
-	anim_1gfx ANIM_GFX_HIT
-	anim_sound 0, 1, SFX_POUND
-	anim_obj ANIM_OBJ_PALM, 136, 56, $0
-	anim_wait 6
-	anim_obj ANIM_OBJ_HIT_YFIX, 136, 56, $0
+	anim_setobjpal PAL_BATTLE_OB_YELLOW, PAL_BTLCUSTOM_BRIGHT
+	anim_4gfx ANIM_GFX_BIG_GLOW, ANIM_GFX_SPEED, ANIM_GFX_GLOW, ANIM_GFX_CHARGE
+	anim_bgeffect ANIM_BG_CYCLE_OBPALS_GRAY_AND_YELLOW, $0, $2, $0
+	anim_sound 0, 1, SFX_FLASH
+	anim_obj ANIM_OBJ_SMALL_GLOW, 48, 96, $0
+	anim_obj ANIM_OBJ_WIND_SPARKLE, 48, 96, $0
+	anim_wait 2
+	anim_obj ANIM_OBJ_WIND_SPARKLE, 48, 96, $28
+	anim_wait 2
+	anim_obj ANIM_OBJ_WIND_SPARKLE, 48, 96, $30
+	anim_wait 2
+	anim_obj ANIM_OBJ_WIND_SPARKLE, 48, 96, $38
+	anim_wait 2
+	anim_obj ANIM_OBJ_WIND_SPARKLE, 48, 96, $20
+	anim_wait 2
+	anim_obj ANIM_OBJ_WIND_SPARKLE, 48, 96, $8
+	anim_wait 2
+	anim_obj ANIM_OBJ_WIND_SPARKLE, 48, 96, $18
+	anim_wait 2
+	anim_obj ANIM_OBJ_WIND_SPARKLE, 48, 96, $4
+	anim_wait 2
+	anim_wait 48
+	anim_clearobjs
+	anim_bgp $90
+	anim_sound 0, 1, SFX_METRONOME
+	anim_obj ANIM_OBJ_BIG_GLOW, 48, 96, $0
+	anim_obj ANIM_OBJ_ENERGY_ORB_OUT, 48, 96, $0
+	anim_wait 5
+	anim_obj ANIM_OBJ_ENERGY_ORB_OUT, 48, 96, $28
+	anim_wait 5
+	anim_obj ANIM_OBJ_ENERGY_ORB_OUT, 48, 96, $10
+	anim_wait 5
+	anim_obj ANIM_OBJ_ENERGY_ORB_OUT, 48, 96, $38
+	anim_wait 5
+	anim_obj ANIM_OBJ_ENERGY_ORB_OUT, 48, 96, $20
+	anim_wait 5
+	anim_obj ANIM_OBJ_ENERGY_ORB_OUT, 48, 96, $8
+	anim_wait 5
+	anim_obj ANIM_OBJ_ENERGY_ORB_OUT, 48, 96, $18
+	anim_wait 5
+	anim_obj ANIM_OBJ_ENERGY_ORB_OUT, 48, 96, $30
 	anim_wait 16
+	anim_clearobjs
+	anim_bgeffect ANIM_BG_ALTERNATE_HUES, $0, $2, $0
+.loop
+	anim_sound 0, 1, SFX_FORESIGHT
+	anim_obj ANIM_OBJ_SHRINKING_GLOW, 148, 36, $0
+	anim_wait 4
+	anim_sound 0, 1, SFX_FORESIGHT
+	anim_obj ANIM_OBJ_SHRINKING_GLOW, 116, 48, $0
+	anim_wait 4
+	anim_sound 0, 1, SFX_FORESIGHT
+	anim_obj ANIM_OBJ_SHRINKING_GLOW, 132, 60, $0
+	anim_wait 4
+	anim_loop 2, .loop
+	anim_wait 32
 	anim_ret
 
 BattleAnim_FlashCannon:
