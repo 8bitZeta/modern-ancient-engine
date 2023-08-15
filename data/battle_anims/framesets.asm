@@ -269,6 +269,8 @@ BattleAnimFrameData:
 	dw .Frameset_GastroAcid              ; BATTLEANIMFRAMESET_GASTRO_ACID
 	dw .Frameset_BigWhip                 ; BATTLEANIMFRAMESET_BIG_WHIP
 	dw .Frameset_Depression              ; BATTLEANIMFRAMESET_DEPRESSION
+	dw .Frameset_SuckerPunchL            ; BATTLEANIMFRAMESET_SUCKER_PUNCH_L
+	dw .Frameset_SuckerPunchR            ; BATTLEANIMFRAMESET_SUCKER_PUNCH_R
 	assert_table_length NUM_BATTLEANIMFRAMESETS
 
 .Frameset_HitBig:
@@ -1804,4 +1806,12 @@ BattleAnimFrameData:
 	battleoamframe BATTLEANIMOAMSET_1B,  6
 	battleoamframe BATTLEANIMOAMSET_21,  6
 	battleoamframe BATTLEANIMOAMSET_7F,  6
+	battleoamend
+
+.Frameset_SuckerPunchL:
+	battleoamframe BATTLEANIMOAMSET_FE,  8
+	battleoamend
+
+.Frameset_SuckerPunchR:
+	battleoamframe BATTLEANIMOAMSET_FE,  8, OAM_X_FLIP
 	battleoamend
