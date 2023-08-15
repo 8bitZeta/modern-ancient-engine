@@ -196,5 +196,10 @@ INCLUDE "gfx/battle_anims/battle_anims.pal"
 	RGB 10, 13, 17
 	RGB 08, 09, 11
 	RGB 05, 05, 06
+; invertblack
+	RGB 00, 00, 00
+	RGB 00, 00, 00
+	RGB 13, 13, 13
+	RGB 25, 25, 25
 rept NUM_CUSTOM_BATTLE_PALETTES - 6
 endr
