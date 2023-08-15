@@ -406,6 +406,14 @@ DEF BATTLEANIM_BASE_TILE EQU 7 * 7  ; Maximum size of a pokemon picture
 	const ANIM_OBJ_POISON_JAB_SW
 	const ANIM_OBJ_POISON_JAB_W
 	const ANIM_OBJ_POISON_JAB_NW
+	const ANIM_OBJ_DARK_PULSE_N
+	const ANIM_OBJ_DARK_PULSE_NE
+	const ANIM_OBJ_DARK_PULSE_E
+	const ANIM_OBJ_DARK_PULSE_SE
+	const ANIM_OBJ_DARK_PULSE_S
+	const ANIM_OBJ_DARK_PULSE_SW
+	const ANIM_OBJ_DARK_PULSE_W
+	const ANIM_OBJ_DARK_PULSE_NW
 DEF NUM_ANIM_OBJS EQU const_value
 
 ; DoBattleAnimFrame arguments (see engine/battle_anims/functions.asm)
@@ -505,6 +513,7 @@ DEF NUM_ANIM_OBJS EQU const_value
 	const BATTLEANIMFUNC_OBJECT_HOVER
 	const BATTLEANIMFUNC_ROOST
 	const BATTLEANIMFUNC_LAST_RESORT
+	const BATTLEANIMFUNC_DARK_PULSE
 DEF NUM_BATTLEANIMFUNCS EQU const_value
 
 ; BattleAnimFrameData indexes (see data/battle_anims/framesets.asm)
@@ -1330,6 +1339,7 @@ DEF NUM_BG_EFFECTS EQU 5 ; see wActiveBGEffects
 	const PAL_BTLCUSTOM_GLOW_GREEN         ; 25
 	const PAL_BTLCUSTOM_PAYBACK            ; 26
 	const PAL_BTLCUSTOM_GASTRO_ACID        ; 27
+	const PAL_BTLCUSTOM_DARK_PULSE         ; 28
 DEF NUM_CUSTOM_BATTLE_PALETTES EQU const_value
 
 DEF PAL_BTLCUSTOM_DEFAULT EQU -1

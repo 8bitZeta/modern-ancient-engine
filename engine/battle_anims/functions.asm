@@ -113,6 +113,7 @@ DoBattleAnimFrame:
 	dba BattleAnimFunction_ObjectHover
 	dba BattleAnimFunction_Roost
 	dba BattleAnimFunction_LastResort
+	dba BattleAnimFunction_DarkPulse
 	assert_table_length NUM_BATTLEANIMFUNCS
 
 BattleAnimFunction_ThrowFromUserToTargetAndDisappear:
@@ -1395,7 +1396,7 @@ BattleAnimFunction_StrengthSeismicToss:
 	cp $84
 	jr nc, .done
 	ld a, $4
-	jr BattleAnim_StepToTarget
+	jmp BattleAnim_StepToTarget
 
 .done
 	jmp DeinitBattleAnimation
@@ -1458,6 +1459,28 @@ BattleAnimFunction_HiddenPower:
 
 .done
 	jmp DeinitBattleAnimation
+
+BattleAnimFunction_DarkPulse:
+; Expands object out in a ring around position at 1 pixel at a time for 13 frames and then disappears
+; Obj Param: Defines starting position in circle
+	ld hl, BATTLEANIMSTRUCT_VAR1
+	add hl, bc
+	ld a, [hl]
+	cp $80
+	jr nc, .done
+	ld d, a
+	add $2
+	ld [hl], a
+	ld hl, BATTLEANIMSTRUCT_PARAM
+	add hl, bc
+	ld a, [hl]
+	jr .step_circle
+
+.done
+	jmp DeinitBattleAnimation
+
+.step_circle
+	jr BattleAnim_StepCircle
 
 BattleAnimFunction_PsychUp:
 ; Object moves in a circle
