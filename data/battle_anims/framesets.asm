@@ -330,8 +330,9 @@ BattleAnimFrameData:
 	dw .Frameset_DischargeSparksNW       ; BATTLEANIMFRAMESET_DISCHARGE_SPARKS_NW
 	dw .Frameset_DischargeSparksSmall    ; BATTLEANIMFRAMESET_DISCHARGE_SPARKS_SMALL
 	dw .Frameset_LavaPlumeSmoke          ; BATTLEANIMFRAMESET_LAVA_PLUME_SMOKE
-	dw .Frameset_LeafStormLeaf      ; BATTLEANIMFRAMESET_LEAF_STORM_LEAF
+	dw .Frameset_LeafStormLeaf           ; BATTLEANIMFRAMESET_LEAF_STORM_LEAF
 	dw .Frameset_LeafStormBigLeaf        ; BATTLEANIMFRAMESET_LEAF_STORM_BIG_LEAF
+	dw .Frameset_RockWreckerGrow         ; BATTLEANIMFRAMESET_ROCK_WRECKER_GROW
 	assert_table_length NUM_BATTLEANIMFRAMESETS
 
 .Frameset_HitBig:
@@ -2269,3 +2270,10 @@ BattleAnimFrameData:
 	battleoamframe BATTLEANIMOAMSET_1B,  1, OAM_X_FLIP, OAM_Y_FLIP
 	battleoamframe BATTLEANIMOAMSET_1B,  1, OAM_Y_FLIP
 	battleoamrestart
+
+.Frameset_RockWreckerGrow:
+	battleoamwait 20
+	battleoamframe BATTLEANIMOAMSET_0F, 30
+	battleoamframe BATTLEANIMOAMSET_1B, 30
+	battleoamframe BATTLEANIMOAMSET_1C, 43
+	battleoamdelete

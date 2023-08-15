@@ -346,12 +346,64 @@ BattleAnim_PowerWhip:
 	anim_ret
 
 BattleAnim_RockWrecker:
-	anim_1gfx ANIM_GFX_HIT
-	anim_sound 0, 1, SFX_POUND
-	anim_obj ANIM_OBJ_PALM, 136, 56, $0
+	anim_3gfx ANIM_GFX_ROCKS, ANIM_GFX_HUGE_ROCK, ANIM_GFX_WIND_BG
+	anim_setobjpal PAL_BATTLE_OB_BLUE, PAL_BTLCUSTOM_YELLOW
+	anim_obj ANIM_OBJ_AGILITY, 8, 24, $10
+	anim_obj ANIM_OBJ_AGILITY, 8, 48, $2
+	anim_wait 4
+	anim_obj ANIM_OBJ_AGILITY, 8, 56, $c
+	anim_obj ANIM_OBJ_AGILITY, 8, 80, $4
+	anim_obj ANIM_OBJ_AGILITY, 8, 104, $e
+	anim_obj ANIM_OBJ_ROCK_WRECKER_GROW, 48, 96, $0
+.loop
+	anim_sound 0, 0, SFX_OUTRAGE
+	anim_obj ANIM_OBJ_ROCK_WRECKER_CHARGE, 48, 96, $38
+	anim_wait 4
+	anim_sound 0, 0, SFX_OUTRAGE
+	anim_obj ANIM_OBJ_ROCK_WRECKER_CHARGE, 48, 96, $20
+	anim_wait 4
+	anim_sound 0, 0, SFX_OUTRAGE
+	anim_obj ANIM_OBJ_ROCK_WRECKER_CHARGE, 48, 96, $8
+	anim_wait 4
+	anim_sound 0, 0, SFX_OUTRAGE
+	anim_obj ANIM_OBJ_ROCK_WRECKER_CHARGE, 48, 96, $10
+	anim_wait 4
+	anim_sound 0, 0, SFX_OUTRAGE
+	anim_obj ANIM_OBJ_ROCK_WRECKER_CHARGE, 48, 96, $28
+	anim_wait 4
+	anim_sound 0, 0, SFX_OUTRAGE
+	anim_obj ANIM_OBJ_ROCK_WRECKER_CHARGE, 48, 96, $0
+	anim_wait 4
+	anim_sound 0, 0, SFX_OUTRAGE
+	anim_obj ANIM_OBJ_ROCK_WRECKER_CHARGE, 48, 96, $18
+	anim_wait 4
+	anim_sound 0, 0, SFX_OUTRAGE
+	anim_obj ANIM_OBJ_ROCK_WRECKER_CHARGE, 48, 96, $30
+	anim_wait 4
+	anim_loop 3, .loop
 	anim_wait 6
-	anim_obj ANIM_OBJ_HIT_YFIX, 136, 56, $0
-	anim_wait 16
+	anim_sound 0, 0, SFX_OUTRAGE
+	anim_obj ANIM_OBJ_ROCK_WRECKER, 48, 91, $1
+	anim_wait 80
+	anim_incobj 31
+	anim_sound 0, 1, SFX_RAZOR_WIND
+	anim_wait 10
+	anim_bgeffect ANIM_BG_FLASH_INVERTED, $0, $8, $3
+	anim_clearobjs
+	anim_bgeffect ANIM_BG_SHAKE_SCREEN_X, $60, $4, $10
+	anim_sound 0, 1, SFX_EGG_BOMB
+	anim_obj ANIM_OBJ_ROCK_SMASH, 128, 64, $28
+	anim_obj ANIM_OBJ_ROCK_SMASH, 128, 64, $5c
+	anim_obj ANIM_OBJ_ROCK_SMASH, 128, 64, $10
+	anim_obj ANIM_OBJ_ROCK_SMASH, 128, 64, $e8
+	anim_obj ANIM_OBJ_ROCK_SMASH, 128, 64, $9c
+	anim_obj ANIM_OBJ_ROCK_SMASH, 128, 64, $d0
+	anim_wait 6
+	anim_obj ANIM_OBJ_ROCK_SMASH, 128, 64, $1c
+	anim_obj ANIM_OBJ_ROCK_SMASH, 128, 64, $50
+	anim_obj ANIM_OBJ_ROCK_SMASH, 128, 64, $dc
+	anim_obj ANIM_OBJ_ROCK_SMASH, 128, 64, $90
+	anim_wait 32
 	anim_ret
 
 BattleAnim_CrossPoison:
