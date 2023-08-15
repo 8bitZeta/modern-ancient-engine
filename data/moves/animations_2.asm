@@ -4022,12 +4022,24 @@ BattleAnim_ToxicSpikes:
 	anim_jump BattleAnim_PoisonBubble_branch
 
 BattleAnim_HeartSwap:
-	anim_1gfx ANIM_GFX_HIT
-	anim_sound 0, 1, SFX_POUND
-	anim_obj ANIM_OBJ_PALM, 136, 56, $0
-	anim_wait 6
-	anim_obj ANIM_OBJ_HIT_YFIX, 136, 56, $0
-	anim_wait 16
+	anim_setobjpal PAL_BATTLE_OB_YELLOW, PAL_BTLCUSTOM_PEACH
+	anim_bgeffect ANIM_BG_ALTERNATE_HUES, $0, $4, $0
+	anim_call BattleAnim_Transfer_Orbs_branch
+	anim_1gfx ANIM_GFX_HEARTS
+	anim_wait 8
+	anim_sound 0, 0, SFX_ATTRACT
+	anim_obj ANIM_OBJ_LAST_RESORT, 136, 48, $00
+	anim_obj ANIM_OBJ_LAST_RESORT, 136, 48, $0c
+	anim_obj ANIM_OBJ_LAST_RESORT, 136, 48, $18
+	anim_obj ANIM_OBJ_LAST_RESORT, 136, 48, $24
+	anim_obj ANIM_OBJ_LAST_RESORT, 136, 48, $30
+	anim_obj ANIM_OBJ_LAST_RESORT, 48, 96, $00
+	anim_obj ANIM_OBJ_LAST_RESORT, 48, 96, $0c
+	anim_obj ANIM_OBJ_LAST_RESORT, 48, 96, $18
+	anim_obj ANIM_OBJ_LAST_RESORT, 48, 96, $24
+	anim_obj ANIM_OBJ_LAST_RESORT, 48, 96, $30
+	anim_wait 46
+	anim_clearobjs
 	anim_ret
 
 BattleAnim_AquaRing:
