@@ -114,6 +114,7 @@ DoBattleAnimFrame:
 	dba BattleAnimFunction_Roost
 	dba BattleAnimFunction_LastResort
 	dba BattleAnimFunction_DarkPulse
+	dba BattleAnimFunction_PauseThenRush
 	assert_table_length NUM_BATTLEANIMFUNCS
 
 BattleAnimFunction_ThrowFromUserToTargetAndDisappear:
@@ -1436,7 +1437,7 @@ BattleAnimFunction_HiddenPower:
 	add hl, bc
 	ld a, [hl]
 	inc [hl]
-	jr BattleAnim_StepCircle
+	jmp BattleAnim_StepCircle
 
 .one
 	call BattleAnim_IncAnonJumptableIndex
@@ -1504,6 +1505,52 @@ BattleAnimFunction_Cotton:
 	ld hl, BATTLEANIMSTRUCT_PARAM
 	add hl, bc
 	add [hl]
+
+BattleAnimFunction_PauseThenRush:
+	call BattleAnim_AnonJumptable
+.anon_dw
+	dw .zero
+	dw .one
+	dw .two
+
+.zero
+	ld hl, BATTLEANIMSTRUCT_PARAM
+	add hl, bc
+	ld a, [hl]
+	and $f0
+	swap a
+	ld hl, BATTLEANIMSTRUCT_JUMPTABLE_INDEX
+	add hl, bc
+	ld [hl], a
+	ret
+
+.two
+	ld hl, BATTLEANIMSTRUCT_VAR1
+	add hl, bc
+	ld a, [hl]
+	ld d, $10
+	call Sine
+	ld hl, BATTLEANIMSTRUCT_YOFFSET
+	add hl, bc
+	bit 7, a
+	jr z, .skip
+	ld [hl], a
+.skip
+	ld hl, BATTLEANIMSTRUCT_VAR1
+	add hl, bc
+	ld a, [hl]
+	sub 4
+	ld [hl], a
+.one
+	ld hl, BATTLEANIMSTRUCT_XCOORD
+	add hl, bc
+	ld a, [hl]
+	cp $e4
+	jmp nc, DeinitBattleAnimation
+	ld hl, BATTLEANIMSTRUCT_PARAM
+	add hl, bc
+	ld a, [hl]
+	jr BattleAnim_StepToTarget
 
 BattleAnim_StepCircle:
 ; Inches object in a circular movement where its height is 1/4 the width
