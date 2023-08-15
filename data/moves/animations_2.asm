@@ -5359,12 +5359,27 @@ BattleAnim_RockClimb:
 	anim_ret
 
 BattleAnim_Defog:
-	anim_1gfx ANIM_GFX_HIT
-	anim_sound 0, 1, SFX_POUND
-	anim_obj ANIM_OBJ_PALM, 136, 56, $0
-	anim_wait 6
-	anim_obj ANIM_OBJ_HIT_YFIX, 136, 56, $0
+	anim_setobjpal PAL_BATTLE_OB_GRAY, PAL_BTLCUSTOM_VERY_BRIGHT
+	anim_setobjpal PAL_BATTLE_OB_YELLOW, PAL_BTLCUSTOM_BRIGHT
+	anim_2gfx ANIM_GFX_BIG_WHIP, ANIM_GFX_HAZE
+	anim_bgp $90
+	anim_sound 0, 1, SFX_MEGA_PUNCH
+	anim_obj ANIM_OBJ_MIST_BALL_BG, 8, 24, $10
+	anim_obj ANIM_OBJ_MIST_BALL_BG, 8, 48, $2
+	anim_obj ANIM_OBJ_MIST_BALL_BG, 8, 88, $8
+	anim_wait 4
+	anim_obj ANIM_OBJ_MIST_BALL_BG, 8, 32, $6
+	anim_obj ANIM_OBJ_MIST_BALL_BG, 8, 56, $c
+	anim_obj ANIM_OBJ_MIST_BALL_BG, 8, 80, $4
+	anim_obj ANIM_OBJ_MIST_BALL_BG, 8, 104, $e
+	anim_wait 64
+	anim_sound 0, 1, SFX_RAZOR_WIND
+	anim_obj ANIM_OBJ_DRAGON_RUSH, 144, 245, $14
+	anim_obj ANIM_OBJ_DRAGON_RUSH_XFLIP, 128, 245, $0c
 	anim_wait 16
+	anim_bgeffect ANIM_BG_FLASH_WHITE, $0, $4, $2
+	anim_clearobjs
+	anim_wait 12
 	anim_ret
 
 ;==========================
