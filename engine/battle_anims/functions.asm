@@ -91,9 +91,7 @@ DoBattleAnimFrame:
 	dba BattleAnimFunction_Curse
 	dba BattleAnimFunction_PerishSong
 	dba BattleAnimFunction_RapidSpin
-	dba BattleAnimFunction_BetaPursuit
 	dba BattleAnimFunction_RainSandstorm
-	dba BattleAnimFunction_AnimObjB0
 	dba BattleAnimFunction_PsychUp
 	dba BattleAnimFunction_AncientPower
 	dba BattleAnimFunction_RockSmash
@@ -2806,9 +2804,6 @@ BattleAnimFunction_Wrap:
 			; BATTLEANIMFRAMESET_BIND_4
 	call ReinitBattleAnimFrameset
 	call BattleAnim_IncAnonJumptableIndex
-	ld hl, BATTLEANIMSTRUCT_VAR1 ; Unused?
-	add hl, bc
-	ld [hl], $8
 	ret
 
 
@@ -2819,26 +2814,10 @@ BattleAnimFunction_Kick:
 	call BattleAnim_AnonJumptable
 .anon_dw
 	dw DoNothingFunction
-	dw .one
+	dw DoNothingFunction
 	dw .two   ; Jump Kick, Hi Jump Kick
 	dw .three ; Rolling Kick
 	dw .four  ; Rolling Kick (continued)
-
-.one ; Unused?
-	ld hl, BATTLEANIMSTRUCT_YCOORD
-	add hl, bc
-	ld a, [hl]
-	cp $30
-	jr c, .move_down
-	ld hl, BATTLEANIMSTRUCT_JUMPTABLE_INDEX
-	add hl, bc
-	ld [hl], $0
-	ret
-
-.move_down
-	add $4
-	ld [hl], a
-	ret
 
 .two
 	ld hl, BATTLEANIMSTRUCT_XCOORD
@@ -3915,9 +3894,6 @@ BattleAnimFunction_Shiny:
 	ld hl, BATTLEANIMSTRUCT_XOFFSET
 	add hl, bc
 	ld [hl], a
-	ld hl, BATTLEANIMSTRUCT_VAR2 ; unused?
-	add hl, bc
-	ld [hl], $f
 	ret
 
 
@@ -4411,60 +4387,6 @@ BattleAnimFunction_RapidSpin:
 	jmp DeinitBattleAnimation
 
 
-SECTION "BattleAnimFunction_BetaPursuit", ROMX
-
-BattleAnimFunction_BetaPursuit:
-; Working but unused animation
-; Object moves either down or up 4 pixels per frame, depending on Obj Param. Object disappears after 23 frames when going down, or at y coord $d8 when going up
-; Obj Param: 0 moves downwards, 1 moves upwards
-	call BattleAnim_AnonJumptable
-.anon_dw
-	dw .zero
-	dw .one
-	dw .two
-	dw .three
-
-.zero
-	ld hl, BATTLEANIMSTRUCT_PARAM
-	add hl, bc
-	ld a, [hl]
-	and a
-	jr nz, .move_up
-	call BattleAnim_IncAnonJumptableIndex
-	ld hl, BATTLEANIMSTRUCT_YOFFSET
-	add hl, bc
-	ld [hl], $ec
-.one
-	ld hl, BATTLEANIMSTRUCT_YOFFSET
-	add hl, bc
-	ld a, [hl]
-	cp $4
-	jr z, .three
-	inc [hl]
-	inc [hl]
-	inc [hl]
-	inc [hl]
-	ret
-
-.three
-	jmp DeinitBattleAnimation
-
-.move_up
-	call BattleAnim_IncAnonJumptableIndex
-	call BattleAnim_IncAnonJumptableIndex
-.two
-	ld hl, BATTLEANIMSTRUCT_YOFFSET
-	add hl, bc
-	ld a, [hl]
-	cp $d8
-	ret z
-	dec [hl]
-	dec [hl]
-	dec [hl]
-	dec [hl]
-	ret
-
-
 SECTION "BattleAnimFunction_RainSandstorm", ROMX
 
 BattleAnimFunction_RainSandstorm:
@@ -4537,42 +4459,6 @@ BattleAnimFunction_RainSandstorm:
 	ld a, [hl]
 	add $4
 	ld [hl], a
-	ret
-
-
-SECTION "BattleAnimFunction_AnimObjB0", ROMX
-
-BattleAnimFunction_AnimObjB0: ; unused
-; Used by object ANIM_OBJ_B0, with itself is not used in any animation
-; Obj Param: Lower nybble is added to VAR1 while upper nybble is added to XCOORD
-	ld hl, BATTLEANIMSTRUCT_XCOORD
-	add hl, bc
-	ld d, [hl]
-	ld hl, BATTLEANIMSTRUCT_VAR1
-	add hl, bc
-	ld e, [hl]
-	ld hl, BATTLEANIMSTRUCT_PARAM
-	add hl, bc
-	ld a, [hl]
-	ld l, a
-	and $f0
-	ld h, a
-	swap a
-	or h
-	ld h, a
-	ld a, l
-	and $f
-	swap a
-	ld l, a
-	add hl, de
-	ld e, l
-	ld d, h
-	ld hl, BATTLEANIMSTRUCT_XCOORD
-	add hl, bc
-	ld [hl], d
-	ld hl, BATTLEANIMSTRUCT_VAR1
-	add hl, bc
-	ld [hl], e
 	ret
 
 
