@@ -1677,190 +1677,6 @@ BattleAnimFunction_AirCutter:
 	ld a, [hl]
 	jmp BattleAnim_StepToTarget
 
-BattleAnimFunction_RadialMoveOut:
-	call BattleAnim_AnonJumptable
-
-	dw .initialize
-	dw .step
-
-.initialize
-	ld hl, BATTLEANIMSTRUCT_VAR2
-	add hl, bc
-	xor a
-	ld [hld], a
-	ld [hl], a ; initial position = 0
-	call BattleAnim_IncAnonJumptableIndex
-.step
-	ld hl, BATTLEANIMSTRUCT_VAR1
-	add hl, bc
-	push hl
-	ld a, [hli]
-	ld e, [hl]
-	ld d, a
-	ld hl, 6.0 ; speed
-	add hl, de
-	ld a, h
-	ld e, l
-	pop hl
-	ld [hli], a
-	ld [hl], e
-	cp 80 ; final position
-	jmp nc, DeinitBattleAnimation
-	ld hl, BATTLEANIMSTRUCT_PARAM
-	add hl, bc
-	ld e, [hl]
-	push de
-	ld a, e
-	call Sine
-	ld hl, BATTLEANIMSTRUCT_YOFFSET
-	add hl, bc
-	ld [hl], a
-	pop de
-	ld a, e
-	call Cosine
-	ld hl, BATTLEANIMSTRUCT_XOFFSET
-	add hl, bc
-	ld [hl], a
-	ret
-
-BattleAnimFunction_RadialMoveOut_CP_BG:
-	call BattleAnim_AnonJumptable
-
-	dw .initialize
-	dw .step
-
-.initialize
-	ld hl, BATTLEANIMSTRUCT_VAR2
-	add hl, bc
-	xor a
-	ld [hld], a
-	ld [hl], a ; initial position = 0
-	call BattleAnim_IncAnonJumptableIndex
-.step
-	ld hl, BATTLEANIMSTRUCT_VAR1
-	add hl, bc
-	push hl
-	ld a, [hli]
-	ld e, [hl]
-	ld d, a
-	ld hl, 0.08 ; speed
-	add hl, de
-	ld a, h
-	ld e, l
-	pop hl
-	ld [hli], a
-	ld [hl], e
-	cp 120 ; final position
-	jmp nc, DeinitBattleAnimation
-	ld hl, BATTLEANIMSTRUCT_PARAM
-	add hl, bc
-	ld e, [hl]
-	push de
-	ld a, e
-	call Sine
-	ld hl, BATTLEANIMSTRUCT_YOFFSET
-	add hl, bc
-	ld [hl], a
-	pop de
-	ld a, e
-	call Cosine
-	ld hl, BATTLEANIMSTRUCT_XOFFSET
-	add hl, bc
-	ld [hl], a
-	ret
-
-BattleAnimFunction_RadialMoveOut_Fast:
-	call BattleAnim_AnonJumptable
-
-	dw .initialize
-	dw .step
-
-.initialize
-	ld hl, BATTLEANIMSTRUCT_VAR2
-	add hl, bc
-	xor a
-	ld [hld], a
-	ld [hl], a ; initial position = 0
-	call BattleAnim_IncAnonJumptableIndex
-.step
-	ld hl, BATTLEANIMSTRUCT_VAR1
-	add hl, bc
-	push hl
-	ld a, [hli]
-	ld e, [hl]
-	ld d, a
-	ld hl, 10.0 ; speed
-	add hl, de
-	ld a, h
-	ld e, l
-	pop hl
-	ld [hli], a
-	ld [hl], e
-	cp 160 ; final position
-	jmp nc, DeinitBattleAnimation
-	ld hl, BATTLEANIMSTRUCT_PARAM
-	add hl, bc
-	ld e, [hl]
-	push de
-	ld a, e
-	call Sine
-	ld hl, BATTLEANIMSTRUCT_YOFFSET
-	add hl, bc
-	ld [hl], a
-	pop de
-	ld a, e
-	call Cosine
-	ld hl, BATTLEANIMSTRUCT_XOFFSET
-	add hl, bc
-	ld [hl], a
-	ret
-
-BattleAnimFunction_RadialMoveOut_VerySlow:
-	call BattleAnim_AnonJumptable
-
-	dw .initialize
-	dw .step
-
-.initialize
-	ld hl, BATTLEANIMSTRUCT_VAR2
-	add hl, bc
-	xor a
-	ld [hld], a
-	ld [hl], a ; initial position = 0
-	call BattleAnim_IncAnonJumptableIndex
-.step
-	ld hl, BATTLEANIMSTRUCT_VAR1
-	add hl, bc
-	push hl
-	ld a, [hli]
-	ld e, [hl]
-	ld d, a
-	ld hl, 0.5 ; speed
-	add hl, de
-	ld a, h
-	ld e, l
-	pop hl
-	ld [hli], a
-	ld [hl], e
-	cp 120 ; final position
-	jmp nc, DeinitBattleAnimation
-	ld hl, BATTLEANIMSTRUCT_PARAM
-	add hl, bc
-	ld e, [hl]
-	push de
-	ld a, e
-	call Sine
-	ld hl, BATTLEANIMSTRUCT_YOFFSET
-	add hl, bc
-	ld [hl], a
-	pop de
-	ld a, e
-	call Cosine
-	ld hl, BATTLEANIMSTRUCT_XOFFSET
-	add hl, bc
-	ld [hl], a
-	ret
-
 BattleAnimFunction_RadialMoveIn:
 	call BattleAnim_AnonJumptable
 
@@ -2009,50 +1825,6 @@ BattleAnimFunction_ObjectHover:
 	ret nc
 	ld a, 8
 	jmp BattleAnim_StepToTarget
-
-BattleAnimFunction_RadialMoveOut_VeryFast_NoStop:
-	call BattleAnim_AnonJumptable
-
-	dw .initialize
-	dw .step
-
-.initialize
-	ld hl, BATTLEANIMSTRUCT_VAR2
-	add hl, bc
-	xor a
-	ld [hld], a
-	ld [hl], a ; initial position = 0
-	call BattleAnim_IncAnonJumptableIndex
-.step
-	ld hl, BATTLEANIMSTRUCT_VAR1
-	add hl, bc
-	push hl
-	ld a, [hli]
-	ld e, [hl]
-	ld d, a
-	ld hl, 15.0 ; speed
-	add hl, de
-	ld a, h
-	ld e, l
-	pop hl
-	ld [hli], a
-	ld [hl], e
-	ld hl, BATTLEANIMSTRUCT_PARAM
-	add hl, bc
-	ld e, [hl]
-	push de
-	ld a, e
-	call Sine
-	ld hl, BATTLEANIMSTRUCT_YOFFSET
-	add hl, bc
-	ld [hl], a
-	pop de
-	ld a, e
-	call Cosine
-	ld hl, BATTLEANIMSTRUCT_XOFFSET
-	add hl, bc
-	ld [hl], a
-	ret
 
 ; All Functions below this line don't have outside dependencies
 ; and are placed within their own tiny sections. If you need
@@ -4830,37 +4602,117 @@ BattleAnimFunction_AncientPower:
 	jmp DeinitBattleAnimation
 
 
-SECTION "BattleAnimFunction_RadialMoveOut_Slow", ROMX
+SECTION "BattleAnimFunction_RadialMoveOut", ROMX
+
+BattleAnimFunction_RadialMoveOut:
+	call BattleAnim_AnonJumptable
+
+	dw InitRadial
+	dw Step
+
+BattleAnimFunction_RadialMoveOut_CP_BG:
+	call BattleAnim_AnonJumptable
+
+	dw InitRadial
+	dw Step_CP_BG
 
 BattleAnimFunction_RadialMoveOut_Slow:
 	call BattleAnim_AnonJumptable
 
-	dw .initialize
-	dw .step
+	dw InitRadial
+	dw Step_Slow
 
-.initialize
+BattleAnimFunction_RadialMoveOut_VerySlow:
+	call BattleAnim_AnonJumptable
+
+	dw InitRadial
+	dw Step_VerySlow
+
+BattleAnimFunction_RadialMoveOut_Fast:
+	call BattleAnim_AnonJumptable
+
+	dw InitRadial
+	dw Step_Fast
+
+BattleAnimFunction_RadialMoveOut_VeryFast_NoStop:
+	call BattleAnim_AnonJumptable
+
+	dw InitRadial
+	dw Step_VeryFast_NoStop
+
+InitRadial:
 	ld hl, BATTLEANIMSTRUCT_VAR2
 	add hl, bc
 	xor a
 	ld [hld], a
 	ld [hl], a ; initial position = 0
 	call BattleAnim_IncAnonJumptableIndex
-.step
+
+Step:
+	call Get_Rad_Pos
+	ld hl, 6.0 ; speed
+	call Set_Rad_Pos
+	cp 80 ; final position
+	jmp nc, DeinitBattleAnimation
+	jr Rad_Move
+
+Step_CP_BG:
+	call Get_Rad_Pos
+	ld hl, 0.08 ; speed
+	call Set_Rad_Pos
+	cp 120 ; final position
+	jmp nc, DeinitBattleAnimation
+	jr Rad_Move
+
+Step_Slow:
+	call Get_Rad_Pos
+	ld hl, 1.5 ; speed
+	call Set_Rad_Pos
+	cp 120 ; final position
+	jmp nc, DeinitBattleAnimation
+	jr Rad_Move
+
+Step_VerySlow:
+	call Get_Rad_Pos
+	ld hl, 0.5 ; speed
+	call Set_Rad_Pos
+	cp 120 ; final position
+	jmp nc, DeinitBattleAnimation
+	jr Rad_Move
+
+Step_Fast:
+	call Get_Rad_Pos
+	ld hl, 10.0 ; speed
+	call Set_Rad_Pos
+	cp 160 ; final position
+	jmp nc, DeinitBattleAnimation
+	jr Rad_Move
+	
+Step_VeryFast_NoStop:
+	call Get_Rad_Pos
+	ld hl, 15.0 ; speed
+	call Set_Rad_Pos
+	jr Rad_Move
+
+Get_Rad_Pos:
 	ld hl, BATTLEANIMSTRUCT_VAR1
 	add hl, bc
-	push hl
 	ld a, [hli]
 	ld e, [hl]
 	ld d, a
-	ld hl, 1.5 ; speed
+	ret 
+
+Set_Rad_Pos:
 	add hl, de
 	ld a, h
 	ld e, l
-	pop hl
+	ld hl, BATTLEANIMSTRUCT_VAR1
+	add hl, bc
 	ld [hli], a
 	ld [hl], e
-	cp 120 ; final position
-	jmp nc, DeinitBattleAnimation
+	ret
+
+Rad_Move:
 	ld hl, BATTLEANIMSTRUCT_PARAM
 	add hl, bc
 	ld e, [hl]
@@ -4877,6 +4729,8 @@ BattleAnimFunction_RadialMoveOut_Slow:
 	add hl, bc
 	ld [hl], a
 	ret
+
+SECTION "BattleAnimFunction_Roost", ROMX
 
 BattleAnimFunction_Roost:
 ; Moves object in a circle where the height is 1/8 the width, while also moving downward 1 pixel per frame
@@ -4921,6 +4775,8 @@ BattleAnimFunction_Roost:
 
 .delete
 	jmp DeinitBattleAnimation
+
+SECTION "BattleAnimFunction_LastResort", ROMX
 
 BattleAnimFunction_LastResort:
 ; A rotating circle of objects centered at a position. It expands for $40 frames and then shrinks. Once radius reaches 0, the object disappears.
@@ -4968,6 +4824,8 @@ BattleAnimFunction_LastResort:
 	ret nz
 	jmp DeinitBattleAnimation
 
+SECTION "BattleAnimFunction_SpiralDescent_Fast", ROMX
+
 BattleAnimFunction_SpiralDescent_Fast:
 	ld hl, BATTLEANIMSTRUCT_VAR1
 	add hl, bc
@@ -5013,6 +4871,8 @@ BattleAnimFunction_SpiralDescent_Fast:
 
 .delete
 	jmp DeinitBattleAnimation
+
+SECTION "BattleAnimFunction_Discharge", ROMX
 
 BattleAnimFunction_Discharge:
 ; A rotating circle of objects centered at a position. It expands for $40 frames and then ends.
