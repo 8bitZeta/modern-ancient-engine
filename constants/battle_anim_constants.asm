@@ -498,6 +498,8 @@ DEF BATTLEANIM_BASE_TILE EQU 7 * 7  ; Maximum size of a pokemon picture
 	const ANIM_OBJ_JUDGMENT_STREAK_85DEG_L_Y_FLIP
 	const ANIM_OBJ_CHARGE_BEAM
 	const ANIM_OBJ_WOOD_HAMMER
+	const ANIM_OBJ_AQUA_JET
+	const ANIM_OBJ_AQUA_JET_BUBBLE
 DEF NUM_ANIM_OBJS EQU const_value
 
 ; DoBattleAnimFrame arguments (see engine/battle_anims/functions.asm)
@@ -945,6 +947,7 @@ DEF NUM_BATTLEANIMFUNCS EQU const_value
 	const BATTLEANIMFRAMESET_CHATTER
 	const BATTLEANIMFRAMESET_CHARGE_BEAM
 	const BATTLEANIMFRAMESET_WOOD_HAMMER
+	const BATTLEANIMFRAMESET_AQUA_JET
 DEF NUM_BATTLEANIMFRAMESETS EQU const_value
 
 ; BattleAnimOAMData indexes (see data/battle_anims/oam.asm)
@@ -1248,6 +1251,11 @@ DEF NUM_BATTLEANIMFRAMESETS EQU const_value
 	const BATTLEANIMOAMSET_128
 	const BATTLEANIMOAMSET_129
 	const BATTLEANIMOAMSET_12A
+	; const BATTLEANIMOAMSET_12B
+	const BATTLEANIMOAMSET_12C
+	const BATTLEANIMOAMSET_12D
+	const BATTLEANIMOAMSET_12E
+	const BATTLEANIMOAMSET_12F
 DEF NUM_BATTLEANIMOAMSETS EQU const_value
 
 ; BattleBGEffects indexes (see engine/battle_anims/bg_effects.asm)
@@ -1399,6 +1407,7 @@ DEF NUM_ANIM_BGS EQU const_value
 	const ANIM_GFX_HUGE_ROCK
 	const ANIM_GFX_GRASS_KNOT
 	const ANIM_GFX_WOOD_HAMMER
+	const ANIM_GFX_AQUA_JET
 	DEF NUM_ANIM_GFX EQU const_value - 1
 
 ; battle_bg_effect struct members (see macros/ram.asm)

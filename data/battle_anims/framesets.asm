@@ -341,6 +341,7 @@ BattleAnimFrameData:
 	dw .Frameset_Chatter                 ; BATTLEANIMFRAMESET_CHATTER
 	dw .Frameset_ChargeBeam              ; BATTLEANIMFRAMESET_CHARGE_BEAM
 	dw .Frameset_WoodHammer              ; BATTLEANIMFRAMESET_WOOD_HAMMER
+	dw .Frameset_AquaJet                 ; BATTLEANIMFRAMESET_AQUA_JET
 	assert_table_length NUM_BATTLEANIMFRAMESETS
 
 .Frameset_HitBig:
@@ -2339,3 +2340,10 @@ BattleAnimFrameData:
 	battleoamframe BATTLEANIMOAMSET_11F,  2, OAM_X_FLIP, OAM_Y_FLIP
 	battleoamframe BATTLEANIMOAMSET_11F,  2, OAM_Y_FLIP
 	battleoamrestart
+
+.Frameset_AquaJet:
+	battleoamframe BATTLEANIMOAMSET_12C,  1
+	battleoamframe BATTLEANIMOAMSET_12D,  1
+	battleoamframe BATTLEANIMOAMSET_12E,  1
+	battleoamframe BATTLEANIMOAMSET_12F,  1
+	battleoamdelete
