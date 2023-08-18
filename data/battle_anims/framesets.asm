@@ -217,6 +217,7 @@ BattleAnimFrameData:
 	dw .Frameset_SparkleLong             ; BATTLEANIMFRAMESET_SPARKLE_LONG
 	dw .Frameset_SmallGlow               ; BATTLEANIMFRAMESET_SMALL_GLOW
 	dw .Frameset_BigGlow                 ; BATTLEANIMFRAMESET_BIG_GLOW
+	dw .Frameset_BigGlowClear            ; BATTLEANIMFRAMESET_BIG_GLOWCLEAR
 	dw .Frameset_TeeterDance             ; BATTLEANIMFRAMESET_TEETER_DANCE
 	dw .Frameset_BurnedShort             ; BATTLEANIMFRAMESET_BURNED_SHORT
 	dw .Frameset_IceBall                 ; BATTLEANIMFRAMESET_ICE_BALL
@@ -1577,6 +1578,11 @@ BattleAnimFrameData:
 
 .Frameset_BigGlow:
 	battleoamframe BATTLEANIMOAMSET_E7,  1
+	battleoamframe BATTLEANIMOAMSET_E8,  1
+	battleoamrestart
+
+.Frameset_BigGlowClear:
+	battleoamframe BATTLEANIMOAMSET_12B, 1
 	battleoamframe BATTLEANIMOAMSET_E8,  1
 	battleoamrestart
 
