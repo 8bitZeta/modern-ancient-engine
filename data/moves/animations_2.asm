@@ -3257,7 +3257,7 @@ BattleAnim_NaturalGift:
 	anim_wait 64
 	anim_clearobjs
 	anim_sound 0, 1, SFX_METRONOME
-	anim_obj ANIM_OBJ_BIG_GLOW, 48, 96, $0
+	anim_obj ANIM_OBJ_BIG_GLOW_CLEAR, 48, 96, $0
 	anim_wait 8
 	anim_clearobjs
 .loop2
@@ -3620,7 +3620,7 @@ BattleAnim_PsychoShift:
 	anim_2gfx ANIM_GFX_BIG_GLOW_CLEAR, ANIM_GFX_GLOW
 	anim_bgeffect ANIM_BG_FADE_MON_TO_LIGHT_REPEATING, $0, $1, $40
 	anim_sound 0, 1, SFX_THIEF_2
-	anim_obj ANIM_OBJ_SMALL_GLOW, 48, 96, $0
+	anim_obj ANIM_OBJ_BIG_GLOW_CLEAR, 48, 96, $0
 	anim_wait 16
 	anim_clearobjs
 	anim_sound 0, 1, SFX_THIEF_2
@@ -3635,7 +3635,7 @@ BattleAnim_PsychoShift:
 	anim_wait 16
 	anim_clearobjs
 	anim_sound 0, 1, SFX_THIEF_2
-	anim_obj ANIM_OBJ_BIG_GLOW, 136, 48, $0
+	anim_obj ANIM_OBJ_BIG_GLOW_CLEAR, 136, 48, $0
 	anim_wait 64
 	anim_clearobjs
 	anim_obj ANIM_OBJ_SMALL_GLOW, 136, 48, $0
@@ -3805,7 +3805,7 @@ BattleAnim_LuckyChant:
 	anim_wait 1
 	anim_incbgeffect ANIM_BG_CYCLE_MON_LIGHT_DARK_REPEATING
 	anim_sound 0, 0, SFX_GAME_FREAK_PRESENTS
-	anim_obj ANIM_OBJ_BIG_GLOW, 48, 96, $0
+	anim_obj ANIM_OBJ_BIG_GLOW_CLEAR, 48, 96, $0
 	anim_wait 6
 	anim_clearobjs
 	anim_obj ANIM_OBJ_RISING_SPARKLE, 44, 108, $6
@@ -3855,7 +3855,7 @@ BattleAnim_MeFirst:
 	anim_clearobjs
 	anim_bgeffect ANIM_BG_FADE_MON_TO_BLACK_REPEATING, $0, $1, $40
 	anim_sound 0, 0, SFX_POTION
-	anim_obj ANIM_OBJ_BIG_GLOW, 48, 96, $0
+	anim_obj ANIM_OBJ_BIG_GLOW_CLEAR, 48, 96, $0
 	anim_wait 56
 	anim_clearobjs
 	anim_ret
@@ -3890,7 +3890,7 @@ BattleAnim_Copycat:
 	anim_clearobjs
 	anim_bgeffect ANIM_BG_FADE_MON_TO_BLACK_REPEATING, $0, $1, $40
 	anim_sound 0, 0, SFX_POTION
-	anim_obj ANIM_OBJ_BIG_GLOW, 48, 96, $0
+	anim_obj ANIM_OBJ_BIG_GLOW_CLEAR, 48, 96, $0
 	anim_wait 56
 	anim_clearobjs
 	anim_ret
@@ -4224,7 +4224,7 @@ BattleAnim_AuraSphere:
 	anim_wait 12
 	anim_bgeffect ANIM_BG_SHAKE_SCREEN_X, $08, $2, $0
 	anim_sound 0, 1, SFX_AEROBLAST
-	anim_obj ANIM_OBJ_BIG_GLOW, 136, 48, $0
+	anim_obj ANIM_OBJ_BIG_GLOW_CLEAR, 136, 48, $0
 	anim_wait 8
 	anim_clearobjs
 	anim_wait 32
@@ -4660,7 +4660,7 @@ BattleAnim_FocusBlast:
 	anim_bgeffect ANIM_BG_FLASH_INVERTED, $0, $8, $10
 	anim_bgeffect ANIM_BG_SHAKE_SCREEN_X, $60, $2, $0
 	anim_sound 0, 1, SFX_EGG_BOMB
-	anim_obj ANIM_OBJ_BIG_GLOW, 136, 48, $0
+	anim_obj ANIM_OBJ_BIG_GLOW_CLEAR, 136, 48, $0
 	anim_wait 40
 	anim_ret
 
@@ -5228,7 +5228,7 @@ BattleAnim_FlashCannon:
 	anim_4gfx ANIM_GFX_BIG_GLOW_CLEAR, ANIM_GFX_GLOW, ANIM_GFX_CHARGE, ANIM_GFX_SPEED
 	anim_bgeffect ANIM_BG_CYCLE_OBPALS_GRAY_AND_YELLOW, $0, $6, $0
 	anim_sound 0, 1, SFX_MEGA_PUNCH
-	anim_obj ANIM_OBJ_BIG_GLOW, 48, 96, $0
+	anim_obj ANIM_OBJ_BIG_GLOW_CLEAR, 48, 96, $0
 	anim_wait 8
 	anim_bgeffect ANIM_BG_FLASH_INVERTED, $0, $4, $2
 	anim_clearobjs
