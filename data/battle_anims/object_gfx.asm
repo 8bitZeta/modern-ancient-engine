@@ -44,6 +44,7 @@ AnimObjGFX:
 	anim_obj_gfx 48, AnimObjShapesGFX
 	anim_obj_gfx 21, AnimObjObjects1GFX
 	anim_obj_gfx 22, AnimObjObjects2GFX
+	anim_obj_gfx 22, AnimObjObjects3GFX
 	anim_obj_gfx 38, AnimObjShineGFX
 	anim_obj_gfx 35, AnimObjAngelsGFX
 	anim_obj_gfx 24, AnimObjSwirlGFX
