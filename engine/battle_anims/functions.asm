@@ -405,7 +405,7 @@ BattleAnimFunction_Ember:
 .anon_dw
 	dw .zero
 	dw .one
-	dw .two
+	dw DeinitBattleAnimation
 	dw .three
 	dw DoNothingFunction
 .zero
@@ -429,9 +429,6 @@ BattleAnimFunction_Ember:
 	add hl, bc
 	ld a, [hl]
 	jmp BattleAnim_StepToTarget
-
-.two
-	jmp DeinitBattleAnimation
 
 .three
 	call BattleAnim_IncAnonJumptableIndex
@@ -580,45 +577,6 @@ BattleAnimFunction_RazorLeaf:
 	ret nc
 	ld a, $8
 	jmp BattleAnim_StepToTarget
-
-BattleAnim_ScatterHorizontal:
-; Affects horizontal sine movement based on bit 7 of Obj Param
-	ld hl, BATTLEANIMSTRUCT_PARAM
-	add hl, bc
-	ld a, [hl]
-	bit 7, a
-	jr nz, .negative
-	cp $20
-	jr nc, .plus_256
-	cp $18
-	jr nc, .plus_384
-	ld de, $200
-	ret
-
-.plus_384
-	ld de, $180
-	ret
-
-.plus_256
-	ld de, $100
-	ret
-
-.negative
-	and %00111111
-	cp $20
-	jr nc, .minus_256
-	cp $18
-	jr nc, .minus_384
-	ld de, -$200
-	ret
-
-.minus_384
-	ld de, -$180
-	ret
-
-.minus_256
-	ld de, -$100
-	ret
 
 BattleAnimFunction_BubbleSplash:
 	call BattleAnim_AnonJumptable
@@ -885,7 +843,7 @@ BattleAnimFunction_LeechSeed:
 	add hl, bc
 	ld a, [hl]
 	cp $20
-	jr nc, BattleAnim_StepThrownToTarget
+	jmp nc, BattleAnim_StepThrownToTarget
 
 .sprout
 	ld [hl], $40
@@ -907,55 +865,6 @@ BattleAnimFunction_LeechSeed:
 	ld a, BATTLEANIMFRAMESET_LEECH_SEED_3
 	jmp ReinitBattleAnimFrameset
 
-BattleAnim_StepThrownToTarget:
-; Inches object towards the opponent's side in a parabola arc defined by the lower and upper nybble of Obj Param
-	dec [hl]
-	ld d, $20
-	call Sine
-	ld hl, BATTLEANIMSTRUCT_YOFFSET
-	add hl, bc
-	ld [hl], a
-	ld hl, BATTLEANIMSTRUCT_FIX_Y
-	add hl, bc
-	ld a, [hl]
-	add $2
-	ld [hl], a
-	ld hl, BATTLEANIMSTRUCT_VAR1
-	add hl, bc
-	ld e, [hl]
-	ld hl, BATTLEANIMSTRUCT_XCOORD
-	add hl, bc
-	ld d, [hl]
-	ld hl, BATTLEANIMSTRUCT_PARAM
-	add hl, bc
-	ld h, [hl]
-	ld a, h
-	and $f
-	swap a
-	ld l, a
-	ld a, h
-	and $f0
-	swap a
-	ld h, a
-	add hl, de
-	ld e, l
-	ld d, h
-	ld hl, BATTLEANIMSTRUCT_VAR1
-	add hl, bc
-	ld [hl], e
-	ld hl, BATTLEANIMSTRUCT_XCOORD
-	add hl, bc
-	ld [hl], d
-	ld hl, BATTLEANIMSTRUCT_VAR2
-	add hl, bc
-	ld a, [hl]
-	and $1
-	ret nz
-	ld hl, BATTLEANIMSTRUCT_YCOORD
-	add hl, bc
-	dec [hl]
-	ret
-
 BattleAnimFunction_Spikes:
 ; Object is thrown at target. After $20 frames it stops and waits another $20 frames then disappear
 	call BattleAnim_AnonJumptable
@@ -976,9 +885,7 @@ BattleAnimFunction_Spikes:
 	add hl, bc
 	ld a, [hl]
 	cp $20
-	jr nc, BattleAnim_StepThrownToTarget
-
-.wait
+	jmp nc, BattleAnim_StepThrownToTarget
 	jmp BattleAnim_IncAnonJumptableIndex
 
 BattleAnimFunction_RazorWind:
@@ -1346,7 +1253,7 @@ BattleAnimFunction_HiddenPower:
 	ld hl, BATTLEANIMSTRUCT_PARAM
 	add hl, bc
 	ld a, [hl]
-	jr BattleAnim_StepCircle
+	jmp BattleAnim_StepCircle
 
 
 BattleAnimFunction_DarkPulse:
@@ -1363,7 +1270,7 @@ BattleAnimFunction_DarkPulse:
 	ld hl, BATTLEANIMSTRUCT_PARAM
 	add hl, bc
 	ld a, [hl]
-	jr BattleAnim_StepCircle
+	jmp BattleAnim_StepCircle
 
 
 BattleAnimFunction_PsychUp:
@@ -1374,7 +1281,7 @@ BattleAnimFunction_PsychUp:
 	add hl, bc
 	ld a, [hl]
 	inc [hl]
-	jr BattleAnim_StepCircle
+	jmp BattleAnim_StepCircle
 
 BattleAnimFunction_Cotton:
 ; Object moves in a circle slowly
@@ -1433,42 +1340,7 @@ BattleAnimFunction_PauseThenRush:
 	ld hl, BATTLEANIMSTRUCT_PARAM
 	add hl, bc
 	ld a, [hl]
-	jr BattleAnim_StepToTarget
-
-BattleAnim_StepCircle:
-; Inches object in a circular movement where its height is 1/4 the width
-	push af
-	push de
-	call Sine
-	sra a
-	sra a
-	ld hl, BATTLEANIMSTRUCT_YOFFSET
-	add hl, bc
-	ld [hl], a
-	pop de
-	pop af
-	call Cosine
-	ld hl, BATTLEANIMSTRUCT_XOFFSET
-	add hl, bc
-	ld [hl], a
-	ret
-
-BattleAnim_StepToTarget:
-; Inches object towards the opponent's side, moving half as much in the Y axis as it did in the X axis. Uses lower nybble of A
-	and $f
-	ld e, a
-	ld hl, BATTLEANIMSTRUCT_XCOORD
-	add hl, bc
-	add [hl]
-	ld [hl], a
-	srl e
-	ld hl, BATTLEANIMSTRUCT_YCOORD
-	add hl, bc
-.loop
-	dec [hl]
-	dec e
-	jr nz, .loop
-	ret
+	jmp BattleAnim_StepToTarget
 
 BattleAnimFunction_Overheat:
 	ld hl, BATTLEANIMSTRUCT_VAR1
@@ -1482,7 +1354,7 @@ BattleAnimFunction_Overheat:
 	ld hl, BATTLEANIMSTRUCT_PARAM
 	add hl, bc
 	ld a, [hl]
-	jr BattleAnim_StepCircle
+	jmp BattleAnim_StepCircle
 
 BattleAnimFunction_AirCutter:
 	call BattleAnim_AnonJumptable
@@ -1528,7 +1400,7 @@ BattleAnimFunction_AirCutter:
 	ld hl, BATTLEANIMSTRUCT_PARAM
 	add hl, bc
 	ld a, [hl]
-	jr BattleAnim_StepToTarget
+	jmp BattleAnim_StepToTarget
 
 
 BattleAnimFunction_ObjectHover:
@@ -1598,6 +1470,83 @@ BattleAnimFunction_ObjectHover:
 	ret nc
 	ld a, 8
 	jmp BattleAnim_StepToTarget
+
+
+; The functions in the following section require the
+; BattleAnimFunction_SpiralDescent Function as a dependency,
+; so please keep them in the same section.
+
+
+SECTION "BattleAnimFunction_SpiralDescent", ROMX
+
+BattleAnimFunction_SpiralDescent:
+	ld hl, BATTLEANIMSTRUCT_VAR1
+	add hl, bc
+	ld a, [hl]
+	ld d, $18
+	push af
+	push de
+	call Sine
+	sra a
+	sra a
+	sra a
+	ld hl, BATTLEANIMSTRUCT_VAR2
+	add hl, bc
+	add [hl]
+	ld hl, BATTLEANIMSTRUCT_YOFFSET
+	add hl, bc
+	ld [hl], a
+	pop de
+	pop af
+	call Cosine
+	ld hl, BATTLEANIMSTRUCT_XOFFSET
+	add hl, bc
+	ld [hl], a
+	ld hl, BATTLEANIMSTRUCT_VAR1
+	add hl, bc
+	inc [hl]
+	ld a, [hl]
+	and $7
+	ret nz
+	ld hl, BATTLEANIMSTRUCT_VAR2
+	add hl, bc
+	ld a, [hl]
+	cp $28
+	jmp nc, DeinitBattleAnimation
+	inc [hl]
+	ret
+
+BattleAnimFunction_PoisonGas:
+	call BattleAnim_AnonJumptable
+.anon_dw
+	dw .zero
+	dw BattleAnimFunction_SpiralDescent
+
+.zero:
+	ld hl, BATTLEANIMSTRUCT_XCOORD
+	add hl, bc
+	ld a, [hl]
+	cp $84
+	jmp nc, BattleAnim_IncAnonJumptableIndex
+	inc [hl]
+	ld hl, BATTLEANIMSTRUCT_VAR1
+	add hl, bc
+	ld a, [hl]
+	inc [hl]
+	ld d, $18
+	call Cosine
+	ld hl, BATTLEANIMSTRUCT_XOFFSET
+	add hl, bc
+	ld [hl], a
+	ld hl, BATTLEANIMSTRUCT_XCOORD
+	add hl, bc
+	ld a, [hl]
+	and $1
+	ret nz
+	ld hl, BATTLEANIMSTRUCT_YCOORD
+	add hl, bc
+	dec [hl]
+	ret
 
 
 ; All Functions below this line don't have outside dependencies
@@ -4571,78 +4520,6 @@ BattleAnimFunction_RadialSpin:
 	pop hl
 	ld [hli], a
 	ld [hl], e
-	ret
-
-
-SECTION "BattleAnimFunction_SpiralDescent", ROMX
-
-BattleAnimFunction_SpiralDescent:
-	ld hl, BATTLEANIMSTRUCT_VAR1
-	add hl, bc
-	ld a, [hl]
-	ld d, $18
-	push af
-	push de
-	call Sine
-	sra a
-	sra a
-	sra a
-	ld hl, BATTLEANIMSTRUCT_VAR2
-	add hl, bc
-	add [hl]
-	ld hl, BATTLEANIMSTRUCT_YOFFSET
-	add hl, bc
-	ld [hl], a
-	pop de
-	pop af
-	call Cosine
-	ld hl, BATTLEANIMSTRUCT_XOFFSET
-	add hl, bc
-	ld [hl], a
-	ld hl, BATTLEANIMSTRUCT_VAR1
-	add hl, bc
-	inc [hl]
-	ld a, [hl]
-	and $7
-	ret nz
-	ld hl, BATTLEANIMSTRUCT_VAR2
-	add hl, bc
-	ld a, [hl]
-	cp $28
-	jmp nc, DeinitBattleAnimation
-	inc [hl]
-	ret
-
-BattleAnimFunction_PoisonGas:
-	call BattleAnim_AnonJumptable
-.anon_dw
-	dw .zero
-	dw BattleAnimFunction_SpiralDescent
-
-.zero:
-	ld hl, BATTLEANIMSTRUCT_XCOORD
-	add hl, bc
-	ld a, [hl]
-	cp $84
-	jmp nc, BattleAnim_IncAnonJumptableIndex
-	inc [hl]
-	ld hl, BATTLEANIMSTRUCT_VAR1
-	add hl, bc
-	ld a, [hl]
-	inc [hl]
-	ld d, $18
-	call Cosine
-	ld hl, BATTLEANIMSTRUCT_XOFFSET
-	add hl, bc
-	ld [hl], a
-	ld hl, BATTLEANIMSTRUCT_XCOORD
-	add hl, bc
-	ld a, [hl]
-	and $1
-	ret nz
-	ld hl, BATTLEANIMSTRUCT_YCOORD
-	add hl, bc
-	dec [hl]
 	ret
 
 
