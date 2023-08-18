@@ -1,11 +1,19 @@
 ItemDescriptions:
 ; entries correspond to item ids (see constants/item_constants.asm)
 	table_width 2, ItemDescriptions
-	dw MasterBallDesc
-	dw UltraBallDesc
-	dw BrightpowderDesc
-	dw GreatBallDesc
 	dw PokeBallDesc
+	dw GreatBallDesc
+	dw UltraBallDesc
+	dw MasterBallDesc
+	dw LevelBallDesc
+	dw LureBallDesc
+	dw MoonBallDesc
+	dw FriendBallDesc
+	dw FastBallDesc
+	dw HeavyBallDesc
+	dw LoveBallDesc
+	dw ParkBallDesc
+	dw BrightpowderDesc
 	dw TownMapDesc
 	dw BicycleDesc
 	dw MoonStoneDesc
@@ -157,16 +165,9 @@ ItemDescriptions:
 	dw QuestionMarkDesc
 	dw QuestionMarkDesc
 	dw SacredAshDesc
-	dw HeavyBallDesc
 	dw FlowerMailDesc
-	dw LevelBallDesc
-	dw LureBallDesc
-	dw FastBallDesc
 	dw QuestionMarkDesc
 	dw LightBallDesc
-	dw FriendBallDesc
-	dw MoonBallDesc
-	dw LoveBallDesc
 	dw NormalBoxDesc
 	dw GorgeousBoxDesc
 	dw SunStoneDesc
@@ -177,7 +178,6 @@ ItemDescriptions:
 	dw GoldBerryDesc
 	dw SquirtBottleDesc
 	dw QuestionMarkDesc
-	dw ParkBallDesc
 	dw RainbowWingDesc
 	dw QuestionMarkDesc
 	dw BrickPieceDesc
@@ -259,25 +259,57 @@ ItemDescriptions:
 	dw QuestionMarkDesc
 	assert_table_length $ff
 
-MasterBallDesc:
-	db   "The best BALL. It"
-	next "never misses.@"
-
-UltraBallDesc:
-	db   "A BALL with a high"
-	next "rate of success.@"
-
-BrightpowderDesc:
-	db   "Lowers the foe's"
-	next "accuracy. (HOLD)@"
+	PokeBallDesc:
+	db   "An item for catch-"
+	next "ing #MON.@"
 
 GreatBallDesc:
 	db   "A BALL with a de-"
 	next "cent success rate.@"
 
-PokeBallDesc:
-	db   "An item for catch-"
-	next "ing #MON.@"
+UltraBallDesc:
+	db   "A BALL with a high"
+	next "rate of success.@"
+
+MasterBallDesc:
+	db   "The best BALL. It"
+	next "never misses.@"
+
+LevelBallDesc:
+	db   "A BALL for lower-"
+	next "level #MON.@"
+
+LureBallDesc:
+	db   "A BALL for #MON"
+	next "hooked by a ROD.@"
+
+MoonBallDesc:
+	db   "A BALL for MOON"
+	next "STONE evolvers.@"
+
+FriendBallDesc:
+	db   "A BALL that makes"
+	next "#MON friendly.@"
+
+FastBallDesc:
+	db   "A BALL for catch-"
+	next "ing fast #MON.@"
+
+HeavyBallDesc:
+	db   "A BALL for catch-"
+	next "ing heavy #MON.@"
+
+LoveBallDesc:
+	db   "For catching the"
+	next "opposite gender.@"
+
+ParkBallDesc:
+	db   "The Bug-Catching"
+	next "Contest BALL.@"
+
+BrightpowderDesc:
+	db   "Lowers the foe's"
+	next "accuracy. (HOLD)@"
 
 TownMapDesc:
 	db   "A map of the"
@@ -376,7 +408,7 @@ LuckyPunchDesc:
 	next "ratio of CHANSEY.@"
 
 CalciumDesc:
-	db   "Raises SPCL.ATK"
+	db   "Ups SPECIAL stats"
 	next "of one #MON.@"
 
 RareCandyDesc:
@@ -801,41 +833,13 @@ SacredAshDesc:
 	db   "Fully revives all"
 	next "fainted #MON.@"
 
-HeavyBallDesc:
-	db   "A BALL for catch-"
-	next "ing heavy #MON.@"
-
 FlowerMailDesc:
 	db   "Flower-print MAIL."
 	next "(HOLD)@"
 
-LevelBallDesc:
-	db   "A BALL for lower-"
-	next "level #MON.@"
-
-LureBallDesc:
-	db   "A BALL for #MON"
-	next "hooked by a ROD.@"
-
-FastBallDesc:
-	db   "A BALL for catch-"
-	next "ing fast #MON.@"
-
 LightBallDesc:
 	db   "An odd, electrical"
 	next "orb. (HOLD)@"
-
-FriendBallDesc:
-	db   "A BALL that makes"
-	next "#MON friendly.@"
-
-MoonBallDesc:
-	db   "A BALL for MOON"
-	next "STONE evolvers.@"
-
-LoveBallDesc:
-	db   "For catching the"
-	next "opposite gender.@"
 
 NormalBoxDesc:
 	db   "Open it and see"
@@ -868,10 +872,6 @@ GoldBerryDesc:
 SquirtBottleDesc:
 	db   "A bottle used for"
 	next "watering plants.@"
-
-ParkBallDesc:
-	db   "The Bug-Catching"
-	next "Contest BALL.@"
 
 RainbowWingDesc:
 	db   "A mystical feather"
