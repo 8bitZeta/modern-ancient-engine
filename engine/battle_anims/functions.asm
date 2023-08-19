@@ -210,7 +210,6 @@ BattleAnimFunction_PokeBall:
 	dw .ten
 	dw DeinitBattleAnimation
 .zero ; init
-	call GetBallAnimPal
 	jmp BattleAnim_IncAnonJumptableIndex
 
 .one
@@ -271,7 +270,6 @@ BattleAnimFunction_PokeBall:
 	ret
 
 .seven
-	call GetBallAnimPal
 	ld a, BATTLEANIMFRAMESET_POKE_BALL_2
 	call ReinitBattleAnimFrameset
 	call BattleAnim_IncAnonJumptableIndex
@@ -306,7 +304,6 @@ BattleAnimFunction_PokeBallBlocked:
 	dw .one
 	dw .two
 .zero
-	call GetBallAnimPal
 	jmp BattleAnim_IncAnonJumptableIndex
 
 .one
@@ -331,34 +328,6 @@ BattleAnimFunction_PokeBallBlocked:
 	dec [hl]
 	dec [hl]
 	ret
-
-GetBallAnimPal:
-	ld hl, BallColors
-	ldh a, [rSVBK]
-	push af
-	ld a, BANK(wCurItem)
-	ldh [rSVBK], a
-	ld a, [wCurItem]
-	ld e, a
-	pop af
-	ldh [rSVBK], a
-.IsInArray:
-	ld a, [hli]
-	cp -1
-	jr z, .load
-	cp e
-	jr z, .load
-	inc hl
-	jr .IsInArray
-
-.load
-	ld a, [hl]
-	ld hl, BATTLEANIMSTRUCT_PALETTE
-	add hl, bc
-	ld [hl], a
-	ret
-
-INCLUDE "data/battle_anims/ball_colors.asm"
 
 
 ; The functions in the following section require the
