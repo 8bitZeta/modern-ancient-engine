@@ -116,8 +116,10 @@ MACRO anim_cry
 	db \1 ; pitch
 ENDM
 
-	const_skip ; $e2
-
+	const anim_clearenemyhud_command ; $e2
+MACRO anim_clearenemyhud
+	db anim_clearenemyhud_command
+ENDM
 
 	const anim_oamon_command ; $e3
 MACRO anim_oamon
@@ -215,9 +217,9 @@ MACRO anim_keepsprites
 	db anim_keepsprites_command
 ENDM
 
-	const anim_clearenemyhud_command ; $f5
-MACRO anim_clearenemyhud
-	db anim_clearenemyhud_command
+	const anim_keepspritesandoam_command ; $f5
+MACRO anim_keepspritesandoam
+	db anim_keepspritesandoam_command
 ENDM
 
 	const anim_obj_command ; $f6

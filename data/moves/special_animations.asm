@@ -183,7 +183,7 @@ BattleAnim_ThrowPokeBall:
 	anim_setobjpal PAL_BATTLE_OB_RED, PAL_BTLCUSTOM_POKE_BALL_CAUGHT
 	anim_setobjpal PAL_BATTLE_OB_GREEN, PAL_BTLCUSTOM_POKE_BALL_CAUGHT
 .Click:
-	anim_keepsprites
+	anim_keepspritesandoam
 	anim_ret
 
 .GreatBallClick

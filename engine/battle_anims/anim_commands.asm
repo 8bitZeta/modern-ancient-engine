@@ -206,6 +206,8 @@ ClearActorHud:
 
 BattleAnim_ClearOAM:
 	ld a, [wBattleAnimFlags]
+	bit BATTLEANIM_KEEPOAM_F, a
+	ret nz
 	bit BATTLEANIM_KEEPSPRITES_F, a
 	jr z, .delete
 
@@ -298,7 +300,7 @@ RunBattleAnimCommand:
 BattleAnimCommands::
 ; entries correspond to anim_* constants (see macros/scripts/battle_anims.asm)
 	table_width 2, BattleAnimCommands
-	dw DoNothingFunction            ; d0
+	dw DoNothingFunction               ; d0
 	dw BattleAnimCmd_1GFX              ; d1
 	dw BattleAnimCmd_2GFX              ; d2
 	dw BattleAnimCmd_3GFX              ; d3
@@ -316,18 +318,18 @@ BattleAnimCommands::
 	dw BattleAnimCmd_ResetObp0         ; df
 	dw BattleAnimCmd_Sound             ; e0
 	dw BattleAnimCmd_Cry               ; e1
-	dw DoNothingFunction            ; e2
+	dw ClearEnemyHud                   ; e2
 	dw BattleAnimCmd_OAMOn             ; e3
 	dw BattleAnimCmd_OAMOff            ; e4
 	dw BattleAnimCmd_ClearObjs         ; e5
 	dw BattleAnimCmd_BeatUp            ; e6
-	dw DoNothingFunction            ; e7
+	dw DoNothingFunction               ; e7
 	dw BattleAnimCmd_UpdateActorPic    ; e8
 	dw BattleAnimCmd_Minimize          ; e9
 	dw BattleAnimCmd_SetBgPal          ; ea
 	dw BattleAnimCmd_SetObjPal         ; eb
-	dw DoNothingFunction            ; ec
-	dw DoNothingFunction            ; ed
+	dw DoNothingFunction               ; ec
+	dw DoNothingFunction               ; ed
 	dw BattleAnimCmd_IfParamAnd        ; ee
 	dw BattleAnimCmd_JumpUntil         ; ef
 	dw BattleAnimCmd_BGEffect          ; f0
@@ -335,7 +337,7 @@ BattleAnimCommands::
 	dw BattleAnimCmd_OBP0              ; f2
 	dw BattleAnimCmd_OBP1              ; f3
 	dw BattleAnimCmd_KeepSprites       ; f4
-	dw ClearEnemyHud                   ; f5
+	dw BattleAnimCmd_KeepSpritesAndOAM ; f5
 	dw BattleAnimCmd_Obj               ; f6
 	dw BattleAnimCmd_Obj               ; f7
 	dw BattleAnimCmd_IfParamEqual      ; f8
@@ -1201,6 +1203,12 @@ BattleAnimCmd_KeepSprites:
 	set BATTLEANIM_KEEPSPRITES_F, [hl]
 	ret
 
+BattleAnimCmd_KeepSpritesAndOAM:
+	ld hl, wBattleAnimFlags
+	set BATTLEANIM_KEEPSPRITES_F, [hl]
+	set BATTLEANIM_KEEPOAM_F, [hl]
+	ret
+
 BattleAnimCmd_Sound:
 	call GetBattleAnimByte
 	ld e, a
@@ -1406,6 +1414,10 @@ GetBattleAnimPointer:
 	ret
 
 BattleAnim_RevertPals:
+	ld a, [wBattleAnimFlags]
+	bit BATTLEANIM_KEEPSPRITES_F, a
+	ret nz
+	
 	call WaitTop
 	ld a, %11100100
 	ld [wBGP], a
