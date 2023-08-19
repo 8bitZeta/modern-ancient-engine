@@ -487,10 +487,10 @@ SPECIAL_ANIM_OFFSET EQU (1 + HIGH(NUM_ATTACKS + NUM_SPECIAL_ANIMS)) << 8
 ; Animations with negative IDs will play even when animations are disabled
 
 const_value = -NUM_SPECIAL_ANIMS
-	const ANIM_SNATCHED_MOVE	 ; -17 (ffe9) 
-	const ANIM_THROW_POKE_BALL   ; -16 (ffea)
-	const ANIM_SEND_OUT_MON      ; -15 (ffeb)
-	const ANIM_RETURN_MON        ; -14 (ffec)
+	const ANIM_THROW_POKE_BALL   ; -17 (ffe9)
+	const ANIM_SEND_OUT_MON      ; -16 (ffea)
+	const ANIM_RETURN_MON        ; -15 (ffeb)
+	const ANIM_SNATCHED_MOVE	 ; -14 (ffec)
 	const ANIM_CONFUSED          ; -13 (ffed)
 	const ANIM_SLP               ; -12 (ffee)
 	const ANIM_BRN               ; -11 (ffef)

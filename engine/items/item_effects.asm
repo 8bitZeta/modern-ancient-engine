@@ -386,10 +386,6 @@ PokeBallEffect:
 	call DelayFrames
 
 	ld a, [wCurItem]
-	cp MASTER_BALL + 1 ; Assumes Poke/Great/Ultra come before
-	jr c, .not_kurt_ball
-	ld a, POKE_BALL
-.not_kurt_ball
 	ld [wBattleAnimParam], a
 
 	ld de, ANIM_THROW_POKE_BALL
@@ -874,13 +870,13 @@ MoonBallMultiplier:
 	call LoadDoubleIndirectPointer
 
 	ld a, [wCurItem]
-	ld c, a
+	push af
 	ld a, MOON_STONE
 	ld [wCurItem], a
 	ld d, h
 	ld e, l
 	farcall DetermineEvolutionItemResults
-	ld a, c
+	pop af
 	ld [wCurItem], a
 	ld a, d
 	or e

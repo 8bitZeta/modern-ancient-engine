@@ -211,5 +211,128 @@ INCLUDE "gfx/battle_anims/battle_anims.pal"
 	RGB 25, 29, 31
 	RGB 31, 26, 01
 	RGB 00, 00, 00
+
+
+; Pokeball Palettes
+; pokeball
+	RGB 31, 31, 31
+	RGB 31, 31, 31
+	RGB 30, 10, 06
+	RGB 00, 00, 00
+; pokeballcaught
+	RGB 31, 31, 31
+	RGB 18, 18, 18
+	RGB 15, 05, 03
+	RGB 00, 00, 00
+; greatball
+	RGB 31, 31, 31
+	RGB 00, 17, 25
+	RGB 30, 10, 06
+	RGB 00, 00, 00
+; greatballcaught
+	RGB 31, 31, 31
+	RGB 00, 11, 17
+	RGB 17, 06, 04
+	RGB 00, 00, 00
+; ultraball
+	RGB 31, 31, 31
+	RGB 07, 07, 08
+	RGB 31, 26, 07
+	RGB 00, 00, 00
+; ultraballcaught
+	RGB 31, 31, 31
+	RGB 05, 05, 06
+	RGB 17, 15, 04
+	RGB 00, 00, 00
+; masterball
+	RGB 31, 31, 31
+	RGB 12, 08, 18
+	RGB 28, 02, 16
+	RGB 00, 00, 00
+; masterballcaught
+	RGB 31, 31, 31
+	RGB 09, 06, 14
+	RGB 20, 00, 09
+	RGB 00, 00, 00
+; levelball
+	RGB 31, 31, 31
+	RGB 31, 27, 04
+	RGB 30, 10, 06
+	RGB 00, 00, 00
+; levelballcaught
+	RGB 31, 31, 31
+	RGB 22, 19, 03
+	RGB 18, 06, 04
+	RGB 00, 00, 00
+; lureball
+	RGB 31, 31, 31
+	RGB 00, 19, 21
+	RGB 30, 10, 06
+	RGB 00, 00, 00
+; lureballcaught
+	RGB 31, 31, 31
+	RGB 00, 13, 14
+	RGB 20, 06, 05
+	RGB 00, 00, 00
+; moonball
+	RGB 31, 31, 31
+	RGB 00, 21, 23
+	RGB 30, 24, 08
+	RGB 00, 00, 00
+; moonballcaught
+	RGB 31, 31, 31
+	RGB 00, 15, 16
+	RGB 21, 17, 06
+	RGB 00, 00, 00
+; friendball
+	RGB 31, 31, 31
+	RGB 07, 20, 00
+	RGB 30, 10, 06
+	RGB 00, 00, 00
+; friendballcaught
+	RGB 31, 31, 31
+	RGB 04, 12, 00
+	RGB 19, 06, 04
+	RGB 00, 00, 00
+; fastball
+	RGB 31, 31, 31
+	RGB 31, 15, 00
+	RGB 31, 25, 08
+	RGB 00, 00, 00
+; fastballcaught
+	RGB 31, 31, 31
+	RGB 23, 11, 00
+	RGB 21, 17, 05
+	RGB 00, 00, 00
+; heavyball
+	RGB 31, 31, 31
+	RGB 07, 07, 08
+	RGB 00, 15, 21
+	RGB 00, 00, 00
+; heavyballcaught
+	RGB 31, 31, 31
+	RGB 05, 05, 06
+	RGB 00, 10, 14
+	RGB 00, 00, 00
+; loveball
+	RGB 31, 31, 31
+	RGB 31, 16, 19
+	RGB 31, 25, 26
+	RGB 00, 00, 00
+; loveballcaught
+	RGB 31, 31, 31
+	RGB 21, 11, 14
+	RGB 20, 16, 17
+	RGB 00, 00, 00
+; parkball
+	RGB 31, 31, 31
+	RGB 00, 10, 10
+	RGB 14, 20, 05
+	RGB 00, 00, 00
+; parkballcaught
+	RGB 31, 31, 31
+	RGB 00, 08, 08
+	RGB 10, 14, 04
+	RGB 00, 00, 00
 rept NUM_CUSTOM_BATTLE_PALETTES - 6
 endr
