@@ -61,25 +61,36 @@ PlayersHouseRadioScript:
 	; pokedex
 	setflag ENGINE_POKEDEX
 	; useful items
-	giveitem POKE_BALL, 99
-	giveitem GREAT_BALL, 99
-	giveitem ULTRA_BALL, 99
-	giveitem MASTER_BALL, 99
-	giveitem LEVEL_BALL, 99
-	giveitem LURE_BALL, 99
-	giveitem MOON_BALL, 99
-	giveitem FRIEND_BALL, 99
-	giveitem FAST_BALL, 99
-	giveitem HEAVY_BALL, 99
-	giveitem LOVE_BALL, 99
-	giveitem PARK_BALL, 99
+	; giveitem MASTER_BALL, 99
+	; giveitem ULTRA_BALL, 99
+	; giveitem GREAT_BALL, 99
+	; giveitem POKE_BALL, 99
+	; giveitem SAFARI_BALL, 99
+	giveitem NET_BALL, 99
+	giveitem DIVE_BALL, 99
+	giveitem NEST_BALL, 99
+	giveitem REPEAT_BALL, 99
+	giveitem TIMER_BALL, 99
+	giveitem LUXURY_BALL, 99
+	giveitem DUSK_BALL, 99
+	giveitem HEAL_BALL, 99
+	giveitem QUICK_BALL, 99
+	giveitem CHERISH_BALL, 99
+	; giveitem FAST_BALL, 99
+	; giveitem LEVEL_BALL, 99
+	; giveitem LURE_BALL, 99
+	; giveitem HEAVY_BALL, 99
+	; giveitem LOVE_BALL, 99
+	; giveitem FRIEND_BALL, 99
+	; giveitem MOON_BALL, 99
+	; giveitem PARK_BALL, 99
 	
-	giveitem RARE_CANDY, 99
-	giveitem WATER_STONE, 99
-	giveitem HP_UP, 99
-	giveitem POKE_BALL, 2
-	giveitem TOWN_MAP, 1
-	giveitem EON_MAIL, 1
+	; giveitem RARE_CANDY, 99
+	; giveitem WATER_STONE, 99
+	; giveitem HP_UP, 99
+	; giveitem POKE_BALL, 2
+	; giveitem TOWN_MAP, 1
+	; giveitem EON_MAIL, 1
 	; all badges
 	setflag ENGINE_ZEPHYRBADGE
 	setflag ENGINE_HIVEBADGE

@@ -30,17 +30,28 @@ SpecialAnimations:
 
 BattleAnim_ThrowPokeBall:
 	anim_if_param_equal NO_ITEM, .TheTrainerBlockedTheBall
-	anim_if_param_equal POKE_BALL, .PokeBall
-	anim_if_param_equal GREAT_BALL, .GreatBall
-	anim_if_param_equal ULTRA_BALL, .UltraBall
 	anim_if_param_equal MASTER_BALL, .MasterBall
+	anim_if_param_equal ULTRA_BALL, .UltraBall
+	anim_if_param_equal GREAT_BALL, .GreatBall
+	anim_if_param_equal POKE_BALL, .PokeBall
+	anim_if_param_equal SAFARI_BALL, .SafariBall
+	anim_if_param_equal NET_BALL, .NetBall
+	anim_if_param_equal DIVE_BALL, .DiveBall
+	anim_if_param_equal NEST_BALL, .NestBall
+	anim_if_param_equal REPEAT_BALL, .RepeatBall
+	anim_if_param_equal TIMER_BALL, .TimerBall
+	anim_if_param_equal LUXURY_BALL, .LuxuryBall
+	anim_if_param_equal DUSK_BALL, .DuskBall
+	anim_if_param_equal HEAL_BALL, .HealBall
+	anim_if_param_equal QUICK_BALL, .QuickBall
+	anim_if_param_equal CHERISH_BALL, .CherishBall
+	anim_if_param_equal FAST_BALL, .FastBall
 	anim_if_param_equal LEVEL_BALL, .LevelBall
 	anim_if_param_equal LURE_BALL, .LureBall
-	anim_if_param_equal MOON_BALL, .MoonBall
-	anim_if_param_equal FRIEND_BALL, .FriendBall
-	anim_if_param_equal FAST_BALL, .FastBall
 	anim_if_param_equal HEAVY_BALL, .HeavyBall
 	anim_if_param_equal LOVE_BALL, .LoveBall
+	anim_if_param_equal FRIEND_BALL, .FriendBall
+	anim_if_param_equal MOON_BALL, .MoonBall
 	anim_if_param_equal PARK_BALL, .ParkBall
 
 .TheTrainerBlockedTheBall:
@@ -54,27 +65,8 @@ BattleAnim_ThrowPokeBall:
 	anim_wait 32
 	anim_ret
 
-.PokeBall
-	anim_setobjpal PAL_BATTLE_OB_RED, PAL_BTLCUSTOM_POKE_BALL
-	anim_setobjpal PAL_BATTLE_OB_GREEN, PAL_BTLCUSTOM_POKE_BALL
-	anim_3gfx ANIM_GFX_POKE_BALL, ANIM_GFX_BALL_BG, ANIM_GFX_SMOKE
-.Throw
-	anim_sound 6, 2, SFX_THROW_BALL
-	anim_obj ANIM_OBJ_POKE_BALL, 68, 92, $40
-	anim_obj ANIM_OBJ_BALL_BG, 68, 92, $40
-	anim_wait 36
-	anim_obj ANIM_OBJ_POKE_BALL, 136, 65, $0
-	anim_setobj $3, $7
-	anim_obj ANIM_OBJ_BALL_BG, 136, 65, $0
-	anim_setobj $4, $7
-	anim_wait 16
-	anim_sound 0, 1, SFX_BALL_POOF
-	anim_obj ANIM_OBJ_BALL_POOF, 136, 64, $10
-	anim_wait 16
-	anim_jump .Shake
-
-.GreatBall:
-	anim_setobjpal PAL_BATTLE_OB_RED, PAL_BTLCUSTOM_GREAT_BALL
+.MasterBall:
+	anim_setobjpal PAL_BATTLE_OB_RED, PAL_BTLCUSTOM_MASTER_BALL
 	anim_setobjpal PAL_BATTLE_OB_GREEN, PAL_BTLCUSTOM_POKE_BALL
 	anim_3gfx ANIM_GFX_POKE_BALL, ANIM_GFX_BALL_BG, ANIM_GFX_SMOKE
 	anim_jump .Throw
@@ -85,8 +77,31 @@ BattleAnim_ThrowPokeBall:
 	anim_3gfx ANIM_GFX_POKE_BALL, ANIM_GFX_BALL_BG, ANIM_GFX_SMOKE
 	anim_jump .Throw
 
-.MasterBall:
-	anim_setobjpal PAL_BATTLE_OB_RED, PAL_BTLCUSTOM_MASTER_BALL
+.GreatBall:
+	anim_setobjpal PAL_BATTLE_OB_RED, PAL_BTLCUSTOM_GREAT_BALL
+	anim_setobjpal PAL_BATTLE_OB_GREEN, PAL_BTLCUSTOM_POKE_BALL
+	anim_3gfx ANIM_GFX_POKE_BALL, ANIM_GFX_BALL_BG, ANIM_GFX_SMOKE
+	anim_jump .Throw
+
+.PokeBall
+.SafariBall
+.NetBall
+.DiveBall
+.NestBall
+.RepeatBall
+.TimerBall
+.LuxuryBall
+.DuskBall
+.HealBall
+.QuickBall
+.CherishBall
+	anim_setobjpal PAL_BATTLE_OB_RED, PAL_BTLCUSTOM_POKE_BALL
+	anim_setobjpal PAL_BATTLE_OB_GREEN, PAL_BTLCUSTOM_POKE_BALL
+	anim_3gfx ANIM_GFX_POKE_BALL, ANIM_GFX_BALL_BG, ANIM_GFX_SMOKE
+	anim_jump .Throw
+
+.FastBall
+	anim_setobjpal PAL_BATTLE_OB_RED, PAL_BTLCUSTOM_FAST_BALL
 	anim_setobjpal PAL_BATTLE_OB_GREEN, PAL_BTLCUSTOM_POKE_BALL
 	anim_3gfx ANIM_GFX_POKE_BALL, ANIM_GFX_BALL_BG, ANIM_GFX_SMOKE
 	anim_jump .Throw
@@ -103,24 +118,6 @@ BattleAnim_ThrowPokeBall:
 	anim_3gfx ANIM_GFX_POKE_BALL, ANIM_GFX_BALL_BG, ANIM_GFX_SMOKE
 	anim_jump .Throw
 
-.MoonBall
-	anim_setobjpal PAL_BATTLE_OB_RED, PAL_BTLCUSTOM_MOON_BALL
-	anim_setobjpal PAL_BATTLE_OB_GREEN, PAL_BTLCUSTOM_POKE_BALL
-	anim_3gfx ANIM_GFX_POKE_BALL, ANIM_GFX_BALL_BG, ANIM_GFX_SMOKE
-	anim_jump .Throw
-
-.FriendBall
-	anim_setobjpal PAL_BATTLE_OB_RED, PAL_BTLCUSTOM_FRIEND_BALL
-	anim_setobjpal PAL_BATTLE_OB_GREEN, PAL_BTLCUSTOM_POKE_BALL
-	anim_3gfx ANIM_GFX_POKE_BALL, ANIM_GFX_BALL_BG, ANIM_GFX_SMOKE
-	anim_jump .Throw
-
-.FastBall
-	anim_setobjpal PAL_BATTLE_OB_RED, PAL_BTLCUSTOM_FAST_BALL
-	anim_setobjpal PAL_BATTLE_OB_GREEN, PAL_BTLCUSTOM_POKE_BALL
-	anim_3gfx ANIM_GFX_POKE_BALL, ANIM_GFX_BALL_BG, ANIM_GFX_SMOKE
-	anim_jump .Throw
-
 .HeavyBall
 	anim_setobjpal PAL_BATTLE_OB_RED, PAL_BTLCUSTOM_HEAVY_BALL
 	anim_setobjpal PAL_BATTLE_OB_GREEN, PAL_BTLCUSTOM_POKE_BALL
@@ -133,11 +130,37 @@ BattleAnim_ThrowPokeBall:
 	anim_3gfx ANIM_GFX_POKE_BALL, ANIM_GFX_BALL_BG, ANIM_GFX_SMOKE
 	anim_jump .Throw
 
+.FriendBall
+	anim_setobjpal PAL_BATTLE_OB_RED, PAL_BTLCUSTOM_FRIEND_BALL
+	anim_setobjpal PAL_BATTLE_OB_GREEN, PAL_BTLCUSTOM_POKE_BALL
+	anim_3gfx ANIM_GFX_POKE_BALL, ANIM_GFX_BALL_BG, ANIM_GFX_SMOKE
+	anim_jump .Throw
+
+.MoonBall
+	anim_setobjpal PAL_BATTLE_OB_RED, PAL_BTLCUSTOM_MOON_BALL
+	anim_setobjpal PAL_BATTLE_OB_GREEN, PAL_BTLCUSTOM_POKE_BALL
+	anim_3gfx ANIM_GFX_POKE_BALL, ANIM_GFX_BALL_BG, ANIM_GFX_SMOKE
+	anim_jump .Throw
+
 .ParkBall
 	anim_setobjpal PAL_BATTLE_OB_RED, PAL_BTLCUSTOM_PARK_BALL
 	anim_setobjpal PAL_BATTLE_OB_GREEN, PAL_BTLCUSTOM_POKE_BALL
 	anim_3gfx ANIM_GFX_POKE_BALL, ANIM_GFX_BALL_BG, ANIM_GFX_SMOKE
-	anim_jump .Throw
+
+.Throw
+	anim_sound 6, 2, SFX_THROW_BALL
+	anim_obj ANIM_OBJ_POKE_BALL, 68, 92, $40
+	anim_obj ANIM_OBJ_BALL_BG, 68, 92, $40
+	anim_wait 36
+	anim_obj ANIM_OBJ_POKE_BALL, 136, 65, $0
+	anim_setobj $3, $7
+	anim_obj ANIM_OBJ_BALL_BG, 136, 65, $0
+	anim_setobj $4, $7
+	anim_wait 16
+	anim_sound 0, 1, SFX_BALL_POOF
+	anim_obj ANIM_OBJ_BALL_POOF, 136, 64, $10
+	anim_wait 16
+	; anim_jump .Shake
 	
 .Shake:
 	anim_bgeffect ANIM_BG_RETURN_MON, $0, BG_EFFECT_TARGET, $0
@@ -166,28 +189,32 @@ BattleAnim_ThrowPokeBall:
 	anim_jump .Loop
 
 .CatchColor:
-	anim_if_param_equal POKE_BALL, .PokeBallClick
-	anim_if_param_equal GREAT_BALL, .GreatBallClick
-	anim_if_param_equal ULTRA_BALL, .UltraBallClick
 	anim_if_param_equal MASTER_BALL, .MasterBallClick
+	anim_if_param_equal ULTRA_BALL, .UltraBallClick
+	anim_if_param_equal GREAT_BALL, .GreatBallClick
+	anim_if_param_equal POKE_BALL, .PokeBallClick
+	anim_if_param_equal SAFARI_BALL, .SafariBallClick
+	anim_if_param_equal NET_BALL, .NetBallClick
+	anim_if_param_equal DIVE_BALL, .DiveBallClick
+	anim_if_param_equal NEST_BALL, .NestBallClick
+	anim_if_param_equal REPEAT_BALL, .RepeatBallClick
+	anim_if_param_equal TIMER_BALL, .TimerBallClick
+	anim_if_param_equal LUXURY_BALL, .LuxuryBallClick
+	anim_if_param_equal DUSK_BALL, .DuskBallClick
+	anim_if_param_equal HEAL_BALL, .HealBallClick
+	anim_if_param_equal QUICK_BALL, .QuickBallClick
+	anim_if_param_equal CHERISH_BALL, .CherishBallClick
+	anim_if_param_equal FAST_BALL, .FastBallClick
 	anim_if_param_equal LEVEL_BALL, .LevelBallClick
 	anim_if_param_equal LURE_BALL, .LureBallClick
-	anim_if_param_equal MOON_BALL, .MoonBallClick
-	anim_if_param_equal FRIEND_BALL, .FriendBallClick
-	anim_if_param_equal FAST_BALL, .FastBallClick
 	anim_if_param_equal HEAVY_BALL, .HeavyBallClick
 	anim_if_param_equal LOVE_BALL, .LoveBallClick
+	anim_if_param_equal FRIEND_BALL, .FriendBallClick
+	anim_if_param_equal MOON_BALL, .MoonBallClick
 	anim_if_param_equal PARK_BALL, .ParkBallClick
 
-.PokeBallClick
-	anim_setobjpal PAL_BATTLE_OB_RED, PAL_BTLCUSTOM_POKE_BALL_CAUGHT
-	anim_setobjpal PAL_BATTLE_OB_GREEN, PAL_BTLCUSTOM_POKE_BALL_CAUGHT
-.Click:
-	anim_keepspritesandoam
-	anim_ret
-
-.GreatBallClick
-	anim_setobjpal PAL_BATTLE_OB_RED, PAL_BTLCUSTOM_GREAT_BALL_CAUGHT
+.MasterBallClick
+	anim_setobjpal PAL_BATTLE_OB_RED, PAL_BTLCUSTOM_MASTER_BALL_CAUGHT
 	anim_setobjpal PAL_BATTLE_OB_GREEN, PAL_BTLCUSTOM_POKE_BALL_CAUGHT
 	anim_jump .Click
 
@@ -196,8 +223,29 @@ BattleAnim_ThrowPokeBall:
 	anim_setobjpal PAL_BATTLE_OB_GREEN, PAL_BTLCUSTOM_POKE_BALL_CAUGHT
 	anim_jump .Click
 
-.MasterBallClick
-	anim_setobjpal PAL_BATTLE_OB_RED, PAL_BTLCUSTOM_MASTER_BALL_CAUGHT
+.GreatBallClick
+	anim_setobjpal PAL_BATTLE_OB_RED, PAL_BTLCUSTOM_GREAT_BALL_CAUGHT
+	anim_setobjpal PAL_BATTLE_OB_GREEN, PAL_BTLCUSTOM_POKE_BALL_CAUGHT
+	anim_jump .Click
+
+.PokeBallClick
+.SafariBallClick
+.NetBallClick
+.DiveBallClick
+.NestBallClick
+.RepeatBallClick
+.TimerBallClick
+.LuxuryBallClick
+.DuskBallClick
+.HealBallClick
+.QuickBallClick
+.CherishBallClick
+	anim_setobjpal PAL_BATTLE_OB_RED, PAL_BTLCUSTOM_POKE_BALL_CAUGHT
+	anim_setobjpal PAL_BATTLE_OB_GREEN, PAL_BTLCUSTOM_POKE_BALL_CAUGHT
+	anim_jump .Click
+
+.FastBallClick
+	anim_setobjpal PAL_BATTLE_OB_RED, PAL_BTLCUSTOM_FAST_BALL_CAUGHT
 	anim_setobjpal PAL_BATTLE_OB_GREEN, PAL_BTLCUSTOM_POKE_BALL_CAUGHT
 	anim_jump .Click
 
@@ -211,21 +259,6 @@ BattleAnim_ThrowPokeBall:
 	anim_setobjpal PAL_BATTLE_OB_GREEN, PAL_BTLCUSTOM_POKE_BALL_CAUGHT
 	anim_jump .Click
 
-.MoonBallClick
-	anim_setobjpal PAL_BATTLE_OB_RED, PAL_BTLCUSTOM_MOON_BALL_CAUGHT
-	anim_setobjpal PAL_BATTLE_OB_GREEN, PAL_BTLCUSTOM_POKE_BALL_CAUGHT
-	anim_jump .Click
-
-.FriendBallClick
-	anim_setobjpal PAL_BATTLE_OB_RED, PAL_BTLCUSTOM_FRIEND_BALL_CAUGHT
-	anim_setobjpal PAL_BATTLE_OB_GREEN, PAL_BTLCUSTOM_POKE_BALL_CAUGHT
-	anim_jump .Click
-
-.FastBallClick
-	anim_setobjpal PAL_BATTLE_OB_RED, PAL_BTLCUSTOM_FAST_BALL_CAUGHT
-	anim_setobjpal PAL_BATTLE_OB_GREEN, PAL_BTLCUSTOM_POKE_BALL_CAUGHT
-	anim_jump .Click
-
 .HeavyBallClick
 	anim_setobjpal PAL_BATTLE_OB_RED, PAL_BTLCUSTOM_HEAVY_BALL_CAUGHT
 	anim_setobjpal PAL_BATTLE_OB_GREEN, PAL_BTLCUSTOM_POKE_BALL_CAUGHT
@@ -236,10 +269,23 @@ BattleAnim_ThrowPokeBall:
 	anim_setobjpal PAL_BATTLE_OB_GREEN, PAL_BTLCUSTOM_POKE_BALL_CAUGHT
 	anim_jump .Click
 
+.FriendBallClick
+	anim_setobjpal PAL_BATTLE_OB_RED, PAL_BTLCUSTOM_FRIEND_BALL_CAUGHT
+	anim_setobjpal PAL_BATTLE_OB_GREEN, PAL_BTLCUSTOM_POKE_BALL_CAUGHT
+	anim_jump .Click
+
+.MoonBallClick
+	anim_setobjpal PAL_BATTLE_OB_RED, PAL_BTLCUSTOM_MOON_BALL_CAUGHT
+	anim_setobjpal PAL_BATTLE_OB_GREEN, PAL_BTLCUSTOM_POKE_BALL_CAUGHT
+	anim_jump .Click
+
 .ParkBallClick
 	anim_setobjpal PAL_BATTLE_OB_RED, PAL_BTLCUSTOM_PARK_BALL_CAUGHT
 	anim_setobjpal PAL_BATTLE_OB_GREEN, PAL_BTLCUSTOM_POKE_BALL_CAUGHT
-	anim_jump .Click
+
+.Click:
+	anim_keepspritesandoam
+	anim_ret
 
 .BreakFree:
 	anim_setobj $1, $b

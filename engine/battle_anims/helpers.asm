@@ -57,16 +57,28 @@ LoadBattleAnimGFX:
     jr .got_ball
 
 .ball_gfx:
-    dba AnimObjPokeBallGFX
-    dba AnimObjPokeBallGFX
-    dba AnimObjGreatBallGFX
-    dba AnimObjUltraBallGFX
-    dba AnimObjMasterBallGFX
-    dba AnimObjLevelBallGFX
-    dba AnimObjLureBallGFX
-    dba AnimObjMoonBallGFX
-    dba AnimObjFriendBallGFX
-    dba AnimObjFastBallGFX
-    dba AnimObjHeavyBallGFX
-    dba AnimObjLoveBallGFX
-    dba AnimObjParkBallGFX
+	dba AnimObjPokeBallGFX
+	dba AnimObjMasterBallGFX
+	dba AnimObjUltraBallGFX
+	dba AnimObjGreatBallGFX
+	dba AnimObjPokeBallGFX
+	dba AnimObjSafariBallGFX
+	dba AnimObjNetBallGFX
+	dba AnimObjDiveBallGFX
+	dba AnimObjNestBallGFX
+	dba AnimObjRepeatBallGFX
+	dba AnimObjTimerBallGFX
+	dba AnimObjLuxuryBallGFX
+	dba AnimObjPremierBallGFX
+	dba AnimObjDuskBallGFX
+	dba AnimObjHealBallGFX
+	dba AnimObjQuickBallGFX
+	dba AnimObjCherishBallGFX
+	dba AnimObjFastBallGFX
+	dba AnimObjLevelBallGFX
+	dba AnimObjLureBallGFX
+	dba AnimObjHeavyBallGFX
+	dba AnimObjLoveBallGFX
+	dba AnimObjFriendBallGFX
+	dba AnimObjMoonBallGFX
+	dba AnimObjParkBallGFX

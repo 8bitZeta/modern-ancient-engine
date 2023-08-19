@@ -14,17 +14,29 @@ _DoItemEffect::
 ItemEffects:
 ; entries correspond to item ids (see constants/item_constants.asm)
 	table_width 2, ItemEffects
-	dw PokeBallEffect      ; POKE_BALL
-	dw PokeBallEffect      ; GREAT_BALL
-	dw PokeBallEffect      ; ULTRA_BALL
 	dw PokeBallEffect      ; MASTER_BALL
+	dw PokeBallEffect      ; ULTRA_BALL
+	dw PokeBallEffect      ; GREAT_BALL
+	dw PokeBallEffect      ; POKE_BALL
+	dw PokeBallEffect      ; SAFARI_BALL
+	dw PokeBallEffect      ; NET_BALL
+	dw PokeBallEffect      ; DIVE_BALL
+	dw PokeBallEffect      ; NEST_BALL
+	dw PokeBallEffect      ; REPEAT_BALL
+	dw PokeBallEffect      ; TIMER_BALL
+	dw PokeBallEffect      ; LUXURY_BALL
+	dw PokeBallEffect      ; PREMIER_BALL
+	dw PokeBallEffect      ; DUSK_BALL
+	dw PokeBallEffect      ; HEAL_BALL
+	dw PokeBallEffect      ; QUICK_BALL
+	dw PokeBallEffect      ; CHERISH_BALL
+	dw PokeBallEffect      ; FAST_BALL
 	dw PokeBallEffect      ; LEVEL_BALL
 	dw PokeBallEffect      ; LURE_BALL
-	dw PokeBallEffect      ; MOON_BALL
-	dw PokeBallEffect      ; FRIEND_BALL
-	dw PokeBallEffect      ; FAST_BALL
 	dw PokeBallEffect      ; HEAVY_BALL
 	dw PokeBallEffect      ; LOVE_BALL
+	dw PokeBallEffect      ; FRIEND_BALL
+	dw PokeBallEffect      ; MOON_BALL
 	dw PokeBallEffect      ; PARK_BALL
 	dw NoEffect            ; BRIGHTPOWDER
 	dw TownMapEffect       ; TOWN_MAP
@@ -162,38 +174,26 @@ ItemEffects:
 	dw NoEffect            ; CHARCOAL
 	dw RestoreHPEffect     ; BERRY_JUICE
 	dw NoEffect            ; SCOPE_LENS
-	dw NoEffect            ; ITEM_8D
-	dw NoEffect            ; ITEM_8E
 	dw NoEffect            ; METAL_COAT
 	dw NoEffect            ; DRAGON_FANG
 	dw NoEffect            ; ITEM_91
 	dw NoEffect            ; LEFTOVERS
-	dw NoEffect            ; ITEM_93
-	dw NoEffect            ; ITEM_94
-	dw NoEffect            ; ITEM_95
 	dw RestorePPEffect     ; MYSTERYBERRY
 	dw NoEffect            ; DRAGON_SCALE
 	dw NoEffect            ; BERSERK_GENE
-	dw NoEffect            ; ITEM_99
-	dw NoEffect            ; ITEM_9A
-	dw NoEffect            ; ITEM_9B
 	dw SacredAshEffect     ; SACRED_ASH
 	dw NoEffect            ; FLOWER_MAIL
-	dw NoEffect            ; ITEM_A2
 	dw NoEffect            ; LIGHT_BALL
 	dw NormalBoxEffect     ; NORMAL_BOX
 	dw GorgeousBoxEffect   ; GORGEOUS_BOX
 	dw EvoStoneEffect      ; SUN_STONE
 	dw NoEffect            ; POLKADOT_BOW
-	dw NoEffect            ; ITEM_AB
 	dw NoEffect            ; UP_GRADE
 	dw RestoreHPEffect     ; BERRY
 	dw RestoreHPEffect     ; GOLD_BERRY
 	dw SquirtbottleEffect  ; SQUIRTBOTTLE
-	dw NoEffect            ; ITEM_B0
 	dw NoEffect            ; RAINBOW_WING
-	dw NoEffect            ; ITEM_B3
-	assert_table_length ITEM_B3
+	assert_table_length RAINBOW_WING
 ; The items past ITEM_B3 do not have effect entries:
 ;	BRICK_PIECE
 ;	SURF_MAIL

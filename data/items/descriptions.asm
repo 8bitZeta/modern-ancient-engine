@@ -1,17 +1,29 @@
 ItemDescriptions:
 ; entries correspond to item ids (see constants/item_constants.asm)
 	table_width 2, ItemDescriptions
-	dw PokeBallDesc
-	dw GreatBallDesc
-	dw UltraBallDesc
 	dw MasterBallDesc
+	dw UltraBallDesc
+	dw GreatBallDesc
+	dw PokeBallDesc
+	dw SafariBallDesc
+	dw NetBallDesc
+	dw DiveBallDesc
+	dw NestBallDesc
+	dw RepeatBallDesc
+	dw TimerBallDesc
+	dw LuxuryBallDesc
+	dw PremierBallDesc
+	dw DuskBallDesc
+	dw HealBallDesc
+	dw QuickBallDesc
+	dw CherishBallDesc
+	dw FastBallDesc
 	dw LevelBallDesc
 	dw LureBallDesc
-	dw MoonBallDesc
-	dw FriendBallDesc
-	dw FastBallDesc
 	dw HeavyBallDesc
 	dw LoveBallDesc
+	dw FriendBallDesc
+	dw MoonBallDesc
 	dw ParkBallDesc
 	dw BrightpowderDesc
 	dw TownMapDesc
@@ -149,37 +161,25 @@ ItemDescriptions:
 	dw CharcoalDesc
 	dw BerryJuiceDesc
 	dw ScopeLensDesc
-	dw QuestionMarkDesc
-	dw QuestionMarkDesc
 	dw MetalCoatDesc
 	dw DragonFangDesc
 	dw QuestionMarkDesc
 	dw LeftoversDesc
-	dw QuestionMarkDesc
-	dw QuestionMarkDesc
-	dw QuestionMarkDesc
 	dw MysteryBerryDesc
 	dw DragonScaleDesc
 	dw BerserkGeneDesc
-	dw QuestionMarkDesc
-	dw QuestionMarkDesc
-	dw QuestionMarkDesc
 	dw SacredAshDesc
 	dw FlowerMailDesc
-	dw QuestionMarkDesc
 	dw LightBallDesc
 	dw NormalBoxDesc
 	dw GorgeousBoxDesc
 	dw SunStoneDesc
 	dw PolkadotBowDesc
-	dw QuestionMarkDesc
 	dw UpGradeDesc
 	dw BerryDesc
 	dw GoldBerryDesc
 	dw SquirtBottleDesc
-	dw QuestionMarkDesc
 	dw RainbowWingDesc
-	dw QuestionMarkDesc
 	dw BrickPieceDesc
 	dw SurfMailDesc
 	dw LiteBlueMailDesc
@@ -259,21 +259,73 @@ ItemDescriptions:
 	dw QuestionMarkDesc
 	assert_table_length $ff
 
-	PokeBallDesc:
-	db   "An item for catch-"
-	next "ing #MON.@"
-
-GreatBallDesc:
-	db   "A BALL with a de-"
-	next "cent success rate.@"
+MasterBallDesc:
+	db   "The best BALL. It"
+	next "never misses.@"
 
 UltraBallDesc:
 	db   "A BALL with a high"
 	next "rate of success.@"
 
-MasterBallDesc:
-	db   "The best BALL. It"
-	next "never misses.@"
+GreatBallDesc:
+	db   "A BALL with a de-"
+	next "cent success rate.@"
+
+PokeBallDesc:
+	db   "An item for catch-"
+	next "ing #MON.@"
+
+SafariBallDesc:
+	db   "The BALL used in"
+	next "the SAFARI ZONE.@"
+
+NetBallDesc:
+	db   "A BALL for WATER"
+	next "and BUG #MON.@"
+
+DiveBallDesc:
+	db   "A BALL for #MON"
+	next "living underwater.@"
+
+NestBallDesc:
+	db   "A BALL for catch-"
+	next "ing weaker #MON.@"
+
+RepeatBallDesc:
+	db   "A BALL for #MON"
+	next "previously caught.@"
+
+TimerBallDesc:
+	db   "Improves with more"
+	next "turns in battle.@"
+
+LuxuryBallDesc:
+	db   "Makes #MON grow"
+	next "friendly quicker.@"
+
+PremierBallDesc:
+	db   "Commemorative BALL"
+	next "made for events.@"
+
+DuskBallDesc:
+	db   "A BALL for catch-"
+	next "ing in dark areas.@"
+
+HealBallDesc:
+	db   "A BALL that heals"
+	next "upon catching.@"
+
+QuickBallDesc:
+	db   "A BALL best used"
+	next "early in battle.@"
+
+CherishBallDesc:
+	db   "An item for catch-"
+	next "ing #MON.@"
+
+FastBallDesc:
+	db   "A BALL for catch-"
+	next "ing fast #MON.@"
 
 LevelBallDesc:
 	db   "A BALL for lower-"
@@ -283,18 +335,6 @@ LureBallDesc:
 	db   "A BALL for #MON"
 	next "hooked by a ROD.@"
 
-MoonBallDesc:
-	db   "A BALL for MOON"
-	next "STONE evolvers.@"
-
-FriendBallDesc:
-	db   "A BALL that makes"
-	next "#MON friendly.@"
-
-FastBallDesc:
-	db   "A BALL for catch-"
-	next "ing fast #MON.@"
-
 HeavyBallDesc:
 	db   "A BALL for catch-"
 	next "ing heavy #MON.@"
@@ -302,6 +342,14 @@ HeavyBallDesc:
 LoveBallDesc:
 	db   "For catching the"
 	next "opposite gender.@"
+
+FriendBallDesc:
+	db   "A BALL that makes"
+	next "#MON friendly.@"
+
+MoonBallDesc:
+	db   "A BALL for MOON"
+	next "STONE evolvers.@"
 
 ParkBallDesc:
 	db   "The Bug-Catching"

@@ -214,25 +214,15 @@ INCLUDE "gfx/battle_anims/battle_anims.pal"
 
 
 ; Pokeball Palettes
-; pokeball
+; masterball
 	RGB 31, 31, 31
-	RGB 31, 31, 31
-	RGB 30, 10, 06
+	RGB 12, 08, 18
+	RGB 28, 02, 16
 	RGB 00, 00, 00
-; pokeballcaught
+; masterballcaught
 	RGB 31, 31, 31
-	RGB 18, 18, 18
-	RGB 15, 05, 03
-	RGB 00, 00, 00
-; greatball
-	RGB 31, 31, 31
-	RGB 00, 17, 25
-	RGB 30, 10, 06
-	RGB 00, 00, 00
-; greatballcaught
-	RGB 31, 31, 31
-	RGB 00, 11, 17
-	RGB 17, 06, 04
+	RGB 09, 06, 14
+	RGB 20, 00, 09
 	RGB 00, 00, 00
 ; ultraball
 	RGB 31, 31, 31
@@ -244,15 +234,35 @@ INCLUDE "gfx/battle_anims/battle_anims.pal"
 	RGB 05, 05, 06
 	RGB 17, 15, 04
 	RGB 00, 00, 00
-; masterball
+; greatball
 	RGB 31, 31, 31
-	RGB 12, 08, 18
-	RGB 28, 02, 16
+	RGB 00, 17, 25
+	RGB 30, 10, 06
 	RGB 00, 00, 00
-; masterballcaught
+; greatballcaught
 	RGB 31, 31, 31
-	RGB 09, 06, 14
-	RGB 20, 00, 09
+	RGB 00, 11, 17
+	RGB 17, 06, 04
+	RGB 00, 00, 00
+; pokeball
+	RGB 31, 31, 31
+	RGB 31, 31, 31
+	RGB 30, 10, 06
+	RGB 00, 00, 00
+; pokeballcaught
+	RGB 31, 31, 31
+	RGB 18, 18, 18
+	RGB 15, 05, 03
+	RGB 00, 00, 00
+; fastball
+	RGB 31, 31, 31
+	RGB 31, 15, 00
+	RGB 31, 25, 08
+	RGB 00, 00, 00
+; fastballcaught
+	RGB 31, 31, 31
+	RGB 23, 11, 00
+	RGB 21, 17, 05
 	RGB 00, 00, 00
 ; levelball
 	RGB 31, 31, 31
@@ -274,36 +284,6 @@ INCLUDE "gfx/battle_anims/battle_anims.pal"
 	RGB 00, 13, 14
 	RGB 20, 06, 05
 	RGB 00, 00, 00
-; moonball
-	RGB 31, 31, 31
-	RGB 00, 21, 23
-	RGB 30, 24, 08
-	RGB 00, 00, 00
-; moonballcaught
-	RGB 31, 31, 31
-	RGB 00, 15, 16
-	RGB 21, 17, 06
-	RGB 00, 00, 00
-; friendball
-	RGB 31, 31, 31
-	RGB 07, 20, 00
-	RGB 30, 10, 06
-	RGB 00, 00, 00
-; friendballcaught
-	RGB 31, 31, 31
-	RGB 04, 12, 00
-	RGB 19, 06, 04
-	RGB 00, 00, 00
-; fastball
-	RGB 31, 31, 31
-	RGB 31, 15, 00
-	RGB 31, 25, 08
-	RGB 00, 00, 00
-; fastballcaught
-	RGB 31, 31, 31
-	RGB 23, 11, 00
-	RGB 21, 17, 05
-	RGB 00, 00, 00
 ; heavyball
 	RGB 31, 31, 31
 	RGB 07, 07, 08
@@ -323,6 +303,26 @@ INCLUDE "gfx/battle_anims/battle_anims.pal"
 	RGB 31, 31, 31
 	RGB 21, 11, 14
 	RGB 20, 16, 17
+	RGB 00, 00, 00
+; friendball
+	RGB 31, 31, 31
+	RGB 07, 20, 00
+	RGB 30, 10, 06
+	RGB 00, 00, 00
+; friendballcaught
+	RGB 31, 31, 31
+	RGB 04, 12, 00
+	RGB 19, 06, 04
+	RGB 00, 00, 00
+; moonball
+	RGB 31, 31, 31
+	RGB 00, 21, 23
+	RGB 30, 24, 08
+	RGB 00, 00, 00
+; moonballcaught
+	RGB 31, 31, 31
+	RGB 00, 15, 16
+	RGB 21, 17, 06
 	RGB 00, 00, 00
 ; parkball
 	RGB 31, 31, 31
