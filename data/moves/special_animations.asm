@@ -45,7 +45,8 @@ BattleAnim_ThrowPokeBall:
 
 .TheTrainerBlockedTheBall:
 	anim_setobjpal PAL_BATTLE_OB_RED, PAL_BTLCUSTOM_POKE_BALL
-	anim_2gfx ANIM_GFX_POKE_BALL, ANIM_GFX_HIT
+	anim_setobjpal PAL_BATTLE_OB_GREEN, PAL_BTLCUSTOM_POKE_BALL
+	anim_3gfx ANIM_GFX_POKE_BALL, ANIM_GFX_BALL_BG, ANIM_GFX_SMOKE
 	anim_sound 6, 2, SFX_THROW_BALL
 	anim_obj ANIM_OBJ_POKE_BALL_BLOCKED, 64, 92, $20
 	anim_wait 20
@@ -55,13 +56,17 @@ BattleAnim_ThrowPokeBall:
 
 .PokeBall
 	anim_setobjpal PAL_BATTLE_OB_RED, PAL_BTLCUSTOM_POKE_BALL
-	anim_2gfx ANIM_GFX_POKE_BALL, ANIM_GFX_SMOKE
+	anim_setobjpal PAL_BATTLE_OB_GREEN, PAL_BTLCUSTOM_POKE_BALL
+	anim_3gfx ANIM_GFX_POKE_BALL, ANIM_GFX_BALL_BG, ANIM_GFX_SMOKE
 .Throw
 	anim_sound 6, 2, SFX_THROW_BALL
 	anim_obj ANIM_OBJ_POKE_BALL, 68, 92, $40
+	anim_obj ANIM_OBJ_BALL_BG, 68, 92, $40
 	anim_wait 36
 	anim_obj ANIM_OBJ_POKE_BALL, 136, 65, $0
-	anim_setobj $2, $7
+	anim_setobj $3, $7
+	anim_obj ANIM_OBJ_BALL_BG, 136, 65, $0
+	anim_setobj $4, $7
 	anim_wait 16
 	anim_sound 0, 1, SFX_BALL_POOF
 	anim_obj ANIM_OBJ_BALL_POOF, 136, 64, $10
@@ -70,66 +75,79 @@ BattleAnim_ThrowPokeBall:
 
 .GreatBall:
 	anim_setobjpal PAL_BATTLE_OB_RED, PAL_BTLCUSTOM_GREAT_BALL
-	anim_2gfx ANIM_GFX_POKE_BALL, ANIM_GFX_SMOKE
+	anim_setobjpal PAL_BATTLE_OB_GREEN, PAL_BTLCUSTOM_POKE_BALL
+	anim_3gfx ANIM_GFX_POKE_BALL, ANIM_GFX_BALL_BG, ANIM_GFX_SMOKE
 	anim_jump .Throw
 
 .UltraBall:
 	anim_setobjpal PAL_BATTLE_OB_RED, PAL_BTLCUSTOM_ULTRA_BALL
-	anim_2gfx ANIM_GFX_POKE_BALL, ANIM_GFX_SMOKE
+	anim_setobjpal PAL_BATTLE_OB_GREEN, PAL_BTLCUSTOM_POKE_BALL
+	anim_3gfx ANIM_GFX_POKE_BALL, ANIM_GFX_BALL_BG, ANIM_GFX_SMOKE
 	anim_jump .Throw
 
 .MasterBall:
 	anim_setobjpal PAL_BATTLE_OB_RED, PAL_BTLCUSTOM_MASTER_BALL
-	anim_2gfx ANIM_GFX_POKE_BALL, ANIM_GFX_SMOKE
+	anim_setobjpal PAL_BATTLE_OB_GREEN, PAL_BTLCUSTOM_POKE_BALL
+	anim_3gfx ANIM_GFX_POKE_BALL, ANIM_GFX_BALL_BG, ANIM_GFX_SMOKE
 	anim_jump .Throw
 
 .LevelBall
 	anim_setobjpal PAL_BATTLE_OB_RED, PAL_BTLCUSTOM_LEVEL_BALL
-	anim_2gfx ANIM_GFX_POKE_BALL, ANIM_GFX_SMOKE
+	anim_setobjpal PAL_BATTLE_OB_GREEN, PAL_BTLCUSTOM_POKE_BALL
+	anim_3gfx ANIM_GFX_POKE_BALL, ANIM_GFX_BALL_BG, ANIM_GFX_SMOKE
 	anim_jump .Throw
 
 .LureBall
 	anim_setobjpal PAL_BATTLE_OB_RED, PAL_BTLCUSTOM_LURE_BALL
-	anim_2gfx ANIM_GFX_POKE_BALL, ANIM_GFX_SMOKE
+	anim_setobjpal PAL_BATTLE_OB_GREEN, PAL_BTLCUSTOM_POKE_BALL
+	anim_3gfx ANIM_GFX_POKE_BALL, ANIM_GFX_BALL_BG, ANIM_GFX_SMOKE
 	anim_jump .Throw
 
 .MoonBall
 	anim_setobjpal PAL_BATTLE_OB_RED, PAL_BTLCUSTOM_MOON_BALL
-	anim_2gfx ANIM_GFX_POKE_BALL, ANIM_GFX_SMOKE
+	anim_setobjpal PAL_BATTLE_OB_GREEN, PAL_BTLCUSTOM_POKE_BALL
+	anim_3gfx ANIM_GFX_POKE_BALL, ANIM_GFX_BALL_BG, ANIM_GFX_SMOKE
 	anim_jump .Throw
 
 .FriendBall
 	anim_setobjpal PAL_BATTLE_OB_RED, PAL_BTLCUSTOM_FRIEND_BALL
-	anim_2gfx ANIM_GFX_POKE_BALL, ANIM_GFX_SMOKE
+	anim_setobjpal PAL_BATTLE_OB_GREEN, PAL_BTLCUSTOM_POKE_BALL
+	anim_3gfx ANIM_GFX_POKE_BALL, ANIM_GFX_BALL_BG, ANIM_GFX_SMOKE
 	anim_jump .Throw
 
 .FastBall
 	anim_setobjpal PAL_BATTLE_OB_RED, PAL_BTLCUSTOM_FAST_BALL
-	anim_2gfx ANIM_GFX_POKE_BALL, ANIM_GFX_SMOKE
+	anim_setobjpal PAL_BATTLE_OB_GREEN, PAL_BTLCUSTOM_POKE_BALL
+	anim_3gfx ANIM_GFX_POKE_BALL, ANIM_GFX_BALL_BG, ANIM_GFX_SMOKE
 	anim_jump .Throw
 
 .HeavyBall
 	anim_setobjpal PAL_BATTLE_OB_RED, PAL_BTLCUSTOM_HEAVY_BALL
-	anim_2gfx ANIM_GFX_POKE_BALL, ANIM_GFX_SMOKE
+	anim_setobjpal PAL_BATTLE_OB_GREEN, PAL_BTLCUSTOM_POKE_BALL
+	anim_3gfx ANIM_GFX_POKE_BALL, ANIM_GFX_BALL_BG, ANIM_GFX_SMOKE
 	anim_jump .Throw
 
 .LoveBall
 	anim_setobjpal PAL_BATTLE_OB_RED, PAL_BTLCUSTOM_LOVE_BALL
-	anim_2gfx ANIM_GFX_POKE_BALL, ANIM_GFX_SMOKE
+	anim_setobjpal PAL_BATTLE_OB_GREEN, PAL_BTLCUSTOM_POKE_BALL
+	anim_3gfx ANIM_GFX_POKE_BALL, ANIM_GFX_BALL_BG, ANIM_GFX_SMOKE
 	anim_jump .Throw
 
 .ParkBall
 	anim_setobjpal PAL_BATTLE_OB_RED, PAL_BTLCUSTOM_PARK_BALL
-	anim_2gfx ANIM_GFX_POKE_BALL, ANIM_GFX_SMOKE
+	anim_setobjpal PAL_BATTLE_OB_GREEN, PAL_BTLCUSTOM_POKE_BALL
+	anim_3gfx ANIM_GFX_POKE_BALL, ANIM_GFX_BALL_BG, ANIM_GFX_SMOKE
 	anim_jump .Throw
 	
 .Shake:
 	anim_bgeffect ANIM_BG_RETURN_MON, $0, BG_EFFECT_TARGET, $0
 	anim_wait 8
-	anim_incobj 2
+	anim_incobj 3
+	anim_incobj 4
 	anim_wait 16
 	anim_sound 0, 1, SFX_CHANGE_DEX_MODE
 	anim_incobj 1
+	anim_incobj 2
 	anim_wait 32
 	anim_sound 0, 1, SFX_BALL_BOUNCE
 	anim_wait 32
@@ -143,6 +161,7 @@ BattleAnim_ThrowPokeBall:
 	anim_if_var_equal $1, .CatchColor
 	anim_if_var_equal $2, .BreakFree
 	anim_incobj 1
+	anim_incobj 2
 	anim_sound 0, 1, SFX_BALL_WOBBLE
 	anim_jump .Loop
 
@@ -161,57 +180,70 @@ BattleAnim_ThrowPokeBall:
 	anim_if_param_equal PARK_BALL, .ParkBallClick
 
 .PokeBallClick
-	anim_setobjpal PAL_BTLCUSTOM_POKE_BALL, PAL_BTLCUSTOM_POKE_BALL_CAUGHT
+	anim_setobjpal PAL_BATTLE_OB_RED, PAL_BTLCUSTOM_POKE_BALL_CAUGHT
+	anim_setobjpal PAL_BATTLE_OB_GREEN, PAL_BTLCUSTOM_POKE_BALL_CAUGHT
 .Click:
 	anim_keepsprites
 	anim_ret
 
 .GreatBallClick
-	anim_setobjpal PAL_BTLCUSTOM_GREAT_BALL, PAL_BTLCUSTOM_GREAT_BALL_CAUGHT
+	anim_setobjpal PAL_BATTLE_OB_RED, PAL_BTLCUSTOM_GREAT_BALL_CAUGHT
+	anim_setobjpal PAL_BATTLE_OB_GREEN, PAL_BTLCUSTOM_POKE_BALL_CAUGHT
 	anim_jump .Click
 
 .UltraBallClick
-	anim_setobjpal PAL_BTLCUSTOM_ULTRA_BALL, PAL_BTLCUSTOM_ULTRA_BALL_CAUGHT
+	anim_setobjpal PAL_BATTLE_OB_RED, PAL_BTLCUSTOM_ULTRA_BALL_CAUGHT
+	anim_setobjpal PAL_BATTLE_OB_GREEN, PAL_BTLCUSTOM_POKE_BALL_CAUGHT
 	anim_jump .Click
 
 .MasterBallClick
-	anim_setobjpal PAL_BTLCUSTOM_MASTER_BALL, PAL_BTLCUSTOM_MASTER_BALL_CAUGHT
+	anim_setobjpal PAL_BATTLE_OB_RED, PAL_BTLCUSTOM_MASTER_BALL_CAUGHT
+	anim_setobjpal PAL_BATTLE_OB_GREEN, PAL_BTLCUSTOM_POKE_BALL_CAUGHT
 	anim_jump .Click
 
 .LevelBallClick
-	anim_setobjpal PAL_BTLCUSTOM_LEVEL_BALL, PAL_BTLCUSTOM_LEVEL_BALL_CAUGHT
+	anim_setobjpal PAL_BATTLE_OB_RED, PAL_BTLCUSTOM_LEVEL_BALL_CAUGHT
+	anim_setobjpal PAL_BATTLE_OB_GREEN, PAL_BTLCUSTOM_POKE_BALL_CAUGHT
 	anim_jump .Click
 
 .LureBallClick
-	anim_setobjpal PAL_BTLCUSTOM_LURE_BALL, PAL_BTLCUSTOM_LURE_BALL_CAUGHT
+	anim_setobjpal PAL_BATTLE_OB_RED, PAL_BTLCUSTOM_LURE_BALL_CAUGHT
+	anim_setobjpal PAL_BATTLE_OB_GREEN, PAL_BTLCUSTOM_POKE_BALL_CAUGHT
 	anim_jump .Click
 
 .MoonBallClick
-	anim_setobjpal PAL_BTLCUSTOM_MOON_BALL, PAL_BTLCUSTOM_MOON_BALL_CAUGHT
+	anim_setobjpal PAL_BATTLE_OB_RED, PAL_BTLCUSTOM_MOON_BALL_CAUGHT
+	anim_setobjpal PAL_BATTLE_OB_GREEN, PAL_BTLCUSTOM_POKE_BALL_CAUGHT
 	anim_jump .Click
 
 .FriendBallClick
-	anim_setobjpal PAL_BTLCUSTOM_FRIEND_BALL, PAL_BTLCUSTOM_FRIEND_BALL_CAUGHT
+	anim_setobjpal PAL_BATTLE_OB_RED, PAL_BTLCUSTOM_FRIEND_BALL_CAUGHT
+	anim_setobjpal PAL_BATTLE_OB_GREEN, PAL_BTLCUSTOM_POKE_BALL_CAUGHT
 	anim_jump .Click
 
 .FastBallClick
-	anim_setobjpal PAL_BTLCUSTOM_FAST_BALL, PAL_BTLCUSTOM_FAST_BALL_CAUGHT
+	anim_setobjpal PAL_BATTLE_OB_RED, PAL_BTLCUSTOM_FAST_BALL_CAUGHT
+	anim_setobjpal PAL_BATTLE_OB_GREEN, PAL_BTLCUSTOM_POKE_BALL_CAUGHT
 	anim_jump .Click
 
 .HeavyBallClick
-	anim_setobjpal PAL_BTLCUSTOM_HEAVY_BALL, PAL_BTLCUSTOM_HEAVY_BALL_CAUGHT
+	anim_setobjpal PAL_BATTLE_OB_RED, PAL_BTLCUSTOM_HEAVY_BALL_CAUGHT
+	anim_setobjpal PAL_BATTLE_OB_GREEN, PAL_BTLCUSTOM_POKE_BALL_CAUGHT
 	anim_jump .Click
 
 .LoveBallClick
-	anim_setobjpal PAL_BTLCUSTOM_LOVE_BALL, PAL_BTLCUSTOM_LOVE_BALL_CAUGHT
+	anim_setobjpal PAL_BATTLE_OB_RED, PAL_BTLCUSTOM_LOVE_BALL_CAUGHT
+	anim_setobjpal PAL_BATTLE_OB_GREEN, PAL_BTLCUSTOM_POKE_BALL_CAUGHT
 	anim_jump .Click
 
 .ParkBallClick
-	anim_setobjpal PAL_BTLCUSTOM_PARK_BALL, PAL_BTLCUSTOM_PARK_BALL_CAUGHT
+	anim_setobjpal PAL_BATTLE_OB_RED, PAL_BTLCUSTOM_PARK_BALL_CAUGHT
+	anim_setobjpal PAL_BATTLE_OB_GREEN, PAL_BTLCUSTOM_POKE_BALL_CAUGHT
 	anim_jump .Click
 
 .BreakFree:
 	anim_setobj $1, $b
+	anim_setobj $2, $b
 	anim_sound 0, 1, SFX_BALL_POOF
 	anim_obj ANIM_OBJ_BALL_POOF, 136, 64, $10
 	anim_wait 2
@@ -380,19 +412,19 @@ BattleAnim_InLove:
 	anim_wait 32
 	anim_ret
 
-	BattleAnim_InSandstorm:
-		anim_1gfx ANIM_GFX_POWDER
-		anim_obj ANIM_OBJ_SANDSTORM, 88, 0, $0
-		anim_wait 8
-		anim_obj ANIM_OBJ_SANDSTORM, 72, 0, $1
-		anim_wait 8
-		anim_obj ANIM_OBJ_SANDSTORM, 56, 0, $2
-	.loop
-		anim_sound 0, 1, SFX_MENU
-		anim_wait 8
-		anim_loop 6, .loop
-		anim_wait 8
-		anim_ret
+BattleAnim_InSandstorm:
+	anim_1gfx ANIM_GFX_POWDER
+	anim_obj ANIM_OBJ_SANDSTORM, 88, 0, $0
+	anim_wait 8
+	anim_obj ANIM_OBJ_SANDSTORM, 72, 0, $1
+	anim_wait 8
+	anim_obj ANIM_OBJ_SANDSTORM, 56, 0, $2
+.loop
+	anim_sound 0, 1, SFX_MENU
+	anim_wait 8
+	anim_loop 6, .loop
+	anim_wait 8
+	anim_ret
 
 BattleAnim_InNightmare:
 	anim_1gfx ANIM_GFX_ANGELS
