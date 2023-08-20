@@ -65,13 +65,14 @@ PlayersHouseRadioScript:
 	; giveitem ULTRA_BALL, 99
 	; giveitem GREAT_BALL, 99
 	; giveitem POKE_BALL, 99
-	; giveitem SAFARI_BALL, 99
+	giveitem SAFARI_BALL, 99
 	giveitem NET_BALL, 99
 	giveitem DIVE_BALL, 99
 	giveitem NEST_BALL, 99
 	giveitem REPEAT_BALL, 99
 	giveitem TIMER_BALL, 99
 	giveitem LUXURY_BALL, 99
+	giveitem PREMIER_BALL, 99
 	giveitem DUSK_BALL, 99
 	giveitem HEAL_BALL, 99
 	giveitem QUICK_BALL, 99

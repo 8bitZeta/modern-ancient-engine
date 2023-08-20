@@ -254,6 +254,126 @@ INCLUDE "gfx/battle_anims/battle_anims.pal"
 	RGB 18, 18, 18
 	RGB 15, 05, 03
 	RGB 00, 00, 00
+; safariball
+	RGB 31, 31, 31
+	RGB 06, 15, 10
+	RGB 21, 21, 09
+	RGB 00, 00, 00
+; safariballcaught
+	RGB 31, 31, 31
+	RGB 05, 11, 07
+	RGB 14, 14, 06
+	RGB 00, 00, 00
+; netball
+	RGB 31, 31, 31
+	RGB 01, 19, 23
+	RGB 07, 07, 08
+	RGB 00, 00, 00
+; netballcaught
+	RGB 31, 31, 31
+	RGB 01, 11, 13
+	RGB 05, 05, 05
+	RGB 00, 00, 00
+; diveball
+	RGB 31, 31, 31
+	RGB 16, 25, 30
+	RGB 06, 13, 22
+	RGB 00, 00, 00
+; diveballcaught
+	RGB 31, 31, 31
+	RGB 09, 14, 17
+	RGB 04, 08, 13
+	RGB 00, 00, 00
+; nestball
+	RGB 31, 31, 31
+	RGB 16, 24, 08
+	RGB 28, 28, 16
+	RGB 00, 00, 00
+; nestballcaught
+	RGB 31, 31, 31
+	RGB 09, 13, 05
+	RGB 13, 13, 08
+	RGB 00, 00, 00
+; repeatball
+	RGB 31, 31, 31
+	RGB 30, 10, 06
+	RGB 30, 28, 00
+	RGB 00, 00, 00
+; repeatballcaught
+	RGB 31, 31, 31
+	RGB 15, 05, 03
+	RGB 15, 14, 00
+	RGB 00, 00, 00
+; timerball
+	RGB 31, 31, 31
+	RGB 07, 07, 08
+	RGB 30, 10, 06
+	RGB 00, 00, 00
+; timerballcaught
+	RGB 31, 31, 31
+	RGB 05, 05, 06
+	RGB 15, 05, 03
+	RGB 00, 00, 00
+; luxuryball
+	RGB 31, 31, 31
+	RGB 31, 28, 03
+	RGB 31, 08, 00
+	RGB 00, 00, 00
+; luxuryballcaught
+	RGB 31, 31, 31
+	RGB 18, 16, 02
+	RGB 17, 04, 00
+	RGB 00, 00, 00
+; premierball
+	RGB 31, 31, 31
+	RGB 31, 31, 31
+	RGB 30, 10, 06
+	RGB 00, 00, 00
+; premierballcaught
+	RGB 31, 31, 31
+	RGB 18, 18, 18
+	RGB 15, 05, 03
+	RGB 00, 00, 00
+; duskball
+	RGB 31, 31, 31
+	RGB 00, 20, 09
+	RGB 25, 00, 01
+	RGB 00, 00, 00
+; duskballcaught
+	RGB 31, 31, 31
+	RGB 00, 12, 05
+	RGB 15, 00, 01
+	RGB 00, 00, 00
+; healball
+	RGB 31, 31, 31
+	RGB 29, 10, 19
+	RGB 10, 17, 24
+	RGB 00, 00, 00
+; healballcaught
+	RGB 31, 31, 31
+	RGB 20, 07, 13
+	RGB 07, 12, 17
+	RGB 00, 00, 00
+; quickball
+	RGB 31, 31, 31
+	RGB 09, 17, 27
+	RGB 30, 29, 07
+	RGB 00, 00, 00
+; quickballcaught
+	RGB 31, 31, 31
+	RGB 07, 13, 20
+	RGB 19, 18, 04
+	RGB 00, 00, 00
+; cherishball
+	RGB 31, 31, 31
+	RGB 31, 06, 04
+	RGB 20, 07, 05
+	RGB 00, 00, 00
+; cherishballcaught
+	RGB 31, 31, 31
+	RGB 17, 03, 02
+	RGB 11, 04, 03
+	RGB 00, 00, 00
 ; fastball
 	RGB 31, 31, 31
 	RGB 31, 15, 00

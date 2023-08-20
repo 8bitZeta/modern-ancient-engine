@@ -41,6 +41,7 @@ BattleAnim_ThrowPokeBall:
 	anim_if_param_equal REPEAT_BALL, .RepeatBall
 	anim_if_param_equal TIMER_BALL, .TimerBall
 	anim_if_param_equal LUXURY_BALL, .LuxuryBall
+	anim_if_param_equal PREMIER_BALL, .PremierBall
 	anim_if_param_equal DUSK_BALL, .DuskBall
 	anim_if_param_equal HEAL_BALL, .HealBall
 	anim_if_param_equal QUICK_BALL, .QuickBall
@@ -84,18 +85,79 @@ BattleAnim_ThrowPokeBall:
 	anim_jump .Throw
 
 .PokeBall
-.SafariBall
-.NetBall
-.DiveBall
-.NestBall
-.RepeatBall
-.TimerBall
-.LuxuryBall
-.DuskBall
-.HealBall
-.QuickBall
-.CherishBall
 	anim_setobjpal PAL_BATTLE_OB_RED, PAL_BTLCUSTOM_POKE_BALL
+	anim_setobjpal PAL_BATTLE_OB_GREEN, PAL_BTLCUSTOM_POKE_BALL
+	anim_3gfx ANIM_GFX_POKE_BALL, ANIM_GFX_BALL_BG, ANIM_GFX_SMOKE
+	anim_jump .Throw
+
+.SafariBall
+	anim_setobjpal PAL_BATTLE_OB_RED, PAL_BTLCUSTOM_SAFARI_BALL
+	anim_setobjpal PAL_BATTLE_OB_GREEN, PAL_BTLCUSTOM_POKE_BALL
+	anim_3gfx ANIM_GFX_POKE_BALL, ANIM_GFX_BALL_BG, ANIM_GFX_SMOKE
+	anim_jump .Throw
+
+.NetBall
+	anim_setobjpal PAL_BATTLE_OB_RED, PAL_BTLCUSTOM_NET_BALL
+	anim_setobjpal PAL_BATTLE_OB_GREEN, PAL_BTLCUSTOM_POKE_BALL
+	anim_3gfx ANIM_GFX_POKE_BALL, ANIM_GFX_BALL_BG, ANIM_GFX_SMOKE
+	anim_jump .Throw
+
+.DiveBall
+	anim_setobjpal PAL_BATTLE_OB_RED, PAL_BTLCUSTOM_DIVE_BALL
+	anim_setobjpal PAL_BATTLE_OB_GREEN, PAL_BTLCUSTOM_POKE_BALL
+	anim_3gfx ANIM_GFX_POKE_BALL, ANIM_GFX_BALL_BG, ANIM_GFX_SMOKE
+	anim_jump .Throw
+
+.NestBall
+	anim_setobjpal PAL_BATTLE_OB_RED, PAL_BTLCUSTOM_NEST_BALL
+	anim_setobjpal PAL_BATTLE_OB_GREEN, PAL_BTLCUSTOM_POKE_BALL
+	anim_3gfx ANIM_GFX_POKE_BALL, ANIM_GFX_BALL_BG, ANIM_GFX_SMOKE
+	anim_jump .Throw
+
+.RepeatBall
+	anim_setobjpal PAL_BATTLE_OB_RED, PAL_BTLCUSTOM_REPEAT_BALL
+	anim_setobjpal PAL_BATTLE_OB_GREEN, PAL_BTLCUSTOM_POKE_BALL
+	anim_3gfx ANIM_GFX_POKE_BALL, ANIM_GFX_BALL_BG, ANIM_GFX_SMOKE
+	anim_jump .Throw
+
+.TimerBall
+	anim_setobjpal PAL_BATTLE_OB_RED, PAL_BTLCUSTOM_TIMER_BALL
+	anim_setobjpal PAL_BATTLE_OB_GREEN, PAL_BTLCUSTOM_POKE_BALL
+	anim_3gfx ANIM_GFX_POKE_BALL, ANIM_GFX_BALL_BG, ANIM_GFX_SMOKE
+	anim_jump .Throw
+
+.LuxuryBall
+	anim_setobjpal PAL_BATTLE_OB_RED, PAL_BTLCUSTOM_LUXURY_BALL
+	anim_setobjpal PAL_BATTLE_OB_GREEN, PAL_BTLCUSTOM_POKE_BALL
+	anim_3gfx ANIM_GFX_POKE_BALL, ANIM_GFX_BALL_BG, ANIM_GFX_SMOKE
+	anim_jump .Throw
+
+.PremierBall
+	anim_setobjpal PAL_BATTLE_OB_RED, PAL_BTLCUSTOM_PREMIER_BALL
+	anim_setobjpal PAL_BATTLE_OB_GREEN, PAL_BTLCUSTOM_POKE_BALL
+	anim_3gfx ANIM_GFX_POKE_BALL, ANIM_GFX_BALL_BG, ANIM_GFX_SMOKE
+	anim_jump .Throw
+
+.DuskBall
+	anim_setobjpal PAL_BATTLE_OB_RED, PAL_BTLCUSTOM_DUSK_BALL
+	anim_setobjpal PAL_BATTLE_OB_GREEN, PAL_BTLCUSTOM_POKE_BALL
+	anim_3gfx ANIM_GFX_POKE_BALL, ANIM_GFX_BALL_BG, ANIM_GFX_SMOKE
+	anim_jump .Throw
+
+.HealBall
+	anim_setobjpal PAL_BATTLE_OB_RED, PAL_BTLCUSTOM_HEAL_BALL
+	anim_setobjpal PAL_BATTLE_OB_GREEN, PAL_BTLCUSTOM_POKE_BALL
+	anim_3gfx ANIM_GFX_POKE_BALL, ANIM_GFX_BALL_BG, ANIM_GFX_SMOKE
+	anim_jump .Throw
+
+.QuickBall
+	anim_setobjpal PAL_BATTLE_OB_RED, PAL_BTLCUSTOM_QUICK_BALL
+	anim_setobjpal PAL_BATTLE_OB_GREEN, PAL_BTLCUSTOM_POKE_BALL
+	anim_3gfx ANIM_GFX_POKE_BALL, ANIM_GFX_BALL_BG, ANIM_GFX_SMOKE
+	anim_jump .Throw
+
+.CherishBall
+	anim_setobjpal PAL_BATTLE_OB_RED, PAL_BTLCUSTOM_CHERISH_BALL
 	anim_setobjpal PAL_BATTLE_OB_GREEN, PAL_BTLCUSTOM_POKE_BALL
 	anim_3gfx ANIM_GFX_POKE_BALL, ANIM_GFX_BALL_BG, ANIM_GFX_SMOKE
 	anim_jump .Throw
@@ -200,6 +262,7 @@ BattleAnim_ThrowPokeBall:
 	anim_if_param_equal REPEAT_BALL, .RepeatBallClick
 	anim_if_param_equal TIMER_BALL, .TimerBallClick
 	anim_if_param_equal LUXURY_BALL, .LuxuryBallClick
+	anim_if_param_equal PREMIER_BALL, .PremierBallClick
 	anim_if_param_equal DUSK_BALL, .DuskBallClick
 	anim_if_param_equal HEAL_BALL, .HealBallClick
 	anim_if_param_equal QUICK_BALL, .QuickBallClick
@@ -229,18 +292,67 @@ BattleAnim_ThrowPokeBall:
 	anim_jump .Click
 
 .PokeBallClick
-.SafariBallClick
-.NetBallClick
-.DiveBallClick
-.NestBallClick
-.RepeatBallClick
-.TimerBallClick
-.LuxuryBallClick
-.DuskBallClick
-.HealBallClick
-.QuickBallClick
-.CherishBallClick
 	anim_setobjpal PAL_BATTLE_OB_RED, PAL_BTLCUSTOM_POKE_BALL_CAUGHT
+	anim_setobjpal PAL_BATTLE_OB_GREEN, PAL_BTLCUSTOM_POKE_BALL_CAUGHT
+	anim_jump .Click
+
+.SafariBallClick
+	anim_setobjpal PAL_BATTLE_OB_RED, PAL_BTLCUSTOM_SAFARI_BALL_CAUGHT
+	anim_setobjpal PAL_BATTLE_OB_GREEN, PAL_BTLCUSTOM_POKE_BALL_CAUGHT
+	anim_jump .Click
+
+.NetBallClick
+	anim_setobjpal PAL_BATTLE_OB_RED, PAL_BTLCUSTOM_NET_BALL_CAUGHT
+	anim_setobjpal PAL_BATTLE_OB_GREEN, PAL_BTLCUSTOM_POKE_BALL_CAUGHT
+	anim_jump .Click
+
+.DiveBallClick
+	anim_setobjpal PAL_BATTLE_OB_RED, PAL_BTLCUSTOM_DIVE_BALL_CAUGHT
+	anim_setobjpal PAL_BATTLE_OB_GREEN, PAL_BTLCUSTOM_POKE_BALL_CAUGHT
+	anim_jump .Click
+
+.NestBallClick
+	anim_setobjpal PAL_BATTLE_OB_RED, PAL_BTLCUSTOM_NEST_BALL_CAUGHT
+	anim_setobjpal PAL_BATTLE_OB_GREEN, PAL_BTLCUSTOM_POKE_BALL_CAUGHT
+	anim_jump .Click
+
+.RepeatBallClick
+	anim_setobjpal PAL_BATTLE_OB_RED, PAL_BTLCUSTOM_REPEAT_BALL_CAUGHT
+	anim_setobjpal PAL_BATTLE_OB_GREEN, PAL_BTLCUSTOM_POKE_BALL_CAUGHT
+	anim_jump .Click
+
+.TimerBallClick
+	anim_setobjpal PAL_BATTLE_OB_RED, PAL_BTLCUSTOM_TIMER_BALL_CAUGHT
+	anim_setobjpal PAL_BATTLE_OB_GREEN, PAL_BTLCUSTOM_POKE_BALL_CAUGHT
+	anim_jump .Click
+
+.LuxuryBallClick
+	anim_setobjpal PAL_BATTLE_OB_RED, PAL_BTLCUSTOM_LUXURY_BALL_CAUGHT
+	anim_setobjpal PAL_BATTLE_OB_GREEN, PAL_BTLCUSTOM_POKE_BALL_CAUGHT
+	anim_jump .Click
+
+.PremierBallClick
+	anim_setobjpal PAL_BATTLE_OB_RED, PAL_BTLCUSTOM_PREMIER_BALL_CAUGHT
+	anim_setobjpal PAL_BATTLE_OB_GREEN, PAL_BTLCUSTOM_POKE_BALL_CAUGHT
+	anim_jump .Click
+
+.DuskBallClick
+	anim_setobjpal PAL_BATTLE_OB_RED, PAL_BTLCUSTOM_DUSK_BALL_CAUGHT
+	anim_setobjpal PAL_BATTLE_OB_GREEN, PAL_BTLCUSTOM_POKE_BALL_CAUGHT
+	anim_jump .Click
+
+.HealBallClick
+	anim_setobjpal PAL_BATTLE_OB_RED, PAL_BTLCUSTOM_HEAL_BALL_CAUGHT
+	anim_setobjpal PAL_BATTLE_OB_GREEN, PAL_BTLCUSTOM_POKE_BALL_CAUGHT
+	anim_jump .Click
+
+.QuickBallClick
+	anim_setobjpal PAL_BATTLE_OB_RED, PAL_BTLCUSTOM_QUICK_BALL_CAUGHT
+	anim_setobjpal PAL_BATTLE_OB_GREEN, PAL_BTLCUSTOM_POKE_BALL_CAUGHT
+	anim_jump .Click
+
+.CherishBallClick
+	anim_setobjpal PAL_BATTLE_OB_RED, PAL_BTLCUSTOM_CHERISH_BALL_CAUGHT
 	anim_setobjpal PAL_BATTLE_OB_GREEN, PAL_BTLCUSTOM_POKE_BALL_CAUGHT
 	anim_jump .Click
 
