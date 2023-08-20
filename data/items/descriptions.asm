@@ -320,8 +320,8 @@ QuickBallDesc:
 	next "early in battle.@"
 
 CherishBallDesc:
-	db   "An item for catch-"
-	next "ing #MON.@"
+	db   "A quite rare BALL"
+	next "made for events.@"
 
 FastBallDesc:
 	db   "A BALL for catch-"
