@@ -389,14 +389,3 @@ s5_be46:: db
 	ds $1b8
 
 s5_bfff:: db
-
-
-SECTION "SRAM Mobile 3", SRAM
-
-s6_a000:: db
-	db
-s6_a002:: db
-s6_a003:: db
-s6_a004:: db
-s6_a005:: db
-s6_a006:: ds $1000

@@ -520,7 +520,6 @@ Function17d2ce:
 	ret
 
 .asm_17d2e2
-	call Function17d314
 	ret c
 	call SpeechTextbox
 	call FadeToMenu
@@ -541,58 +540,6 @@ Function17d2ce:
 	call PlayMusic
 	call ReturnToMapFromSubmenu
 	jmp CloseSubmenu
-
-Function17d314:
-	ld a, BANK(s5_b1b1)
-	call OpenSRAM
-	ld a, [s5_b1b1]
-	call CloseSRAM
-	cp $21
-	jr nc, .asm_17d354
-	ld a, BANK(s6_a006)
-	call OpenSRAM
-	ld l, 0
-	ld h, l
-	ld de, s6_a006
-	ld a, [s6_a004]
-	ld c, a
-	ld a, [s6_a005]
-	ld b, a
-.asm_17d336
-	push bc
-	ld a, [de]
-	inc de
-	ld c, a
-	ld b, 0
-	add hl, bc
-	pop bc
-	dec bc
-	ld a, b
-	or c
-	jr nz, .asm_17d336
-	ld a, [s6_a002]
-	cp l
-	jr nz, .asm_17d354
-	ld a, [s6_a003]
-	cp h
-	jr nz, .asm_17d354
-	call CloseSRAM
-	and a
-	ret
-
-.asm_17d354
-	call CloseSRAM
-	ld a, $5
-	call OpenSRAM
-	xor a
-	ld hl, $aa73
-	ld bc, $c
-	call ByteFill
-	call CloseSRAM
-	ld a, $2
-	ld [wScriptVar], a
-	scf
-	ret
 
 Function17d370:
 	xor a
@@ -1114,7 +1061,6 @@ asm_17d721:
 
 Jumptable17d72a:
 	dw DoNothingFunction ; Function17d78c
-	dw Function17d78d
 	dw Function17d7b4
 	dw Function17d7c2
 	dw Function17d7d3
@@ -1163,25 +1109,6 @@ Jumptable17d72a:
 	dw Function17e3f0
 	dw Function17e409
 	ret
-
-Function17d78d:
-	call IncCrashCheckPointer
-	ld a, [hli]
-	ld c, a
-	ld a, [hli]
-	ld b, a
-	call HlToCrashCheckPointer
-	ld a, BANK(s6_a006)
-	call OpenSRAM
-	ld hl, s6_a006
-	add hl, bc
-	ld de, w4_d000
-	ld bc, $1000
-	call CopyBytes
-	call CloseSRAM
-	xor a
-	ld [wcd77], a
-	jmp ClearBGPalettes
 
 Function17d7b4:
 	call IncCrashCheckPointer

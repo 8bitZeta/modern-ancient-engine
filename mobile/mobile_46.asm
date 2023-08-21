@@ -656,7 +656,6 @@ Function1185c3:
 	dw Function119054
 	dw Function1190d0
 	dw Function11878d
-	dw Function1190ec
 	dw Function118e6d
 	dw Function11878d
 	dw Function118e76
@@ -1873,50 +1872,6 @@ Function1190d0:
 	ld de, w3_d000
 	ld bc, $1000
 	jmp Function118b10
-
-Function1190ec:
-	ld a, BANK(s5_aa73)
-	call OpenSRAM
-	ld hl, wBGMapBuffer
-	ld de, s5_aa73
-	ld bc, 12
-	call CopyBytes
-	call CloseSRAM
-	ld a, BANK(s5_aa72)
-	call OpenSRAM
-	ld a, $1
-	ld [s5_aa72], a
-	call CloseSRAM
-	ld a, BANK(s6_a000)
-	call OpenSRAM
-	ld a, [w3_d000]
-	ld c, a
-	ld a, [w3_d000 + 1]
-	ld b, a
-	ld hl, wd002
-	ld de, s6_a000
-	call Function119192
-	ret c
-	ld a, [wcd89]
-	and $1
-	jr z, .asm_11913e
-	ld a, BANK(w6_d000)
-	ldh [rSVBK], a
-	ld a, [w6_d000]
-	ld c, a
-	ld a, [w6_d000 + 1]
-	ld b, a
-	ld hl, w6_d000 + 2
-	call Function119192
-	ret c
-
-.asm_11913e
-	ld a, BANK("Battle Tower RAM")
-	ldh [rSVBK], a
-	call CloseSRAM
-	ld hl, Text_ReceivedNews
-	call BattleTowerRoomMenu_SetMessage
-	jmp BattleTowerRoomMenu_IncrementJumptable
 
 Function11914e:
 	call BattleTowerRoomMenu2

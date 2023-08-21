@@ -362,7 +362,7 @@ SRAM $04
 SRAM $05
 	"SRAM Mobile 2"
 SRAM $06
-	"SRAM Mobile 3"
+
 SRAM $07
 
 HRAM
