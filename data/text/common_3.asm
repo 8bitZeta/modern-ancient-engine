@@ -1350,6 +1350,11 @@ _BallBoxFullText::
 	cont "can't be used now."
 	prompt
 
+_MonIsHiddenText::
+	text "The #MON can't"
+	line "be seen!"
+	prompt
+
 _ItemUsedText::
 	text "<PLAYER> used the@"
 	text_low

@@ -214,6 +214,10 @@ PokeBallEffect:
 	dec a
 	jmp nz, UseBallInTrainerBattle
 
+	ld a, [wEnemySubStatus3]
+	and SEMI_INVULNERABLE
+	jmp nz, Ball_MonIsHiddenMessage
+
 	ld a, [wBattleType]
 	cp BATTLETYPE_TUTORIAL
 	jr z, .room_in_party
@@ -2605,9 +2609,13 @@ LooksBitterMessage:
 
 Ball_BoxIsFullMessage:
 	ld hl, BallBoxFullText
-	call PrintText
+	jr ItemWasNotUsed
 
-	; Item wasn't used.
+Ball_MonIsHiddenMessage:
+	ld hl, Ball_MonIsHiddenText
+
+ItemWasNotUsed:
+	call PrintText
 	ld a, $2
 	ld [wItemEffectSucceeded], a
 	ret
@@ -2667,6 +2675,10 @@ ItemCantGetOnText:
 
 BallBoxFullText:
 	text_far _BallBoxFullText
+	text_end
+
+Ball_MonIsHiddenText:
+	text_far _MonIsHiddenText
 	text_end
 
 ItemUsedText:
