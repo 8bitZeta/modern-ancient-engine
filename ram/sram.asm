@@ -400,12 +400,3 @@ s6_a003:: db
 s6_a004:: db
 s6_a005:: db
 s6_a006:: ds $1000
-
-SECTION "SRAM Mobile 4", SRAM
-
-s7_a000:: db
-s7_a001:: db
-
-	ds $7fe
-
-s7_a800:: db

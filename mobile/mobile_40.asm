@@ -2343,26 +2343,6 @@ Unknown_10102c:
 	macro_100fc0 wOTPartyMons,         PARTYMON_STRUCT_LENGTH * PARTY_LENGTH
 	db -1 ; end
 
-Function101050:
-	call Function10107d
-	ld a, [wOTPartyCount]
-rept 2 ; ???
-	ld hl, wc608
-endr
-	ld bc, wc7bb - wc608
-	call Function1010de
-	ld hl, wc7bb
-	ld a, e
-	ld [hli], a
-	ld [hl], d
-	ld a, BANK(s7_a001)
-	call OpenSRAM
-	ld hl, wc608
-	ld de, s7_a001
-	ld bc, wc7bd - wc608
-	call CopyBytes
-	jmp CloseSRAM
-
 Function10107d:
 	xor a
 	ld hl, wc608
@@ -3719,7 +3699,6 @@ CopyOtherPlayersBattleMonSelection:
 	call CopyBytes
 	ld de, wcc64
 	farcall Function100772
-	farcall Function101050
 	farjp LoadSelectedPartiesForColosseum
 
 Function101a97:
