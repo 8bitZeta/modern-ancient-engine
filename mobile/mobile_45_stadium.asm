@@ -85,7 +85,6 @@ Jumptable_117728:
 	dw Function117764
 	dw Function1178aa
 	dw Function1178e8
-	dw Function117942
 	dw Function117976
 	dw Function117984
 	dw Function1179a7
@@ -378,27 +377,6 @@ Function1178e8:
 	call ExitMenu
 	jmp MobilePassword_IncrementJumptable
 
-Function117942:
-	call SpeechTextbox
-	hlcoord 1, 14
-	ld de, SavedPasswordString
-	call PlaceString
-	ld a, $1e
-	ld [wcd4e], a
-	ld a, BANK(sMobileLoginPassword)
-	call OpenSRAM
-	ld a, [wcd4f]
-	ld [sMobileLoginPassword], a
-	ld hl, wc708
-	ld de, sMobileLoginPassword + 1
-	ld bc, MOBILE_LOGIN_PASSWORD_LENGTH
-	call CopyBytes
-	call CloseSRAM
-	ld a, [wcd4f]
-	and a
-	jr z, asm_11797e
-	call MobilePassword_IncrementJumptable
-
 Function117976:
 	ld hl, wcd4e
 	dec [hl]
@@ -608,7 +586,6 @@ Function117bb6:
 .asm_117bd0
 	ld a, $2
 	ld [wc303], a
-	farcall DisplayMobileError
 	ld a, $80
 	ld [wJumptableIndex], a
 	ret

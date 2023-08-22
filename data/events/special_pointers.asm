@@ -118,18 +118,7 @@ SpecialsPointers::
 	add_special Function11ac3e
 	add_special TradeCornerHoldMon
 	add_special Function11b5e8
-	add_special Function11b7e5
-	add_special Function11b879
-	add_special Function11b920
-	add_special Function11b93b
-	add_special BattleTowerRoomMenu
-	add_special Function1700ba
-	add_special Function170114
-	add_special BattleTowerBattle
-	add_special Function1704e1
-	add_special LoadOpponentTrainerAndPokemonWithOTSprite
 	add_special Function11ba38
-	add_special CheckForBattleTowerRules
 	add_special GiveOddEgg
 	add_special Reset ; bank 0
 	add_special Function1011f1
@@ -138,11 +127,9 @@ SpecialsPointers::
 	add_special Function101231
 	add_special MoveTutor
 	add_special OmanyteChamber
-	add_special BattleTowerAction
 	add_special DisplayUnownWords
 	add_special Menu_ChallengeExplanationCancel
 	add_special Function17d2b6
-	add_special Function17d2ce
 	add_special BattleTowerMobileError
 	add_special AskMobileOrCable
 	add_special HoOhChamber

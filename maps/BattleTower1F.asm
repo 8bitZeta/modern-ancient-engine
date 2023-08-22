@@ -14,10 +14,10 @@ BattleTower1F_MapScripts:
 
 BattleTower1FCheckStateScene:
 	setval BATTLETOWERACTION_CHECKSAVEFILEISYOURS
-	special BattleTowerAction
+	; special BattleTowerAction
 	iffalse .SkipEverything
 	setval BATTLETOWERACTION_GET_CHALLENGE_STATE ; readmem sBattleTowerChallengeState
-	special BattleTowerAction
+	; special BattleTowerAction
 	ifequal $0, .SkipEverything
 	ifequal $2, .LeftWithoutSaving
 	ifequal $3, .SkipEverything
@@ -32,9 +32,9 @@ BattleTower1FCheckStateScene:
 .LeftWithoutSaving
 	sdefer BattleTower_LeftWithoutSaving
 	setval BATTLETOWERACTION_CHALLENGECANCELED
-	special BattleTowerAction
+	; special BattleTowerAction
 	setval BATTLETOWERACTION_06
-	special BattleTowerAction
+	; special BattleTowerAction
 .SkipEverything:
 	setscene SCENE_BATTLETOWER1F_NOOP
 	; fallthrough
@@ -54,13 +54,13 @@ BattleTower1FRulesSign:
 
 BattleTower1FReceptionistScript:
 	setval BATTLETOWERACTION_GET_CHALLENGE_STATE ; readmem sBattleTowerChallengeState
-	special BattleTowerAction
+	; special BattleTowerAction
 	ifequal $3, Script_BeatenAllTrainers2 ; maps/BattleTowerBattleRoom.asm
 	opentext
 	writetext Text_BattleTowerWelcomesYou
 	promptbutton
 	setval BATTLETOWERACTION_CHECK_EXPLANATION_READ ; if new save file: bit 1, [sBattleTowerSaveFileFlags]
-	special BattleTowerAction
+	; special BattleTowerAction
 	ifnotequal $0, Script_Menu_ChallengeExplanationCancel
 	sjump Script_BattleTowerIntroductionYesNo
 
@@ -74,8 +74,8 @@ Script_Menu_ChallengeExplanationCancel:
 
 Script_ChooseChallenge:
 	setval BATTLETOWERACTION_RESETDATA ; ResetBattleTowerTrainerSRAM
-	special BattleTowerAction
-	special CheckForBattleTowerRules
+	; special BattleTowerAction
+	; special CheckForBattleTowerRules
 	ifnotequal FALSE, Script_WaitButton
 	writetext Text_SaveBeforeEnteringBattleRoom
 	yesorno
@@ -85,23 +85,23 @@ Script_ChooseChallenge:
 	iffalse Script_Menu_ChallengeExplanationCancel
 	setscene SCENE_BATTLETOWER1F_NOOP
 	setval BATTLETOWERACTION_SET_EXPLANATION_READ ; set 1, [sBattleTowerSaveFileFlags]
-	special BattleTowerAction
-	special BattleTowerRoomMenu
+	; special BattleTowerAction
+	; special BattleTowerRoomMenu
 	ifequal $a, Script_Menu_ChallengeExplanationCancel
 	ifnotequal $0, Script_MobileError
 	setval BATTLETOWERACTION_11
-	special BattleTowerAction
+	; special BattleTowerAction
 	writetext Text_RightThisWayToYourBattleRoom
 	waitbutton
 	closetext
 	setval BATTLETOWERACTION_CHOOSEREWARD
-	special BattleTowerAction
+	; special BattleTowerAction
 	sjump Script_WalkToBattleTowerElevator
 
 Script_ResumeBattleTowerChallenge:
 	closetext
 	setval BATTLETOWERACTION_LOADLEVELGROUP ; load choice of level group
-	special BattleTowerAction
+	; special BattleTowerAction
 Script_WalkToBattleTowerElevator:
 	musicfadeout MUSIC_NONE, 8
 	setmapscene BATTLE_TOWER_BATTLE_ROOM, SCENE_BATTLETOWERBATTLEROOM_ENTER
@@ -110,7 +110,7 @@ Script_WalkToBattleTowerElevator:
 	follow BATTLETOWER1F_RECEPTIONIST, PLAYER
 	applymovement BATTLETOWER1F_RECEPTIONIST, MovementData_BattleTower1FWalkToElevator
 	setval BATTLETOWERACTION_0A
-	special BattleTowerAction
+	; special BattleTowerAction
 	warpsound
 	disappear BATTLETOWER1F_RECEPTIONIST
 	stopfollow
@@ -120,15 +120,15 @@ Script_WalkToBattleTowerElevator:
 
 Script_GivePlayerHisPrize:
 	setval BATTLETOWERACTION_1C
-	special BattleTowerAction
+	; special BattleTowerAction
 	setval BATTLETOWERACTION_GIVEREWARD
-	special BattleTowerAction
+	; special BattleTowerAction
 	ifequal POTION, Script_YourPackIsStuffedFull
 	getitemname STRING_BUFFER_4, USE_SCRIPT_VAR
 	giveitem ITEM_FROM_MEM, 5
 	writetext Text_PlayerGotFive
 	setval BATTLETOWERACTION_1D
-	special BattleTowerAction
+	; special BattleTowerAction
 	closetext
 	end
 
@@ -146,7 +146,7 @@ Script_BattleTowerExplanation:
 	writetext Text_BattleTowerIntroduction_2
 Script_BattleTowerSkipExplanation:
 	setval BATTLETOWERACTION_SET_EXPLANATION_READ
-	special BattleTowerAction
+	; special BattleTowerAction
 	sjump Script_Menu_ChallengeExplanationCancel
 
 Script_BattleTowerHopeToServeYouAgain:

@@ -297,8 +297,6 @@ Function10020b:
 	ld a, $01
 	ldh [rSVBK], a
 
-	farcall DisplayMobileError
-
 	pop af
 	ldh [rSVBK], a
 	ret

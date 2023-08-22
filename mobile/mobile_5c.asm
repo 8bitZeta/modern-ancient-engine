@@ -34,61 +34,6 @@ Function170000:
 	ld bc, TRADE_CORNER_REQUEST_LENGTH
 	jmp CopyBytes
 
-Function17005a:
-	ld a, BANK(sOfferMon)
-	call OpenSRAM
-	ld a, [sOfferSpecies]
-	ld [wOTTrademonSpecies], a
-	ld hl, sOfferMonSender
-	ld de, wOTTrademonSenderName
-	ld bc, NAME_LENGTH_JAPANESE - 1
-	call CopyBytes
-	ld a, "@"
-	ld [de], a
-	ld hl, sOfferMonOT
-	ld de, wOTTrademonOTName
-	ld bc, NAME_LENGTH_JAPANESE - 1
-	call CopyBytes
-	ld a, "@"
-	ld [de], a
-	ld hl, sOfferMonDVs
-	ld a, [hli]
-	ld [wOTTrademonDVs], a
-	ld a, [hl]
-	ld [wOTTrademonDVs + 1], a
-	ld hl, sOfferMonID
-	ld a, [hli]
-	ld [wOTTrademonID], a
-	ld a, [hl]
-	ld [wOTTrademonID + 1], a
-	ld bc, sOfferMon
-	farcall GetCaughtGender
-	ld a, c
-	ld [wOTTrademonCaughtData], a
-	ld a, [wcd81]
-	ld [wc74e], a
-	jmp CloseSRAM
-
-INCLUDE "engine/events/battle_tower/battle_tower.asm"
-
-Function170be4:
-	ld a, BANK(s5_a894)
-	call OpenSRAM
-	xor a
-	ld hl, s5_a894
-	ld bc, 6 + 2
-	call ByteFill
-	jmp CloseSRAM
-
-Clears5_a89a:
-	ld a, BANK(s5_a89a)
-	call OpenSRAM
-	ld hl, s5_a89a
-	xor a
-	ld [hli], a
-	ld [hl], a
-	jmp CloseSRAM
-
 Function170c8b:
 	ld hl, wLastEnemyCounterMove
 	ld b, $5
@@ -202,7 +147,6 @@ Function1719c8:
 	ret
 
 Function1719d6:
-	farcall BattleTowerRoomMenu_InitRAM
 	call Function1719ed
 	ldh a, [rSVBK]
 	push af
@@ -448,7 +392,7 @@ Function171bbd:
 	ld [wcd23], a
 	xor a
 	ld [wcd24], a
-	jmp Function171c66
+	jr Function171c66
 
 Function171bcc:
 	ld hl, hJoyPressed
@@ -457,7 +401,6 @@ Function171bcc:
 	jr nz, Function171bdc
 	ld a, [hl]
 	and A_BUTTON
-	jr nz, Function171beb
 	ret
 
 Function171bdc:
@@ -468,32 +411,6 @@ Function171bdc:
 	ld hl, wcd49
 	dec [hl]
 	ret
-
-Function171beb:
-	ld a, BANK(s5_aa4a)
-	call OpenSRAM
-	ld a, [wcd4a]
-	ld [s5_aa4a], a
-	call CloseSRAM
-	ld hl, MenuHeader_171c6b
-	call LoadMenuHeader
-	call MenuBox
-	call MenuBoxCoord2Tile
-	farcall ReloadMapPart
-	hlcoord 1, 14
-	ld de, String_171c73
-	call PlaceString
-	ld a, [wcd4a]
-	cp $2
-	ld a, $8
-	jr nz, .asm_171c21
-.asm_171c1f
-	ld a, $c
-.asm_171c21
-	ld [wcd24], a
-	ld a, $1e
-	ld [wcd4c], a
-	call Function171c66
 
 Function171c2c:
 	ld hl, wcd4c
@@ -516,7 +433,6 @@ Function171c41:
 	farcall Function106464
 	ld a, $2
 	ld [wc303], a
-	farcall DisplayMobileError
 asm_171c60:
 	ld a, $80
 	ld [wcd49], a
