@@ -11,8 +11,7 @@ tools := \
 	png_dimensions \
 	pokemon_animation \
 	pokemon_animation_graphics \
-	scan_includes \
-	stadium
+	scan_includes
 
 all: $(tools)
 	@:
