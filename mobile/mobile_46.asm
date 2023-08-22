@@ -335,7 +335,6 @@ Function11837a:
 	jr nz, .asm_118393
 	pop af
 	ldh [rSVBK], a
-	jr BattleTowerRoomMenu_Cleanup
 
 BattleTowerRoomMenu_Cleanup:
 	di
@@ -3447,7 +3446,6 @@ Function119f98:
 	call Function11a63c
 	xor a
 	ld [wScriptVar], a
-	ld a, [wScriptVar]
 	and a
 	jr z, .asm_119fd4
 	call ExitMenu
@@ -6182,7 +6180,6 @@ Function11b6b4:
 	inc de
 	ld a, [de]
 	ld [hl], a
-	jr AddMobileMonToParty
 
 AddMobileMonToParty:
 	ld hl, wPartyCount

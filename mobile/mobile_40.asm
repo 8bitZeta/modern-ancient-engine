@@ -2073,7 +2073,6 @@ Function100ee6:
 Function100eed:
 	ld hl, Unknown_100feb
 	ld c, 1
-	jr Function100f02
 
 Function100f02:
 	ld a, c
@@ -2973,7 +2972,6 @@ Function1015be:
 	ret
 
 Function1015df:
-	ld de, wc608
 	ld de, wc608
 	ld a, $05
 	ld hl, w5_d800

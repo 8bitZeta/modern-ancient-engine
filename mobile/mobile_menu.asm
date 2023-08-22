@@ -178,8 +178,6 @@ Function4a0c2:
 	call ClearBGPalettes
 	pop af
 	and a
-	jr nz, .skip_save
-.skip_save
 	ld c, 5
 	call DelayFrames
 	jr asm_4a111
