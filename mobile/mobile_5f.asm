@@ -1,94 +1,3 @@
-Function17c000:
-	call DisableLCD
-
-	ld hl, vTiles2
-	ld bc, $31 tiles
-	xor a
-	call ByteFill
-
-	call LoadStandardFont
-	call LoadFontsExtra
-
-	ld hl, HaveWantMap
-	decoord 0, 0
-	bccoord 0, 0, wAttrmap
-
-	ld a, SCREEN_HEIGHT
-.y
-	push af
-	ld a, SCREEN_WIDTH
-
-	push hl
-.x
-	push af
-	ld a, [hli]
-	ld [de], a
-	inc de
-	ld a, [hli]
-	ld [bc], a
-	inc bc
-	pop af
-	dec a
-	jr nz, .x
-	pop hl
-
-	push bc
-	ld bc, BG_MAP_WIDTH * 2
-	add hl, bc
-	pop bc
-
-	pop af
-	dec a
-	jr nz, .y
-
-	ldh a, [rSVBK]
-	push af
-
-	ld a, BANK(wBGPals1)
-	ldh [rSVBK], a
-
-	ld hl, HaveWantPals
-	ld de, wBGPals1
-	ld bc, 16 palettes
-	call CopyBytes
-
-	pop af
-	ldh [rSVBK], a
-
-	ld hl, MobileSelectGFX
-	ld de, vTiles0 tile $30
-	ld bc, $20 tiles
-	call CopyBytes
-
-	ld a, 1
-	ldh [rVBK], a
-
-	ld hl, HaveWantGFX
-	ld de, vTiles2
-	ld bc, $80 tiles
-	call CopyBytes
-
-	ld hl, HaveWantGFX + $80 tiles
-	ld de, vTiles1
-	ld bc, $10 tiles
-	call CopyBytes
-
-	xor a
-	ldh [rVBK], a
-
-	call EnableLCD
-	farjp ReloadMapPart
-
-HaveWantGFX:
-INCBIN "gfx/mobile/havewant.2bpp"
-
-MobileSelectGFX:
-INCBIN "gfx/mobile/select.2bpp"
-
-HaveWantMap:
-; Interleaved tile/palette map.
-INCBIN "gfx/mobile/havewant_map.bin"
-
 HaveWantPals:
 ; BG and OBJ palettes.
 	RGB  0,  0,  0
@@ -451,48 +360,6 @@ Function17d2c0:
 	ld [wcf66], a
 	ret
 
-Function17d3f6:
-	call ClearBGPalettes
-	call ClearSprites
-	call ClearScreen
-	farcall ReloadMapPart
-
-Function17d405:
-	call DisableLCD
-	ld hl, vTiles0 tile $ee
-	ld de, wc608
-	ld bc, 1 tiles
-	call CopyBytes
-	ld a, $1
-	ldh [rVBK], a
-	ld hl, PokemonNewsGFX
-	ld de, vTiles1
-	ld bc, $48 tiles
-	call CopyBytes
-	xor a
-	ld hl, vTiles2 tile $7f
-	ld bc, 1 tiles
-	call ByteFill
-	ld hl, wc608
-	ld de, vTiles0 tile $ee
-	ld bc, 1 tiles
-	call CopyBytes
-	xor a
-	ldh [rVBK], a
-	call EnableLCD
-	ldh a, [rSVBK]
-	push af
-	ld a, $5
-	ldh [rSVBK], a
-	ld hl, PokemonNewsPalettes
-	ld de, wBGPals1
-	ld bc, 8 palettes
-	call CopyBytes
-	call SetPalettes
-	pop af
-	ldh [rSVBK], a
-	ret
-
 Function17d45a:
 .asm_17d45a
 	call JoyTextDelay
@@ -512,193 +379,10 @@ Function17d474:
 	jumptable Jumptable_17d483, wcd77
 
 Jumptable_17d483:
-	dw Function17d48d
 	dw Function17d5be
 	dw Function17d5c4
 	dw Function17d6fd
 	dw Function17e427
-
-Function17d48d:
-	ld hl, PokemonNewsPalettes
-	ld de, wc608
-	ld bc, $40
-	call CopyBytes
-	ld hl, PokemonNewsTileAttrmap
-	decoord 0, 0
-	bccoord 0, 0, wAttrmap
-	ld a, $12
-.asm_17d4a4
-	push af
-	ld a, $14
-	push hl
-.asm_17d4a8
-	push af
-	ld a, [hli]
-	cp $7f
-	jr z, .asm_17d4b0
-	add $80
-
-.asm_17d4b0
-	ld [de], a
-	inc de
-	ld a, [hli]
-	ld [bc], a
-	inc bc
-	pop af
-	dec a
-	jr nz, .asm_17d4a8
-	pop hl
-	push bc
-	ld bc, $40
-	add hl, bc
-	pop bc
-	pop af
-	dec a
-	jr nz, .asm_17d4a4
-	ld a, [wBGMapBuffer]
-	ld l, a
-	ld a, [wcd21]
-	ld h, a
-	ld a, [hli]
-	ld e, a
-	ld a, [wcd6c]
-	cp e
-	jr z, .asm_17d4e0
-	ld a, e
-	ld [wcd6c], a
-	ld [wMapMusic], a
-	ld d, $0
-	call PlayMusic2
-
-.asm_17d4e0
-	ld a, [hli]
-	ld de, wc608
-	ld c, $8
-.asm_17d4e6
-	srl a
-	jr nc, .asm_17d4f6
-	ld b, $8
-	push af
-.asm_17d4ed
-	ld a, [hli]
-	ld [de], a
-	inc de
-	dec b
-	jr nz, .asm_17d4ed
-	pop af
-	jr .asm_17d4fc
-
-.asm_17d4f6
-	push af
-	ld a, e
-	add $8
-	ld e, a
-	pop af
-
-.asm_17d4fc
-	dec c
-	jr nz, .asm_17d4e6
-	push hl
-	call Function17d5f6
-	pop hl
-	ld a, [hli]
-	and a
-	jr z, .asm_17d539
-.asm_17d508
-	push af
-	ld a, [hli]
-	ld [wcd4f], a
-	ld a, [hli]
-	ld [wcd50], a
-	ld a, [hli]
-	ld [wcd51], a
-	ld a, [hli]
-	ld [wcd52], a
-	ld a, [hli]
-	sla a
-	sla a
-	sla a
-	add $98
-	ld [wcd53], a
-	ld de, wcd4f
-	call Function17e613
-	ld a, [hli]
-	ld [wcd53], a
-	ld de, wcd4f
-	call Function17e691
-	pop af
-	dec a
-	jr nz, .asm_17d508
-
-.asm_17d539
-	ld a, [hli]
-.asm_17d53a
-	push af
-	ld a, [hli]
-	ld c, a
-	ld a, [hli]
-	ld b, a
-	push hl
-	pop de
-	hlcoord 0, 0
-	add hl, bc
-	call PlaceString
-	push de
-	pop hl
-	inc hl
-	pop af
-	dec a
-	jr nz, .asm_17d53a
-	ld de, wCreditsTimer
-	ld bc, $c
-	call CopyBytes
-	xor a
-	ld [wcd2e], a
-	ld [wcd2f], a
-	inc a
-	ld [wcd30], a
-	ld [wcd31], a
-	ld de, wcd32
-	ld bc, $10
-	call CopyBytes
-	ld a, [hli]
-	ld [wcd42], a
-	ld a, [hli]
-	ld [wcd43], a
-	ld a, [hli]
-	ld [wMobileInactivityTimerMinutes], a
-	ld a, [hli]
-	ld [wMobileInactivityTimerSeconds], a
-	ld a, [hli]
-	ld [wMobileInactivityTimerFrames], a
-	ld a, [hli]
-	and a
-; .asm_17d58a
-	call nz, Function17d6a1
-	ld a, l
-	ld [wcd49], a
-	ld a, h
-	ld [wcd4a], a
-	ld a, [wcd42]
-	ld c, a
-	ld b, 0
-	add hl, bc
-	add hl, bc
-	ld a, l
-	ld [wcd4b], a
-	ld a, h
-	ld [wcd4c], a
-	add hl, bc
-	add hl, bc
-	ld a, l
-	ld [wcd4d], a
-	ld a, h
-	ld [wcd4e], a
-	call Function17e451
-	call Function17e55b
-	call Function17e5af
-	farcall ReloadMapPart
-	jmp Function17e438
 
 Function17d5be:
 	call SetPalettes
@@ -959,7 +643,6 @@ Jumptable17d72a:
 	dw Function17e270
 	dw Function17e27f
 	dw Function17e293
-	dw Function17e2a7
 	dw IncCrashCheckPointer_SaveGameData
 	dw IncCrashCheckPointer_SaveAfterLinkTrade
 	dw IncCrashCheckPointer_SaveBox
@@ -2598,51 +2281,6 @@ Function17e293:
 	ld [de], a
 	ret
 
-Function17e2a7:
-	call IncCrashCheckPointer
-	call HlToCrashCheckPointer
-	call Function17e32b
-	xor a
-	ld [wcf66], a
-	farcall Function118233
-	ld de, PostalMarkGFX
-	ld hl, vTiles2 tile $60
-	lb bc, BANK(PostalMarkGFX), 1
-	call Get2bpp
-	ld a, [wMobileErrorCodeBuffer]
-	and a
-	jr z, .asm_17e2d8
-	cp $a
-	jr z, .asm_17e2f7
-	cp $b
-	jr z, .asm_17e300
-	jr Function17e309
-
-.asm_17e2d8
-	call Function17d60b
-	call Function17e349
-	xor a
-	ld [wcd7a], a
-	ld a, $5
-	call OpenSRAM
-	ld hl, $aa73
-	ld de, $aa7f
-	ld bc, $c
-	call CopyBytes
-	jmp CloseSRAM
-
-.asm_17e2f7
-	call Function17e349
-	ld a, $1
-	ld [wcd7a], a
-	ret
-
-.asm_17e300
-	call Function17e349
-	ld a, $2
-	ld [wcd7a], a
-	ret
-
 Function17e309:
 	ld a, $2
 	ld [wc303], a
@@ -3249,18 +2887,6 @@ Function17e6de:
 	dec b
 	jr nz, .asm_17e6ee
 	ret
-
-PokemonNewsGFX:
-INCBIN "gfx/mobile/pokemon_news.2bpp"
-
-PostalMarkGFX:
-INCBIN "gfx/font/postal_mark.2bpp"
-
-PokemonNewsTileAttrmap:
-INCBIN "gfx/mobile/pokemon_news.bin"
-
-PokemonNewsPalettes:
-INCLUDE "gfx/mobile/pokemon_news.pal"
 
 RunMobileScript::
 	ld a, $6

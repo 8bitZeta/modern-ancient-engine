@@ -1,21 +1,3 @@
-Function115d99:
-	ld de, MobileDialingGFX
-	ld hl, vTiles0 tile $60
-	lb bc, BANK(MobileDialingGFX), 20
-	call Get2bpp
-	xor a
-	ld [wc305], a
-	ld [wc306], a
-	ld [wc309], a
-	ld [wc30a], a
-	ld [wc30b], a
-	ld [wc30c], a
-	ld a, $10
-	ld [wc307], a
-	ld a, $18
-	ld [wc308], a
-	ret
-
 Function115dc3:
 	xor a
 	ld [wc305], a
@@ -306,9 +288,6 @@ Unknown_116005:
 	dbsprite   0,   2, 0, 0, $62, $01
 	dbsprite   1,   2, 0, 0, $63, $01
 
-MobileDialingGFX::
-INCBIN "gfx/mobile/dialing.2bpp"
-
 Function11615a:
 	xor a
 	ld [wc30d], a
@@ -354,165 +333,10 @@ Function1161b8:
 	jumptable .Jumptable, wc319
 
 .Jumptable:
-	dw Function1161d5
-	dw Function116294
-	dw Function1162cb
 	dw Function1162f2
 	dw Function1163c0
 	dw Function11636e
 	dw Function116441
-
-Function1161d5:
-	ldh a, [rSVBK]
-	push af
-
-	ld a, $6
-	ldh [rSVBK], a
-
-	ld hl, PichuBorderMobileTilemapAttrmap
-	ld de, wDecompressScratch
-	ld bc, 32 * 12 * 2
-	call CopyBytes
-
-	di
-
-.wait_for_vblank
-; Wait until a vblank would occur had interrupts not just been disabled.
-	ldh a, [rLY]
-	cp LY_VBLANK + 1
-	jr nz, .wait_for_vblank
-
-	ld a, $d0
-	ldh [rHDMA1], a
-	xor a
-	ldh [rHDMA2], a
-	ld a, $1c
-	ldh [rHDMA3], a
-	xor a
-	ldh [rHDMA4], a
-	ld a, $8
-	ldh [rHDMA5], a
-
-	ld a, $d0
-	ldh [rHDMA1], a
-	ld a, $80
-	ldh [rHDMA2], a
-	ld a, $1c
-	ldh [rHDMA3], a
-	ld a, $80
-	ldh [rHDMA4], a
-	ld a, $8
-	ldh [rHDMA5], a
-
-	ld a, $d1
-	ldh [rHDMA1], a
-	xor a
-	ldh [rHDMA2], a
-	ld a, $1d
-	ldh [rHDMA3], a
-	xor a
-	ldh [rHDMA4], a
-	ld a, $8
-	ldh [rHDMA5], a
-
-	ld a, $1
-	ldh [rVBK], a
-
-	ld a, $d1
-	ldh [rHDMA1], a
-	ld a, $80
-	ldh [rHDMA2], a
-	ld a, $1c
-	ldh [rHDMA3], a
-	xor a
-	ldh [rHDMA4], a
-	ld a, $8
-	ldh [rHDMA5], a
-
-	ld a, $d2
-	ldh [rHDMA1], a
-	xor a
-	ldh [rHDMA2], a
-	ld a, $1c
-	ldh [rHDMA3], a
-	ld a, $80
-	ldh [rHDMA4], a
-	ld a, $8
-	ldh [rHDMA5], a
-
-	ld a, $d2
-	ldh [rHDMA1], a
-	ld a, $80
-	ldh [rHDMA2], a
-	ld a, $1d
-	ldh [rHDMA3], a
-	xor a
-	ldh [rHDMA4], a
-	ld a, $8
-	ldh [rHDMA5], a
-
-	xor a
-	ldh [rVBK], a
-
-	ei
-
-	pop af
-	ldh [rSVBK], a
-
-	farcall ReloadMapPart
-	ld a, $8
-	ld [wMusicFade], a
-	ld de, MUSIC_MOBILE_ADAPTER
-	ld a, e
-	ld [wMusicFadeID], a
-	ld a, d
-	ld [wMusicFadeID + 1], a
-	ld a, [wc319]
-	inc a
-	ld [wc319], a
-	ret
-
-Function116294:
-	farcall Function170d02
-	ld a, [wc319]
-	inc a
-	ld [wc319], a
-	ldh a, [rSVBK]
-	push af
-	ld a, $5
-	ldh [rSVBK], a
-	ld hl, wBGPals1 palette 6
-	ld de, wc320
-	ld bc, 2 palettes
-	call CopyBytes
-	ld hl, PichuBorderMobileBGPalettes
-	ld de, wBGPals1 palette 7
-	ld bc, 1 palettes
-	call CopyBytes
-	call SetPalettes
-	pop af
-	ldh [rSVBK], a
-	ld a, $30
-	ldh [hWY], a
-	ret
-
-Function1162cb:
-	farcall Function170cc6
-	ld a, [wc319]
-	inc a
-	ld [wc319], a
-	ldh a, [rSVBK]
-	push af
-	ld a, $5
-	ldh [rSVBK], a
-	ld hl, PichuBorderMobileOBPalettes
-	ld de, wOBPals1 + 2 palettes
-	ld bc, 6 palettes
-	call CopyBytes
-	call SetPalettes
-	pop af
-	ldh [rSVBK], a
-	ret
 
 Function1162f2:
 	call Function11659d
@@ -698,7 +522,6 @@ Function1163c0:
 	ret
 
 Function116441:
-	farcall Function17d405
 	ld a, $90
 	ldh [hWY], a
 	farcall ReloadMapPart

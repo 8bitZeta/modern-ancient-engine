@@ -37,7 +37,6 @@ Function100022:
 	ld a, b
 	ld [wcd24], a
 	farcall Function10127e
-	farcall Function106464 ; load broken gfx
 	farcall Function11615a ; init RAM
 	ld hl, wVramState
 	set 1, [hl]
@@ -288,7 +287,6 @@ Function10020b:
 	xor a
 	ld [wc303], a
 	farcall FadeOutPalettes
-	farcall Function106464
 	call HideSprites
 	call DelayFrame
 
@@ -303,7 +301,6 @@ Function10020b:
 
 Function100232:
 	push de
-	farcall Function106464
 	call Function3f20
 	call UpdateSprites
 	hlcoord 1, 2
@@ -395,7 +392,6 @@ Function100301:
 	ld hl, wcd2a
 	bit 1, [hl]
 	ret z
-	farcall Function106464
 	farcall Function10202c
 	farcall Function115dd3
 	call Function100320
@@ -2685,13 +2681,11 @@ Function1013aa:
 	call ClearBGPalettes
 	call ExitMenu
 	call ReloadTilesetAndPalettes
-	farcall Function106464
 	call UpdateSprites
 	jmp FinishExitMenu
 
 Function1013c0:
 	farcall BlankScreen
-	farcall Function106464
 	jmp FinishExitMenu
 
 Function1013d6:
@@ -3589,7 +3583,6 @@ CopyOtherPlayersBattleMonSelection:
 	farjp LoadSelectedPartiesForColosseum
 
 Function101a97:
-	farcall Function115d99
 	ld hl, wcd29
 	set 7, [hl]
 	ld c, $02
@@ -3612,7 +3605,6 @@ Function101ab4:
 	ret
 
 Function101ac6:
-	farcall Function115d99
 	ld hl, wcd29
 	set 7, [hl]
 	ld c, $02
@@ -3629,7 +3621,6 @@ Function101ac6:
 	ret
 
 Function101aed:
-	farcall Function115d99
 	ld hl, wcd29
 	set 7, [hl]
 	ld c, $02
@@ -3815,7 +3806,6 @@ Function101c50:
 	ret
 
 Function101c62:
-	farcall Function115d99
 	ld hl, wcd29
 	set 7, [hl]
 	ld c, $01
@@ -4154,7 +4144,6 @@ Function101ecc:
 
 Function101ed3:
 	call Function1013aa
-	farcall Function115d99
 	ld hl, wcd29
 	set 7, [hl]
 	ret
@@ -4244,7 +4233,6 @@ String_102014:
 	next "せっていを　してください@"
 
 Function10202c:
-	farcall Function115d99
 	ld hl, wcd29
 	set 7, [hl]
 	ld c, $02
@@ -4630,8 +4618,6 @@ Jumptable_1022f5:
 
 Function10234b:
 	call Function102d9a
-	call Function102dd3
-	call Function102dec
 	ld hl, wcd4b
 	set 1, [hl]
 	ld a, [wcd49]
@@ -4671,14 +4657,12 @@ Function102387:
 	ld de, MUSIC_ROUTE_30
 	call PlayMusic
 	call Function102d9a
-	call Function102dd3
 	ld a, $01
 	ld [wMenuCursorY], a
 
 Function1023a1:
 	call Function102283
 	call Function102db7
-	call Function102dec
 	ld hl, wcd4b
 	set 1, [hl]
 	ld a, $1d
@@ -5682,9 +5666,7 @@ Function102b32:
 	ld a, $01
 	ld [wForceEvolution], a
 	farcall EvolvePokemon
-	call Function102d9a
-	call Function102dd3
-	jmp Function102dec
+	jmp Function102d9a
 
 Function102b4e:
 	ld a, OTPARTYMON
@@ -5749,8 +5731,6 @@ Function102bac:
 	call ClearPalettes
 	call DelayFrame
 	call MaxVolume
-	call Function102dd3
-	call Function102dec
 	jmp Function102db7
 
 Function102bdc:
@@ -6002,25 +5982,6 @@ Function102dc3:
 	ld d, h
 	ld e, l
 	farjp _LinkTextbox
-
-Function102dd3:
-	call DisableLCD
-	ld de, MobileTradeLightsGFX
-	ld hl, vTiles0
-	lb bc, BANK(MobileTradeLightsGFX), 4
-	call Get2bpp
-	farcall __LoadTradeScreenBorderGFX
-	jmp EnableLCD
-
-Function102dec:
-	ld hl, MobileTradeLightsPalettes
-	ld de, wOBPals1
-	ld bc, 4 palettes
-	ld a, $05
-	call FarCopyWRAM
-	farcall Function49742
-	call SetPalettes
-	jmp DelayFrame
 
 Function102e07:
 	hlcoord 3, 10
@@ -6434,12 +6395,6 @@ Unknown_10327a:
 	db $00, $00, $02, $02
 	db $00, $00, $03, $02
 	db $00, $00, $01, $03
-
-MobileTradeLightsGFX:
-INCBIN "gfx/mobile/mobile_trade_lights.2bpp"
-
-MobileTradeLightsPalettes:
-INCLUDE "gfx/mobile/mobile_trade_lights.pal"
 
 Function10339a:
 	ld a, [wd1f0]

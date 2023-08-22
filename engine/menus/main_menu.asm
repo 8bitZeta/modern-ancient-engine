@@ -20,9 +20,6 @@
 	const MAINMENUITEM_MOBILE_STUDIUM ; 5
 	const MAINMENUITEM_DEBUG_ROOM     ; 6
 
-MobileMenuGFX:
-INCBIN "gfx/mobile/mobile_menu.2bpp"
-
 MainMenu:
 .loop
 	xor a

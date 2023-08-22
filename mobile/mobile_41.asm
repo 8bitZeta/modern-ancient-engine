@@ -442,25 +442,6 @@ Function106453:
 	ld [wcf64], a
 	ret
 
-Function106464::
-	ld de, FontsExtra_SolidBlackGFX
-	ld hl, vTiles2 tile "■" ; $60
-	lb bc, BANK(FontsExtra_SolidBlackGFX), 1
-	call Get2bpp
-	ld de, FontsExtra2_UpArrowGFX
-	ld hl, vTiles2 tile "▲" ; $61
-	lb bc, BANK(FontsExtra2_UpArrowGFX), 1
-	call Get2bpp
-	ld de, MobileDialingFrameGFX
-	ld hl, vTiles2 tile "☎" ; $62
-	lb bc, BANK(MobileDialingFrameGFX), 9
-	call Get2bpp
-	ld de, $40b0
-	ld hl, vTiles2 tile $6b
-	ld b, $0f ; no graphics at 0f:40b0; jmp leftover???
-	call Get2bpp
-	farjp LoadFrame
-
 Function1064c3:
 	ldh a, [rSVBK]
 	push af
@@ -493,6 +474,3 @@ Function1064c3:
 	pop af
 	ldh [rSVBK], a
 	ret
-
-MobileDialingFrameGFX:
-INCBIN "gfx/mobile/dialing_frame.2bpp"

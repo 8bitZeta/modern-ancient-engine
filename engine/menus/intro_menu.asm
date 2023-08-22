@@ -77,7 +77,7 @@ AreYouABoyOrAreYouAGirl:
 
 .ok
 	ld c, 0
-	farjp InitMobileProfile ; mobile
+	ret
 
 if DEF(_DEBUG)
 DebugRoom: ; unreferenced
@@ -408,7 +408,6 @@ Continue_MobileAdapterMenu:
 	ld c, 20
 	call DelayFrames
 	ld c, $1
-	farcall InitMobileProfile ; mobile
 	ld a, 8
 	ld [wMusicFade], a
 	ld a, LOW(MUSIC_NONE)

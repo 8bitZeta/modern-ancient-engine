@@ -89,53 +89,6 @@ CheckBTMonMovesForErrors:
 	jr nz, .loop
 	ret
 
-Function170cc6:
-	ldh a, [rSVBK]
-	push af
-	ld a, BANK(wDecompressScratch)
-	ldh [rSVBK], a
-	ld hl, PichuAnimatedMobileGFX
-	ld de, wDecompressScratch
-	call Decompress
-	ld a, 1
-	ldh [rVBK], a
-	ld de, wDecompressScratch
-	ld hl, vTiles0
-	lb bc, BANK(wDecompressScratch), 193
-	call Get2bpp
-	xor a
-	ldh [rVBK], a
-	ld hl, ElectroBallMobileGFX
-	ld de, wDecompressScratch
-	call Decompress
-	ld de, wBGPals1
-	ld hl, vTiles0
-	lb bc, BANK(wDecompressScratch), 83
-	call Get2bpp
-	pop af
-	ldh [rSVBK], a
-	ret
-
-Function170d02:
-	ld a, $1
-	ldh [rVBK], a
-	ld de, PichuBorderMobileGFX
-	ld hl, vTiles0 tile $c1
-	lb bc, BANK(PichuBorderMobileGFX), 24
-	call Get2bpp
-	xor a
-	ldh [rVBK], a
-	ret
-
-PichuAnimatedMobileGFX:
-INCBIN "gfx/mobile/pichu_animated.2bpp.lz"
-
-ElectroBallMobileGFX:
-INCBIN "gfx/mobile/electro_ball.2bpp.lz"
-
-PichuBorderMobileGFX:
-INCBIN "gfx/mobile/pichu_border.2bpp"
-
 Function1719c8:
 	ldh a, [hInMenu]
 	push af
@@ -165,7 +118,6 @@ Function1719ed:
 	ld [wcd4b], a
 	call ClearBGPalettes
 	call ClearSprites
-	farcall Function171d2b
 	farcall ReloadMapPart
 	farjp ClearSpriteAnims
 
@@ -230,7 +182,6 @@ Function171a5d:
 	ret
 
 Function171a95:
-	farcall Function171ccd
 	hlcoord 2, 8
 	ld de, String_171aa7
 	call PlaceString
@@ -430,7 +381,6 @@ Function171c41:
 	dec [hl]
 	ret nz
 	call ClearBGPalettes
-	farcall Function106464
 	ld a, $2
 	ld [wc303], a
 asm_171c60:
@@ -453,128 +403,6 @@ String_171c73:
 	db   "モバイルセンターを　けってい"
 	next "しました@"
 
-Function171c87:
-	call DisableLCD
-	ld hl, AsciiFontGFX
-	ld de, vTiles2 tile $00
-	ld bc, $6e tiles
-	call CopyBytes
-	ld hl, PasswordSlowpokeLZ
-	ld de, vTiles0 tile $00
-	call Decompress
-	call EnableLCD
-	ld hl, PasswordTopTilemap
-	decoord 0, 0
-	ld bc, $168
-	call CopyBytes
-	ld hl, MobilePasswordAttrmap
-	decoord 0, 0, wAttrmap
-	ld bc, $168
-	call CopyBytes
-	hlcoord 3, 2
-	ld de, String_172e31
-	call PlaceString
-	hlcoord 3, 16
-	ld de, String_172e3f
-	jmp PlaceString
-
-Function171ccd:
-	ldh a, [rSVBK]
-	push af
-	ld a, $5
-	ldh [rSVBK], a
-	ld hl, MobilePasswordPalettes
-	ld de, wBGPals1
-	ld bc, 8 palettes
-	call CopyBytes
-	ld hl, wOBPals1 palette 0 color 1
-	ld a, LOW(PALRGB_WHITE)
-	ld [hli], a
-	ld [hl], HIGH(PALRGB_WHITE)
-	call SetPalettes
-	pop af
-	ldh [rSVBK], a
-	ret
-
-Function171cf0:
-	xor a
-	hlcoord 4, 15
-	ld [hli], a
-	ld [hli], a
-	ld a, [wcd4b]
-	xor $1
-	ld [wcd4b], a
-	and a
-	jr nz, .shifted
-	ld hl, PasswordBottomTilemap
-	decoord 0, 7
-	ld bc, $8c
-	call CopyBytes
-	hlcoord 3, 16
-	ld de, String_172e3f
-	jmp PlaceString
-
-.shifted
-	ld hl, PasswordShiftTilemap
-	decoord 0, 7
-	ld bc, $8c
-	call CopyBytes
-	hlcoord 3, 16
-	ld de, String_172e4e
-	jmp PlaceString
-
-Function171d2b:
-	call DisableLCD
-	ld hl, AsciiFontGFX
-	ld de, vTiles2 tile $00
-	ld bc, $6e tiles
-	call CopyBytes
-	ld hl, PasswordSlowpokeLZ
-	ld de, vTiles0 tile $00
-	call Decompress
-	call EnableLCD
-	ld hl, ChooseMobileCenterTilemap
-	decoord 0, 0
-	ld bc, $168
-	call CopyBytes
-	ld hl, ChooseMobileCenterAttrmap
-	decoord 0, 0, wAttrmap
-	ld bc, $168
-	call CopyBytes
-	hlcoord 2, 2
-	ld de, String_172e5d
-	call PlaceString
-	hlcoord 14, 16
-	ld de, String_172e58
-	jmp PlaceString
-
-MobilePasswordPalettes:
-INCLUDE "gfx/mobile/mobile_password.pal"
-
-AsciiFontGFX:
-INCBIN "gfx/mobile/ascii_font.2bpp"
-
-PasswordTopTilemap:
-INCBIN "gfx/mobile/password_top.tilemap"
-
-PasswordBottomTilemap:
-INCBIN "gfx/mobile/password_bottom.tilemap"
-
-PasswordShiftTilemap:
-INCBIN "gfx/mobile/password_shift.tilemap"
-
-ChooseMobileCenterTilemap:
-INCBIN "gfx/mobile/mobile_center.tilemap"
-
-MobilePasswordAttrmap:
-INCBIN "gfx/mobile/password.attrmap"
-
-ChooseMobileCenterAttrmap:
-INCBIN "gfx/mobile/mobile_center.attrmap"
-
-PasswordSlowpokeLZ:
-INCBIN "gfx/pokedex/slowpoke.2bpp.lz"
-
 String_172e31:
 	db "パスワード<WO>いれてください@"
 String_172e3f:
@@ -586,30 +414,6 @@ String_172e58:
 String_172e5d:
 	db "せつぞくする　モバイルセンターを"
 	next "えらんで　ください@"
-
-Function172e78:
-	ld a, $7f
-	hlcoord 0, 0
-	ld bc, $168
-	call ByteFill
-	ld a, $7
-	hlcoord 0, 0, wAttrmap
-	ld bc, $168
-	call ByteFill
-	call DisableLCD
-	ld hl, Stadium2N64GFX
-	ld de, vTiles2 tile $00
-	ld bc, $61 tiles
-	call CopyBytes
-	call EnableLCD
-	ld hl, Stadium2N64Tilemap
-	decoord 0, 0
-	ld bc, $168
-	call CopyBytes
-	ld hl, Stadium2N64Attrmap
-	decoord 0, 0, wAttrmap
-	ld bc, $168
-	jmp CopyBytes
 
 Function172eb9:
 	ldh a, [rSVBK]
@@ -662,12 +466,3 @@ Palette_172edf:
 	RGB  0,  0,  0
 	RGB  0,  0,  0
 	RGB  0,  0,  0
-
-Stadium2N64GFX:
-INCBIN "gfx/mobile/stadium2_n64.2bpp"
-
-Stadium2N64Tilemap:
-INCBIN "gfx/mobile/stadium2_n64.tilemap"
-
-Stadium2N64Attrmap:
-INCBIN "gfx/mobile/stadium2_n64.attrmap"

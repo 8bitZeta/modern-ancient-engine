@@ -1,7 +1,6 @@
 Function49f0a:
 	call ClearBGPalettes
-	call Function4a3a7
-	call Function4a492
+	call _CrystalCGB_MobileLayout0
 	call ClearBGPalettes
 Function49f16:
 	call MobileMenu_InitMenuBuffers
@@ -150,7 +149,6 @@ Function4a098:
 	farcall Function89de0
 	call ExitMenu
 	call MG_Mobile_Layout_LoadPals
-	call Function4a485
 	pop bc
 	jmp Function49f16
 
@@ -173,7 +171,6 @@ Function4a0c2:
 	ld c, 2
 	call DelayFrames
 	ld c, $1
-	call InitMobileProfile
 	push af
 	call ClearBGPalettes
 	pop af
@@ -221,8 +218,7 @@ Function4a118:
 	ret
 
 Function4a13b:
-	call Function4a3a7
-	call Function4a492
+	call _CrystalCGB_MobileLayout0
 	call Function4a373
 	ld c, 10
 	call DelayFrames
@@ -394,8 +390,6 @@ Function4a373:
 	ld [hli], a
 	ret
 
-Function4a3a7:
-	call Function4a485
 Function4a3aa:
 	hlcoord 0, 0
 	lb bc, 3, 1
@@ -458,19 +452,10 @@ Function4a3aa:
 	ld a, " "
 	jmp Function4a6d8
 
-Function4a485:
-	ld de, MobileMenuGFX
-	ld hl, vTiles2 tile $00
-	lb bc, BANK(MobileMenuGFX), 13
-	jmp Get2bpp
-
-Function4a492:
-	jmp _CrystalCGB_MobileLayout0
-
 Function4a4c4:
 	call ClearBGPalettes
-	call Function4a3a7
-	call Function4a492
+	call Function4a3aa
+	call _CrystalCGB_MobileLayout0
 	call Function4a680
 	call ClearBGPalettes
 	ld c, 20

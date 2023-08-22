@@ -14,9 +14,7 @@ MobileTradeAnimation_SendGivemonToGTS:
 	jr RunMobileTradeAnim_NoFrontpics
 
 .TradeAnimScript:
-	mobiletradeanim MobileTradeAnim_ShowPlayerMonForGTS
 	mobiletradeanim MobileTradeAnim_FadeToBlack
-	mobiletradeanim MobileTradeAnim_10
 	mobiletradeanim MobileTradeAnim_GiveTrademon1
 	mobiletradeanim MobileTradeAnim_06
 	mobiletradeanim MobileTradeAnim_0f
@@ -34,10 +32,8 @@ asm_108018:
 	jr RunMobileTradeAnim_NoFrontpics
 
 .TradeAnimScript:
-	mobiletradeanim MobileTradeAnim_11
 	mobiletradeanim MobileTradeAnim_07
 	mobiletradeanim MobileTradeAnim_GetTrademon1
-	mobiletradeanim MobileTradeAnim_ShowOTMonFromGTS
 	mobiletradeanim EndMobileTradeAnim
 
 Function108026:
@@ -55,7 +51,6 @@ asm_10802c:
 .TradeAnimScript: ; trade
 	mobiletradeanim MobileTradeAnim_ShowPlayerMonToBeSent
 	mobiletradeanim MobileTradeAnim_FadeToBlack
-	mobiletradeanim MobileTradeAnim_02
 	mobiletradeanim MobileTradeAnim_GiveTrademon1
 	mobiletradeanim MobileTradeAnim_05
 	mobiletradeanim MobileTradeAnim_GetTrademon1
@@ -69,7 +64,6 @@ Function10803d:
 	jr RunMobileTradeAnim_NoFrontpics
 
 .TradeAnimScript:
-	mobiletradeanim MobileTradeAnim_11
 	mobiletradeanim MobileTradeAnim_07
 	mobiletradeanim MobileTradeAnim_GetTrademon1
 	mobiletradeanim MobileTradeAnim_GetOddEgg
@@ -82,8 +76,6 @@ Function10804d:
 	jr RunMobileTradeAnim_NoFrontpics
 
 .TradeAnimScript:
-	mobiletradeanim MobileTradeAnim_11
-	mobiletradeanim MobileTradeAnim_ShowOTMonFromGTS
 	mobiletradeanim EndMobileTradeAnim
 
 RunMobileTradeAnim_Frontpics:
@@ -103,7 +95,6 @@ RunMobileTradeAnim_Frontpics:
 	ld a, [hl]
 	push af
 	set NO_TEXT_SCROLL, [hl]
-	call Function1080b7
 .loop
 	call MobileTradeAnim_JumptableLoop
 	jr nc, .loop
@@ -144,80 +135,6 @@ RunMobileTradeAnim_NoFrontpics:
 	ldh [hMapAnims], a
 	ret
 
-Function1080b7:
-	xor a
-	ld [wJumptableIndex], a
-	call ClearBGPalettes
-	call ClearSprites
-	call ClearTilemap
-	call DisableLCD
-	call MobileTradeAnim_ClearTiles
-	call MobileTradeAnim_ClearBGMap
-	call LoadStandardFont
-	call LoadFontsBattleExtra
-
-	ld a, $1
-	ldh [rVBK], a
-	ld hl, MobileTradeGFX
-	ld de, vTiles2
-	call Decompress
-
-	xor a
-	ldh [rVBK], a
-	ld hl, MobileTradeSpritesGFX
-	ld de, vTiles0 tile $20
-	call Decompress
-
-	call EnableLCD
-
-	xor a
-	ldh [hSCX], a
-	ldh [hSCY], a
-	ld a, $7
-	ldh [hWX], a
-	ld a, $90
-	ldh [hWY], a
-	farcall ClearSpriteAnims
-
-	call DelayFrame
-
-	ld de, TradeBallGFX
-	ld hl, vTiles0
-	lb bc, BANK(TradeBallGFX), 6
-	call Request2bpp
-
-	ld de, TradePoofGFX
-	ld hl, vTiles0 tile $06
-	lb bc, BANK(TradePoofGFX), 12
-	call Request2bpp
-
-	xor a ; SPRITE_ANIM_DICT_DEFAULT
-	ld hl, wSpriteAnimDict
-	ld [hli], a
-	ld [hl], $00
-
-	ld a, [wPlayerTrademonSpecies]
-	ld hl, wPlayerTrademonDVs
-	ld de, vTiles0 tile $30
-	call MobileTradeAnim_GetFrontpic
-
-	ld a, [wOTTrademonSpecies]
-	ld hl, wOTTrademonDVs
-	ld de, vTiles2 tile $31
-	call MobileTradeAnim_GetFrontpic
-
-	ld a, [wPlayerTrademonSpecies]
-	ld de, wPlayerTrademonSpeciesName
-	call MobileTradeAnim_InitSpeciesName
-
-	ld a, [wOTTrademonSpecies]
-	ld de, wOTTrademonSpeciesName
-	call MobileTradeAnim_InitSpeciesName
-
-	xor a
-	call Function108b98
-	jmp Function108af4
-
 Function108157:
 	xor a
 	ld [wJumptableIndex], a
@@ -250,8 +167,7 @@ Function108157:
 	ld de, wOTTrademonSpeciesName
 	call MobileTradeAnim_InitSpeciesName
 	xor a
-	call Function108b98
-	jmp Function108af4
+	jmp Function108b98
 
 MobileTradeAnim_ClearTiles:
 	ld a, $1
@@ -336,7 +252,6 @@ MobileTradeAnim_JumptableLoop:
 	ldh [hWY], a
 	call LoadStandardFont
 	call LoadFontsBattleExtra
-	farcall Function106464
 	scf
 	ret
 
@@ -346,24 +261,19 @@ MobileTradeAnim_JumptableLoop:
 .Jumptable:
 	add_mobiletradeanim GetMobileTradeAnimByte                ; 00
 	add_mobiletradeanim MobileTradeAnim_ShowPlayerMonToBeSent ; 01
-	add_mobiletradeanim MobileTradeAnim_02                    ; 02
-	add_mobiletradeanim MobileTradeAnim_GiveTrademon1         ; 03
-	add_mobiletradeanim MobileTradeAnim_GiveTrademon2         ; 04
-	add_mobiletradeanim MobileTradeAnim_05                    ; 05
-	add_mobiletradeanim MobileTradeAnim_06                    ; 06
-	add_mobiletradeanim MobileTradeAnim_07                    ; 07
-	add_mobiletradeanim MobileTradeAnim_GetTrademon1          ; 08
-	add_mobiletradeanim MobileTradeAnim_GetTrademon2          ; 09
-	add_mobiletradeanim MobileTradeAnim_GetTrademon3          ; 0a
-	add_mobiletradeanim MobileTradeAnim_ShowOTMonFromTrade    ; 0b
-	add_mobiletradeanim EndMobileTradeAnim                    ; 0c
-	add_mobiletradeanim MobileTradeAnim_ShowPlayerMonForGTS   ; 0d
-	add_mobiletradeanim MobileTradeAnim_ShowOTMonFromGTS      ; 0e
-	add_mobiletradeanim MobileTradeAnim_0f                    ; 0f
-	add_mobiletradeanim MobileTradeAnim_10                    ; 10
-	add_mobiletradeanim MobileTradeAnim_11                    ; 11
-	add_mobiletradeanim MobileTradeAnim_FadeToBlack           ; 12
-	add_mobiletradeanim MobileTradeAnim_GetOddEgg             ; 13 get odd egg
+	add_mobiletradeanim MobileTradeAnim_GiveTrademon1         ; 02
+	add_mobiletradeanim MobileTradeAnim_GiveTrademon2         ; 03
+	add_mobiletradeanim MobileTradeAnim_05                    ; 04
+	add_mobiletradeanim MobileTradeAnim_06                    ; 05
+	add_mobiletradeanim MobileTradeAnim_07                    ; 06
+	add_mobiletradeanim MobileTradeAnim_GetTrademon1          ; 07
+	add_mobiletradeanim MobileTradeAnim_GetTrademon2          ; 08
+	add_mobiletradeanim MobileTradeAnim_GetTrademon3          ; 09
+	add_mobiletradeanim MobileTradeAnim_ShowOTMonFromTrade    ; 0a
+	add_mobiletradeanim EndMobileTradeAnim                    ; 0b
+	add_mobiletradeanim MobileTradeAnim_0f                    ; 0c
+	add_mobiletradeanim MobileTradeAnim_FadeToBlack           ; 0d
+	add_mobiletradeanim MobileTradeAnim_GetOddEgg             ; 0e get odd egg
 
 MobileTradeAnim_Next:
 	ld hl, wJumptableIndex
@@ -518,7 +428,6 @@ MobileTradeAnim_ShowOTMonFromTrade:
 	call Function108b45
 	ld a, $1
 	call Function108b98
-	call Function108af4
 	ld c, 48
 	call WaitMobileTradeSpriteAnims
 	ld de, SFX_BALL_POOF
@@ -546,81 +455,6 @@ MobileTradeAnim_ShowOTMonFromTrade:
 	call Function108229
 	call Function1082db
 	call Function108c16
-	jmp GetMobileTradeAnimByte
-
-MobileTradeAnim_ShowPlayerMonForGTS:
-	ld de, MUSIC_EVOLUTION
-	call PlayMusic2
-	ld a, $80
-	ldh [hSCX], a
-	xor a
-	ldh [hSCY], a
-	ld a, $87
-	ldh [hWX], a
-	ld a, $50
-	ldh [hWY], a
-	call MobileTradeAnim_DisplayMonToBeSent
-	ld a, [wPlayerTrademonSpecies]
-	ld [wCurPartySpecies], a
-	ld hl, wPlayerTrademonDVs
-	call Function10898a
-	call DelayFrame
-	ld de, TradeBallGFX
-	ld hl, vTiles0
-	lb bc, BANK(TradeBallGFX), 6
-	call Request2bpp
-	ld de, TradePoofGFX
-	ld hl, vTiles0 tile $06
-	lb bc, BANK(TradePoofGFX), 12
-	call Request2bpp
-	ld a, [wPlayerTrademonDVs]
-	ld [wTempMonDVs], a
-	ld a, [wPlayerTrademonDVs + 1]
-	ld [wTempMonDVs + 1], a
-	ld b, SCGB_PLAYER_OR_MON_FRONTPIC_PALS
-	call GetSGBLayout
-	ld a, %11100100 ; 3,2,1,0
-	call DmgToCgbBGPals
-	call WaitBGMap
-.loop
-	ldh a, [hWX]
-	cp $7
-	jr z, .done
-	sub $4
-	ldh [hWX], a
-	ldh a, [hSCX]
-	sub $4
-	ldh [hSCX], a
-	call DelayFrame
-	jr .loop
-
-.done
-	ld a, $7
-	ldh [hWX], a
-	xor a
-	ldh [hSCX], a
-	ld a, [wPlayerTrademonSpecies]
-	call GetCryIndex
-	jr c, .skip_cry
-	ld e, c
-	ld d, b
-	call PlayCry
-
-.skip_cry
-	ld c, 80
-	call DelayFrames
-	call Function108c2b
-	depixel 10, 11, 4, 0
-	ld a, SPRITE_ANIM_INDEX_MOBILE_TRADE_SENT_BALL
-	call InitSpriteAnimStruct
-	ld de, SFX_BALL_POOF
-	call PlaySFX
-	hlcoord 0, 0
-	ld bc, 12 * SCREEN_WIDTH
-	ld a, " "
-	call ByteFill
-	ld c, 80
-	call WaitMobileTradeSpriteAnims
 	jmp GetMobileTradeAnimByte
 
 MobileTradeAnim_ShowOTMonFromGTS:
@@ -658,7 +492,6 @@ MobileTradeAnim_ShowOTMonFromGTS:
 	call Function108b45
 	ld a, $1
 	call Function108b98
-	call Function108af4
 	ld c, 48
 	call WaitMobileTradeSpriteAnims
 	ld de, SFX_BALL_POOF
@@ -725,7 +558,6 @@ MobileTradeAnim_GetOddEgg:
 	call Function108b45
 	ld a, $1
 	call Function108b98
-	call Function108af4
 	ld c, 48
 	call WaitMobileTradeSpriteAnims
 	ld de, SFX_BALL_POOF
@@ -756,138 +588,12 @@ MobileTradeAnim_GetOddEgg:
 	call Function1082db
 	jmp GetMobileTradeAnimByte
 
-MobileTradeAnim_02:
-	farcall DeinitializeAllSprites
-	call ClearBGPalettes
-	call ClearSprites
-	call ClearTilemap
-	xor a
-	ldh [hBGMapMode], a
-	call DisableLCD
-	call MobileTradeAnim_ClearBGMap
-	call Function108c80
-	call Function108c6d
-	call EnableLCD
-	ld a, $c
-	ldh [hSCX], a
-	ld a, $78
-	ldh [hSCY], a
-	ld a, $7
-	ldh [hWX], a
-	ld a, $90
-	ldh [hWY], a
-	ldh a, [rSVBK]
-	push af
-	ld a, $5
-	ldh [rSVBK], a
-	ld hl, MobileTradeBGPalettes
-	ld de, wBGPals1
-	ld bc, 8 palettes
-	call CopyBytes
-	pop af
-	ldh [rSVBK], a
-	call LoadMobileAdapterPalette
-	call Function108af4
-	jmp GetMobileTradeAnimByte
-
-MobileTradeAnim_10:
-	farcall DeinitializeAllSprites
-	call ClearBGPalettes
-	call ClearSprites
-	call ClearTilemap
-	xor a
-	ldh [hBGMapMode], a
-	call DisableLCD
-	call MobileTradeAnim_ClearBGMap
-	ld a, $1
-	ldh [rVBK], a
-	ld hl, MobileTradeGFX
-	ld de, vTiles2
-	call Decompress
-	xor a
-	ldh [rVBK], a
-	ld hl, MobileTradeSpritesGFX
-	ld de, vTiles0 tile $20
-	call Decompress
-	call Function108c80
-	call Function108c6d
-	call EnableLCD
-	ld a, $c
-	ldh [hSCX], a
-	ld a, $78
-	ldh [hSCY], a
-	ld a, $7
-	ldh [hWX], a
-	ld a, $90
-	ldh [hWY], a
-	ldh a, [rSVBK]
-	push af
-	ld a, $5
-	ldh [rSVBK], a
-	ld hl, MobileTradeBGPalettes
-	ld de, wBGPals1
-	ld bc, 8 palettes
-	call CopyBytes
-	pop af
-	ldh [rSVBK], a
-	call LoadMobileAdapterPalette
-	call Function108af4
-	jmp GetMobileTradeAnimByte
-
-MobileTradeAnim_11:
-	call ClearBGPalettes
-	call ClearSprites
-	call ClearTilemap
-	xor a
-	ldh [hBGMapMode], a
-	call DisableLCD
-	ld a, $1
-	ldh [rVBK], a
-	ld hl, MobileTradeGFX
-	ld de, vTiles2
-	call Decompress
-	xor a
-	ldh [rVBK], a
-	ld hl, MobileTradeSpritesGFX
-	ld de, vTiles0 tile $20
-	call Decompress
-	call Function108c80
-	call Function108c6d
-	call EnableLCD
-	ld a, $80
-	ldh [hSCX], a
-	ld a, $90
-	ldh [hSCY], a
-	ld a, $7
-	ldh [hWX], a
-	ld a, $90
-	ldh [hWY], a
-	ldh a, [rSVBK]
-	push af
-	ld a, $5
-	ldh [rSVBK], a
-	ld hl, MobileTradeBGPalettes
-	ld de, wBGPals1
-	ld bc, 8 palettes
-	call CopyBytes
-	pop af
-	ldh [rSVBK], a
-	call LoadMobileAdapterPalette
-	call Function108af4
-	call Function108b5a
-	ld a, $e0
-	ldh [hSCX], a
-	ld de, MUSIC_EVOLUTION
-	call PlayMusic2
-	jmp GetMobileTradeAnimByte
-
 MobileTradeAnim_GiveTrademon1:
 	ld de, SFX_GIVE_TRADEMON
 	call PlaySFX
 	ld c, 40
 	ld hl, wBGPals2 palette 6
 	call Function1082f0
-	call Function108af4
 .loop
 	ldh a, [hSCX]
 	cp $e0
@@ -926,7 +632,6 @@ MobileTradeAnim_GiveTrademon1:
 	ld a, SPRITE_ANIM_INDEX_MOBILE_TRADE_CABLE_BULGE
 	call InitSpriteAnimStruct
 	xor a
-	call Function108ad4
 	jr .next2
 
 .delete
@@ -936,7 +641,6 @@ MobileTradeAnim_GiveTrademon1:
 .replace
 	call MobileTradeAnim_DeleteSprites
 	ld a, $1
-	call Function108ad4
 .next2
 	ld c, 1
 	call WaitMobileTradeSpriteAnims
@@ -949,7 +653,6 @@ MobileTradeAnim_GiveTrademon2:
 	ld c, 40
 	ld hl, wBGPals2 + 1 palettes
 	call Function1082f0
-	call Function108af4
 	call Function108b5a
 	depixel 9, 10, 2, 0
 	ld a, SPRITE_ANIM_INDEX_MOBILE_TRADE_PING
@@ -1031,7 +734,6 @@ MobileTradeAnim_GetTrademon1:
 	call InitSpriteAnimStruct
 	ld de, SFX_GLASS_TING_2
 	call PlaySFX
-	call Function108af4
 	jmp MobileTradeAnim_Next
 
 MobileTradeAnim_GetTrademon2:
@@ -1043,7 +745,6 @@ MobileTradeAnim_GetTrademon2:
 	ld c, 20
 	ld hl, wBGPals2 + 1 palettes
 	call Function1082fa
-	call Function108af4
 .asm_1088ad
 	ldh a, [hSCY]
 	cp $78
@@ -1070,13 +771,11 @@ MobileTradeAnim_GetTrademon2:
 	ld a, SPRITE_ANIM_INDEX_MOBILE_TRADE_CABLE_BULGE
 	call InitSpriteAnimStruct
 	xor a
-	call Function108ad4
 	jr .asm_1088e7
 
 .asm_1088dd
 	call MobileTradeAnim_DeleteSprites
 	ld a, $1
-	call Function108ad4
 
 .asm_1088e7
 	ld c, 1
@@ -1104,7 +803,6 @@ MobileTradeAnim_GetTrademon3:
 	ld c, 40
 	ld hl, wBGPals2 palette 6
 	call Function1082f0
-	call Function108af4
 	jmp GetMobileTradeAnimByte
 
 MobileTradeAnim_0f:
@@ -1309,62 +1007,6 @@ MobileTradeAnim_ClearTilemap:
 	ld a, " "
 	jmp ByteFill
 
-Function108ad4:
-	and a
-	jr z, .asm_108adc
-	ld de, MobileCable2GFX
-	jr .asm_108adf
-
-.asm_108adc
-	ld de, MobileCable1GFX
-.asm_108adf
-	ld a, $1
-	ldh [rVBK], a
-	ld hl, vTiles2 tile $4a
-	lb bc, BANK(MobileCable1GFX), 16 ; aka BANK(MobileCable2GFX)
-	call Get2bppViaHDMA
-	call DelayFrame
-	xor a
-	ldh [rVBK], a
-	ret
-
-Function108af4:
-	ldh a, [rSVBK]
-	push af
-	ld a, $5
-	ldh [rSVBK], a
-	ld a, [wcf65]
-	and $1
-	jr z, .copy_MobileTradeOB1Palettes
-	ld hl, MobileTradeOB2Palettes
-	ld de, wOBPals1
-	ld bc, 8 palettes
-	call CopyBytes
-	ld hl, MobileTradeOB2Palettes
-	ld de, wOBPals2
-	ld bc, 8 palettes
-	call CopyBytes
-	jr .done_copy
-
-.copy_MobileTradeOB1Palettes
-	ld hl, MobileTradeOB1Palettes
-	ld de, wOBPals1
-	ld bc, 8 palettes
-	call CopyBytes
-	ld hl, MobileTradeOB1Palettes
-	ld de, wOBPals2
-	ld bc, 8 palettes
-	call CopyBytes
-
-.done_copy
-	pop af
-	ldh [rSVBK], a
-	ld a, %11100100 ; 3,2,1,0
-	call DmgToCgbObjPal0
-	ld a, %11100100 ; 3,2,1,0
-	call DmgToCgbBGPals
-	jmp DelayFrame
-
 Function108b45:
 	ldh a, [rSVBK]
 	push af
@@ -1549,70 +1191,3 @@ Function108c40:
 .MobileTradeCameBackText:
 	text_far _MobileTradeCameBackText
 	text_end
-
-Function108c6d:
-	ld hl, MobileTradeTilemapLZ
-	debgcoord 0, 0
-	call Decompress
-	ld hl, MobileTradeTilemapLZ
-	debgcoord 0, 0, vBGMap1
-	jmp Decompress
-
-Function108c80:
-	ld a, $1
-	ldh [rVBK], a
-	ld hl, MobileTradeAttrmapLZ
-	debgcoord 0, 0
-	call Decompress
-	ld hl, MobileTradeAttrmapLZ
-	debgcoord 0, 0, vBGMap1
-	call Decompress
-	xor a
-	ldh [rVBK], a
-	ret
-
-LoadMobileAdapterPalette:
-	ld a, [wc74e]
-	and $7f
-	cp $8 ; CONST: Amount of mobile adapters
-	jr c, .asm_108d12
-	ld a, $7
-
-.asm_108d12
-	ld bc, 1 palettes
-	ld hl, MobileAdapterPalettes
-	call AddNTimes
-	ld a, BANK(wBGPals1)
-	ld de, wBGPals1 + 4 palettes
-	ld bc, 1 palettes
-	jmp FarCopyWRAM
-
-MobileTradeSpritesGFX:
-INCBIN "gfx/mobile/mobile_trade_sprites.2bpp.lz"
-
-MobileTradeGFX:
-INCBIN "gfx/mobile/mobile_trade.2bpp.lz"
-
-MobileTradeTilemapLZ:
-INCBIN "gfx/mobile/mobile_trade.tilemap.lz"
-
-MobileTradeAttrmapLZ:
-INCBIN "gfx/mobile/mobile_trade.attrmap.lz"
-
-MobileTradeBGPalettes:
-INCLUDE "gfx/mobile/mobile_trade_bg.pal"
-
-MobileTradeOB1Palettes:
-INCLUDE "gfx/mobile/mobile_trade_ob1.pal"
-
-MobileTradeOB2Palettes:
-INCLUDE "gfx/mobile/mobile_trade_ob2.pal"
-
-MobileCable1GFX:
-INCBIN "gfx/mobile/mobile_cable_1.2bpp"
-
-MobileCable2GFX:
-INCBIN "gfx/mobile/mobile_cable_2.2bpp"
-
-MobileAdapterPalettes:
-INCLUDE "gfx/mobile/mobile_adapters.pal"

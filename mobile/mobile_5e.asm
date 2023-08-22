@@ -1,22 +1,3 @@
-MobileCardGFX::
-INCBIN "gfx/mobile/card.2bpp"
-
-ChrisSilhouetteGFX::
-INCBIN "gfx/mobile/chris_silhouette.2bpp"
-
-KrisSilhouetteGFX::
-INCBIN "gfx/mobile/kris_silhouette.2bpp"
-
-MobileCard2GFX::
-INCBIN "gfx/mobile/card_2.2bpp"
-
-CardLargeSpriteAndFolderGFX::
-INCBIN "gfx/mobile/card_large_sprite.2bpp"
-INCBIN "gfx/mobile/card_folder.2bpp"
-
-CardSpriteGFX::
-INCBIN "gfx/mobile/card_sprite.2bpp"
-
 Function17a68f::
 	call Function17a6a8
 	call Function17a751
@@ -54,8 +35,6 @@ Function17a6a8:
 .asm_17a6c9
 	pop de
 	call Function17a6f5
-	call Function17aba0
-	farcall Function106464
 	call Function17ac0c
 	farcall HDMATransferAttrmapAndTilemapToWRAMBank3
 	call Function17abcf
@@ -215,8 +194,6 @@ Function17a7d8:
 	ld hl, $d08b
 	dec [hl]
 	ret nz
-	call Function17ac1d
-	call Function17ac2a
 	ld hl, $d088
 	set 7, [hl]
 	ld a, $1
@@ -235,8 +212,6 @@ Function17a7ff:
 	ld hl, $d08b
 	dec [hl]
 	ret nz
-	call Function17ac1d
-	call Function17ac2a
 	ld hl, $d088
 	set 7, [hl]
 	ld hl, $d088
@@ -252,8 +227,6 @@ Function17a81a:
 	and $3
 	ret z
 	call ExitMenu
-	call Function17ac1d
-	call Function17ac2a
 	ld hl, $d088
 	set 7, [hl]
 	ld hl, $d088
@@ -706,30 +679,6 @@ Unknown_17aaf7:
 	db $0, $0,$f1, $c, $e, $8, $2, $a, $c, $7, $c, $2, $c
 	db $0, $0,$f0,$10, $e, $c, $c, $b, $9, $b, $9, $b, $9
 
-Function17aba0:
-	ldh a, [rVBK]
-	push af
-	ld a, $1
-	ldh [rVBK], a
-
-	ld hl, vTiles5 tile $00
-	ld de, DialpadGFX
-	lb bc, BANK(DialpadGFX), $80 ; includes first 4 tiles of DialpadCursorGFX
-	call Get2bpp
-
-	pop af
-	ldh [rVBK], a
-
-	ld hl, vTiles0 tile $00
-	ld de, DialpadCursorGFX
-	lb bc, BANK(DialpadCursorGFX), 5
-	call Get2bpp
-
-	ld hl, vTiles0 tile $05
-	ld de, MobileDialingGFX
-	lb bc, BANK(MobileDialingGFX), 4
-	jmp Get2bpp
-
 Function17abcf:
 	ldh a, [rSVBK]
 	push af
@@ -762,34 +711,8 @@ Function17abcf:
 	ret
 
 Function17ac0c:
-	call Function17ac1d
-	call Function17ac2a
 	hlcoord 0, 0
 	lb bc, 2, SCREEN_WIDTH - 2
-	jr Function17ac46
-
-Function17ac1d:
-	ld hl, DialpadTilemap
-	decoord 0, 4
-	ld bc, (SCREEN_HEIGHT - 4) * SCREEN_WIDTH
-	jmp CopyBytes
-
-Function17ac2a:
-	ld hl, DialpadAttrmap
-	decoord 0, 4, wAttrmap
-	ld bc, (SCREEN_HEIGHT - 4) * SCREEN_WIDTH
-	call CopyBytes
-	hlcoord 0, 4, wAttrmap
-	ld bc, (SCREEN_HEIGHT - 4) * SCREEN_WIDTH
-.loop
-	ld a, [hl]
-	or $8
-	ld [hli], a
-	dec bc
-	ld a, b
-	or c
-	jr nz, .loop
-	ret
 
 Function17ac46:
 	ld a, [$d088]
@@ -881,21 +804,6 @@ Palette_17ac95:
 	RGB 27, 31,  0
 	RGB 31, 31,  0
 
-DialpadTilemap:
-INCBIN "gfx/mobile/dialpad.tilemap"
-
-DialpadAttrmap:
-INCBIN "gfx/mobile/dialpad.attrmap"
-
-DialpadGFX:
-INCBIN "gfx/mobile/dialpad.2bpp"
-
-DialpadCursorGFX:
-INCBIN "gfx/mobile/dialpad_cursor.2bpp"
-
 Palette_17b4b5:
 	RGB  2,  6, 10
 	RGB 24, 30, 29
-
-MobileCardListGFX::
-INCBIN "gfx/mobile/card_list.2bpp"

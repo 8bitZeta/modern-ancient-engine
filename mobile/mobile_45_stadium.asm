@@ -56,7 +56,6 @@ Function117699:
 	call ByteFill
 	call ClearBGPalettes
 	call ClearSprites
-	farcall Function171c87
 	farcall ReloadMapPart
 	farjp ClearSpriteAnims
 
@@ -90,7 +89,6 @@ Jumptable_117728:
 	dw Function1179a7
 
 Function117738:
-	farcall Function171ccd
 	depixel 6, 3
 	ld a, $1d
 	call InitSpriteAnimStruct
@@ -120,7 +118,7 @@ Function117764:
 	ld hl, hJoyPressed
 	ld a, [hl]
 	and SELECT
-	jr nz, Function117764_select
+	ret nz
 	ld a, [hl]
 	and START
 	jr nz, Function117764_start
@@ -144,9 +142,6 @@ Function117764:
 	and D_RIGHT
 	jmp nz, Function117764_d_right
 	ret
-
-Function117764_select:
-	farjp Function171cf0
 
 Function117764_start:
 	ld a, $2
@@ -264,7 +259,7 @@ Function117764_a_button:
 	jmp z, Function1177b7
 	cp $1
 	jmp z, Function1177cb
-	jmp Function117764_select
+	ret
 
 .not_4
 	ld a, [wcd4a]
@@ -459,7 +454,6 @@ popc
 Function117ab4:
 	call ClearBGPalettes
 	call ClearSprites
-	farcall Function172e78
 	farcall Function172eb9
 	farjp ReloadMapPart
 

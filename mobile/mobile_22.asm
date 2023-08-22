@@ -454,9 +454,6 @@ Function893b3:
 	call ClearSprites
 	call LoadStandardFont
 	call LoadFontsExtra
-	call Function893ef
-	call Function8942b
-	call Function89455
 	jmp EnableLCD
 
 Function893cc:
@@ -464,37 +461,13 @@ Function893cc:
 	call ClearSprites
 	call LoadStandardFont
 	call LoadFontsExtra
-	call Function893ef
-	call Function89464
 	jmp EnableLCD
 
 Function893e2:
-	call Function89b1e
+	call Function89b00
 	call Function893b3
 	call Function8a5b6
-	jmp Function8949c
-
-Function893ef:
-	ld de, vTiles0
-	ld hl, EZChatCursorGFX
-	ld bc, $20
-	ld a, BANK(EZChatCursorGFX)
-	jmp FarCopyBytes
-
-EZChatCursorGFX:
-INCBIN "gfx/mobile/ez_chat_cursor.2bpp"
-
-Function8942b:
-	ld de, vTiles0 tile $02
-	ld hl, CardLargeSpriteAndFolderGFX
-	ld bc, 8 tiles ; just the large card sprite
-	ld a, BANK(CardLargeSpriteAndFolderGFX)
-	call FarCopyBytes
-	ld de, vTiles0 tile $0a
-	ld hl, CardSpriteGFX
-	ld bc, 4 tiles
-	ld a, BANK(CardSpriteGFX)
-	jmp FarCopyBytes
+	jr Function8949c
 
 Function89448:
 ; Clears the sprite array
@@ -508,25 +481,6 @@ Function89448:
 	jr nz, .loop
 	pop af
 	ret
-
-Function89455:
-	ld hl, CardLargeSpriteAndFolderGFX
-	ld de, vTiles2 tile $0c
-	ld bc, (8 + 65) tiles ; large card sprite + folder
-	ld a, BANK(CardLargeSpriteAndFolderGFX)
-	jmp FarCopyBytes
-
-Function89464:
-	ld hl, MobileCardGFX
-	ld de, vTiles2
-	ld bc, $20 tiles
-	ld a, BANK(MobileCardGFX)
-	call FarCopyBytes
-	ld hl, MobileCard2GFX
-	ld de, vTiles2 tile $20
-	ld bc, $17 tiles
-	ld a, BANK(MobileCard2GFX)
-	jmp FarCopyBytes
 
 Function89481:
 	ld d, 2
@@ -1097,21 +1051,6 @@ Function897d5:
 	pop bc
 	ret
 
-Function89807:
-	ld hl, ChrisSilhouetteGFX
-	ld a, [wPlayerGender]
-	bit PLAYERGENDER_FEMALE_F, a
-	jr z, .asm_89814
-	ld hl, KrisSilhouetteGFX
-.asm_89814
-	call DisableLCD
-	ld de, vTiles2 tile $37
-	ld bc, (5 * 7) tiles
-	ld a, BANK(ChrisSilhouetteGFX) ; aka BANK(KrisSilhouetteGFX)
-	call FarCopyBytes
-	call EnableLCD
-	jmp DelayFrame
-
 Function89829:
 	push bc
 	ld bc, $705
@@ -1573,12 +1512,7 @@ Function89b00:
 
 Function89b07:
 	call Mobile22_SetBGMapMode0
-	call DelayFrame
-	farjp Function4a3a7
-
-Function89b1e:
-	farcall Function4a485
-	jr Function89b00
+	jmp DelayFrame
 
 Function89b28:
 	call Function891de
@@ -2167,7 +2101,6 @@ Function89ee1:
 	call ClearBGPalettes
 	call Function893e2
 	call Mobile22_SetBGMapMode0
-	farcall Function4a3a7
 	farcall MG_Mobile_Layout_CreatePalBoxes
 	hlcoord 1, 0
 	jmp Function8a53d
@@ -2351,7 +2284,6 @@ Function89ff6:
 	call Function891fe
 	call ClearBGPalettes
 	call Function893cc
-	call Function89807
 	call Function89492
 	call Function894ca
 	call OpenSRAMBank4
@@ -2657,7 +2589,6 @@ Function8a262:
 	call ClearBGPalettes
 	call Function893e2
 	call Mobile22_SetBGMapMode0
-	farcall Function4a3a7
 	farcall MG_Mobile_Layout_CreatePalBoxes
 	hlcoord 1, 0
 	call Function8a53d
@@ -2740,7 +2671,6 @@ Function8a313:
 Function8a31c:
 	push bc
 	call Mobile22_SetBGMapMode0
-	farcall Function4a3a7
 	farcall MG_Mobile_Layout_CreatePalBoxes
 	hlcoord 1, 0
 	call Function8a53d
@@ -3609,7 +3539,6 @@ Function8aa0a:
 	call Function891fe
 	call ClearBGPalettes
 	call Function893cc
-	call Function89807
 	call Function89492
 	call Function894ca
 .asm_8aa3a
@@ -3665,7 +3594,6 @@ Function8aa73:
 	call Function891fe
 	call ClearBGPalettes
 	call Function893cc
-	call Function89807
 	call Function89492
 	call Function894ca
 	pop de
@@ -3738,7 +3666,6 @@ Function8ab3b:
 	call Function891fe
 	call ClearBGPalettes
 	call Function893cc
-	call Function89807
 	call Function89492
 	call Function894ca
 	call OpenSRAMBank4
@@ -4434,29 +4361,11 @@ Function8b664:
 Function8b677:
 	call ClearBGPalettes
 	call DisableLCD
-	call Function8b690
 	call Function8b6bb
 	call Function8b6ed
 	call EnableLCD
 	call Function891ab
 	jmp SetPalettes
-
-Function8b690:
-	ld hl, MobileCardListGFX
-	ld de, vTiles2
-	ld bc, $16 tiles
-	ld a, BANK(MobileCardListGFX)
-	call FarCopyBytes
-	ld hl, MobileCardListGFX tile $15
-	ld de, vTiles2 tile $61
-	ld bc, 1 tiles
-	ld a, BANK(MobileCardListGFX)
-	call FarCopyBytes
-	ld hl, MobileCardListGFX tile $16
-	ld de, vTiles0 tile $ee
-	ld bc, 1 tiles
-	ld a, BANK(MobileCardListGFX)
-	jmp FarCopyBytes
 
 Function8b6bb:
 	ldh a, [rSVBK]

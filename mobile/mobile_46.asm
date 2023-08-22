@@ -3492,11 +3492,8 @@ Function11a0ca:
 	ld [wMenuBorderBottomCoord], a
 	call PushWindow
 	farcall Function11765d
-	farcall Function17d3f6
-	farcall Function106464
 	call ExitMenu
 	farcall ReloadMapPart
-	farcall Function115d99
 	ld c, $0
 	farcall Function115e18
 	ld a, $1
@@ -4471,7 +4468,6 @@ Function11a9ce:
 	call ClearBGPalettes
 	call ReloadTilesetAndPalettes
 	call ExitMenu
-	farcall Function106464
 	farcall FinishExitMenu
 	jmp UpdateSprites
 
@@ -4652,7 +4648,6 @@ Function11ad1b:
 	call ClearBGPalettes
 	call ClearSprites
 	call ClearTilemap
-	farcall Function17c000
 	ld a, [wMenuCursorY]
 	ld [wcd82], a
 	dec a

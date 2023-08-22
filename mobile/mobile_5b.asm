@@ -25,7 +25,6 @@ Function16c0a8:
 	jr Function16c0fa
 
 Function16c0ba:
-	call Function16c943
 	push af
 	ld a, [wd003]
 	inc a
@@ -72,184 +71,6 @@ Function16c0fa:
 	xor a
 	ld [wd003], a
 	pop af
-	ret
-
-MobileSystemSplashScreen_InitGFX:
-	call DisableLCD
-	ld hl, vTiles2
-	ld de, .Tiles
-	lb bc, BANK(.Tiles), 104
-	call Get2bpp
-	call .LoadPals
-	call .LoadTilemap
-	call .LoadAttrmap
-	hlbgcoord 0, 0
-	call Function16cc73
-	call Function16cc02
-	xor a
-	ldh [hBGMapMode], a
-	jmp EnableLCD
-
-.LoadPals:
-	ld de, wBGPals1
-	ld hl, MobileSplashScreenPalettes
-	ld bc, 8
-	ld a, $5
-	call FarCopyWRAM
-	farjp ApplyPals
-
-.LoadTilemap:
-	hlcoord 0, 0
-	ld bc, 20
-	xor a
-	call ByteFill
-	ld hl, .Tilemap
-	decoord 0, 1
-	ld bc, $0154
-	jmp CopyBytes
-
-.LoadAttrmap:
-	hlcoord 0, 0, wAttrmap
-	ld bc, SCREEN_WIDTH
-	xor a
-	call ByteFill
-	ld hl, .Attrmap
-	decoord 0, 1, wAttrmap
-	ld bc, 17 * SCREEN_WIDTH
-	jmp CopyBytes
-
-.Tiles:
-INCBIN "gfx/mobile/mobile_splash.2bpp"
-
-.Tilemap:
-INCBIN "gfx/mobile/mobile_splash.tilemap"
-
-.Attrmap:
-INCBIN "gfx/mobile/mobile_splash.attrmap"
-
-MobileSplashScreenPalettes:
-INCLUDE "gfx/mobile/mobile_splash.pal"
-
-Function16c943:
-	ld a, [wd003]
-	and a
-	jr nz, .asm_16c95e
-	ldh a, [rSVBK]
-	push af
-	ld a, $5
-	ldh [rSVBK], a
-	ld a, $ff
-	ld bc, 1 palettes
-	ld hl, wBGPals1
-	call ByteFill
-	pop af
-	ldh [rSVBK], a
-
-.asm_16c95e
-	ldh a, [rSVBK]
-	push af
-	ld a, $5
-	ldh [rSVBK], a
-	ld e, $0
-	xor a
-.asm_16c969
-	ld hl, MobileSplashScreenPalettes
-	call Function16cab6
-	call Function16cabb
-	ld d, a
-	ld hl, wBGPals1
-	call Function16cab6
-	call Function16cabb
-	cp d
-	jr z, .asm_16c991
-	ld b, $1
-.asm_16c981
-	dec a
-	cp d
-	jr z, .asm_16c988
-	dec b
-	jr nz, .asm_16c981
-
-.asm_16c988
-	ld hl, wBGPals1
-	call Function16cab6
-	call Function16cadc
-
-.asm_16c991
-	ld hl, MobileSplashScreenPalettes
-	call Function16cab6
-	call Function16cad8
-	ld d, a
-	ld hl, wBGPals1
-	call Function16cab6
-	call Function16cad8
-	cp d
-	jr z, .asm_16c9b9
-	ld b, $1
-.asm_16c9a9
-	dec a
-	cp d
-	jr z, .asm_16c9b0
-	dec b
-	jr nz, .asm_16c9a9
-
-.asm_16c9b0
-	ld hl, wBGPals1
-	call Function16cab6
-	call Function16cb08
-
-.asm_16c9b9
-	ld hl, MobileSplashScreenPalettes
-	call Function16cab6
-	call Function16cac4
-	ld d, a
-	ld hl, wBGPals1
-	call Function16cab6
-	call Function16cac4
-	cp d
-	jr z, .asm_16c9e1
-	ld b, $1
-.asm_16c9d1
-	dec a
-	cp d
-	jr z, .asm_16c9d8
-	dec b
-	jr nz, .asm_16c9d1
-
-.asm_16c9d8
-	ld hl, wBGPals1
-	call Function16cab6
-	call Function16cae8
-
-.asm_16c9e1
-	inc e
-	inc e
-	ld a, e
-	cp $8
-	jr nz, .asm_16c969
-	farcall ApplyPals
-	call SetPalettes
-	ldh a, [rSVBK]
-	push af
-	ld a, $1
-	ldh [rSVBK], a
-	ld a, [wd003]
-	cp $1f
-	jr z, .asm_16ca09
-	pop af
-	ldh [rSVBK], a
-	ld e, $0
-	pop af
-	ldh [rSVBK], a
-	and a
-	ret
-
-.asm_16ca09
-	pop af
-	ldh [rSVBK], a
-	pop af
-	ldh [rSVBK], a
-	scf
 	ret
 
 Function16ca11:
@@ -573,19 +394,12 @@ Unknown_16cbfb:
 	db 0, 1, 2, 1, 0, 1, 2
 
 Function16cc02:
-	call Function16cc18
 	call Function16cc49
 	call Function16cc62
 	call Function16cc25
 	call Function16cc6e
 	call Function16cb0f
 	jr Function16cba3
-
-Function16cc18:
-	ld hl, vTiles1
-	ld de, MobileAdapterCheckGFX
-	lb bc, BANK(MobileAdapterCheckGFX), 46
-	jmp Get2bpp
 
 Function16cc25:
 	ld hl, Unknown_16cfa9
@@ -660,9 +474,6 @@ Function16cc90:
 	dec b
 	jr nz, .asm_16cc93
 	ret
-
-MobileAdapterCheckGFX:
-INCBIN "gfx/mobile/mobile_splash_check.2bpp"
 
 Unknown_16cfa3:
 	RGB 31, 31, 31
