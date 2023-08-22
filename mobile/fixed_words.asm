@@ -4,7 +4,6 @@
 Function11c075:
 	push de
 	ld a, c
-	call Function11c254
 	pop de
 	ld bc, wcd36
 
@@ -58,25 +57,6 @@ Function11c08f:
 	dec a
 	jr nz, .loop2
 	ret
-
-Function11c254:
-	push af
-	ld a, $4
-	call OpenSRAM
-	ld hl, $a007
-	pop af
-	sla a
-	sla a
-	ld c, a
-	sla a
-	add c
-	ld c, a
-	ld b, $0
-	add hl, bc
-	ld de, wcd36
-	ld bc, 12
-	call CopyBytes
-	jp CloseSRAM
 
 BCD2String:
 	inc a

@@ -358,7 +358,7 @@ SRAM $02
 SRAM $03
 	"Boxes 8-14"
 SRAM $04
-	"SRAM Mobile 1"
+
 SRAM $05
 	"SRAM Trainer Rankings"
 SRAM $06

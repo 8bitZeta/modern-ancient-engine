@@ -207,38 +207,6 @@ SECTION "Boxes 8-14", SRAM
 	assert boxindex_n == NUM_BOXES, \
 		"boxesindexes: Expected {d:NUM_BOXES} total boxes, got {d:boxindex_n}"
 
-SECTION "SRAM Mobile 1", SRAM
-
-	ds $7
-
-sEZChatMessages::
-sEZChatIntroductionMessage:: ds EASY_CHAT_MESSAGE_LENGTH
-sEZChatBattleMessages::
-sEZChatBeginBattleMessage::  ds EASY_CHAT_MESSAGE_LENGTH
-sEZChatWinBattleMessage::    ds EASY_CHAT_MESSAGE_LENGTH
-sEZChatLoseBattleMessage::   ds EASY_CHAT_MESSAGE_LENGTH
-
-s4_a037:: ds 4
-
-s4_a03b:: ds 37 * 40
-
-s4_a603:: ds 8
-
-s4_a60b:: db
-s4_a60c:: db
-s4_a60d:: db
-
-s4_a60e:: dw
-
-	ds $1f0
-
-sMobileBattleTimer:: ds 3
-
-	ds $7fd
-
-s4_b000:: db
-
-
 SECTION "SRAM Trainer Rankings", SRAM
 
 sTrainerRankings::

@@ -170,7 +170,6 @@ Function4a0c2:
 	ld bc, NAME_LENGTH_JAPANESE
 	call CopyBytes
 	call CloseSRAM
-	farcall _LoadData
 	ld c, 2
 	call DelayFrames
 	ld c, $1
@@ -180,7 +179,6 @@ Function4a0c2:
 	pop af
 	and a
 	jr nz, .skip_save
-	farcall _SaveData
 .skip_save
 	ld c, 5
 	call DelayFrames

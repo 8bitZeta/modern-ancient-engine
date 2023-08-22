@@ -1033,52 +1033,6 @@ Function1006dc:
 	ld [de], a
 	ret
 
-MobileBattleResetTimer:
-	ld a, BANK(sMobileBattleTimer)
-	ld hl, sMobileBattleTimer
-	call OpenSRAM
-	xor a
-	ld [hli], a
-	ld [hli], a
-	ld [hli], a
-	jmp CloseSRAM
-
-MobileBattleFixTimer:
-	ld a, BANK(sMobileBattleTimer)
-	ld hl, sMobileBattleTimer
-	call OpenSRAM
-	xor a ; MOBILE_BATTLE_ALLOWED_SECONDS
-	ld [hli], a
-	ld a, MOBILE_BATTLE_ALLOWED_MINUTES
-	ld [hli], a
-	xor a
-	ld [hli], a
-	jmp CloseSRAM
-
-Function100720:
-	xor a
-	ld [wcd6a], a
-	call UpdateTime
-	ldh a, [hHours]
-	ld [wcd72], a
-	ldh a, [hMinutes]
-	ld [wcd73], a
-	ldh a, [hSeconds]
-	ld [wcd74], a
-	ld a, BANK(sMobileBattleTimer)
-	ld hl, sMobileBattleTimer
-	call OpenSRAM
-	ld a, [hli]
-	ld [wcd6c], a
-	ld a, [hli]
-	ld [wcd6d], a
-	ld a, [hli]
-	ld [wcd6e], a
-	call CloseSRAM
-	ld a, [wcd6d]
-	ld [wcd6b], a
-	ret
-
 Function100754:
 	call UpdateTime
 	ldh a, [hHours]
@@ -1272,41 +1226,6 @@ String_10088e:
 
 String_10089f:
 	db "　むせいげん@"
-
-MobileBattleGetRemainingTime:
-; Calculates the difference between 10 minutes and sMobileBattleTimer
-; Returns minutes in c and seconds in b
-	ld a, BANK(sMobileBattleTimer)
-	ld hl, sMobileBattleTimer
-	call OpenSRAM
-	ld a, [hli]
-	ld [wStringBuffer2], a
-	ld a, [hli]
-	ld [wStringBuffer2 + 1], a
-	ld a, [hli]
-	ld [wStringBuffer2 + 2], a
-	call CloseSRAM
-	ld a, [wStringBuffer2 + 2]
-	cpl
-	add MOBILE_BATTLE_ALLOWED_SECONDS + 1
-	jr nc, .no_carry_seconds
-	add 60
-.no_carry_seconds
-	ld b, a
-	ld a, [wStringBuffer2 + 1]
-	ld c, a
-	ld a, MOBILE_BATTLE_ALLOWED_MINUTES
-	sbc c
-	ld c, a
-	jr c, .fail
-	ld a, [wStringBuffer2]
-	and a
-	ret z
-
-.fail
-	call MobileBattleFixTimer
-	ld c, 0
-	ret
 
 Function1008e0:
 	ldh a, [hBGMapMode]
@@ -2156,10 +2075,6 @@ Function100eed:
 	ld c, 1
 	jr Function100f02
 
-Function100ef4:
-	ld hl, Unknown_100ff3
-	ld c, 1
-
 Function100f02:
 	ld a, c
 	ld [wStringBuffer2], a
@@ -2322,6 +2237,7 @@ Unknown_100feb:
 	macro_100fc0 sPartyMail,           MAIL_STRUCT_LENGTH * PARTY_LENGTH
 	db -1 ; end
 
+<<<<<<< HEAD
 Unknown_100ff3:
 	macro_100fc0 wdc41,           1
 	macro_100fc0 wPlayerName,     NAME_LENGTH
@@ -2333,6 +2249,8 @@ Unknown_100ff3:
 	macro_100fc0 sEZChatMessages, EASY_CHAT_MESSAGE_LENGTH * 4
 	db -1 ; end
 
+=======
+>>>>>>> Remove SRAM Mobile 1
 Unknown_10102c:
 	macro_100fc0 wOTPlayerName,        NAME_LENGTH
 	macro_100fc0 wOTPlayerID,          2
@@ -2554,29 +2472,6 @@ LoadSelectedPartiesForColosseum:
 	ld b, a
 	ret
 
-Function1011f1:
-	ld a, BANK(s4_a60c)
-	call OpenSRAM
-	ld a, [s4_a60c]
-	ld [wdc41], a
-	call CloseSRAM
-	ld hl, wdc41
-	res 4, [hl]
-	ld hl, wGameTimerPaused
-	bit GAME_TIMER_MOBILE_F, [hl]
-	jr z, .skip
-	ld hl, wdc41
-	set 4, [hl]
-
-.skip
-	call Function10209c
-	xor a
-	ld [wdc5f], a
-	ld [wdc60], a
-	ld a, LINK_MOBILE
-	ld [wLinkMode], a
-	ret
-
 Function101220:
 	xor a
 	ld [wLinkMode], a
@@ -2613,7 +2508,6 @@ Function101251:
 	call RefreshScreen
 	ld hl, ClosingLinkText
 	call Function1021e0
-	call Function1020ea
 	ret c
 	jmp Function102142
 
@@ -2769,7 +2663,6 @@ Jumptable_101297:
 	dw Function101cbc                         ; 79
 
 Function10138b:
-	farcall Function8adcc
 	ld c, 0
 	jr c, .asm_101396
 	inc c
@@ -2951,7 +2844,6 @@ Function1014b7:
 	ret
 
 Function1014ce:
-	farcall Function100720
 	farcall StartMobileInactivityTimer
 	ld a, [wMobileCommsJumptableIndex]
 	inc a
@@ -3082,7 +2974,6 @@ Function1015be:
 
 Function1015df:
 	ld de, wc608
-	farcall Function100ef4
 	ld de, wc608
 	ld a, $05
 	ld hl, w5_d800
@@ -4103,7 +3994,6 @@ Function101d95:
 	ret
 
 Function101db2:
-	farcall Function103302
 	call ExitMenu
 	ld hl, wcd29
 	set 5, [hl]
@@ -4463,65 +4353,6 @@ Function1020bf:
 
 .asm_1020e8
 	scf
-	ret
-
-Function1020ea:
-	ld hl, wdc41
-	bit 4, [hl]
-	jr z, .quit
-	ld hl, wdc41
-	bit 2, [hl]
-	jr nz, .quit
-	call Function10218d
-	ld hl, wc608
-	bit 4, [hl]
-	jr z, .quit
-	ld hl, wc608
-	bit 2, [hl]
-	jr nz, .quit
-	call Function102112
-	jr z, .quit
-	and a
-	ret
-
-.quit
-	scf
-	ret
-
-Function102112:
-	ld a, BANK(s4_a03b)
-	call OpenSRAM
-	ld hl, s4_a03b + 6
-	ld c, 40
-.outer_loop
-	push hl
-	ld de, wc60f
-	ld b, 31
-.inner_loop
-	ld a, [de]
-	cp [hl]
-	jr nz, .not_matching
-	inc de
-	inc hl
-	dec b
-	jr nz, .inner_loop
-	pop hl
-	xor a
-	jr .done
-
-.not_matching
-	pop hl
-	ld de, 37
-	add hl, de
-	dec c
-	jr nz, .outer_loop
-	ld a, $01
-	and a
-
-.done
-	push af
-	call CloseSRAM
-	pop af
 	ret
 
 Function102142:
@@ -6612,81 +6443,6 @@ INCBIN "gfx/mobile/mobile_trade_lights.2bpp"
 MobileTradeLightsPalettes:
 INCLUDE "gfx/mobile/mobile_trade_lights.pal"
 
-Function103302:
-	call Function103309
-	jr Function103362
-
-Function103309:
-	xor a
-	ldh [hBGMapMode], a
-	ld hl, wd1ea
-	ld bc, 10
-	xor a
-	call ByteFill
-	ld a, BANK(s4_a60c)
-	call OpenSRAM
-	ld a, [wdc41]
-	ld [s4_a60c], a
-	ld [wd1ea], a
-	call CloseSRAM
-	call Function1035c6
-	ld a, [hli]
-	ld e, a
-	ld a, [hli]
-	ld d, a
-	ld a, [hli]
-	ld c, a
-	ld a, [hli]
-	ld b, a
-	ld a, [hli]
-	ld [wd1ef], a
-	ld a, [hli]
-	ld [wd1ec], a
-	ld a, [hli]
-	ld [wd1ed], a
-	ld h, d
-	ld l, e
-	call Function3eea
-	ld hl, wd1ec
-	ld a, [hli]
-	ld h, [hl]
-	ld l, a
-	ld a, [hl]
-	ld [wd1ee], a
-	call Function1034be
-	call UpdateSprites
-	farcall HDMATransferAttrmapAndTilemapToWRAMBank3
-	ld a, $01
-	ld [wd1f0], a
-	jr Function10339a
-
-Function103362:
-.asm_103362
-	ld a, [wd1f0]
-	ld [wd1f1], a
-	call Function1033af
-	call Function10339a
-	call Function10342c
-	farcall HDMATransferTilemapToWRAMBank3
-	ld a, [wd1eb]
-	bit 7, a
-	jr z, .asm_103362
-	ld hl, wd1eb
-	bit 6, [hl]
-	jr z, .asm_103398
-	ld a, BANK(s4_a60c)
-	call OpenSRAM
-	ld a, [wd1ea]
-	ld [s4_a60c], a
-	ld [wdc41], a
-	call CloseSRAM
-	xor a
-	ret
-
-.asm_103398
-	scf
-	ret
-
 Function10339a:
 	ld a, [wd1f0]
 	ld [wd1f2], a
@@ -7120,7 +6876,6 @@ Function103700:
 	ld hl, wSwarmFlags
 	bit SWARMFLAGS_MOBILE_4_F, [hl]
 	jr z, .asm_10370f
-	farcall MobileBattleGetRemainingTime
 .asm_10370f
 	ld a, c
 	ld [wStringBuffer2], a
@@ -7224,8 +6979,7 @@ Function10378c:
 	ld [wScriptVar], a
 	ld a, c
 	and a
-	ret z
-	farjp MobileBattleResetTimer
+	ret
 
 .failed_to_save
 	xor a
@@ -7300,7 +7054,6 @@ MobileCheckRemainingBattleTime:
 	farcall Mobile_AlwaysReturnNotCarry
 	bit 7, c
 	jr nz, .ok
-	farcall MobileBattleGetRemainingTime
 	ld a, c
 	cp 1
 	jr c, .fail
@@ -7348,7 +7101,6 @@ Function10387b:
 	farcall Mobile_AlwaysReturnNotCarry
 	bit 7, c
 	ret nz
-	farcall MobileBattleGetRemainingTime
 	ld a, c
 	ld [wStringBuffer2], a
 	ld hl, MobileBattleRemainingTimeText

@@ -244,7 +244,6 @@ ErasePreviousSave:
 	call EraseHallOfFame
 	call EraseLinkBattleStats
 	call EraseMysteryGift
-	call SaveData
 	call EraseBattleTowerStatus
 	ld a, 1
 	ld [wSavedAtLeastOnce], a
@@ -283,9 +282,6 @@ EraseBattleTowerStatus:
 	xor a
 	ld [sBattleTowerChallengeState], a
 	jmp CloseSRAM
-
-SaveData:
-	jmp _SaveData
 
 HallOfFame_InitSaveIfNeeded:
 	ld a, [wSavedAtLeastOnce]
@@ -580,51 +576,6 @@ VerifyChecksum:
 	call CloseSRAM
 	pop af
 	ret
-
-_SaveData:
-	; This is called within two scenarios:
-	;   a) ErasePreviousSave (the process of erasing the save from a previous game file)
-	;   b) unused mobile functionality
-	; It is not part of a regular save.
-
-	ld a, BANK(sCrystalData)
-	call OpenSRAM
-	ld hl, wCrystalData
-	ld de, sCrystalData
-	ld bc, wCrystalDataEnd - wCrystalData
-	call CopyBytes
-
-	; This block originally had some mobile functionality, but since we're still in
-	; BANK(sCrystalData), it instead overwrites the sixteen wEventFlags starting at 1:s4_a60e with
-	; garbage from wd479. This isn't an issue, since ErasePreviousSave is followed by a regular
-	; save that unwrites the garbage.
-
-	ld hl, wd479
-	ld a, [hli]
-	ld [s4_a60e + 0], a
-	ld a, [hli]
-	ld [s4_a60e + 1], a
-
-	jmp CloseSRAM
-
-_LoadData:
-	ld a, BANK(sCrystalData)
-	call OpenSRAM
-	ld hl, sCrystalData
-	ld de, wCrystalData
-	ld bc, wCrystalDataEnd - wCrystalData
-	call CopyBytes
-
-	; This block originally had some mobile functionality to mirror _SaveData above, but instead it
-	; (harmlessly) writes the aforementioned wEventFlags to the unused wd479.
-
-	ld hl, wd479
-	ld a, [s4_a60e + 0]
-	ld [hli], a
-	ld a, [s4_a60e + 1]
-	ld [hli], a
-
-	jmp CloseSRAM
 
 GetBoxAddress:
 	ld a, [wCurBox]

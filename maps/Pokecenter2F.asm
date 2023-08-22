@@ -150,7 +150,7 @@ LinkReceptionistScript_Trade:
 	iffalse .Mobile_DidNotSave
 	special TryQuickSave
 	iffalse .Mobile_DidNotSave
-	special Function1011f1
+	; special Function1011f1
 	writetext Text_PleaseComeIn
 	waitbutton
 	closetext
@@ -254,7 +254,7 @@ LinkReceptionistScript_Battle:
 	iffalse .Mobile_DidNotSave
 	special Function103780
 	iffalse .Mobile_DidNotSave
-	special Function1011f1
+	; special Function1011f1
 	writetext Text_PleaseComeIn
 	waitbutton
 	closetext

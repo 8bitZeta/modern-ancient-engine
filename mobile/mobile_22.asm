@@ -196,7 +196,6 @@ Mobile22_SetBGMapMode1:
 Function89245:
 	farcall TryLoadSaveFile
 	ret c
-	farcall _LoadData
 	and a
 	ret
 
@@ -263,9 +262,6 @@ MenuData_0x892ab:
 	db "はい@"
 	db "いいえ@"
 
-Function892b4:
-	call Function8931b
-
 Function892b7:
 	ld d, b
 	ld e, c
@@ -323,22 +319,10 @@ Function89305:
 	inc a
 	ld [wMenuSelection], a
 	push bc
-	call Function892b4
+	call Function892b7
 	pop bc
 	dec c
 	jr nz, .loop
-	ret
-
-Function8931b:
-	push hl
-	ld hl, s4_a03b
-	ld a, [wMenuSelection]
-	dec a
-	ld bc, 37
-	call AddNTimes
-	ld b, h
-	ld c, l
-	pop hl
 	ret
 
 Function8932d:
@@ -1545,7 +1529,6 @@ Function89a57:
 
 .Function89ac7:
 	call OpenSRAMBank4
-	call Function8931b
 	call .Function89ad4
 	jmp CloseSRAM
 
@@ -2070,7 +2053,6 @@ Jumptable_89e04:
 
 Function89e0a:
 	call OpenSRAMBank4
-	call Function8b3b0
 	call CloseSRAM
 	ld hl, Jumptable_89e18
 	rst JumpTable
@@ -2112,8 +2094,6 @@ Jumptable_89e3c:
 	dw Function8a055
 	dw Function8a0e6
 	dw Function8a0ec
-	dw Function8a0f5
-	dw Function89e58
 	dw Function89e68
 
 Function89e58:
@@ -2505,12 +2485,6 @@ Function8a0ec:
 	call PrintText
 	jmp Function89e36
 
-Function8a0f5:
-	call Function8b555
-	jr nc, Function8a0ff
-	ld hl, wd02d
-	inc [hl]
-
 Function8a0ff:
 	jmp Function89e36
 
@@ -2701,8 +2675,7 @@ Function8a262:
 	call Function8b36c
 	call Function8b493
 	call Function891ab
-	call SetPalettes
-	jmp Function8b5e7
+	jmp SetPalettes
 
 Function8a2aa:
 	ld hl, MenuHeader_0x8a2ef
@@ -3203,7 +3176,6 @@ Function8a679:
 	call ClearBGPalettes
 	call Function893cc
 	call OpenSRAMBank4
-	call Function8931b
 	call Function89844
 	call CloseSRAM
 	call OpenSRAMBank4
@@ -3246,13 +3218,11 @@ Function8a6cd:
 	call ClearBGPalettes
 	call Function893cc
 	call OpenSRAMBank4
-	call Function8931b
 	call Function89844
 	call Function8a757
 	call CloseSRAM
 .asm_8a6e5
 	call OpenSRAMBank4
-	call Function8931b
 	call Function89856
 	call Function89a2e
 	call Function891ab
@@ -3311,7 +3281,6 @@ Function8a757:
 	ret
 
 Function8a765:
-	call Function8931b
 	push bc
 	ld hl, $0
 	add hl, bc
@@ -3340,7 +3309,6 @@ Function8a78c:
 	ld b, NAME_FRIEND
 	farcall NamingScreen
 	call OpenSRAMBank4
-	call Function8931b
 	push bc
 	ld hl, $0
 	add hl, bc
@@ -3385,7 +3353,6 @@ Function8a7cb:
 	call ClearBGPalettes
 	call Function893cc
 	call OpenSRAMBank4
-	call Function8931b
 	call Function89844
 	call Function89856
 	call Function89a2e
@@ -3405,7 +3372,6 @@ Function8a818:
 	call OpenSRAMBank4
 	call Function8a765
 	jr nc, .asm_8a863
-	call Function8931b
 	push bc
 	ld hl, $0
 	add hl, bc
@@ -3476,7 +3442,6 @@ Function8a8c3:
 	call ClearBGPalettes
 	call Function893cc
 	call OpenSRAMBank4
-	call Function8931b
 	call Function89844
 	call Function8939a
 	call Function89856
@@ -3489,7 +3454,7 @@ Function8a8c3:
 	call Function89254
 	jr c, .asm_8a90f
 	call OpenSRAMBank4
-	call Function892b4
+	call Function892b7
 	call CloseSRAM
 	call Function89a23
 	call Mobile22_SetBGMapMode0
@@ -3535,7 +3500,6 @@ Function8a930:
 	jr z, .asm_8a995
 	push bc
 	ld [wMenuSelection], a
-	call Function8931b
 	push bc
 	ld h, b
 	ld l, c
@@ -3546,7 +3510,6 @@ Function8a930:
 	pop bc
 	ld a, c
 	ld [wMenuSelection], a
-	call Function8931b
 	push bc
 	ld h, b
 	ld l, c
@@ -3834,7 +3797,6 @@ Function8aba9:
 	ld a, c
 	ld [wMenuSelection], a
 	call OpenSRAMBank4
-	call Function8931b
 	ld hl, $0011
 	add hl, bc
 	call Function89b45
@@ -3857,7 +3819,6 @@ Function8aba9:
 	call ClearBGPalettes
 	call Function893cc
 	call OpenSRAMBank4
-	call Function8931b
 	call Function89844
 	call CloseSRAM
 	call OpenSRAMBank4
@@ -3882,7 +3843,7 @@ Function8aba9:
 	call PlaceString
 	ld a, $1
 	call Function8925e
-	jmp c, .asm_8abb3
+	jr c, .asm_8abb3
 	ld a, [wMenuSelection]
 	ld c, a
 	ret
@@ -3922,7 +3883,6 @@ Function8ac7c:
 	ld [wd02f], a
 	ld [wMenuSelection], a
 	call OpenSRAMBank4
-	call Function8931b
 	call Function8932d
 	call CloseSRAM
 	jr nc, .asm_8acb0
@@ -4002,7 +3962,6 @@ Function8ad0b:
 	call ClearBGPalettes
 	call Function893cc
 	call OpenSRAMBank4
-	call Function8931b
 	push bc
 	call Function89844
 	call Function8939a
@@ -4069,16 +4028,6 @@ Function8adb3:
 	push af
 	call Function891de
 	pop af
-	ret
-
-Function8adcc:
-	call OpenSRAMBank4
-	call Function8b3b0
-	call CloseSRAM
-	ret nc
-	cp $2
-	ret z
-	scf
 	ret
 
 Function8b342::
@@ -4155,23 +4104,6 @@ Function8b3a4:
 	call Function89185
 	pop bc
 	pop de
-	ret
-
-Function8b3b0:
-	ld bc, s4_a037
-	ld a, [s4_a60b]
-	and a
-	jr z, .asm_8b3c2
-	cp $3
-	jr nc, .asm_8b3c2
-	call Function8b391
-	jr c, .asm_8b3c9
-.asm_8b3c2
-	call Function8b36c
-	xor a
-	ld [s4_a60b], a
-.asm_8b3c9
-	ld a, [s4_a60b]
 	ret
 
 Function8b3cd:
@@ -4439,59 +4371,6 @@ Function8b539:
 	call Function89c44
 	jmp CGBOnly_CopyTilemapAtOnce
 
-Function8b555:
-.loop
-	ld hl, EnterNewPasscodeText
-	call PrintText
-	ld bc, wd017
-	call Function8b45c
-	jr c, .asm_8b5c8
-	call Function89448
-	ld bc, wd017
-	call Function8b493
-	ld bc, wd017
-	call Function8b664
-	jr nz, .asm_8b57c
-	ld hl, FourZerosInvalidText
-	call PrintText
-	jr .loop
-
-.asm_8b57c
-	ld hl, ConfirmPasscodeText
-	call PrintText
-	ld bc, wd013
-	call Function8b45c
-	jr c, .loop
-	ld bc, wd017
-	ld hl, wd013
-	call Function8b3a4
-	jr z, .strings_equal
-	call Function89448
-	ld bc, wd013
-	call Function8b493
-	ld hl, PasscodesNotSameText
-	call PrintText
-	jr .asm_8b57c
-
-.strings_equal
-	call OpenSRAMBank4
-	ld hl, wd013
-	ld de, s4_a037
-	ld bc, $4
-	call CopyBytes
-	call CloseSRAM
-	call Function89448
-	ld bc, wd013
-	call Function8b493
-	ld hl, PasscodeSetText
-	call PrintText
-	and a
-.asm_8b5c8
-	push af
-	call Function89448
-	pop af
-	ret
-
 EnterNewPasscodeText:
 	text_far _EnterNewPasscodeText
 	text_end
@@ -4511,46 +4390,6 @@ PasscodeSetText:
 FourZerosInvalidText:
 	text_far _FourZerosInvalidText
 	text_end
-
-Function8b5e7:
-	ld bc, wd013
-	call Function8b36c
-	xor a
-	ld [wd012], a
-	ld [wd02e], a
-	call Function8b493
-	call Function891ab
-	call Function8b4fd
-	ld e, $0
-	call Function89c44
-.asm_8b602
-	ld hl, EnterPasscodeText
-	call PrintText
-	ld bc, wd013
-	call Function8b45c
-	jr c, .asm_8b63c
-	call Function89448
-	ld bc, wd013
-	call Function8b493
-	call OpenSRAMBank4
-	ld hl, s4_a037
-	call Function8b3a4
-	call CloseSRAM
-	jr z, .asm_8b635
-	ld hl, IncorrectPasscodeText
-	call PrintText
-	ld bc, wd013
-	call Function8b36c
-	jr .asm_8b602
-.asm_8b635
-	ld hl, UnknownText_0x8b64c
-	call PrintText
-	and a
-.asm_8b63c
-	push af
-	call Function89448
-	pop af
-	ret
 
 EnterPasscodeText:
 	text_far _EnterPasscodeText
@@ -4919,7 +4758,6 @@ Function8b88c:
 	ld l, e
 	push hl
 	ld de, String_89116
-	call Function8931b
 	call Function8932d
 	jr c, .asm_8b8a3
 	ld hl, 0
@@ -4936,7 +4774,6 @@ Function8b88c:
 	add hl, de
 	push hl
 	ld de, String_89116
-	call Function8931b
 	call Function8934a
 	jr c, .asm_8b8c0
 	ld hl, $0006
@@ -5073,7 +4910,6 @@ MenuData_0x8b9d2:
 
 Function8b9e9:
 	call OpenSRAMBank4
-	call Function8931b
 	call Function8932d
 	jr c, .asm_8b9ff
 ; .asm_8b9f6
@@ -5082,7 +4918,7 @@ Function8b9e9:
 	call Function89b45
 	jr c, .asm_8ba08
 .asm_8b9ff
-	call Function892b4
+	call Function892b7
 	and a
 	ld de, Unknown_8ba1c
 	jr .asm_8ba0c

@@ -337,7 +337,6 @@ LoadOrRegenerateLuckyIDNumber:
 Continue:
 	farcall TryLoadSaveFile
 	ret c
-	farcall _LoadData
 	call LoadStandardMenuHeader
 	call DisplaySaveInfoOnContinue
 	ld a, $1
@@ -410,7 +409,6 @@ Continue_MobileAdapterMenu:
 	call DelayFrames
 	ld c, $1
 	farcall InitMobileProfile ; mobile
-	farcall _SaveData
 	ld a, 8
 	ld [wMusicFade], a
 	ld a, LOW(MUSIC_NONE)
