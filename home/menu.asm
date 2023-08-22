@@ -147,11 +147,7 @@ CopyMenuData::
 	ld de, wMenuData
 	ld bc, wMenuDataEnd - wMenuData
 	call CopyBytes
-	pop af
-	pop bc
-	pop de
-	pop hl
-	ret
+	jmp PopAFBCDEHL
 
 GetWindowStackTop::
 	ld hl, wWindowStackPointer

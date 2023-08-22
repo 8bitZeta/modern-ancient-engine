@@ -8,6 +8,15 @@ SECTION "rst8", ROM0[$0008]
 FarCall::
 	jmp RstFarCall
 
+PopAFBCDEHL::
+	pop af
+PopBCDEHL::
+	pop bc
+	pop de
+	pop hl
+DoNothingFunction:: ; no-optimize Stub function
+	ret
+
 SECTION "rst10", ROM0[$0010]
 Bankswitch::
 	ldh [hROMBank], a
@@ -16,7 +25,6 @@ Bankswitch::
 	
 _de_::
 	push de
-DoNothingFunction:: ; no-optimize Stub function
 	ret
 
 SECTION "rst18", ROM0[$0018]

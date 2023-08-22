@@ -852,10 +852,7 @@ FillMoves:
 	jr .NextMove
 
 .done
-	pop bc
-	pop de
-	pop hl
-	ret
+	jmp PopBCDEHL
 
 ShiftMoves:
 	ld c, NUM_MOVES - 1

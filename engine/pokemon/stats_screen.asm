@@ -949,11 +949,7 @@ StatsScreen_LoadTextboxSpaceGFX:
 	call Get2bpp
 	pop af
 	ldh [rVBK], a
-	pop af
-	pop bc
-	pop de
-	pop hl
-	ret
+	jmp PopAFBCDEHL
 
 EggStatsScreen:
 	xor a

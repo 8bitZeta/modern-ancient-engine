@@ -70,10 +70,7 @@ DrawBattleHPBar::
 	ld [hl], a
 
 .done
-	pop bc
-	pop de
-	pop hl
-	ret
+	jmp PopBCDEHL
 
 PrepMonFrontpic::
 	ld a, $1
@@ -145,10 +142,7 @@ _PlayMonCry::
 	call PlayCry
 
 .done
-	pop bc
-	pop de
-	pop hl
-	ret
+	jmp PopBCDEHL
 
 LoadCry::
 	call GetCryIndex

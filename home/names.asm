@@ -241,10 +241,7 @@ GetTMHMName::
 
 	pop af
 	ld [wNamedObjectIndex], a
-	pop bc
-	pop de
-	pop hl
-	ret
+	jmp PopBCDEHL
 
 .TMText:
 	db "TM"

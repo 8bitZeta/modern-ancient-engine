@@ -2498,10 +2498,7 @@ BillsPC_ConvertPartyMonToBoxMon:
 	ld hl, hTemp
 	dec [hl]
 	jr nz, .loop
-	pop bc
-	pop de
-	pop hl
-	ret
+	jmp PopBCDEHL
 
 BillsPC_ConvertBoxMonToPartyMon:
 	; undoes the conversion from the previous function and fully restores the PP of the mon
@@ -2556,10 +2553,7 @@ BillsPC_ConvertBoxMonToPartyMon:
 	ld hl, hTemp
 	dec [hl]
 	jr nz, .loop
-	pop bc
-	pop de
-	pop hl
-	ret
+	jmp PopBCDEHL
 
 BillsPC_SetUpMoveAndPPPointers:
 	ld de, MON_MOVES

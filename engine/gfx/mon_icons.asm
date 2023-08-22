@@ -17,10 +17,7 @@ LoadMenuMonIcon:
 	push de
 	push bc
 	call .LoadIcon
-	pop bc
-	pop de
-	pop hl
-	ret
+	jmp PopBCDEHL
 
 .LoadIcon:
 	ld d, 0
