@@ -211,6 +211,11 @@ INCLUDE "gfx/battle_anims/battle_anims.pal"
 	RGB 25, 29, 31
 	RGB 31, 26, 01
 	RGB 00, 00, 00
+; roaroftime
+	RGB 31, 31, 31
+	RGB 28, 31, 31
+	RGB 13, 26, 31
+	RGB 10, 14, 31
 
 
 ; Pokeball Palettes

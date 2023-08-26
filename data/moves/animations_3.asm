@@ -1180,6 +1180,76 @@ BattleAnim_DoubleHit:
 	anim_ret
 
 BattleAnim_RoarOfTime:
+	anim_3gfx ANIM_GFX_ROAR_OF_TIME, ANIM_GFX_CHARGE, ANIM_GFX_EXPLOSION_SMALL
+	anim_setobjpal PAL_BATTLE_OB_YELLOW, PAL_BTLCUSTOM_VERY_BRIGHT
+	anim_setobjpal PAL_BATTLE_OB_GRAY, PAL_BTLCUSTOM_ICE
+	anim_setobjpal PAL_BATTLE_OB_RED, PAL_BTLCUSTOM_ROAR_OF_TIME
+	anim_bgeffect ANIM_BG_CYCLE_OBPALS_GRAY_AND_YELLOW, $0, $4, $0
+	anim_bgp $f8
+	anim_sound 0, 1, SFX_SUPERSONIC
+.loop
+	anim_obj ANIM_OBJ_ENERGY_ORB_TINY, 48, 96, $38
+	anim_wait 1
+	anim_obj ANIM_OBJ_ENERGY_ORB_TINY, 48, 96, $20
+	anim_wait 1
+	anim_obj ANIM_OBJ_ENERGY_ORB_TINY, 48, 96, $8
+	anim_wait 1
+	anim_obj ANIM_OBJ_ENERGY_ORB_TINY, 48, 96, $10
+	anim_wait 1
+	anim_obj ANIM_OBJ_ENERGY_ORB_TINY, 48, 96, $28
+	anim_wait 1
+	anim_obj ANIM_OBJ_ENERGY_ORB_TINY, 48, 96, $0
+	anim_wait 1
+	anim_obj ANIM_OBJ_ENERGY_ORB_TINY, 48, 96, $18
+	anim_wait 1
+	anim_obj ANIM_OBJ_ENERGY_ORB_TINY, 48, 96, $30
+	anim_wait 1
+	anim_loop 4, .loop
+	anim_wait 32
+	anim_bgp $1b
+	anim_bgeffect ANIM_BG_SHAKE_SCREEN_X, $50, $2, $0
+	anim_sound 0, 1, SFX_ROAR_OF_TIME
+.loop2
+	anim_obj ANIM_OBJ_ROT_E,  48, 88, $0
+	anim_obj ANIM_OBJ_ROT_SE, 48, 88, $8
+	anim_obj ANIM_OBJ_ROT_S,  48, 88, $10
+	anim_obj ANIM_OBJ_ROT_SW, 48, 88, $18
+	anim_obj ANIM_OBJ_ROT_W,  48, 88, $20
+	anim_obj ANIM_OBJ_ROT_NW, 48, 88, $28
+	anim_obj ANIM_OBJ_ROT_N,  48, 88, $30
+	anim_obj ANIM_OBJ_ROT_NE, 48, 88, $38
+	anim_wait 10
+	anim_loop 6, .loop2
+	anim_bgp $90
+	anim_setobjpal PAL_BATTLE_BG_TARGET, PAL_BTLCUSTOM_VERY_BRIGHT
+	anim_setbgpal PAL_BATTLE_BG_USER, PAL_BTLCUSTOM_VERY_BRIGHT
+	anim_bgeffect ANIM_BG_SHAKE_SCREEN_X, $60, $4, $10
+	anim_obj ANIM_OBJ_ROT_CLOCK, 132, 48, $0
+.loop3
+	anim_obj ANIM_OBJ_EXPLOSION_SMALL_YFIX, 144, 64, $0
+	anim_wait 2
+	anim_obj ANIM_OBJ_EXPLOSION_SMALL_YFIX, 104, 72, $0
+	anim_wait 2
+	anim_obj ANIM_OBJ_EXPLOSION_SMALL_YFIX, 120, 68, $0
+	anim_wait 2
+	anim_obj ANIM_OBJ_EXPLOSION_SMALL_YFIX, 144, 64, $0
+	anim_wait 2
+	anim_obj ANIM_OBJ_EXPLOSION_SMALL_YFIX, 160, 72, $0
+	anim_wait 2
+	anim_obj ANIM_OBJ_EXPLOSION_SMALL_YFIX, 112, 68, $0
+	anim_wait 2
+	anim_obj ANIM_OBJ_EXPLOSION_SMALL_YFIX, 136, 64, $0
+	anim_wait 2
+	anim_obj ANIM_OBJ_EXPLOSION_SMALL_YFIX, 128, 72, $0
+	anim_wait 2
+	anim_loop 3, .loop3
+	anim_wait 48
+	anim_sound 0, 1, SFX_RAGE
+	anim_bgeffect ANIM_BG_FLASH_WHITE, $0, $4, $2
+	anim_bgeffect ANIM_BG_CYCLE_OBPALS_GRAY_AND_YELLOW, $0, $20, $0
+	anim_setobjpal PAL_BATTLE_OB_GRAY, PAL_BTLCUSTOM_BROWN
+	anim_wait 32
+	anim_ret
 
 BattleAnim_SpacialRend:
 
