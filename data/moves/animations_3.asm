@@ -1168,6 +1168,16 @@ BattleAnim_HeadSmash:
 	anim_ret
 
 BattleAnim_DoubleHit:
+	anim_1gfx ANIM_GFX_HIT
+	anim_sound 0, 1, SFX_KARATE_CHOP
+	anim_bgeffect ANIM_BG_SHAKE_SCREEN_X, $6, $1, $0
+	anim_obj ANIM_OBJ_HIT_BIG_YFIX, 148, 48, $0
+	anim_wait 24
+	anim_sound 0, 1, SFX_KARATE_CHOP
+	anim_bgeffect ANIM_BG_SHAKE_SCREEN_X, $6, $1, $0
+	anim_obj ANIM_OBJ_HIT_BIG_YFIX, 116, 48, $0
+	anim_wait 32
+	anim_ret
 
 BattleAnim_RoarOfTime:
 
