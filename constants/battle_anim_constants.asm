@@ -521,6 +521,16 @@ DEF BATTLEANIM_BASE_TILE EQU 7 * 7  ; Maximum size of a pokemon picture
 	const ANIM_OBJ_ROT_W
 	const ANIM_OBJ_ROT_NW
 	const ANIM_OBJ_ROT_CLOCK
+	const ANIM_OBJ_SR_N
+	const ANIM_OBJ_SR_NE
+	const ANIM_OBJ_SR_E
+	const ANIM_OBJ_SR_SE
+	const ANIM_OBJ_SR_S
+	const ANIM_OBJ_SR_SW
+	const ANIM_OBJ_SR_W
+	const ANIM_OBJ_SR_NW
+	const ANIM_OBJ_SR_CUT_N
+	const ANIM_OBJ_SR_CUT_S
 DEF NUM_ANIM_OBJS EQU const_value
 
 ; DoBattleAnimFrame arguments (see engine/battle_anims/functions.asm)
@@ -622,6 +632,8 @@ DEF NUM_ANIM_OBJS EQU const_value
 	const BATTLEANIMFUNC_PAUSE_THEN_RUSH
 	const BATTLEANIMFUNC_SPIRAL_DESCENT_FAST
 	const BATTLEANIMFUNC_DISCHARGE
+	const BATTLEANIMFUNC_SPACIAL_REND
+	const BATTLEANIMFUNC_SPACIAL_REND_CUTTER
 DEF NUM_BATTLEANIMFUNCS EQU const_value
 
 ; BattleAnimFrameData indexes (see data/battle_anims/framesets.asm)
@@ -978,6 +990,16 @@ DEF NUM_BATTLEANIMFUNCS EQU const_value
 	const BATTLEANIMFRAMESET_ROT_W
 	const BATTLEANIMFRAMESET_ROT_NW
 	const BATTLEANIMFRAMESET_CLOCK
+	const BATTLEANIMFRAMESET_SR_N
+	const BATTLEANIMFRAMESET_SR_NE
+	const BATTLEANIMFRAMESET_SR_E
+	const BATTLEANIMFRAMESET_SR_SE
+	const BATTLEANIMFRAMESET_SR_S
+	const BATTLEANIMFRAMESET_SR_SW
+	const BATTLEANIMFRAMESET_SR_W
+	const BATTLEANIMFRAMESET_SR_NW
+	const BATTLEANIMFRAMESET_SR_CUT_N
+	const BATTLEANIMFRAMESET_SR_CUT_S
 DEF NUM_BATTLEANIMFRAMESETS EQU const_value
 
 ; BattleAnimOAMData indexes (see data/battle_anims/oam.asm)
@@ -1443,6 +1465,7 @@ DEF NUM_ANIM_BGS EQU const_value
 	const ANIM_GFX_WOOD_HAMMER
 	const ANIM_GFX_AQUA_JET
 	const ANIM_GFX_ROAR_OF_TIME
+	const ANIM_GFX_SPACIAL_REND
 	DEF NUM_ANIM_GFX EQU const_value - 1
 
 ; battle_bg_effect struct members (see macros/ram.asm)
