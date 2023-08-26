@@ -2232,20 +2232,6 @@ Unknown_100feb:
 	macro_100fc0 sPartyMail,           MAIL_STRUCT_LENGTH * PARTY_LENGTH
 	db -1 ; end
 
-<<<<<<< HEAD
-Unknown_100ff3:
-	macro_100fc0 wdc41,           1
-	macro_100fc0 wPlayerName,     NAME_LENGTH
-	macro_100fc0 wPlayerName,     NAME_LENGTH
-	macro_100fc0 wPlayerID,       2
-	macro_100fc0 wSecretID,       2
-	macro_100fc0 wPlayerGender,   1
-	macro_100fc0 s4_a603,         8
-	macro_100fc0 sEZChatMessages, EASY_CHAT_MESSAGE_LENGTH * 4
-	db -1 ; end
-
-=======
->>>>>>> Remove SRAM Mobile 1
 Unknown_10102c:
 	macro_100fc0 wOTPlayerName,        NAME_LENGTH
 	macro_100fc0 wOTPlayerID,          2

@@ -255,6 +255,7 @@ MoveAnimations1:
 	dw BattleAnim_BeatUp
 .IndirectEnd::
 
+BattleAnim_0:
 BattleAnim_Dummy:
 
 BattleAnim_Pound:

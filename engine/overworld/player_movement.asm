@@ -837,7 +837,7 @@ CheckTrainerRun:
 	jr z, .next
 
 ; Is a trainer
-	ld hl, MAPOBJECT_COLOR
+	ld hl, MAPOBJECT_PALETTE
 	add hl, de
 	ld a, [hl]
 	and $f
@@ -871,7 +871,7 @@ CheckTrainerRun:
 	ld a, [hl]
 	call GetObjectStruct
 	call AnyFacingPlayerDistance_bc
-	ld hl, MAPOBJECT_RANGE
+	ld hl, MAPOBJECT_SIGHT_RANGE
 	add hl, de
 	ld a, [hl]
 	cp c
