@@ -373,6 +373,7 @@ BattleAnimFrameData:
 	dw .Frameset_BigWhip_W               ; BATTLEANIMFRAMESET_BIG_WHIP_W
 	dw .Frameset_BigWhip_NW              ; BATTLEANIMFRAMESET_BIG_WHIP_NW
 	dw .Frameset_SeedOut                 ; BATTLEANIMFRAMESET_SEED_OUT
+	dw .Frameset_SmallGlowShort          ; BATTLEANIMFRAMESET_SMALL_GLOW_SHORT
 	assert_table_length NUM_BATTLEANIMFRAMESETS
 
 .Frameset_HitBig:
@@ -2564,3 +2565,19 @@ BattleAnimFrameData:
 	battleoamwait 1
 	battleoamframe BATTLEANIMOAMSET_69,  8
 	battleoamend
+
+.Frameset_SmallGlowShort:
+	battleoamwait 2
+	battleoamframe BATTLEANIMOAMSET_54,  1
+	battleoamframe BATTLEANIMOAMSET_53,  1
+	battleoamframe BATTLEANIMOAMSET_54,  1
+	battleoamframe BATTLEANIMOAMSET_53,  1
+	battleoamframe BATTLEANIMOAMSET_54,  1
+	battleoamframe BATTLEANIMOAMSET_53,  1
+	battleoamframe BATTLEANIMOAMSET_54,  1
+	battleoamframe BATTLEANIMOAMSET_53,  1
+	battleoamframe BATTLEANIMOAMSET_54,  1
+	battleoamframe BATTLEANIMOAMSET_53,  1
+	battleoamframe BATTLEANIMOAMSET_54,  1
+	battleoamframe BATTLEANIMOAMSET_53,  1
+	battleoamdelete

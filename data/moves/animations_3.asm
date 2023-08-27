@@ -1613,12 +1613,47 @@ BattleAnim_OminousWind:
 	anim_ret
 
 BattleAnim_ShadowForce:
+	anim_if_param_equal $1, BattleAnim_ShadowForce_branch_2
+	anim_if_param_equal $2, BattleAnim_ShadowForce_branch_1
+	anim_2gfx ANIM_GFX_HIT, ANIM_GFX_GLOW
+	anim_setobjpal PAL_BATTLE_OB_GRAY, PAL_BTLCUSTOM_PURPLE
+	anim_setobjpal PAL_BATTLE_OB_YELLOW, PAL_BTLCUSTOM_INVERT_BLACK
+	anim_bgeffect ANIM_BG_SHAKE_SCREEN_X, $30, $4, $0
+	anim_bgp $1b
+	anim_sound 0, 0, SFX_EGG_BOMB
+	anim_obj ANIM_OBJ_HIT_BIG_YFIX, 136, 56, $0
+	anim_wait 4
+	anim_obj ANIM_OBJ_SMALL_GLOW_OUT, 132, 56, $0
+	anim_wait 2
+	anim_obj ANIM_OBJ_SMALL_GLOW_OUT, 132, 56, $38
+	anim_wait 2
+	anim_obj ANIM_OBJ_SMALL_GLOW_OUT, 132, 56, $28
+	anim_wait 2
+	anim_obj ANIM_OBJ_SMALL_GLOW_OUT, 132, 56, $2b
+	anim_wait 2
+	anim_obj ANIM_OBJ_SMALL_GLOW_OUT, 132, 56, $3b
+	anim_wait 2
+	anim_obj ANIM_OBJ_SMALL_GLOW_OUT, 132, 56, $24
+	anim_wait 2
+	anim_obj ANIM_OBJ_SMALL_GLOW_OUT, 132, 56, $b
+	anim_wait 32
+BattleAnim_ShadowForce_branch_1:
+	anim_bgeffect ANIM_BG_SHOW_MON, $0, $1, $0
+	anim_wait 32
+	anim_ret
+
+BattleAnim_ShadowForce_branch_2:
 	anim_1gfx ANIM_GFX_HIT
-	anim_sound 0, 1, SFX_POUND
-	anim_obj ANIM_OBJ_PALM, 136, 56, $0
-	anim_wait 6
-	anim_obj ANIM_OBJ_HIT_YFIX, 136, 56, $0
-	anim_wait 16
+	anim_bgp $1b
+	anim_sound 0, 1, SFX_SLUDGE_BOMB
+.loop
+	anim_bgeffect ANIM_BG_HIDE_MON, $0, $1, $0
+	anim_wait 4
+	anim_bgeffect ANIM_BG_SHOW_MON, $0, $1, $0
+	anim_wait 4
+	anim_loop 3, .loop
+	anim_bgeffect ANIM_BG_HIDE_MON, $0, $1, $0
+	anim_wait 12
 	anim_ret
 
 ;==========================
