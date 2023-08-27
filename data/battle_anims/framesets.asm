@@ -314,7 +314,6 @@ BattleAnimFrameData:
 	dw .Frameset_IceLong                 ; BATTLEANIMFRAMESET_ICE_LONG
 	dw .Frameset_ShadowSneak             ; BATTLEANIMFRAMESET_SHADOW_SNEAK
 	dw .Frameset_MudBomb                 ; BATTLEANIMFRAMESET_MUD_BOMB
-	dw .Frameset_PsychoCut               ; BATTLEANIMFRAMESET_PSYCHO_CUT
 	dw .Frameset_FlashCannonChargeOrb    ; BATTLEANIMFRAMESET_FLASH_CANNON_CHARGE_ORB
 	dw .Frameset_SlowGrowingGlow         ; BATTLEANIMFRAMESET_SLOW_GROWING_GLOW
 	dw .Frameset_FlashCannonSparks       ; BATTLEANIMFRAMESET_FLASH_CANNON_SPARKS
@@ -365,6 +364,15 @@ BattleAnimFrameData:
 	dw .Frameset_SR_Cut_S                ; BATTLEANIMFRAMESET_SR_CUT_S
 	dw .Frameset_CrushGrip               ; BATTLEANIMFRAMESET_CRUSH_GRIP
 	dw .Frameset_MagmaStorm              ; BATTLEANIMFRAMESET_MAGMA_STORM
+	dw .Frameset_BigWhip_N               ; BATTLEANIMFRAMESET_BIG_WHIP_N
+	dw .Frameset_BigWhip_NE              ; BATTLEANIMFRAMESET_BIG_WHIP_NE
+	dw .Frameset_BigWhip_E               ; BATTLEANIMFRAMESET_BIG_WHIP_E
+	dw .Frameset_BigWhip_SE              ; BATTLEANIMFRAMESET_BIG_WHIP_SE
+	dw .Frameset_BigWhip_S               ; BATTLEANIMFRAMESET_BIG_WHIP_S
+	dw .Frameset_BigWhip_SW              ; BATTLEANIMFRAMESET_BIG_WHIP_SW
+	dw .Frameset_BigWhip_W               ; BATTLEANIMFRAMESET_BIG_WHIP_W
+	dw .Frameset_BigWhip_NW              ; BATTLEANIMFRAMESET_BIG_WHIP_NW
+	dw .Frameset_SeedOut                 ; BATTLEANIMFRAMESET_SEED_OUT
 	assert_table_length NUM_BATTLEANIMFRAMESETS
 
 .Frameset_HitBig:
@@ -2186,10 +2194,6 @@ BattleAnimFrameData:
 	battleoamframe BATTLEANIMOAMSET_11C,  1
 	battleoamend
 
-.Frameset_PsychoCut:
-	battleoamframe BATTLEANIMOAMSET_FC,  1, OAM_Y_FLIP
-	battleoamend
-
 .Frameset_FlashCannonChargeOrb:
 	battleoamwait 24
 	battleoamframe BATTLEANIMOAMSET_20,  4
@@ -2377,8 +2381,8 @@ BattleAnimFrameData:
 	battleoamdelete
 
 .Frameset_EnergyOrbTiny:
-	battleoamframe BATTLEANIMOAMSET_20,  4
-	battleoamend
+	battleoamframe BATTLEANIMOAMSET_20,  8
+	battleoamdelete
 
 .Frameset_ROT_N:
 	battleoamframe BATTLEANIMOAMSET_0A, 8
@@ -2523,3 +2527,40 @@ BattleAnimFrameData:
 	battleoamframe BATTLEANIMOAMSET_EB,  2
 	battleoamframe BATTLEANIMOAMSET_EC,  2
 	battleoamrestart
+
+.Frameset_BigWhip_N:
+	battleoamframe BATTLEANIMOAMSET_E5,  8, OAM_Y_FLIP
+	battleoamend
+
+.Frameset_BigWhip_NE:
+	battleoamframe BATTLEANIMOAMSET_FC,  8, OAM_Y_FLIP
+	battleoamend
+
+.Frameset_BigWhip_E:
+	battleoamframe BATTLEANIMOAMSET_C4,  8
+	battleoamend
+
+.Frameset_BigWhip_SE:
+	battleoamframe BATTLEANIMOAMSET_FC,  8
+	battleoamend
+
+.Frameset_BigWhip_S:
+	battleoamframe BATTLEANIMOAMSET_E5,  8
+	battleoamend
+
+.Frameset_BigWhip_SW:
+	battleoamframe BATTLEANIMOAMSET_FC,  8, OAM_X_FLIP
+	battleoamend
+
+.Frameset_BigWhip_W:
+	battleoamframe BATTLEANIMOAMSET_C4,  8, OAM_X_FLIP
+	battleoamend
+
+.Frameset_BigWhip_NW:
+	battleoamframe BATTLEANIMOAMSET_FC,  8, OAM_X_FLIP, OAM_Y_FLIP
+	battleoamend
+
+.Frameset_SeedOut:
+	battleoamwait 1
+	battleoamframe BATTLEANIMOAMSET_69,  8
+	battleoamend
