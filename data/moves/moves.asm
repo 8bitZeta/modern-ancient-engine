@@ -485,7 +485,7 @@ Moves2:
 	move EFFECT_NORMAL_HIT,        100, DRAGON,         SPECIAL,   95,  5,   0 ; SPACIAL_REND CRITICAL RATIO
 	move EFFECT_NORMAL_HIT,          0, PSYCHIC_TYPE,   STATUS,   100, 10,   0 ; LUNAR_DANCE
 	move EFFECT_NORMAL_HIT,          1, NORMAL,         PHYSICAL, 100,  5,   0 ; CRUSH_GRIP
-	move EFFECT_NORMAL_HIT,       120, FIRE,           SPECIAL,   70,  5,   0 ; MAGMA_STORM
+	move EFFECT_TRAP_TARGET,       120, FIRE,           SPECIAL,   70,  5,   0 ; MAGMA_STORM
 	move EFFECT_SLEEP,               0, DARK,           STATUS,    80, 10,   0 ; DARK_VOID
 	move EFFECT_SP_DEF_DOWN_HIT,   120, GRASS,          SPECIAL,   85,  5,  40 ; SEED_FLARE EFFECT_SP_DEF_DOWN_2_HIT
 	move EFFECT_ALL_UP_HIT,         60, GHOST,          SPECIAL,  100,  5,  10 ; OMINOUS_WIND

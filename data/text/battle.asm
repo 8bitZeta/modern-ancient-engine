@@ -456,13 +456,10 @@ UsedBindText:
 	prompt
 
 WhirlpoolTrapText:
-	text "<TARGET>"
-	line "was trapped!"
-	prompt
-
 FireSpinTrapText:
 	text "<TARGET>"
-	line "was trapped!"
+	line "was trapped in"
+	cont "the vortex!"
 	prompt
 
 WrappedByText:
@@ -475,6 +472,18 @@ ClampedByText:
 	text "<TARGET>"
 	line "was CLAMPED by"
 	cont "<USER>!"
+	prompt
+
+SandTombTrapText:
+	text "<TARGET>"
+	line "was trapped by"
+	cont "SAND TOMB!"
+	prompt
+
+MagmaStormTrapText:
+	text "<TARGET>"
+	line "became trapped by"
+	cont "swirling magma!"
 	prompt
 
 StoringEnergyText:
