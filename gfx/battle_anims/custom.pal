@@ -221,6 +221,11 @@ INCLUDE "gfx/battle_anims/battle_anims.pal"
 	RGB 29, 31, 31
 	RGB 17, 28, 31
 	RGB 03, 03, 06
+; darkvoid
+	RGB 15, 15, 15
+	RGB 13, 13, 13
+	RGB 00, 00, 00
+	RGB 00, 00, 00
 
 
 ; Pokeball Palettes
