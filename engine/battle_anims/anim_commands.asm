@@ -564,11 +564,10 @@ BattleAnimCmd_IfParamAnd:
 
 BattleAnimCmd_Obj:
 ; index, x, y, param
-	ld a, [wBattleAnimByte]
-	and 1
-	ld [wBattleObjectTempID + 1], a
 	call GetBattleAnimByte
 	ld [wBattleObjectTempID], a
+	call GetBattleAnimByte
+	ld [wBattleObjectTempID + 1], a
 	call GetBattleAnimByte
 	ld [wBattleObjectTempXCoord], a
 	call GetBattleAnimByte

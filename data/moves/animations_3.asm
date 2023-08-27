@@ -4,6 +4,8 @@ MoveAnimations3:
 ;==========================
 ;	New Moves Start Here
 ;==========================
+	dw BattleAnim_RockClimb
+	dw BattleAnim_Defog
 	dw BattleAnim_TrickRoom
 	dw BattleAnim_DracoMeteor
 	dw BattleAnim_Discharge
@@ -44,6 +46,73 @@ MoveAnimations3:
 ;==========================
 ;	New Moves Start Here
 ;==========================
+
+BattleAnim_RockClimb:
+	anim_2gfx ANIM_GFX_ROCKS, ANIM_GFX_HIT
+	anim_call BattleAnim_TargetObj_2Row_3
+	anim_bgeffect ANIM_BG_BOUNCE_DOWN, $0, $1, $0
+	anim_wait 8
+.loop
+	anim_obj ANIM_OBJ_ROCK_CLIMB, 56, 108, $5c
+	anim_obj ANIM_OBJ_ROCK_CLIMB, 40, 108, $e8
+	anim_sound 6, 2, SFX_SPARK
+	anim_wait 28
+	anim_loop 2, .loop
+	anim_incbgeffect ANIM_BG_BOUNCE_DOWN
+	anim_wait 8
+	anim_bgeffect ANIM_BG_BODY_SLAM, $0, $1, $0
+	anim_wait 16
+	anim_call BattleAnim_ShowMon_0_3
+	anim_sound 0, 1, SFX_KARATE_CHOP
+	anim_obj ANIM_OBJ_HIT_YFIX, 136, 62, $0
+	anim_obj ANIM_OBJ_ROCK_SMASH, 136, 62, $5c
+	anim_obj ANIM_OBJ_ROCK_SMASH, 136, 62, $e8
+	anim_wait 3
+	anim_sound 0, 1, SFX_KARATE_CHOP
+	anim_obj ANIM_OBJ_HIT_YFIX, 136, 54, $0
+	anim_obj ANIM_OBJ_ROCK_SMASH, 136, 54, $5c
+	anim_obj ANIM_OBJ_ROCK_SMASH, 136, 54, $e8
+	anim_wait 3
+	anim_sound 0, 1, SFX_KARATE_CHOP
+	anim_obj ANIM_OBJ_HIT_YFIX, 136, 46, $0
+	anim_obj ANIM_OBJ_ROCK_SMASH, 136, 46, $5c
+	anim_obj ANIM_OBJ_ROCK_SMASH, 136, 46, $e8
+	anim_wait 3
+	anim_sound 0, 1, SFX_KARATE_CHOP
+	anim_obj ANIM_OBJ_HIT_YFIX, 136, 38, $0
+	anim_obj ANIM_OBJ_ROCK_SMASH, 136, 38, $5c
+	anim_obj ANIM_OBJ_ROCK_SMASH, 136, 38, $e8
+	anim_wait 3
+	anim_sound 0, 1, SFX_KARATE_CHOP
+	anim_obj ANIM_OBJ_HIT_YFIX, 136, 30, $0
+	anim_obj ANIM_OBJ_ROCK_SMASH, 136, 30, $5c
+	anim_obj ANIM_OBJ_ROCK_SMASH, 136, 30, $e8
+	anim_wait 8
+	anim_ret
+
+BattleAnim_Defog:
+	anim_setobjpal PAL_BATTLE_OB_GRAY, PAL_BTLCUSTOM_VERY_BRIGHT
+	anim_setobjpal PAL_BATTLE_OB_YELLOW, PAL_BTLCUSTOM_BRIGHT
+	anim_2gfx ANIM_GFX_BIG_WHIP, ANIM_GFX_HAZE
+	anim_bgp $90
+	anim_sound 0, 1, SFX_MEGA_PUNCH
+	anim_obj ANIM_OBJ_MIST_BALL_BG, 8, 24, $10
+	anim_obj ANIM_OBJ_MIST_BALL_BG, 8, 48, $2
+	anim_obj ANIM_OBJ_MIST_BALL_BG, 8, 88, $8
+	anim_wait 4
+	anim_obj ANIM_OBJ_MIST_BALL_BG, 8, 32, $6
+	anim_obj ANIM_OBJ_MIST_BALL_BG, 8, 56, $c
+	anim_obj ANIM_OBJ_MIST_BALL_BG, 8, 80, $4
+	anim_obj ANIM_OBJ_MIST_BALL_BG, 8, 104, $e
+	anim_wait 64
+	anim_sound 0, 1, SFX_RAZOR_WIND
+	anim_obj ANIM_OBJ_DRAGON_RUSH, 144, 245, $14
+	anim_obj ANIM_OBJ_DRAGON_RUSH_XFLIP, 128, 245, $0c
+	anim_wait 16
+	anim_bgeffect ANIM_BG_FLASH_WHITE, $0, $4, $2
+	anim_clearobjs
+	anim_wait 12
+	anim_ret
 
 BattleAnim_TrickRoom:
 	anim_setobjpal PAL_BATTLE_OB_GRAY, PAL_BTLCUSTOM_PSYCHO_BOOST_2
