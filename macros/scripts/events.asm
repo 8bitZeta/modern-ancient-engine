@@ -1073,4 +1073,15 @@ MACRO checkmaplockedmons
 	db checkmaplockedmons_command
 ENDM
 
+if DEF(_DEBUG)
+	const givepokemove_command ; ac
+MACRO givepokemove
+	db givepokemove_command
+	dw \1 ; move
+	dw \2 ; wPartyMon#
+	db \3 ; Move Number 0-3
+	assert (\3 >= 0) && (\3 < 4), "givepokemove Move Number \3 is not 0-3!"
+ENDM
+endc
+
 DEF NUM_EVENT_COMMANDS EQU const_value

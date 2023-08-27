@@ -79,12 +79,6 @@ AreYouABoyOrAreYouAGirl:
 	ld c, 0
 	ret
 
-if DEF(_DEBUG)
-DebugRoom: ; unreferenced
-	farcall _DebugRoom
-	ret
-endc
-
 ResetWRAM:
 	xor a
 	ldh [hBGMapMode], a
@@ -635,6 +629,7 @@ OakSpeech:
 
 	ld hl, OakText1
 	call PrintText
+if !DEF(_DEBUG)
 	call RotateThreePalettesRight
 	call ClearTilemap
 
@@ -684,6 +679,7 @@ OakSpeech:
 	ld b, SCGB_TRAINER_OR_MON_FRONTPIC_PALS
 	call GetSGBLayout
 	call Intro_RotatePalettesLeftFrontpic
+endc
 
 	ld hl, OakText6
 	call PrintText

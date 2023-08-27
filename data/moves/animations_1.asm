@@ -1,7 +1,7 @@
 SECTION "Move Animations 1", ROMX
 
 MoveAnimations1:
-	dw BattleAnim_Dummy
+	dw BattleAnim_0
 	dw BattleAnim_Pound
 	dw BattleAnim_KarateChop
 	dw BattleAnim_Doubleslap
@@ -256,7 +256,6 @@ MoveAnimations1:
 .IndirectEnd::
 
 BattleAnim_0:
-BattleAnim_Dummy:
 
 BattleAnim_Pound:
 	anim_1gfx ANIM_GFX_HIT

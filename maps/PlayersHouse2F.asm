@@ -245,7 +245,7 @@ endc
 
 PlayersHouseBookshelfScript:
 	if DEF(_DEBUG)
-	loadwildmon MAGIKARP, 100
+	loadwildmon AZUMARILL, 100
 	startbattle
 	reloadmapafterbattle
 	end
