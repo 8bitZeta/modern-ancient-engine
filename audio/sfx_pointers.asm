@@ -210,4 +210,5 @@ SFX:
 	dba Sfx_Twinkle
 	dba Sfx_GrassWhistle
 	dba Sfx_Gravity
+	dba Sfx_RoarOfTime
 	assert_table_length NUM_SFX

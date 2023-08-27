@@ -209,4 +209,5 @@
 	const SFX_TWINKLE                     ; cd
 	const SFX_GRASS_WHISTLE               ; ce
 	const SFX_GRAVITY                     ; cf
+	const SFX_ROAR_OF_TIME                ; d0
 DEF NUM_SFX EQU const_value

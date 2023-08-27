@@ -343,6 +343,26 @@ BattleAnimFrameData:
 	dw .Frameset_ChargeBeam              ; BATTLEANIMFRAMESET_CHARGE_BEAM
 	dw .Frameset_WoodHammer              ; BATTLEANIMFRAMESET_WOOD_HAMMER
 	dw .Frameset_AquaJet                 ; BATTLEANIMFRAMESET_AQUA_JET
+	dw .Frameset_EnergyOrbTiny           ; BATTLEANIMFRAMESET_ENERGY_ORB_TINY
+	dw .Frameset_ROT_N                   ; BATTLEANIMFRAMESET_ROT_N
+	dw .Frameset_ROT_NE                  ; BATTLEANIMFRAMESET_ROT_NE
+	dw .Frameset_ROT_E                   ; BATTLEANIMFRAMESET_ROT_E
+	dw .Frameset_ROT_SE                  ; BATTLEANIMFRAMESET_ROT_SE
+	dw .Frameset_ROT_S                   ; BATTLEANIMFRAMESET_ROT_S
+	dw .Frameset_ROT_SW                  ; BATTLEANIMFRAMESET_ROT_SW
+	dw .Frameset_ROT_W                   ; BATTLEANIMFRAMESET_ROT_W
+	dw .Frameset_ROT_NW                  ; BATTLEANIMFRAMESET_ROT_NW
+	dw .Frameset_Clock                   ; BATTLEANIMFRAMESET_CLOCK
+	dw .Frameset_SR_N                    ; BATTLEANIMFRAMESET_SR_N
+	dw .Frameset_SR_NE                   ; BATTLEANIMFRAMESET_SR_NE
+	dw .Frameset_SR_E                    ; BATTLEANIMFRAMESET_SR_E
+	dw .Frameset_SR_SE                   ; BATTLEANIMFRAMESET_SR_SE
+	dw .Frameset_SR_S                    ; BATTLEANIMFRAMESET_SR_S
+	dw .Frameset_SR_SW                   ; BATTLEANIMFRAMESET_SR_SW
+	dw .Frameset_SR_W                    ; BATTLEANIMFRAMESET_SR_W
+	dw .Frameset_SR_NW                   ; BATTLEANIMFRAMESET_SR_NW
+	dw .Frameset_SR_Cut_N                ; BATTLEANIMFRAMESET_SR_CUT_N
+	dw .Frameset_SR_Cut_S                ; BATTLEANIMFRAMESET_SR_CUT_S
 	assert_table_length NUM_BATTLEANIMFRAMESETS
 
 .Frameset_HitBig:
@@ -2353,3 +2373,139 @@ BattleAnimFrameData:
 	battleoamframe BATTLEANIMOAMSET_12E,  1
 	battleoamframe BATTLEANIMOAMSET_12F,  1
 	battleoamdelete
+
+.Frameset_EnergyOrbTiny:
+	battleoamframe BATTLEANIMOAMSET_20,  4
+	battleoamend
+
+.Frameset_ROT_N:
+	battleoamframe BATTLEANIMOAMSET_0A, 8
+	battleoamdelete
+
+.Frameset_ROT_NE:
+	battleoamframe BATTLEANIMOAMSET_0B, 8
+	battleoamdelete
+
+.Frameset_ROT_E:
+	battleoamframe BATTLEANIMOAMSET_5D, 8
+	battleoamdelete
+
+.Frameset_ROT_SE:
+	battleoamframe BATTLEANIMOAMSET_0B, 8, OAM_Y_FLIP
+	battleoamdelete
+
+.Frameset_ROT_S:
+	battleoamframe BATTLEANIMOAMSET_0A, 8, OAM_Y_FLIP
+	battleoamdelete
+
+.Frameset_ROT_SW:
+	battleoamframe BATTLEANIMOAMSET_0B, 8, OAM_X_FLIP, OAM_Y_FLIP
+	battleoamdelete
+
+.Frameset_ROT_W:
+	battleoamframe BATTLEANIMOAMSET_5D, 8, OAM_X_FLIP
+	battleoamdelete
+
+.Frameset_ROT_NW:
+	battleoamframe BATTLEANIMOAMSET_0B, 8, OAM_X_FLIP
+	battleoamdelete
+
+.Frameset_Clock:
+	battleoamframe BATTLEANIMOAMSET_130, 60
+	battleoamframe BATTLEANIMOAMSET_130, 60
+	battleoamframe BATTLEANIMOAMSET_131, 60
+	battleoamend
+
+.Frameset_SR_N:
+	battleoamframe BATTLEANIMOAMSET_21, 6, OAM_Y_FLIP
+	battleoamframe BATTLEANIMOAMSET_1B, 6
+	battleoamframe BATTLEANIMOAMSET_21, 6
+	battleoamframe BATTLEANIMOAMSET_7F, 6
+	battleoamframe BATTLEANIMOAMSET_21, 6, OAM_X_FLIP
+	battleoamframe BATTLEANIMOAMSET_1B, 6, OAM_X_FLIP
+	battleoamend
+
+.Frameset_SR_NE:
+	battleoamframe BATTLEANIMOAMSET_1B, 6
+	battleoamframe BATTLEANIMOAMSET_21, 6
+	battleoamframe BATTLEANIMOAMSET_7F, 6
+	battleoamframe BATTLEANIMOAMSET_21, 6, OAM_X_FLIP
+	battleoamframe BATTLEANIMOAMSET_1B, 6, OAM_X_FLIP
+	battleoamframe BATTLEANIMOAMSET_21, 6, OAM_X_FLIP, OAM_Y_FLIP
+	battleoamend
+
+.Frameset_SR_E:
+	battleoamframe BATTLEANIMOAMSET_21, 6
+	battleoamframe BATTLEANIMOAMSET_7F, 6
+	battleoamframe BATTLEANIMOAMSET_21, 6, OAM_X_FLIP
+	battleoamframe BATTLEANIMOAMSET_1B, 6, OAM_X_FLIP
+	battleoamframe BATTLEANIMOAMSET_21, 6, OAM_X_FLIP, OAM_Y_FLIP
+	battleoamframe BATTLEANIMOAMSET_7F, 6, OAM_Y_FLIP
+	battleoamend
+
+.Frameset_SR_SE:
+	battleoamframe BATTLEANIMOAMSET_7F, 6
+	battleoamframe BATTLEANIMOAMSET_21, 6, OAM_X_FLIP
+	battleoamframe BATTLEANIMOAMSET_1B, 6, OAM_X_FLIP
+	battleoamframe BATTLEANIMOAMSET_21, 6, OAM_X_FLIP, OAM_Y_FLIP
+	battleoamframe BATTLEANIMOAMSET_7F, 6, OAM_Y_FLIP
+	battleoamframe BATTLEANIMOAMSET_21, 6, OAM_Y_FLIP
+	battleoamend
+
+.Frameset_SR_S:
+	battleoamframe BATTLEANIMOAMSET_21, 6, OAM_X_FLIP
+	battleoamframe BATTLEANIMOAMSET_1B, 6, OAM_X_FLIP
+	battleoamframe BATTLEANIMOAMSET_21, 6, OAM_X_FLIP, OAM_Y_FLIP
+	battleoamframe BATTLEANIMOAMSET_7F, 6, OAM_Y_FLIP
+	battleoamframe BATTLEANIMOAMSET_21, 6, OAM_Y_FLIP
+	battleoamframe BATTLEANIMOAMSET_1B, 6
+	battleoamend
+
+.Frameset_SR_SW:
+	battleoamframe BATTLEANIMOAMSET_1B, 6, OAM_X_FLIP
+	battleoamframe BATTLEANIMOAMSET_21, 6, OAM_X_FLIP, OAM_Y_FLIP
+	battleoamframe BATTLEANIMOAMSET_7F, 6, OAM_Y_FLIP
+	battleoamframe BATTLEANIMOAMSET_21, 6, OAM_Y_FLIP
+	battleoamframe BATTLEANIMOAMSET_1B, 6
+	battleoamframe BATTLEANIMOAMSET_21, 6
+	battleoamend
+
+.Frameset_SR_W:
+	battleoamframe BATTLEANIMOAMSET_21, 6, OAM_X_FLIP, OAM_Y_FLIP
+	battleoamframe BATTLEANIMOAMSET_7F, 6, OAM_Y_FLIP
+	battleoamframe BATTLEANIMOAMSET_21, 6, OAM_Y_FLIP
+	battleoamframe BATTLEANIMOAMSET_1B, 6
+	battleoamframe BATTLEANIMOAMSET_21, 6
+	battleoamframe BATTLEANIMOAMSET_7F, 6
+	battleoamend
+
+.Frameset_SR_NW:
+	battleoamframe BATTLEANIMOAMSET_7F, 6, OAM_Y_FLIP
+	battleoamframe BATTLEANIMOAMSET_21, 6, OAM_Y_FLIP
+	battleoamframe BATTLEANIMOAMSET_1B, 6
+	battleoamframe BATTLEANIMOAMSET_21, 6
+	battleoamframe BATTLEANIMOAMSET_7F, 6
+	battleoamframe BATTLEANIMOAMSET_21, 6, OAM_X_FLIP
+	battleoamend
+
+.Frameset_SR_Cut_N:
+	battleoamframe BATTLEANIMOAMSET_E5,  0, OAM_Y_FLIP
+	battleoamframe BATTLEANIMOAMSET_FC,  0, OAM_Y_FLIP
+	battleoamframe BATTLEANIMOAMSET_C4,  0
+	battleoamframe BATTLEANIMOAMSET_FC,  0
+	battleoamframe BATTLEANIMOAMSET_E5,  0
+	battleoamframe BATTLEANIMOAMSET_FC,  0, OAM_X_FLIP
+	battleoamframe BATTLEANIMOAMSET_C4,  0, OAM_X_FLIP
+	battleoamframe BATTLEANIMOAMSET_FC,  0, OAM_X_FLIP, OAM_Y_FLIP
+	battleoamrestart
+
+.Frameset_SR_Cut_S:
+	battleoamframe BATTLEANIMOAMSET_E5,  0
+	battleoamframe BATTLEANIMOAMSET_FC,  0, OAM_X_FLIP
+	battleoamframe BATTLEANIMOAMSET_C4,  0, OAM_X_FLIP
+	battleoamframe BATTLEANIMOAMSET_FC,  0, OAM_X_FLIP, OAM_Y_FLIP
+	battleoamframe BATTLEANIMOAMSET_E5,  0, OAM_Y_FLIP
+	battleoamframe BATTLEANIMOAMSET_FC,  0, OAM_Y_FLIP
+	battleoamframe BATTLEANIMOAMSET_C4,  0
+	battleoamframe BATTLEANIMOAMSET_FC,  0
+	battleoamrestart
