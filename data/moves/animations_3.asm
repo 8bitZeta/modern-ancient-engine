@@ -1595,6 +1595,22 @@ BattleAnim_SeedFlare:
 	anim_ret
 
 BattleAnim_OminousWind:
+	anim_setobjpal PAL_BATTLE_OB_YELLOW, PAL_BTLCUSTOM_PURPLE
+	anim_1gfx ANIM_GFX_HAZE
+	anim_bgp $1b
+	anim_bgeffect ANIM_BG_WHIRLPOOL, $0, $0, $0
+	anim_sound 0, 0, SFX_SPITE
+	anim_obj ANIM_OBJ_MIST_BALL_BG, 8, 24, $10
+	anim_obj ANIM_OBJ_MIST_BALL_BG, 8, 48, $2
+	anim_obj ANIM_OBJ_MIST_BALL_BG, 8, 88, $8
+	anim_wait 4
+	anim_obj ANIM_OBJ_MIST_BALL_BG, 8, 32, $6
+	anim_obj ANIM_OBJ_MIST_BALL_BG, 8, 56, $c
+	anim_obj ANIM_OBJ_MIST_BALL_BG, 8, 80, $4
+	anim_obj ANIM_OBJ_MIST_BALL_BG, 8, 104, $e
+	anim_wait 120
+	anim_incbgeffect ANIM_BG_WHIRLPOOL
+	anim_ret
 
 BattleAnim_ShadowForce:
 	anim_1gfx ANIM_GFX_HIT
