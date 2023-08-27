@@ -1313,6 +1313,39 @@ BattleAnim_SpacialRend:
 	anim_ret
 
 BattleAnim_LunarDance:
+	anim_3gfx ANIM_GFX_LUNAR_DANCE, ANIM_GFX_WIND, ANIM_GFX_SPEED
+	anim_setobjpal PAL_BATTLE_OB_RED, PAL_BTLCUSTOM_MOON
+	anim_setobjpal PAL_BATTLE_OB_GRAY, PAL_BTLCUSTOM_AURORA
+	anim_bgeffect ANIM_BG_CYCLE_OBPALS_GRAY_AND_YELLOW, $0, $4, $0
+	anim_bgeffect ANIM_BG_SHOW_MON, $0, $0, $0
+	anim_bgeffect ANIM_BG_SHOW_MON, $0, $1, $0
+	anim_clearenemyhud
+	anim_bgp $1b
+	anim_sound 0, 0, SFX_MOONLIGHT
+	anim_obj ANIM_OBJ_LUNAR_DANCE, 90, 84, $30
+	anim_wait 80
+	anim_sound 0, 0, SFX_METRONOME
+.loop
+	anim_obj ANIM_OBJ_RAPID_SPIN, 44, 112, $0
+	anim_wait 2
+	anim_loop 10, .loop
+	anim_wait 8
+	anim_sound 0, 0, SFX_GAME_FREAK_PRESENTS
+	anim_obj ANIM_OBJ_RISING_SPARKLE, 44, 108, $6
+	anim_wait 2
+	anim_obj ANIM_OBJ_RISING_SPARKLE, 36, 108, $6
+	anim_wait 2
+	anim_obj ANIM_OBJ_RISING_SPARKLE, 52, 108, $6
+	anim_wait 2
+	anim_obj ANIM_OBJ_RISING_SPARKLE, 28, 108, $6
+	anim_wait 2
+	anim_obj ANIM_OBJ_RISING_SPARKLE, 60, 108, $6
+	anim_wait 2
+	anim_obj ANIM_OBJ_RISING_SPARKLE, 20, 108, $6
+	anim_wait 2
+	anim_obj ANIM_OBJ_RISING_SPARKLE, 68, 108, $6
+	anim_wait 50
+	anim_ret
 
 BattleAnim_CrushGrip:
 
