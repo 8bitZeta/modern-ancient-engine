@@ -1375,6 +1375,25 @@ BattleAnim_CrushGrip:
 	anim_ret
 
 BattleAnim_MagmaStorm:
+	anim_2gfx ANIM_GFX_BLAST_BURN, ANIM_GFX_FIRE
+	anim_setobjpal PAL_BATTLE_OB_RED, PAL_BTLCUSTOM_FIRE
+	anim_setobjpal PAL_BATTLE_BG_USER, PAL_BTLCUSTOM_FIRE
+	anim_setobjpal PAL_BATTLE_BG_TARGET, PAL_BTLCUSTOM_FIRE
+	anim_bgeffect ANIM_BG_ALTERNATE_HUES, $0, $6, $0
+	anim_bgeffect ANIM_BG_SHAKE_SCREEN_X, $a0, $1, $0
+	anim_obj ANIM_OBJ_FIRE_BG,  24, 36, $30
+	anim_obj ANIM_OBJ_FIRE_BG,  52, 133, $30
+	anim_obj ANIM_OBJ_FIRE_BG,  80, 67, $30
+	anim_obj ANIM_OBJ_FIRE_BG, 108, 11, $30
+	anim_obj ANIM_OBJ_FIRE_BG, 134, 109, $30
+	anim_obj ANIM_OBJ_FIRE_BG, 152, 162, $30
+.loop
+	anim_sound 0, 1, SFX_EMBER
+	anim_obj ANIM_OBJ_MAGMA_STORM, 132, 56, $18
+	anim_wait 20
+	anim_loop 3, .loop
+	anim_wait 96
+	anim_ret
 
 BattleAnim_DarkVoid:
 

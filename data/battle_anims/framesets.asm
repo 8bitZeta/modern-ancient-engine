@@ -364,6 +364,7 @@ BattleAnimFrameData:
 	dw .Frameset_SR_Cut_N                ; BATTLEANIMFRAMESET_SR_CUT_N
 	dw .Frameset_SR_Cut_S                ; BATTLEANIMFRAMESET_SR_CUT_S
 	dw .Frameset_CrushGrip               ; BATTLEANIMFRAMESET_CRUSH_GRIP
+	dw .Frameset_MagmaStorm              ; BATTLEANIMFRAMESET_MAGMA_STORM
 	assert_table_length NUM_BATTLEANIMFRAMESETS
 
 .Frameset_HitBig:
@@ -2517,3 +2518,8 @@ BattleAnimFrameData:
 	battleoamframe BATTLEANIMOAMSET_134,  6
 	battleoamframe BATTLEANIMOAMSET_135,  6
 	battleoamend
+
+.Frameset_MagmaStorm:
+	battleoamframe BATTLEANIMOAMSET_EB,  2
+	battleoamframe BATTLEANIMOAMSET_EC,  2
+	battleoamrestart
