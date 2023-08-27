@@ -103,4 +103,6 @@ AnimObjGFX:
 	anim_obj_gfx 40, AnimObjRoarOfTimeGFX
 	anim_obj_gfx 12, AnimObjSpacialRendGFX
 	anim_obj_gfx 16, AnimObjLunarDanceGFX
+	anim_obj_gfx 41, AnimObjCrushGripGFX
+	anim_obj_gfx  9, AnimObjHit2GFX
 	assert_table_length NUM_ANIM_GFX + 1

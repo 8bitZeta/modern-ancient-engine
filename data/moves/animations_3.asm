@@ -1348,6 +1348,31 @@ BattleAnim_LunarDance:
 	anim_ret
 
 BattleAnim_CrushGrip:
+	anim_3gfx ANIM_GFX_HIT_2, ANIM_GFX_ROCKS, ANIM_GFX_CRUSH_GRIP
+	anim_setobjpal PAL_BATTLE_OB_BROWN, PAL_BTLCUSTOM_BRIGHT
+	anim_sound 6, 2, SFX_SPARK
+	anim_obj ANIM_OBJ_CRUSH_GRIP, 64, 88, $4
+	anim_wait 28
+	anim_bgeffect ANIM_BG_SHAKE_SCREEN_X, $50, $2, $0
+	anim_wait 16
+	anim_bgeffect ANIM_BG_FLASH_INVERTED, $0, $4, $2
+	anim_sound 6, 2, SFX_BIND
+	anim_obj ANIM_OBJ_HIT_YFIX, 140, 44, $0
+	anim_obj ANIM_OBJ_ROCK_SMASH, 136, 56, $5c
+	anim_wait 4
+	anim_sound 6, 2, SFX_BIND
+	anim_obj ANIM_OBJ_HIT_YFIX, 124, 60, $0
+	anim_obj ANIM_OBJ_ROCK_SMASH, 136, 56, $d0
+	anim_wait 4
+	anim_sound 6, 2, SFX_BIND
+	anim_obj ANIM_OBJ_HIT_YFIX, 140, 60, $0
+	anim_obj ANIM_OBJ_ROCK_SMASH, 136, 56, $e8
+	anim_wait 4
+	anim_sound 6, 2, SFX_BIND
+	anim_obj ANIM_OBJ_HIT_YFIX, 124, 44, $0
+	anim_obj ANIM_OBJ_ROCK_SMASH, 136, 56, $50
+	anim_wait 32
+	anim_ret
 
 BattleAnim_MagmaStorm:
 

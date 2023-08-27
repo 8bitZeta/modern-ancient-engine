@@ -363,6 +363,7 @@ BattleAnimFrameData:
 	dw .Frameset_SR_NW                   ; BATTLEANIMFRAMESET_SR_NW
 	dw .Frameset_SR_Cut_N                ; BATTLEANIMFRAMESET_SR_CUT_N
 	dw .Frameset_SR_Cut_S                ; BATTLEANIMFRAMESET_SR_CUT_S
+	dw .Frameset_CrushGrip               ; BATTLEANIMFRAMESET_CRUSH_GRIP
 	assert_table_length NUM_BATTLEANIMFRAMESETS
 
 .Frameset_HitBig:
@@ -2509,3 +2510,10 @@ BattleAnimFrameData:
 	battleoamframe BATTLEANIMOAMSET_C4,  0
 	battleoamframe BATTLEANIMOAMSET_FC,  0
 	battleoamrestart
+
+.Frameset_CrushGrip:
+	battleoamframe BATTLEANIMOAMSET_132, 24
+	battleoamframe BATTLEANIMOAMSET_133,  6
+	battleoamframe BATTLEANIMOAMSET_134,  6
+	battleoamframe BATTLEANIMOAMSET_135,  6
+	battleoamend
