@@ -58,8 +58,8 @@ INCLUDE "gfx/battle_anims/battle_anims.pal"
 	RGB 00, 00, 00
 ; lightscreen
 	RGB 31, 31, 31
-	RGB 17, 31, 10
-	RGB 00, 25, 19
+	RGB 16, 31, 28
+	RGB 00, 28, 22
 	RGB 00, 00, 00
 ; mirrorcoat
 	RGB 31, 31, 31
@@ -96,6 +96,11 @@ INCLUDE "gfx/battle_anims/battle_anims.pal"
 	RGB 01, 22, 25
 	RGB 26, 28, 00
 	RGB 31, 30, 13
+; refresh
+	RGB 31, 31, 31
+	RGB 17, 31, 10
+	RGB 00, 25, 19
+	RGB 00, 00, 00
 ; glowyellow
 	RGB 31, 31, 31
 	RGB 31, 31, 07
@@ -216,6 +221,16 @@ INCLUDE "gfx/battle_anims/battle_anims.pal"
 	RGB 28, 31, 31
 	RGB 13, 26, 31
 	RGB 10, 14, 31
+; moon
+	RGB 31, 31, 31
+	RGB 29, 31, 31
+	RGB 17, 28, 31
+	RGB 03, 03, 06
+; darkvoid
+	RGB 15, 15, 15
+	RGB 13, 13, 13
+	RGB 00, 00, 00
+	RGB 00, 00, 00
 
 
 ; Pokeball Palettes

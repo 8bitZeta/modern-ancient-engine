@@ -226,9 +226,8 @@ ENDM
 	const anim_obj_100_command ; $f7
 MACRO anim_obj
 	assert _NARG <= 4, "6-argument anim_obj is no longer supported!"
-	assert ((\1) >= 0) && ((\1) < $200), "ANIM_OBJ constant out of range"
-	db anim_obj_command | HIGH(\1)
-	db LOW(\1) ; object
+	db anim_obj_command
+	dw \1 ; object
 	db \2 ; x
 	db \3 ; y
 	db \4 ; param

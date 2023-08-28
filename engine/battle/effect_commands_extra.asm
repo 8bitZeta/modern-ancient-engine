@@ -174,11 +174,13 @@ BattleCommand_TrapTarget:
 	jmp StdBattleTextbox
 
 .Traps:
-	dw BIND,      UsedBindText      ; 'used BIND on'
-	dw WRAP,      WrappedByText     ; 'was WRAPPED by'
-	dw FIRE_SPIN, FireSpinTrapText  ; 'was trapped!'
-	dw CLAMP,     ClampedByText     ; 'was CLAMPED by'
-	dw WHIRLPOOL, WhirlpoolTrapText ; 'was trapped!'
+	dw BIND,        UsedBindText       ; 'used BIND on ...'
+	dw WRAP,        WrappedByText      ; 'was WRAPPED by ...'
+	dw FIRE_SPIN,   FireSpinTrapText   ; 'was trapped in the vortex!'
+	dw CLAMP,       ClampedByText      ; 'was CLAMPED by ...'
+	dw WHIRLPOOL,   WhirlpoolTrapText  ; 'was trapped in the vortex!'
+	dw SAND_TOMB,   SandTombTrapText   ; 'was trapped by SAND TOMB!'
+	dw MAGMA_STORM, MagmaStormTrapText ; 'became trapped by swirling magma!'
 
 BattleCommand_Recoil:
 	ld hl, wBattleMonMaxHP
